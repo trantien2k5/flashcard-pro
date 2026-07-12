@@ -37,44 +37,41 @@
 
   <!-- ===================== HOME ===================== -->
   <section class="screen active" id="tab-home">
-    <div class="hero">
-      <div class="hero-top">
-        <div class="eyebrow" style="color:#fff; opacity:.85;">Xin chào 👋</div>
-        <h1 id="homeGreeting">Sẵn sàng học chưa?</h1>
-        <p id="homeSub">Gieo một hạt giống từ vựng mỗi ngày.</p>
-      </div>
-      <div class="due-ring" id="dueRing">
-        <div class="due-ring-inner">
-          <div class="due-ring-num" id="statDue">0</div>
-          <div class="due-ring-label">từ cần<br>ôn hôm nay</div>
-        </div>
+    <div class="card" style="padding:16px; margin-bottom:12px;">
+      <div class="row">
+        <span id="homeGreeting" style="font-weight:700; font-size:15px;">Xin chào 👋</span>
+        <span id="homeDate" class="pill">Hôm nay --/--</span>
       </div>
     </div>
+
+    <button class="btn btn-primary btn-block" id="homeContinueBtn" onclick="homeContinue()" style="padding:16px; font-size:15.5px; margin-bottom:12px;">▶ Tiếp tục học</button>
 
     <div class="bento-row">
       <div class="card stat-card">
-        <div class="stat-num" id="statNew">0</div>
-        <div class="stat-label">Từ mới còn lại</div>
+        <div class="stat-num" id="homeNewProgress">0/10</div>
+        <div class="stat-label">Học mới</div>
       </div>
       <div class="card stat-card">
-        <div class="stat-num" id="statStreak">0 🔥</div>
-        <div class="stat-label">Chuỗi ngày học</div>
+        <div class="stat-num" id="homeReviewedCount">0</div>
+        <div class="stat-label">Ôn tập</div>
       </div>
       <div class="card stat-card">
-        <div class="stat-num" id="statTotal">0</div>
-        <div class="stat-label">Tổng số từ</div>
+        <div class="stat-num" id="homeStreakVal">0 🔥</div>
+        <div class="stat-label">Streak</div>
       </div>
     </div>
 
-    <div class="section-title" style="margin:0 0 10px;">Dự báo ôn tập 7 ngày tới</div>
+    <div class="section-title" style="margin:0 0 10px;">Tiến độ hôm nay</div>
     <div class="card" style="padding:16px; margin-bottom:16px;">
-      <div class="home-forecast-chart" id="homeForecastChart"></div>
-      <div class="bar-label" id="homeForecastLabel"></div>
+      <div class="row" style="gap:10px;">
+        <div class="progress-track" style="margin:0;"><div class="progress-fill" id="homeProgressFill" style="width:0%"></div></div>
+        <span class="pill" id="homeProgressPct">0%</span>
+      </div>
     </div>
 
-    <div class="cta-row">
-      <button class="btn btn-primary btn-block" onclick="goTab('review')">Ôn tập ngay</button>
-      <button class="btn btn-ghost btn-block" onclick="goTab('learn')">Học từ mới</button>
+    <div id="homeDeckBlock">
+      <div class="section-title" style="margin:0 0 10px;">Deck gần đây</div>
+      <div class="mini-list" id="homeDeckList"></div>
     </div>
   </section>
 
@@ -229,6 +226,14 @@
             <button onclick="changeRetention(-1)">−</button>
             <span class="val" id="valRetention">90%</span>
             <button onclick="changeRetention(1)">+</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <div><div class="lbl">Số từ mới mỗi ngày</div><div class="sub">Chỉ tiêu học từ mới hiển thị ở Trang chủ</div></div>
+          <div class="stepper">
+            <button onclick="changeDailyGoal(-1)">−</button>
+            <span class="val" id="valDailyGoal">10</span>
+            <button onclick="changeDailyGoal(1)">+</button>
           </div>
         </div>
         <div class="setting-row">

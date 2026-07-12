@@ -125,7 +125,7 @@ const FSRS = (() => {
 })();
 
 /* ============================= DATA LAYER ============================= */
-const DB_KEY='vsprout_words_v1', SET_KEY='vsprout_settings_v1', LOG_KEY='vsprout_log_v1';
+const DB_KEY='vsprout_words_v1', SET_KEY='vsprout_settings_v1', LOG_KEY='vsprout_log_v1', TOPIC_ACT_KEY='vsprout_topic_activity_v1';
 /* ============================================================================
    VOCABULARY DATA — schema & how to add more topics
    ----------------------------------------------------------------------------
@@ -208,12 +208,13 @@ const DB_KEY='vsprout_words_v1', SET_KEY='vsprout_settings_v1', LOG_KEY='vsprout
 
 let words = [];
 let settings = {
-  theme:'', autoSpeak:false, desiredRetention:0.9, enableFuzz:true,
+  theme:'', autoSpeak:false, desiredRetention:0.9, enableFuzz:true, dailyNewGoal:10,
   showIpa:true, showPos:true, showRetrievability:true, showExample:true,
   showCollocations:true, showSynonyms:true, showAntonyms:true, showNote:true
 };
 function fsrsOpts(){ return {retention: settings.desiredRetention||0.9, fuzz: settings.enableFuzz!==false}; }
 let dailyLog = {}; // { 'YYYY-MM-DD': {reviews:n, learned:n, correct:n, grades:{1,2,3,4}, timeMs:n} }
+let topicActivity = {}; // { topicName: lastStudiedTimestamp } — dùng để hiện "Deck gần đây" ở Trang chủ
 let lastActionTime = 0;
 let chartRange = 7;
 const TRIM_KEY='vsprout_trim_v1'; // marks that old built-in word sets have been removed
@@ -239,10 +240,15 @@ function loadData(){
   }
   try{ settings = Object.assign(settings, JSON.parse(localStorage.getItem(SET_KEY))||{}); }catch(e){}
   try{ dailyLog = JSON.parse(localStorage.getItem(LOG_KEY)) || {}; }catch(e){}
+  try{ topicActivity = JSON.parse(localStorage.getItem(TOPIC_ACT_KEY)) || {}; }catch(e){}
 }
 function saveWords(){ localStorage.setItem(DB_KEY, JSON.stringify(words)); }
 function saveSettings(){ localStorage.setItem(SET_KEY, JSON.stringify(settings)); }
 function saveLog(){ localStorage.setItem(LOG_KEY, JSON.stringify(dailyLog)); }
+function touchTopicActivity(topic){
+  topicActivity[topic||'Chung'] = Date.now();
+  localStorage.setItem(TOPIC_ACT_KEY, JSON.stringify(topicActivity));
+}
 function toChipArr(v){
   if(Array.isArray(v)) return v.map(s=>String(s).trim()).filter(Boolean);
   if(typeof v==='string') return v.split(',').map(s=>s.trim()).filter(Boolean);
@@ -401,41 +407,60 @@ function overdueOrder(list){
 function renderHome(){
   const due = getDueWords();
   const news = getNewWords();
-  document.getElementById('statDue').textContent = due.length;
-  document.getElementById('statNew').textContent = news.length;
-  document.getElementById('statTotal').textContent = words.length;
-  document.getElementById('statStreak').textContent = computeStreak()+' 🔥';
+  const log = dailyLog[todayKey()] || {reviews:0, learned:0};
+  const goal = settings.dailyNewGoal || 10;
 
-  // due ring: how much of the learned pool is due right now
-  const learnedPool = words.filter(w=>w.state!=='new').length;
-  const duePct = learnedPool>0 ? Math.min(100, Math.round(due.length/learnedPool*100)) : 0;
-  document.getElementById('dueRing').style.background =
-    due.length>0
-      ? `conic-gradient(#fff ${duePct}%, rgba(255,255,255,.25) 0)`
-      : `rgba(255,255,255,.2)`;
+  document.getElementById('homeDate').textContent = 'Hôm nay ' + new Date().toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit'});
+  document.getElementById('homeNewProgress').textContent = `${log.learned||0}/${goal}`;
+  document.getElementById('homeReviewedCount').textContent = log.reviews||0;
+  document.getElementById('homeStreakVal').textContent = computeStreak()+'🔥';
 
-  // 7-day forecast: how many words become due each of the next 7 calendar days.
-  // Uses the same "due by end of day" boundary as getDueWords(), so the "Nay"
-  // bar always matches the ring above exactly — no more contradicting numbers.
-  const dayStart = startOfToday();
-  const fc = [0,0,0,0,0,0,0];
-  words.filter(w=>w.state!=='new').forEach(w=>{
-    const diff = Math.floor((w.due-dayStart)/86400000);
-    if(diff<=0) fc[0]++; // overdue + due today both land on "Nay"
-    else if(diff<7) fc[diff]++;
+  // "Tiến độ hôm nay": (học mới + ôn tập đã làm) / (chỉ tiêu học mới + tổng lượt ôn hôm nay).
+  // Từ đã ôn xong hôm nay không còn nằm trong getDueWords() nữa (due đã dời sang ngày
+  // sau), nên due.length + reviews-đã-làm tái tạo lại đúng tổng số từ cần ôn lúc đầu ngày.
+  const totalReviewToday = (log.reviews||0) + due.length;
+  const totalGoal = goal + totalReviewToday;
+  const doneToday = (log.learned||0) + (log.reviews||0);
+  const pct = totalGoal>0 ? Math.min(100, Math.round(doneToday/totalGoal*100)) : 100;
+  document.getElementById('homeProgressFill').style.width = pct+'%';
+  document.getElementById('homeProgressPct').textContent = pct+'%';
+
+  const btn = document.getElementById('homeContinueBtn');
+  btn.textContent = due.length>0 ? '▶ Tiếp tục ôn tập' : news.length>0 ? '▶ Tiếp tục học' : '▶ Ôn lại từ đã học';
+
+  renderHomeDecks();
+}
+function homeContinue(){
+  goTab(getDueWords().length>0 ? 'review' : 'learn');
+}
+function renderHomeDecks(){
+  const byTopic = {};
+  words.forEach(w=>{
+    const t = w.topic||'Chung';
+    (byTopic[t] = byTopic[t] || []).push(w);
   });
-  const fmax = Math.max(1,...fc);
-  document.getElementById('homeForecastChart').innerHTML = fc.map((c,i)=>
-    `<div class="bar${i===0?' today':''}" style="height:${Math.max(4,c/fmax*100)}%" title="${c}"></div>`
-  ).join('');
-  const days=[]; for(let i=0;i<7;i++) days.push(i===0?'Nay':'+'+i);
-  document.getElementById('homeForecastLabel').innerHTML = days.map(l=>`<span>${l}</span>`).join('');
+  const topics = Object.keys(byTopic);
+  const studied = topics.filter(t=>topicActivity[t]).sort((a,b)=>(topicActivity[b]||0)-(topicActivity[a]||0));
+  const list = (studied.length>0 ? studied : topics).slice(0,3);
 
-  const hour = new Date().getHours();
-  document.getElementById('homeGreeting').textContent = hour<11?'Chào buổi sáng ☀️':hour<18?'Chào buổi chiều 🌤':'Chào buổi tối 🌙';
-  document.getElementById('homeSub').textContent = due.length>0
-    ? `Bạn có ${due.length} từ cần ôn hôm nay.`
-    : news.length>0 ? 'Chưa có từ cần ôn — học thêm từ mới nhé!' : 'Tuyệt vời! Bạn đã học hết bộ từ hiện tại.';
+  const block = document.getElementById('homeDeckBlock');
+  if(list.length===0){ block.style.display='none'; return; }
+  block.style.display='';
+  document.getElementById('homeDeckList').innerHTML = list.map(t=>{
+    const stat = topicStatsFor(byTopic[t]);
+    const pct = stat.total ? Math.round(stat.learned/stat.total*100) : 0;
+    return `
+    <div class="card topic-card" onclick="startTopicFlashcard('${escJs(t)}')">
+      <div class="topic-emoji">${topicEmoji(t)}</div>
+      <div class="topic-info">
+        <div class="topic-name">${esc(t)}</div>
+        <div class="topic-progress-row">
+          <div class="topic-progress-track"><div class="topic-progress-fill" style="width:${pct}%"></div></div>
+          <span class="topic-progress-num">${pct}%</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
 }
 function computeStreak(){
   let streak=0; let d=new Date();
@@ -589,6 +614,7 @@ function startTopicFlashcard(topic){
 
 let learnCompletedIds = new Set(), learnOriginalTotal = 0;
 function startLearnTopic(topic){
+  goTab('learn');
   const topicWords = words.filter(w=>(w.topic||'Chung')===topic);
   const newInTopic = topicWords.filter(w=>w.state==='new');
   currentLearnTopic = topic;
@@ -606,6 +632,7 @@ function startLearnTopic(topic){
   drawLearnCard();
 }
 function startRelearnTopic(topic){
+  goTab('learn');
   const topicWords = words.filter(w=>(w.topic||'Chung')===topic);
   currentLearnTopic = topic;
   learnSessionMode = 'relearn';
@@ -685,6 +712,7 @@ function learnRate(grade){
   updateWeakTracking(w, grade);
   saveWords();
   logStudyActivity(grade);
+  touchTopicActivity(w.topic);
   if(learnSessionMode==='relearn'){
     logEvent('review');
   } else {
@@ -840,6 +868,7 @@ function gradeReviewWord(grade, requeueAtEnd){
   const w = reviewQueue[reviewIdx];
   updateWeakTracking(w, grade);
   logStudyActivity(grade);
+  touchTopicActivity(w.topic);
   if(isPracticeMode){
     practiceStats.total++;
     if(grade>=3) practiceStats.correct++;
@@ -1183,6 +1212,7 @@ function renderStats(){
 function applySettingsUI(){
   document.getElementById('swAutoSpeak').classList.toggle('on', !!settings.autoSpeak);
   document.getElementById('valRetention').textContent = Math.round((settings.desiredRetention||0.9)*100)+'%';
+  document.getElementById('valDailyGoal').textContent = settings.dailyNewGoal||10;
   document.getElementById('swEnableFuzz').classList.toggle('on', settings.enableFuzz!==false);
   document.getElementById('swDarkMode').classList.toggle('on', settings.theme==='dark');
   document.documentElement.className = settings.theme||'';
@@ -1202,6 +1232,12 @@ function changeRetention(deltaPct){
   let pct = Math.round((settings.desiredRetention||0.9)*100) + deltaPct;
   pct = Math.max(75, Math.min(97, pct));
   settings.desiredRetention = pct/100;
+  saveSettings(); applySettingsUI();
+}
+function changeDailyGoal(delta){
+  let goal = (settings.dailyNewGoal||10) + delta;
+  goal = Math.max(1, Math.min(100, goal));
+  settings.dailyNewGoal = goal;
   saveSettings(); applySettingsUI();
 }
 function toggleSetting(key,el){
