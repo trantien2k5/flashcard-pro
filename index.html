@@ -192,7 +192,18 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;color:var(--ink-soft);flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
     </div>
 
-    <!-- 7. Thành tích -->
+    <!-- 7. Sổ từ vựng — compact summary card, tap for full detail screen -->
+    <div class="section-title">Sổ từ vựng</div>
+    <div class="card topic-card" id="vocabSummaryCard" onclick="showVocabBook()" style="margin-bottom:16px;">
+      <div class="topic-emoji">📖</div>
+      <div class="topic-info">
+        <div class="topic-name" id="vocabSummaryCount">0 từ</div>
+        <div class="topic-sub">Toàn bộ từ vựng đã thêm</div>
+      </div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;color:var(--ink-soft);flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+
+    <!-- 8. Thành tích -->
     <div class="section-title">Thành tích</div>
     <div class="achv-grid" id="achvGrid"></div>
     </div>
@@ -206,6 +217,27 @@
       </div>
       <button class="btn btn-primary btn-block" style="margin-bottom:16px;" id="weakReviewBtn" onclick="goReviewWeak()">Ôn ngay</button>
       <div class="mini-list" id="weakFullList"></div>
+    </div>
+
+    <!-- Sổ từ vựng — full detail screen -->
+    <div id="vocabBookScreen" style="display:none;">
+      <div class="study-head">
+        <button class="icon-btn" onclick="backToStatsMain()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+        <div style="flex:1; text-align:center; font-weight:800; font-size:15px;">📖 Sổ từ vựng</div>
+        <span style="width:38px;"></span>
+      </div>
+      <input type="text" id="vocabSearch" class="topic-search" placeholder="🔍 Tìm từ..." oninput="renderVocabBook()">
+      <div class="row" style="gap:8px; margin-bottom:12px;">
+        <select id="vocabTopicFilter" class="filter-select" onchange="renderVocabBook()"></select>
+        <select id="vocabStatusFilter" class="filter-select" onchange="renderVocabBook()">
+          <option value="">Tất cả trạng thái</option>
+          <option value="new">Mới</option>
+          <option value="learning">Đang học</option>
+          <option value="review">Đã thuộc</option>
+        </select>
+      </div>
+      <div class="pill" id="vocabResultCount" style="margin-bottom:12px;">0 từ</div>
+      <div class="mini-list" id="vocabList"></div>
     </div>
   </section>
 
@@ -369,6 +401,7 @@
 </div>
 
 <div class="toast" id="toast"></div>
+<script src="fsrs.js"></script>
 <script src="data/finance.js"></script>
 <script src="data/work-office.js"></script>
 <script src="data/index.js"></script>
