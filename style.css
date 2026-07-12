@@ -233,6 +233,14 @@ button{font-family:inherit;}
   width:100%; border:1px solid var(--card-line); border-radius:14px; padding:12px 14px;
   font-size:14px; background:var(--card); color:var(--ink); margin-bottom:12px; font-family:inherit;
 }
+.filter-select{
+  flex:1; border:1px solid var(--card-line); border-radius:12px; padding:10px 12px;
+  font-size:13px; background:var(--card); color:var(--ink); font-family:inherit;
+}
+.vocab-status{font-size:10.5px; font-weight:800; padding:4px 9px; border-radius:999px; flex-shrink:0; white-space:nowrap;}
+.vocab-status.new{background:color-mix(in srgb, var(--good) 16%, transparent); color:var(--good);}
+.vocab-status.learning{background:color-mix(in srgb, var(--amber) 18%, transparent); color:var(--hard);}
+.vocab-status.review{background:color-mix(in srgb, var(--easy) 16%, transparent); color:var(--easy);}
 .topic-progress-row{display:flex; align-items:center; gap:8px; margin-top:6px;}
 .topic-progress-track{flex:1; height:5px; border-radius:5px; background:var(--bg-2); overflow:hidden;}
 .topic-progress-fill{height:100%; background:var(--grad-primary); border-radius:5px;}

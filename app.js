@@ -1358,6 +1358,7 @@ function showWeakDetail() {
 }
 function backToStatsMain() {
   document.getElementById("weakDetailScreen").style.display = "none";
+  document.getElementById("vocabBookScreen").style.display = "none";
   document.getElementById("statsMain").style.display = "block";
 }
 function renderWeakDetailList() {
@@ -1378,8 +1379,104 @@ function renderWeakDetailList() {
         .join("")
     : `<p style="color:var(--ink-soft); font-size:13px; margin:4px 0;">Không có từ yếu nào — làm tốt lắm! 🎉</p>`;
 }
+
+/* ============================= VOCAB BOOK ============================= */
+function vocabStatusInfo(w) {
+  if (w.state === "new") return { cls: "new", label: "Mới" };
+  if (w.state === "review") return { cls: "review", label: "Đã thuộc" };
+  return { cls: "learning", label: "Đang học" };
+}
+function showVocabBook() {
+  document.getElementById("statsMain").style.display = "none";
+  document.getElementById("vocabBookScreen").style.display = "block";
+  const topicSel = document.getElementById("vocabTopicFilter");
+  const topics = Array.from(new Set(words.map((w) => w.topic || "Chung"))).sort((a, b) => a.localeCompare(b));
+  const prevValue = topicSel.value;
+  topicSel.innerHTML =
+    `<option value="">Tất cả chủ đề</option>` +
+    topics.map((t) => `<option value="${esc(t)}">${esc(t)}</option>`).join("");
+  topicSel.value = topics.includes(prevValue) ? prevValue : "";
+  renderVocabBook();
+}
+const VOCAB_PAGE_SIZE = 20;
+let vocabPage = 1;
+function renderVocabBook(resetPage) {
+  if (resetPage !== false) vocabPage = 1;
+  const query = (document.getElementById("vocabSearch").value || "").trim().toLowerCase();
+  const topicFilter = document.getElementById("vocabTopicFilter").value;
+  const statusFilter = document.getElementById("vocabStatusFilter").value;
+
+  let list = words.filter((w) => {
+    if (query && !w.word.toLowerCase().includes(query)) return false;
+    if (topicFilter && (w.topic || "Chung") !== topicFilter) return false;
+    if (statusFilter && vocabStatusInfo(w).cls !== statusFilter) return false;
+    return true;
+  });
+  list.sort((a, b) => a.word.localeCompare(b.word));
+
+  const shown = list.slice(0, vocabPage * VOCAB_PAGE_SIZE);
+  document.getElementById("vocabResultCount").textContent = list.length
+    ? `Hiện ${shown.length}/${list.length} từ`
+    : "0 từ";
+  document.getElementById("vocabList").innerHTML = shown.length
+    ? shown
+        .map((w) => {
+          const status = vocabStatusInfo(w);
+          return `
+    <div class="mini-item" style="padding:10px 12px; background:var(--bg-2); border-radius:12px; cursor:pointer;" onclick="openVocabDetail('${escJs(w.id)}')">
+      <div><div class="w">${esc(w.word)}</div><div class="m">${esc(w.meaning)}</div></div>
+      <span class="vocab-status ${status.cls}">${status.label}</span>
+    </div>`;
+        })
+        .join("")
+    : `<p style="color:var(--ink-soft); font-size:13px; margin:4px 0;">Không tìm thấy từ nào.</p>`;
+
+  const loadMoreBtn = document.getElementById("vocabLoadMore");
+  loadMoreBtn.style.display = shown.length < list.length ? "block" : "none";
+}
+function loadMoreVocab() {
+  vocabPage++;
+  renderVocabBook(false);
+}
+function vocabDetailHTML(w) {
+  let html = `
+    <div class="face-topic-row" style="justify-content:space-between;">
+      <span class="face-topic">${esc(w.topic || "Chung")}</span>
+      <button class="speak-btn" style="width:34px;height:34px;" onclick="speak('${escJs(w.word)}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg></button>
+    </div>
+    <div class="word-main" style="margin-top:8px;">${esc(w.word)}</div>
+    <div style="display:flex; gap:6px; margin:6px 0;">
+      ${w.pos ? `<span class="pos-badge">${esc(w.pos)}</span>` : ""}
+      ${w.cefr ? `<span class="pos-badge" style="background:var(--easy); color:#fff;">${esc(w.cefr)}</span>` : ""}
+    </div>
+    ${w.ipa ? `<div class="ipa">${esc(w.ipa)}</div>` : ""}
+    <div class="meaning-main" style="text-align:left; margin-top:14px;">${esc(w.meaning)}</div>`;
+  if (w.example) {
+    html += `<div class="example-box">“${esc(w.example)}”${w.exampleVi ? `<div class="example-vi">${esc(w.exampleVi)}</div>` : ""}</div>`;
+  }
+  if (w.collocations && w.collocations.length) {
+    html += `<div style="margin-top:10px;"><div class="back-label">Collocation</div><div class="chip-row">${w.collocations.map((c) => `<span class="chip">${esc(c)}</span>`).join("")}</div></div>`;
+  }
+  if (w.synonyms && w.synonyms.length) {
+    html += `<div style="margin-top:10px;"><div class="back-label">Đồng nghĩa</div><div class="chip-row">${w.synonyms.map((c) => `<span class="chip syn">${esc(c)}</span>`).join("")}</div></div>`;
+  }
+  if (w.antonyms && w.antonyms.length) {
+    html += `<div style="margin-top:10px;"><div class="back-label">Trái nghĩa</div><div class="chip-row">${w.antonyms.map((c) => `<span class="chip ant">${esc(c)}</span>`).join("")}</div></div>`;
+  }
+  if (w.note) {
+    html += `<div style="margin-top:10px;"><div class="back-label">Lưu ý cách dùng</div><div style="font-size:12.5px; color:var(--ink-soft); font-style:italic;">${esc(w.note)}</div></div>`;
+  }
+  return html;
+}
+function openVocabDetail(id) {
+  const w = words.find((x) => x.id === id);
+  if (!w) return;
+  document.getElementById("vocabDetailBody").innerHTML = vocabDetailHTML(w);
+  document.getElementById("vocabDetailModal").classList.add("open");
+}
 function renderStats() {
   document.getElementById("weakDetailScreen").style.display = "none";
+  document.getElementById("vocabBookScreen").style.display = "none";
   document.getElementById("statsMain").style.display = "block";
   // 1. Streak
   document.getElementById("statStreakBig").textContent = computeStreak();
@@ -1452,7 +1549,10 @@ function renderStats() {
     ? "1"
     : ".55";
 
-  // 7. Thành tích
+  // 7. Sổ từ vựng — compact summary card (tap opens vocabBookScreen)
+  document.getElementById("vocabSummaryCount").textContent = `${words.length} từ`;
+
+  // 8. Thành tích
   renderAchievements();
 }
 

@@ -37,11 +37,9 @@
 
   <!-- ===================== HOME ===================== -->
   <section class="screen active" id="tab-home">
-    <div class="card" style="padding:16px; margin-bottom:12px;">
-      <div class="row">
-        <span id="homeGreeting" style="font-weight:700; font-size:15px;">Xin chào 👋</span>
-        <span id="homeDate" class="pill">Hôm nay --/--</span>
-      </div>
+    <div class="row" style="margin-bottom:16px;">
+      <h1 id="homeGreeting" style="margin:0; font-size:26px; font-weight:600;">Xin chào 👋</h1>
+      <span id="homeDate" class="pill">Hôm nay --/--</span>
     </div>
 
     <button class="btn btn-primary btn-block" id="homeContinueBtn" onclick="homeContinue()" style="padding:16px; font-size:15.5px; margin-bottom:12px;">▶ Tiếp tục học</button>
@@ -238,6 +236,7 @@
       </div>
       <div class="pill" id="vocabResultCount" style="margin-bottom:12px;">0 từ</div>
       <div class="mini-list" id="vocabList"></div>
+      <button class="btn btn-ghost btn-block" id="vocabLoadMore" style="margin-top:12px; display:none;" onclick="loadMoreVocab()">Xem thêm</button>
     </div>
   </section>
 
@@ -412,6 +411,13 @@
 <script src="fsrs.js"></script>
 <script src="data/finance.js"></script>
 <script src="data/work-office.js"></script>
+<script src="data/meetings-hr.js"></script>
+<script src="data/travel.js"></script>
+<script src="data/shopping.js"></script>
+<script src="data/technology.js"></script>
+<script src="data/marketing.js"></script>
+<script src="data/health-dining.js"></script>
+<script src="data/daily-life.js"></script>
 <script src="data/index.js"></script>
 <script src="app.js"></script>
 </body>
