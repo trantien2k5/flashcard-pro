@@ -506,7 +506,7 @@ function cardFrontHTML(w, hintId) {
       ${settings.showRetrievability !== false ? retrievabilityBadgeHTML(w) : ""}
     </div>
     <div class="face-center">
-      <div class="word-main">${esc(w.word)}</div>
+      <div class="word-main">${wordIcon(w)} ${esc(w.word)}</div>
       <div style="display:flex; gap:6px;">
         ${w.pos && settings.showPos !== false ? `<span class="pos-badge">${esc(w.pos)}</span>` : ""}
         ${w.cefr ? `<span class="pos-badge" style="background:var(--easy); color:#fff;">${esc(w.cefr)}</span>` : ""}
@@ -556,9 +556,53 @@ function topicEmoji(t) {
     "Thông dụng": "💬",
     "Du lịch": "✈️",
     "Tài chính - Ngân hàng": "🏦",
+    "Banking": "🏦",
+    "Personal Finance": "👛",
+    "Investment": "📈",
+    "Accounting": "🧮",
+    "Economics": "🌐",
+    "Insurance": "🛡️",
+    "Taxation": "🧾",
+    "Real Estate": "🏠",
+    "Work & Office": "💼",
+    "Meetings & HR": "🤝",
+    "Company Structure": "🏢",
+    "Recruitment & HR": "🧑‍💼",
+    "Meetings & Communication": "🗣️",
+    "Office Equipment": "🖨️",
+    "Projects & Teamwork": "🤝",
+    "Documents & Reports": "📄",
+    "Travel & Transportation": "✈️",
+    "Shopping & Customer Service": "🛍️",
+    "Technology & Equipment": "💻",
+    "Marketing & Sales": "📈",
+    "Health, Dining & Hospitality": "🍽️",
+    "Daily Life & Public Services": "🏙️",
+    "Transportation": "🚌",
+    "Travel & Hotels": "🏨",
+    "Customer Service": "🎧",
+    "Technology & Internet": "💻",
+    "Sales": "🤝",
+    "Health & Medical": "🏥",
+    "Food & Dining": "🍽️",
+    "Public Services": "🏛️",
+    "Home & Housing": "🏠",
+    "People & Relationships": "👨‍👩‍👧‍👦",
+    "Education": "🎓",
+    "Hobbies & Entertainment": "🎨",
+    "Clothing & Fashion": "👗",
+    "Weather & Environment": "🌦️",
+    "Law & Contracts": "⚖️",
+    "Energy & Utilities": "🔌",
+    "Agriculture & Environment": "🌾",
+    "Science & Innovation": "🔬",
+    "Manufacturing & Logistics": "🏭",
     Chung: "📚",
   };
   return map[t] || "📚";
+}
+function wordIcon(w) {
+  return WORD_ICONS[w.word] || topicEmoji(w.topic);
 }
 function renderLearn() {
   document.getElementById("learnStudy").style.display = "none";
@@ -1390,7 +1434,9 @@ function showVocabBook() {
   document.getElementById("statsMain").style.display = "none";
   document.getElementById("vocabBookScreen").style.display = "block";
   const topicSel = document.getElementById("vocabTopicFilter");
-  const topics = Array.from(new Set(words.map((w) => w.topic || "Chung"))).sort((a, b) => a.localeCompare(b));
+  const topics = Array.from(new Set(words.map((w) => w.topic || "Chung"))).sort(
+    (a, b) => a.localeCompare(b),
+  );
   const prevValue = topicSel.value;
   topicSel.innerHTML =
     `<option value="">Tất cả chủ đề</option>` +
@@ -1402,7 +1448,9 @@ const VOCAB_PAGE_SIZE = 20;
 let vocabPage = 1;
 function renderVocabBook(resetPage) {
   if (resetPage !== false) vocabPage = 1;
-  const query = (document.getElementById("vocabSearch").value || "").trim().toLowerCase();
+  const query = (document.getElementById("vocabSearch").value || "")
+    .trim()
+    .toLowerCase();
   const topicFilter = document.getElementById("vocabTopicFilter").value;
   const statusFilter = document.getElementById("vocabStatusFilter").value;
 
@@ -1550,7 +1598,8 @@ function renderStats() {
     : ".55";
 
   // 7. Sổ từ vựng — compact summary card (tap opens vocabBookScreen)
-  document.getElementById("vocabSummaryCount").textContent = `${words.length} từ`;
+  document.getElementById("vocabSummaryCount").textContent =
+    `${words.length} từ`;
 
   // 8. Thành tích
   renderAchievements();
@@ -1644,6 +1693,27 @@ function exportData() {
   a.download = "flashcard-pro-backup.json";
   a.click();
   showToast("Đã xuất file backup");
+}
+function exportVocabTxt() {
+  const cols = ["word","ipa","pos","meaning","example","exampleVi","collocations","synonyms","antonyms","cefr","note","topic"];
+  const clean = (v) => String(v == null ? "" : v).replace(/[\t\r\n]+/g, " ").trim();
+  const lines = [cols.join("\t")];
+  words.forEach((w) => {
+    lines.push([
+      clean(w.word), clean(w.ipa), clean(w.pos), clean(w.meaning),
+      clean(w.example), clean(w.exampleVi),
+      clean((w.collocations || []).join(", ")),
+      clean((w.synonyms || []).join(", ")),
+      clean((w.antonyms || []).join(", ")),
+      clean(w.cefr), clean(w.note), clean(w.topic),
+    ].join("\t"));
+  });
+  const blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "flashcard-pro-vocab.txt";
+  a.click();
+  showToast(`Đã xuất ${words.length} từ (.txt)`);
 }
 
 /* ============================= MODALS ============================= */
