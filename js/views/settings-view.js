@@ -14,12 +14,9 @@ function saveAppSettings(app) {
 
 export function setupSettingsUI(app) {
   try {
-    const retentionSlider = document.getElementById('setting-retention');
-    const retentionLabel = document.getElementById('retention-slider-label');
-    const newLimitSlider = document.getElementById('setting-new-limit');
-    const newLimitLabel = document.getElementById('new-limit-label');
-    const reviewLimitSlider = document.getElementById('setting-review-limit');
-    const reviewLimitLabel = document.getElementById('review-limit-label');
+    const retentionSelect = document.getElementById('setting-retention');
+    const newLimitSelect = document.getElementById('setting-new-limit');
+    const reviewLimitSelect = document.getElementById('setting-review-limit');
     const autoSpeechToggle = document.getElementById('setting-auto-speech');
     const darkThemeToggle = document.getElementById('setting-dark-theme');
     const btnBack = document.getElementById('btn-back-from-settings');
@@ -36,40 +33,45 @@ export function setupSettingsUI(app) {
       };
     }
 
-    if (!retentionSlider) return;
+    if (!retentionSelect) return;
 
-    // Khởi tạo giá trị
-    retentionSlider.value = app.settings.requestRetention || 0.90;
-    if (retentionLabel) retentionLabel.textContent = `${Math.round(retentionSlider.value * 100)}%`;
+    // Khởi tạo giá trị ban đầu cho Dropdowns
+    retentionSelect.value = String(app.settings.requestRetention || 0.90);
+    retentionSelect.addEventListener('change', (e) => {
+      try {
+        const val = parseFloat(e.target.value);
+        app.settings.requestRetention = val;
+        saveAppSettings(app);
+        app.refreshAllViews();
+      } catch (err) {
+        console.error('Lỗi cập nhật retentionSelect:', err);
+      }
+    });
 
-    if (newLimitSlider) {
-      newLimitSlider.value = app.settings.dailyNewLimit || 10;
-      if (newLimitLabel) newLimitLabel.textContent = `${newLimitSlider.value} từ/ngày`;
-      newLimitSlider.addEventListener('input', (e) => {
+    if (newLimitSelect) {
+      newLimitSelect.value = String(app.settings.dailyNewLimit || 10);
+      newLimitSelect.addEventListener('change', (e) => {
         try {
           const val = parseInt(e.target.value, 10);
-          if (newLimitLabel) newLimitLabel.textContent = `${val} từ/ngày`;
           app.settings.dailyNewLimit = val;
           saveAppSettings(app);
           app.refreshAllViews();
         } catch (err) {
-          console.error('Lỗi cập nhật newLimitSlider:', err);
+          console.error('Lỗi cập nhật newLimitSelect:', err);
         }
       });
     }
 
-    if (reviewLimitSlider) {
-      reviewLimitSlider.value = app.settings.dailyReviewLimit || 50;
-      if (reviewLimitLabel) reviewLimitLabel.textContent = `${reviewLimitSlider.value} thẻ/ngày`;
-      reviewLimitSlider.addEventListener('input', (e) => {
+    if (reviewLimitSelect) {
+      reviewLimitSelect.value = String(app.settings.dailyReviewLimit || 50);
+      reviewLimitSelect.addEventListener('change', (e) => {
         try {
           const val = parseInt(e.target.value, 10);
-          if (reviewLimitLabel) reviewLimitLabel.textContent = `${val} thẻ/ngày`;
           app.settings.dailyReviewLimit = val;
           saveAppSettings(app);
           app.refreshAllViews();
         } catch (err) {
-          console.error('Lỗi cập nhật reviewLimitSlider:', err);
+          console.error('Lỗi cập nhật reviewLimitSelect:', err);
         }
       });
     }
@@ -137,18 +139,6 @@ export function setupSettingsUI(app) {
         }
       });
     }
-
-    // Retention slider event
-    retentionSlider.addEventListener('input', (e) => {
-      try {
-        const val = parseFloat(e.target.value);
-        if (retentionLabel) retentionLabel.textContent = `${Math.round(val * 100)}%`;
-        app.settings.requestRetention = val;
-        saveAppSettings(app);
-      } catch (err) {
-        console.error('Lỗi cập nhật retentionSlider:', err);
-      }
-    });
 
     // Quản lý dữ liệu & Đặt lại (Reset) từ màn hình Cài đặt
     const btnExport = document.getElementById('btn-settings-export-data');
@@ -233,31 +223,27 @@ export function setupSettingsUI(app) {
 export function updateSettingsUIValues(app) {
   try {
     const settings = app.settings || StorageManager.getSettings();
-    const retentionSlider = document.getElementById('setting-retention');
-    const retentionLabel = document.getElementById('retention-slider-label');
-    const newLimitSlider = document.getElementById('setting-new-limit');
-    const newLimitLabel = document.getElementById('new-limit-label');
-    const reviewLimitSlider = document.getElementById('setting-review-limit');
-    const reviewLimitLabel = document.getElementById('review-limit-label');
+    const retentionSelect = document.getElementById('setting-retention');
+    const newLimitSelect = document.getElementById('setting-new-limit');
+    const reviewLimitSelect = document.getElementById('setting-review-limit');
     const autoSpeechToggle = document.getElementById('setting-auto-speech');
     const darkThemeToggle = document.getElementById('setting-dark-theme');
     const audioAccentSelect = document.getElementById('setting-audio-accent');
+    const speechRateSelect = document.getElementById('setting-speech-rate');
 
-    if (retentionSlider) {
-      retentionSlider.value = settings.requestRetention || 0.90;
-      if (retentionLabel) retentionLabel.textContent = `${Math.round(retentionSlider.value * 100)}%`;
+    if (retentionSelect) {
+      retentionSelect.value = String(settings.requestRetention || 0.90);
     }
-    if (newLimitSlider) {
-      newLimitSlider.value = settings.dailyNewLimit || 10;
-      if (newLimitLabel) newLimitLabel.textContent = `${newLimitSlider.value} từ/ngày`;
+    if (newLimitSelect) {
+      newLimitSelect.value = String(settings.dailyNewLimit || 10);
     }
-    if (reviewLimitSlider) {
-      reviewLimitSlider.value = settings.dailyReviewLimit || 50;
-      if (reviewLimitLabel) reviewLimitLabel.textContent = `${reviewLimitSlider.value} thẻ/ngày`;
+    if (reviewLimitSelect) {
+      reviewLimitSelect.value = String(settings.dailyReviewLimit || 50);
     }
     if (autoSpeechToggle) autoSpeechToggle.checked = settings.autoPronounce !== false;
     if (darkThemeToggle) darkThemeToggle.checked = (settings.theme || 'light') === 'dark';
     if (audioAccentSelect) audioAccentSelect.value = settings.audioAccent || 'us';
+    if (speechRateSelect) speechRateSelect.value = String(settings.speechRate || 0.9);
   } catch (err) {
     console.warn('Lỗi updateSettingsUIValues:', err);
   }

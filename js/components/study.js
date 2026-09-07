@@ -107,14 +107,23 @@ export function setupStudyControls(app) {
       });
     });
 
-    // Keyboard Shortcuts (Space: Flip, 1/2/3/4: Ratings)
+    // Keyboard Shortcuts (Space: Flip, 1/2/3/4: Ratings, R: Audio, Esc: Exit)
     window.addEventListener('keydown', (e) => {
       try {
         if (!overlay.classList.contains('active')) return;
         globalStudyTimer.recordActivity();
+
         if (e.code === 'Space') {
           e.preventDefault();
           triggerFlip();
+        } else if (e.key === 'r' || e.key === 'R') {
+          e.preventDefault();
+          if (app.studySession.currentCard) {
+            app.studySession.speak(app.studySession.currentCard.word);
+          }
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          if (btnClose) btnClose.click();
         } else if (app.studySession.isFlipped) {
           let rating = null;
           if (e.key === '1') rating = Rating.Again;

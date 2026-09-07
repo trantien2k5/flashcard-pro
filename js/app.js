@@ -172,16 +172,10 @@ class FlashcardApp {
 
   scrollToTop() {
     try {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    } catch (e) {
       window.scrollTo(0, 0);
-      if (document.documentElement) document.documentElement.scrollTop = 0;
-      if (document.body) document.body.scrollTop = 0;
-      const tabArea = document.querySelector('.tab-content-area');
-      if (tabArea) tabArea.scrollTop = 0;
-      const subpageBody = document.querySelector('.subpage-content-body');
-      if (subpageBody) subpageBody.scrollTop = 0;
-      const activePane = document.querySelector('.tab-pane.active');
-      if (activePane) activePane.scrollTop = 0;
-    } catch (e) {}
+    }
   }
 
   switchTab(tabId) {
@@ -221,12 +215,8 @@ class FlashcardApp {
         }
       });
 
-      // Cuộn lên đầu trang ngay lập tức (Bảo đảm cả mobile và desktop không bị giữ vị trí cuộn cũ)
+      // Cuộn lên đầu trang nhẹ nhàng không gây forced reflow
       this.scrollToTop();
-      if (typeof requestAnimationFrame !== 'undefined') {
-        requestAnimationFrame(() => this.scrollToTop());
-        setTimeout(() => this.scrollToTop(), 50);
-      }
 
       // Làm mới dữ liệu tab khi kích hoạt
       if (tabId === 'tab-review' || tabId === 'tab-home') this.renderReviewTab();
@@ -238,6 +228,7 @@ class FlashcardApp {
       } else if (tabId === 'tab-subtopic-words' && this.currentSubtopicsDeckId && this.currentSubtopicName) {
         this.renderSubtopicWordsPage(this.currentSubtopicsDeckId, this.currentSubtopicName);
       }
+
     } catch (err) {
       console.error(`Lỗi trong switchTab(${tabId}):`, err);
     }

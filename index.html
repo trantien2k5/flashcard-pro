@@ -60,6 +60,17 @@
 
       <!-- Navigation Items (5 Tabs) -->
       <div class="sidebar-nav-list">
+        <button class="nav-item active" data-tab="tab-review">
+          <span class="nav-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="6" width="14" height="15" rx="2.5"/>
+              <path d="M7 2.5h11.5A2.5 2.5 0 0 1 21 5v12.5"/>
+              <path d="M7.5 13.5h5"/>
+            </svg>
+          </span>
+          <span class="nav-label">Ôn tập</span>
+        </button>
+
         <button class="nav-item" data-tab="tab-decks">
           <span class="nav-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -79,17 +90,6 @@
             </svg>
           </span>
           <span class="nav-label">Thống kê</span>
-        </button>
-
-        <button class="nav-item active" data-tab="tab-review">
-          <span class="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="6" width="14" height="15" rx="2.5"/>
-              <path d="M7 2.5h11.5A2.5 2.5 0 0 1 21 5v12.5"/>
-              <path d="M7.5 13.5h5"/>
-            </svg>
-          </span>
-          <span class="nav-label">Ôn tập</span>
         </button>
 
         <button class="nav-item" data-tab="tab-profile">
@@ -133,67 +133,82 @@
 
       <!-- ================= TAB 1: ÔN TẬP (REVIEW) ================= -->
       <section id="tab-review" class="tab-pane active">
-        <!-- Lời chào & Định hướng học tập -->
-        <div class="greeting-section">
+        <!-- Top Hero Greeting Banner -->
+        <div class="review-hero-greeting">
+          <span class="greeting-badge">⚡ Thuật toán Spaced Repetition FSRS-6</span>
           <h2 class="greeting-title" id="home-greeting-title">Chào bạn! 👋</h2>
+          <p class="greeting-subtitle">Sẵn sàng củng cố và chuyển đổi từ vựng vào trí nhớ dài hạn hôm nay</p>
         </div>
 
-        <!-- Card Biểu đồ 5 Cột Phân bố Mức độ Trí nhớ FSRS (Dời lên trên 2 card thống kê) -->
-        <div class="memory-chart-card">
-          <div class="memory-chart-header">
-            <div class="memory-chart-title-wrap">
-              <span class="memory-chart-title">Phân bố 5 Cấp độ Trí nhớ</span>
-              <span class="memory-chart-subtitle">Tỷ lệ số lượng từ theo độ bền trí nhớ</span>
+        <!-- 2 Symmetrical Balanced Dashboard Cards -->
+        <div class="review-dashboard-layout">
+          <!-- Left Card: Tiến Trình & Phiên Ôn Tập Hôm Nay -->
+          <div class="review-action-card">
+            <div class="review-card-header">
+              <div class="review-card-title-group">
+                <span class="review-card-title">🎯 Tiến Trình Hôm Nay</span>
+                <span class="review-card-subtitle">Chỉ tiêu học từ mới & từ cần ôn tập</span>
+              </div>
             </div>
-            <span class="memory-chart-badge" id="memory-total-badge">0 từ</span>
+
+            <!-- Bộ 2 Thẻ Card Thống Kê Tổng Quan Trang Chủ -->
+            <div class="home-stats-grid">
+              <div class="home-stat-card" id="card-home-goal" title="Mục tiêu học hôm nay">
+                <div class="home-stat-icon-wrap" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="6"/>
+                    <circle cx="12" cy="12" r="2"/>
+                  </svg>
+                </div>
+                <div class="home-stat-info">
+                  <span class="home-stat-val" id="home-goal-count">0/10</span>
+                  <span class="home-stat-lbl">Mục tiêu ngày</span>
+                </div>
+              </div>
+
+              <div class="home-stat-card" id="card-home-due" title="Từ vựng đến hạn ôn tập">
+                <div class="home-stat-icon-wrap" id="icon-wrap-due" style="background: rgba(99, 102, 241, 0.12); color: var(--primary);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <div class="home-stat-info">
+                  <span class="home-stat-val" id="home-due-count">0</span>
+                  <span class="home-stat-lbl">Từ tới hạn</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nút CTA Thông Minh -->
+            <div class="home-cta-wrapper">
+              <button id="btn-home-cta" class="btn-primary-hero">
+                <span id="home-cta-icon">⚡</span>
+                <span id="home-cta-text">Ôn tập ngay</span>
+              </button>
+            </div>
           </div>
 
-          <!-- Khung biểu đồ 5 cột -->
-          <div class="memory-bars-container" id="home-memory-bars">
-            <!-- 5 cột render động bằng JS -->
-          </div>
-
-          <div class="memory-chart-hint" id="memory-chart-hint" style="display: none;">
-            <span>🚀 Bắt đầu học từ mới để phân bổ thẻ vào 5 cấp độ trí nhớ</span>
-          </div>
-        </div>
-
-        <!-- Bộ 2 Thẻ Card Thống Kê Tổng Quan Trang Chủ -->
-        <div class="home-stats-grid">
-          <div class="home-stat-card" id="card-home-goal" title="Mục tiêu học hôm nay">
-            <div class="home-stat-icon-wrap" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <circle cx="12" cy="12" r="6"/>
-                <circle cx="12" cy="12" r="2"/>
-              </svg>
+          <!-- Right Card: Phân Bố 5 Cấp Độ Trí Nhớ -->
+          <div class="memory-chart-card">
+            <div class="memory-chart-header">
+              <div class="memory-chart-title-wrap">
+                <span class="memory-chart-title">🧠 Phân Bố 5 Cấp Độ Trí Nhớ</span>
+                <span class="memory-chart-subtitle">Tỷ lệ số lượng từ theo độ bền FSRS</span>
+              </div>
+              <span class="memory-chart-badge" id="memory-total-badge">0 từ</span>
             </div>
-            <div class="home-stat-info">
-              <span class="home-stat-val" id="home-goal-count">0/10</span>
-              <span class="home-stat-lbl">Mục tiêu ngày</span>
+
+            <!-- Khung biểu đồ 5 cột -->
+            <div class="memory-bars-container" id="home-memory-bars">
+              <!-- 5 cột render động bằng JS -->
+            </div>
+
+            <div class="memory-chart-hint" id="memory-chart-hint" style="display: none;">
+              <span>🚀 Bắt đầu học từ mới để phân bổ thẻ vào 5 cấp độ trí nhớ</span>
             </div>
           </div>
-
-          <div class="home-stat-card" id="card-home-due" title="Từ vựng đến hạn ôn tập">
-            <div class="home-stat-icon-wrap" id="icon-wrap-due" style="background: rgba(99, 102, 241, 0.12); color: var(--primary);">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12 6 12 12 16 14"/>
-              </svg>
-            </div>
-            <div class="home-stat-info">
-              <span class="home-stat-val" id="home-due-count">0</span>
-              <span class="home-stat-lbl">Từ tới hạn</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Nút CTA Thông Minh -->
-        <div class="home-cta-wrapper" style="margin-top: 14px; margin-bottom: 14px;">
-          <button id="btn-home-cta" class="btn-primary-hero" style="width: 100%;">
-            <span id="home-cta-icon">⚡</span>
-            <span id="home-cta-text">Ôn tập ngay</span>
-          </button>
         </div>
       </section>
 
@@ -240,18 +255,21 @@
 
       <!-- ================= SUBPAGE 1: TRANG CHỦ ĐỀ (DANH SÁCH CHỦ ĐỀ CON) ================= -->
       <section id="tab-subtopics" class="tab-pane">
-        <!-- Subpage Top Navigation Bar -->
-        <div class="yt-subpage-header">
-          <button id="btn-back-to-decks" class="yt-back-btn" aria-label="Quay lại danh sách chủ đề">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Subpage Top Breadcrumb / Back Navigation Bar -->
+        <div class="subtopics-nav-bar">
+          <button id="btn-back-to-decks" class="btn-subtopics-back" aria-label="Quay lại danh sách chủ đề">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
               <path d="M15 18l-6-6 6-6"/>
             </svg>
+            <span>Tất cả chủ đề</span>
           </button>
-          <div class="yt-subpage-title-wrap">
-            <h2 class="yt-header-title" id="subpage-top-title">Chủ đề từ vựng</h2>
-            <span class="yt-header-subtitle" id="subpage-top-subtitle">Tất cả chủ đề con</span>
+          <div class="subpage-breadcrumb-trail">
+            <span class="breadcrumb-item">Bộ đề</span>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-current" id="subpage-top-title">Chủ đề từ vựng</span>
           </div>
-          <div class="yt-header-action" id="subpage-top-action"></div>
+          <!-- Hidden fallback for JS subtitle element if updated by script -->
+          <span id="subpage-top-subtitle" style="display: none;"></span>
         </div>
 
         <div class="subpage-content-body">
@@ -344,26 +362,67 @@
 
       <!-- ================= TAB 3: THỐNG KÊ (STATS) ================= -->
       <section id="tab-stats" class="tab-pane">
-        <div class="section-header">
-          <h2 class="section-title">Thống kê tiến độ</h2>
+        <!-- Top Hero Stats Banner -->
+        <div class="stats-hero-banner">
+          <div class="stats-hero-left">
+            <div class="stats-hero-icon">📊</div>
+            <div class="stats-hero-text">
+              <h2 class="stats-hero-title">Thống kê tiến độ</h2>
+              <p class="stats-hero-subtitle">Phân tích hiệu suất học tập, độ bền trí nhớ và dự báo ôn tập</p>
+            </div>
+          </div>
+          <div class="stats-hero-badges">
+            <span class="stats-pill-badge" style="background: rgba(99, 102, 241, 0.12); color: var(--primary); border: 1px solid rgba(99, 102, 241, 0.25);">
+              🎯 Mục tiêu nhớ: 90%
+            </span>
+            <span class="stats-pill-badge" style="background: rgba(6, 182, 212, 0.12); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.25);">
+              ⚡ Lõi FSRS-6
+            </span>
+          </div>
         </div>
 
         <!-- 1. TỔNG QUAN (3 CHỈ SỐ THEN CHỐT - FULL WIDTH ROW) -->
-        <div class="stats-overview-grid" style="margin-bottom: 20px;">
+        <div class="stats-overview-grid">
           <div class="stats-overview-box">
-            <span class="stats-overview-label">Từ đã học</span>
-            <div class="stats-overview-val" id="stat-overview-learned">0</div>
-            <span class="stats-overview-sub">Đang tích lũy</span>
+            <div class="stats-box-icon" style="background: rgba(99, 102, 241, 0.12); color: #6366f1;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                <path d="M6 6h10"/>
+                <path d="M6 10h10"/>
+              </svg>
+            </div>
+            <div class="stats-box-content">
+              <span class="stats-overview-label">Từ đã học</span>
+              <div class="stats-overview-val" id="stat-overview-learned">0</div>
+              <span class="stats-overview-sub">Đang tích lũy</span>
+            </div>
           </div>
+
           <div class="stats-overview-box">
-            <span class="stats-overview-label">Đang nhớ tốt</span>
-            <div class="stats-overview-val" id="stat-overview-good" style="color: #10b981;">0</div>
-            <span class="stats-overview-sub">Độ bền ≥ 3 ngày</span>
+            <div class="stats-box-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <div class="stats-box-content">
+              <span class="stats-overview-label">Đang nhớ tốt</span>
+              <div class="stats-overview-val" id="stat-overview-good" style="color: #10b981;">0</div>
+              <span class="stats-overview-sub">Độ bền ≥ 3 ngày</span>
+            </div>
           </div>
+
           <div class="stats-overview-box">
-            <span class="stats-overview-label">Tỷ lệ ghi nhớ</span>
-            <div class="stats-overview-val" id="stat-overview-retention" style="color: #6366f1;">0%</div>
-            <span class="stats-overview-sub" id="stat-overview-retention-sub">Đạt chuẩn FSRS-6</span>
+            <div class="stats-box-icon" style="background: rgba(6, 182, 212, 0.12); color: #06b6d4;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <div class="stats-box-content">
+              <span class="stats-overview-label">Tỷ lệ ghi nhớ</span>
+              <div class="stats-overview-val" id="stat-overview-retention" style="color: var(--primary);">0%</div>
+              <span class="stats-overview-sub" id="stat-overview-retention-sub">Đạt chuẩn FSRS-6</span>
+            </div>
           </div>
         </div>
 
@@ -372,8 +431,11 @@
           <!-- BIỂU ĐỒ 1: TIẾN BỘ 7 NGÀY -->
           <div class="stats-card">
             <div class="stats-card-title">
-              <span>📈 Tiến bộ 7 ngày qua</span>
-              <span class="stats-card-badge">Số từ ghi nhớ được</span>
+              <div class="stats-card-title-left">
+                <span class="stats-card-emoji">📈</span>
+                <span>Tiến bộ 7 ngày qua</span>
+              </div>
+              <span class="stats-card-badge">Số từ ghi nhớ</span>
             </div>
             <div class="activity-bar-chart" id="weekly-chart">
               <!-- Rendered via JS -->
@@ -383,7 +445,10 @@
           <!-- BIỂU ĐỒ 2: ĐỘ BỀN TRÍ NHỚ -->
           <div class="stats-card">
             <div class="stats-card-title">
-              <span>🧠 Độ bền trí nhớ</span>
+              <div class="stats-card-title-left">
+                <span class="stats-card-emoji">🧠</span>
+                <span>Độ bền trí nhớ (Stability)</span>
+              </div>
               <span class="stats-card-badge" id="durability-total-badge">0 từ</span>
             </div>
             <div class="matrix-row" id="stability-matrix">
@@ -394,7 +459,11 @@
           <!-- DỰ BÁO ÔN TẬP 7 NGÀY TỚI (FULL WIDTH ROW 2) -->
           <div class="stats-card stats-card-full">
             <div class="stats-card-title">
-              <span>📅 Dự báo ôn tập 7 ngày tới</span>
+              <div class="stats-card-title-left">
+                <span class="stats-card-emoji">📅</span>
+                <span>Dự báo lịch ôn tập 7 ngày tới</span>
+              </div>
+              <span class="stats-card-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; border-color: rgba(16, 185, 129, 0.2);">Tự động lên lịch FSRS</span>
             </div>
             <div class="matrix-row forecast-grid" id="forecast-list">
               <!-- Rendered via JS -->
@@ -405,78 +474,157 @@
 
       <!-- ================= MÀN HÌNH PROFILE (CÁ NHÂN) ================= -->
       <section id="tab-profile" class="tab-pane">
-        <!-- 1. Thông tin học viên -->
-        <div class="profile-user-card" style="margin-top: 6px;">
-          <div class="user-avatar-circle" style="color: #ffffff;">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
-            </svg>
-          </div>
-          <div>
-            <h2 style="font-size: 1.15rem; font-weight: 700;">Học viên Tiếng Anh</h2>
-            <p style="color: var(--text-secondary); font-size: 0.8rem;" id="profile-status-desc">Trạng thái: Đang phát triển trí nhớ dài hạn</p>
-          </div>
-        </div>
-
-        <!-- 2. Thành tích học tập cá nhân -->
-        <div class="section-header">
-          <h3 class="section-title">Thành tích học tập</h3>
-        </div>
-        <div class="profile-achieve-card">
-          <div class="achieve-col">
-            <span class="achieve-val" id="profile-achieve-learned">0</span>
-            <span class="achieve-lbl">Từ đã học</span>
-          </div>
-          <div class="achieve-divider"></div>
-          <div class="achieve-col">
-            <span class="achieve-val" id="profile-achieve-streak">0 🔥</span>
-            <span class="achieve-lbl">Ngày liên tục</span>
-          </div>
-          <div class="achieve-divider"></div>
-          <div class="achieve-col">
-            <span class="achieve-val" id="profile-achieve-time">0 ph</span>
-            <span class="achieve-lbl">Thời gian học</span>
-          </div>
-        </div>
-
-        <!-- 3. Kho từ vựng & Chủ đề -->
-        <div class="section-header">
-          <h3 class="section-title">Kho từ vựng & Chủ đề</h3>
-        </div>
-        <div class="profile-stats-grid">
-          <div class="profile-stat-box" id="profile-card-topics" title="Tổng quan chủ đề lớn">
-            <div class="profile-stat-icon" style="background: rgba(99, 102, 241, 0.12); color: #6366f1;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
-                <path d="M6 6h10"/>
-                <path d="M6 10h10"/>
+        <!-- Top Hero Profile Banner -->
+        <div class="profile-hero-banner">
+          <div class="profile-hero-left">
+            <div class="user-avatar-circle" style="color: #ffffff;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
               </svg>
             </div>
-            <div class="profile-stat-num" id="tax-topics-count">15</div>
-            <div class="profile-stat-lbl">Chủ đề lớn</div>
+            <div class="user-info-text">
+              <h2 class="profile-user-name">Học viên Tiếng Anh</h2>
+              <p class="profile-user-status" id="profile-status-desc">Trạng thái: Đang phát triển trí nhớ dài hạn (FSRS-6)</p>
+            </div>
+          </div>
+          <div class="profile-hero-badges">
+            <span class="profile-pill-badge" style="background: rgba(99, 102, 241, 0.12); color: var(--primary); border: 1px solid rgba(99, 102, 241, 0.25);">
+              ⚡ FSRS-6 Pro Active
+            </span>
+            <span class="profile-pill-badge" style="background: rgba(16, 185, 129, 0.12); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.25);">
+              🔒 100% Offline-First
+            </span>
+          </div>
+        </div>
+
+        <!-- 2-Column Symmetrical Cards Dashboard Grid -->
+        <div class="profile-dashboard-layout">
+          <!-- Left Card: Thành Tích Học Tập -->
+          <div class="profile-card">
+            <div class="profile-card-header">
+              <div class="profile-card-icon" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b;">🏆</div>
+              <div class="profile-card-title-group">
+                <h3 class="profile-card-title">Thành tích học tập</h3>
+                <span class="profile-card-subtitle">Tiến trình và chuỗi ngày rèn luyện</span>
+              </div>
+            </div>
+
+            <!-- 3 Stat Metrics -->
+            <div class="profile-achieve-grid">
+              <div class="achieve-col">
+                <span class="achieve-val" id="profile-achieve-learned">0</span>
+                <span class="achieve-lbl">Từ đã học</span>
+              </div>
+              <div class="achieve-divider"></div>
+              <div class="achieve-col">
+                <span class="achieve-val" id="profile-achieve-streak">0 🔥</span>
+                <span class="achieve-lbl">Ngày liên tục</span>
+              </div>
+              <div class="achieve-divider"></div>
+              <div class="achieve-col">
+                <span class="achieve-val" id="profile-achieve-time">0 ph</span>
+                <span class="achieve-lbl">Thời gian học</span>
+              </div>
+            </div>
+
+            <!-- Milestones List -->
+            <div class="profile-milestones-list">
+              <div class="milestone-item">
+                <span class="milestone-icon">🏅</span>
+                <div class="milestone-info">
+                  <span class="milestone-title">Tân thủ FSRS-6</span>
+                  <span class="milestone-desc">Bắt đầu lộ trình ghi nhớ khoa học với Spaced Repetition</span>
+                </div>
+              </div>
+              <div class="milestone-item">
+                <span class="milestone-icon">🔥</span>
+                <div class="milestone-info">
+                  <span class="milestone-title">Chuỗi học tập bền bỉ</span>
+                  <span class="milestone-desc">Ôn tập thẻ đến hạn mỗi ngày để củng cố độ bền trí nhớ</span>
+                </div>
+              </div>
+              <div class="milestone-item">
+                <span class="milestone-icon">💎</span>
+                <div class="milestone-info">
+                  <span class="milestone-title">Chinh phục từ vựng</span>
+                  <span class="milestone-desc">Duy trì tỷ lệ gợi nhớ mục tiêu ≥ 90%</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="profile-stat-box" id="profile-card-subtopics" title="Tổng quan chủ đề con">
-            <div class="profile-stat-icon" style="background: rgba(6, 182, 212, 0.12); color: #06b6d4;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                <polyline points="2 17 12 22 22 17"/>
-                <polyline points="2 12 12 17 22 12"/>
-              </svg>
+          <!-- Right Card: Kho Từ Vựng & CSDL -->
+          <div class="profile-card">
+            <div class="profile-card-header">
+              <div class="profile-card-icon" style="background: rgba(99, 102, 241, 0.12); color: var(--primary);">📚</div>
+              <div class="profile-card-title-group">
+                <h3 class="profile-card-title">Kho từ vựng & CSDL</h3>
+                <span class="profile-card-subtitle">Cơ sở dữ liệu từ điển chuẩn hóa</span>
+              </div>
             </div>
-            <div class="profile-stat-num" id="tax-subtopics-count">78</div>
-            <div class="profile-stat-lbl">Chủ đề con</div>
-          </div>
 
-          <div class="profile-stat-box" id="profile-card-words" title="Tổng quan kho từ vựng">
-            <div class="profile-stat-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-              </svg>
+            <!-- 3 Stat Metrics -->
+            <div class="profile-stats-grid">
+              <div class="profile-stat-box" id="profile-card-topics" title="Tổng quan chủ đề lớn">
+                <div class="profile-stat-icon" style="background: rgba(99, 102, 241, 0.12); color: #6366f1;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                    <path d="M6 6h10"/>
+                    <path d="M6 10h10"/>
+                  </svg>
+                </div>
+                <div class="profile-stat-num" id="tax-topics-count">16</div>
+                <div class="profile-stat-lbl">Chủ đề lớn</div>
+              </div>
+
+              <div class="profile-stat-box" id="profile-card-subtopics" title="Tổng quan chủ đề con">
+                <div class="profile-stat-icon" style="background: rgba(6, 182, 212, 0.12); color: #06b6d4;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                    <polyline points="2 17 12 22 22 17"/>
+                    <polyline points="2 12 12 17 22 12"/>
+                  </svg>
+                </div>
+                <div class="profile-stat-num" id="tax-subtopics-count">167</div>
+                <div class="profile-stat-lbl">Chủ đề con</div>
+              </div>
+
+              <div class="profile-stat-box" id="profile-card-words" title="Tổng quan kho từ vựng">
+                <div class="profile-stat-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                  </svg>
+                </div>
+                <div class="profile-stat-num" id="tax-words-count">2.594</div>
+                <div class="profile-stat-lbl">Từ vựng</div>
+              </div>
             </div>
-            <div class="profile-stat-num" id="tax-words-count">1.000</div>
-            <div class="profile-stat-lbl">Từ vựng</div>
+
+            <!-- Features List -->
+            <div class="profile-milestones-list">
+              <div class="milestone-item">
+                <span class="milestone-icon">🎯</span>
+                <div class="milestone-info">
+                  <span class="milestone-title">Đa dạng chủ đề thực chiến</span>
+                  <span class="milestone-desc">Bao phủ TOEIC B1 Business, Giao tiếp hằng ngày và Đời sống</span>
+                </div>
+              </div>
+              <div class="milestone-item">
+                <span class="milestone-icon">🎙️</span>
+                <div class="milestone-info">
+                  <span class="milestone-title">Dual Audio Engine</span>
+                  <span class="milestone-desc">Phát âm Native Studio US / UK kèm Neural TTS dự phòng</span>
+                </div>
+              </div>
+              <div class="milestone-item">
+                <span class="milestone-icon">💾</span>
+                <div class="milestone-info">
+                  <span class="milestone-title">Lưu trữ IndexedDB & RAM Cache</span>
+                  <span class="milestone-desc">Tốc độ truy xuất O(1), tự động sao lưu dữ liệu cục bộ an toàn</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -484,67 +632,107 @@
       <!-- ================= MÀN HÌNH CÀI ĐẶT (SETTINGS) ================= -->
       <section id="tab-settings" class="tab-pane">
         <!-- Top Header Banner -->
-        <div class="settings-header-banner">
-          <div class="settings-header-title-group">
-            <div class="settings-header-icon">⚙️</div>
-            <div class="settings-header-text">
-              <h2>Cài đặt hệ thống</h2>
-              <p>Tùy chỉnh thuật toán FSRS-6, âm thanh bản xứ và giao diện</p>
+        <div class="settings-hero-banner">
+          <div class="settings-hero-left">
+            <div class="settings-hero-icon">⚙️</div>
+            <div class="settings-hero-text">
+              <h2 class="settings-hero-title">Cài đặt hệ thống</h2>
+              <p class="settings-hero-subtitle">Tùy chỉnh thuật toán FSRS-6, âm thanh bản xứ và sao lưu dữ liệu</p>
             </div>
+          </div>
+          <div class="settings-hero-badges">
+            <span class="settings-pill-badge" style="background: rgba(99, 102, 241, 0.12); color: var(--primary); border: 1px solid rgba(99, 102, 241, 0.25);">
+              🧠 FSRS-6 Engine
+            </span>
+            <span class="settings-pill-badge" style="background: rgba(16, 185, 129, 0.12); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.25);">
+              🔒 100% Cục bộ
+            </span>
           </div>
         </div>
 
-        <!-- 2-Column Responsive Dashboard Grid -->
+        <!-- 2-Column Balanced Dashboard Grid -->
         <div class="settings-layout-grid">
           
-          <!-- Card 1: FSRS-6 Engine -->
+          <!-- Card 1: FSRS-6 Engine & Display Settings -->
           <div class="settings-card">
             <div class="settings-card-header">
               <div class="settings-card-icon fsrs">🧠</div>
-              <h3 class="settings-card-title">Thuật toán ghi nhớ FSRS-6</h3>
+              <div class="settings-card-title-group">
+                <h3 class="settings-card-title">Thuật toán FSRS-6 & Hiển thị</h3>
+                <span class="settings-card-subtitle">Cấu hình ghi nhớ ngắt quãng & giao diện</span>
+              </div>
             </div>
 
+            <!-- Row 1: Retention -->
             <div class="setting-row">
               <div class="setting-info">
                 <span class="setting-title">Tỷ lệ nhớ mục tiêu</span>
                 <span class="setting-desc">Mức độ lưu giữ kiến thức mong muốn</span>
               </div>
-              <div class="setting-control-group">
-                <input type="range" id="setting-retention" class="range-slider" min="0.80" max="0.97" step="0.01" value="0.90" aria-label="Tỷ lệ nhớ mục tiêu">
-                <span class="setting-value-badge" id="retention-slider-label">90%</span>
-              </div>
+              <select id="setting-retention" class="setting-select" aria-label="Tỷ lệ nhớ mục tiêu">
+                <option value="0.80">80% (Ôn tập khoảng cách dài)</option>
+                <option value="0.85">85% (Cân bằng vừa phải)</option>
+                <option value="0.90" selected>90% (Khuyến nghị chuẩn FSRS)</option>
+                <option value="0.95">95% (Ghi nhớ tối đa)</option>
+              </select>
             </div>
 
+            <!-- Row 2: Daily New Cards -->
             <div class="setting-row">
               <div class="setting-info">
                 <span class="setting-title">Chỉ tiêu từ mới / ngày</span>
                 <span class="setting-desc">Số lượng từ vựng nạp mới mỗi ngày</span>
               </div>
-              <div class="setting-control-group">
-                <input type="range" id="setting-new-limit" class="range-slider" min="5" max="50" step="5" value="10" aria-label="Chỉ tiêu từ mới mỗi ngày">
-                <span class="setting-value-badge" id="new-limit-label">10 từ/ngày</span>
-              </div>
+              <select id="setting-new-limit" class="setting-select" aria-label="Chỉ tiêu từ mới mỗi ngày">
+                <option value="5">5 từ / ngày</option>
+                <option value="10" selected>10 từ / ngày (Tiêu chuẩn)</option>
+                <option value="15">15 từ / ngày</option>
+                <option value="20">20 từ / ngày</option>
+                <option value="30">30 từ / ngày</option>
+                <option value="50">50 từ / ngày</option>
+              </select>
             </div>
 
+            <!-- Row 3: Daily Review Limit -->
             <div class="setting-row">
               <div class="setting-info">
                 <span class="setting-title">Giới hạn thẻ ôn tập / ngày</span>
                 <span class="setting-desc">Số thẻ tối đa cần ôn tập mỗi ngày</span>
               </div>
-              <div class="setting-control-group">
-                <input type="range" id="setting-review-limit" class="range-slider" min="10" max="150" step="10" value="50" aria-label="Giới hạn ôn tập mỗi ngày">
-                <span class="setting-value-badge" id="review-limit-label">50 thẻ/ngày</span>
+              <select id="setting-review-limit" class="setting-select" aria-label="Giới hạn ôn tập mỗi ngày">
+                <option value="20">20 thẻ / ngày</option>
+                <option value="30">30 thẻ / ngày</option>
+                <option value="50" selected>50 thẻ / ngày (Khuyên dùng)</option>
+                <option value="80">80 thẻ / ngày</option>
+                <option value="100">100 thẻ / ngày</option>
+                <option value="150">150 thẻ / ngày</option>
+              </select>
+            </div>
+
+            <!-- Row 4: Dark Theme Toggle -->
+            <div class="setting-row">
+              <div class="setting-info">
+                <span class="setting-title">Chế độ ban đêm (Dark Mode)</span>
+                <span class="setting-desc">Bảo vệ mắt và tối ưu thị giác ban đêm</span>
               </div>
+              <label class="switch" title="Chuyển chế độ Dark Mode">
+                <input type="checkbox" id="setting-dark-theme">
+                <span class="slider"></span>
+              </label>
             </div>
           </div>
 
-          <!-- Card 2: Audio & Pronunciation -->
+          <!-- Card 2: Audio & Data Management -->
           <div class="settings-card">
             <div class="settings-card-header">
               <div class="settings-card-icon audio">🔊</div>
-              <h3 class="settings-card-title">Âm thanh & Phát âm</h3>
+              <div class="settings-card-title-group">
+                <h3 class="settings-card-title">Âm thanh & Quản lý Dữ liệu</h3>
+                <span class="settings-card-subtitle">Giọng phát âm, đồng bộ & sao lưu</span>
+              </div>
             </div>
 
+            <!-- Row 1: Auto Pronounce -->
             <div class="setting-row">
               <div class="setting-info">
                 <span class="setting-title">Tự động phát âm</span>
@@ -556,6 +744,7 @@
               </label>
             </div>
 
+            <!-- Row 2: Accent -->
             <div class="setting-row">
               <div class="setting-info">
                 <span class="setting-title">Chất giọng & Ngữ điệu</span>
@@ -567,6 +756,7 @@
               </select>
             </div>
 
+            <!-- Row 3: Speech Rate -->
             <div class="setting-row">
               <div class="setting-info">
                 <span class="setting-title">Tốc độ phát âm</span>
@@ -576,80 +766,36 @@
                 <option value="0.8">0.8x (Chậm, rõ âm)</option>
                 <option value="0.9" selected>0.9x (Tự nhiên, tối ưu)</option>
                 <option value="1.0">1.0x (Chuẩn bản ngữ)</option>
+                <option value="1.2">1.2x (Nhanh)</option>
               </select>
             </div>
 
-            <div class="setting-row">
+            <!-- Row 4: Data & Audio Action Toolbar -->
+            <div class="setting-row setting-actions-compact-row">
               <div class="setting-info">
-                <span class="setting-title">Kiểm tra âm thanh mẫu</span>
-                <span class="setting-desc">Nghe thử theo giọng và tốc độ đã chọn</span>
+                <span class="setting-title">Tác vụ dữ liệu & Âm thanh</span>
+                <span class="setting-desc">Kiểm tra giọng, sao lưu & đồng bộ</span>
               </div>
-              <button type="button" id="btn-test-native-audio" class="btn-test-audio">
-                <span>🔊 Nghe thử</span>
-              </button>
+              <div class="settings-buttons-group">
+                <button type="button" id="btn-test-native-audio" class="btn-setting-btn" title="Nghe thử âm thanh">
+                  <span>🔊 Nghe thử</span>
+                </button>
+                <button type="button" id="btn-settings-open-sync" class="btn-setting-btn primary" title="Đồng bộ 2 chiều">
+                  <span>🔄 Đồng bộ</span>
+                </button>
+                <button type="button" id="btn-settings-export-data" class="btn-setting-btn" title="Xuất file JSON sao lưu">
+                  <span>📤 Xuất JSON</span>
+                </button>
+                <button type="button" id="btn-settings-import-data-trigger" class="btn-setting-btn" title="Khôi phục từ file JSON">
+                  <span>📥 Nhập JSON</span>
+                </button>
+                <input type="file" id="input-import-file" accept=".json" style="display: none;">
+                <button type="button" id="btn-settings-reset-data" class="btn-setting-btn danger" title="Đặt lại dữ liệu ban đầu">
+                  <span>🗑️ Đặt lại</span>
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Card 3: Theme & Appearance -->
-          <div class="settings-card">
-            <div class="settings-card-header">
-              <div class="settings-card-icon theme">🎨</div>
-              <h3 class="settings-card-title">Giao diện ứng dụng</h3>
-            </div>
-
-            <div class="setting-row">
-              <div class="setting-info">
-                <span class="setting-title">Chế độ ban đêm (Dark Mode)</span>
-                <span class="setting-desc">Bảo vệ mắt và tối ưu thị giác khi học ban đêm</span>
-              </div>
-              <label class="switch" title="Chuyển chế độ Dark Mode">
-                <input type="checkbox" id="setting-dark-theme">
-                <span class="slider"></span>
-              </label>
-            </div>
-          </div>
-
-          <!-- Card 4: Backup & Data Management -->
-          <div class="settings-card">
-            <div class="settings-card-header">
-              <div class="settings-card-icon data">💾</div>
-              <h3 class="settings-card-title">Sao lưu & Quản lý dữ liệu</h3>
-            </div>
-
-            <div class="setting-action-row" id="btn-settings-open-sync" role="button" tabindex="0" style="background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.2);">
-              <div class="setting-info">
-                <span class="setting-title" style="color: var(--primary); font-weight: 700;">🔄 Đồng bộ Máy tính & Điện thoại</span>
-                <span class="setting-desc">Chuyển đổi và hợp nhất tiến trình học siêu tốc qua mã PIN hoặc QR</span>
-              </div>
-              <span class="setting-action-chevron">›</span>
-            </div>
-
-            <div class="setting-action-row" id="btn-settings-export-data" role="button" tabindex="0">
-              <div class="setting-info">
-                <span class="setting-title">📤 Xuất file sao lưu (Export JSON)</span>
-                <span class="setting-desc">Lưu trữ tiến trình học và lịch sử FSRS vào máy</span>
-              </div>
-              <span class="setting-action-chevron">›</span>
-            </div>
-
-            <div class="setting-action-row" id="btn-settings-import-data-trigger" role="button" tabindex="0">
-              <div class="setting-info">
-                <span class="setting-title">📥 Nhập file sao lưu (Import JSON)</span>
-                <span class="setting-desc">Khôi phục tiến trình từ file sao lưu JSON</span>
-              </div>
-              <span class="setting-action-chevron">›</span>
-              <input type="file" id="input-import-file" accept=".json" style="display: none;">
-            </div>
-
-            <div class="setting-action-row danger" id="btn-settings-reset-data" role="button" tabindex="0">
-              <div class="setting-info">
-                <span class="setting-title" style="color: var(--fsrs-again); font-weight: 700;">🗑️ Đặt lại toàn bộ dữ liệu (Reset)</span>
-                <span class="setting-desc">Xóa toàn bộ lịch sử học và đưa thẻ về ban đầu</span>
-              </div>
-              <span class="setting-action-chevron">›</span>
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -657,14 +803,24 @@
 
     <!-- ================= FLASHCARD STUDY OVERLAY ================= -->
     <div id="study-overlay" class="study-overlay">
-      <div class="study-top-bar">
-        <button id="btn-study-close" class="btn-icon-close" title="Đóng phiên học">✕</button>
-        <div class="study-progress-track-wrapper">
-          <div class="study-progress-track">
-            <div id="study-progress-bar-fill" class="study-progress-bar-fill" style="width: 0%;"></div>
+      <!-- Top Header Row: Exit Button right next to Progress Bar -->
+      <div class="study-header-bar">
+        <button id="btn-study-close" class="btn-study-exit" title="Đóng phiên học (Esc)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+          <span class="exit-text">Thoát</span>
+        </button>
+
+        <div class="study-top-bar">
+          <div class="study-progress-track-wrapper">
+            <div class="study-progress-track">
+              <div id="study-progress-bar-fill" class="study-progress-bar-fill" style="width: 0%;"></div>
+            </div>
           </div>
+
+          <div class="study-progress-counter" id="study-progress-text">0 / 0</div>
         </div>
-        <div class="study-progress-counter" id="study-progress-text">0 / 0</div>
       </div>
 
       <!-- Centered Study Body (Card + Controls) -->
@@ -674,14 +830,16 @@
             <!-- Front Face -->
             <div class="flashcard-face face-front">
               <div class="card-center-content">
-                <button class="btn-tts-audio btn-audio-front-hero" id="btn-audio-front" title="Nghe phát âm">🔊</button>
+                <button class="btn-tts-audio btn-audio-front-hero" id="btn-audio-front" title="Nghe phát âm">
+                  <span class="audio-speaker-icon">🔊</span>
+                </button>
                 <h2 class="card-word-title" id="card-front-word">Alarm clock</h2>
                 <div class="card-phonetic-box">
                   <span id="card-front-phonetic">/əˈlɑːrm klɑːk/</span>
                 </div>
               </div>
               <div class="card-tap-hint">
-                <span>Chạm để xem nghĩa</span>
+                <span>Chạm hoặc click để xem nghĩa</span>
               </div>
             </div>
 
@@ -698,7 +856,9 @@
                   <div class="card-example-vi" id="card-back-example-vi">Đồng hồ báo thức của tôi reo lúc 6:00 sáng.</div>
                 </div>
               </div>
-              <div class="card-footer-spacer"></div>
+              <div class="card-tap-hint">
+                <span>Chạm hoặc click để lật lại</span>
+              </div>
             </div>
           </div>
         </div>
@@ -706,22 +866,22 @@
         <!-- Controls Block -->
         <div class="study-bottom-controls" id="study-controls-wrapper">
           <div id="fsrs-buttons-container" class="fsrs-buttons-grid">
-            <button class="btn-fsrs-rating again" data-rating="1">
+            <button class="btn-fsrs-rating again" data-rating="1" title="Quên">
               <span class="fsrs-rating-title">Quên</span>
               <span class="fsrs-badge-interval" id="interval-again">1m</span>
             </button>
 
-            <button class="btn-fsrs-rating hard" data-rating="2">
+            <button class="btn-fsrs-rating hard" data-rating="2" title="Khó">
               <span class="fsrs-rating-title">Khó</span>
               <span class="fsrs-badge-interval" id="interval-hard">10m</span>
             </button>
 
-            <button class="btn-fsrs-rating good" data-rating="3">
+            <button class="btn-fsrs-rating good" data-rating="3" title="Nhớ">
               <span class="fsrs-rating-title">Nhớ</span>
               <span class="fsrs-badge-interval" id="interval-good">1d</span>
             </button>
 
-            <button class="btn-fsrs-rating easy" data-rating="4">
+            <button class="btn-fsrs-rating easy" data-rating="4" title="Dễ">
               <span class="fsrs-rating-title">Dễ</span>
               <span class="fsrs-badge-interval" id="interval-easy">4d</span>
             </button>
@@ -826,7 +986,9 @@
         </div>
 
         <div class="summary-actions">
-          <button class="btn-primary-hero" id="btn-summary-home" style="width: 100%;">Về màn hình ôn tập 🔄</button>
+          <button class="btn-primary-hero btn-summary-home-btn" id="btn-summary-home">
+            <span>Về màn hình ôn tập</span>
+          </button>
         </div>
       </div>
     </div>
@@ -834,15 +996,21 @@
     <!-- ================= MODAL: CUSTOM CONFIRMATION DIALOG ================= -->
     <div id="app-confirm-modal" class="modal-backdrop">
       <div class="modal-dialog confirm-dialog">
-        <button class="btn-icon-close confirm-modal-close" id="btn-confirm-close" title="Đóng">✕</button>
+        <button class="btn-icon-close confirm-modal-close" id="btn-confirm-close" title="Đóng (Esc)">✕</button>
         <div class="confirm-icon-wrapper" id="confirm-icon-box">
           <span id="confirm-icon">🚪</span>
         </div>
         <h3 class="confirm-title" id="confirm-title">Thoát phiên học?</h3>
         <p class="confirm-message" id="confirm-message">Bạn có chắc chắn muốn thoát phiên học này không?</p>
         <div class="confirm-actions">
-          <button type="button" class="btn-confirm-secondary" id="btn-confirm-cancel">Hủy</button>
-          <button type="button" class="btn-confirm-primary" id="btn-confirm-ok">Xác nhận</button>
+          <button type="button" class="btn-confirm-secondary" id="btn-confirm-cancel">
+            <span>Hủy</span>
+            <kbd class="kbd-pill-sm">Esc</kbd>
+          </button>
+          <button type="button" class="btn-confirm-primary" id="btn-confirm-ok">
+            <span>Xác nhận</span>
+            <kbd class="kbd-pill-sm" style="background: rgba(255, 255, 255, 0.22); color: #ffffff; border-color: rgba(255, 255, 255, 0.35);">Enter</kbd>
+          </button>
         </div>
       </div>
     </div>

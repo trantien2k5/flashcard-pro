@@ -118,32 +118,33 @@ if (typeof window !== 'undefined') {
  * Tạo URL âm thanh người bản xứ theo thứ tự ưu tiên
  */
 function getNativeAudioUrls(cleanText, accent = 'us') {
-  const isUk = accent.toLowerCase() === 'uk';
-  const encoded = encodeURIComponent(cleanText);
+  const isUk = (accent || 'us').toLowerCase() === 'uk';
+  const lower = (cleanText || '').toLowerCase().trim();
+  const encoded = encodeURIComponent(lower);
   const lang = isUk ? 'en-GB' : 'en-US';
   return [
     `https://dict.youdao.com/dictvoice?audio=${encoded}&type=${isUk ? 1 : 2}`,
-    `https://dict.youdao.com/dictvoice?audio=${encoded}&type=${isUk ? 2 : 1}`,
     `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang}&q=${encoded}`,
     `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=${encoded}`
   ];
 }
+
 
 /**
  * Tải trước (Preload) 1 từ vựng vào bộ nhớ đệm
  */
 function preloadWordAudio(cleanText, accent = 'us') {
   if (!cleanText || typeof Audio === 'undefined') return null;
-  const key = `${accent.toLowerCase()}_${cleanText.toLowerCase()}`;
+  const safeText = cleanText.trim().toLowerCase();
+  const safeAccent = (accent || 'us').toLowerCase();
+  const key = `${safeAccent}_${safeText}`;
   if (_audioCache.has(key)) {
     return _audioCache.get(key);
   }
 
-  const urls = getNativeAudioUrls(cleanText, accent);
+  const urls = getNativeAudioUrls(safeText, safeAccent);
   const audio = new Audio();
   audio.preload = 'auto';
-  // KHÔNG đặt crossOrigin vì các dịch vụ từ điển không trả về header CORS,
-  // thẻ Audio HTML5 mặc định phát cross-origin hoàn toàn bình thường khi không đặt crossOrigin.
 
   const entry = {
     audio: audio,
@@ -161,19 +162,26 @@ function preloadWordAudio(cleanText, accent = 'us') {
     if (entry.urlIndex < urls.length - 1) {
       entry.urlIndex++;
       entry.ready = false;
-      audio.src = urls[entry.urlIndex];
-      audio.load();
+      try {
+        audio.src = urls[entry.urlIndex];
+        audio.load();
+      } catch (e) {}
     } else {
       entry.failed = true;
     }
   });
 
-  audio.src = urls[entry.urlIndex];
-  audio.load();
+  try {
+    audio.src = urls[entry.urlIndex];
+    audio.load();
+  } catch (e) {
+    entry.failed = true;
+  }
 
   _audioCache.set(key, entry);
   return entry;
 }
+
 
 // ==========================================================================
 // 2. Study Session Manager Class

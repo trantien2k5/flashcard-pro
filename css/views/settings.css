@@ -1,90 +1,122 @@
 /* ==========================================================================
-   Settings View Stylesheet - FSRS Parameters, Audio & Theme Configuration
-   Modern Dashboard Layout & Responsive Dual-Column Grid
+   Settings View Stylesheet - FSRS Parameters, Audio & Data Configuration
    ========================================================================== */
 
-.settings-header-banner {
-  margin-bottom: 20px;
-  padding: 18px 20px;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(14, 165, 233, 0.06) 100%);
-  border: 1px solid rgba(99, 102, 241, 0.15);
+/* 1. Top Hero Settings Banner */
+.settings-hero-banner {
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 18px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
-[data-theme="dark"] .settings-header-banner {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(14, 165, 233, 0.08) 100%);
-  border: 1px solid rgba(99, 102, 241, 0.25);
+[data-theme="light"] .settings-hero-banner {
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
 }
 
-.settings-header-title-group {
+.settings-hero-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
-.settings-header-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--primary) 0%, #4f46e5 100%);
-  color: #ffffff;
+.settings-hero-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px var(--primary-glow);
 }
 
-.settings-header-text h2 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 2px;
-}
-
-.settings-header-text p {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-/* Grid layout chứa các nhóm cài đặt */
-.settings-layout-grid {
+.settings-hero-text {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 3px;
 }
 
+.settings-hero-title {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.settings-hero-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.settings-hero-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.settings-pill-badge {
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* 2. Symmetrical 2-Column Dashboard Grid */
+.settings-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+@media (min-width: 860px) {
+  .settings-layout-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+}
+
+/* 3. Settings Card Container */
 .settings-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 18px 20px;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
-  position: relative;
-  overflow: hidden;
+  border-radius: var(--radius-xl);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme="light"] .settings-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-}
-
-[data-theme="light"] .settings-card:hover {
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
-  border-color: #cbd5e1;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
 }
 
 .settings-card-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
-  padding-bottom: 12px;
+  gap: 12px;
+  padding-bottom: 14px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -93,13 +125,13 @@
 }
 
 .settings-card-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   flex-shrink: 0;
 }
 
@@ -113,40 +145,49 @@
   color: #0ea5e9;
 }
 
-.settings-card-icon.theme {
-  background: rgba(245, 158, 11, 0.12);
-  color: #f59e0b;
-}
-
-.settings-card-icon.data {
-  background: rgba(16, 185, 129, 0.12);
-  color: #10b981;
+.settings-card-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .settings-card-title {
-  font-size: 0.98rem;
+  font-size: 1.02rem;
   font-weight: 700;
   color: var(--text-primary);
+  margin: 0;
 }
 
-/* Các hàng tùy chọn */
+.settings-card-subtitle {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+}
+
+/* 4. Setting Item Rows */
 .setting-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 12px 14px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
   gap: 16px;
-  transition: background var(--transition-fast);
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 [data-theme="light"] .setting-row {
-  border-bottom: 1px solid #f8fafc;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
 }
 
-.setting-row:last-child {
-  border-bottom: none;
-  padding-bottom: 2px;
+.setting-row:hover {
+  background: var(--bg-tertiary);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+[data-theme="light"] .setting-row:hover {
+  background: #f1f5f9;
 }
 
 .setting-info {
@@ -154,95 +195,60 @@
   flex-direction: column;
   gap: 3px;
   flex: 1;
+  min-width: 0;
 }
 
 .setting-title {
-  font-size: 0.88rem;
-  font-weight: 600;
+  font-size: 0.86rem;
+  font-weight: 700;
   color: var(--text-primary);
-  line-height: 1.35;
+  line-height: 1.3;
 }
 
 .setting-desc {
-  font-size: 0.76rem;
-  color: var(--text-muted);
-  line-height: 1.4;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
 }
 
-/* Control Wrapper cho Sliders (Slider + Value Badge) */
-.setting-control-group {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+/* 5. Modern Select Dropdown */
+.setting-select {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 215px;
+  max-width: 215px;
   flex-shrink: 0;
 }
 
-.setting-value-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3px 8px;
-  border-radius: 6px;
-  background: rgba(99, 102, 241, 0.1);
-  color: var(--primary);
-  font-size: 0.78rem;
-  font-weight: 700;
-  min-width: 52px;
-  text-align: center;
+.setting-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
-/* Range input tùy biến cao cấp */
-.range-slider {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 130px;
-  height: 6px;
-  border-radius: 6px;
-  background: var(--bg-tertiary);
-  outline: none;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-[data-theme="light"] .range-slider {
-  background: #e2e8f0;
-}
-
-.range-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
+[data-theme="light"] .setting-select {
   background: #ffffff;
-  border: 2.5px solid var(--primary);
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.4);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  border-color: #cbd5e1;
 }
 
-.range-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.18);
+[data-theme="light"] .setting-select:hover {
+  border-color: var(--primary);
 }
 
-.range-slider::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 2.5px solid var(--primary);
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.4);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-/* Toggle Switch */
+/* 6. Toggle Switch */
 .switch {
   position: relative;
   display: inline-block;
-  width: 46px;
-  height: 26px;
+  width: 44px;
+  height: 24px;
   flex-shrink: 0;
 }
 
@@ -261,20 +267,22 @@
   bottom: 0;
   background-color: var(--bg-tertiary);
   transition: .25s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 26px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
 }
 
 [data-theme="light"] .slider {
   background-color: #cbd5e1;
+  border-color: #cbd5e1;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 20px;
-  width: 20px;
-  left: 3px;
-  bottom: 3px;
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
   background-color: white;
   transition: .25s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 50%;
@@ -283,148 +291,140 @@
 
 input:checked + .slider {
   background: linear-gradient(135deg, var(--primary) 0%, #4f46e5 100%);
+  border-color: var(--primary);
 }
 
 input:checked + .slider:before {
   transform: translateX(20px);
 }
 
-/* Modern Select Dropdown */
-.setting-select {
-  padding: 8px 14px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-  font-family: var(--font-sans);
-  font-size: 0.84rem;
-  font-weight: 600;
-  outline: none;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  max-width: 220px;
+/* 7. Action Buttons Toolbar in Setting Row */
+.setting-actions-compact-row {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
 }
 
-.setting-select:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+.settings-buttons-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  width: 100%;
 }
 
-[data-theme="light"] .setting-select {
-  background: #f8fafc;
-  border-color: #cbd5e1;
+@media (min-width: 540px) {
+  .settings-buttons-group {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-[data-theme="light"] .setting-select:hover {
-  border-color: var(--primary);
+@media (min-width: 860px) {
+  .settings-buttons-group {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-/* Button Test Audio Preview */
-.btn-test-audio {
+.btn-setting-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  padding: 8px 16px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(99, 102, 241, 0.35);
-  background: rgba(99, 102, 241, 0.1);
-  color: var(--primary);
+  padding: 8px 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all var(--transition-fast);
-  flex-shrink: 0;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  white-space: nowrap;
 }
 
-.btn-test-audio:hover {
-  background: var(--primary);
-  color: #ffffff;
+.btn-setting-btn:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--primary);
+  color: var(--primary);
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
 }
 
-.btn-test-audio:active {
+.btn-setting-btn:active {
   transform: translateY(0);
 }
 
-/* Action Items cho Data Management */
-.setting-action-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 13px 14px;
-  margin: 4px -4px;
-  border-radius: var(--radius-md);
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: all var(--transition-fast);
+[data-theme="light"] .btn-setting-btn {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #1e293b;
 }
 
-.setting-action-row:hover {
-  background: rgba(99, 102, 241, 0.05);
-  border-color: rgba(99, 102, 241, 0.15);
-  transform: translateX(3px);
-}
-
-[data-theme="light"] .setting-action-row:hover {
+[data-theme="light"] .btn-setting-btn:hover {
   background: #f8fafc;
-  border-color: #e2e8f0;
-}
-
-.setting-action-chevron {
-  color: var(--text-muted);
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: transform var(--transition-fast);
-}
-
-.setting-action-row:hover .setting-action-chevron {
+  border-color: var(--primary);
   color: var(--primary);
-  transform: translateX(2px);
 }
 
-/* Danger Card (Reset Data) */
-.setting-action-row.danger {
-  margin-top: 8px;
-  border-top: 1px solid var(--border);
-  padding-top: 14px;
+.btn-setting-btn.primary {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.35);
+  color: var(--primary);
 }
 
-.setting-action-row.danger:hover {
-  background: rgba(239, 68, 68, 0.06);
+.btn-setting-btn.primary:hover {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.btn-setting-btn.danger {
+  background: rgba(239, 68, 68, 0.08);
   border-color: rgba(239, 68, 68, 0.25);
+  color: #ef4444;
 }
 
-.setting-action-row.danger:hover .setting-action-chevron {
-  color: var(--fsrs-again);
+.btn-setting-btn.danger:hover {
+  background: #ef4444;
+  color: #ffffff;
 }
 
-/* ==========================================================================
-   🖥️ DESKTOP STYLING FOR SETTINGS TAB (>= 860px)
-   ========================================================================== */
-@media (min-width: 860px) {
-  .settings-layout-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
-    align-items: start;
+/* 8. Mobile Responsive Optimizations */
+@media (max-width: 640px) {
+  .settings-hero-banner {
+    padding: 14px 16px;
+    margin-bottom: 16px;
   }
-
+  .settings-hero-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+  .settings-hero-title {
+    font-size: 1.05rem;
+  }
   .settings-card {
-    padding: 22px 24px;
-    height: 100%;
+    padding: 16px 14px;
+    gap: 12px;
   }
-
   .setting-row {
-    padding: 14px 0;
+    padding: 10px 12px;
+    gap: 10px;
   }
-
-  .range-slider {
-    width: 150px;
+  .setting-title {
+    font-size: 0.82rem;
   }
-
+  .setting-desc {
+    font-size: 0.72rem;
+  }
   .setting-select {
-    max-width: 240px;
+    width: 135px;
+    max-width: 145px;
+    padding: 6px 8px;
+    font-size: 0.76rem;
+  }
+  .btn-setting-btn {
+    padding: 8px 6px;
+    font-size: 0.74rem;
   }
 }
+

@@ -242,21 +242,28 @@ export class DeckManager {
     let reviewCount = 0;
     let dueCount = 0;
     let masteredCount = 0;
+    let lastStudiedTime = 0;
 
     for (let i = 0; i < cards.length; i++) {
       const card = cards[i];
       const state = cardStates[card.id];
       if (!state || state.state === State.New || state.state === 0) {
         newCount++;
-      } else if (state.state === State.Learning || state.state === State.Relearning) {
-        learningCount++;
-        if (state.due && Date.parse(state.due) <= nowMs) dueCount++;
-      } else if (state.state === State.Review) {
-        reviewCount++;
-        if (state.stability >= 21) {
-          masteredCount++;
+      } else {
+        if (state.last_review) {
+          const t = Date.parse(state.last_review) || 0;
+          if (t > lastStudiedTime) lastStudiedTime = t;
         }
-        if (state.due && Date.parse(state.due) <= nowMs) dueCount++;
+        if (state.state === State.Learning || state.state === State.Relearning) {
+          learningCount++;
+          if (state.due && Date.parse(state.due) <= nowMs) dueCount++;
+        } else if (state.state === State.Review) {
+          reviewCount++;
+          if (state.stability >= 21) {
+            masteredCount++;
+          }
+          if (state.due && Date.parse(state.due) <= nowMs) dueCount++;
+        }
       }
     }
 
@@ -267,6 +274,7 @@ export class DeckManager {
       reviewCount,
       masteredCount,
       dueCount,
+      lastStudiedTime,
       progressPercent: cards.length > 0 ? Math.round(((cards.length - newCount) / cards.length) * 100) : 0
     };
 

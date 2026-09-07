@@ -54,15 +54,15 @@
 .decks-header-bar {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 18px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
 .decks-filter-chips {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   overflow-x: auto;
-  padding: 2px 2px 6px 2px;
+  padding: 2px 2px 4px 2px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -75,15 +75,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-  padding: 2px 2px;
+  gap: 8px;
+  flex-wrap: nowrap;
+  padding: 1px 2px;
 }
 
 .decks-count-summary {
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 600;
   color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 [data-theme="light"] .decks-count-summary {
@@ -93,35 +96,61 @@
 .decks-sort-wrap {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.decks-sort-wrap select {
+  font-size: 0.78rem;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+[data-theme="light"] .decks-sort-wrap select {
+  background: #ffffff;
+  border-color: #cbd5e1;
 }
 
 .decks-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 
 .deck-item-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 14px 16px;
+  border-radius: 14px;
+  padding: 12px 14px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
   content-visibility: auto;
-  contain-intrinsic-size: auto 80px;
+  contain-intrinsic-size: auto 76px;
+}
+
+.deck-item-card.deck-item-recent {
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.08);
 }
 
 [data-theme="light"] .deck-item-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+}
+
+[data-theme="light"] .deck-item-card.deck-item-recent {
+  border-color: #fcd34d;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.08);
 }
 
 .deck-item-card:hover {
@@ -132,39 +161,39 @@
 
 [data-theme="light"] .deck-item-card:hover {
   border-color: #c7d2fe;
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.08);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.08);
 }
 
 .deck-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
 }
 
 .deck-card-main {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   min-width: 0;
   flex: 1;
 }
 
 .deck-icon-badge {
-  width: 46px;
-  height: 46px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   flex-shrink: 0;
   background: var(--bg-tertiary);
   transition: transform 0.2s ease;
 }
 
 .deck-item-card:hover .deck-icon-badge {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .deck-info {
@@ -172,13 +201,14 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .deck-title {
-  font-size: 1rem;
+  font-size: 0.96rem;
   font-weight: 700;
   color: var(--text-primary);
+  line-height: 1.3;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -186,9 +216,10 @@
 }
 
 .deck-sub-title {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-secondary);
   font-weight: 500;
+  line-height: 1.3;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -198,11 +229,13 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
   margin-top: 2px;
   flex-wrap: wrap;
+  line-height: 1.25;
 }
+
 
 .deck-card-right {
   display: flex;
@@ -253,7 +286,86 @@
 }
 
 /* --------------------------------------------------------------------------
-   Level 2: Modern YouTube/iOS-Style Sleek Subpage Top Bar
+   Level 2: Modern Breadcrumb Subpage Navigation (Zero Duplication)
+   -------------------------------------------------------------------------- */
+.subtopics-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0 16px 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+}
+
+[data-theme="light"] .subtopics-nav-bar {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.btn-subtopics-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.btn-subtopics-back:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateX(-2px);
+}
+
+.btn-subtopics-back:active {
+  transform: translateX(-1px) scale(0.97);
+}
+
+[data-theme="light"] .btn-subtopics-back {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+[data-theme="light"] .btn-subtopics-back:hover {
+  background: #f8fafc;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.subpage-breadcrumb-trail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.breadcrumb-item {
+  color: var(--text-secondary);
+}
+
+.breadcrumb-sep {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.breadcrumb-current {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Level 2: Modern YouTube/iOS-Style Sleek Subpage Top Bar (Used for Word list)
    -------------------------------------------------------------------------- */
 .yt-subpage-header {
   display: flex;
@@ -348,14 +460,127 @@
   align-items: center;
 }
 
-/* Hero Banner Card for Topic */
+/* --------------------------------------------------------------------------
+   Level 2: Subpage Layout - Fixed Header & Top Hero with Independent Scroll List
+   -------------------------------------------------------------------------- */
+#tab-subtopics,
+#tab-subtopic-words {
+  display: none;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+#tab-subtopics.active,
+#tab-subtopic-words.active {
+  display: flex;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+  padding: 10px 14px 0 14px;
+}
+
+@media (min-width: 860px) {
+  #tab-subtopics.active,
+  #tab-subtopic-words.active {
+    height: 100%;
+    max-height: 100%;
+    padding: 16px 24px 0 24px;
+  }
+}
+
+
+#tab-subtopics .subtopics-nav-bar {
+  flex-shrink: 0;
+  margin-bottom: 8px;
+  padding: 0 0 8px 0;
+}
+
+#tab-subtopics .subpage-content-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+#tab-subtopics #subpage-hero-container {
+  flex-shrink: 0;
+  margin-bottom: 8px;
+}
+
+#tab-subtopics .subtopics-section-header {
+  flex-shrink: 0;
+  margin-bottom: 8px;
+  margin-top: 2px;
+}
+
+#tab-subtopics .subtopics-list-container {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 24px;
+  padding-right: 2px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Custom Thin Scrollbar for Subtopics List */
+#tab-subtopics .subtopics-list-container::-webkit-scrollbar,
+#tab-subtopic-words #subtopic-words-list-container::-webkit-scrollbar {
+  width: 5px;
+}
+#tab-subtopics .subtopics-list-container::-webkit-scrollbar-track,
+#tab-subtopic-words #subtopic-words-list-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+#tab-subtopics .subtopics-list-container::-webkit-scrollbar-thumb,
+#tab-subtopic-words #subtopic-words-list-container::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+#tab-subtopic-words .yt-subpage-header {
+  flex-shrink: 0;
+  margin-bottom: 8px;
+  padding: 0 0 8px 0;
+}
+
+#tab-subtopic-words .subpage-content-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+#tab-subtopic-words .words-toolbar {
+  flex-shrink: 0;
+  margin-bottom: 8px;
+}
+
+#tab-subtopic-words #subtopic-words-list-container,
+#tab-subtopic-words .words-list-container {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 24px;
+  padding-right: 2px;
+}
+
+
+/* Compact Hero Banner Card for Topic */
 .subpage-hero-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-xl, 18px);
-  padding: 22px 24px;
+  border-radius: var(--radius-lg, 14px);
+  padding: 12px 14px;
   box-shadow: var(--shadow-sm);
-  margin-bottom: 22px;
   position: relative;
   overflow: hidden;
 }
@@ -363,78 +588,101 @@
 [data-theme="light"] .subpage-hero-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
 }
 
-.subpage-hero-top {
+.subpage-hero-main-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.subpage-deck-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: var(--radius-lg, 14px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-}
-
-.subpage-deck-info {
-  flex: 1;
-  min-width: 240px;
-}
-
-.subpage-deck-title {
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-}
-
-.subpage-deck-meta {
-  font-size: 0.84rem;
-  color: var(--text-secondary);
-  margin-top: 5px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.subpage-vi-title {
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.subpage-hero-cta-group {
+.subpage-hero-left {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.subpage-deck-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.subpage-deck-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.subpage-deck-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.subpage-deck-subtitle-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.subpage-vi-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.subpage-hero-cta-group {
+  flex-shrink: 0;
 }
 
 .btn-hero-study {
-  padding: 10px 18px;
-  font-size: 0.88rem;
+  padding: 8px 14px;
+  font-size: 0.82rem;
   font-weight: 700;
-  border-radius: var(--radius-md, 10px);
+  border-radius: var(--radius-md, 8px);
   white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(79, 70, 229, 0.3);
+}
+
+.subpage-deck-meta {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
 }
 
 .subpage-deck-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
-  font-size: 0.82rem;
+  margin-top: 6px;
+  font-size: 0.74rem;
   font-weight: 600;
   color: var(--text-secondary);
 }
@@ -444,18 +692,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
 }
 
 .subtopics-section-title {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.01em;
 }
 
 .subtopics-section-meta {
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 600;
   color: var(--text-muted);
   background: var(--bg-tertiary);
@@ -468,12 +716,6 @@
   color: #64748b;
 }
 
-.subtopics-list-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 30px;
-}
 
 .subtopic-card-btn {
   background: var(--bg-card);
@@ -661,6 +903,30 @@
 [data-theme="light"] .subtopic-badge.badge-learning {
   background: #eef2ff;
   color: #4f46e5;
+}
+
+.subtopic-badge.badge-recent {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+[data-theme="light"] .subtopic-badge.badge-recent {
+  background: #fef3c7;
+  color: #d97706;
+  border: 1px solid #fde68a;
+}
+
+.subtopic-badge.badge-recommended {
+  background: rgba(99, 102, 241, 0.15);
+  color: #6366f1;
+  border: 1px solid rgba(99, 102, 241, 0.28);
+}
+
+[data-theme="light"] .subtopic-badge.badge-recommended {
+  background: #eef2ff;
+  color: #4f46e5;
+  border: 1px solid #c7d2fe;
 }
 
 .subtopic-badge.badge-new {
@@ -1291,63 +1557,105 @@
    🖥️ DESKTOP STYLING FOR DECKS & SUBTOPICS & WORDS (>= 860px)
    ========================================================================== */
 @media (min-width: 860px) {
+  /* Level 1: Toolbar ghim phía trên */
+  .decks-header-bar {
+    position: sticky;
+    top: -28px;
+    z-index: 25;
+    background: var(--bg-primary);
+    padding-top: 4px;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+
   /* Level 1: Lưới 15 chủ đề lớn dạng Grid đa cột */
   .decks-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 14px;
   }
 
   .deck-item-card {
-    padding: 18px 20px;
+    padding: 14px 16px;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 14px;
+    gap: 8px;
+  }
+
+  .deck-icon-badge {
+    width: 42px;
+    height: 42px;
+    font-size: 1.3rem;
   }
 
   .deck-title {
-    font-size: 1.05rem;
+    font-size: 0.98rem;
+  }
+
+  .deck-sub-title {
+    font-size: 0.78rem;
   }
 
   /* Level 2: Lưới danh sách chủ đề con */
   .subtopics-list-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
   }
 
-  .subtopic-item-card {
-    padding: 18px 20px;
+  .subtopic-card-btn {
+    padding: 14px 16px;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 14px;
+  }
+
+  .subpage-hero-card {
+    padding: 14px 18px;
+    margin-bottom: 0;
+    border-radius: 14px;
   }
 
   /* Level 4: Lưới danh sách từ vựng dạng 2 cột */
   .subtopic-words-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 12px;
   }
 
   .word-item-card {
-    padding: 16px 20px;
+    padding: 14px 16px;
+    border-radius: 14px;
   }
 
   /* Thanh công cụ tìm kiếm và bộ lọc mở rộng */
   .words-toolbar {
-    margin-bottom: 22px;
+    position: sticky;
+    top: -28px;
+    z-index: 25;
+    background: var(--bg-primary);
+    padding-top: 4px;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
   }
 
   .words-filter-chips {
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
   }
 
   .filter-chip {
-    padding: 6px 14px;
-    font-size: 0.85rem;
+    padding: 5px 12px;
+    font-size: 0.82rem;
   }
 
   /* Subpage Header phong cách Desktop thoáng đãng */
   .yt-subpage-header {
     position: static;
-    padding: 0 0 20px 0;
-    margin-bottom: 24px;
+    padding: 0 0 16px 0;
+    margin-bottom: 18px;
     background: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -1389,55 +1697,45 @@
     font-size: 0.74rem;
   }
 
-  /* Hero Card */
+  /* Compact Hero Card for Mobile */
   .subpage-hero-card {
-    padding: 16px;
-    border-radius: 16px;
-    margin-bottom: 18px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    margin-bottom: 0;
   }
 
-  .subpage-hero-top {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-  }
-
-  .subpage-deck-info {
-    min-width: 0;
+  .subpage-deck-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.15rem;
+    border-radius: 8px;
   }
 
   .subpage-deck-title {
-    font-size: 1.15rem;
+    font-size: 0.96rem;
   }
 
-  .subpage-deck-meta {
-    font-size: 0.78rem;
-    gap: 5px;
-    margin-top: 4px;
-  }
-
-  .subpage-hero-cta-group {
-    width: 100%;
-    margin-top: 4px;
+  .subpage-vi-title {
+    font-size: 0.72rem;
   }
 
   .btn-hero-study {
-    width: 100%;
-    justify-content: center;
-    padding: 12px 16px;
-    font-size: 0.92rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
+    padding: 7px 12px;
+    font-size: 0.78rem;
+    border-radius: 8px;
   }
 
-  .btn-hero-study:active {
-    transform: scale(0.98);
+  .subpage-deck-meta {
+    font-size: 0.72rem;
+    gap: 4px;
+    margin-top: 4px;
   }
 
   .subpage-deck-footer {
-    font-size: 0.76rem;
-    margin-top: 8px;
+    font-size: 0.70rem;
+    margin-top: 4px;
   }
+
 
   /* Subtopics Section & Cards */
   .subtopics-section-header {

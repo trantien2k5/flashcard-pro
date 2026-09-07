@@ -24,24 +24,66 @@ function safeColor(value, fallback = '#6366f1') {
 }
 
 /**
+ * Lộ trình học tập sư phạm ưu tiên cho 16 chủ đề (Từ nền tảng -> đời sống -> nghề nghiệp -> nâng cao)
+ */
+export const RECOMMENDED_TOPIC_ORDER = [
+  // Giai đoạn 1: Nền tảng giao tiếp căn bản (Foundation)
+  'daily-life-routines',     // 1. Đời sống & Thói quen (Cơ bản nhất mỗi ngày)
+  'people-relationships',    // 2. Con người & Mối quan hệ (Gia đình, bạn bè, bản thân)
+  'food-drink',              // 3. Ẩm thực & Ăn uống (Thức ăn, nước uống, nhà hàng)
+  'home-living',             // 4. Nhà cửa & Không gian sống (Đồ đạc sinh hoạt)
+  'communication-feelings',  // 5. Giao tiếp & Cảm xúc (Hội thoại, cảm xúc cơ bản)
+
+  // Giai đoạn 2: Kỹ năng sống & Đời sống thực tế (Practical Living)
+  'health-body',             // 6. Sức khỏe & Cơ thể (Bộ phận, bệnh tật, chăm sóc)
+  'shopping-money',          // 7. Mua sắm & Tiền tệ (Giá cả, thanh toán, ngân hàng)
+  'transport-directions',    // 8. Giao thông & Di chuyển (Phương tiện, hỏi đường)
+  'travel-places',           // 9. Du lịch & Khám phá (Sân bay, khách sạn, thắng cảnh)
+
+  // Giai đoạn 3: Công việc, Học tập & Công nghệ (Career, Study & Tech)
+  'education-learning',      // 10. Giáo dục & Học tập (Trường học, môn học, kỹ năng)
+  'work-jobs',               // 11. Công việc & Sự nghiệp (Văn phòng, nghề nghiệp)
+  'technology-internet',     // 12. Công nghệ & Internet (Máy tính, mạng xã hội, AI)
+
+  // Giai đoạn 4: Mở rộng & Luyện thi nâng cao (Explore, Society & Test Prep)
+  'entertainment-hobbies',   // 13. Giải trí & Sở thích (Âm nhạc, phim, thể thao)
+  'nature-weather',          // 14. Thiên nhiên & Thời tiết (Thời tiết, môi trường)
+  'society-world',           // 15. Xã hội & Thế giới (Văn hóa, tin tức, luật pháp)
+  'toeic-b1'                 // 16. Từ vựng TOEIC B1 (Luyện thi tổng hợp chuyên sâu)
+];
+
+const RECOMMENDED_TOPIC_INDEX_MAP = new Map(
+  RECOMMENDED_TOPIC_ORDER.map((id, index) => [id, index])
+);
+
+/**
  * Tạo phần tử Thẻ Chủ đề lớn (Deck Item Card) bố cục chuẩn đẹp, cân đối
  */
-export function createDeckCardElement(app, deck) {
+export function createDeckCardElement(app, deck, extraOptions = {}) {
   const deckStats = app.deckManager.getDeckStats(deck.id);
   const englishTitle = DECK_ENGLISH_NAMES[deck.id] || deck.titleEn || deck.title || deck.name;
-  const vietnameseTitle = deck.name || (deck.title && deck.title !== englishTitle ? deck.title : (deck.description || ''));
+  const rawViTitle = deck.name || (deck.title && deck.title !== englishTitle ? deck.title : (deck.description || ''));
+  // Loại bỏ các đoạn trùng tên tiếng Anh trong ngoặc ví dụ: "Nhà cửa & Đời sống (Home & Living)" -> "Nhà cửa & Đời sống"
+  const vietnameseTitle = rawViTitle.replace(/\s*\([^)]*[a-zA-Z]{3,}[^)]*\)$/, '').trim();
   const learnedCount = deckStats.total - deckStats.newCount;
   const subCount = (deck.subtopics && deck.subtopics.length) ? deck.subtopics.length : (deck.subcategories && deck.subcategories.length ? deck.subcategories.length : 1);
   const deckColor = safeColor(deck.color);
   
   const cardEl = document.createElement('div');
   cardEl.className = 'deck-item-card';
+  if (extraOptions.isMostRecent) {
+    cardEl.classList.add('deck-item-recent');
+  }
 
-  let dueBadgeHtml = '';
+  let statusBadgeHtml = '';
   if (deckStats.dueCount > 0) {
-    dueBadgeHtml = `<span class="subtopic-badge badge-due">⚠️ ${deckStats.dueCount} cần ôn</span>`;
+    statusBadgeHtml = `<span class="subtopic-badge badge-due">⚠️ ${deckStats.dueCount} cần ôn</span>`;
+  } else if (extraOptions.isMostRecent || (deckStats.lastStudiedTime > 0 && (Date.now() - deckStats.lastStudiedTime < 3 * 86400000))) {
+    statusBadgeHtml = `<span class="subtopic-badge badge-recent">🔥 Vừa học</span>`;
   } else if (learnedCount === deckStats.total && deckStats.total > 0) {
-    dueBadgeHtml = `<span class="subtopic-badge badge-done">✓ Đã thuộc</span>`;
+    statusBadgeHtml = `<span class="subtopic-badge badge-done">✓ Đã thuộc</span>`;
+  } else if (extraOptions.isRecommendedNext) {
+    statusBadgeHtml = `<span class="subtopic-badge badge-recommended">✨ Khuyên học</span>`;
   }
 
   cardEl.innerHTML = `
@@ -57,7 +99,7 @@ export function createDeckCardElement(app, deck) {
             <span>${subCount} chủ đề con</span>
             <span class="tax-bullet">•</span>
             <span>${deckStats.total} từ</span>
-            ${dueBadgeHtml ? `<span class="tax-bullet">•</span>${dueBadgeHtml}` : ''}
+            ${statusBadgeHtml ? `<span class="tax-bullet">•</span>${statusBadgeHtml}` : ''}
           </div>
         </div>
       </div>
@@ -70,6 +112,7 @@ export function createDeckCardElement(app, deck) {
       <div class="deck-progress-fill" style="width: ${deckStats.progressPercent}%;"></div>
     </div>
   `;
+
   cardEl.addEventListener('click', () => {
     if (app && typeof app.openSubtopicsPage === 'function') {
       app.openSubtopicsPage(deck.id);
@@ -189,9 +232,32 @@ export function renderDecksTab(app) {
         list.sort((a, b) => app.deckManager.getDeckStats(b.id).total - app.deckManager.getDeckStats(a.id).total);
       } else if (_decksCurrentSort === 'az') {
         list.sort((a, b) => {
-          const nameA = DECK_ENGLISH_NAMES[a.id] || a.titleEn || a.title;
-          const nameB = DECK_ENGLISH_NAMES[b.id] || b.titleEn || b.title;
+          const nameA = DECK_ENGLISH_NAMES[a.id] || a.titleEn || a.title || a.name || '';
+          const nameB = DECK_ENGLISH_NAMES[b.id] || b.titleEn || b.title || b.name || '';
           return nameA.localeCompare(nameB);
+        });
+      } else {
+        // SẮP XẾP MẶC ĐỊNH THÔNG MINH (Smart Default Sort):
+        // 1. Chủ đề vừa học gần đây (lastStudiedTime > 0) -> ĐẨY LÊN ĐẦU (mới nhất trước)
+        // 2. Tiếp theo là các chủ đề chưa học -> XẾP THEO LỘ TRÌNH SƯ PHẠM ƯU TIÊN (RECOMMENDED_TOPIC_ORDER)
+        list.sort((a, b) => {
+          const statsA = app.deckManager.getDeckStats(a.id);
+          const statsB = app.deckManager.getDeckStats(b.id);
+          const lastA = statsA.lastStudiedTime || 0;
+          const lastB = statsB.lastStudiedTime || 0;
+
+          // Cả hai đều đã từng học: xếp chủ đề học gần nhất lên trước
+          if (lastA > 0 && lastB > 0) {
+            return lastB - lastA;
+          }
+          // Một trong hai đã học: đưa chủ đề đã học lên trên
+          if (lastA > 0) return -1;
+          if (lastB > 0) return 1;
+
+          // Cả hai chưa học: xếp theo lộ trình ưu tiên sư phạm
+          const idxA = RECOMMENDED_TOPIC_INDEX_MAP.has(a.id) ? RECOMMENDED_TOPIC_INDEX_MAP.get(a.id) : 999;
+          const idxB = RECOMMENDED_TOPIC_INDEX_MAP.has(b.id) ? RECOMMENDED_TOPIC_INDEX_MAP.get(b.id) : 999;
+          return idxA - idxB;
         });
       }
 
@@ -208,8 +274,9 @@ export function renderDecksTab(app) {
       const totalWords = processedDecks.reduce((sum, d) => sum + app.deckManager.getDeckStats(d.id).total, 0);
 
       if (countSummary) {
-        countSummary.textContent = `Hiển thị ${processedDecks.length} / ${allDecks.length} bộ đề • ${totalWords.toLocaleString('vi-VN')} từ vựng`;
+        countSummary.textContent = `${processedDecks.length}/${allDecks.length} bộ đề • ${totalWords.toLocaleString('vi-VN')} từ`;
       }
+
 
       container.innerHTML = '';
       if (processedDecks.length === 0) {
@@ -223,9 +290,27 @@ export function renderDecksTab(app) {
         return;
       }
 
+      // Xác định chủ đề vừa học gần nhất và chủ đề đầu tiên khuyên học tiếp theo
+      let mostRecentDeckId = null;
+      let maxLastStudied = 0;
+      let firstUnstartedDeckId = null;
+
+      processedDecks.forEach(deck => {
+        const s = app.deckManager.getDeckStats(deck.id);
+        if (s.lastStudiedTime && s.lastStudiedTime > maxLastStudied) {
+          maxLastStudied = s.lastStudiedTime;
+          mostRecentDeckId = deck.id;
+        }
+        if (!firstUnstartedDeckId && (s.total - s.newCount) === 0) {
+          firstUnstartedDeckId = deck.id;
+        }
+      });
+
       const fragment = document.createDocumentFragment();
       processedDecks.forEach(deck => {
-        const cardEl = createDeckCardElement(app, deck);
+        const isMostRecent = deck.id === mostRecentDeckId;
+        const isRecommendedNext = deck.id === firstUnstartedDeckId;
+        const cardEl = createDeckCardElement(app, deck, { isMostRecent, isRecommendedNext });
         fragment.appendChild(cardEl);
       });
       container.appendChild(fragment);
@@ -427,20 +512,16 @@ export function renderSubtopicsPage(app, deckId) {
 
       heroContainer.innerHTML = `
         <div class="subpage-hero-card">
-          <div class="subpage-hero-top">
-            <div class="subpage-deck-icon" style="background: ${deckColor}18; color: ${deckColor};">
-              ${escapeHTML(deck.icon || '📚')}
-            </div>
-            <div class="subpage-deck-info">
-              <h3 class="subpage-deck-title">${escapeHTML(englishTitle)}</h3>
-              <div class="subpage-deck-meta">
-                ${vietnameseTitle ? `<span class="subpage-vi-title">${escapeHTML(vietnameseTitle)}</span><span class="tax-bullet">•</span>` : ''}
-                ${pathwayBadgeHtml}
-                <span>${rawSubtopics.length} chủ đề con</span>
-                <span class="tax-bullet">•</span>
-                <span>${deckStats.total} từ vựng</span>
-                <span class="tax-bullet">•</span>
-                ${dueBannerHtml}
+          <div class="subpage-hero-main-row">
+            <div class="subpage-hero-left">
+              <div class="subpage-deck-icon" style="background: ${deckColor}18; color: ${deckColor};">
+                ${escapeHTML(deck.icon || '📚')}
+              </div>
+              <div class="subpage-deck-info">
+                <h3 class="subpage-deck-title">${escapeHTML(englishTitle)}</h3>
+                <div class="subpage-deck-subtitle-row">
+                  ${vietnameseTitle ? `<span class="subpage-vi-title">${escapeHTML(vietnameseTitle)}</span>` : ''}
+                </div>
               </div>
             </div>
             <div class="subpage-hero-cta-group">
@@ -449,15 +530,24 @@ export function renderSubtopicsPage(app, deckId) {
               </button>
             </div>
           </div>
-          <div class="deck-progress-bar-bg" style="margin-top: 14px; height: 8px;">
+          <div class="subpage-deck-meta">
+            ${pathwayBadgeHtml}
+            <span>${rawSubtopics.length} chủ đề con</span>
+            <span class="tax-bullet">•</span>
+            <span>${deckStats.total} từ vựng</span>
+            <span class="tax-bullet">•</span>
+            ${dueBannerHtml}
+          </div>
+          <div class="deck-progress-bar-bg" style="margin-top: 8px; height: 5px;">
             <div class="deck-progress-fill" style="width: ${deckStats.progressPercent}%;"></div>
           </div>
           <div class="subpage-deck-footer">
             <span>Tiến độ: <strong>${learnedCount}/${deckStats.total} từ</strong> (${deckStats.progressPercent}%)</span>
-            <span>${deckStats.dueCount > 0 ? `<span style="color: #ef4444; font-weight: 700;">⚠️ ${deckStats.dueCount} từ đến hạn ôn</span>` : ''}</span>
+            <span>${deckStats.dueCount > 0 ? `<span style="color: #ef4444; font-weight: 700;">⚠️ ${deckStats.dueCount} từ đến hạn</span>` : ''}</span>
           </div>
         </div>
       `;
+
 
       const btnHeroStudy = heroContainer.querySelector('#btn-hero-study-deck');
       if (btnHeroStudy) {

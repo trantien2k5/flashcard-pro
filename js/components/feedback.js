@@ -40,13 +40,32 @@ export function showConfirm({
 
     modal.classList.add('active');
 
+    let keydownHandler = null;
     const cleanup = () => {
       modal.classList.remove('active');
       if (btnOk) btnOk.onclick = null;
       if (btnCancel) btnCancel.onclick = null;
       if (btnCloseModal) btnCloseModal.onclick = null;
       modal.onclick = null;
+      if (keydownHandler) {
+        window.removeEventListener('keydown', keydownHandler);
+      }
     };
+
+    keydownHandler = (e) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        e.stopPropagation();
+        cleanup();
+        resolve(false);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        e.stopPropagation();
+        cleanup();
+        resolve(true);
+      }
+    };
+    window.addEventListener('keydown', keydownHandler);
 
     if (btnOk) {
       btnOk.onclick = () => {
@@ -73,7 +92,7 @@ export function showConfirm({
       if (e.target === modal) {
         cleanup();
         resolve(false);
-      };
+      }
     };
   });
 }

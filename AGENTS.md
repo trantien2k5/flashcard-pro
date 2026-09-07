@@ -68,9 +68,10 @@ simple-flashcard/
     ├── index.js                  # Central Hub & Dynamic Loaders (`loadTopicWords`, `getAllTopics`)
     ├── schemas.js                # Định nghĩa Schema & Enums (Phases, Categories, CEFR, States)
     ├── validators.js             # Hàm kiểm tra tính hợp lệ của Topic & Word Data
-    ├── topics/                   # 15 file metadata chủ đề (ID, tên, icon, mô tả, mảng subtopics & wordIds)
-    └── words/                    # 15 từ điển từ vựng chi tiết theo domain (SSOT)
+    ├── topics/                   # 16 file metadata chủ đề (ID, tên, icon, mô tả, mảng subtopics & wordIds)
+    └── words/                    # 16 từ điển từ vựng chi tiết theo domain (SSOT)
 ```
+
 
 ---
 

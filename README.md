@@ -100,13 +100,14 @@ simple-flashcard/
 │       ├── profile-view.js       # Màn hình Cá nhân & Backup/Restore
 │       └── settings-view.js      # Màn hình Cài đặt FSRS & Âm thanh
 │
-└── data/                         # Cấu trúc dữ liệu chuẩn hóa (SSOT)
-    ├── index.js                  # Central Hub & Dynamic Loaders
-    ├── schemas.js                # Định nghĩa Schema & Enums
+└── data/                         # Cấu trúc dữ liệu chuẩn hóa (SSOT Normalized Data)
+    ├── index.js                  # Central Hub & Dynamic Loaders (`loadTopicWords`, `getAllTopics`)
+    ├── schemas.js                # Định nghĩa Schema & Enums (Phases, Categories, CEFR, States)
     ├── validators.js             # Hàm kiểm tra toàn vẹn dữ liệu
-    ├── topics.js                 # 183 Chủ đề phân cấp
-    └── words.js                  # 2.367 Từ vựng chi tiết
+    ├── topics/                   # 16 file metadata chủ đề phân cấp
+    └── words/                    # 16 từ điển từ vựng chi tiết theo domain
 ```
+
 
 ---
 
