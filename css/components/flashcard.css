@@ -373,6 +373,7 @@
   gap: 10px;
   margin-bottom: 8px;
   z-index: 5;
+  flex-wrap: wrap;
 }
 
 .btn-audio-accent-pill {
@@ -392,6 +393,27 @@
   outline: none;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 380px) {
+  .card-audio-dual-row {
+    gap: 6px;
+  }
+  .btn-audio-accent-pill {
+    padding: 5px 10px;
+    font-size: 0.78rem;
+    gap: 4px;
+  }
+  .study-progress-counter {
+    padding: 3px 8px;
+    font-size: 0.78rem;
+  }
+  .btn-study-exit {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 /* US Audio Pill */
@@ -1124,67 +1146,6 @@
 /* ==========================================================================
    🖥️ DESKTOP STYLING FOR FLASHCARD FOCUS MODE (>= 860px)
    ========================================================================== */
-
-/* Exit Button */
-.btn-study-exit {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 6px 12px;
-  border-radius: var(--radius-full);
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-[data-theme="light"] .btn-study-exit {
-  background: #ffffff;
-  border-color: #cbd5e1;
-  color: #475569;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
-}
-
-.btn-study-exit:hover {
-  background: rgba(239, 68, 68, 0.12);
-  border-color: rgba(239, 68, 68, 0.35);
-  color: #ef4444;
-}
-
-/* Keyboard Keycap Badges (Hidden as requested) */
-.kbd-pill,
-.kbd-pill-sm,
-.fsrs-kbd-num,
-.audio-kbd-hint {
-  display: none !important;
-}
-
-.card-tap-hint .mobile-hint {
-  display: none;
-}
-
-.card-tap-hint .pc-hint {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-@media (max-width: 640px) {
-  .card-tap-hint .pc-hint {
-    display: none;
-  }
-  .card-tap-hint .mobile-hint {
-    display: inline;
-  }
-  .btn-study-exit .exit-text {
-    display: none;
-  }
-}
-
 @media (min-width: 860px) {
   .study-overlay {
     width: 100vw;
@@ -1196,7 +1157,6 @@
     transform: none;
     display: none;
     flex-direction: column;
-    justify-content: space-between;
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -1206,91 +1166,20 @@
     display: flex;
   }
 
-  /* Header Bar chứa nút Thoát và Thanh Tiến Độ cạnh nhau */
   .study-header-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    width: 100%;
+    padding: 14px 20px;
+  }
+
+  .study-header-inner {
     max-width: 520px;
-    margin: 18px auto 0 auto;
-    padding: 0;
-    border: none;
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    position: relative;
-    flex-shrink: 0;
-  }
-
-  /* Nút Thoát nằm ngay cạnh thanh tiến độ */
-  .btn-study-exit {
-    position: static;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 9px 18px;
-    font-size: 0.88rem;
-    font-weight: 700;
-    border-radius: var(--radius-full);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    color: var(--text-secondary);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-    cursor: pointer;
-    white-space: nowrap;
-    flex-shrink: 0;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  [data-theme="light"] .btn-study-exit {
-    background: #ffffff;
-    border-color: #e2e8f0;
-    color: #334155;
-    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-  }
-
-  .btn-study-exit:hover {
-    background: rgba(239, 68, 68, 0.1);
-    border-color: rgba(239, 68, 68, 0.3);
-    color: #ef4444;
-    transform: translateY(-1px);
-  }
-
-  /* Thanh Tiến Độ Độc Lập Nằm Kế Bên */
-  .study-top-bar {
-    flex: 1;
-    margin: 0;
-    max-width: none;
-    padding: 9px 18px;
-    border-radius: var(--radius-full);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    position: static;
-  }
-
-  [data-theme="light"] .study-top-bar {
-    background: #ffffff;
-    border-color: #e2e8f0;
-    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-  }
-
-  .study-progress-counter {
-    font-size: 0.88rem;
-    padding: 4px 12px;
   }
 
   .study-body-wrapper {
     max-width: 520px;
     width: 100%;
     gap: 16px;
-    padding: 8px 16px 20px 16px;
-    margin: auto auto; /* Căn chính giữa khung hình dọc và ngang */
+    padding: 12px 20px 24px 20px;
+    margin: auto auto;
     flex: 1;
     min-height: 0;
     justify-content: center;
@@ -1299,26 +1188,13 @@
   .flashcard-stage {
     width: 100%;
     max-width: 520px;
-    height: clamp(380px, 54vh, 450px);
+    height: clamp(380px, 52vh, 450px);
     flex-shrink: 0;
   }
 
   .flashcard-face {
     border-radius: 24px;
-    padding: 34px 30px;
-  }
-
-  [data-theme="light"] .flashcard-face {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 20px 48px -8px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.02);
-  }
-
-  .btn-audio-front-hero {
-    width: 56px !important;
-    height: 56px !important;
-    font-size: 1.45rem !important;
-    margin-bottom: 16px;
+    padding: 32px 30px;
   }
 
   .card-word-title {
@@ -1337,19 +1213,9 @@
     margin-bottom: 8px;
   }
 
-  [data-theme="light"] .card-meaning-vi {
-    color: #0f172a;
-  }
-
   .card-badges-row {
     margin-bottom: 14px;
     gap: 10px;
-  }
-
-  .card-pos-tag,
-  .card-cefr-tag {
-    font-size: 0.82rem;
-    padding: 4px 12px;
   }
 
   .card-example-box {
@@ -1357,22 +1223,6 @@
     border-radius: 14px;
     max-height: 140px;
     overflow-y: auto;
-  }
-
-  .card-example-en {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  .card-example-vi {
-    font-size: 0.88rem;
-    line-height: 1.5;
-    margin-top: 5px;
-  }
-
-  .study-bottom-controls {
-    height: 72px;
-    flex-shrink: 0;
   }
 
   .fsrs-buttons-grid {

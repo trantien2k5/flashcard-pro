@@ -3,7 +3,7 @@
  * Chiến lược Network-First: Luôn tải file mới nhất từ server, tự động bypass cache khi sửa code.
  */
 
-const CACHE_NAME = 'flashcard-pro-v2.4.1';
+const CACHE_NAME = 'flashcard-pro-v2.5.0';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
