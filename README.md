@@ -2,7 +2,7 @@
 
 > Ứng dụng web học từ vựng tiếng Anh thông minh ứng dụng thuật toán **Lặp lại ngắt quãng (Spaced Repetition)** hiện đại, giao diện chuẩn **Mobile-First**, phát âm giọng bản xứ **Zero-Delay** và bảng phân tích tiến độ trực quan.
 
-🔗 **Live Demo:** [https://trantien2k5.github.io/simple-flashcard/](https://trantien2k5.github.io/simple-flashcard/)
+🔗 **Live Demo:** [https://trantien2k5.github.io/flashcard-pro/](https://trantien2k5.github.io/flashcard-pro/)
 
 ---
 
@@ -135,4 +135,4 @@ Dự án là ứng dụng Web thuần Client-side (Pure Standalone SPA), **hoạ
 - GitHub: [@trantien2k5](https://github.com/trantien2k5)
 - Giấy phép: MIT License
 
-https://trantien2k5.github.io/simple-flashcard-main/
+- Website: [https://trantien2k5.github.io/flashcard-pro/](https://trantien2k5.github.io/flashcard-pro/)
