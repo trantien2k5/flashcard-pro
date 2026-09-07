@@ -1,0 +1,17 @@
+{
+  "name": "flashcard-english-pro",
+  "version": "2.3.0",
+  "type": "module",
+  "description": "Flashcard English Pro with FSRS-6 Spaced Repetition",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "validate:data": "node -e \"import('./data/index.js').then(m => { const res = m.validateData(); console.log(JSON.stringify(res.stats, null, 2)); if (!res.valid) { console.error(res.errors); process.exit(1); } else { console.log('0 errors | 0 broken references | 0 duplicate IDs | 0 taxonomy cycles'); } })\""
+  },
+  "keywords": [
+    "flashcard",
+    "fsrs",
+    "english",
+    "spaced-repetition"
+  ],
+  "license": "MIT"
+}

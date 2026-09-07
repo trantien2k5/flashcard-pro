@@ -1,0 +1,459 @@
+/* ==========================================================================
+   Review View Stylesheet - Minimalist 5-Column Memory Chart & Smart CTA Button
+   ========================================================================== */
+
+.greeting-section {
+  margin-bottom: 14px;
+}
+
+.greeting-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0;
+}
+
+.greeting-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+
+/* --------------------------------------------------------------------------
+   Bộ 2 Thẻ Card Thống Kê Ôn Tập (Mục tiêu ngày + Thời gian học)
+   -------------------------------------------------------------------------- */
+.home-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.home-stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  cursor: default;
+  user-select: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+}
+
+[data-theme="light"] .home-stat-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.home-stat-icon-wrap {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.home-stat-card:hover .home-stat-icon-wrap {
+  transform: scale(1.12);
+}
+
+.home-stat-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: 100%;
+}
+
+.home-stat-val {
+  font-size: 1.35rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.home-stat-lbl {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* 5 Cột Biểu Đồ Cấp Độ Trí Nhớ FSRS */
+.memory-chart-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 16px;
+}
+
+[data-theme="light"] .memory-chart-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.memory-chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+[data-theme="light"] .memory-chart-header {
+  border-bottom-color: #f1f5f9;
+}
+
+.memory-chart-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.memory-chart-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.memory-chart-subtitle {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.memory-chart-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--primary);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  font-family: var(--font-mono);
+}
+
+[data-theme="light"] .memory-chart-badge {
+  background: #eef2ff;
+  color: #4f46e5;
+  border-color: #c7d2fe;
+}
+
+.memory-bars-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 198px;
+  padding: 8px 2px 2px 2px;
+  background: transparent;
+  gap: 6px;
+}
+
+.memory-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  gap: 3px;
+  cursor: default;
+  user-select: none;
+  position: relative;
+}
+
+/* Track đựng cột có nền màu pastel riêng biệt */
+.memory-track-wrap {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  max-height: 96px;
+}
+
+.memory-col-track {
+  width: 100%;
+  max-width: 32px;
+  height: 100%;
+  border-radius: 12px;
+  border: 1.5px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2px;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+  overflow: hidden;
+}
+
+.memory-col:hover .memory-col-track {
+  border-width: 2px;
+  filter: brightness(1.05);
+}
+
+.memory-col-fill {
+  width: 100%;
+  border-radius: 8px;
+  transition: height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  min-height: 0;
+}
+
+.memory-col.empty-tier .memory-col-fill {
+  height: 0 !important;
+  display: none;
+}
+
+/* Biểu tượng tròn màu sắc */
+.memory-icon-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.memory-col:hover .memory-icon-badge {
+  transform: scale(1.15);
+}
+
+.memory-col-name {
+  font-size: 0.70rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.15;
+  white-space: nowrap;
+  letter-spacing: -0.2px;
+  transition: color 0.2s ease;
+}
+
+.memory-col-interval {
+  font-size: 0.60rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  letter-spacing: -0.2px;
+  opacity: 0.85;
+}
+
+.memory-col:hover .memory-col-name {
+  color: var(--text-primary);
+}
+
+.memory-col:hover .memory-col-interval {
+  opacity: 1;
+  color: var(--text-secondary);
+}
+
+.memory-col-val {
+  font-size: 0.88rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  line-height: 1;
+  margin-top: 1px;
+  transition: transform 0.2s ease;
+}
+
+.memory-col:hover .memory-col-val {
+  transform: scale(1.15);
+}
+
+.memory-chart-hint {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px dashed rgba(99, 102, 241, 0.25);
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-theme="light"] .memory-chart-hint {
+  background: #f8faff;
+  border-color: #c7d2fe;
+  color: #4f46e5;
+}
+
+/* Nút CTA Thông Minh (Ôn tập hoặc Học từ mới) */
+.btn-primary-hero,
+.btn-home-cta {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+  color: white;
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn-primary-hero:hover,
+.btn-home-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(79, 70, 229, 0.45);
+}
+
+.btn-primary-hero:active,
+.btn-home-cta:active {
+  transform: translateY(0);
+}
+
+/* Responsive điều chỉnh cho màn hình nhỏ */
+@media (max-width: 360px) {
+  .memory-bars-container {
+    gap: 4px;
+  }
+  .memory-col-name {
+    font-size: 0.62rem;
+    letter-spacing: -0.3px;
+  }
+}
+
+/* ==========================================================================
+   🖥️ DESKTOP STYLING FOR REVIEW TAB (>= 860px)
+   ========================================================================== */
+/* ==========================================================================
+   🖥️ DESKTOP STYLING FOR REVIEW TAB (>= 860px)
+   ========================================================================== */
+@media (min-width: 860px) {
+  .greeting-section {
+    margin-bottom: 24px;
+  }
+
+  .greeting-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .greeting-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  /* 2 Thẻ chỉ số trải rộng đều theo bố cục Desktop */
+  .home-stats-grid {
+    width: 100%;
+    max-width: 100%;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .home-stat-card {
+    padding: 20px 24px;
+    flex-direction: row;
+    gap: 18px;
+    text-align: left;
+    justify-content: flex-start;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+  }
+
+  .home-stat-icon-wrap {
+    width: 50px;
+    height: 50px;
+    border-radius: 13px;
+    flex-shrink: 0;
+  }
+
+  .home-stat-icon-wrap svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .home-stat-info {
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .home-stat-val {
+    font-size: 1.75rem;
+  }
+
+  .home-stat-lbl {
+    font-size: 0.88rem;
+  }
+
+  /* Nút CTA Ôn tập / Học từ mới mở rộng theo lưới */
+  .home-cta-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .btn-home-cta {
+    padding: 16px 28px;
+    font-size: 1.05rem;
+    border-radius: 14px;
+  }
+
+  /* Biểu đồ 5 cột trí nhớ kéo giãn cân đối */
+  .memory-chart-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 28px;
+    border-radius: 16px;
+  }
+
+  .memory-bars-container {
+    gap: 20px;
+    height: 180px;
+    margin: 20px 0 16px 0;
+  }
+
+  .memory-bar-wrap {
+    border-radius: 12px;
+  }
+
+  .memory-col-val {
+    font-size: 0.85rem;
+  }
+
+  .memory-col-name {
+    font-size: 0.88rem;
+  }
+
+  .memory-col-count {
+    font-size: 0.88rem;
+  }
+}
+
+

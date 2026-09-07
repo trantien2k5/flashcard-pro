@@ -1,0 +1,290 @@
+/* ==========================================================================
+   Feedback Component Stylesheet - Toast Notifications & Confirm Dialogs
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Generic Modal Backdrop & Dialog
+   -------------------------------------------------------------------------- */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 6000; /* Luôn hiển thị trên cùng, cao hơn cả Flashcard Study Overlay */
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-backdrop.active {
+  display: flex;
+}
+
+.modal-dialog {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 440px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+[data-theme="light"] .modal-dialog {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
+}
+
+.modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+[data-theme="light"] .modal-header {
+  border-bottom: 1px solid #f1f5f9;
+  color: #0f172a;
+}
+
+.modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+[data-theme="light"] .modal-footer {
+  border-top: 1px solid #f1f5f9;
+}
+
+/* --------------------------------------------------------------------------
+   2. Custom In-App Confirm Dialog
+   -------------------------------------------------------------------------- */
+.confirm-dialog {
+  position: relative;
+  text-align: center;
+  padding: 28px 22px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 330px !important;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+}
+
+[data-theme="light"] .confirm-dialog {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+}
+
+.confirm-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  z-index: 5;
+}
+
+[data-theme="light"] .confirm-modal-close {
+  background: #f1f5f9;
+  border: none;
+}
+
+.confirm-modal-close:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+[data-theme="light"] .confirm-modal-close:hover {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+}
+
+.confirm-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background: rgba(239, 68, 68, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-top: 4px;
+}
+
+.confirm-icon-wrapper.danger {
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.confirm-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.confirm-message {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  padding: 0 4px;
+}
+
+.confirm-actions {
+  display: flex;
+  width: 100%;
+  margin-top: 8px;
+  gap: 10px;
+}
+
+.btn-confirm-secondary {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-confirm-secondary:hover {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border-color: var(--primary);
+}
+
+.btn-confirm-primary {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.35);
+  transition: all 0.15s;
+}
+
+.btn-confirm-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.45);
+}
+
+.btn-confirm-primary:active {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   3. Upgraded Floating Toast Notifications System
+   -------------------------------------------------------------------------- */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 90%;
+  max-width: 400px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  animation: slideDownFade 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+[data-theme="light"] .toast {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.12);
+}
+
+.toast.success {
+  border-left: 4px solid #10b981;
+}
+
+.toast.info {
+  border-left: 4px solid #3b82f6;
+}
+
+.toast.warning {
+  border-left: 4px solid #f59e0b;
+}
+
+.toast.error {
+  border-left: 4px solid #ef4444;
+}
+
+.toast-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.toast-content {
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.35;
+  flex: 1;
+}
+
+@keyframes slideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

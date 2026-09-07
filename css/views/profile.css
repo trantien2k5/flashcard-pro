@@ -1,0 +1,192 @@
+/* ==========================================================================
+   Profile View Stylesheet - User Account, Knowledge Base Cards & Achievements
+   ========================================================================== */
+
+/* User Header Card */
+.profile-user-card {
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+[data-theme="light"] .profile-user-card {
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  border: 1px solid #c7d2fe;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.06);
+}
+
+.user-avatar-circle {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+/* --------------------------------------------------------------------------
+   Kho Từ Vựng & Chủ Đề trong Profile (3 Cột Grid)
+   -------------------------------------------------------------------------- */
+.profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.profile-stat-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  cursor: default;
+  user-select: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .profile-stat-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+}
+
+.profile-stat-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+}
+
+.profile-stat-num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.profile-stat-lbl {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Thành tích học tập cá nhân (Achievement Card)
+   -------------------------------------------------------------------------- */
+.profile-achieve-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .profile-achieve-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+}
+
+.achieve-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.achieve-val {
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.achieve-lbl {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.achieve-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border);
+}
+
+[data-theme="light"] .achieve-divider {
+  background: #e2e8f0;
+}
+
+/* ==========================================================================
+   🖥️ DESKTOP STYLING FOR PROFILE TAB (>= 860px)
+   ========================================================================== */
+@media (min-width: 860px) {
+  .profile-user-card {
+    padding: 24px 28px;
+    max-width: 860px;
+    margin-bottom: 28px;
+  }
+
+  .user-avatar-circle {
+    width: 68px;
+    height: 68px;
+    font-size: 2.2rem;
+  }
+
+  .profile-stats-grid {
+    max-width: 860px;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+
+  .profile-stat-box {
+    padding: 20px 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  .profile-stat-num {
+    font-size: 1.6rem;
+  }
+
+  .profile-achieve-card {
+    max-width: 860px;
+    padding: 24px 28px;
+    border-radius: var(--radius-lg);
+  }
+
+  .achieve-val {
+    font-size: 1.6rem;
+  }
+
+  .achieve-lbl {
+    font-size: 0.85rem;
+  }
+}
+
