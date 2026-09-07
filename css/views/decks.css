@@ -461,7 +461,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Level 2: Subpage Layout - Fixed Header & Top Hero with Independent Scroll List
+   Level 2: Subpage Layout - Fixed Header & Top Hero with Smooth Content
    -------------------------------------------------------------------------- */
 #tab-subtopics,
 #tab-subtopic-words {
@@ -473,60 +473,49 @@
 #tab-subtopics.active,
 #tab-subtopic-words.active {
   display: flex;
-  height: 100vh;
-  height: 100dvh;
-  max-height: 100vh;
-  max-height: 100dvh;
-  overflow: hidden;
-  padding: 10px 14px 0 14px;
+  min-height: calc(100vh - 40px);
+  padding: 10px 14px 28px 14px;
 }
 
 @media (min-width: 860px) {
   #tab-subtopics.active,
   #tab-subtopic-words.active {
-    height: 100%;
-    max-height: 100%;
-    padding: 16px 24px 0 24px;
+    min-height: 100%;
+    padding: 16px 24px 32px 24px;
   }
 }
 
-
 #tab-subtopics .subtopics-nav-bar {
   flex-shrink: 0;
-  margin-bottom: 8px;
-  padding: 0 0 8px 0;
+  margin-bottom: 12px;
+  padding: 0 0 10px 0;
 }
 
 #tab-subtopics .subpage-content-body {
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-height: 0;
-  overflow: hidden;
+  width: 100%;
+  gap: 14px;
 }
 
 #tab-subtopics #subpage-hero-container {
   flex-shrink: 0;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 #tab-subtopics .subtopics-section-header {
   flex-shrink: 0;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
   margin-top: 2px;
 }
 
 #tab-subtopics .subtopics-list-container {
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 24px;
-  padding-right: 2px;
-  margin-bottom: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+  width: 100%;
+  padding-bottom: 28px;
 }
 
 /* Custom Thin Scrollbar for Subtopics List */
@@ -720,37 +709,40 @@
 .subtopic-card-btn {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg, 14px);
-  padding: 16px 18px;
+  border-radius: var(--radius-lg, 16px);
+  padding: 15px 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
   position: relative;
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 76px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme="light"] .subtopic-card-btn {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
 }
 
 .subtopic-card-btn:hover {
-  transform: translateY(-3px);
-  border-color: rgba(99, 102, 241, 0.5);
-  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.15);
+  transform: translateY(-2px);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 8px 20px -4px rgba(99, 102, 241, 0.14);
 }
 
 [data-theme="light"] .subtopic-card-btn:hover {
   border-color: #818cf8;
   background: #ffffff;
-  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.12);
+  box-shadow: 0 8px 20px -4px rgba(99, 102, 241, 0.12);
+}
+
+.subtopic-card-btn:active {
+  transform: scale(0.985);
 }
 
 /* Subtopic Card: Locked Progressive State */
@@ -807,25 +799,25 @@
 .subtopic-card-top-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 13px;
   width: 100%;
 }
 
 .subtopic-icon-badge {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md, 10px);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md, 12px);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   flex-shrink: 0;
   background: var(--bg-tertiary);
   transition: transform 0.2s ease;
 }
 
 .subtopic-card-btn:hover .subtopic-icon-badge {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
 .subtopic-card-info {
@@ -943,21 +935,22 @@
 
 .subtopic-mini-progress-bg {
   width: 100%;
-  height: 3px;
-  background: var(--bg-tertiary);
+  height: 5px;
+  background: rgba(148, 163, 184, 0.18);
   border-radius: var(--radius-full);
   overflow: hidden;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
 [data-theme="light"] .subtopic-mini-progress-bg {
-  background: #f1f5f9;
+  background: #e2e8f0;
 }
 
 .subtopic-mini-progress-fill {
   height: 100%;
   background: linear-gradient(90deg, #6366f1, #06b6d4);
   border-radius: var(--radius-full);
+  transition: width 0.3s ease;
 }
 
 .subtopic-card-right {
@@ -1602,16 +1595,16 @@
   /* Level 2: Lưới danh sách chủ đề con */
   .subtopics-list-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
     margin-bottom: 20px;
   }
 
   .subtopic-card-btn {
-    padding: 14px 16px;
+    padding: 15px 16px;
     height: 100%;
     box-sizing: border-box;
-    border-radius: 14px;
+    border-radius: 16px;
   }
 
   .subpage-hero-card {
@@ -1741,7 +1734,7 @@
 
   /* Subtopics Section & Cards */
   .subtopics-section-header {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .subtopics-section-title {
@@ -1749,43 +1742,39 @@
   }
 
   .subtopics-list-container {
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 24px;
   }
 
   .subtopic-card-btn {
-    padding: 13px 14px;
-    border-radius: 14px;
-    gap: 10px;
-  }
-
-  .subtopic-card-btn:active {
-    transform: scale(0.985);
+    padding: 14px 15px;
+    border-radius: 16px;
+    gap: 11px;
   }
 
   .subtopic-icon-badge {
     width: 42px;
     height: 42px;
     font-size: 1.3rem;
-    border-radius: 10px;
+    border-radius: 12px;
   }
 
   .subtopic-card-title {
-    font-size: 0.92rem;
+    font-size: 0.94rem;
   }
 
   .subtopic-card-meta {
     font-size: 0.74rem;
-    gap: 4px;
+    gap: 5px;
   }
 
   .subtopic-badge {
     font-size: 0.7rem;
-    padding: 1px 6px;
+    padding: 2px 6px;
   }
 
   .subtopic-stats-fraction {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
   }
 }
 
