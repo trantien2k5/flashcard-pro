@@ -171,11 +171,35 @@ class FlashcardApp {
   }
 
   scrollToTop() {
-    try {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    } catch (e) {
-      window.scrollTo(0, 0);
+    const doScroll = () => {
+      try {
+        window.scrollTo(0, 0);
+        if (document.documentElement && document.documentElement.scrollTop !== 0) {
+          document.documentElement.scrollTop = 0;
+        }
+        if (document.body && document.body.scrollTop !== 0) {
+          document.body.scrollTop = 0;
+        }
+        const appContainer = document.getElementById('app-container');
+        if (appContainer && appContainer.scrollTop !== 0) {
+          appContainer.scrollTop = 0;
+        }
+        const contentArea = document.querySelector('.tab-content-area');
+        if (contentArea && contentArea.scrollTop !== 0) {
+          contentArea.scrollTop = 0;
+        }
+        const activePane = document.querySelector('.tab-pane.active');
+        if (activePane && activePane.scrollTop !== 0) {
+          activePane.scrollTop = 0;
+        }
+      } catch (e) {}
+    };
+
+    doScroll();
+    if (typeof requestAnimationFrame !== 'undefined') {
+      requestAnimationFrame(doScroll);
     }
+    setTimeout(doScroll, 15);
   }
 
   switchTab(tabId) {
@@ -186,36 +210,22 @@ class FlashcardApp {
       }
       this.activeTab = tabId;
 
-      // Xử lý ẩn/hiện Bottom Nav trên thiết bị di động khi vào trang con (Trên Desktop, Sidebar luôn hiển thị)
-      const isMobile = (typeof window !== 'undefined' && window.innerWidth < 860);
-      const appHeader = document.querySelector('.app-header');
-      const bottomNav = document.querySelector('.bottom-nav');
+      // Đánh dấu trạng thái subpage trên body để CSS ẩn Header/Nav mượt mà (0 forced reflow)
+      document.body.classList.toggle('subpage-view-active', isSubpageTarget);
 
-      if (appHeader) {
-        appHeader.style.display = (isSubpageTarget && isMobile) ? 'none' : '';
-      }
-      if (bottomNav) {
-        bottomNav.style.display = (isSubpageTarget && isMobile) ? 'none' : '';
-      }
-
-      // Cập nhật tab panes
-      document.querySelectorAll('.tab-pane').forEach(pane => {
-        pane.classList.remove('active');
+      // Cập nhật tab panes theo batch
+      const panes = document.querySelectorAll('.tab-pane');
+      panes.forEach(pane => {
+        pane.classList.toggle('active', pane.id === tabId);
       });
-      const activePane = document.getElementById(tabId);
-      if (activePane) activePane.classList.add('active');
 
       // Cập nhật nav buttons
       const navTargetId = isSubpageTarget ? (this.previousTab || 'tab-review') : tabId;
       document.querySelectorAll('.nav-item').forEach(btn => {
-        if (btn.getAttribute('data-tab') === navTargetId) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
+        btn.classList.toggle('active', btn.getAttribute('data-tab') === navTargetId);
       });
 
-      // Cuộn lên đầu trang nhẹ nhàng không gây forced reflow
+      // Cuộn đầu trang mượt mà qua rAF
       this.scrollToTop();
 
       // Làm mới dữ liệu tab khi kích hoạt

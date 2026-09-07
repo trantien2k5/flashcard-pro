@@ -368,8 +368,6 @@ export function renderDecksTab(app) {
 export function openSubtopicsPage(app, deckId) {
   app.currentSubtopicsDeckId = deckId;
   app.switchTab('tab-subtopics');
-  if (typeof app.scrollToTop === 'function') app.scrollToTop();
-  renderSubtopicsPage(app, deckId);
 }
 
 /**
@@ -388,13 +386,11 @@ export function renderSubtopicsPage(app, deckId) {
     const learnedCount = deckStats.total - deckStats.newCount;
     const deckColor = safeColor(deck.color);
 
-    // 1. Cập nhật Top Navigation Title & Subtitle
+    // 1. Cập nhật Top Navigation Title & Subtitle (Chuẩn Spotify / Apple UX: Danh mục gốc)
     const topTitleEl = document.getElementById('subpage-top-title');
     const topSubtitleEl = document.getElementById('subpage-top-subtitle');
-    if (topTitleEl) topTitleEl.textContent = englishTitle;
-    if (topSubtitleEl) {
-      topSubtitleEl.textContent = vietnameseTitle ? `${vietnameseTitle} • ${rawSubtopics.length} chủ đề con` : `${rawSubtopics.length} chủ đề con`;
-    }
+    if (topTitleEl) topTitleEl.textContent = 'Bộ đề từ vựng';
+    if (topSubtitleEl) topSubtitleEl.textContent = 'Tất cả chủ đề';
 
     const cardStates = StorageManager.getAllCardStates();
     const userProgress = StorageManager.getUserProgress();
@@ -457,18 +453,18 @@ export function renderSubtopicsPage(app, deckId) {
     if (heroContainer) {
       let dueBannerHtml = '';
       if (deckStats.dueCount > 0) {
-        dueBannerHtml = `<span class="subtopic-badge badge-due">⚠️ ${deckStats.dueCount} từ cần ôn</span>`;
+        dueBannerHtml = `<span class="subtopic-badge badge-due">⚠️ ${deckStats.dueCount} cần ôn</span>`;
       } else if (learnedCount === deckStats.total && deckStats.total > 0) {
-        dueBannerHtml = `<span class="subtopic-badge badge-done">✓ Đã thuộc toàn bộ</span>`;
+        dueBannerHtml = `<span class="subtopic-badge badge-done">✓ Đã thuộc</span>`;
       } else if (learnedCount > 0) {
-        dueBannerHtml = `<span class="subtopic-badge badge-learning">Đã học ${learnedCount}/${deckStats.total} từ</span>`;
+        dueBannerHtml = `<span class="subtopic-badge badge-learning">Đang học (${deckStats.progressPercent}%)</span>`;
       } else {
         dueBannerHtml = `<span class="subtopic-badge badge-new">Chưa học</span>`;
       }
 
       let pathwayBadgeHtml = '';
       if (isProgressive) {
-        pathwayBadgeHtml = `<span class="subtopic-badge badge-learning" style="background: rgba(14, 165, 233, 0.12); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.3);">🔓 Đã mở ${unlockedSubtopics.length}/${rawSubtopics.length} chặng</span><span class="tax-bullet">•</span>`;
+        pathwayBadgeHtml = `<span class="subtopic-badge badge-learning" style="background: rgba(14, 165, 233, 0.12); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.3);">🔓 Mở ${unlockedSubtopics.length}/${rawSubtopics.length} chặng</span><span class="tax-bullet">•</span>`;
       }
 
       const studyQueueResult = app.deckManager.getStudyQueue(deckId, app.settings);
@@ -489,10 +485,10 @@ export function renderSubtopicsPage(app, deckId) {
           heroStudyText = 'Học tiếp';
         } else if (totalLearned === 0) {
           heroStudyIcon = '🚀';
-          heroStudyText = 'Bắt đầu chặng';
+          heroStudyText = 'Bắt đầu học';
         } else {
           heroStudyIcon = '🔄';
-          heroStudyText = 'Ôn lại chặng';
+          heroStudyText = 'Ôn lại';
         }
       } else {
         if (totalDue > 0) {
@@ -512,39 +508,36 @@ export function renderSubtopicsPage(app, deckId) {
 
       heroContainer.innerHTML = `
         <div class="subpage-hero-card">
-          <div class="subpage-hero-main-row">
-            <div class="subpage-hero-left">
-              <div class="subpage-deck-icon" style="background: ${deckColor}18; color: ${deckColor};">
-                ${escapeHTML(deck.icon || '📚')}
-              </div>
-              <div class="subpage-deck-info">
-                <h3 class="subpage-deck-title">${escapeHTML(englishTitle)}</h3>
-                <div class="subpage-deck-subtitle-row">
-                  ${vietnameseTitle ? `<span class="subpage-vi-title">${escapeHTML(vietnameseTitle)}</span>` : ''}
-                </div>
+          <div class="subpage-hero-header">
+            <div class="subpage-deck-icon" style="background: ${deckColor}18; color: ${deckColor};">
+              ${escapeHTML(deck.icon || '📚')}
+            </div>
+            <div class="subpage-deck-info">
+              <h3 class="subpage-deck-title">${escapeHTML(englishTitle)}</h3>
+              ${vietnameseTitle ? `<div class="subpage-vi-title">${escapeHTML(vietnameseTitle)}</div>` : ''}
+              <div class="subpage-deck-meta">
+                ${pathwayBadgeHtml}
+                <span>${rawSubtopics.length} chủ đề con</span>
+                <span class="tax-bullet">•</span>
+                <span>${deckStats.total} từ vựng</span>
+                ${dueBannerHtml ? `<span class="tax-bullet">•</span>${dueBannerHtml}` : ''}
               </div>
             </div>
-            <div class="subpage-hero-cta-group">
-              <button type="button" class="btn-primary-hero btn-hero-study" id="btn-hero-study-deck">
-                <span>${heroStudyIcon} ${heroStudyText}</span>
-              </button>
+          </div>
+          
+          <div class="subpage-hero-progress-section">
+            <div class="subpage-deck-footer">
+              <span class="subpage-deck-footer-left">Tiến độ: <strong>${learnedCount}/${deckStats.total} từ</strong></span>
+              <span class="subpage-deck-footer-right">${deckStats.progressPercent}%</span>
+            </div>
+            <div class="deck-progress-bar-bg">
+              <div class="deck-progress-fill" style="width: ${deckStats.progressPercent}%;"></div>
             </div>
           </div>
-          <div class="subpage-deck-meta">
-            ${pathwayBadgeHtml}
-            <span>${rawSubtopics.length} chủ đề con</span>
-            <span class="tax-bullet">•</span>
-            <span>${deckStats.total} từ vựng</span>
-            <span class="tax-bullet">•</span>
-            ${dueBannerHtml}
-          </div>
-          <div class="deck-progress-bar-bg" style="margin-top: 8px; height: 5px;">
-            <div class="deck-progress-fill" style="width: ${deckStats.progressPercent}%;"></div>
-          </div>
-          <div class="subpage-deck-footer">
-            <span>Tiến độ: <strong>${learnedCount}/${deckStats.total} từ</strong> (${deckStats.progressPercent}%)</span>
-            <span>${deckStats.dueCount > 0 ? `<span style="color: #ef4444; font-weight: 700;">⚠️ ${deckStats.dueCount} từ đến hạn</span>` : ''}</span>
-          </div>
+
+          <button type="button" class="btn-primary-hero btn-hero-study" id="btn-hero-study-deck">
+            <span>${heroStudyIcon} ${heroStudyText}</span>
+          </button>
         </div>
       `;
 
@@ -572,9 +565,7 @@ export function renderSubtopicsPage(app, deckId) {
     // 4. Cập nhật Section Heading
     const headingCount = document.getElementById('subtopics-list-count');
     if (headingCount) {
-      headingCount.textContent = isProgressive 
-        ? `${unlockedSubtopics.length}/${rawSubtopics.length} chặng đã mở` 
-        : `${rawSubtopics.length} chủ đề`;
+      headingCount.textContent = `${rawSubtopics.length} chủ đề`;
     }
 
     // 5. Render danh sách chủ đề con dạng Grid
@@ -592,7 +583,7 @@ export function renderSubtopicsPage(app, deckId) {
 
         let subBadgeHtml = '';
         if (isLocked) {
-          subBadgeHtml = `<span class="subtopic-badge badge-locked">🔒 Khóa • Hoàn thành chặng trước</span>`;
+          subBadgeHtml = `<span class="subtopic-badge badge-locked">🔒 Khóa</span>`;
         } else if (dueSubCount > 0) {
           subBadgeHtml = `<span class="subtopic-badge badge-due">⚠️ ${dueSubCount} cần ôn</span>`;
         } else if (isDone) {
@@ -633,8 +624,11 @@ export function renderSubtopicsPage(app, deckId) {
         subCardEl.onclick = () => {
           if (isLocked) {
             subCardEl.classList.remove('shake');
-            void subCardEl.offsetWidth; // Force CSS reflow
-            subCardEl.classList.add('shake');
+            if (typeof requestAnimationFrame !== 'undefined') {
+              requestAnimationFrame(() => subCardEl.classList.add('shake'));
+            } else {
+              subCardEl.classList.add('shake');
+            }
             showToast(`🔒 Chặng này đang khóa! Hãy hoàn thành "${prevSubName || 'chặng trước'}" để mở khóa nhé.`, 'warning');
             return;
           }
@@ -832,7 +826,6 @@ export async function openSubtopicWordsPage(app, deckId, subtopicName) {
     await app.deckManager.ensureTopicLoaded(deckId);
   }
   app.switchTab('tab-subtopic-words');
-  if (typeof app.scrollToTop === 'function') app.scrollToTop();
 }
 
 /**

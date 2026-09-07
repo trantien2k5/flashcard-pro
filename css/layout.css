@@ -124,6 +124,13 @@
 }
 
 
+@media (max-width: 859px) {
+  body.subpage-view-active .app-header,
+  body.subpage-view-active .bottom-nav {
+    display: none !important;
+  }
+}
+
 /* ==========================================================================
    Navigation: Mobile Bottom Navigation Bar (< 860px)
    ========================================================================== */
@@ -487,7 +494,6 @@
     overflow-y: auto;
     overflow-x: hidden;
     box-sizing: border-box;
-    scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: rgba(99, 102, 241, 0.25) transparent;
   }

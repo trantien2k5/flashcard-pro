@@ -255,21 +255,18 @@
 
       <!-- ================= SUBPAGE 1: TRANG CHỦ ĐỀ (DANH SÁCH CHỦ ĐỀ CON) ================= -->
       <section id="tab-subtopics" class="tab-pane">
-        <!-- Subpage Top Breadcrumb / Back Navigation Bar -->
-        <div class="subtopics-nav-bar">
-          <button id="btn-back-to-decks" class="btn-subtopics-back" aria-label="Quay lại danh sách chủ đề">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Subpage Top Flat Navigation Bar (YouTube / Messenger Style) -->
+        <div class="yt-subpage-header subtopics-nav-bar">
+          <button id="btn-back-to-decks" class="yt-back-btn" aria-label="Quay lại danh sách chủ đề">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
               <path d="M15 18l-6-6 6-6"/>
             </svg>
-            <span>Tất cả chủ đề</span>
           </button>
-          <div class="subpage-breadcrumb-trail">
-            <span class="breadcrumb-item">Bộ đề</span>
-            <span class="breadcrumb-sep">/</span>
-            <span class="breadcrumb-current" id="subpage-top-title">Chủ đề từ vựng</span>
+          <div class="yt-subpage-title-wrap">
+            <h2 class="yt-header-title" id="subpage-top-title">Bộ đề từ vựng</h2>
+            <span class="yt-header-subtitle" id="subpage-top-subtitle">Tất cả chủ đề</span>
           </div>
-          <!-- Hidden fallback for JS subtitle element if updated by script -->
-          <span id="subpage-top-subtitle" style="display: none;"></span>
+          <div class="yt-header-action"></div>
         </div>
 
         <div class="subpage-content-body">
