@@ -802,21 +802,24 @@
     <div id="study-overlay" class="study-overlay">
       <!-- Top Header Row: Exit Button right next to Progress Bar -->
       <div class="study-header-bar">
-        <button id="btn-study-close" class="btn-study-exit" title="Đóng phiên học (Esc)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 6 6 18M6 6l12 12"/>
-          </svg>
-          <span class="exit-text">Thoát</span>
-        </button>
+        <div class="study-header-inner">
+          <button id="btn-study-close" class="btn-study-exit" title="Thoát phiên học (Esc)" aria-label="Đóng phiên học">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18M6 6l12 12"/>
+            </svg>
+          </button>
 
-        <div class="study-top-bar">
-          <div class="study-progress-track-wrapper">
-            <div class="study-progress-track">
-              <div id="study-progress-bar-fill" class="study-progress-bar-fill" style="width: 0%;"></div>
+          <div class="study-top-bar">
+            <div class="study-progress-track-wrapper">
+              <div class="study-progress-track">
+                <div id="study-progress-bar-fill" class="study-progress-bar-fill" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="study-progress-counter" id="study-progress-text">
+              <span class="counter-num">0</span><span class="counter-sep">/</span><span class="counter-total">0</span>
             </div>
           </div>
-
-          <div class="study-progress-counter" id="study-progress-text">0 / 0</div>
         </div>
       </div>
 
@@ -827,16 +830,36 @@
             <!-- Front Face -->
             <div class="flashcard-face face-front">
               <div class="card-center-content">
-                <button class="btn-tts-audio btn-audio-front-hero" id="btn-audio-front" title="Nghe phát âm">
-                  <span class="audio-speaker-icon">🔊</span>
-                </button>
+                <div class="card-audio-dual-row" id="card-audio-dual-row">
+                  <button type="button" class="btn-audio-accent-pill btn-audio-us" id="btn-audio-us" title="Phát âm tiếng Anh - Mỹ (US)" aria-label="Phát âm US">
+                    <span class="audio-flag">🇺🇸</span>
+                    <span class="audio-accent-label">US</span>
+                    <span class="audio-speaker-symbol">🔊</span>
+                    <span class="audio-eq-bars">
+                      <span class="eq-bar bar-1"></span>
+                      <span class="eq-bar bar-2"></span>
+                      <span class="eq-bar bar-3"></span>
+                    </span>
+                  </button>
+                  <button type="button" class="btn-audio-accent-pill btn-audio-uk" id="btn-audio-uk" title="Phát âm tiếng Anh - Anh (UK)" aria-label="Phát âm UK">
+                    <span class="audio-flag">🇬🇧</span>
+                    <span class="audio-accent-label">UK</span>
+                    <span class="audio-speaker-symbol">🔊</span>
+                    <span class="audio-eq-bars">
+                      <span class="eq-bar bar-1"></span>
+                      <span class="eq-bar bar-2"></span>
+                      <span class="eq-bar bar-3"></span>
+                    </span>
+                  </button>
+                </div>
                 <h2 class="card-word-title" id="card-front-word">Alarm clock</h2>
                 <div class="card-phonetic-box">
                   <span id="card-front-phonetic">/əˈlɑːrm klɑːk/</span>
                 </div>
               </div>
               <div class="card-tap-hint">
-                <span>Chạm hoặc click để xem nghĩa</span>
+                <span class="hint-touch">👆 Chạm để xem nghĩa</span>
+                <span class="hint-mouse">🖱️ Click hoặc phím Space để xem nghĩa</span>
               </div>
             </div>
 
@@ -854,7 +877,8 @@
                 </div>
               </div>
               <div class="card-tap-hint">
-                <span>Chạm hoặc click để lật lại</span>
+                <span class="hint-touch">👆 Chạm để lật lại</span>
+                <span class="hint-mouse">🖱️ Click hoặc phím Space để lật lại</span>
               </div>
             </div>
           </div>

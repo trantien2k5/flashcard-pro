@@ -1,12 +1,9 @@
-/**
- * Study Controller Component - Handles Flashcard 3D flip, FSRS rating interaction, progress & summary modal
- */
-
 import { Rating } from '../fsrs.js';
 import { showConfirm } from './feedback.js';
 import { globalStudyTimer } from '../timer.js';
 import { unlockAudioContext } from '../study-session.js';
 import { escapeHTML } from '../utils/helpers.js';
+import { onAudioPlayStateChange, speak } from '../audio-service.js';
 
 export function setupStudyControls(app) {
   try {
@@ -14,11 +11,23 @@ export function setupStudyControls(app) {
     const flashcardEl = document.getElementById('flashcard-element');
     const fsrsButtonsContainer = document.getElementById('fsrs-buttons-container');
     const btnClose = document.getElementById('btn-study-close');
-    const btnAudioFront = document.getElementById('btn-audio-front');
+    const btnAudioUs = document.getElementById('btn-audio-us');
+    const btnAudioUk = document.getElementById('btn-audio-uk');
 
     if (!overlay || !flashcardEl) return;
 
-    // Lật thẻ khi chạm vào thẻ
+    // Lắng nghe trạng thái phát âm thanh để bật hiệu ứng Equalizer động
+    onAudioPlayStateChange((isPlaying, accent) => {
+      const isUk = accent === 'uk';
+      if (btnAudioUs) {
+        btnAudioUs.classList.toggle('playing', isPlaying && !isUk);
+      }
+      if (btnAudioUk) {
+        btnAudioUk.classList.toggle('playing', isPlaying && isUk);
+      }
+    });
+
+    // Lật thẻ khi chạm vào thẻ (ngoại trừ khi chạm vào nút loa)
     const triggerFlip = () => {
       try {
         if (!overlay.classList.contains('active')) return;
@@ -32,26 +41,42 @@ export function setupStudyControls(app) {
     };
 
     flashcardEl.addEventListener('click', (e) => {
-      if (e.target.closest('.btn-tts-audio')) return;
+      if (e.target.closest('.btn-audio-accent-pill') || e.target.closest('.btn-tts-audio')) {
+        return;
+      }
       triggerFlip();
     });
 
-    const handleSpeakAudio = (e) => {
-      try {
-        e.stopPropagation();
-        globalStudyTimer.recordActivity();
-        if (app.studySession.currentCard) {
-          const word = app.studySession.currentCard.word;
-          app.studySession.speak(word);
+    // Nút phát âm Giọng Mỹ (US)
+    if (btnAudioUs) {
+      btnAudioUs.addEventListener('click', (e) => {
+        try {
+          e.stopPropagation();
+          globalStudyTimer.recordActivity();
+          if (app.studySession.currentCard) {
+            const word = app.studySession.currentCard.word;
+            speak(word, { accent: 'us', cardObj: app.studySession.currentCard });
+          }
+        } catch (err) {
+          console.error('Lỗi phát âm US:', err);
         }
-      } catch (err) {
-        console.error('Lỗi phát âm thẻ:', err);
-      }
-    };
+      });
+    }
 
-    // Audio button trên mặt trước thẻ
-    if (btnAudioFront) {
-      btnAudioFront.addEventListener('click', handleSpeakAudio);
+    // Nút phát âm Giọng Anh (UK)
+    if (btnAudioUk) {
+      btnAudioUk.addEventListener('click', (e) => {
+        try {
+          e.stopPropagation();
+          globalStudyTimer.recordActivity();
+          if (app.studySession.currentCard) {
+            const word = app.studySession.currentCard.word;
+            speak(word, { accent: 'uk', cardObj: app.studySession.currentCard });
+          }
+        } catch (err) {
+          console.error('Lỗi phát âm UK:', err);
+        }
+      });
     }
 
     // Đóng phiên học với Custom Confirmation
@@ -169,9 +194,11 @@ export function handleCardChange(app, card, progress) {
 
     if (!flashcardEl || !fsrsButtonsContainer) return;
 
-    // Reset về mặt trước
+    // Reset về mặt trước và tắt trạng thái phát âm thanh
     flashcardEl.classList.remove('flipped');
     fsrsButtonsContainer.classList.remove('visible');
+    document.getElementById('btn-audio-us')?.classList.remove('playing');
+    document.getElementById('btn-audio-uk')?.classList.remove('playing');
 
     // Cập nhật nội dung thẻ và thanh tiến độ (Chỉ tăng khi nhớ từ thành công)
     const completedNum = progress.completed !== undefined ? progress.completed : 0;
@@ -179,7 +206,9 @@ export function handleCardChange(app, card, progress) {
     const percent = Math.min(100, Math.max(completedNum === 0 ? 0 : 5, Math.round((completedNum / totalNum) * 100)));
     
     const progressText = document.getElementById('study-progress-text');
-    if (progressText) progressText.textContent = `${completedNum} / ${totalNum}`;
+    if (progressText) {
+      progressText.innerHTML = `<span class="counter-num">${completedNum}</span><span class="counter-sep">/</span><span class="counter-total">${totalNum}</span>`;
+    }
 
     const progressBar = document.getElementById('study-progress-bar-fill');
     if (progressBar) {

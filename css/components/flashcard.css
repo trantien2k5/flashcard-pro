@@ -32,30 +32,73 @@
 }
 
 .study-header-bar {
-  padding: 12px 16px;
+  padding: 10px 16px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
   width: 100%;
   border-bottom: 1px solid var(--border);
   background: var(--bg-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   position: sticky;
   top: 0;
   z-index: 20;
 }
 
 [data-theme="light"] .study-header-bar {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid #e2e8f0;
+}
+
+.study-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 460px;
+}
+
+/* Nút thoát phiên học hình tròn tinh tế */
+.btn-study-exit {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-theme="light"] .btn-study-exit {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.btn-study-exit:hover {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.35);
+  color: #ef4444;
+  transform: scale(1.08);
+}
+
+.btn-study-exit:active {
+  transform: scale(0.92);
 }
 
 .study-top-bar {
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
 }
 
@@ -65,44 +108,111 @@
   align-items: center;
 }
 
+/* Thanh rãnh trượt tiến độ sâu, sắc nét */
 .study-progress-track {
   width: 100%;
-  height: 8px;
-  background: var(--bg-tertiary);
+  height: 12px;
+  background: rgba(148, 163, 184, 0.18);
   border-radius: var(--radius-full);
   overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1.5px 3px rgba(0, 0, 0, 0.12);
+  padding: 2px;
   display: flex;
 }
 
 [data-theme="light"] .study-progress-track {
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
+  background: #e2e8f0;
+  box-shadow: inset 0 1.5px 3px rgba(0, 0, 0, 0.08);
 }
 
+/* Thanh màu tiến độ đầy đặn với gradient sáng rực và dải sáng lấp lánh */
 .study-progress-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #6366f1, #06b6d4);
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
   border-radius: var(--radius-full);
-  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 8px rgba(99, 102, 241, 0.35);
+  position: relative;
+  transition: width 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 1px 6px rgba(99, 102, 241, 0.45);
+  overflow: hidden;
 }
 
+/* Vệt sáng bóng phía trên (Glossy Specular Line) */
+.study-progress-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2px;
+  right: 2px;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+/* Dải sáng chuyển động chạy dọc thanh tiến độ */
+.study-progress-bar-fill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+  animation: progressShine 2.6s infinite linear;
+  border-radius: var(--radius-full);
+}
+
+@keyframes progressShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* Huy hiệu đếm số từ đã hoàn thành */
 .study-progress-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
   font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 800;
   color: var(--primary);
-  background: rgba(99, 102, 241, 0.1);
-  padding: 4px 10px;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  padding: 4px 12px;
   border-radius: var(--radius-full);
   white-space: nowrap;
   flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(99, 102, 241, 0.1);
+  letter-spacing: -0.01em;
 }
 
 [data-theme="light"] .study-progress-counter {
   background: #eef2ff;
   color: #4338ca;
   border: 1px solid #c7d2fe;
+  box-shadow: 0 1px 3px rgba(67, 56, 202, 0.08);
+}
+
+.study-progress-counter .counter-num {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+[data-theme="light"] .study-progress-counter .counter-num {
+  color: #4338ca;
+}
+
+.study-progress-counter .counter-sep {
+  color: var(--text-muted);
+  font-weight: 600;
+  opacity: 0.6;
+  margin: 0 1px;
+}
+
+.study-progress-counter .counter-total {
+  color: var(--text-secondary);
+  font-weight: 700;
 }
 
 .btn-icon-close {
@@ -253,37 +363,187 @@
   flex: 1;
 }
 
-.btn-audio-front-hero {
-  width: 48px !important;
-  height: 48px !important;
-  font-size: 1.3rem !important;
-  margin-bottom: 6px;
-  background: rgba(99, 102, 241, 0.12);
-  border: 1px solid rgba(99, 102, 241, 0.28);
-  color: var(--primary);
-  border-radius: var(--radius-full);
-  display: flex;
+/* --------------------------------------------------------------------------
+   Dual Speaker Accent Pills (US / UK) with Live Equalizer & Micro-animations
+   -------------------------------------------------------------------------- */
+.card-audio-dual-row {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.18);
+  gap: 10px;
+  margin-bottom: 8px;
+  z-index: 5;
+}
+
+.btn-audio-accent-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+  user-select: none;
+  border: 1px solid transparent;
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  outline: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-[data-theme="light"] .btn-audio-front-hero {
-  background: #eef2ff;
-  border: 1px solid #c7d2fe;
-  color: #4f46e5;
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.12);
+/* US Audio Pill */
+.btn-audio-accent-pill.btn-audio-us {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #2563eb;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
 }
 
-.btn-audio-front-hero:hover {
-  transform: scale(1.15);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.28);
+[data-theme="dark"] .btn-audio-accent-pill.btn-audio-us {
+  background: rgba(96, 165, 250, 0.15);
+  border-color: rgba(96, 165, 250, 0.35);
+  color: #93c5fd;
+  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.2);
 }
 
-.btn-audio-front-hero:active {
-  transform: scale(0.92);
+/* UK Audio Pill */
+.btn-audio-accent-pill.btn-audio-uk {
+  background: rgba(225, 29, 72, 0.12);
+  border-color: rgba(225, 29, 72, 0.3);
+  color: #e11d48;
+  box-shadow: 0 2px 8px rgba(225, 29, 72, 0.08);
+}
+
+[data-theme="dark"] .btn-audio-accent-pill.btn-audio-uk {
+  background: rgba(251, 113, 133, 0.15);
+  border-color: rgba(251, 113, 133, 0.35);
+  color: #fda4af;
+  box-shadow: 0 2px 10px rgba(225, 29, 72, 0.2);
+}
+
+.btn-audio-accent-pill .audio-flag {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.btn-audio-accent-pill .audio-accent-label {
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+.btn-audio-accent-pill .audio-speaker-symbol {
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+/* Equalizer Bars Container */
+.btn-audio-accent-pill .audio-eq-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+  width: 10px;
+  margin-left: 2px;
+}
+
+.btn-audio-accent-pill .eq-bar {
+  display: block;
+  width: 2px;
+  border-radius: 2px;
+  height: 3px;
+  background: currentColor;
+  transition: height 0.15s ease;
+}
+
+/* Hover & Active Micro-interactions */
+.btn-audio-accent-pill:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.btn-audio-accent-pill.btn-audio-us:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+.btn-audio-accent-pill.btn-audio-uk:hover {
+  background: rgba(225, 29, 72, 0.2);
+  border-color: rgba(225, 29, 72, 0.5);
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.25);
+}
+
+.btn-audio-accent-pill:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.btn-audio-accent-pill:hover .audio-speaker-symbol {
+  transform: scale(1.2);
+}
+
+/* Live Equalizer Playing State */
+.btn-audio-accent-pill.playing {
+  animation: audioPulseGlow 1.2s infinite ease-in-out;
+}
+
+.btn-audio-accent-pill.btn-audio-us.playing {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.25);
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.45);
+}
+
+.btn-audio-accent-pill.btn-audio-uk.playing {
+  border-color: #e11d48;
+  background: rgba(225, 29, 72, 0.25);
+  box-shadow: 0 0 16px rgba(225, 29, 72, 0.45);
+}
+
+.btn-audio-accent-pill.playing .audio-speaker-symbol {
+  animation: speakerShake 0.4s infinite ease-in-out alternate;
+}
+
+.btn-audio-accent-pill.playing .eq-bar.bar-1 {
+  animation: eqBounce1 0.5s infinite ease-in-out alternate;
+}
+
+.btn-audio-accent-pill.playing .eq-bar.bar-2 {
+  animation: eqBounce2 0.4s infinite 0.15s ease-in-out alternate;
+}
+
+.btn-audio-accent-pill.playing .eq-bar.bar-3 {
+  animation: eqBounce3 0.6s infinite 0.1s ease-in-out alternate;
+}
+
+@keyframes eqBounce1 {
+  0% { height: 3px; }
+  100% { height: 12px; }
+}
+
+@keyframes eqBounce2 {
+  0% { height: 4px; }
+  100% { height: 11px; }
+}
+
+@keyframes eqBounce3 {
+  0% { height: 2px; }
+  100% { height: 10px; }
+}
+
+@keyframes speakerShake {
+  0% { transform: scale(1) rotate(-3deg); }
+  100% { transform: scale(1.18) rotate(3deg); }
+}
+
+@keyframes audioPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(99, 102, 241, 0.6);
+  }
 }
 
 .card-word-title {
@@ -327,6 +587,41 @@
   background: #f8fafc;
   color: #64748b;
   border: 1px dashed #cbd5e1;
+}
+
+/* Tự động phân biệt Thiết bị: Máy tính (Click) vs Mobile (Chạm) */
+.card-tap-hint .hint-touch {
+  display: none;
+}
+
+.card-tap-hint .hint-mouse {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Thiết bị cảm ứng hoặc Màn hình di động */
+@media (hover: none) or (pointer: coarse), (max-width: 768px) {
+  .card-tap-hint .hint-touch {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .card-tap-hint .hint-mouse {
+    display: none;
+  }
+}
+
+/* Máy tính để bàn / Laptop có chuột */
+@media (min-width: 769px) and (hover: hover) and (pointer: fine) {
+  .card-tap-hint .hint-touch {
+    display: none;
+  }
+  .card-tap-hint .hint-mouse {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
 }
 
 @keyframes pulseHint {

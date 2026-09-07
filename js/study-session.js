@@ -84,17 +84,17 @@ export class StudySession {
   }
 
   /**
-   * Cơ chế tải trước (Preload) toàn bộ thẻ trong phiên
+   * Cơ chế tải trước (Preload) toàn bộ thẻ trong phiên (Cả giọng US và UK)
    */
   preloadSessionAudio(cards) {
     if (!cards || !Array.isArray(cards) || typeof Audio === 'undefined') return;
-    const accent = (this.settings.audioAccent || 'us').toLowerCase();
 
-    // 1. Tải ngay 5 từ đầu tiên tức thì
+    // 1. Tải ngay 5 từ đầu tiên tức thì cả 2 giọng US & UK
     const immediateBatch = cards.slice(0, 5);
     immediateBatch.forEach(card => {
       if (card && card.word) {
-        preloadWordAudio(card.word.trim(), accent);
+        preloadWordAudio(card.word.trim(), 'us', card);
+        preloadWordAudio(card.word.trim(), 'uk', card);
       }
     });
 
@@ -105,7 +105,8 @@ export class StudySession {
         remainingBatch.forEach((card, idx) => {
           setTimeout(() => {
             if (card && card.word) {
-              preloadWordAudio(card.word.trim(), accent);
+              preloadWordAudio(card.word.trim(), 'us', card);
+              preloadWordAudio(card.word.trim(), 'uk', card);
             }
           }, idx * 60);
         });
@@ -143,15 +144,11 @@ export class StudySession {
       remaining: this.queue.length - this.currentIndex
     });
 
-    // Đảm bảo từ tiếp theo luôn được chuẩn bị sẵn
-    const accent = (this.settings.audioAccent || 'us').toLowerCase();
+    // Đảm bảo từ tiếp theo luôn được chuẩn bị sẵn cả 2 giọng US & UK
     if (this.currentIndex + 1 < this.queue.length && this.queue[this.currentIndex + 1]?.word) {
-      preloadWordAudio(this.queue[this.currentIndex + 1].word.trim(), accent);
-    }
-
-    // Tự động phát âm khi vào thẻ nếu được bật trong cài đặt
-    if (this.settings.autoPronounce && this.currentCard.word) {
-      this.speak(this.currentCard.word);
+      const nextWord = this.queue[this.currentIndex + 1].word.trim();
+      preloadWordAudio(nextWord, 'us');
+      preloadWordAudio(nextWord, 'uk');
     }
 
     return this.currentCard;
@@ -159,6 +156,10 @@ export class StudySession {
 
   flipCard() {
     this.isFlipped = !this.isFlipped;
+    // Mỗi lần lật thẻ thì tự động phát âm thanh bản xứ
+    if (this.isFlipped && this.currentCard && this.currentCard.word && this.settings.autoPronounce !== false) {
+      this.speak(this.currentCard.word);
+    }
     return this.isFlipped;
   }
 

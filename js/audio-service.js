@@ -1,23 +1,45 @@
 /**
- * Audio Service - Dual Audio Engine
- * Combines Native Studio Audio MP3 (priority 1) with zero-delay preloader
- * and Neural Web Speech API fallback.
+ * Audio Service - Dual Audio Engine & Native Pronunciation Hunter
+ * Săn âm thanh người bản xứ chất lượng cao từ Youdao Studio, Google HD, Cambridge, DictionaryAPI
+ * kết hợp bộ đệm RAM tải trước 0ms delay và Neural Web Speech API fallback.
  */
 
 import { StorageManager } from './storage.js';
 
-const _audioCache = new Map(); // Key: `${accent}_${cleanWord}` -> { audio: HTMLAudioElement, ready: boolean, failed: boolean }
+const _audioCache = new Map(); // Key: `${accent}_${cleanWord}` -> { audio: HTMLAudioElement, ready: boolean, failed: boolean, urls: [] }
 let _currentPlayingAudio = null;
 let _cachedUsVoice = null;
 let _cachedUkVoice = null;
 let _voicesInitialized = false;
 let _audioUnlocked = false;
+const _listeners = new Set(); // (playing: boolean, accent: string, word: string) => void
 
 function getCurrentSettings(baseSettings = null) {
   if (typeof window !== 'undefined' && window.app?.settings) {
     return window.app.settings;
   }
   return baseSettings || StorageManager.getSettings();
+}
+
+/**
+ * Đăng ký lắng nghe trạng thái phát âm thanh (để cập nhật UI equalizer sống động)
+ */
+export function onAudioPlayStateChange(callback) {
+  if (typeof callback === 'function') {
+    _listeners.add(callback);
+    return () => _listeners.delete(callback);
+  }
+  return () => {};
+}
+
+function notifyPlayState(isPlaying, accent = 'us', word = '') {
+  _listeners.forEach(cb => {
+    try {
+      cb(isPlaying, accent, word);
+    } catch (e) {
+      console.warn('Lỗi listener audio play state:', e);
+    }
+  });
 }
 
 /**
@@ -112,24 +134,49 @@ if (typeof window !== 'undefined') {
 }
 
 /**
- * Tạo URL âm thanh người bản xứ theo thứ tự ưu tiên
+ * SĂN TẤT CẢ GIỌNG BẢN XỨ (Native Audio Hunter Engine):
+ * Tạo danh sách URL âm thanh người bản xứ theo thứ tự ưu tiên cao nhất -> thấp dần
  */
-export function getNativeAudioUrls(cleanText, accent = 'us') {
+export function getNativeAudioUrls(cleanText, accent = 'us', cardObj = null) {
   const isUk = (accent || 'us').toLowerCase() === 'uk';
   const lower = (cleanText || '').toLowerCase().trim();
   const encoded = encodeURIComponent(lower);
+  const singleWord = lower.replace(/[^a-z0-9]/g, '');
   const lang = isUk ? 'en-GB' : 'en-US';
-  return [
-    `https://dict.youdao.com/dictvoice?audio=${encoded}&type=${isUk ? 1 : 2}`,
-    `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang}&q=${encoded}`,
-    `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=${encoded}`
-  ];
+
+  const urls = [];
+
+  // 1. Ưu tiên cao nhất: Audio trực tiếp từ metadata của từ vựng nếu có
+  if (cardObj && cardObj.audio) {
+    if (isUk && cardObj.audio.uk) urls.push(cardObj.audio.uk);
+    if (!isUk && cardObj.audio.us) urls.push(cardObj.audio.us);
+  }
+
+  // 2. Youdao Native Human Studio Recordings (Oxford & Merriam-Webster Studio CDNs)
+  // Type 1: UK English (Giọng Anh chuẩn Oxford)
+  // Type 2: US English (Giọng Mỹ chuẩn Webster)
+  urls.push(`https://dict.youdao.com/dictvoice?audio=${encoded}&type=${isUk ? 1 : 2}`);
+
+  // 3. Google Translate High-Definition Speech Engine (Bản xứ phát âm tự nhiên)
+  urls.push(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang}&q=${encoded}`);
+  urls.push(`https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&tl=${lang}&q=${encoded}`);
+
+  // 4. Google GStatic Official Dictionary Sound CDN (nếu là từ đơn)
+  if (singleWord && singleWord === lower) {
+    urls.push(`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${singleWord}--_${isUk ? 'gb' : 'us'}_1.mp3`);
+    urls.push(`https://api.dictionaryapi.dev/media/pronunciations/en/${singleWord}-${isUk ? 'uk' : 'us'}.mp3`);
+  }
+
+  // 5. Fallback US/UK đảo chiều nếu nguồn trên hoàn toàn mất
+  urls.push(`https://dict.youdao.com/dictvoice?audio=${encoded}&type=${isUk ? 2 : 1}`);
+
+  return urls;
 }
 
 /**
- * Tải trước (Preload) 1 từ vựng vào bộ nhớ đệm
+ * Tải trước (Preload) 1 từ vựng vào bộ nhớ đệm RAM
  */
-export function preloadWordAudio(cleanText, accent = 'us') {
+export function preloadWordAudio(cleanText, accent = 'us', cardObj = null) {
   if (!cleanText || typeof Audio === 'undefined') return null;
   const safeText = cleanText.trim().toLowerCase();
   const safeAccent = (accent || 'us').toLowerCase();
@@ -138,7 +185,7 @@ export function preloadWordAudio(cleanText, accent = 'us') {
     return _audioCache.get(key);
   }
 
-  const urls = getNativeAudioUrls(safeText, safeAccent);
+  const urls = getNativeAudioUrls(safeText, safeAccent, cardObj);
   const audio = new Audio();
   audio.preload = 'auto';
 
@@ -179,6 +226,15 @@ export function preloadWordAudio(cleanText, accent = 'us') {
 }
 
 /**
+ * Tải trước cả 2 giọng US và UK cho danh sách thẻ
+ */
+export function preloadBothAccents(cleanText, cardObj = null) {
+  if (!cleanText) return;
+  preloadWordAudio(cleanText, 'us', cardObj);
+  preloadWordAudio(cleanText, 'uk', cardObj);
+}
+
+/**
  * Dừng toàn bộ âm thanh đang phát
  */
 export function stopAudio() {
@@ -194,13 +250,18 @@ export function stopAudio() {
       window.speechSynthesis.cancel();
     } catch (e) {}
   }
+  notifyPlayState(false);
 }
 
 /**
  * Phát âm bằng giọng đọc Neural/Natural của trình duyệt (Web Speech API)
  */
-export function speakTTS(text, accent = 'us', lang = null, speechRate = 0.9) {
-  if (typeof window === 'undefined' || !window.speechSynthesis) return;
+export function speakTTS(text, accent = 'us', lang = null, speechRate = 0.9, onEnd = null) {
+  if (typeof window === 'undefined' || !window.speechSynthesis) {
+    if (onEnd) onEnd();
+    notifyPlayState(false, accent, text);
+    return;
+  }
 
   try {
     initVoiceCache();
@@ -223,7 +284,16 @@ export function speakTTS(text, accent = 'us', lang = null, speechRate = 0.9) {
       utterance.voice = chosenVoice;
     }
 
+    notifyPlayState(true, accent, text);
+
+    const finish = () => {
+      notifyPlayState(false, accent, text);
+      if (onEnd) onEnd();
+    };
+
+    utterance.onend = finish;
     utterance.onerror = (e) => {
+      finish();
       if (e && e.error !== 'canceled' && e.error !== 'interrupted') {
         console.warn('Lỗi SpeechSynthesis utterance:', e.error);
       }
@@ -232,11 +302,13 @@ export function speakTTS(text, accent = 'us', lang = null, speechRate = 0.9) {
     window.speechSynthesis.speak(utterance);
   } catch (e) {
     console.warn('Lỗi SpeechSynthesis TTS:', e);
+    notifyPlayState(false, accent, text);
+    if (onEnd) onEnd();
   }
 }
 
 /**
- * Phát âm từ vựng với Dual Native Audio Engine
+ * Phát âm từ vựng với Dual Native Audio Engine & Kích hoạt hiệu ứng Equalizer
  */
 export function speak(text, options = {}) {
   if (!text || typeof text !== 'string') return;
@@ -247,6 +319,8 @@ export function speak(text, options = {}) {
   const accent = (options.accent || settings.audioAccent || 'us').toLowerCase();
   const lang = options.lang || null;
   const speechRate = options.speechRate || settings.speechRate || 1.0;
+  const onStart = options.onStart || null;
+  const onEnd = options.onEnd || null;
 
   unlockAudioContext();
   stopAudio();
@@ -256,26 +330,47 @@ export function speak(text, options = {}) {
   // Phát âm từ hoặc cụm từ ngắn (<= 6 từ) qua Native MP3 Audio
   if (wordCount <= 6 && typeof Audio !== 'undefined') {
     try {
-      const cachedEntry = preloadWordAudio(cleanText, accent);
+      const cachedEntry = preloadWordAudio(cleanText, accent, options.cardObj);
       if (cachedEntry && !cachedEntry.failed) {
         const audio = cachedEntry.audio;
         _currentPlayingAudio = audio;
         audio.currentTime = 0;
         audio.playbackRate = speechRate;
+
+        const handleEnded = () => {
+          if (_currentPlayingAudio === audio) {
+            _currentPlayingAudio = null;
+          }
+          notifyPlayState(false, accent, cleanText);
+          if (onEnd) onEnd();
+        };
+
+        const handlePlaying = () => {
+          notifyPlayState(true, accent, cleanText);
+          if (onStart) onStart();
+        };
+
         const fallbackTimer = setTimeout(() => {
           if (_currentPlayingAudio === audio && audio.paused) {
             try {
               audio.pause();
             } catch (e) {}
             _currentPlayingAudio = null;
-            speakTTS(cleanText, accent, lang, speechRate);
+            speakTTS(cleanText, accent, lang, speechRate, onEnd);
           }
         }, 2500);
-        audio.addEventListener('playing', () => clearTimeout(fallbackTimer), { once: true });
+
+        audio.addEventListener('playing', () => {
+          clearTimeout(fallbackTimer);
+          handlePlaying();
+        }, { once: true });
+
+        audio.addEventListener('ended', handleEnded, { once: true });
+
         audio.addEventListener('error', () => {
           if (cachedEntry.failed) {
             clearTimeout(fallbackTimer);
-            speakTTS(cleanText, accent, lang, speechRate);
+            speakTTS(cleanText, accent, lang, speechRate, onEnd);
           }
         }, { once: true });
 
@@ -284,7 +379,7 @@ export function speak(text, options = {}) {
           playPromise.then(() => {}).catch((err) => {
             clearTimeout(fallbackTimer);
             if (err && err.name === 'AbortError') return;
-            speakTTS(cleanText, accent, lang, speechRate);
+            speakTTS(cleanText, accent, lang, speechRate, onEnd);
           });
         }
         return;
@@ -295,13 +390,16 @@ export function speak(text, options = {}) {
   }
 
   // Fallback sang Neural Web Speech API
-  speakTTS(cleanText, accent, lang, speechRate);
+  speakTTS(cleanText, accent, lang, speechRate, onEnd);
 }
 
 export const AudioService = {
   unlockAudioContext,
   initVoiceCache,
   preloadWordAudio,
+  preloadBothAccents,
+  getNativeAudioUrls,
+  onAudioPlayStateChange,
   speak,
   speakTTS,
   stopAudio
