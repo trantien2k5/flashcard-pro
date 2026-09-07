@@ -1,3 +1,5 @@
+import { escapeHTML } from '../utils/helpers.js';
+
 /**
  * Search Modal Component - Global Instant Search across all vocabulary cards
  */
@@ -134,12 +136,3 @@ export function setupSearch(app) {
   }
 }
 
-function escapeHTML(value) {
-  return String(value ?? '').replace(/[&<>"']/g, ch => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  }[ch]));
-}

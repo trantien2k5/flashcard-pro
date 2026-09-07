@@ -6,16 +6,7 @@ import { Rating } from '../fsrs.js';
 import { showConfirm } from './feedback.js';
 import { globalStudyTimer } from '../timer.js';
 import { unlockAudioContext } from '../study-session.js';
-
-function escapeHTML(value) {
-  return String(value ?? '').replace(/[&<>"']/g, ch => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  }[ch]));
-}
+import { escapeHTML } from '../utils/helpers.js';
 
 export function setupStudyControls(app) {
   try {

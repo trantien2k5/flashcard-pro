@@ -8,17 +8,12 @@ import { StudySession } from './study-session.js';
 import { StatsManager } from './stats.js';
 import { SyncManager } from './sync-manager.js';
 
-// Views
+// Views & Subpages
 import { renderReviewTab } from './views/review-view.js';
-import {
-  renderDecksTab,
-  openSubtopicsPage,
-  renderSubtopicsPage,
-  openSubtopicDetailPage,
-  renderSubtopicDetailPage,
-  openSubtopicWordsPage,
-  renderSubtopicWordsPage
-} from './views/decks-view.js';
+import { renderDecksTab } from './views/decks-view.js';
+import { openSubtopicsPage, renderSubtopicsPage } from './views/subtopics-view.js';
+import { openSubtopicDetailPage, renderSubtopicDetailPage } from './components/subtopic-modal.js';
+import { openSubtopicWordsPage, renderSubtopicWordsPage } from './views/subtopic-words-view.js';
 import { renderStatsTab } from './views/stats-view.js';
 import { setupSettingsUI } from './views/settings-view.js';
 import { renderProfileTab } from './views/profile-view.js';

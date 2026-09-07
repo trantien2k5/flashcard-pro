@@ -45,6 +45,7 @@ simple-flashcard/
 ├── js/                           # JavaScript ES Modules (Toàn bộ logic nghiệp vụ)
 │   ├── app.js                    # [Controller chính] Router tab, khởi tạo hệ thống, orchestrator
 │   ├── constants.js              # Hằng số hệ thống, ánh xạ tên tiếng Anh, icons, badges
+│   ├── audio-service.js          # [Dual Audio Engine] Studio MP3 CDN + Web Speech TTS + Preload Cache
 │   ├── fsrs.js                   # [Lõi FSRS-6] Thuật toán Spaced Repetition thuần JS (19 tham số W)
 │   ├── deck-manager.js           # Quản lý metadata topics, nạp từ dynamic import từ data/
 │   ├── study-session.js          # Quản lý phiên học (Queue, next card, flip, preloading audio, logs)
@@ -52,14 +53,19 @@ simple-flashcard/
 │   ├── sync-manager.js           # Lõi Bắt tay 2 Chiều (Universal 2-Way Handshake) & Smart Merge
 │   ├── stats.js                  # Tính toán số liệu thống kê FSRS, biểu đồ tiến độ 7 ngày, streak
 │   ├── timer.js                  # Bộ đếm thời gian học tập & tính toán chuỗi ngày học liên tục (Streak)
+│   ├── utils/
+│   │   └── helpers.js            # Tiện ích dùng chung (escapeHTML, safeColor, debounce, formatDate)
 │   ├── components/
 │   │   ├── study.js              # Controller giao diện phiên học, bàn phím (1-4, Space), gesture vuốt
 │   │   ├── search.js             # Controller tìm kiếm toàn cục (Debounce 150ms, highlight từ khóa)
 │   │   ├── sync.js               # Controller Đồng bộ 2 Chiều & Camera Scanner
-│   │   └── feedback.js           # Controller hiển thị Toast, Confirm Dialog
+│   │   ├── feedback.js           # Controller hiển thị Toast, Confirm Dialog
+│   │   └── subtopic-modal.js     # Modal Popup chi tiết chủ đề con (Level 3 Modal Dialog)
 │   └── views/
 │       ├── review-view.js        # Render tab Ôn tập & thanh biểu đồ 5 cấp độ nhớ
-│       ├── decks-view.js         # Render tab Bộ đề & 4 cấp độ điều hướng (Topics -> Subtopics -> Details -> Words)
+│       ├── decks-view.js         # Render tab Bộ đề (Level 1 Decks List & Filter/Search)
+│       ├── subtopics-view.js     # Render danh sách chặng / chủ đề con (Level 2 Subpage & Hero Card)
+│       ├── subtopic-words-view.js# Render danh sách từ vựng chi tiết (Level 4 Subpage & Phân trang)
 │       ├── stats-view.js         # Render tab Thống kê 4 khu vực chuẩn
 │       ├── profile-view.js       # Render tab Cá nhân, Thành tích, Export/Import JSON
 │       └── settings-view.js      # Render tab Cài đặt & nút test âm thanh bản xứ
