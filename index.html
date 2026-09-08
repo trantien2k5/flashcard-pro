@@ -37,6 +37,9 @@
       </div>
 
       <div class="header-actions">
+        <button class="btn-icon" id="btn-header-search" title="Tìm kiếm nâng cao (Ctrl+K hoặc /)" aria-label="Tìm kiếm từ vựng" style="background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 8px; width: 34px; height: 34px; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+          🔍
+        </button>
         <button class="btn-icon" id="btn-header-sync" title="Đồng bộ đa thiết bị (Máy tính ↔ Điện thoại)" style="background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 8px; width: 34px; height: 34px; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;">
           🔄
         </button>
@@ -1133,6 +1136,53 @@
               <button type="button" id="btn-sync-manual-submit" class="btn-paste-inside" style="right: 4px; padding: 8px 14px;">Bắt đầu 🚀</button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= UNIVERSAL SPOTLIGHT SEARCH MODAL ================= -->
+    <div id="search-modal" class="modal-overlay">
+      <div class="modal-content search-modal-dialog">
+        <!-- Search Top Header Input -->
+        <div class="search-modal-header">
+          <div class="search-box-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="global-search-input" class="search-input" placeholder="Tìm từ vựng, nghĩa, IPA, ví dụ, cấp độ CEFR..." autocomplete="off" spellcheck="false">
+            <button type="button" id="btn-clear-search-input" class="search-clear-btn" style="display: none;" title="Xóa từ khóa">✕</button>
+          </div>
+          <button type="button" class="modal-close" id="btn-close-search-modal" aria-label="Đóng tìm kiếm">✕</button>
+        </div>
+
+        <!-- Quick Filter Chips: POS, CEFR Level, Memory State -->
+        <div class="search-quick-filters" id="search-quick-filters">
+          <button class="search-filter-tag active" data-search-filter="all" type="button">Tất cả</button>
+          <button class="search-filter-tag" data-search-filter="pos:noun" type="button">Danh từ</button>
+          <button class="search-filter-tag" data-search-filter="pos:verb" type="button">Động từ</button>
+          <button class="search-filter-tag" data-search-filter="pos:adj" type="button">Tính từ</button>
+          <button class="search-filter-tag" data-search-filter="cefr:b1" type="button">B1/B2</button>
+          <button class="search-filter-tag" data-search-filter="cefr:c1" type="button">C1/C2</button>
+          <button class="search-filter-tag" data-search-filter="state:due" type="button">⚠️ Cần ôn</button>
+          <button class="search-filter-tag" data-search-filter="state:new" type="button">🆕 Chưa học</button>
+        </div>
+
+        <!-- Search History & Recent Suggestions (Shown when query is empty) -->
+        <div id="search-empty-state" class="search-empty-state">
+          <!-- Dynamic history and hot tags -->
+        </div>
+
+        <!-- Search Results List Container -->
+        <div class="search-modal-results" id="search-modal-results" style="display: none;">
+          <!-- Dynamic search result cards -->
+        </div>
+
+        <!-- Search Footer Bar with Keyboard shortcuts hints -->
+        <div class="search-modal-footer">
+          <div class="search-shortcut-hints">
+            <span><kbd>Esc</kbd> Đóng</span>
+            <span><kbd>↵</kbd> Chi tiết</span>
+            <span><kbd>Ctrl</kbd>+<kbd>K</kbd> Tìm kiếm</span>
+          </div>
+          <span id="search-result-count" class="search-result-count-label"></span>
         </div>
       </div>
     </div>
