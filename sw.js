@@ -4,9 +4,53 @@
  */
 
 const CACHE_NAME = 'flashcard-pro-v2.6.0';
+const PRECACHE_ASSETS = [
+  './',
+  './index.html',
+  './manifest.json',
+  './assets/icons/favicon.svg',
+  './assets/icons/icon-192.png',
+  './assets/icons/icon-512.png',
+  './assets/icons/icon.svg',
+  './css/style.css?v=2.6.0',
+  './css/main.css',
+  './css/components.css',
+  './css/flashcard.css',
+  './css/views/review.css',
+  './css/views/decks.css',
+  './css/views/stats.css',
+  './css/views/settings.css',
+  './js/app.js?v=2.6.0',
+  './js/config.js',
+  './js/utils.js',
+  './js/core/fsrs.js',
+  './js/core/session.js',
+  './js/core/stats.js',
+  './js/core/selectors.js',
+  './js/services/storage.js',
+  './js/services/audio.js',
+  './js/services/sync.js',
+  './js/views/components.js',
+  './js/views/review.js',
+  './js/views/decks.js',
+  './js/views/stats.js',
+  './js/views/settings.js',
+  './js/views/study.js',
+  './data/index.js',
+  './data/schemas.js',
+  './data/validators.js',
+  './data/topics.js',
+  './data/words.js'
+];
 
 self.addEventListener('install', (event) => {
-  self.skipWaiting();
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(PRECACHE_ASSETS).catch((err) => {
+        console.warn('Pre-cache partial fallback:', err);
+      });
+    }).then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener('activate', (event) => {

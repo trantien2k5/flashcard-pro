@@ -1,0 +1,82 @@
+{
+  "name": "Flashcard English Pro - Spaced Repetition FSRS-6",
+  "short_name": "Flashcard Pro",
+  "description": "Ứng dụng học từ vựng tiếng Anh qua flashcard với thuật toán lặp lại ngắt quãng FSRS-6 và phát âm bản xứ, hoạt động 100% Offline-First.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "lang": "vi-VN",
+  "dir": "ltr",
+  "categories": [
+    "education",
+    "productivity",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-maskable.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ôn tập ngay",
+      "short_name": "Ôn tập",
+      "description": "Bắt đầu phiên ôn tập từ vựng đến hạn",
+      "url": "./index.html#tab-review",
+      "icons": [
+        {
+          "src": "assets/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Duyệt chủ đề",
+      "short_name": "Chủ đề",
+      "description": "Khám phá 16 chủ đề từ vựng tiếng Anh",
+      "url": "./index.html#tab-decks",
+      "icons": [
+        {
+          "src": "assets/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Báo cáo thống kê",
+      "short_name": "Thống kê",
+      "description": "Xem tiến trình và phân bố độ bền trí nhớ",
+      "url": "./index.html#tab-stats",
+      "icons": [
+        {
+          "src": "assets/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
