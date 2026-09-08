@@ -30,6 +30,18 @@ export class AppRouter {
       });
     });
 
+    // Nút Hồ sơ trên Header góc phải cùng
+    const btnHeaderProfile = document.getElementById('btn-header-profile');
+    if (btnHeaderProfile) {
+      btnHeaderProfile.addEventListener('click', () => {
+        try {
+          this.switchTab('tab-profile');
+        } catch (err) {
+          console.error('Lỗi btn-header-profile:', err);
+        }
+      });
+    }
+
     // Nút Quay lại từ trang chủ đề (Level 2) về danh sách tất cả chủ đề
     const btnBack = document.getElementById('btn-back-to-decks');
     if (btnBack) {
@@ -103,6 +115,12 @@ export class AppRouter {
       document.querySelectorAll('.nav-item').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-tab') === navTargetId);
       });
+
+      // Cập nhật trạng thái nút hồ sơ trên header
+      const btnHeaderProfile = document.getElementById('btn-header-profile');
+      if (btnHeaderProfile) {
+        btnHeaderProfile.classList.toggle('active', tabId === 'tab-profile');
+      }
 
       // Cuộn đầu trang mượt mà
       scrollToTop();

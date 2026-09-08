@@ -37,16 +37,22 @@
       </div>
 
       <div class="header-actions">
-        <button class="btn-icon" id="btn-header-search" title="Tìm kiếm nâng cao (Ctrl+K hoặc /)" aria-label="Tìm kiếm từ vựng" style="background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 8px; width: 34px; height: 34px; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center;">
-          🔍
-        </button>
-        <button class="btn-icon" id="btn-header-sync" title="Đồng bộ đa thiết bị (Máy tính ↔ Điện thoại)" style="background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 8px; width: 34px; height: 34px; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;">
-          🔄
-        </button>
         <div class="streak-pill" id="header-streak" title="Chuỗi học liên tục">
           <span>🔥</span>
           <span id="streak-count">0 ngày</span>
         </div>
+        <button class="btn-icon" id="btn-header-search" title="Tìm kiếm nâng cao (Ctrl+K hoặc /)" aria-label="Tìm kiếm từ vựng">
+          🔍
+        </button>
+        <button class="btn-icon" id="btn-header-sync" title="Đồng bộ đa thiết bị (Máy tính ↔ Điện thoại)">
+          🔄
+        </button>
+        <button class="btn-icon btn-header-profile" id="btn-header-profile" data-tab="tab-profile" title="Hồ sơ cá nhân & Thành tích" aria-label="Hồ sơ cá nhân">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </button>
       </div>
     </header>
 
@@ -61,7 +67,7 @@
         </div>
       </div>
 
-      <!-- Navigation Items (5 Tabs) -->
+      <!-- Navigation Items (4 Tabs) -->
       <div class="sidebar-nav-list">
         <button class="nav-item active" data-tab="tab-review">
           <span class="nav-icon">
@@ -93,16 +99,6 @@
             </svg>
           </span>
           <span class="nav-label">Thống kê</span>
-        </button>
-
-        <button class="nav-item" data-tab="tab-profile">
-          <span class="nav-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
-            </svg>
-          </span>
-          <span class="nav-label">Cá nhân</span>
         </button>
 
         <button class="nav-item" data-tab="tab-settings">
