@@ -646,9 +646,9 @@
 
 .btn-hero-study {
   width: 100%;
-  min-height: 44px;
-  padding: 10px 20px;
-  font-size: 0.92rem;
+  min-height: 50px;
+  padding: 13px 22px;
+  font-size: 1rem;
   font-weight: 700;
   border-radius: 14px;
   display: inline-flex;
@@ -662,6 +662,8 @@
   border: none;
   cursor: pointer;
   letter-spacing: 0.01em;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-hero-study:hover {
@@ -1460,22 +1462,24 @@
 
 .btn-modal-action {
   width: 100%;
-  padding: 12px 10px;
-  font-size: 0.88rem;
+  padding: 13px 12px;
+  font-size: 0.94rem;
   font-weight: 700;
-  border-radius: var(--radius-md, 10px);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   gap: 6px;
-  min-height: 46px;
+  min-height: 50px;
   box-sizing: border-box;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-modal-action span {
@@ -1489,6 +1493,8 @@
   color: #ffffff;
   border: none;
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+  min-height: 50px;
+  border-radius: 14px;
 }
 
 .subtopic-action-group .btn-primary-hero:hover {
@@ -1498,18 +1504,21 @@
 
 .btn-secondary-action {
   width: 100%;
-  border-radius: var(--radius-md, 10px);
+  border-radius: 14px;
   background: var(--bg-tertiary);
   color: var(--text-primary);
   border: 1.5px solid var(--border);
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
+  min-height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 [data-theme="light"] .btn-secondary-action {
@@ -1690,8 +1699,10 @@
   }
 
   .yt-back-btn {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 12px;
   }
 
   .yt-header-title {
@@ -1725,10 +1736,10 @@
   }
 
   .btn-hero-study {
-    min-height: 42px;
-    padding: 9px 16px;
-    font-size: 0.88rem;
-    border-radius: 12px;
+    min-height: 48px;
+    padding: 12px 18px;
+    font-size: 0.98rem;
+    border-radius: 14px;
   }
 
   .subpage-deck-meta {

@@ -188,19 +188,22 @@
 
 .btn-confirm-secondary {
   flex: 1;
+  min-height: 48px;
   padding: 12px 18px;
-  border-radius: 12px;
+  border-radius: 14px;
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   color: var(--text-secondary);
   font-weight: 700;
-  font-size: 0.94rem;
+  font-size: 0.96rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   transition: all 0.15s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-confirm-secondary:hover {
@@ -211,13 +214,14 @@
 
 .btn-confirm-primary {
   flex: 1.1;
+  min-height: 48px;
   padding: 12px 18px;
-  border-radius: 12px;
+  border-radius: 14px;
   background: linear-gradient(135deg, #ef4444, #dc2626);
   border: none;
   color: white;
   font-weight: 700;
-  font-size: 0.94rem;
+  font-size: 0.96rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -225,6 +229,8 @@
   gap: 8px;
   box-shadow: 0 4px 16px rgba(239, 68, 68, 0.35);
   transition: all 0.15s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-confirm-primary:hover {
