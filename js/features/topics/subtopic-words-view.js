@@ -150,6 +150,9 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
             cardStatusBadge = `<span class="subtopic-badge badge-learning">Đang học</span>`;
           }
 
+          const posText = (card.pos || '').toUpperCase();
+          const cefrLevel = (card.cefr || card.level || '').toUpperCase();
+
           const wordCardEl = document.createElement('div');
           wordCardEl.className = 'word-item-card';
           wordCardEl.innerHTML = `
@@ -158,7 +161,8 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
                 <span class="word-index">#${globalIdx}</span>
                 <span class="word-text">${escapeHTML(card.word)}</span>
                 ${card.phonetic ? `<span class="word-phonetic">${escapeHTML(card.phonetic)}</span>` : ''}
-                ${card.pos ? `<span class="badge-tag">${escapeHTML(card.pos)}</span>` : ''}
+                ${posText ? `<span class="card-pos-tag" style="font-size: 0.68rem; padding: 2px 8px;">${escapeHTML(posText)}</span>` : ''}
+                ${cefrLevel ? `<span class="card-cefr-tag" style="font-size: 0.68rem; padding: 2px 8px;">${escapeHTML(cefrLevel)}</span>` : ''}
               </div>
               <div class="word-card-actions">
                 ${cardStatusBadge}
@@ -167,6 +171,7 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
             </div>
             <div class="word-meaning">${escapeHTML(card.meaning || '')}</div>
             ${card.definition ? `<div class="word-definition">${escapeHTML(card.definition)}</div>` : ''}
+            ${card.example ? `<div class="word-example" style="margin-top: 4px; font-size: 0.78rem; color: var(--text-muted); font-style: italic; border-left: 2px solid rgba(99, 102, 241, 0.3); padding-left: 8px;">"${escapeHTML(card.example)}"${card.exampleVi ? `<div style="font-size: 0.74rem; color: var(--text-secondary); margin-top: 1px; font-style: normal;">${escapeHTML(card.exampleVi)}</div>` : ''}</div>` : ''}
           `;
 
           const ttsBtn = wordCardEl.querySelector('.btn-tts-audio');
