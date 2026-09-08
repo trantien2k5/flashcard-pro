@@ -129,6 +129,10 @@
   body.subpage-view-active .bottom-nav {
     display: none !important;
   }
+
+  body.subpage-view-active .tab-content-area {
+    padding-bottom: max(var(--safe-bottom, 12px), 12px);
+  }
 }
 
 /* ==========================================================================
