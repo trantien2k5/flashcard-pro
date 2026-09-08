@@ -2,10 +2,10 @@
  * Vocabulary Selectors & Deck Management Core
  */
 
-import { StorageManager } from '../../services/storage.js';
-import { FSRS, State } from '../learning/fsrs.js';
-import { getLocalDateKey } from '../../utils/format.js';
-import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords } from '../../../data/index.js';
+import { StorageManager } from '../services/storage.js';
+import { FSRS, State } from './fsrs.js';
+import { getLocalDateKey } from '../utils.js';
+import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords } from '../../data/index.js';
 
 export class DeckManager {
   constructor() {

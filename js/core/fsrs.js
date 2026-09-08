@@ -3,9 +3,27 @@
  * Pure JavaScript implementation of the modern FSRS-6 algorithm.
  */
 
-import { Rating, State, DEFAULT_FSRS_PARAMS } from '../../config/fsrs.js';
+import { Rating, State, DEFAULT_FSRS_PARAMS } from '../config.js';
 
 export { Rating, State };
+
+/**
+ * Kiểm tra xem thẻ đã từng được học và có độ bền trí nhớ hợp lệ hay chưa
+ */
+export function isCardLearned(cardState) {
+  return Boolean(cardState && cardState.state !== State.New && cardState.state !== 0 && cardState.stability > 0);
+}
+
+/**
+ * Kiểm tra xem thẻ đã đến hạn cần ôn tập theo thuật toán FSRS hay chưa
+ */
+export function isCardDue(cardState, now = new Date()) {
+  if (!cardState || cardState.state === State.New || cardState.state === 0) return false;
+  if (!cardState.due) return false;
+  const dueTime = new Date(cardState.due).getTime();
+  const nowTime = now instanceof Date ? now.getTime() : new Date(now).getTime();
+  return dueTime <= nowTime;
+}
 
 export class FSRS {
   constructor(params = {}) {
@@ -113,7 +131,6 @@ export class FSRS {
    * Tính khoảng thời gian ôn tập tiếp theo (theo ngày) dựa trên Stability và Target Retention
    */
   nextInterval(stability, requestRetention = this.requestRetention) {
-    // Công thức đảo của Retrievability: I = S / factor * (r^(-1/decay) - 1)
     const interval = (stability / this.factor) * (Math.pow(requestRetention, -1 / this.decay) - 1);
     let days = Math.round(interval);
     days = Math.max(1, days);

@@ -2,16 +2,141 @@
  * Study View Controller - Flashcard 3D Interactive Learning Engine
  */
 
-import { Rating } from '../../core/learning/fsrs.js';
-import { showConfirm } from '../../shared/feedback.js';
-import { globalStudyTimer } from '../../core/statistics/timer.js';
-import { unlockAudioContext } from '../../core/learning/study-session.js';
-import { escapeHTML } from '../../utils/sanitize.js';
-import { formatCleanInterval } from '../../utils/format.js';
-import { onAudioPlayStateChange, speak } from '../../services/audio.js';
+import { Rating } from '../core/fsrs.js';
+import { showConfirm } from './components.js';
+import { globalStudyTimer } from '../core/stats.js';
+import { unlockAudioContext } from '../core/session.js';
+import { escapeHTML, formatCleanInterval } from '../utils.js';
+import { onAudioPlayStateChange, speak } from '../services/audio.js';
+
+export function renderStudyOverlayShell() {
+  let overlay = document.getElementById('study-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'study-overlay';
+    overlay.className = 'study-overlay';
+    document.body.appendChild(overlay);
+  }
+
+  if (!overlay.querySelector('.study-header-bar')) {
+    overlay.innerHTML = `
+      <div class="study-header-bar">
+        <div class="study-header-inner">
+          <button id="btn-study-close" class="btn-study-exit" title="Thoát phiên học (Esc)" aria-label="Đóng phiên học">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18M6 6l12 12"/>
+            </svg>
+          </button>
+
+          <div class="study-top-bar">
+            <div class="study-progress-track-wrapper">
+              <div class="study-progress-track">
+                <div id="study-progress-bar-fill" class="study-progress-bar-fill" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="study-progress-counter" id="study-progress-text">
+              <span class="counter-num">0</span><span class="counter-sep">/</span><span class="counter-total">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="study-body-wrapper">
+        <div class="flashcard-stage">
+          <div id="flashcard-element" class="flashcard-3d-wrapper">
+            <!-- Front Face -->
+            <div class="flashcard-face face-front">
+              <div class="card-center-content">
+                <div class="card-audio-dual-row" id="card-audio-dual-row">
+                  <button type="button" class="btn-audio-accent-pill btn-audio-us" id="btn-audio-us" title="Phát âm tiếng Anh - Mỹ (US)" aria-label="Phát âm US">
+                    <span class="audio-flag">🇺🇸</span>
+                    <span class="audio-accent-label">US</span>
+                    <span class="audio-speaker-symbol">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                    </span>
+                    <span class="audio-eq-bars">
+                      <span class="eq-bar bar-1"></span>
+                      <span class="eq-bar bar-2"></span>
+                      <span class="eq-bar bar-3"></span>
+                    </span>
+                  </button>
+                  <button type="button" class="btn-audio-accent-pill btn-audio-uk" id="btn-audio-uk" title="Phát âm tiếng Anh - Anh (UK)" aria-label="Phát âm UK">
+                    <span class="audio-flag">🇬🇧</span>
+                    <span class="audio-accent-label">UK</span>
+                    <span class="audio-speaker-symbol">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                    </span>
+                    <span class="audio-eq-bars">
+                      <span class="eq-bar bar-1"></span>
+                      <span class="eq-bar bar-2"></span>
+                      <span class="eq-bar bar-3"></span>
+                    </span>
+                  </button>
+                </div>
+                <h2 class="card-word-title" id="card-front-word">...</h2>
+                <div class="card-phonetic-box">
+                  <span id="card-front-phonetic">/.../</span>
+                </div>
+              </div>
+              <div class="card-tap-hint">
+                <span class="hint-touch">Chạm thẻ để xem nghĩa</span>
+                <span class="hint-mouse">Click hoặc nhấn Space để xem nghĩa</span>
+              </div>
+            </div>
+
+            <!-- Back Face -->
+            <div class="flashcard-face face-back">
+              <div class="card-center-content">
+                <div class="card-badges-row">
+                  <span class="card-pos-tag" id="card-pos-badge-back">WORD</span>
+                  <span class="card-cefr-tag" id="card-cefr-badge-back">A1</span>
+                </div>
+                <div class="card-meaning-vi" id="card-back-meaning">...</div>
+                <div class="card-example-box">
+                  <div class="card-example-en" id="card-back-example">...</div>
+                  <div class="card-example-vi" id="card-back-example-vi">...</div>
+                </div>
+              </div>
+              <div class="card-tap-hint">
+                <span class="hint-touch">Chạm thẻ để lật lại</span>
+                <span class="hint-mouse">Click hoặc nhấn Space để lật lại</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="study-bottom-controls" id="study-controls-wrapper">
+          <div id="fsrs-buttons-container" class="fsrs-buttons-grid">
+            <button class="btn-fsrs-rating again" data-rating="1" title="Quên (1)">
+              <span class="fsrs-rating-title">Quên</span>
+              <span class="fsrs-badge-interval" id="interval-again">1m</span>
+            </button>
+
+            <button class="btn-fsrs-rating hard" data-rating="2" title="Khó (2)">
+              <span class="fsrs-rating-title">Khó</span>
+              <span class="fsrs-badge-interval" id="interval-hard">10m</span>
+            </button>
+
+            <button class="btn-fsrs-rating good" data-rating="3" title="Nhớ (3)">
+              <span class="fsrs-rating-title">Nhớ</span>
+              <span class="fsrs-badge-interval" id="interval-good">1d</span>
+            </button>
+
+            <button class="btn-fsrs-rating easy" data-rating="4" title="Dễ (4)">
+              <span class="fsrs-rating-title">Dễ</span>
+              <span class="fsrs-badge-interval" id="interval-easy">4d</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+}
 
 export function setupStudyControls(app) {
   try {
+    renderStudyOverlayShell();
     const overlay = document.getElementById('study-overlay');
     const flashcardEl = document.getElementById('flashcard-element');
     const fsrsButtonsContainer = document.getElementById('fsrs-buttons-container');

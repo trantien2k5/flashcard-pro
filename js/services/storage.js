@@ -4,10 +4,13 @@
  */
 
 import { LEGACY_ID_MAP } from '../../data/index.js';
-import { getLocalDateKey } from '../utils/format.js';
+import { getLocalDateKey } from '../utils.js';
+import { DEFAULT_SETTINGS, APP_CONFIG } from '../config.js';
 
-const DB_NAME = 'FlashcardProDB';
-const DB_VERSION = 1;
+export { DEFAULT_SETTINGS };
+
+const DB_NAME = APP_CONFIG.dbName || 'FlashcardProDB';
+const DB_VERSION = APP_CONFIG.dbVersion || 1;
 
 const STORES = {
   CARDS: 'cards',
@@ -25,17 +28,6 @@ const STORAGE_KEYS = {
   STUDY_LOGS: 'fsrs_study_logs_v1',
   STUDY_TIME: 'fsrs_study_time_v1',
   USER_PROGRESS: 'fsrs_user_progress_v1'
-};
-
-export const DEFAULT_SETTINGS = {
-  requestRetention: 0.90, // 90% target retention
-  dailyNewLimit: 10,
-  dailyReviewLimit: 50,
-  autoPronounce: true,
-  speechRate: 0.9,
-  speechVoice: 'en-US',
-  audioAccent: 'us', // 'us' (Anh - Mỹ) or 'uk' (Anh - Anh)
-  theme: 'light'
 };
 
 let _cardsCache = null;
@@ -738,3 +730,65 @@ export class StorageManager {
 if (typeof window !== 'undefined') {
   window.StorageManager = StorageManager;
 }
+
+export class BackupService {
+  /**
+   * Export all user data to a downloadable JSON file
+   */
+  static exportToJSON(filename = null) {
+    try {
+      const data = StorageManager.exportBackup();
+      const jsonStr = JSON.stringify(data, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      
+      const dateStr = new Date().toISOString().slice(0, 10);
+      const safeFilename = filename || `flashcard_pro_backup_${dateStr}.json`;
+
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = safeFilename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+      return { success: true, count: Object.keys(data.cards || {}).length };
+    } catch (e) {
+      console.error('[BackupService] Export error:', e);
+      return { success: false, error: e.message };
+    }
+  }
+
+  /**
+   * Import data from a selected File or JSON text
+   */
+  static async importFromFile(file) {
+    if (!file) {
+      return { success: false, error: 'Không tìm thấy tệp dữ liệu để nhập.' };
+    }
+
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = async (event) => {
+        try {
+          const parsed = JSON.parse(event.target.result);
+          const result = await StorageManager.importBackup(parsed);
+          resolve(result);
+        } catch (err) {
+          resolve({ success: false, error: 'Tệp không đúng định dạng JSON hoặc bị lỗi cú pháp.' });
+        }
+      };
+      reader.onerror = () => resolve({ success: false, error: 'Không thể đọc tệp tin đã chọn.' });
+      reader.readAsText(file);
+    });
+  }
+
+  /**
+   * Reset all progress and settings
+   */
+  static async resetAll() {
+    return await StorageManager.clearAllData();
+  }
+}
+

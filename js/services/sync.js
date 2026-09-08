@@ -14,6 +14,16 @@ export class SimpleQRCode {
     const encoded = encodeURIComponent(text);
     return `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encoded}&margin=2`;
   }
+
+  static render(container, text, options = {}) {
+    if (!container) return;
+    const width = options.width || 220;
+    const height = options.height || 220;
+    const url = SimpleQRCode.generateURL(text, width);
+    container.innerHTML = `
+      <img src="${url}" alt="Mã QR Đồng bộ" width="${width}" height="${height}" style="max-width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto; background: #ffffff; padding: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" loading="lazy" />
+    `;
+  }
 }
 
 export class SyncManager {

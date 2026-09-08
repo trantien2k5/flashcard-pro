@@ -28,7 +28,7 @@
 }
 
 .study-overlay.active {
-  display: flex;
+  display: flex !important;
 }
 
 .study-header-bar {

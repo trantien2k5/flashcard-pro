@@ -8,13 +8,9 @@
     "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
-      "@app/*": ["js/app/*"],
-      "@config/*": ["js/config/*"],
       "@core/*": ["js/core/*"],
-      "@features/*": ["js/features/*"],
+      "@views/*": ["js/views/*"],
       "@services/*": ["js/services/*"],
-      "@shared/*": ["js/shared/*"],
-      "@utils/*": ["js/utils/*"],
       "@data/*": ["data/*"]
     }
   },

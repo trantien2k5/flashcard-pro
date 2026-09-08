@@ -3,15 +3,14 @@
  */
 
 import { FSRS, Rating } from './fsrs.js';
-import { StorageManager } from '../../services/storage.js';
+import { StorageManager } from '../services/storage.js';
 import { 
-  AudioService, 
   unlockAudioContext, 
   preloadWordAudio, 
   speak, 
   speakTTS, 
   stopAudio 
-} from '../../services/audio.js';
+} from '../services/audio.js';
 
 export { unlockAudioContext };
 
