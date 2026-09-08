@@ -36,7 +36,15 @@ export function setupSettingsUI(app) {
     if (!retentionSelect) return;
 
     // Khởi tạo giá trị ban đầu cho Dropdowns
-    retentionSelect.value = String(app.settings.requestRetention || 0.90);
+    const currentRetention = parseFloat(app.settings.requestRetention || 0.9);
+    retentionSelect.value = String(currentRetention);
+    if (!retentionSelect.value) {
+      retentionSelect.value = currentRetention.toFixed(2);
+    }
+    if (!retentionSelect.value) {
+      retentionSelect.value = "0.9";
+    }
+
     retentionSelect.addEventListener('change', (e) => {
       try {
         const val = parseFloat(e.target.value);
@@ -117,7 +125,15 @@ export function setupSettingsUI(app) {
 
     const speechRateSelect = document.getElementById('setting-speech-rate');
     if (speechRateSelect) {
-      speechRateSelect.value = String(app.settings.speechRate || 0.9);
+      const currentSpeechRate = parseFloat(app.settings.speechRate || 0.9);
+      speechRateSelect.value = String(currentSpeechRate);
+      if (!speechRateSelect.value) {
+        speechRateSelect.value = currentSpeechRate.toFixed(1);
+      }
+      if (!speechRateSelect.value) {
+        speechRateSelect.value = "0.9";
+      }
+
       speechRateSelect.addEventListener('change', (e) => {
         try {
           app.settings.speechRate = parseFloat(e.target.value);
