@@ -45,3 +45,16 @@ export function formatNumber(num = 0) {
 export function formatCleanInterval(text, fallback = '1d') {
   return (text || fallback).toString().replace(/^[<≤\s]+/, '').trim();
 }
+
+/**
+ * Lấy khóa ngày dạng YYYY-MM-DD theo giờ địa phương của thiết bị (chống lệch múi giờ UTC)
+ */
+export function getLocalDateKey(date = new Date()) {
+  if (!date) return '';
+  const d = (date instanceof Date) ? date : new Date(date);
+  if (isNaN(d.getTime())) return '';
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}

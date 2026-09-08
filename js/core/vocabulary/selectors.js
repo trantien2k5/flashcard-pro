@@ -4,6 +4,7 @@
 
 import { StorageManager } from '../../services/storage.js';
 import { FSRS, State } from '../learning/fsrs.js';
+import { getLocalDateKey } from '../../utils/format.js';
 import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords } from '../../../data/index.js';
 
 export class DeckManager {
@@ -365,9 +366,9 @@ export class DeckManager {
     let maxNew = settings.dailyNewLimit || 10;
     if (!deckId && !subtopic) {
       const logs = StorageManager.getStudyLogs();
-      const todayStr = new Date().toISOString().slice(0, 10);
+      const todayKey = getLocalDateKey();
       const newCardsStudiedToday = logs.filter(l => 
-        l.timestamp && l.timestamp.startsWith(todayStr) && (l.oldState === State.New || l.oldState === 0)
+        l.timestamp && getLocalDateKey(l.timestamp) === todayKey && (l.oldState === State.New || l.oldState === 0)
       ).length;
       maxNew = Math.max(0, maxNew - newCardsStudiedToday);
     } else {

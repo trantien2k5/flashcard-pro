@@ -4,6 +4,7 @@
  */
 
 import { LEGACY_ID_MAP } from '../../data/index.js';
+import { getLocalDateKey } from '../utils/format.js';
 
 const DB_NAME = 'FlashcardProDB';
 const DB_VERSION = 1;
@@ -393,7 +394,7 @@ export class StorageManager {
 
   static getTodayStudySeconds() {
     const timeMap = this.getStudyTimeMap();
-    const todayKey = new Date().toISOString().slice(0, 10);
+    const todayKey = getLocalDateKey();
     return timeMap[todayKey] || 0;
   }
 
@@ -401,7 +402,7 @@ export class StorageManager {
     if (!seconds || seconds <= 0) return 0;
     try {
       const timeMap = this.getStudyTimeMap();
-      const todayKey = new Date().toISOString().slice(0, 10);
+      const todayKey = getLocalDateKey();
       const current = timeMap[todayKey] || 0;
       const updated = current + Math.round(seconds);
       timeMap[todayKey] = updated;

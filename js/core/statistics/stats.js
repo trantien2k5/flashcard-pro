@@ -4,6 +4,7 @@
 
 import { StorageManager } from '../../services/storage.js';
 import { State, Rating } from '../learning/fsrs.js';
+import { getLocalDateKey } from '../../utils/format.js';
 
 export class StatsManager {
   /**
@@ -122,7 +123,7 @@ export class StatsManager {
     for (let i = 0; i < logs.length; i++) {
       const ts = logs[i].timestamp;
       if (ts) {
-        dateSet.add(ts.slice(0, 10));
+        dateSet.add(getLocalDateKey(ts));
       }
     }
 
@@ -133,10 +134,7 @@ export class StatsManager {
     for (let i = 0; i < 365; i++) {
       const d = new Date(today);
       d.setDate(today.getDate() - i);
-      const year = d.getFullYear();
-      const month = String(d.getMonth() + 1).padStart(2, '0');
-      const day = String(d.getDate()).padStart(2, '0');
-      const key = `${year}-${month}-${day}`;
+      const key = getLocalDateKey(d);
       
       if (dateSet.has(key)) {
         streak++;
@@ -164,7 +162,7 @@ export class StatsManager {
       const log = logs[i];
       if (!log.timestamp) continue;
       if (log.rating === Rating.Good || log.rating === Rating.Easy || log.rating === Rating.Hard) {
-        const key = log.timestamp.slice(0, 10);
+        const key = getLocalDateKey(log.timestamp);
         if (!dateCardMap[key]) {
           dateCardMap[key] = new Set();
         }
@@ -175,10 +173,7 @@ export class StatsManager {
     for (let i = 6; i >= 0; i--) {
       const d = new Date(today);
       d.setDate(today.getDate() - i);
-      const year = d.getFullYear();
-      const month = String(d.getMonth() + 1).padStart(2, '0');
-      const day = String(d.getDate()).padStart(2, '0');
-      const dateKey = `${year}-${month}-${day}`;
+      const dateKey = getLocalDateKey(d);
 
       const memorizedCount = dateCardMap[dateKey] ? dateCardMap[dateKey].size : 0;
 

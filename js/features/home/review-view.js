@@ -4,6 +4,7 @@
 
 import { StorageManager } from '../../services/storage.js';
 import { FSRS, State } from '../../core/learning/fsrs.js';
+import { getLocalDateKey } from '../../utils/format.js';
 import { showToast } from '../../shared/feedback.js';
 
 export function renderReviewTab(app) {
@@ -146,11 +147,10 @@ export function renderReviewTab(app) {
     // 1. Cập nhật Thống kê Trang chủ (Mục tiêu ngày & Thời gian học)
     const dailyGoal = app.settings?.dailyNewLimit || 10;
     const logs = StorageManager.getStudyLogs();
-    const todayStr = new Date().toISOString().slice(0, 10);
+    const todayKey = getLocalDateKey();
     const todayNewLogs = logs.filter(l => {
       if (!l.timestamp) return false;
-      const timeStr = typeof l.timestamp === 'string' ? l.timestamp : new Date(l.timestamp).toISOString();
-      return timeStr.slice(0, 10) === todayStr && (l.oldState === State.New || l.oldState === 0);
+      return getLocalDateKey(l.timestamp) === todayKey && (l.oldState === State.New || l.oldState === 0);
     });
     const studiedToday = new Set(todayNewLogs.map(l => l.cardId)).size;
 
