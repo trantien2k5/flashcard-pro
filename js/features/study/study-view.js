@@ -223,9 +223,9 @@ export function handleCardChange(app, card, progress) {
     const posBack = document.getElementById('card-pos-badge-back');
     if (posBack) posBack.textContent = (card.pos || 'word').toUpperCase();
     
-    const cefrText = card.level || 'A2';
+    const cefrText = card.cefr || card.level || 'A2';
     const cefrBadgeBack = document.getElementById('card-cefr-badge-back');
-    if (cefrBadgeBack) cefrBadgeBack.textContent = cefrText;
+    if (cefrBadgeBack) cefrBadgeBack.textContent = cefrText.toUpperCase();
 
     const wordFront = document.getElementById('card-front-word');
     const phoneticFront = document.getElementById('card-front-phonetic');

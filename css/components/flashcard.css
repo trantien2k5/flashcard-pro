@@ -682,7 +682,7 @@
   letter-spacing: -0.025em;
   color: var(--text-primary);
   margin-top: 0;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
   line-height: 1.25;
 }
 
@@ -696,7 +696,7 @@
   justify-content: center;
   gap: 10px;
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .card-pos-tag {
