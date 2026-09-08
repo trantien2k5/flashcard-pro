@@ -867,6 +867,8 @@
 [data-theme="light"] .subtopic-badge.badge-due {
   background: #fee2e2;
   color: #dc2626;
+}
+
 .subtopic-badge.badge-pinned {
   background: rgba(99, 102, 241, 0.16);
   color: var(--primary);
