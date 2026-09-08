@@ -455,15 +455,16 @@
 #tab-subtopics.active,
 #tab-subtopic-words.active {
   display: flex;
-  min-height: calc(100vh - 40px);
-  padding: 10px 14px 28px 14px;
+  flex: 1;
+  min-height: 0;
+  padding: 8px 12px 14px 12px;
 }
 
 @media (min-width: 860px) {
   #tab-subtopics.active,
   #tab-subtopic-words.active {
-    min-height: 100%;
-    padding: 16px 24px 32px 24px;
+    min-height: 0;
+    padding: 12px 18px 16px 18px;
   }
 }
 
@@ -497,7 +498,7 @@
   flex-direction: column;
   gap: 12px;
   width: 100%;
-  padding-bottom: 28px;
+  padding-bottom: 12px;
 }
 
 /* Custom Thin Scrollbar for Subtopics List */
@@ -540,7 +541,7 @@
   min-height: 0;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 24px;
+  padding-bottom: 12px;
   padding-right: 2px;
 }
 
