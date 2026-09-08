@@ -2,13 +2,13 @@
  * Subtopics View (Level 2 Subpage) - Danh sách các chặng / chủ đề con của bộ đề
  */
 
-import { DECK_ENGLISH_NAMES, getSubtopicIcon } from '../constants.js';
-import { StorageManager } from '../storage.js';
-import { State } from '../fsrs.js';
-import { showToast } from '../components/feedback.js';
-import { TopicRepository } from '../../data/index.js';
-import { escapeHTML, safeColor } from '../utils/helpers.js';
-import { openSubtopicDetailPage } from '../components/subtopic-modal.js';
+import { DECK_ENGLISH_NAMES, getSubtopicIcon } from '../../config/app.js';
+import { StorageManager } from '../../services/storage.js';
+import { State } from '../../core/learning/fsrs.js';
+import { showToast } from '../../shared/feedback.js';
+import { TopicRepository } from '../../../data/index.js';
+import { escapeHTML, safeColor } from '../../utils/sanitize.js';
+import { openSubtopicDetailPage } from '../../shared/modal.js';
 
 /**
  * Mở trang danh sách chủ đề con (Level 2)
@@ -27,7 +27,7 @@ export function renderSubtopicsPage(app, deckId) {
     if (!deck) return;
 
     const cards = app.deckManager.getCardsByDeckId(deckId);
-    const englishTitle = DECK_ENGLISH_NAMES[deck.id] || deck.titleEn || deck.title || deck.name;
+    const englishTitle = deck.titleEn || deck.nameEn || DECK_ENGLISH_NAMES[deck.id] || deck.title || deck.name;
     const vietnameseTitle = deck.name || (deck.title && deck.title !== englishTitle ? deck.title : (deck.description || ''));
     const rawSubtopics = Array.isArray(deck.subtopics) ? deck.subtopics : (Array.isArray(deck.subcategories) ? deck.subcategories : []);
     const deckStats = app.deckManager.getDeckStats(deck.id);
@@ -43,7 +43,7 @@ export function renderSubtopicsPage(app, deckId) {
     const cardStates = StorageManager.getAllCardStates();
     const userProgress = StorageManager.getUserProgress();
     const nowMs = Date.now();
-    const isProgressive = deck.isProgressive === true || deck.id === 'toeic-b1';
+    const isProgressive = deck.isProgressive === true;
 
     const subtopicStatusList = [];
 
@@ -223,9 +223,9 @@ export function renderSubtopicsPage(app, deckId) {
       const fragment = document.createDocumentFragment();
 
       subtopicStatusList.forEach(sInfo => {
-        const { sub, subCards, dueSubCount, learnedSubCount, subProgress, isDone, isLocked, prevSubName } = sInfo;
+        const { sub, subObj, subCards, dueSubCount, learnedSubCount, subProgress, isDone, isLocked, prevSubName } = sInfo;
 
-        const subIcon = isLocked ? '🔒' : getSubtopicIcon(sub, deck.icon || '📖');
+        const subIcon = isLocked ? '🔒' : (subObj?.icon || getSubtopicIcon(sub, deck.icon || '📖'));
 
         let subBadgeHtml = '';
         if (isLocked) {

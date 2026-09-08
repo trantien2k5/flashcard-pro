@@ -2,9 +2,9 @@
  * Subtopic Words View (Level 4 Subpage) - Danh sách từ vựng chi tiết, bộ lọc, phân trang và phát âm
  */
 
-import { DECK_ENGLISH_NAMES, getSubtopicIcon } from '../constants.js';
-import { StorageManager } from '../storage.js';
-import { escapeHTML } from '../utils/helpers.js';
+import { DECK_ENGLISH_NAMES, getSubtopicIcon } from '../../config/app.js';
+import { StorageManager } from '../../services/storage.js';
+import { escapeHTML } from '../../utils/sanitize.js';
 
 /**
  * Mở Trang danh sách từ vựng của Chủ đề con (Level 4 Subpage)
@@ -258,7 +258,7 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
       }
     };
 
-    // 4. Lắng nghe các bộ lọc (Chips, Tìm kiếm, Sắp xếp, Phân trang)
+    // 4. Lắng nghe các bộ lọc
     const chipsContainer = document.getElementById('subtopic-words-filter-chips');
     if (chipsContainer) {
       chipsContainer.querySelectorAll('.filter-chip').forEach(chip => {

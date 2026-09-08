@@ -76,8 +76,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  flex-wrap: nowrap;
-  padding: 1px 2px;
+  flex-wrap: wrap;
+  padding: 2px 2px;
 }
 
 .decks-count-summary {
@@ -93,26 +93,40 @@
   color: #64748b;
 }
 
-.decks-sort-wrap {
+.decks-filter-dropdowns {
   display: flex;
   align-items: center;
-  gap: 5px;
-  flex-shrink: 0;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.decks-sort-wrap select {
+.decks-select-wrap select {
   font-size: 0.78rem;
-  padding: 4px 8px;
+  padding: 5px 10px;
   border-radius: 8px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-primary);
   font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
 }
 
-[data-theme="light"] .decks-sort-wrap select {
+.decks-select-wrap select:hover,
+.decks-select-wrap select:focus {
+  border-color: var(--primary);
+}
+
+[data-theme="light"] .decks-select-wrap select {
   background: #ffffff;
   border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+[data-theme="light"] .decks-select-wrap select:hover,
+[data-theme="light"] .decks-select-wrap select:focus {
+  border-color: #6366f1;
 }
 
 .decks-list {

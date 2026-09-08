@@ -15,14 +15,17 @@ Tài liệu này cung cấp toàn cảnh kiến trúc, cấu trúc tệp tin, lu
 
 ---
 
-## 📁 2. Bản đồ Cấu trúc Tệp tin (File Structure)
+## 📁 2. Bản đồ Cấu trúc Tệp tin (Clean Modular Architecture)
 
 ```
 simple-flashcard/
-├── index.html                    # Layout SPA chính, chứa navigation, modals, study card container
+├── index.html                    # Layout SPA chính, navigation, modals, study card container
 ├── README.md                     # Tài liệu giới thiệu cho người dùng
-├── AGENTS.md                     # Tài liệu ngữ cảnh cho AI Agent (Tệp này)
-├── assets/                       # Tài nguyên tĩnh
+├── AGENTS.md                     # Tài liệu ngữ cảnh kiến trúc cho AI Agent (Tệp này)
+├── sw.js                         # PWA Service Worker (Offline Cache & Auto Update)
+├── manifest.json                 # Cấu hình PWA Web App Manifest
+├── jsconfig.json                 # Cấu hình JS Language Server & Path Aliases (@app, @core, @features...)
+├── assets/
 │   └── icons/                    # App Icons (favicon.svg, favicon.ico)
 │
 ├── css/                          # Hệ thống CSS phân lớp (Layered Modular CSS)
@@ -42,48 +45,70 @@ simple-flashcard/
 │       ├── profile.css           # Màn hình Cá nhân (Thông tin, Thành tích, Backup/Restore JSON)
 │       └── settings.css          # Màn hình Cài đặt (Target retention, daily limits, voice/accent, theme)
 │
-├── js/                           # JavaScript ES Modules (Toàn bộ logic nghiệp vụ)
-│   ├── app.js                    # [Controller chính] Router tab, khởi tạo hệ thống, orchestrator
-│   ├── constants.js              # Hằng số hệ thống, ánh xạ tên tiếng Anh, icons, badges
-│   ├── audio-service.js          # [Dual Audio Engine] Studio MP3 CDN + Web Speech TTS + Preload Cache
-│   ├── fsrs.js                   # [Lõi FSRS-6] Thuật toán Spaced Repetition thuần JS (19 tham số W)
-│   ├── deck-manager.js           # Quản lý metadata topics, nạp từ dynamic import từ data/
-│   ├── study-session.js          # Quản lý phiên học (Queue, next card, flip, preloading audio, logs)
-│   ├── storage.js                # Tầng dữ liệu: IndexedDB + RAM Cache + LocalStorage fallback
-│   ├── sync-manager.js           # Lõi Bắt tay 2 Chiều (Universal 2-Way Handshake) & Smart Merge
-│   ├── stats.js                  # Tính toán số liệu thống kê FSRS, biểu đồ tiến độ 7 ngày, streak
-│   ├── timer.js                  # Bộ đếm thời gian học tập & tính toán chuỗi ngày học liên tục (Streak)
-│   ├── utils/
-│   │   └── helpers.js            # Tiện ích dùng chung (escapeHTML, safeColor, debounce, formatDate)
-│   ├── components/
-│   │   ├── study.js              # Controller giao diện phiên học, bàn phím (1-4, Space), gesture vuốt
-│   │   ├── search.js             # Controller tìm kiếm toàn cục (Debounce 150ms, highlight từ khóa)
-│   │   ├── sync.js               # Controller Đồng bộ 2 Chiều & Camera Scanner
-│   │   ├── feedback.js           # Controller hiển thị Toast, Confirm Dialog
-│   │   └── subtopic-modal.js     # Modal Popup chi tiết chủ đề con (Level 3 Modal Dialog)
-│   └── views/
-│       ├── review-view.js        # Render tab Ôn tập & thanh biểu đồ 5 cấp độ nhớ
-│       ├── decks-view.js         # Render tab Bộ đề (Level 1 Decks List & Filter/Search)
-│       ├── subtopics-view.js     # Render danh sách chặng / chủ đề con (Level 2 Subpage & Hero Card)
-│       ├── subtopic-words-view.js# Render danh sách từ vựng chi tiết (Level 4 Subpage & Phân trang)
-│       ├── stats-view.js         # Render tab Thống kê 4 khu vực chuẩn
-│       ├── profile-view.js       # Render tab Cá nhân, Thành tích, Export/Import JSON
-│       └── settings-view.js      # Render tab Cài đặt & nút test âm thanh bản xứ
+├── js/                           # Kiến trúc Clean Architecture 7 nhóm nghiệp vụ (ES6 Modules)
+│   ├── app.js                    # Backward-compatibility Root Bridge
+│   ├── app/                      # Tầng Khởi tạo & Điều hướng
+│   │   ├── app.js                # [Main Controller] FlashcardApp bootstrap & orchestrator
+│   │   └── router.js             # [Router] Quản lý chuyển tab, subpage navigation & scroll
+│   ├── config/                   # Cấu hình & Hằng số hệ thống
+│   │   ├── app.js                # App metadata, default settings, deck names & subtopic icons
+│   │   └── fsrs.js               # Tham số FSRS-6 (19 tham số W), Rating, State & Memory Tiers
+│   ├── core/                     # Lõi Nghiệp vụ & Thuật toán trung tâm
+│   │   ├── learning/             # Lõi học tập Spaced Repetition
+│   │   │   ├── fsrs.js           # Thuật toán FSRS-6 thuần JS
+│   │   │   └── study-session.js  # State machine phiên học, queue & preloading
+│   │   ├── vocabulary/           # Lõi dữ liệu từ vựng
+│   │   │   ├── selectors.js      # DeckManager & truy vấn từ vựng theo chủ đề
+│   │   │   └── validators.js     # Schema & word data validation bridge
+│   │   └── statistics/           # Lõi tính toán thống kê
+│   │       ├── stats.js          # Tính toán số liệu FSRS, tiến độ 7 ngày & dự báo
+│   │       └── timer.js          # Active study time tracker & streak counter
+│   ├── features/                 # Tính năng theo màn hình người dùng
+│   │   ├── home/
+│   │   │   └── review-view.js    # Màn hình Ôn tập & biểu đồ 5 cấp độ nhớ
+│   │   ├── topics/
+│   │   │   ├── decks-view.js     # Danh sách 16 bộ đề & bộ lọc
+│   │   │   ├── subtopics-view.js # Danh sách chặng / chủ đề con (Level 2)
+│   │   │   └── subtopic-words-view.js # Danh sách từ vựng chi tiết & phân trang (Level 4)
+│   │   ├── study/
+│   │   │   └── study-view.js     # Trình phát Flashcard 3D, phím tắt & cử chỉ vuốt
+│   │   ├── stats/
+│   │   │   └── stats-view.js     # Báo cáo thống kê 4 khu vực chuẩn
+│   │   ├── profile/
+│   │   │   └── profile-view.js   # Thông tin người dùng, thành tích & sao lưu
+│   │   └── settings/
+│   │       └── settings-view.js  # Cài đặt FSRS, âm thanh & giao diện
+│   ├── services/                 # Dịch vụ hạ tầng & Lưu trữ ngoại vi
+│   │   ├── storage.js            # IndexedDB + In-Memory Write-Through RAM Cache O(1)
+│   │   ├── audio.js              # Dual Native Audio Engine (CDN MP3 + Neural TTS)
+│   │   ├── sync.js               # Universal 2-Way Handshake & Smart Merge FSRS
+│   │   └── backup.js             # JSON Export / Import & Reset dữ liệu
+│   ├── shared/                   # Thành phần giao diện dùng chung
+│   │   ├── search.js             # Controller tìm kiếm toàn cục (Debounce 150ms)
+│   │   ├── feedback.js           # Toast alerts & Confirm dialog
+│   │   ├── modal.js              # Modal popup chi tiết chặng học (Level 3)
+│   │   └── sync-modal.js         # Modal quét camera QR & ghép đôi đa thiết bị
+│   └── utils/                    # Tiện ích bổ trợ độc lập
+│       ├── sanitize.js           # Chống XSS & làm sạch chuỗi
+│       ├── format.js             # Định dạng ngày giờ, số & interval
+│       ├── async.js              # Debounce, throttle & sleep
+│       ├── dom.js                # Tiện ích DOM, cuộn mượt & highlight từ khóa
+│       ├── index.js              # Barrel export tiện ích
+│       └── helpers.js            # Backward compatibility bridge
 │
 └── data/                         # Cấu trúc dữ liệu chuẩn hóa (SSOT Normalized Data)
     ├── index.js                  # Central Hub & Dynamic Loaders (`loadTopicWords`, `getAllTopics`)
     ├── schemas.js                # Định nghĩa Schema & Enums (Phases, Categories, CEFR, States)
-    ├── validators.js             # Hàm kiểm tra tính hợp lệ của Topic & Word Data
-    ├── topics/                   # 16 file metadata chủ đề (ID, tên, icon, mô tả, mảng subtopics & wordIds)
+    ├── validators.js             # Hàm kiểm tra toàn vẹn dữ liệu từ vựng
+    ├── topics/                   # 16 file metadata chủ đề phân cấp
     └── words/                    # 16 từ điển từ vựng chi tiết theo domain (SSOT)
 ```
-
 
 ---
 
 ## 🧠 3. Luồng Nghiệp vụ & Kiến trúc Lõi
 
-### 3.1. Thuật toán FSRS-6 (`js/fsrs.js`)
+### 3.1. Thuật toán FSRS-6 (`js/core/learning/fsrs.js`)
 - **Đánh giá phản hồi (Rating):**
   - `Again (1)`: Quên hoàn toàn.
   - `Hard (2)`: Nhớ nhưng khó khăn, chật vật.
@@ -105,14 +130,14 @@ simple-flashcard/
   - `Mức 4 (Bền vững)`: $14 \le S < 30$ ngày (Lịch ôn 2 - 4 tuần).
   - `Mức 5 (Ghi nhớ sâu)`: $S \ge 30$ ngày (Lịch ôn $\ge 30$ ngày / trên 1 tháng - Nhiều tháng).
 
-### 3.2. Quản lý Dữ liệu & Cache (`js/storage.js`)
+### 3.2. Quản lý Dữ liệu & Cache (`js/services/storage.js`)
 - **Đa tầng Client Storage:**
   1. `RAM Cache` (`_cardsCache`, `_settingsCache`, `_logsCache`): Truy xuất $O(1)$, không block DOM.
   2. `IndexedDB` (`FlashcardProDB`): Lưu trữ bền vững tại trình duyệt phía client.
   3. `localStorage`: Dự phòng khi IndexedDB không khả dụng.
   4. `JSON Export / Import`: Sao lưu và phục hồi dữ liệu hoàn chỉnh qua file `.json`.
 
-### 3.3. Âm thanh Kép (Dual Audio Engine in `js/study-session.js`)
+### 3.3. Âm thanh Kép (Dual Audio Engine in `js/services/audio.js`)
 1. **Studio Native Audio (Priority 1):** Tải MP3 trực tiếp từ CDN từ điển chuẩn (US/UK).
 2. **Preloading (0ms delay):** Tải trước các từ kế tiếp trong queue học vào Audio RAM buffer.
 3. **Neural Web Speech TTS (Fallback):** Tự động phát âm bằng `speechSynthesis` nếu offline hoặc file âm thanh lỗi.
@@ -163,6 +188,6 @@ simple-flashcard/
 ## 🛠️ 5. Quy ước & Hướng dẫn khi Sửa Đổi Code (Agent Guidelines)
 
 1. **Thuần Client-side:** Giữ nguyên kiến trúc Vanilla JS ES Modules không phụ thuộc server backend.
-2. **Không sửa đổi cấu trúc imports mà không kiểm tra:** Mọi module JS đều dùng đường dẫn tương đối rõ ràng có đuôi `.js` (ví dụ `import { StorageManager } from './storage.js';`).
-3. **Design Tokens & Styling:** Khi thêm/sửa CSS, luôn ưu tiên sử dụng CSS Variables định nghĩa trong [css/variables.css](file:///c:/Users/PC/Downloads/simple-flashcard-main/css/variables.css) để đảm bảo đồng bộ hoàn hảo giữa Dark Mode và Light Mode.
-4. **Lưu trữ dữ liệu:** Bất kỳ thao tác cập nhật tiến độ nào trong `study-session.js` hay `study.js` đều phải đi qua `StorageManager.saveCardState()` và ghi `StorageManager.logReview()` để lưu trữ đồng bộ vào RAM Cache và IndexedDB.
+2. **Cấu trúc imports chuẩn:** Mọi module JS đều dùng đường dẫn tương đối rõ ràng có đuôi `.js` (ví dụ `import { StorageManager } from '../services/storage.js';`).
+3. **Design Tokens & Styling:** Khi thêm/sửa CSS, luôn ưu tiên sử dụng CSS Variables định nghĩa trong `css/variables.css` để đảm bảo đồng bộ hoàn hảo giữa Dark Mode và Light Mode.
+4. **Lưu trữ dữ liệu:** Bất kỳ thao tác cập nhật tiến độ nào trong `study-session.js` hay `study-view.js` đều phải đi qua `StorageManager.saveCardState()` và ghi `StorageManager.logReview()` để lưu trữ đồng bộ vào RAM Cache và IndexedDB.

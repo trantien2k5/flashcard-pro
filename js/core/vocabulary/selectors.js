@@ -1,6 +1,10 @@
-import { StorageManager } from './storage.js';
-import { FSRS, State } from './fsrs.js';
-import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords } from '../data/index.js';
+/**
+ * Vocabulary Selectors & Deck Management Core
+ */
+
+import { StorageManager } from '../../services/storage.js';
+import { FSRS, State } from '../learning/fsrs.js';
+import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords } from '../../../data/index.js';
 
 export class DeckManager {
   constructor() {
@@ -91,7 +95,6 @@ export class DeckManager {
 
   /**
    * Đảm bảo từ vựng của một chủ đề đã được nạp đầy đủ (On-Demand / Lazy Load)
-   * @param {string} deckId
    */
   async ensureTopicLoaded(deckId) {
     if (this.loadedDecks.has(deckId)) {
@@ -144,9 +147,13 @@ export class DeckManager {
 
   rebuildAllCardsList() {
     this.allCards = [];
+    const seenIds = new Set();
     for (const [, cards] of this.deckCardsMap.entries()) {
       for (const card of cards) {
-        this.allCards.push(card);
+        if (card && card.id && !seenIds.has(card.id)) {
+          seenIds.add(card.id);
+          this.allCards.push(card);
+        }
       }
     }
   }
@@ -214,7 +221,6 @@ export class DeckManager {
 
   /**
    * Tính toán thống kê tiến độ học của một bộ thẻ (New, Learning, Review, Mastered)
-   * Chạy tức thì O(N) trên wordIds mà không cần chờ nạp text từ điển
    */
   getDeckStats(deckId) {
     const rev = StorageManager.getStateRevision();
@@ -283,10 +289,7 @@ export class DeckManager {
   }
 
   /**
-   * Lấy danh sách thẻ ưu tiên thông minh theo thuật toán FSRS:
-   * 1. Thẻ đến hạn ôn tập (Due Review Cards) - Ưu tiên hàng đầu
-   * 2. Thẻ mới chưa học (New Cards) - Theo hạn mức ngày
-   * 3. Thẻ đang học củng cố (Learning Cards) hoặc Thẻ ôn lại toàn bộ
+   * Lấy danh sách thẻ ưu tiên thông minh theo thuật toán FSRS
    */
   getStudyQueue(deckId = null, settings = {}, subtopic = null) {
     const cardStates = StorageManager.getAllCardStates();
@@ -296,7 +299,7 @@ export class DeckManager {
       targetCards = this.getSubtopicCards(deckId, subtopic);
     } else if (deckId) {
       const deck = this.getDeckById(deckId);
-      const isProgressive = deck && (deck.isProgressive === true || deck.id === 'toeic-b1');
+      const isProgressive = deck && deck.isProgressive === true;
       if (isProgressive) {
         const rawSubtopics = Array.isArray(deck.subtopics) ? deck.subtopics : (Array.isArray(deck.subcategories) ? deck.subcategories : []);
         const userProgress = StorageManager.getUserProgress();
@@ -319,6 +322,17 @@ export class DeckManager {
     } else {
       targetCards = this.allCards;
     }
+
+    // Đảm bảo không bao giờ có thẻ trùng lặp ID trong danh sách học
+    const seenTargetIds = new Set();
+    const uniqueTargetCards = [];
+    for (const c of targetCards) {
+      if (c && c.id && !seenTargetIds.has(c.id)) {
+        seenTargetIds.add(c.id);
+        uniqueTargetCards.push(c);
+      }
+    }
+    targetCards = uniqueTargetCards;
 
     const now = new Date();
     const dueCards = [];
@@ -344,13 +358,12 @@ export class DeckManager {
       }
     }
 
-    // 1. Sắp xếp thẻ đến hạn: Thẻ quá hạn lâu nhất lên đầu danh sách
+    // 1. Sắp xếp thẻ đến hạn
     dueCards.sort((a, b) => new Date(a.fsrsState.due) - new Date(b.fsrsState.due));
 
-    // 2. Tính hạn mức từ mới (mặc định 10 từ/phiên)
+    // 2. Tính hạn mức từ mới
     let maxNew = settings.dailyNewLimit || 10;
     if (!deckId && !subtopic) {
-      // Học toàn cục trang chủ: trừ số từ mới đã học trong ngày hôm nay
       const logs = StorageManager.getStudyLogs();
       const todayStr = new Date().toISOString().slice(0, 10);
       const newCardsStudiedToday = logs.filter(l => 
@@ -358,7 +371,6 @@ export class DeckManager {
       ).length;
       maxNew = Math.max(0, maxNew - newCardsStudiedToday);
     } else {
-      // Học theo bộ từ cụ thể: nạp từ mới theo định mức (10 từ/phiên)
       maxNew = Math.max(10, settings.dailyNewLimit || 10);
     }
 
@@ -368,16 +380,12 @@ export class DeckManager {
 
     let queue = [];
     if (selectedDue.length > 0) {
-      // Khi có từ đến hạn ôn tập -> Tập trung tối đa vào ôn tập các từ này
       queue = selectedDue;
     } else if (selectedNew.length > 0) {
-      // Khi không có từ cần ôn -> Nạp từ mới theo định mức
       queue = selectedNew;
     } else if (learningCards.length > 0) {
-      // Khi đã học hết từ mới và không có từ đến hạn -> Ôn củng cố từ đang học
       queue = learningCards.slice(0, 10);
     } else if (targetCards.length > 0) {
-      // Fallback ôn lại toàn bộ
       queue = targetCards.map(c => ({
         ...(this.wordsMap.get(`${c.deckId || deckId}:${c.id}`) || this.wordsMap.get(c.id) || c),
         fsrsState: cardStates[c.id] || FSRS.createEmptyCard(c.id)
@@ -397,7 +405,7 @@ export class DeckManager {
   }
 
   /**
-   * Tìm kiếm từ vựng độc nhất theo từ khóa, phiên âm, nghĩa hoặc ví dụ
+   * Tìm kiếm từ vựng độc nhất theo từ khóa
    */
   searchCards(query) {
     if (!query || !query.trim()) return this.allCards;

@@ -5,7 +5,18 @@
     "moduleResolution": "Node",
     "allowJs": true,
     "checkJs": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["js/app/*"],
+      "@config/*": ["js/config/*"],
+      "@core/*": ["js/core/*"],
+      "@features/*": ["js/features/*"],
+      "@services/*": ["js/services/*"],
+      "@shared/*": ["js/shared/*"],
+      "@utils/*": ["js/utils/*"],
+      "@data/*": ["data/*"]
+    }
   },
   "include": [
     "js/**/*",

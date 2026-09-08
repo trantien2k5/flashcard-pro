@@ -1,8 +1,8 @@
-import { escapeHTML } from '../utils/helpers.js';
-
 /**
  * Search Modal Component - Global Instant Search across all vocabulary cards
  */
+
+import { escapeHTML } from '../utils/sanitize.js';
 
 export function setupSearch(app) {
   try {
@@ -135,4 +135,3 @@ export function setupSearch(app) {
     console.error('Lỗi setupSearch:', err);
   }
 }
-

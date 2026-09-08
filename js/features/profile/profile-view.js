@@ -2,9 +2,9 @@
  * Profile View - User stats, Topics overview, Achievements & Pure Local Data Management
  */
 
-import { StorageManager } from '../storage.js';
-import { StatsManager } from '../stats.js';
-import { State } from '../fsrs.js';
+import { StorageManager } from '../../services/storage.js';
+import { StatsManager } from '../../core/statistics/stats.js';
+import { State } from '../../core/learning/fsrs.js';
 
 export async function renderProfileTab(app) {
   try {

@@ -1,9 +1,14 @@
-import { Rating } from '../fsrs.js';
-import { showConfirm } from './feedback.js';
-import { globalStudyTimer } from '../timer.js';
-import { unlockAudioContext } from '../study-session.js';
-import { escapeHTML } from '../utils/helpers.js';
-import { onAudioPlayStateChange, speak } from '../audio-service.js';
+/**
+ * Study View Controller - Flashcard 3D Interactive Learning Engine
+ */
+
+import { Rating } from '../../core/learning/fsrs.js';
+import { showConfirm } from '../../shared/feedback.js';
+import { globalStudyTimer } from '../../core/statistics/timer.js';
+import { unlockAudioContext } from '../../core/learning/study-session.js';
+import { escapeHTML } from '../../utils/sanitize.js';
+import { formatCleanInterval } from '../../utils/format.js';
+import { onAudioPlayStateChange, speak } from '../../services/audio.js';
 
 export function setupStudyControls(app) {
   try {
@@ -200,7 +205,7 @@ export function handleCardChange(app, card, progress) {
     document.getElementById('btn-audio-us')?.classList.remove('playing');
     document.getElementById('btn-audio-uk')?.classList.remove('playing');
 
-    // Cập nhật nội dung thẻ và thanh tiến độ (Chỉ tăng khi nhớ từ thành công)
+    // Cập nhật nội dung thẻ và thanh tiến độ
     const completedNum = progress.completed !== undefined ? progress.completed : 0;
     const totalNum = progress.total || 1;
     const percent = Math.min(100, Math.max(completedNum === 0 ? 0 : 5, Math.round((completedNum / totalNum) * 100)));
@@ -259,18 +264,17 @@ export function handleCardChange(app, card, progress) {
       }
     }
 
-    // Cập nhật FSRS Dynamic Intervals trên 4 nút (Loại bỏ hoàn toàn dấu <)
+    // Cập nhật FSRS Dynamic Intervals trên 4 nút
     if (card.previews) {
       const iAgain = document.getElementById('interval-again');
       const iHard = document.getElementById('interval-hard');
       const iGood = document.getElementById('interval-good');
       const iEasy = document.getElementById('interval-easy');
 
-      const formatClean = (txt, fallback) => (txt || fallback).toString().replace(/^[<≤\s]+/, '').trim();
-      if (iAgain) iAgain.textContent = formatClean(card.previews[Rating.Again]?.intervalText, '1m');
-      if (iHard) iHard.textContent = formatClean(card.previews[Rating.Hard]?.intervalText, '10m');
-      if (iGood) iGood.textContent = formatClean(card.previews[Rating.Good]?.intervalText, '1d');
-      if (iEasy) iEasy.textContent = formatClean(card.previews[Rating.Easy]?.intervalText, '4d');
+      if (iAgain) iAgain.textContent = formatCleanInterval(card.previews[Rating.Again]?.intervalText, '1m');
+      if (iHard) iHard.textContent = formatCleanInterval(card.previews[Rating.Hard]?.intervalText, '10m');
+      if (iGood) iGood.textContent = formatCleanInterval(card.previews[Rating.Good]?.intervalText, '1d');
+      if (iEasy) iEasy.textContent = formatCleanInterval(card.previews[Rating.Easy]?.intervalText, '4d');
     }
   } catch (err) {
     console.error('Lỗi trong handleCardChange:', err);

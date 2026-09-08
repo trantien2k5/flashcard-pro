@@ -2,8 +2,8 @@
  * Settings View - FSRS Parameters, Audio, Theme Configuration & Data Management
  */
 
-import { StorageManager } from '../storage.js';
-import { showConfirm, showToast } from '../components/feedback.js';
+import { StorageManager } from '../../services/storage.js';
+import { showConfirm, showToast } from '../../shared/feedback.js';
 
 function saveAppSettings(app) {
   StorageManager.saveSettings(app.settings);

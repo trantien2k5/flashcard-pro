@@ -2,10 +2,10 @@
  * Subtopic Detail Modal Component (Level 3 Popup)
  */
 
-import { DECK_ENGLISH_NAMES, getSubtopicIcon } from '../constants.js';
-import { StorageManager } from '../storage.js';
-import { State } from '../fsrs.js';
-import { escapeHTML } from '../utils/helpers.js';
+import { DECK_ENGLISH_NAMES, getSubtopicIcon } from '../config/app.js';
+import { StorageManager } from '../services/storage.js';
+import { State } from '../core/learning/fsrs.js';
+import { escapeHTML } from '../utils/sanitize.js';
 
 /**
  * Mở Popup chi tiết của một Chủ đề con (Modal Popup giữa màn hình)

@@ -1,14 +1,8 @@
 /**
  * Study Time Tracker - Accurate Active Learning Time with Anti-Idle Detection
- * 
- * Features:
- * - Tracks actual time spent learning in flashcard study sessions only
- * - Anti-idle: pauses tracking if no user activity for > 25 seconds (prevents AFK / treo máy)
- * - Auto-pauses immediately when browser tab is hidden or minimized (Page Visibility API)
- * - Flushes active seconds safely to StorageManager
  */
 
-import { StorageManager } from './storage.js';
+import { StorageManager } from '../../services/storage.js';
 
 export class StudyTimeTracker {
   constructor() {

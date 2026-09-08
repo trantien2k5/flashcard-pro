@@ -1,5 +1,9 @@
-import { SyncManager, SimpleQRCode } from '../sync-manager.js';
-import { StorageManager } from '../storage.js';
+/**
+ * Universal 2-Way Sync Modal Controller & Camera QR Scanner
+ */
+
+import { SyncManager, SimpleQRCode } from '../services/sync.js';
+import { StorageManager } from '../services/storage.js';
 import { showToast } from './feedback.js';
 
 let _currentHostSession = null;

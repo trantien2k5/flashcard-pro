@@ -6,7 +6,7 @@
  * 4. Dự báo ôn tập 7 ngày tới
  */
 
-import { StatsManager } from '../stats.js';
+import { StatsManager } from '../../core/statistics/stats.js';
 
 export function renderStatsTab(app) {
   try {

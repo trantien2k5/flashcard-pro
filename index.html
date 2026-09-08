@@ -218,32 +218,40 @@
         <div class="decks-header-bar">
           <div class="search-box-wrapper" style="margin-bottom: 12px;">
             <span class="search-icon">🔍</span>
-            <input type="text" id="decks-search-input" class="search-input" placeholder="Tìm kiếm bộ đề, chủ đề tiếng Anh hoặc tiếng Việt...">
+            <input type="text" id="decks-search-input" class="search-input" placeholder="Tìm kiếm chủ đề hoặc từ vựng...">
           </div>
 
-          <!-- Bộ lọc nhóm chủ đề (Filter Chips) -->
+          <!-- Bộ lọc Trạng thái học tập (Status Chips) -->
           <div class="decks-filter-chips" id="decks-filter-chips">
-            <button class="filter-chip active" data-deck-filter="all" type="button">🌟 Tất cả <span class="chip-count" id="deck-chip-all">16</span></button>
-            <button class="filter-chip" data-deck-filter="toeic" type="button">⭐ Luyện thi TOEIC <span class="chip-count" id="deck-chip-toeic">1</span></button>
-            <button class="filter-chip" data-deck-filter="daily" type="button">🗣️ Đời sống & Giao tiếp <span class="chip-count" id="deck-chip-daily">8</span></button>
-            <button class="filter-chip" data-deck-filter="career" type="button">💼 Công việc & Học tập <span class="chip-count" id="deck-chip-career">3</span></button>
-            <button class="filter-chip" data-deck-filter="explore" type="button">✈️ Xã hội & Khám phá <span class="chip-count" id="deck-chip-explore">4</span></button>
-            <button class="filter-chip" data-deck-filter="learning" type="button">🔥 Đang học <span class="chip-count" id="deck-chip-learning">0</span></button>
-            <button class="filter-chip" data-deck-filter="due" type="button">⚠️ Cần ôn <span class="chip-count" id="deck-chip-due">0</span></button>
+            <button class="filter-chip active" data-deck-status="all" data-deck-filter="all" type="button">🌟 Tất cả <span class="chip-count" id="deck-chip-all">17</span></button>
+            <button class="filter-chip" data-deck-status="learning" data-deck-filter="learning" type="button">🔥 Đang học <span class="chip-count" id="deck-chip-learning">0</span></button>
+            <button class="filter-chip" data-deck-status="due" data-deck-filter="due" type="button">⚠️ Cần ôn <span class="chip-count" id="deck-chip-due">0</span></button>
+            <button class="filter-chip" data-deck-status="completed" data-deck-filter="completed" type="button">✅ Hoàn thành <span class="chip-count" id="deck-chip-completed">0</span></button>
           </div>
 
-          <!-- Toolbar phụ: Sắp xếp & Số lượng thống kê -->
+          <!-- Toolbar phụ: Thống kê + Dropdown Danh mục + Dropdown Sắp xếp -->
           <div class="decks-sub-toolbar">
-            <span class="decks-count-summary" id="decks-count-summary">Hiển thị 16 bộ đề • 1.100 từ vựng</span>
-            <div class="decks-sort-wrap">
-              <label for="decks-sort-select" class="sort-label">Sắp xếp:</label>
-              <select id="decks-sort-select" class="sort-select">
-                <option value="default">Thứ tự mặc định</option>
-                <option value="due">Nhiều từ cần ôn nhất</option>
-                <option value="progress">Tiến độ cao nhất</option>
-                <option value="words">Nhiều từ vựng nhất</option>
-                <option value="az">Tên A → Z</option>
-              </select>
+            <span class="decks-count-summary" id="decks-count-summary">Hiển thị 17 chủ đề</span>
+            <div class="decks-filter-dropdowns">
+              <div class="decks-select-wrap">
+                <select id="decks-category-select" class="sort-select" aria-label="Lọc theo Danh mục">
+                  <option value="all">📁 Danh mục: Tất cả</option>
+                  <option value="daily">🗣️ Đời sống & Giao tiếp</option>
+                  <option value="career">💼 Công việc & Học tập</option>
+                  <option value="finance">💰 Tài chính & Kinh doanh</option>
+                  <option value="explore">✈️ Xã hội & Khám phá</option>
+                  <option value="toeic">⭐ Luyện thi TOEIC</option>
+                </select>
+              </div>
+              <div class="decks-select-wrap">
+                <select id="decks-sort-select" class="sort-select" aria-label="Sắp xếp danh sách">
+                  <option value="default">⚡ Sắp xếp: Mặc định</option>
+                  <option value="progress">📈 Tiến độ cao nhất</option>
+                  <option value="due">⚠️ Cần ôn nhiều nhất</option>
+                  <option value="az">🔤 Tên A → Z</option>
+                  <option value="words">📚 Nhiều từ vựng nhất</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
@@ -1145,6 +1153,6 @@
       });
     }
   </script>
-  <script type="module" src="js/app.js?v=2.5.0"></script>
+  <script type="module" src="js/app/app.js?v=2.6.0"></script>
 </body>
 </html>

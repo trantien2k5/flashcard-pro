@@ -1,6 +1,32 @@
 /**
- * Constants & Metadata for Flashcard Pro
+ * App Configuration, Storage Keys, Defaults & Topic Metadata
  */
+
+export const APP_CONFIG = {
+  name: 'Flashcard English Pro',
+  version: '2.6.0',
+  storagePrefix: 'fc_pro_',
+  dbName: 'FlashcardProDB',
+  dbVersion: 1
+};
+
+export const STORAGE_KEYS = {
+  SETTINGS: 'fc_pro_settings',
+  CARDS: 'fc_pro_cards',
+  LOGS: 'fc_pro_logs',
+  STREAK: 'fc_pro_streak',
+  SYNC_HISTORY: 'fc_pro_sync_history'
+};
+
+export const DEFAULT_SETTINGS = {
+  retention: 0.90,
+  dailyNewLimit: 10,
+  dailyReviewLimit: 50,
+  darkTheme: false,
+  autoSpeech: true,
+  audioAccent: 'us',
+  speechRate: 0.9
+};
 
 export const DECK_ENGLISH_NAMES = {
   'daily-life-routines': 'Daily Life & Routines',

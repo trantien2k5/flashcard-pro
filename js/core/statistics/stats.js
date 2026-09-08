@@ -2,8 +2,8 @@
  * Stats & Analytics Manager for FSRS-6 English Learning
  */
 
-import { StorageManager } from './storage.js';
-import { State, Rating } from './fsrs.js';
+import { StorageManager } from '../../services/storage.js';
+import { State, Rating } from '../learning/fsrs.js';
 
 export class StatsManager {
   /**
@@ -194,7 +194,7 @@ export class StatsManager {
   }
 
   /**
-   * Dự báo số thẻ đến hạn trong 7 ngày tới (Tối ưu single-pass qua cardStates)
+   * Dự báo số thẻ đến hạn trong 7 ngày tới
    */
   static get7DaysForecast(cardStates) {
     const counts = [0, 0, 0, 0, 0, 0, 0];

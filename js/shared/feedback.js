@@ -98,17 +98,17 @@ export function showConfirm({
 }
 
 /**
- * Upgraded In-App Floating Toast Notification (thay tháº¿ window.alert)
+ * Upgraded In-App Floating Toast Notification (thay thế window.alert)
  */
 export function showToast(message, type = 'info', duration = 3000) {
   const container = document.getElementById('toast-container');
   if (!container) return;
 
   const icons = {
-    success: 'OK',
-    info: 'i',
-    warning: '!',
-    error: 'x'
+    success: '✓',
+    info: 'ℹ',
+    warning: '⚠',
+    error: '✕'
   };
 
   const toast = document.createElement('div');

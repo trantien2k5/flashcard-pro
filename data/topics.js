@@ -11,9 +11,10 @@ export const TOPICS = [
     "parentId": null,
     "description": "Thói quen buổi sáng, việc nhà, lịch trình, mua sắm và giấc ngủ hằng ngày.",
     "icon": "🏠",
-    "category": "Foundation",
+    "category": "daily",
     "color": "#0ea5e9",
-    "titleEn": "daily-life-routines"
+    "titleEn": "Daily Life & Routines",
+    "order": 1
   },
   {
     "id": "daily-life-routines-buoi-sang",
@@ -87,9 +88,10 @@ export const TOPICS = [
     "parentId": null,
     "description": "Từ vựng toàn diện về gia đình, họ hàng, tình bạn, diện mạo và tính cách con người.",
     "icon": "👥",
-    "category": "Foundation",
+    "category": "daily",
     "color": "#6366f1",
-    "titleEn": "People & Relationships"
+    "titleEn": "People & Relationships",
+    "order": 2
   },
   {
     "id": "people-relationships-1-thanh-vien-gia-inh",
@@ -193,9 +195,10 @@ export const TOPICS = [
     "parentId": null,
     "description": "Trò chuyện, đối thoại, tranh luận, các cung bậc cảm xúc và ngôn ngữ cơ thể.",
     "icon": "💬",
-    "category": "Foundation",
+    "category": "daily",
     "color": "#8b5cf6",
-    "titleEn": "Communication & Feelings"
+    "titleEn": "Communication & Feelings",
+    "order": 3
   },
   {
     "id": "communication-feelings-1-tro-chuyen-oi-thoai",
@@ -299,9 +302,10 @@ export const TOPICS = [
     "parentId": null,
     "description": "Nguyên liệu, phương pháp nấu nướng, hương vị, dụng cụ bếp và văn hóa nhà hàng ẩm thực.",
     "icon": "🍽️",
-    "category": "Foundation",
+    "category": "daily",
     "color": "#f59e0b",
-    "titleEn": "Food & Culinary Arts"
+    "titleEn": "Food & Drink",
+    "order": 4
   },
   {
     "id": "food-drink-1-nguyen-lieu-thuc-pham-tuoi",
@@ -404,10 +408,11 @@ export const TOPICS = [
     "name": "Nhà cửa & Đời sống (Home & Living)",
     "parentId": null,
     "description": "Nội thất, phòng ốc, thiết bị điện gia dụng, dọn dẹp nhà cửa và thuê nhà.",
-    "icon": "🏠",
-    "category": "Foundation",
-    "color": "#3b82f6",
-    "titleEn": "home-living"
+    "icon": "🏡",
+    "category": "daily",
+    "color": "#10b981",
+    "titleEn": "Home & Living",
+    "order": 5
   },
   {
     "id": "home-living-1-phong-khach-tiep-khach",
@@ -511,9 +516,10 @@ export const TOPICS = [
     "parentId": null,
     "description": "Các bộ phận cơ thể, triệu chứng bệnh tật, bệnh viện, thuốc men và lối sống lành mạnh.",
     "icon": "🩺",
-    "category": "Foundation",
-    "color": "#3b82f6",
-    "titleEn": "health-body"
+    "category": "daily",
+    "color": "#ef4444",
+    "titleEn": "Health & Body",
+    "order": 6
   },
   {
     "id": "health-body-1-bo-phan-co-the-ben-ngoai",
@@ -617,9 +623,10 @@ export const TOPICS = [
     "parentId": null,
     "description": "Mua sắm trực tiếp & online, giá cả, thẻ ngân hàng, tiền tệ, quản lý ngân sách và tài chính.",
     "icon": "🛍️",
-    "category": "Independent",
-    "color": "#3b82f6",
-    "titleEn": "shopping-money"
+    "category": "daily",
+    "color": "#ec4899",
+    "titleEn": "Shopping & Money",
+    "order": 7
   },
   {
     "id": "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi",
@@ -723,9 +730,10 @@ export const TOPICS = [
     "parentId": null,
     "description": "Phương tiện giao thông, giao thông công cộng, tàu hỏa, hàng không, luật lái xe, bản đồ và chỉ đường.",
     "icon": "🚗",
-    "category": "Independent",
-    "color": "#3b82f6",
-    "titleEn": "transport-directions"
+    "category": "daily",
+    "color": "#f97316",
+    "titleEn": "Transport & Directions",
+    "order": 8
   },
   {
     "id": "transport-directions-1-phuong-tien-giao-thong-uong-bo",
@@ -829,9 +837,10 @@ export const TOPICS = [
     "parentId": null,
     "description": "Các ngành nghề, môi trường văn phòng, tuyển dụng, phỏng vấn, lương thưởng, dự án và thăng tiến.",
     "icon": "💼",
-    "category": "Independent",
-    "color": "#3b82f6",
-    "titleEn": "work-jobs"
+    "category": "career",
+    "color": "#6366f1",
+    "titleEn": "Work & Careers",
+    "order": 11
   },
   {
     "id": "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien",
@@ -935,9 +944,10 @@ export const TOPICS = [
     "parentId": null,
     "description": "Trường học, bậc học, môn học, thi cử, bằng cấp, học bổng, phương pháp tự học và du học.",
     "icon": "🎓",
-    "category": "Independent",
+    "category": "career",
     "color": "#3b82f6",
-    "titleEn": "education-learning"
+    "titleEn": "Education & Learning",
+    "order": 10
   },
   {
     "id": "education-learning-1-truong-hoc-cac-bac-hoc",
@@ -1041,9 +1051,10 @@ export const TOPICS = [
     "parentId": null,
     "description": "Kế hoạch du lịch, khách sạn, thắng cảnh, bãi biển, leo núi, ẩm thực địa phương, kỳ quan và an toàn.",
     "icon": "✈️",
-    "category": "Independent",
-    "color": "#3b82f6",
-    "titleEn": "travel-places"
+    "category": "explore",
+    "color": "#06b6d4",
+    "titleEn": "Travel & Places",
+    "order": 9
   },
   {
     "id": "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i",
@@ -1147,9 +1158,10 @@ export const TOPICS = [
     "parentId": null,
     "description": "Phim ảnh, âm nhạc, sách truyện, trò chơi điện tử, thể thao, nhiếp ảnh, hội họa, kịch nghệ và dã ngoại.",
     "icon": "🎨",
-    "category": "Independent",
-    "color": "#3b82f6",
-    "titleEn": "entertainment-hobbies"
+    "category": "explore",
+    "color": "#a855f7",
+    "titleEn": "Entertainment & Hobbies",
+    "order": 13
   },
   {
     "id": "entertainment-hobbies-1-ien-anh-phim-anh",
@@ -1253,9 +1265,10 @@ export const TOPICS = [
     "parentId": null,
     "description": "Máy tính, phần mềm, internet, smartphone, mạng xã hội, an ninh mạng, đám mây, AI và lập trình.",
     "icon": "💻",
-    "category": "Extension",
-    "color": "#3b82f6",
-    "titleEn": "technology-internet"
+    "category": "career",
+    "color": "#14b8a6",
+    "titleEn": "Technology & Internet",
+    "order": 12
   },
   {
     "id": "technology-internet-1-may-tinh-phan-cung-hardware",
@@ -1359,9 +1372,10 @@ export const TOPICS = [
     "parentId": null,
     "description": "Thời tiết, 4 mùa, thiên tai, động vật, chim muông, cây cối, sông hồ, địa hình, vũ trụ và môi trường.",
     "icon": "🌿",
-    "category": "Extension",
-    "color": "#3b82f6",
-    "titleEn": "nature-weather"
+    "category": "explore",
+    "color": "#84cc16",
+    "titleEn": "Nature & Weather",
+    "order": 14
   },
   {
     "id": "nature-weather-1-thoi-tiet-nhiet-o",
@@ -1465,9 +1479,10 @@ export const TOPICS = [
     "parentId": null,
     "description": "Quốc gia, chính phủ, luật pháp, cộng đồng, truyền thông, kinh tế, hòa bình, nhân quyền và từ thiện.",
     "icon": "🌍",
-    "category": "Extension",
-    "color": "#3b82f6",
-    "titleEn": "society-world"
+    "category": "explore",
+    "color": "#d946ef",
+    "titleEn": "Society & World",
+    "order": 15
   },
   {
     "id": "society-world-1-at-nuoc-quoc-tich-ngon-ngu",
@@ -1571,9 +1586,11 @@ export const TOPICS = [
     "parentId": null,
     "description": "Lộ trình 20 chặng từ vựng chuẩn TOEIC 500-750+: Văn phòng, nhân sự, tiếp thị, hợp đồng, tài chính và logistics.",
     "icon": "🎯",
-    "category": "Independent",
+    "category": "toeic",
     "color": "#0284c7",
-    "titleEn": "TOEIC B1 Business Pathway"
+    "titleEn": "TOEIC B1 Business Pathway",
+    "order": 16,
+    "isProgressive": true
   },
   {
     "id": "toeic-b1-1-moi-truong-thiet-bi-van-phong",
@@ -1770,9 +1787,75 @@ export const TOPICS = [
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-19-kiem-soat-chat-luong-an-toan"
     }
+  },
+  {
+    "id": "finance-banking",
+    "name": "Tài chính & Ngân hàng",
+    "titleEn": "Finance & Banking Mastery",
+    "parentId": null,
+    "description": "Bộ từ vựng toàn diện về ngân hàng, tài chính cá nhân, đầu tư chứng khoán, tín dụng và kế toán doanh nghiệp.",
+    "icon": "🏦",
+    "color": "#10b981",
+    "category": "finance",
+    "order": 17
+  },
+  {
+    "id": "fb-personal-finance",
+    "name": "Tài chính cá nhân & Thu nhập",
+    "parentId": "finance-banking",
+    "description": "Ngân sách cá nhân, thu nhập, chi tiêu, tài sản ròng và quỹ dự phòng.",
+    "icon": "💵"
+  },
+  {
+    "id": "fb-banking-services",
+    "name": "Dịch vụ Ngân hàng & Giao dịch",
+    "parentId": "finance-banking",
+    "description": "Mở tài khoản, gửi tiền, rút tiền, chuyển khoản và sao kê ngân hàng.",
+    "icon": "🏦"
+  },
+  {
+    "id": "fb-payments-cards",
+    "name": "Thanh toán & Thẻ",
+    "parentId": "finance-banking",
+    "description": "Thẻ tín dụng, thẻ ghi nợ, cổng thanh toán số, hóa đơn và phí giao dịch.",
+    "icon": "💳"
+  },
+  {
+    "id": "fb-loans-credit",
+    "name": "Vay vốn & Tín dụng",
+    "parentId": "finance-banking",
+    "description": "Khoản vay thế chấp, điểm tín dụng, lãi vay, nợ xấu và bảo lãnh.",
+    "icon": "📝"
+  },
+  {
+    "id": "fb-savings-interest",
+    "name": "Tiết kiệm, Lãi suất & Lạm phát",
+    "parentId": "finance-banking",
+    "description": "Lãi kép, gửi tiết kiệm định kỳ, lạm phát, tính thanh khoản và sức mua.",
+    "icon": "📈"
+  },
+  {
+    "id": "fb-investments-stocks",
+    "name": "Đầu tư & Thị trường Chứng khoán",
+    "parentId": "finance-banking",
+    "description": "Cổ phiếu, trái phiếu, cổ tức, danh mục đầu tư, quỹ chỉ số và thị trường.",
+    "icon": "📊"
+  },
+  {
+    "id": "fb-insurance-risk",
+    "name": "Bảo hiểm & Quản trị Rủi ro",
+    "parentId": "finance-banking",
+    "description": "Hợp đồng bảo hiểm, phí bảo hiểm, bồi thường, khấu trừ và trách nhiệm pháp lý.",
+    "icon": "🛡️"
+  },
+  {
+    "id": "fb-corporate-accounting",
+    "name": "Tài chính Doanh nghiệp & Kế toán",
+    "parentId": "finance-banking",
+    "description": "Doanh thu, lợi nhuận ròng, bảng cân đối kế toán, khấu hao, kiểm toán và dòng tiền.",
+    "icon": "🏢"
   }
 ];
 
 export const TOPICS_MAP = new Map(TOPICS.map(t => [t.id, t]));
-
 export default TOPICS;

@@ -1,5 +1,9 @@
+/**
+ * Study Session Manager - Core Learning Orchestrator
+ */
+
 import { FSRS, Rating } from './fsrs.js';
-import { StorageManager } from './storage.js';
+import { StorageManager } from '../../services/storage.js';
 import { 
   AudioService, 
   unlockAudioContext, 
@@ -7,7 +11,7 @@ import {
   speak, 
   speakTTS, 
   stopAudio 
-} from './audio-service.js';
+} from '../../services/audio.js';
 
 export { unlockAudioContext };
 
@@ -18,9 +22,6 @@ function getCurrentSettings(baseSettings = null) {
   return baseSettings || StorageManager.getSettings();
 }
 
-// ==========================================================================
-// Study Session Manager Class
-// ==========================================================================
 export class StudySession {
   constructor(options = {}) {
     this.deckManager = options.deckManager;
@@ -55,7 +56,16 @@ export class StudySession {
   start(queue) {
     unlockAudioContext();
     this.updateSettings();
-    this.queue = [...queue];
+    
+    // Đảm bảo không bao giờ bị trùng lặp thẻ trong hàng đợi ban đầu
+    const seenQueueIds = new Set();
+    this.queue = [];
+    for (const c of (queue || [])) {
+      if (c && c.id && !seenQueueIds.has(c.id)) {
+        seenQueueIds.add(c.id);
+        this.queue.push(c);
+      }
+    }
     this.totalCards = this.queue.length;
     this.completedCount = 0;
     this.currentIndex = 0;
@@ -144,6 +154,22 @@ export class StudySession {
       remaining: this.queue.length - this.currentIndex
     });
 
+    // Hủy timer phát âm cũ nếu người dùng chuyển thẻ nhanh
+    if (this._autoSpeakTimer) {
+      clearTimeout(this._autoSpeakTimer);
+      this._autoSpeakTimer = null;
+    }
+
+    // Tự động phát âm ngay khi chuyển sang thẻ mới (mặt trước)
+    if (this.currentCard && this.currentCard.word && this.settings.autoPronounce !== false) {
+      const cardToSpeak = this.currentCard;
+      this._autoSpeakTimer = setTimeout(() => {
+        if (this.currentCard && this.currentCard.id === cardToSpeak.id && !this.isFlipped) {
+          this.speak(cardToSpeak.word);
+        }
+      }, 120);
+    }
+
     // Đảm bảo từ tiếp theo luôn được chuẩn bị sẵn cả 2 giọng US & UK
     if (this.currentIndex + 1 < this.queue.length && this.queue[this.currentIndex + 1]?.word) {
       const nextWord = this.queue[this.currentIndex + 1].word.trim();
@@ -156,10 +182,6 @@ export class StudySession {
 
   flipCard() {
     this.isFlipped = !this.isFlipped;
-    // Mỗi lần lật thẻ thì tự động phát âm thanh bản xứ
-    if (this.isFlipped && this.currentCard && this.currentCard.word && this.settings.autoPronounce !== false) {
-      this.speak(this.currentCard.word);
-    }
     return this.isFlipped;
   }
 
@@ -222,7 +244,7 @@ export class StudySession {
    * Phát âm từ vựng với Dual Native Audio Engine
    */
   speak(text, lang = null) {
-    speak(text, { settings: this.settings, lang });
+    speak(text, { settings: this.settings, lang, cardObj: this.currentCard });
   }
 
   /**
@@ -239,4 +261,3 @@ export class StudySession {
     stopAudio();
   }
 }
-

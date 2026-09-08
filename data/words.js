@@ -35742,12 +35742,3260 @@ export const WORDS = [
       "toeic-b1-20-cum-tu-collocations-iem-cao"
     ],
     "tags": []
+  },
+  {
+    "id": "fb-001",
+    "word": "Budget",
+    "meaning": "Ngân sách, kế hoạch chi tiêu",
+    "ipa": "/ˈbʌdʒ.ɪt/",
+    "definition": "An estimate of income and expenditure for a set period of time.",
+    "example": "We need to stick to our monthly budget to save for a new house.",
+    "exampleVi": "Chúng tôi cần bám sát ngân sách hằng tháng để tiết kiệm mua nhà mới.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "finance",
+      "money"
+    ]
+  },
+  {
+    "id": "fb-002",
+    "word": "Income",
+    "meaning": "Thu nhập",
+    "ipa": "/ˈɪn.kʌm/",
+    "definition": "Money received, especially on a regular basis, for work or through investments.",
+    "example": "Her annual income increased significantly after the promotion.",
+    "exampleVi": "Thu nhập hằng năm của cô ấy tăng đáng kể sau khi được thăng chức.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "income"
+    ]
+  },
+  {
+    "id": "fb-003",
+    "word": "Expense",
+    "meaning": "Chi phí, khoản chi tiêu",
+    "ipa": "/ɪkˈspens/",
+    "definition": "The money that something costs or that you need to spend on something.",
+    "example": "Living expenses in big cities continue to rise.",
+    "exampleVi": "Chi phí sinh hoạt ở các thành phố lớn tiếp tục tăng cao.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "spending"
+    ]
+  },
+  {
+    "id": "fb-004",
+    "word": "Savings",
+    "meaning": "Tiền tiết kiệm",
+    "ipa": "/ˈseɪ.vɪŋz/",
+    "definition": "An amount of money saved, especially in a bank.",
+    "example": "He put all his savings into a high-yield account.",
+    "exampleVi": "Anh ấy đã gửi toàn bộ tiền tiết kiệm của mình vào một tài khoản sinh lời cao.",
+    "level": "A2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance",
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "savings"
+    ]
+  },
+  {
+    "id": "fb-005",
+    "word": "Salary",
+    "meaning": "Lương cố định (hằng tháng/năm)",
+    "ipa": "/ˈsæl.ɚ.i/",
+    "definition": "A fixed regular payment, typically paid on a monthly or biweekly basis.",
+    "example": "She negotiated a competitive base salary for her new role.",
+    "exampleVi": "Cô ấy đã đàm phán mức lương cơ bản cạnh tranh cho vị trí mới của mình.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "salary"
+    ]
+  },
+  {
+    "id": "fb-006",
+    "word": "Wage",
+    "meaning": "Tiền công (trả theo giờ hoặc ngày)",
+    "ipa": "/weɪdʒ/",
+    "definition": "A fixed regular payment earned for work or services, typically paid on a daily or weekly basis.",
+    "example": "The government voted to raise the minimum wage.",
+    "exampleVi": "Chính phủ đã bỏ phiếu tăng mức lương tối thiểu.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "income"
+    ]
+  },
+  {
+    "id": "fb-007",
+    "word": "Net worth",
+    "meaning": "Giá trị tài sản ròng",
+    "ipa": "/ˌnet ˈwɝːθ/",
+    "definition": "The total value of everything you own minus the total value of all your debts.",
+    "example": "His net worth is estimated at over five million dollars.",
+    "exampleVi": "Giá trị tài sản ròng của ông ấy ước tính hơn năm triệu đô la.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "wealth"
+    ]
+  },
+  {
+    "id": "fb-008",
+    "word": "Emergency fund",
+    "meaning": "Quỹ dự phòng khẩn cấp",
+    "ipa": "/ɪˈmɝː.dʒən.si fʌnd/",
+    "definition": "A stash of money set aside to cover the financial surprises life throws your way.",
+    "example": "Financial advisors recommend keeping 3 to 6 months of expenses in an emergency fund.",
+    "exampleVi": "Các cố vấn tài chính khuyên nên giữ 3 đến 6 tháng chi phí trong quỹ khẩn cấp.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance",
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "planning"
+    ]
+  },
+  {
+    "id": "fb-009",
+    "word": "Cash flow",
+    "meaning": "Dòng tiền",
+    "ipa": "/ˈkæʃ ˌfloʊ/",
+    "definition": "The total amount of money being transferred into and out of a business or personal account.",
+    "example": "Managing positive cash flow is crucial for long-term stability.",
+    "exampleVi": "Quản lý dòng tiền dương là điều tối quan trọng cho sự ổn định lâu dài.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "money"
+    ]
+  },
+  {
+    "id": "fb-010",
+    "word": "Pension",
+    "meaning": "Lương hưu, tiền trợ cấp hưu trí",
+    "ipa": "/ˈpen.ʃən/",
+    "definition": "A regular payment made during a person's retirement from an investment fund.",
+    "example": "He will start receiving his company pension when he turns 65.",
+    "exampleVi": "Ông ấy sẽ bắt đầu nhận lương hưu công ty khi bước sang tuổi 65.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "retirement"
+    ]
+  },
+  {
+    "id": "fb-011",
+    "word": "Frugal",
+    "meaning": "Tiết kiệm, thanh đạm",
+    "ipa": "/ˈfruː.ɡəl/",
+    "definition": "Careful about spending money or using things when you do not need to.",
+    "example": "By living a frugal lifestyle, they managed to pay off all their debts early.",
+    "exampleVi": "Nhờ lối sống tiết kiệm, họ đã trả hết nợ nần trước thời hạn.",
+    "level": "B2",
+    "pos": "adjective",
+    "topicIds": [
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "mindset"
+    ]
+  },
+  {
+    "id": "fb-012",
+    "word": "Afford",
+    "meaning": "Đủ khả năng chi trả",
+    "ipa": "/əˈfɔːrd/",
+    "definition": "Have enough money to pay for something.",
+    "example": "Can we afford to buy a new car this year?",
+    "exampleVi": "Liệu chúng ta có đủ khả năng chi trả để mua xe hơi mới trong năm nay không?",
+    "level": "A2",
+    "pos": "verb",
+    "topicIds": [
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "spending"
+    ]
+  },
+  {
+    "id": "fb-013",
+    "word": "Allowance",
+    "meaning": "Tiền tiêu vặt, khoản phụ cấp",
+    "ipa": "/əˈlaʊ.əns/",
+    "definition": "An amount of money given regularly for a specific purpose.",
+    "example": "Parents often give their teenagers a weekly allowance.",
+    "exampleVi": "Cha mẹ thường cho con cái tuổi teen một khoản tiền tiêu vặt hằng tuần.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "allowance"
+    ]
+  },
+  {
+    "id": "fb-014",
+    "word": "Assets",
+    "meaning": "Tài sản",
+    "ipa": "/ˈæs.ets/",
+    "definition": "A useful or valuable thing, person, or quantity owned by a person or company.",
+    "example": "Real estate and stocks are considered productive assets.",
+    "exampleVi": "Bất động sản và cổ phiếu được coi là những tài sản sinh lời.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "assets"
+    ]
+  },
+  {
+    "id": "fb-015",
+    "word": "Liabilities",
+    "meaning": "Nợ phải trả, nghĩa vụ tài chính",
+    "ipa": "/ˌlaɪ.əˈbɪl.ə.t̬iz/",
+    "definition": "A person's or company's legal debts or financial obligations that arise during business operations.",
+    "example": "Mortgages and student loans are long-term liabilities.",
+    "exampleVi": "Khoản vay thế chấp và vay sinh viên là các khoản nợ dài hạn.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance",
+      "fb-corporate-accounting",
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "debt"
+    ]
+  },
+  {
+    "id": "fb-016",
+    "word": "Discretionary income",
+    "meaning": "Thu nhập tùy ý (sau khi trừ chi phí thiết yếu)",
+    "ipa": "/dɪˈskreʃ.ən.er.i ˈɪn.kʌm/",
+    "definition": "Income remaining after deduction of taxes, other mandatory charges, and necessary expenditures.",
+    "example": "Travel expenses usually come from discretionary income.",
+    "exampleVi": "Chi phí du lịch thường được trích từ nguồn thu nhập tùy ý sử dụng.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "income"
+    ]
+  },
+  {
+    "id": "fb-017",
+    "word": "Financial independence",
+    "meaning": "Độc lập tài chính, tự do tài chính",
+    "ipa": "/faɪˈnæn.ʃəl ˌɪn.dɪˈpen.dəns/",
+    "definition": "The status of having enough income or wealth to pay one's living expenses for the rest of one's life.",
+    "example": "Achieving financial independence allows you to pursue your passions freely.",
+    "exampleVi": "Đạt được độc lập tài chính cho phép bạn tự do theo đuổi đam mê của mình.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "goals"
+    ]
+  },
+  {
+    "id": "fb-018",
+    "word": "Live beyond one's means",
+    "meaning": "Tiêu xài hoang phí, chi tiêu vượt quá thu nhập",
+    "ipa": "/lɪv bɪˈjɑːnd wʌnz miːnz/",
+    "definition": "To spend more money than one can afford.",
+    "example": "Credit cards make it dangerously easy to live beyond your means.",
+    "exampleVi": "Thẻ tín dụng khiến người ta rất dễ rơi vào bẫy chi tiêu vượt quá khả năng.",
+    "level": "B2",
+    "pos": "idiom",
+    "topicIds": [
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "spending"
+    ]
+  },
+  {
+    "id": "fb-019",
+    "word": "Windfall",
+    "meaning": "Khoản tiền bất ngờ nhận được",
+    "ipa": "/ˈwɪnd.fɑːl/",
+    "definition": "A piece of unexpected good fortune, typically involving receiving a large amount of money.",
+    "example": "She used her lottery windfall to invest in real estate.",
+    "exampleVi": "Cô ấy đã dùng món tiền trúng số bất ngờ để đầu tư vào bất động sản.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "money"
+    ]
+  },
+  {
+    "id": "fb-020",
+    "word": "Solvent",
+    "meaning": "Có khả năng thanh toán nợ",
+    "ipa": "/ˈsɑːl.vənt/",
+    "definition": "Having assets in excess of liabilities; able to pay one's debts.",
+    "example": "He remained solvent despite the difficult economic downturn.",
+    "exampleVi": "Anh ấy vẫn duy trì được khả năng thanh toán nợ bất chấp suy thoái kinh tế khó khăn.",
+    "level": "C1",
+    "pos": "adjective",
+    "topicIds": [
+      "fb-personal-finance",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "solvency"
+    ]
+  },
+  {
+    "id": "fb-021",
+    "word": "Bank account",
+    "meaning": "Tài khoản ngân hàng",
+    "ipa": "/ˈbæŋk əˌkaʊnt/",
+    "definition": "An arrangement made with a bank whereby one may deposit and withdraw money.",
+    "example": "I would like to open a new checking bank account.",
+    "exampleVi": "Tôi muốn mở một tài khoản ngân hàng vãng lai mới.",
+    "level": "A2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-022",
+    "word": "Balance",
+    "meaning": "Số dư tài khoản",
+    "ipa": "/ˈbæl.əns/",
+    "definition": "The amount of money held in a bank account at a given time.",
+    "example": "You can check your account balance on the mobile app.",
+    "exampleVi": "Bạn có thể kiểm tra số dư tài khoản trên ứng dụng di động.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-023",
+    "word": "Deposit",
+    "meaning": "Gửi tiền vào tài khoản; tiền đặt cọc",
+    "ipa": "/dɪˈpɑː.zɪt/",
+    "definition": "A sum of money placed or kept in a bank account.",
+    "example": "He made a cash deposit of $1,000 at the counter.",
+    "exampleVi": "Anh ấy đã nộp 1.000 đô la tiền mặt vào tài khoản tại quầy giao dịch.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-024",
+    "word": "Withdraw",
+    "meaning": "Rút tiền",
+    "ipa": "/wɪðˈdrɑː/",
+    "definition": "Remove money from a bank account.",
+    "example": "You can withdraw up to $500 daily from the ATM.",
+    "exampleVi": "Bạn có thể rút tối đa 500 đô la mỗi ngày từ máy ATM.",
+    "level": "B1",
+    "pos": "verb",
+    "topicIds": [
+      "fb-banking-services"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-025",
+    "word": "Transfer",
+    "meaning": "Chuyển khoản, giao dịch chuyển tiền",
+    "ipa": "/trænsˈfɝː/",
+    "definition": "Move money from one account to another.",
+    "example": "I will transfer the payment directly to your bank account.",
+    "exampleVi": "Tôi sẽ chuyển khoản thanh toán trực tiếp vào tài khoản ngân hàng của bạn.",
+    "level": "B1",
+    "pos": "verb",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-026",
+    "word": "Bank statement",
+    "meaning": "Bản sao kê ngân hàng",
+    "ipa": "/ˈbæŋk ˌsteɪt.mənt/",
+    "definition": "A printed or digital record of the balance in a bank account and the amounts paid into and out of it.",
+    "example": "We need your bank statements from the last three months for mortgage approval.",
+    "exampleVi": "Chúng tôi cần bản sao kê ngân hàng 3 tháng gần nhất để phê duyệt khoản vay mua nhà.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-027",
+    "word": "Overdraft",
+    "meaning": "Thấu chi (chi tiêu vượt số dư cho phép)",
+    "ipa": "/ˈoʊ.vɚ.dræft/",
+    "definition": "A deficit in a bank account caused by drawing more money than the account holds.",
+    "example": "The bank charges a penalty fee if you enter an unarranged overdraft.",
+    "exampleVi": "Ngân hàng sẽ tính phí phạt nếu bạn thấu chi ngoài hạn mức đã thỏa thuận.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-028",
+    "word": "Teller",
+    "meaning": "Giao dịch viên ngân hàng",
+    "ipa": "/ˈtel.ɚ/",
+    "definition": "A person employed to deal with customers' transactions in a bank.",
+    "example": "The bank teller helped me exchange currency for my trip.",
+    "exampleVi": "Giao dịch viên ngân hàng đã giúp tôi đổi ngoại tệ cho chuyến đi.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-029",
+    "word": "Branch",
+    "meaning": "Chi nhánh ngân hàng",
+    "ipa": "/bræntʃ/",
+    "definition": "A local office or store belonging to a large company or bank.",
+    "example": "Our local bank branch is open on Saturday mornings.",
+    "exampleVi": "Chi nhánh ngân hàng địa phương của chúng tôi mở cửa vào các sáng Thứ Bảy.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-030",
+    "word": "Checking account",
+    "meaning": "Tài khoản vãng lai / thanh toán",
+    "ipa": "/ˈtʃek.ɪŋ əˌkaʊnt/",
+    "definition": "A bank account from which money can be withdrawn or transferred frequently.",
+    "example": "I use my checking account for everyday purchases and bill payments.",
+    "exampleVi": "Tôi dùng tài khoản thanh toán cho các khoản mua sắm hằng ngày và trả hóa đơn.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-031",
+    "word": "Savings account",
+    "meaning": "Tài khoản tiết kiệm",
+    "ipa": "/ˈseɪ.vɪŋz əˌkaʊnt/",
+    "definition": "A bank account that earns interest on the funds held.",
+    "example": "A high-interest savings account helps protect your money against inflation.",
+    "exampleVi": "Tài khoản tiết kiệm lãi suất cao giúp bảo vệ tiền của bạn trước lạm phát.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-032",
+    "word": "Wire transfer",
+    "meaning": "Điện chuyển tiền (trong nước/quốc tế)",
+    "ipa": "/ˈwaɪr ˌtræns.fɝː/",
+    "definition": "An electronic transfer of funds across a network of banks.",
+    "example": "International wire transfers usually take 1 to 3 business days to clear.",
+    "exampleVi": "Điện chuyển tiền quốc tế thường mất từ 1 đến 3 ngày làm việc để hoàn tất.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-033",
+    "word": "Direct deposit",
+    "meaning": "Thanh toán trực tiếp vào tài khoản (nhận lương)",
+    "ipa": "/dɪˈrekt dɪˌpɑː.zɪt/",
+    "definition": "The electronic payment of wages directly into an employee's bank account.",
+    "example": "My monthly salary is sent via direct deposit on the 25th.",
+    "exampleVi": "Tiền lương hằng tháng của tôi được chuyển trực tiếp vào tài khoản vào ngày 25.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-034",
+    "word": "Routing number",
+    "meaning": "Mã định tuyến ngân hàng",
+    "ipa": "/ˈruː.t̬ɪŋ ˌnʌm.bɚ/",
+    "definition": "A nine-digit code used to identify a specific financial institution in transactions.",
+    "example": "You need the bank's routing number to set up automated bill payments.",
+    "exampleVi": "Bạn cần mã định tuyến của ngân hàng để thiết lập thanh toán hóa đơn tự động.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-035",
+    "word": "SWIFT code",
+    "meaning": "Mã định danh ngân hàng quốc tế",
+    "ipa": "/swɪft koʊd/",
+    "definition": "A standard international code used to identify banks and financial institutions globally.",
+    "example": "Provide your bank's SWIFT code when receiving money from abroad.",
+    "exampleVi": "Hãy cung cấp mã SWIFT của ngân hàng bạn khi nhận tiền từ nước ngoài.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-036",
+    "word": "Dormant account",
+    "meaning": "Tài khoản không hoạt động / ngủ đông",
+    "ipa": "/ˈdɔːr.mənt əˌkaʊnt/",
+    "definition": "An account that has had no financial activity for a long period of time.",
+    "example": "The bank may freeze a dormant account after six months of inactivity.",
+    "exampleVi": "Ngân hàng có thể đóng băng tài khoản không hoạt động sau 6 tháng không có giao dịch.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-037",
+    "word": "Liquidity",
+    "meaning": "Tính thanh khoản",
+    "ipa": "/lɪˈkwɪd.ə.t̬i/",
+    "definition": "The ease with which an asset can be converted into ready cash without affecting its market price.",
+    "example": "Cash has the highest liquidity of all financial assets.",
+    "exampleVi": "Tiền mặt có tính thanh khoản cao nhất trong tất cả các tài sản tài chính.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-investments-stocks",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "liquidity"
+    ]
+  },
+  {
+    "id": "fb-038",
+    "word": "Safe deposit box",
+    "meaning": "Két an toàn ngân hàng",
+    "ipa": "/ˌseɪf dɪˈpɑː.zɪt bɑːks/",
+    "definition": "An individually secured container held in a bank vault for storing valuables.",
+    "example": "Important property deeds are stored securely in a safe deposit box.",
+    "exampleVi": "Sổ đỏ quan trọng được cất giữ an toàn trong két bảo hiểm của ngân hàng.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-039",
+    "word": "Central bank",
+    "meaning": "Ngân hàng trung ương",
+    "ipa": "/ˌsen.trəl ˈbæŋk/",
+    "definition": "A national bank that provides financial and banking services for its country's government and commercial banking system.",
+    "example": "The central bank decided to lower interest rates to stimulate the economy.",
+    "exampleVi": "Ngân hàng trung ương quyết định hạ lãi suất để kích thích nền kinh tế.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "macro"
+    ]
+  },
+  {
+    "id": "fb-040",
+    "word": "Know Your Customer (KYC)",
+    "meaning": "Quy trình xác minh danh tính khách hàng",
+    "ipa": "/noʊ jʊr ˈkʌs.tə.mɚ/",
+    "definition": "A standard process used by financial institutions to verify the identity of their customers.",
+    "example": "You must upload your ID to complete the KYC verification.",
+    "exampleVi": "Bạn phải tải lên căn cước để hoàn thành quy trình xác thực danh tính KYC.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "compliance"
+    ]
+  },
+  {
+    "id": "fb-041",
+    "word": "Credit card",
+    "meaning": "Thẻ tín dụng (chi tiêu trước, trả tiền sau)",
+    "ipa": "/ˈkred.ɪt ˌkɑːrd/",
+    "definition": "A small plastic or metal card issued by a bank allowing the holder to purchase goods on credit.",
+    "example": "Paying off your credit card balance in full avoids high interest charges.",
+    "exampleVi": "Thanh toán toàn bộ dư nợ thẻ tín dụng giúp tránh được lãi suất cao.",
+    "level": "A2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards",
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "cards"
+    ]
+  },
+  {
+    "id": "fb-042",
+    "word": "Debit card",
+    "meaning": "Thẻ ghi nợ (trừ tiền trực tiếp từ tài khoản)",
+    "ipa": "/ˈdeb.ɪt ˌkɑːrd/",
+    "definition": "A payment card that deducts money directly from a consumer's checking account when used.",
+    "example": "Using a debit card prevents you from spending more than you have.",
+    "exampleVi": "Dùng thẻ ghi nợ giúp bạn không chi tiêu vượt quá số tiền mình đang có.",
+    "level": "A2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "cards"
+    ]
+  },
+  {
+    "id": "fb-043",
+    "word": "Contactless payment",
+    "meaning": "Thanh toán không tiếp xúc",
+    "ipa": "/ˈkɑːn.tæk.ləs ˈpeɪ.mənt/",
+    "definition": "A secure method of purchasing goods using RFID or NFC technology without physically inserting a card.",
+    "example": "Contactless payment makes checkouts faster and more convenient.",
+    "exampleVi": "Thanh toán không tiếp xúc giúp việc thanh toán nhanh chóng và tiện lợi hơn.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "tech"
+    ]
+  },
+  {
+    "id": "fb-044",
+    "word": "Invoice",
+    "meaning": "Hóa đơn thanh toán (yêu cầu trả tiền)",
+    "ipa": "/ˈɪn.vɔɪs/",
+    "definition": "A list of goods sent or services provided, with a statement of the sum due.",
+    "example": "The supplier sent an invoice due within 30 days.",
+    "exampleVi": "Nhà cung cấp đã gửi hóa đơn yêu cầu thanh toán trong vòng 30 ngày.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "billing"
+    ]
+  },
+  {
+    "id": "fb-045",
+    "word": "Receipt",
+    "meaning": "Biên lai, phiếu thu tiền",
+    "ipa": "/rɪˈsiːt/",
+    "definition": "A written or digital acknowledgment that a specified article or sum of money has been received.",
+    "example": "Always keep your receipt in case you need to return the item.",
+    "exampleVi": "Hãy luôn giữ biên lai phòng trường hợp bạn cần đổi trả hàng hóa.",
+    "level": "A2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "billing"
+    ]
+  },
+  {
+    "id": "fb-046",
+    "word": "Transaction fee",
+    "meaning": "Phí giao dịch",
+    "ipa": "/trænˈzæk.ʃən fiː/",
+    "definition": "A charge levied by a financial institution or merchant for processing a transaction.",
+    "example": "Some international credit cards do not charge foreign transaction fees.",
+    "exampleVi": "Một số loại thẻ tín dụng quốc tế không thu phí giao dịch ngoại tệ.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards",
+      "fb-banking-services"
+    ],
+    "tags": [
+      "fees"
+    ]
+  },
+  {
+    "id": "fb-047",
+    "word": "Billing cycle",
+    "meaning": "Chu kỳ thanh toán, kỳ sao kê",
+    "ipa": "/ˈbɪl.ɪŋ ˌsaɪ.kəl/",
+    "definition": "The interval of time between billing statement dates.",
+    "example": "Interest begins to accrue if the balance is carried past the billing cycle.",
+    "exampleVi": "Tiền lãi sẽ bắt đầu phát sinh nếu dư nợ bị kéo dài qua kỳ sao kê.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "cards"
+    ]
+  },
+  {
+    "id": "fb-048",
+    "word": "Chargeback",
+    "meaning": "Khoản tiền hoàn trả khi khiếu nại giao dịch",
+    "ipa": "/ˈtʃɑːrdʒ.bæk/",
+    "definition": "A demand by a credit card provider for a retailer to make good the loss on a fraudulent or disputed transaction.",
+    "example": "The customer requested a chargeback after the order never arrived.",
+    "exampleVi": "Khách hàng đã yêu cầu hoàn tiền khiếu nại sau khi đơn hàng không được giao.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "dispute"
+    ]
+  },
+  {
+    "id": "fb-049",
+    "word": "PIN (Personal Identification Number)",
+    "meaning": "Mã PIN bảo mật cá nhân",
+    "ipa": "/pɪn/",
+    "definition": "A secret numeric password shared between a user and a system to authenticate the user.",
+    "example": "Never share your ATM card PIN with anyone.",
+    "exampleVi": "Không bao giờ chia sẻ mã PIN thẻ ATM của bạn với bất kỳ ai.",
+    "level": "A2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards",
+      "fb-banking-services"
+    ],
+    "tags": [
+      "security"
+    ]
+  },
+  {
+    "id": "fb-050",
+    "word": "Merchant",
+    "meaning": "Đơn vị chấp nhận thanh toán, thương nhân",
+    "ipa": "/ˈmɝː.tʃənt/",
+    "definition": "A person or company involved in wholesale trade, or a retailer accepting card payments.",
+    "example": "The merchant accepted mobile wallet payments via QR code.",
+    "exampleVi": "Thương nhân chấp nhận thanh toán bằng ví điện tử qua mã QR.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "commerce"
+    ]
+  },
+  {
+    "id": "fb-051",
+    "word": "Payment gateway",
+    "meaning": "Cổng thanh toán điện tử",
+    "ipa": "/ˈpeɪ.mənt ˌɡeɪt.weɪ/",
+    "definition": "A merchant service provided by an e-commerce application service provider that authorizes card or direct payments.",
+    "example": "The website integrated a secure payment gateway for online orders.",
+    "exampleVi": "Trang web đã tích hợp cổng thanh toán an toàn cho các đơn hàng trực tuyến.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "tech"
+    ]
+  },
+  {
+    "id": "fb-052",
+    "word": "Grace period",
+    "meaning": "Thời gian ân hạn không tính lãi",
+    "ipa": "/ˈɡreɪs ˌpɪr.i.əd/",
+    "definition": "A period of time after a payment becomes due, as of a loan or credit card, before a penalty or interest is charged.",
+    "example": "Most credit cards offer a 45-day interest-free grace period.",
+    "exampleVi": "Hầu hết các thẻ tín dụng đều có thời gian ân hạn miễn lãi lên đến 45 ngày.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards",
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "cards"
+    ]
+  },
+  {
+    "id": "fb-053",
+    "word": "Credit limit",
+    "meaning": "Hạn mức tín dụng",
+    "ipa": "/ˈkred.ɪt ˌlɪm.ɪt/",
+    "definition": "The maximum amount of credit that a financial institution extends to a client.",
+    "example": "Her prompt payments qualified her for a credit limit increase.",
+    "exampleVi": "Việc thanh toán đúng hạn giúp cô ấy đủ điều kiện được tăng hạn mức tín dụng.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards",
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "cards"
+    ]
+  },
+  {
+    "id": "fb-054",
+    "word": "Cashback",
+    "meaning": "Tiền hoàn lại sau chi tiêu",
+    "ipa": "/ˈkæʃ.bæk/",
+    "definition": "A reward feature on some credit cards that returns a percentage of the amount spent.",
+    "example": "This card offers 5% cashback on grocery purchases.",
+    "exampleVi": "Chiếc thẻ này hoàn lại 5% tiền cho các khoản chi tiêu mua sắm thực phẩm.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "cards"
+    ]
+  },
+  {
+    "id": "fb-055",
+    "word": "Fraud",
+    "meaning": "Gian lận, lừa đảo tài chính",
+    "ipa": "/frɑːd/",
+    "definition": "Wrongful or criminal deception intended to result in financial or personal gain.",
+    "example": "The bank alerted me to potential credit card fraud.",
+    "exampleVi": "Ngân hàng đã cảnh báo cho tôi về dấu hiệu gian lận thẻ tín dụng tiềm ẩn.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards",
+      "fb-banking-services"
+    ],
+    "tags": [
+      "security"
+    ]
+  },
+  {
+    "id": "fb-056",
+    "word": "Loan",
+    "meaning": "Khoản vay",
+    "ipa": "/loʊn/",
+    "definition": "A thing that is borrowed, especially a sum of money that is expected to be paid back with interest.",
+    "example": "He took out a business loan to expand his bakery.",
+    "exampleVi": "Anh ấy đã vay một khoản vốn kinh doanh để mở rộng tiệm bánh.",
+    "level": "A2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "loans"
+    ]
+  },
+  {
+    "id": "fb-057",
+    "word": "Mortgage",
+    "meaning": "Khoản vay thế chấp mua nhà",
+    "ipa": "/ˈmɔːr.ɡɪdʒ/",
+    "definition": "A loan used to buy a house or real estate, where the property acts as collateral.",
+    "example": "They secured a 30-year fixed-rate mortgage for their new apartment.",
+    "exampleVi": "Họ đã vay thế chấp lãi suất cố định 30 năm để mua căn hộ mới.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "loans"
+    ]
+  },
+  {
+    "id": "fb-058",
+    "word": "Collateral",
+    "meaning": "Tài sản thế chấp, vật bảo đảm",
+    "ipa": "/kəˈlæt̬.ɚ.əl/",
+    "definition": "Something pledged as security for repayment of a loan, to be forfeited in the event of a default.",
+    "example": "He pledged his house as collateral for the bank loan.",
+    "exampleVi": "Anh ấy đã thế chấp ngôi nhà của mình làm tài sản đảm bảo cho khoản vay ngân hàng.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "loans"
+    ]
+  },
+  {
+    "id": "fb-059",
+    "word": "Principal",
+    "meaning": "Tiền nợ gốc (chưa tính lãi)",
+    "ipa": "/ˈprɪn.sə.pəl/",
+    "definition": "An original sum of money invested or lent, as distinguished from interest or profit.",
+    "example": "Early repayments reduce the principal amount faster.",
+    "exampleVi": "Trả nợ trước hạn giúp giảm số tiền nợ gốc nhanh hơn.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit",
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "loans"
+    ]
+  },
+  {
+    "id": "fb-060",
+    "word": "Interest rate",
+    "meaning": "Lãi suất",
+    "ipa": "/ˈɪn.trɪst reɪt/",
+    "definition": "The proportion of a loan that is charged as interest to the borrower, typically expressed as an annual percentage.",
+    "example": "Rising interest rates make borrowing money more expensive.",
+    "exampleVi": "Lãi suất tăng khiến việc vay mượn tiền trở nên đắt đỏ hơn.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit",
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "interest"
+    ]
+  },
+  {
+    "id": "fb-061",
+    "word": "Borrower",
+    "meaning": "Người đi vay",
+    "ipa": "/ˈbɑːr.oʊ.ɚ/",
+    "definition": "A person or organization that takes out a loan from a lender.",
+    "example": "Borrowers with high credit scores receive lower interest rates.",
+    "exampleVi": "Những người đi vay có điểm tín dụng cao sẽ được hưởng mức lãi suất thấp hơn.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "loans"
+    ]
+  },
+  {
+    "id": "fb-062",
+    "word": "Lender",
+    "meaning": "Bên cho vay, tổ chức tín dụng",
+    "ipa": "/ˈlen.dɚ/",
+    "definition": "An organization or person that lends money.",
+    "example": "Commercial lenders thoroughly assess risk before approving loans.",
+    "exampleVi": "Các tổ chức cho vay thương mại luôn đánh giá kỹ rủi ro trước khi duyệt vay.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "loans"
+    ]
+  },
+  {
+    "id": "fb-063",
+    "word": "Default",
+    "meaning": "Vỡ nợ, mất khả năng trả nợ",
+    "ipa": "/dɪˈfɑːlt/",
+    "definition": "Failure to fulfill an obligation, especially to repay a loan.",
+    "example": "If you default on your mortgage, the bank may seize the property.",
+    "exampleVi": "Nếu bạn vỡ nợ khoản vay mua nhà, ngân hàng có thể tịch thu bất động sản.",
+    "level": "B2",
+    "pos": "verb",
+    "topicIds": [
+      "fb-loans-credit",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "risk"
+    ]
+  },
+  {
+    "id": "fb-064",
+    "word": "Credit score",
+    "meaning": "Điểm tín dụng cá nhân",
+    "ipa": "/ˈkred.ɪt ˌskɔːr/",
+    "definition": "A number assigned to a person that indicates to lenders their capacity to repay a loan.",
+    "example": "Maintaining an excellent credit score is essential for securing favorable loan terms.",
+    "exampleVi": "Duy trì điểm tín dụng xuất sắc là điều thiết yếu để có các điều khoản vay ưu đãi.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit",
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "credit"
+    ]
+  },
+  {
+    "id": "fb-065",
+    "word": "Debt",
+    "meaning": "Khoản nợ",
+    "ipa": "/det/",
+    "definition": "A sum of money that is owed or due.",
+    "example": "She made a plan to become completely debt-free in three years.",
+    "exampleVi": "Cô ấy đã lập kế hoạch để sạch bóng nợ nần trong vòng 3 năm.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit",
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "debt"
+    ]
+  },
+  {
+    "id": "fb-066",
+    "word": "Repayment",
+    "meaning": "Sự hoàn trả nợ, tiền trả góp",
+    "ipa": "/rɪˈpeɪ.mənt/",
+    "definition": "The act of paying back money borrowed from someone.",
+    "example": "Monthly mortgage repayments are automatically deducted from his account.",
+    "exampleVi": "Các khoản trả nợ vay mua nhà hằng tháng được tự động trừ từ tài khoản của anh ấy.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "loans"
+    ]
+  },
+  {
+    "id": "fb-067",
+    "word": "Installment",
+    "meaning": "Đợt trả góp, kỳ trả góp",
+    "ipa": "/ɪnˈstɑːl.mənt/",
+    "definition": "One of a number of successive payments in settlement of a debt.",
+    "example": "You can pay for the laptop in twelve monthly zero-interest installments.",
+    "exampleVi": "Bạn có thể thanh toán chiếc máy tính xách tay trong 12 kỳ trả góp 0% lãi suất.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit",
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "loans"
+    ]
+  },
+  {
+    "id": "fb-068",
+    "word": "Guarantor",
+    "meaning": "Người bảo lãnh (khoản vay)",
+    "ipa": "/ˌɡær.ənˈtɔːr/",
+    "definition": "A person or organization that provides a guarantee in support of another person's loan.",
+    "example": "His parents acted as guarantors for his first student loan.",
+    "exampleVi": "Cha mẹ anh ấy đã đứng ra làm người bảo lãnh cho khoản vay sinh viên đầu tiên của anh.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "loans"
+    ]
+  },
+  {
+    "id": "fb-069",
+    "word": "Maturity date",
+    "meaning": "Ngày đáo hạn (khoản vay/sổ tiết kiệm/trái phiếu)",
+    "ipa": "/məˈtʊr.ə.t̬i ˌdeɪt/",
+    "definition": "The final payment date of a loan or other financial instrument, at which point the principal is due.",
+    "example": "The full bond principal will be repaid on the maturity date.",
+    "exampleVi": "Toàn bộ tiền gốc trái phiếu sẽ được hoàn trả vào ngày đáo hạn.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit",
+      "fb-savings-interest",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "maturity"
+    ]
+  },
+  {
+    "id": "fb-070",
+    "word": "Refinance",
+    "meaning": "Tái cấp vốn, tái cấu trúc khoản vay",
+    "ipa": "/ˌriːˈfaɪ.næns/",
+    "definition": "Finance something again, typically with a new loan at a lower rate of interest.",
+    "example": "Many homeowners refinanced their mortgages when interest rates hit record lows.",
+    "exampleVi": "Nhiều chủ nhà đã tái cấp vốn cho khoản vay mua nhà khi lãi suất chạm đáy kỷ lục.",
+    "level": "B2",
+    "pos": "verb",
+    "topicIds": [
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "loans"
+    ]
+  },
+  {
+    "id": "fb-071",
+    "word": "Bad debt",
+    "meaning": "Nợ xấu, nợ khó đòi",
+    "ipa": "/ˌbæd ˈdet/",
+    "definition": "A debt that cannot be recovered and must be written off as a loss.",
+    "example": "The bank reduced its bad debt ratio through stricter credit checks.",
+    "exampleVi": "Ngân hàng đã giảm tỷ lệ nợ xấu thông qua việc thẩm định tín dụng chặt chẽ hơn.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "debt"
+    ]
+  },
+  {
+    "id": "fb-072",
+    "word": "Amortization",
+    "meaning": "Sự khấu trừ dần dần theo kỳ (nợ vay)",
+    "ipa": "/əˌmɔːr.t̬əˈzeɪ.ʃən/",
+    "definition": "The action or process of gradually writing off the initial cost of an asset or paying off a debt.",
+    "example": "The amortization schedule shows how much goes toward principal versus interest.",
+    "exampleVi": "Bảng lịch trình trả nợ cho thấy số tiền trả cho gốc so với lãi qua từng kỳ.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "finance"
+    ]
+  },
+  {
+    "id": "fb-073",
+    "word": "Foreclosure",
+    "meaning": "Sự tịch thu tài sản thế chấp (khi vỡ nợ)",
+    "ipa": "/fɔːrˈkloʊ.ʒɚ/",
+    "definition": "The legal process by which a lender attempts to recover the balance of a loan from a borrower who has stopped making payments.",
+    "example": "Failure to repay the mortgage led to foreclosure on the home.",
+    "exampleVi": "Việc không trả nợ vay mua nhà đã dẫn đến việc căn nhà bị ngân hàng tịch thu phát mại.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "risk"
+    ]
+  },
+  {
+    "id": "fb-074",
+    "word": "Creditworthiness",
+    "meaning": "Mức độ uy tín tín dụng",
+    "ipa": "/ˈkred.ɪtˌwɝː.ði.nəs/",
+    "definition": "An assessment of the likelihood that a borrower will default on their debt obligations.",
+    "example": "Stable employment history improves a borrower's creditworthiness.",
+    "exampleVi": "Lịch sử công việc ổn định giúp nâng cao mức độ uy tín tín dụng của người đi vay.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "credit"
+    ]
+  },
+  {
+    "id": "fb-075",
+    "word": "Bankruptcy",
+    "meaning": "Tình trạng phá sản",
+    "ipa": "/ˈbæŋ.krəpt.si/",
+    "definition": "The state of being bankrupt; legal inability to pay debts.",
+    "example": "Filing for bankruptcy is a last resort for deeply indebted individuals.",
+    "exampleVi": "Nộp đơn xin phá sản là biện pháp cuối cùng cho những cá nhân ngập trong nợ nần.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "legal"
+    ]
+  },
+  {
+    "id": "fb-076",
+    "word": "Compound interest",
+    "meaning": "Lãi kép (kỳ quan thứ 8 của thế giới)",
+    "ipa": "/ˌkɑːm.paʊnd ˈɪn.trɪst/",
+    "definition": "Interest calculated on the initial principal, which also includes all of the accumulated interest from previous periods.",
+    "example": "Albert Einstein called compound interest the eighth wonder of the world.",
+    "exampleVi": "Albert Einstein từng gọi lãi kép là kỳ quan thứ tám của thế giới.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "wealth"
+    ]
+  },
+  {
+    "id": "fb-077",
+    "word": "Simple interest",
+    "meaning": "Lãi đơn (tính trên tiền gốc ban đầu)",
+    "ipa": "/ˌsɪm.pəl ˈɪn.trɪst/",
+    "definition": "A quick and easy method of calculating the interest charge on a loan or investment based only on the original principal.",
+    "example": "Simple interest does not compound over time.",
+    "exampleVi": "Lãi đơn không sinh thêm lãi dồn theo thời gian.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "math"
+    ]
+  },
+  {
+    "id": "fb-078",
+    "word": "Yield",
+    "meaning": "Tỷ suất sinh lời, lợi suất",
+    "ipa": "/jiːld/",
+    "definition": "The earnings generated and realized on an investment over a particular period of time.",
+    "example": "Government bonds offer a guaranteed annual yield of 4.5%.",
+    "exampleVi": "Trái phiếu chính phủ mang lại tỷ suất sinh lời bảo đảm 4,5% hằng năm.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "return"
+    ]
+  },
+  {
+    "id": "fb-079",
+    "word": "Fixed deposit",
+    "meaning": "Gửi tiết kiệm có kỳ hạn",
+    "ipa": "/ˌfɪkst dɪˈpɑː.zɪt/",
+    "definition": "A financial instrument provided by banks which provides investors with a higher rate of interest than a regular savings account, until the given maturity date.",
+    "example": "She locked her funds into a 12-month fixed deposit for higher interest.",
+    "exampleVi": "Cô ấy đã gửi tiền vào sổ tiết kiệm kỳ hạn 12 tháng để hưởng mức lãi suất cao hơn.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest",
+      "fb-banking-services"
+    ],
+    "tags": [
+      "savings"
+    ]
+  },
+  {
+    "id": "fb-080",
+    "word": "Inflation",
+    "meaning": "Lạm phát (sự tăng giá cả hàng hóa)",
+    "ipa": "/ɪnˈfleɪ.ʃən/",
+    "definition": "A general increase in prices and fall in the purchasing value of money.",
+    "example": "High inflation reduces the real value of cash savings over time.",
+    "exampleVi": "Lạm phát cao làm suy giảm giá trị thực tế của tiền mặt tiết kiệm theo thời gian.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "macro"
+    ]
+  },
+  {
+    "id": "fb-081",
+    "word": "Deflation",
+    "meaning": "Giảm phát",
+    "ipa": "/diːˈfleɪ.ʃən/",
+    "definition": "A reduction of the general level of prices in an economy.",
+    "example": "Deflation can cause consumers to delay purchases, slowing down the economy.",
+    "exampleVi": "Giảm phát có thể khiến người tiêu dùng trì hoãn mua sắm, làm chậm nền kinh tế.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "macro"
+    ]
+  },
+  {
+    "id": "fb-082",
+    "word": "Purchasing power",
+    "meaning": "Sức mua của đồng tiền",
+    "ipa": "/ˈpɝː.tʃəs.ɪŋ ˌpaʊ.ɚ/",
+    "definition": "The financial ability to buy products and services.",
+    "example": "Investing in productive assets helps preserve purchasing power.",
+    "exampleVi": "Đầu tư vào tài sản sinh lời giúp bảo toàn sức mua của đồng tiền.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "macro"
+    ]
+  },
+  {
+    "id": "fb-083",
+    "word": "Annual Percentage Rate (APR)",
+    "meaning": "Lãi suất phần trăm hằng năm (bao gồm cả phí)",
+    "ipa": "/ˌeɪ.piːˈɑːr/",
+    "definition": "The annual rate charged for borrowing or earned through an investment.",
+    "example": "Compare the APR across different lenders before choosing a credit card.",
+    "exampleVi": "Hãy so sánh tỷ lệ APR giữa các bên cho vay trước khi chọn mở thẻ tín dụng.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest",
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "interest"
+    ]
+  },
+  {
+    "id": "fb-084",
+    "word": "Annual Percentage Yield (APY)",
+    "meaning": "Tỷ suất sinh lời thực tế hằng năm (có tính lãi kép)",
+    "ipa": "/ˌeɪ.piːˈwaɪ/",
+    "definition": "A normalized representation of an interest rate, based on a compounding period of one year.",
+    "example": "An APY of 5% will grow your savings faster than simple interest.",
+    "exampleVi": "Tỷ suất APY 5% sẽ giúp tiền tiết kiệm của bạn tăng trưởng nhanh hơn lãi đơn.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "interest"
+    ]
+  },
+  {
+    "id": "fb-085",
+    "word": "Certificate of Deposit (CD)",
+    "meaning": "Chứng chỉ tiền gửi",
+    "ipa": "/sɚˌtɪf.ə.kət əv dɪˈpɑː.zɪt/",
+    "definition": "A certificate issued by a bank to a person depositing money for a specified length of time.",
+    "example": "Opening a Certificate of Deposit provides guaranteed returns with zero risk.",
+    "exampleVi": "Mở chứng chỉ tiền gửi mang lại lợi nhuận chắc chắn mà không có rủi ro.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest",
+      "fb-banking-services"
+    ],
+    "tags": [
+      "savings"
+    ]
+  },
+  {
+    "id": "fb-086",
+    "word": "Real interest rate",
+    "meaning": "Lãi suất thực tế (đã trừ lạm phát)",
+    "ipa": "/ˈriː.əl ˈɪn.trɪst reɪt/",
+    "definition": "An interest rate that has been adjusted to remove the effects of inflation.",
+    "example": "If nominal interest is 6% and inflation is 4%, the real interest rate is 2%.",
+    "exampleVi": "Nếu lãi suất danh nghĩa là 6% và lạm phát là 4%, thì lãi suất thực tế là 2%.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "interest"
+    ]
+  },
+  {
+    "id": "fb-087",
+    "word": "Stagflation",
+    "meaning": "Đình lạm (kinh tế đình đốn kèm lạm phát cao)",
+    "ipa": "/stæɡˈfleɪ.ʃən/",
+    "definition": "Persistent high inflation combined with high unemployment and stagnant demand in an economy.",
+    "example": "Stagflation presents a tough challenge for monetary policymakers.",
+    "exampleVi": "Tình trạng đình lạm đặt ra thử thách gay gắt cho các nhà hoạch định chính sách tiền tệ.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "macro"
+    ]
+  },
+  {
+    "id": "fb-088",
+    "word": "Devaluation",
+    "meaning": "Sự phá giá đồng tiền",
+    "ipa": "/ˌdiː.væl.juˈeɪ.ʃən/",
+    "definition": "The reduction in the official value of a currency in relation to other currencies.",
+    "example": "Currency devaluation makes exports cheaper but imports more expensive.",
+    "exampleVi": "Sự phá giá đồng tiền giúp hàng xuất khẩu rẻ hơn nhưng khiến hàng nhập khẩu đắt đỏ hơn.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "macro"
+    ]
+  },
+  {
+    "id": "fb-089",
+    "word": "Hyperinflation",
+    "meaning": "Siêu lạm phát",
+    "ipa": "/ˌhaɪ.pɚ.ɪnˈfleɪ.ʃən/",
+    "definition": "Monetary inflation occurring at a very high and rapid rate.",
+    "example": "During hyperinflation, prices can double in a matter of days.",
+    "exampleVi": "Trong thời kỳ siêu lạm phát, giá cả có thể tăng gấp đôi chỉ trong vài ngày.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "macro"
+    ]
+  },
+  {
+    "id": "fb-090",
+    "word": "Maturity",
+    "meaning": "Kỳ hạn đáo hạn",
+    "ipa": "/məˈtʊr.ə.t̬i/",
+    "definition": "The time when an insurance policy, security, or loan finishes or becomes payable.",
+    "example": "Upon maturity, the principal plus interest is credited to your main account.",
+    "exampleVi": "Khi đến hạn, tiền gốc cộng lãi sẽ được chuyển vào tài khoản chính của bạn.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "savings"
+    ]
+  },
+  {
+    "id": "fb-091",
+    "word": "Stock",
+    "meaning": "Cổ phiếu, cổ phần",
+    "ipa": "/stɑːk/",
+    "definition": "A fraction of ownership in a corporation.",
+    "example": "She bought shares of tech stock for long-term capital growth.",
+    "exampleVi": "Cô ấy đã mua cổ phiếu công nghệ để tăng trưởng vốn dài hạn.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "stocks"
+    ]
+  },
+  {
+    "id": "fb-092",
+    "word": "Share",
+    "meaning": "Cổ phần",
+    "ipa": "/ʃer/",
+    "definition": "One of the equal parts into which a company's capital is divided.",
+    "example": "He owns 500 shares in Apple.",
+    "exampleVi": "Anh ấy sở hữu 500 cổ phần của tập đoàn Apple.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "stocks"
+    ]
+  },
+  {
+    "id": "fb-093",
+    "word": "Dividend",
+    "meaning": "Cổ tức (lợi nhuận chia cho cổ đông)",
+    "ipa": "/ˈdɪv.ə.dend/",
+    "definition": "A sum of money paid regularly by a company to its shareholders out of its profits.",
+    "example": "The company announced a quarterly dividend payout of $0.80 per share.",
+    "exampleVi": "Công ty đã công bố mức chi trả cổ tức quý là 0,80 đô la cho mỗi cổ phiếu.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "stocks"
+    ]
+  },
+  {
+    "id": "fb-094",
+    "word": "Portfolio",
+    "meaning": "Danh mục đầu tư",
+    "ipa": "/pɔːrtˈfoʊ.li.oʊ/",
+    "definition": "A range of investments held by a person or organization.",
+    "example": "A diversified portfolio reduces overall risk across market cycles.",
+    "exampleVi": "Một danh mục đầu tư đa dạng hóa giúp giảm thiểu rủi ro qua các chu kỳ thị trường.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks",
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "investment"
+    ]
+  },
+  {
+    "id": "fb-095",
+    "word": "Bond",
+    "meaning": "Trái phiếu",
+    "ipa": "/bɑːnd/",
+    "definition": "An instrument of indebtedness of the bond issuer to the holders, with fixed interest payments.",
+    "example": "Treasury bonds are considered one of the safest financial instruments.",
+    "exampleVi": "Trái phiếu kho bạc được coi là một trong những công cụ tài chính an toàn nhất.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "bonds"
+    ]
+  },
+  {
+    "id": "fb-096",
+    "word": "Equity",
+    "meaning": "Vốn chủ sở hữu, giá trị cổ phần",
+    "ipa": "/ˈek.wə.t̬i/",
+    "definition": "The value of the shares issued by a company, or the value of an asset less the value of all liabilities on that asset.",
+    "example": "Private equity firms invest directly in promising private companies.",
+    "exampleVi": "Các quỹ đầu tư tư nhân rót vốn trực tiếp vào các công ty tư nhân đầy triển vọng.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "equity"
+    ]
+  },
+  {
+    "id": "fb-097",
+    "word": "Bull market",
+    "meaning": "Thị trường giá lên (thị trường con bò tót)",
+    "ipa": "/ˈbʊl ˌmɑːr.kɪt/",
+    "definition": "A market in which share prices are rising, encouraging buying.",
+    "example": "Investors made record gains during the recent bull market.",
+    "exampleVi": "Các nhà đầu tư đã thu được lợi nhuận kỷ lục trong đợt thị trường giá lên vừa qua.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "market"
+    ]
+  },
+  {
+    "id": "fb-098",
+    "word": "Bear market",
+    "meaning": "Thị trường giá xuống (thị trường con gấu)",
+    "ipa": "/ˈber ˌmɑːr.kɪt/",
+    "definition": "A market in which prices are falling, encouraging selling, typically dropping 20% or more from recent highs.",
+    "example": "Dollar-cost averaging helps investors navigate through a bear market calmly.",
+    "exampleVi": "Chiến lược bình quân giá giúp các nhà đầu tư vượt qua thị trường giá xuống một cách bình tĩnh.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "market"
+    ]
+  },
+  {
+    "id": "fb-099",
+    "word": "Capital gain",
+    "meaning": "Lợi nhuận vốn (lãi từ bán tài sản/cổ phiếu)",
+    "ipa": "/ˌkæp.ə.t̬əl ˈɡeɪn/",
+    "definition": "A profit from the sale of property or an investment.",
+    "example": "Capital gains are subject to tax when investments are sold at a profit.",
+    "exampleVi": "Lợi nhuận vốn phải chịu thuế khi các khoản đầu tư được bán ra có lãi.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks",
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "tax"
+    ]
+  },
+  {
+    "id": "fb-100",
+    "word": "Broker",
+    "meaning": "Nhà môi giới chứng khoán/bất động sản",
+    "ipa": "/ˈbroʊ.kɚ/",
+    "definition": "A person who buys and sells goods or assets for others.",
+    "example": "Online stock brokers allow retail investors to trade with zero commission fees.",
+    "exampleVi": "Các công ty môi giới chứng khoán trực tuyến cho phép nhà đầu tư cá nhân giao dịch miễn phí hoa hồng.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "profession"
+    ]
+  },
+  {
+    "id": "fb-101",
+    "word": "Index fund",
+    "meaning": "Quỹ chỉ số",
+    "ipa": "/ˈɪn.deks fʌnd/",
+    "definition": "A mutual fund constructed to match or track the components of a financial market index, such as the S&P 500.",
+    "example": "Warren Buffett recommends broad-market index funds for most individual investors.",
+    "exampleVi": "Warren Buffett khuyên phần lớn nhà đầu tư cá nhân nên đầu tư vào quỹ chỉ số toàn thị trường.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "funds"
+    ]
+  },
+  {
+    "id": "fb-102",
+    "word": "Exchange-Traded Fund (ETF)",
+    "meaning": "Quỹ hoán đổi danh mục ETF",
+    "ipa": "/ˌiː.tiːˈef/",
+    "definition": "An investment fund traded on stock exchanges, much like stocks.",
+    "example": "ETFs provide instant diversification with low management expense ratios.",
+    "exampleVi": "Các quỹ ETF mang lại sự đa dạng hóa tức thì với tỷ lệ chi phí quản lý thấp.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "funds"
+    ]
+  },
+  {
+    "id": "fb-103",
+    "word": "Volatility",
+    "meaning": "Mức độ biến động giá",
+    "ipa": "/ˌvɑː.ləˈtɪl.ə.t̬i/",
+    "definition": "Liability to change rapidly and unpredictably, especially for the worse.",
+    "example": "Cryptocurrency markets are known for extreme price volatility.",
+    "exampleVi": "Thị trường tiền mã hóa nổi tiếng với mức độ biến động giá vô cùng dữ dội.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "risk"
+    ]
+  },
+  {
+    "id": "fb-104",
+    "word": "Asset allocation",
+    "meaning": "Phân bổ tài sản đầu tư",
+    "ipa": "/ˈæs.et ˌæl.əˈkeɪ.ʃən/",
+    "definition": "An investment strategy that aims to balance risk and reward by apportioning a portfolio's assets according to an individual's goals and risk tolerance.",
+    "example": "Proper asset allocation between stocks, bonds, and real estate balances risk.",
+    "exampleVi": "Việc phân bổ tài sản hợp lý giữa cổ phiếu, trái phiếu và bất động sản giúp cân bằng rủi ro.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks",
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "strategy"
+    ]
+  },
+  {
+    "id": "fb-105",
+    "word": "Initial Public Offering (IPO)",
+    "meaning": "Phát hành cổ phiếu lần đầu ra công chúng (IPO)",
+    "ipa": "/ˌaɪ.piːˈoʊ/",
+    "definition": "The process of offering shares of a private corporation to the public in a new stock issuance.",
+    "example": "The tech unicorn had a successful IPO on the New York Stock Exchange.",
+    "exampleVi": "Công ty kỳ lân công nghệ đã có đợt phát hành IPO thành công trên sàn chứng khoán New York.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "stocks"
+    ]
+  },
+  {
+    "id": "fb-106",
+    "word": "Market capitalization",
+    "meaning": "Vốn hóa thị trường",
+    "ipa": "/ˈmɑːr.kɪt ˌkæp.ə.t̬əl.əˈzeɪ.ʃən/",
+    "definition": "The total value of a company's outstanding shares of stock.",
+    "example": "Mega-cap companies have a market capitalization exceeding $200 billion.",
+    "exampleVi": "Các công ty siêu lớn có mức vốn hóa thị trường vượt mức 200 tỷ đô la.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "valuation"
+    ]
+  },
+  {
+    "id": "fb-107",
+    "word": "Diversification",
+    "meaning": "Sự đa dạng hóa danh mục đầu tư",
+    "ipa": "/daɪˌvɝː.sə.fəˈkeɪ.ʃən/",
+    "definition": "The practice of spreading investments around so that exposure to any one type of asset is limited.",
+    "example": "Diversification is key to mitigating unsystematic risk.",
+    "exampleVi": "Đa dạng hóa là chìa khóa để giảm thiểu các rủi ro phi hệ thống.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "strategy"
+    ]
+  },
+  {
+    "id": "fb-108",
+    "word": "Hedge",
+    "meaning": "Phòng ngừa rủi ro tài chính",
+    "ipa": "/hedʒ/",
+    "definition": "An investment made with the intention of reducing the risk of adverse price movements in an asset.",
+    "example": "Gold is often used as a hedge against inflation.",
+    "exampleVi": "Vàng thường được dùng như một công cụ phòng ngừa rủi ro lạm phát.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks",
+      "fb-insurance-risk"
+    ],
+    "tags": [
+      "risk"
+    ]
+  },
+  {
+    "id": "fb-109",
+    "word": "Mutual fund",
+    "meaning": "Quỹ đầu tư tương hỗ",
+    "ipa": "/ˈmjuː.tʃu.əl ˌfʌnd/",
+    "definition": "An investment program funded by shareholders that trades in diversified holdings and is professionally managed.",
+    "example": "He contributes monthly to a retirement mutual fund.",
+    "exampleVi": "Anh ấy đóng góp tiền hằng tháng vào một quỹ đầu tư tương hỗ hưu trí.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "funds"
+    ]
+  },
+  {
+    "id": "fb-110",
+    "word": "Return on Investment (ROI)",
+    "meaning": "Tỷ suất hoàn vốn đầu tư (ROI)",
+    "ipa": "/ˌɑːr.oʊˈaɪ/",
+    "definition": "A performance measure used to evaluate the efficiency or profitability of an investment.",
+    "example": "The marketing campaign generated an impressive ROI of 300%.",
+    "exampleVi": "Chiến dịch tiếp thị đã mang lại tỷ suất ROI ấn tượng lên tới 300%.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "performance"
+    ]
+  },
+  {
+    "id": "fb-111",
+    "word": "Insurance premium",
+    "meaning": "Phí bảo hiểm định kỳ",
+    "ipa": "/ɪnˈʃʊr.əns ˈpriː.mi.əm/",
+    "definition": "An amount of money that you pay regularly to an insurance company for this protection.",
+    "example": "Smoking increases your health insurance premium significantly.",
+    "exampleVi": "Hút thuốc làm tăng đáng kể mức phí bảo hiểm y tế của bạn.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-insurance-risk",
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "insurance"
+    ]
+  },
+  {
+    "id": "fb-112",
+    "word": "Policyholder",
+    "meaning": "Chủ hợp đồng bảo hiểm, người được bảo hiểm",
+    "ipa": "/ˈpɑː.lə.siˌhoʊl.dɚ/",
+    "definition": "A person or group in whose name an insurance policy is held.",
+    "example": "Policyholders are entitled to claim benefits in case of accidents.",
+    "exampleVi": "Chủ hợp đồng bảo hiểm có quyền yêu cầu chi trả quyền lợi khi xảy ra tai nạn.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-insurance-risk"
+    ],
+    "tags": [
+      "insurance"
+    ]
+  },
+  {
+    "id": "fb-113",
+    "word": "Coverage",
+    "meaning": "Phạm vi bảo hiểm, mức độ bảo hiểm",
+    "ipa": "/ˈkʌv.ɚ.ɪdʒ/",
+    "definition": "The extent of the protection provided by an insurance policy.",
+    "example": "Make sure your auto insurance includes comprehensive coverage for flood damage.",
+    "exampleVi": "Hãy chắc chắn rằng bảo hiểm xe ô tô của bạn bao gồm phạm vi bồi thường thiệt hại do ngập lụt.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-insurance-risk"
+    ],
+    "tags": [
+      "insurance"
+    ]
+  },
+  {
+    "id": "fb-114",
+    "word": "Deductible",
+    "meaning": "Mức miễn thường (số tiền người mua bảo hiểm phải tự trả trước)",
+    "ipa": "/dɪˈdʌk.tə.bəl/",
+    "definition": "An amount of money that you must pay yourself toward a loss before the insurance company will pay.",
+    "example": "Choosing a higher deductible lowers your monthly premium.",
+    "exampleVi": "Lựa chọn mức miễn thường cao hơn sẽ giúp giảm phí đóng bảo hiểm hằng tháng.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-insurance-risk"
+    ],
+    "tags": [
+      "insurance"
+    ]
+  },
+  {
+    "id": "fb-115",
+    "word": "Insurance claim",
+    "meaning": "Yêu cầu bồi thường bảo hiểm",
+    "ipa": "/ɪnˈʃʊr.əns kleɪm/",
+    "definition": "A formal request to an insurance company asking for a payment based on the terms of the insurance policy.",
+    "example": "He filed an insurance claim after the car accident.",
+    "exampleVi": "Anh ấy đã nộp hồ sơ yêu cầu bồi thường bảo hiểm sau vụ tai nạn xe hơi.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-insurance-risk"
+    ],
+    "tags": [
+      "insurance"
+    ]
+  },
+  {
+    "id": "fb-116",
+    "word": "Beneficiary",
+    "meaning": "Người thụ hưởng (bảo hiểm / thừa kế)",
+    "ipa": "/ˌben.əˈfɪʃ.i.er.i/",
+    "definition": "A person who derives advantage from something, especially a trust, will, or life insurance policy.",
+    "example": "He designated his spouse as the primary beneficiary of his life insurance.",
+    "exampleVi": "Anh ấy đã chỉ định vợ mình là người thụ hưởng chính của hợp đồng bảo hiểm nhân thọ.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-insurance-risk",
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "legal"
+    ]
+  },
+  {
+    "id": "fb-117",
+    "word": "Underwriting",
+    "meaning": "Nghiệp vụ thẩm định bảo hiểm/phát hành chứng khoán",
+    "ipa": "/ˈʌn.dɚˌraɪ.tɪŋ/",
+    "definition": "The process of evaluating the risk of insuring a home, car, driver, or individual in mortgage, insurance, or investment banking.",
+    "example": "Medical underwriting determines policy approval for life insurance.",
+    "exampleVi": "Thẩm định y khoa quyết định việc phê duyệt hợp đồng bảo hiểm nhân thọ.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-insurance-risk",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "process"
+    ]
+  },
+  {
+    "id": "fb-118",
+    "word": "Liability",
+    "meaning": "Trách nhiệm pháp lý bồi thường",
+    "ipa": "/ˌlaɪ.əˈbɪl.ə.t̬i/",
+    "definition": "The state of being responsible for something, especially by law.",
+    "example": "Third-party liability insurance is mandatory for all vehicle owners.",
+    "exampleVi": "Bảo hiểm trách nhiệm dân sự đối với bên thứ ba là bắt buộc đối với mọi chủ xe.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-insurance-risk",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "legal"
+    ]
+  },
+  {
+    "id": "fb-119",
+    "word": "Indemnity",
+    "meaning": "Sự bồi thường thiệt hại, cam kết bồi thường",
+    "ipa": "/ɪnˈdem.nə.t̬i/",
+    "definition": "Security or protection against a loss or other financial burden.",
+    "example": "The contract includes an indemnity clause to protect against losses.",
+    "exampleVi": "Hợp đồng có điều khoản bồi thường thiệt hại để bảo vệ trước các tổn thất.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-insurance-risk"
+    ],
+    "tags": [
+      "legal"
+    ]
+  },
+  {
+    "id": "fb-120",
+    "word": "Actuary",
+    "meaning": "Chuyên viên định phí bảo hiểm / tính toán rủi ro",
+    "ipa": "/ˈæk.tʃu.er.i/",
+    "definition": "A person who compiles and analyzes statistics and uses them to calculate insurance risks and premiums.",
+    "example": "Actuaries use mathematical models to assess longevity and accident risks.",
+    "exampleVi": "Các chuyên viên định phí sử dụng mô hình toán học để đánh giá tuổi thọ và rủi ro tai nạn.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-insurance-risk"
+    ],
+    "tags": [
+      "profession"
+    ]
+  },
+  {
+    "id": "fb-121",
+    "word": "Revenue",
+    "meaning": "Doanh thu",
+    "ipa": "/ˈrev.ə.nuː/",
+    "definition": "Income, especially when of a company or organization and of a substantial nature.",
+    "example": "The firm reported a 20% increase in quarterly revenue.",
+    "exampleVi": "Công ty đã báo cáo mức tăng 20% doanh thu trong quý.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "revenue"
+    ]
+  },
+  {
+    "id": "fb-122",
+    "word": "Profit",
+    "meaning": "Lợi nhuận",
+    "ipa": "/ˈprɑː.fɪt/",
+    "definition": "A financial gain, especially the difference between the amount earned and the amount spent in buying, operating, or producing something.",
+    "example": "The company generated record net profits this year.",
+    "exampleVi": "Công ty đã tạo ra mức lợi nhuận ròng kỷ lục trong năm nay.",
+    "level": "A2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "profit"
+    ]
+  },
+  {
+    "id": "fb-123",
+    "word": "Gross margin",
+    "meaning": "Biên lợi nhuận gộp",
+    "ipa": "/ˌɡroʊs ˈmɑːr.dʒɪn/",
+    "definition": "The difference between revenue and cost of goods sold divided by revenue.",
+    "example": "Software businesses typically enjoy high gross margins above 80%.",
+    "exampleVi": "Các doanh nghiệp phần mềm thường có biên lợi nhuận gộp rất cao, trên 80%.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "accounting"
+    ]
+  },
+  {
+    "id": "fb-124",
+    "word": "Net profit",
+    "meaning": "Lợi nhuận ròng (lãi thuần sau thuế và chi phí)",
+    "ipa": "/ˌnet ˈprɑː.fɪt/",
+    "definition": "The actual profit after working expenses not included in the calculation of gross profit have been paid.",
+    "example": "Net profit was boosted by aggressive operational cost reductions.",
+    "exampleVi": "Lợi nhuận ròng được thúc đẩy nhờ việc cắt giảm mạnh chi phí vận hành.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "profit"
+    ]
+  },
+  {
+    "id": "fb-125",
+    "word": "Turnover",
+    "meaning": "Doanh số bán hàng / Tốc độ luân chuyển vốn",
+    "ipa": "/ˈtɝːnˌoʊ.vɚ/",
+    "definition": "The amount of money taken by a business in a particular period.",
+    "example": "The retail branch achieved an annual turnover of $10 million.",
+    "exampleVi": "Chi nhánh bán lẻ đã đạt doanh số bán hàng hằng năm là 10 triệu đô la.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "business"
+    ]
+  },
+  {
+    "id": "fb-126",
+    "word": "Balance sheet",
+    "meaning": "Bảng cân đối kế toán",
+    "ipa": "/ˈbæl.əns ˌʃiːt/",
+    "definition": "A statement of the assets, liabilities, and capital of a business or other organization at a particular point in time.",
+    "example": "A solid balance sheet indicates that a company has minimal debt risk.",
+    "exampleVi": "Bảng cân đối kế toán lành mạnh cho thấy công ty có rất ít rủi ro về nợ.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "accounting"
+    ]
+  },
+  {
+    "id": "fb-127",
+    "word": "Fiscal year",
+    "meaning": "Năm tài chính",
+    "ipa": "/ˌfɪs.kəl ˈjɪr/",
+    "definition": "A year as reckoned for taxing or accounting purposes.",
+    "example": "The corporation's fiscal year ends on December 31st.",
+    "exampleVi": "Năm tài chính của tập đoàn kết thúc vào ngày 31 tháng 12.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "business"
+    ]
+  },
+  {
+    "id": "fb-128",
+    "word": "Audit",
+    "meaning": "Kiểm toán, sự kiểm tra sổ sách kế toán",
+    "ipa": "/ˈɑː.dɪt/",
+    "definition": "An official inspection of an individual's or organization's accounts, typically by an independent body.",
+    "example": "The external audit confirmed that financial records were accurate and compliant.",
+    "exampleVi": "Cuộc kiểm toán độc lập xác nhận rằng sổ sách tài chính hoàn toàn chính xác và tuân thủ.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "audit"
+    ]
+  },
+  {
+    "id": "fb-129",
+    "word": "Depreciation",
+    "meaning": "Khấu hao tài sản cố định",
+    "ipa": "/dɪˌpriː.ʃiˈeɪ.ʃən/",
+    "definition": "A reduction in the value of an asset over time, due in particular to wear and tear.",
+    "example": "Machinery depreciation is counted as an operational expense for tax purposes.",
+    "exampleVi": "Khấu hao máy móc được tính là chi phí vận hành cho mục đích tính thuế.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "accounting"
+    ]
+  },
+  {
+    "id": "fb-130",
+    "word": "Break-even point",
+    "meaning": "Điểm hòa vốn",
+    "ipa": "/ˈbreɪkˌiː.vən ˌpɔɪnt/",
+    "definition": "The point at which total cost and total revenue are equal.",
+    "example": "The startup expects to reach its break-even point within 18 months.",
+    "exampleVi": "Công ty khởi nghiệp kỳ vọng sẽ đạt điểm hòa vốn trong vòng 18 tháng.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "business"
+    ]
+  },
+  {
+    "id": "fb-131",
+    "word": "Cost of Goods Sold (COGS)",
+    "meaning": "Giá vốn hàng bán",
+    "ipa": "/kɑːst əv ɡʊdz soʊld/",
+    "definition": "The direct costs of producing the goods sold by a company.",
+    "example": "Lowering COGS immediately improves the company's gross profit.",
+    "exampleVi": "Hạ giá vốn hàng bán ngay lập tức cải thiện lợi nhuận gộp của công ty.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "accounting"
+    ]
+  },
+  {
+    "id": "fb-132",
+    "word": "Accounts receivable",
+    "meaning": "Các khoản phải thu (tiền khách hàng nợ)",
+    "ipa": "/əˌkaʊnts rɪˈsiː.və.bəl/",
+    "definition": "Money owed to a company by its debtors.",
+    "example": "Efficient collection of accounts receivable improves working capital.",
+    "exampleVi": "Thu hồi các khoản phải thu hiệu quả giúp cải thiện vốn lưu động của doanh nghiệp.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "accounting"
+    ]
+  },
+  {
+    "id": "fb-133",
+    "word": "Accounts payable",
+    "meaning": "Các khoản phải trả (tiền nợ nhà cung cấp)",
+    "ipa": "/əˌkaʊnts ˈpeɪ.ə.bəl/",
+    "definition": "Money owed by a company to its creditors.",
+    "example": "The accounting team processes accounts payable every Friday.",
+    "exampleVi": "Bộ phận kế toán xử lý các khoản tiền phải trả vào mỗi Thứ Sáu.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "accounting"
+    ]
+  },
+  {
+    "id": "fb-134",
+    "word": "Merger and Acquisition (M&A)",
+    "meaning": "Sáp nhập và Mua lại doanh nghiệp (M&A)",
+    "ipa": "/ˌmɝː.dʒɚz ænd ˌæk.wəˈzɪʃ.ənz/",
+    "definition": "The consolidation of companies or assets through various types of financial transactions.",
+    "example": "The mega M&A deal created the largest telecom operator in the region.",
+    "exampleVi": "Thương vụ M&A khổng lồ đã tạo ra nhà mạng viễn thông lớn nhất khu vực.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "business"
+    ]
+  },
+  {
+    "id": "fb-135",
+    "word": "Due diligence",
+    "meaning": "Thẩm định doanh nghiệp chuyên sâu",
+    "ipa": "/ˌduː ˈdɪl.ə.dʒəns/",
+    "definition": "Comprehensive appraisal of a business undertaken by a prospective buyer or investor.",
+    "example": "Investors conducted legal and financial due diligence before signing the contract.",
+    "exampleVi": "Các nhà đầu tư đã tiến hành thẩm định pháp lý và tài chính kỹ lưỡng trước khi ký hợp đồng.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "legal"
+    ]
+  },
+  {
+    "id": "fb-136",
+    "word": "Tax deduction",
+    "meaning": "Khoản khấu trừ thuế",
+    "ipa": "/ˈtæks dɪˌdʌk.ʃən/",
+    "definition": "A deduction that lowers a person's or an organization's tax liability by lowering their taxable income.",
+    "example": "Donations to charity are eligible for a tax deduction.",
+    "exampleVi": "Các khoản quyên góp từ thiện đủ điều kiện được khấu trừ thuế.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting",
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "tax"
+    ]
+  },
+  {
+    "id": "fb-137",
+    "word": "Value-Added Tax (VAT)",
+    "meaning": "Thuế giá trị gia tăng (VAT)",
+    "ipa": "/ˌviː.eɪˈtiː/",
+    "definition": "A consumption tax placed on a product whenever value is added at each stage of the supply chain.",
+    "example": "Prices shown in the supermarket are already inclusive of VAT.",
+    "exampleVi": "Giá cả niêm yết trong siêu thị đã bao gồm thuế giá trị gia tăng VAT.",
+    "level": "B1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting",
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "tax"
+    ]
+  },
+  {
+    "id": "fb-138",
+    "word": "Tariff",
+    "meaning": "Thuế quan, thuế nhập khẩu",
+    "ipa": "/ˈter.ɪf/",
+    "definition": "A tax or duty to be paid on a particular class of imports or exports.",
+    "example": "Higher tariffs on imported electronics increased retail prices.",
+    "exampleVi": "Thuế quan cao hơn đánh vào đồ điện tử nhập khẩu đã làm tăng giá bán lẻ.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "trade"
+    ]
+  },
+  {
+    "id": "fb-139",
+    "word": "Anti-Money Laundering (AML)",
+    "meaning": "Chống rửa tiền (AML)",
+    "ipa": "/ˌæn.t̬i ˈmʌn.i ˌlɑːn.dɚ.ɪŋ/",
+    "definition": "A set of laws, regulations, and procedures intended to prevent criminals from disguising illegally obtained funds as legitimate income.",
+    "example": "Banks enforce strict AML compliance policies for cross-border transactions.",
+    "exampleVi": "Các ngân hàng thực thi chính sách tuân thủ chống rửa tiền nghiêm ngặt cho các giao dịch xuyên biên giới.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting",
+      "fb-banking-services"
+    ],
+    "tags": [
+      "compliance"
+    ]
+  },
+  {
+    "id": "fb-140",
+    "word": "Venture capital",
+    "meaning": "Vốn đầu tư mạo hiểm (cho khởi nghiệp)",
+    "ipa": "/ˌven.tʃɚ ˈkæp.ə.t̬əl/",
+    "definition": "Capital invested in a project or business in which there is a substantial element of risk, typically a new or expanding business.",
+    "example": "The AI startup raised $20 million in Series A venture capital funding.",
+    "exampleVi": "Công ty khởi nghiệp AI đã huy động được 20 triệu đô la vốn đầu tư mạo hiểm vòng Series A.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "funding"
+    ]
+  },
+  {
+    "id": "fb-141",
+    "word": "Annuity",
+    "meaning": "Hợp đồng bảo hiểm niên kim (nhận tiền định kỳ)",
+    "ipa": "/əˈnuː.ə.t̬i/",
+    "definition": "A fixed sum of money paid to someone each year, typically for the rest of their life.",
+    "example": "Annuities provide guaranteed regular income throughout retirement.",
+    "exampleVi": "Hợp đồng niên kim mang lại nguồn thu nhập định kỳ bảo đảm trong suốt thời gian nghỉ hưu.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance",
+      "fb-insurance-risk"
+    ],
+    "tags": [
+      "retirement"
+    ]
+  },
+  {
+    "id": "fb-142",
+    "word": "Remittance",
+    "meaning": "Kiều hối, tiền gửi về gia đình ở quê nhà/nước ngoài",
+    "ipa": "/rɪˈmɪt.əns/",
+    "definition": "A sum of money sent in payment or as a gift, especially across international borders.",
+    "example": "Remittances sent by overseas workers contribute greatly to the national economy.",
+    "exampleVi": "Kiều hối do người lao động ở nước ngoài gửi về đóng góp rất lớn cho nền kinh tế quốc dân.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance",
+      "fb-banking-services"
+    ],
+    "tags": [
+      "money"
+    ]
+  },
+  {
+    "id": "fb-143",
+    "word": "Fiduciary",
+    "meaning": "Người được ủy thác, có trách nhiệm ủy thác",
+    "ipa": "/fɪˈduː.ʃi.er.i/",
+    "definition": "Involving trust, especially with regard to the relationship between a trustee and a beneficiary.",
+    "example": "Financial planners have a fiduciary duty to act in their clients' best interests.",
+    "exampleVi": "Các nhà hoạch định tài chính có nghĩa vụ ủy thác phải hành động vì lợi ích cao nhất của khách hàng.",
+    "level": "C1",
+    "pos": "adjective",
+    "topicIds": [
+      "fb-personal-finance",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "legal"
+    ]
+  },
+  {
+    "id": "fb-144",
+    "word": "Burn rate",
+    "meaning": "Tốc độ tiêu hao tiền mặt (hằng tháng)",
+    "ipa": "/ˈbɝːn ˌreɪt/",
+    "definition": "The rate at which a new company spends its initial capital before generating positive cash flow.",
+    "example": "The startup reduced its monthly burn rate to extend its runway.",
+    "exampleVi": "Công ty khởi nghiệp đã cắt giảm tốc độ tiêu hao tiền hằng tháng để kéo dài thời gian hoạt động.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "startup"
+    ]
+  },
+  {
+    "id": "fb-145",
+    "word": "Runway",
+    "meaning": "Thời gian tồn tại của quỹ tiền mặt trước khi hết vốn",
+    "ipa": "/ˈrʌn.weɪ/",
+    "definition": "The amount of time a company has before it runs out of money, assuming income and expenses remain constant.",
+    "example": "With current funding, the business has twelve months of runway.",
+    "exampleVi": "Với lượng vốn hiện tại, doanh nghiệp có 12 tháng hoạt động trước khi cần gọi vốn mới.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-personal-finance",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "startup"
+    ]
+  },
+  {
+    "id": "fb-146",
+    "word": "Escrow",
+    "meaning": "Tài khoản ký quỹ bảo chứng trung gian",
+    "ipa": "/ˈes.kroʊ/",
+    "definition": "A bond, deed, or other document kept in the custody of a third party and taking effect only when a specified condition has been fulfilled.",
+    "example": "Funds are held in an escrow account until the buyer inspects the property.",
+    "exampleVi": "Tiền được giữ trong tài khoản ký quỹ trung gian cho đến khi người mua kiểm tra bất động sản.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "fb-147",
+    "word": "Monetary policy",
+    "meaning": "Chính sách tiền tệ",
+    "ipa": "/ˈmɑː.nə.ter.i ˌpɑː.lə.si/",
+    "definition": "Policy adopted by the monetary authority of a nation to control either the interest rate or money supply.",
+    "example": "The Federal Reserve tightened monetary policy to fight inflation.",
+    "exampleVi": "Cục Dự trữ Liên bang đã thắt chặt chính sách tiền tệ để kiềm chế lạm phát.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "macro"
+    ]
+  },
+  {
+    "id": "fb-148",
+    "word": "Fiat currency",
+    "meaning": "Tiền pháp định (tiền giấy phát hành bởi chính phủ)",
+    "ipa": "/ˈfiː.ɑːt ˌkɝː.ən.si/",
+    "definition": "Government-issued currency that is not backed by a physical commodity like gold.",
+    "example": "The US dollar and Vietnamese dong are examples of fiat currency.",
+    "exampleVi": "Đồng đô la Mỹ và Việt Nam đồng là những ví dụ về tiền pháp định.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "currency"
+    ]
+  },
+  {
+    "id": "fb-149",
+    "word": "Forex (Foreign Exchange)",
+    "meaning": "Thị trường ngoại hối (Forex)",
+    "ipa": "/ˈfɔːr.eks/",
+    "definition": "The market in which participants are able to buy, sell, exchange and speculate on currencies.",
+    "example": "Forex is the largest and most liquid financial market in the world.",
+    "exampleVi": "Ngoại hối là thị trường tài chính lớn nhất và có tính thanh khoản cao nhất trên thế giới.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "market"
+    ]
+  },
+  {
+    "id": "fb-150",
+    "word": "Fintech",
+    "meaning": "Công nghệ tài chính (Fintech)",
+    "ipa": "/ˈfɪn.tek/",
+    "definition": "Computer programs and other technology used to support or enable banking and financial services.",
+    "example": "Fintech apps have revolutionized mobile payments and micro-investing.",
+    "exampleVi": "Các ứng dụng công nghệ tài chính Fintech đã cách mạng hóa thanh toán di động và đầu tư vi mô.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-banking-services",
+      "fb-payments-cards"
+    ],
+    "tags": [
+      "tech"
+    ]
+  },
+  {
+    "id": "fb-151",
+    "word": "Cashless society",
+    "meaning": "Xã hội không dùng tiền mặt",
+    "ipa": "/ˈkæʃ.ləs səˌsaɪ.ə.t̬i/",
+    "definition": "An economic state whereby financial transactions are not conducted with money in the form of physical banknotes or coins.",
+    "example": "Nordic nations are rapidly transitioning toward a fully cashless society.",
+    "exampleVi": "Các quốc gia Bắc Âu đang chuyển dịch nhanh chóng hướng tới một xã hội hoàn toàn không dùng tiền mặt.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards",
+      "fb-banking-services"
+    ],
+    "tags": [
+      "trend"
+    ]
+  },
+  {
+    "id": "fb-152",
+    "word": "Revolving credit",
+    "meaning": "Tín dụng tuần hoàn / quay vòng",
+    "ipa": "/rɪˈvɑːl.vɪŋ ˈkred.ɪt/",
+    "definition": "An open-ended credit account that allows repeated borrowing up to a preset limit.",
+    "example": "Credit cards operate on a revolving credit model.",
+    "exampleVi": "Thẻ tín dụng hoạt động dựa trên mô hình tín dụng quay vòng.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards",
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "credit"
+    ]
+  },
+  {
+    "id": "fb-153",
+    "word": "Cryptocurrency",
+    "meaning": "Tiền mã hóa, tiền kỹ thuật số",
+    "ipa": "/ˈkrɪp.toʊˌkɝː.ən.si/",
+    "definition": "A digital currency in which transactions are verified and records maintained by a decentralized system using cryptography.",
+    "example": "Bitcoin is the most widely recognized cryptocurrency.",
+    "exampleVi": "Bitcoin là loại tiền mã hóa được công nhận rộng rãi nhất.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "crypto"
+    ]
+  },
+  {
+    "id": "fb-154",
+    "word": "Blockchain",
+    "meaning": "Công nghệ chuỗi khối Blockchain",
+    "ipa": "/ˈblɑːk.tʃeɪn/",
+    "definition": "A decentralized, distributed digital ledger that records transactions across many computers.",
+    "example": "Blockchain technology provides immutable transparency for financial ledgers.",
+    "exampleVi": "Công nghệ chuỗi khối mang lại tính minh bạch không thể chỉnh sửa cho các sổ cái tài chính.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards",
+      "fb-banking-services"
+    ],
+    "tags": [
+      "tech"
+    ]
+  },
+  {
+    "id": "fb-155",
+    "word": "Peer-to-peer (P2P) lending",
+    "meaning": "Cho vay ngang hàng P2P",
+    "ipa": "/ˌpɪr.təˈpɪr ˈlen.dɪŋ/",
+    "definition": "The practice of lending money to individuals or businesses through online services that match lenders with borrowers.",
+    "example": "P2P lending platforms bypass traditional banking intermediaries.",
+    "exampleVi": "Các nền tảng cho vay ngang hàng bỏ qua các khâu trung gian ngân hàng truyền thống.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-payments-cards",
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "loans"
+    ]
+  },
+  {
+    "id": "fb-156",
+    "word": "Debt-to-income (DTI) ratio",
+    "meaning": "Tỷ lệ nợ trên thu nhập (DTI)",
+    "ipa": "/ˌdet tuː ˈɪn.kʌm ˈreɪ.ʃi.oʊ/",
+    "definition": "The percentage of your gross monthly income that goes to paying your monthly debt payments.",
+    "example": "Lenders prefer a debt-to-income ratio below 36% for mortgage approval.",
+    "exampleVi": "Các bên cho vay ưu tiên tỷ lệ nợ trên thu nhập dưới 36% để phê duyệt vay mua nhà.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit",
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "credit"
+    ]
+  },
+  {
+    "id": "fb-157",
+    "word": "Prime rate",
+    "meaning": "Lãi suất cơ bản (cho khách hàng uy tín nhất)",
+    "ipa": "/ˈpraɪm ˌreɪt/",
+    "definition": "The lowest rate of interest at which money may be borrowed commercially.",
+    "example": "Most consumer loans are pegged to the benchmark prime rate.",
+    "exampleVi": "Phần lớn các khoản vay tiêu dùng được neo theo mức lãi suất cơ bản chuẩn.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit",
+      "fb-savings-interest"
+    ],
+    "tags": [
+      "interest"
+    ]
+  },
+  {
+    "id": "fb-158",
+    "word": "Unsecured loan",
+    "meaning": "Khoản vay tín chấp (không cần tài sản thế chấp)",
+    "ipa": "/ˌʌn.səˈkjʊrd ˈloʊn/",
+    "definition": "A loan that doesn't require any type of collateral.",
+    "example": "Personal credit cards and student loans are common unsecured loans.",
+    "exampleVi": "Thẻ tín dụng cá nhân và vay sinh viên là các khoản vay tín chấp phổ biến.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "loans"
+    ]
+  },
+  {
+    "id": "fb-159",
+    "word": "Prepayment penalty",
+    "meaning": "Phí phạt trả nợ trước hạn",
+    "ipa": "/ˌpriːˈpeɪ.mənt ˈpen.əl.ti/",
+    "definition": "A fee that lenders charge borrowers who pay off all or part of their loan ahead of schedule.",
+    "example": "Check if your mortgage agreement includes a prepayment penalty clause.",
+    "exampleVi": "Hãy kiểm tra xem hợp đồng vay mua nhà của bạn có điều khoản phạt trả nợ trước hạn không.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "loans"
+    ]
+  },
+  {
+    "id": "fb-160",
+    "word": "Subprime",
+    "meaning": "Dưới chuẩn, rủi ro tín dụng cao",
+    "ipa": "/ˌsʌbˈpraɪm/",
+    "definition": "Denoting or relating to credit or loan arrangements for borrowers with a poor credit history.",
+    "example": "The 2008 global financial crisis was triggered by the subprime mortgage collapse.",
+    "exampleVi": "Cuộc khủng hoảng tài chính toàn cầu năm 2008 bùng nổ từ sự sụp đổ của các khoản vay mua nhà dưới chuẩn.",
+    "level": "C1",
+    "pos": "adjective",
+    "topicIds": [
+      "fb-loans-credit",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "crisis"
+    ]
+  },
+  {
+    "id": "fb-161",
+    "word": "Yield curve",
+    "meaning": "Đường cong lợi suất",
+    "ipa": "/ˈjiːld ˌkɝːv/",
+    "definition": "A line that plots yields, or interest rates, of bonds that have equal credit quality but differing maturity dates.",
+    "example": "An inverted yield curve is often viewed as a leading indicator of an economic recession.",
+    "exampleVi": "Đường cong lợi suất đảo ngược thường được coi là chỉ báo sớm của suy thoái kinh tế.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "macro"
+    ]
+  },
+  {
+    "id": "fb-162",
+    "word": "Quantitative Easing (QE)",
+    "meaning": "Nới lỏng định lượng (bơm tiền vào nền kinh tế)",
+    "ipa": "/ˌkwɑːn.t̬ə.teɪ.t̬ɪv ˈiː.zɪŋ/",
+    "definition": "The introduction of new money into the money supply by a central bank through purchasing government bonds.",
+    "example": "The central bank launched quantitative easing to lower borrowing costs.",
+    "exampleVi": "Ngân hàng trung ương đã khởi động chính sách nới lỏng định lượng để hạ chi phí vay vốn.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest",
+      "fb-banking-services"
+    ],
+    "tags": [
+      "macro"
+    ]
+  },
+  {
+    "id": "fb-163",
+    "word": "Fiscal stimulus",
+    "meaning": "Gói kích thích tài khóa",
+    "ipa": "/ˌfɪs.kəl ˈstɪm.jə.ləs/",
+    "definition": "An increase in public spending or a reduction in taxes aimed at encouraging economic activity.",
+    "example": "The government passed a multi-billion dollar fiscal stimulus package.",
+    "exampleVi": "Chính phủ đã thông qua gói kích thích tài khóa trị giá nhiều tỷ đô la.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "macro"
+    ]
+  },
+  {
+    "id": "fb-164",
+    "word": "Sovereign wealth fund",
+    "meaning": "Quỹ đầu tư quốc gia",
+    "ipa": "/ˌsɑːv.rən ˈwelθ ˌfʌnd/",
+    "definition": "A state-owned investment fund that invests in real and financial assets such as stocks, bonds, and real estate.",
+    "example": "Norway manages the world's largest sovereign wealth fund from oil revenues.",
+    "exampleVi": "Na Uy quản lý quỹ đầu tư quốc gia lớn nhất thế giới từ nguồn doanh thu dầu mỏ.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-savings-interest",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "wealth"
+    ]
+  },
+  {
+    "id": "fb-165",
+    "word": "Blue-chip stock",
+    "meaning": "Cổ phiếu blue-chip (cổ phiếu công ty hàng đầu, uy tín)",
+    "ipa": "/ˌbluːˈtʃɪp ˌstɑːk/",
+    "definition": "Stock in a large, well-established, and financially sound company that has operated for many years.",
+    "example": "Conservative investors favor blue-chip stocks for their reliable dividends.",
+    "exampleVi": "Các nhà đầu tư thận trọng ưa chuộng cổ phiếu blue-chip vì mức cổ tức ổn định đáng tin cậy.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "stocks"
+    ]
+  },
+  {
+    "id": "fb-166",
+    "word": "Short selling",
+    "meaning": "Bán khống (kiếm lời khi giá cổ phiếu giảm)",
+    "ipa": "/ˌʃɔːrt ˈsel.ɪŋ/",
+    "definition": "The sale of a security that is not owned by the seller, motivated by the belief that the price will decline.",
+    "example": "Short selling carries unlimited risk if the stock price surges.",
+    "exampleVi": "Bán khống mang rủi ro vô hạn nếu giá cổ phiếu bất ngờ tăng vọt.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "trading"
+    ]
+  },
+  {
+    "id": "fb-167",
+    "word": "Hedge fund",
+    "meaning": "Quỹ phòng hộ, quỹ đầu cơ rủi ro cao",
+    "ipa": "/ˈhedʒ ˌfʌnd/",
+    "definition": "A limited partnership of investors that uses high-risk methods, such as investing with borrowed money, in hopes of realizing large capital gains.",
+    "example": "Hedge funds deploy complex algorithmic trading strategies.",
+    "exampleVi": "Các quỹ phòng hộ triển khai những chiến lược giao dịch thuật toán vô cùng phức tạp.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "funds"
+    ]
+  },
+  {
+    "id": "fb-168",
+    "word": "Leverage",
+    "meaning": "Đòn bẩy tài chính (sử dụng vốn vay để đầu tư)",
+    "ipa": "/ˈlev.ɚ.ɪdʒ/",
+    "definition": "The use of borrowed capital for an investment, expecting the profits made to be greater than the interest payable.",
+    "example": "Using excessive financial leverage magnifies both profits and losses.",
+    "exampleVi": "Sử dụng đòn bẩy tài chính quá mức sẽ phóng đại cả lợi nhuận lẫn thua lỗ.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "strategy"
+    ]
+  },
+  {
+    "id": "fb-169",
+    "word": "Arbitrage",
+    "meaning": "Kinh doanh chênh lệch giá",
+    "ipa": "/ˈɑːr.bə.trɑːʒ/",
+    "definition": "The simultaneous buying and selling of securities, currency, or commodities in different markets in order to take advantage of differing prices for the same asset.",
+    "example": "High-frequency trading algorithms exploit millisecond arbitrage opportunities.",
+    "exampleVi": "Các thuật toán giao dịch tần suất cao khai thác cơ hội chênh lệch giá chỉ trong từng phần nghìn giây.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "trading"
+    ]
+  },
+  {
+    "id": "fb-170",
+    "word": "Stock option",
+    "meaning": "Quyền chọn cổ phiếu",
+    "ipa": "/ˈstɑːk ˌɑːp.ʃən/",
+    "definition": "A privilege, sold by one party to another, that gives the buyer the right, but not the obligation, to buy or sell a stock at an agreed-upon price within a certain period of time.",
+    "example": "Tech companies often grant stock options to incentivize top talent.",
+    "exampleVi": "Các công ty công nghệ thường trao quyền chọn cổ phiếu để khuyến khích nhân tài hàng đầu.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks",
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "stocks"
+    ]
+  },
+  {
+    "id": "fb-171",
+    "word": "Vesting schedule",
+    "meaning": "Lộ trình trao quyền sở hữu cổ phần theo thời gian",
+    "ipa": "/ˈves.tɪŋ ˌskedʒ.uːl/",
+    "definition": "A timetable on which employees gain full ownership of common assets or stock options over time.",
+    "example": "Her employee equity grants follow a standard 4-year vesting schedule with a 1-year cliff.",
+    "exampleVi": "Khoản cổ phần nhân viên của cô ấy tuân theo lộ trình trao quyền 4 năm tiêu chuẩn với kỳ hạn 1 năm đầu tiên.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks",
+      "fb-personal-finance"
+    ],
+    "tags": [
+      "equity"
+    ]
+  },
+  {
+    "id": "fb-172",
+    "word": "Angel investor",
+    "meaning": "Nhà đầu tư thiên thần (rót vốn giai đoạn đầu)",
+    "ipa": "/ˈeɪn.dʒəl ɪnˌves.tɚ/",
+    "definition": "A high-net-worth individual who provides financial backing for small startups or entrepreneurs, typically in exchange for ownership equity.",
+    "example": "Early angel investors made thousand-fold returns when the company went public.",
+    "exampleVi": "Những nhà đầu tư thiên thần thuở ban đầu đã thu về khoản lợi nhuận gấp hàng nghìn lần khi công ty niêm yết cổ phiếu.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-investments-stocks",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "startup"
+    ]
+  },
+  {
+    "id": "fb-173",
+    "word": "Risk assessment",
+    "meaning": "Đánh giá rủi ro",
+    "ipa": "/ˈrɪsk əˌses.mənt/",
+    "definition": "A systematic process of evaluating the potential risks that may be involved in a projected activity or undertaking.",
+    "example": "Insurance underwriters conduct a thorough risk assessment before issuing coverage.",
+    "exampleVi": "Các chuyên viên bảo hiểm tiến hành đánh giá rủi ro kỹ lưỡng trước khi phát hành hợp đồng.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-insurance-risk",
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "risk"
+    ]
+  },
+  {
+    "id": "fb-174",
+    "word": "Reinsurance",
+    "meaning": "Tái bảo hiểm",
+    "ipa": "/ˌriː.ɪnˈʃʊr.əns/",
+    "definition": "Insurance that is purchased by an insurance company from one or more other insurance companies to directly transfer risk.",
+    "example": "Global reinsurance companies help spread the catastrophic losses from hurricanes.",
+    "exampleVi": "Các công ty tái bảo hiểm toàn cầu giúp phân tán thiệt hại thảm khốc từ các cơn bão.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-insurance-risk"
+    ],
+    "tags": [
+      "insurance"
+    ]
+  },
+  {
+    "id": "fb-175",
+    "word": "Moral hazard",
+    "meaning": "Rủi ro đạo đức (chủ quan khi đã có bảo hiểm)",
+    "ipa": "/ˌmɔːr.əl ˈhæz.ɚd/",
+    "definition": "Lack of incentive to guard against risk where one is protected from its consequences, e.g., by insurance.",
+    "example": "Deductibles are designed to minimize moral hazard among policyholders.",
+    "exampleVi": "Mức miễn thường được thiết kế nhằm giảm thiểu rủi ro đạo đức nơi người mua bảo hiểm.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-insurance-risk",
+      "fb-banking-services"
+    ],
+    "tags": [
+      "risk"
+    ]
+  },
+  {
+    "id": "fb-176",
+    "word": "Earnings Before Interest, Taxes, Depreciation, and Amortization (EBITDA)",
+    "meaning": "Chỉ số EBITDA (Lợi nhuận trước lãi vay, thuế và khấu hao)",
+    "ipa": "/iːˈbɪt.dɑː/",
+    "definition": "A measure of a company's overall financial performance and is used as an alternative to net income in some circumstances.",
+    "example": "Private equity buyers evaluate businesses based on an EBITDA multiple.",
+    "exampleVi": "Các bên mua vốn cổ phần tư nhân định giá doanh nghiệp dựa trên hệ số nhân EBITDA.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "accounting"
+    ]
+  },
+  {
+    "id": "fb-177",
+    "word": "Capital expenditure (CapEx)",
+    "meaning": "Chi phí vốn (mua sắm tài sản cố định, máy móc, nhà xưởng)",
+    "ipa": "/ˈkæp.ə.t̬əl ɪkˈspen.də.tʃɚ/",
+    "definition": "Money spent by a business on acquiring or maintaining fixed assets, such as land, buildings, and equipment.",
+    "example": "The chipmaker announced a $10 billion CapEx program to build new semiconductor fabs.",
+    "exampleVi": "Nhà sản xuất chip công bố chương trình CapEx 10 tỷ đô la để xây dựng các nhà máy bán dẫn mới.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "accounting"
+    ]
+  },
+  {
+    "id": "fb-178",
+    "word": "Operating expenditure (OpEx)",
+    "meaning": "Chi phí vận hành hằng ngày",
+    "ipa": "/ˈɑː.pɚ.eɪ.tɪŋ ɪkˈspen.də.tʃɚ/",
+    "definition": "The ongoing cost for running a product, business, or system.",
+    "example": "Migrating to cloud infrastructure reduced ongoing IT OpEx.",
+    "exampleVi": "Chuyển đổi sang hạ tầng đám mây đã giúp giảm chi phí vận hành OpEx cho mảng CNTT.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "accounting"
+    ]
+  },
+  {
+    "id": "fb-179",
+    "word": "Insolvency",
+    "meaning": "Tình trạng mất khả năng thanh toán nợ",
+    "ipa": "/ɪnˈsɑːl.vən.si/",
+    "definition": "The state of being unable to pay the money owed, on time, by a person or company.",
+    "example": "The retailer entered insolvency proceedings after consecutive unprofitable quarters.",
+    "exampleVi": "Nhà bán lẻ đã bước vào thủ tục tuyên bố mất khả năng thanh toán sau nhiều quý thua lỗ liên tiếp.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting",
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "legal"
+    ]
+  },
+  {
+    "id": "fb-180",
+    "word": "Liquidation",
+    "meaning": "Thanh lý tài sản giải thể doanh nghiệp",
+    "ipa": "/ˌlɪk.wəˈdeɪ.ʃən/",
+    "definition": "The process of liquidating a business; bringing a business to an end and distributing its assets to claimants.",
+    "example": "Asset liquidation was ordered by the bankruptcy court to pay creditors.",
+    "exampleVi": "Tòa án phá sản đã ra lệnh thanh lý tài sản để hoàn trả tiền cho các chủ nợ.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting",
+      "fb-loans-credit"
+    ],
+    "tags": [
+      "legal"
+    ]
+  },
+  {
+    "id": "fb-181",
+    "word": "Retained earnings",
+    "meaning": "Lợi nhuận giữ lại để tái đầu tư",
+    "ipa": "/rɪˌteɪnd ˈɝː.nɪŋz/",
+    "definition": "The cumulative net earnings or profits of a firm after accounting for dividend payments.",
+    "example": "The company funded its expansion entirely through retained earnings.",
+    "exampleVi": "Công ty đã tài trợ cho kế hoạch mở rộng hoàn toàn bằng nguồn lợi nhuận giữ lại.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting"
+    ],
+    "tags": [
+      "accounting"
+    ]
+  },
+  {
+    "id": "fb-182",
+    "word": "Reconciliation",
+    "meaning": "Đối chiếu sổ sách kế toán",
+    "ipa": "/ˌrek.ənˌsɪl.iˈeɪ.ʃən/",
+    "definition": "An accounting process that compares two sets of records to check that figures are correct and in agreement.",
+    "example": "Bank reconciliation must be performed at the end of each month.",
+    "exampleVi": "Việc đối chiếu sổ cái với ngân hàng phải được thực hiện vào cuối mỗi tháng.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting",
+      "fb-banking-services"
+    ],
+    "tags": [
+      "accounting"
+    ]
+  },
+  {
+    "id": "fb-183",
+    "word": "Goodwill",
+    "meaning": "Lợi thế thương mại (tài sản vô hình khi định giá doanh nghiệp)",
+    "ipa": "/ˈɡʊd.wɪl/",
+    "definition": "An intangible asset that arises when a buyer acquires an existing business for more than the fair market value of its net assets.",
+    "example": "Brand loyalty and intellectual property make up a large portion of goodwill.",
+    "exampleVi": "Sự trung thành với thương hiệu và sở hữu trí tuệ chiếm một phần lớn trong lợi thế thương mại.",
+    "level": "C1",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "valuation"
+    ]
+  },
+  {
+    "id": "fb-184",
+    "word": "Insider trading",
+    "meaning": "Giao dịch nội gián (bất hợp pháp)",
+    "ipa": "/ˌɪn.saɪ.dɚ ˈtreɪ.dɪŋ/",
+    "definition": "The illegal practice of trading on the stock exchange to one's own advantage through having access to confidential information.",
+    "example": "The executive was indicted on charges of illegal insider trading.",
+    "exampleVi": "Vị giám đốc điều hành đã bị truy tố với tội danh giao dịch nội gián trái phép.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "legal"
+    ]
+  },
+  {
+    "id": "fb-185",
+    "word": "Ponzi scheme",
+    "meaning": "Mô hình lừa đảo Ponzi (lấy tiền người sau trả người trước)",
+    "ipa": "/ˈpɑːn.zi ˌskiːm/",
+    "definition": "A form of fraud in which belief in the success of a nonexistent enterprise is fostered by the payment of quick returns to the first investors from money invested by later investors.",
+    "example": "The fraudulent fund collapsed when it was exposed as a multi-billion dollar Ponzi scheme.",
+    "exampleVi": "Quỹ lừa đảo đã sụp đổ khi bị vạch trần là một mô hình Ponzi trị giá hàng tỷ đô la.",
+    "level": "B2",
+    "pos": "noun",
+    "topicIds": [
+      "fb-corporate-accounting",
+      "fb-investments-stocks"
+    ],
+    "tags": [
+      "fraud"
+    ]
   }
 ];
 
 export const WORDS_MAP = new Map(WORDS.map(w => [w.id, w]));
-
-// ID Aliases for deduplicated words (only tracks genuine legacy ID -> canonical ID mappings)
 export const LEGACY_ID_MAP = {
   "pp-144": "pp-045",
   "cf-054": "pp-137",
@@ -35983,5 +39231,4 @@ export const LEGACY_ID_MAP = {
   "tb1-265": "sm-118",
   "tb1-269": "wj-115"
 };
-
 export default WORDS;

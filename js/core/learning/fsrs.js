@@ -3,30 +3,16 @@
  * Pure JavaScript implementation of the modern FSRS-6 algorithm.
  */
 
-export const Rating = {
-  Again: 1, // Quên hoàn toàn
-  Hard: 2,  // Nhớ nhưng rất khó khăn
-  Good: 3,  // Nhớ đúng hạn, tốc độ bình thường
-  Easy: 4   // Nhớ rất dễ dàng
-};
+import { Rating, State, DEFAULT_FSRS_PARAMS } from '../../config/fsrs.js';
 
-export const State = {
-  New: 0,
-  Learning: 1,
-  Review: 2,
-  Relearning: 3
-};
+export { Rating, State };
 
 export class FSRS {
   constructor(params = {}) {
     // 19 default parameters for FSRS-6
-    this.w = params.w || [
-      0.40255, 1.18385, 3.173, 15.69105, 7.1949, 0.5345, 1.4604, 0.0046,
-      1.54575, 0.1192, 1.01925, 1.9395, 0.11, 0.29605, 0.22695, 0.2315,
-      2.9898, 0.51655, 0.6621
-    ];
-    this.requestRetention = params.requestRetention || 0.90; // Mặc định 90%
-    this.maximumInterval = params.maximumInterval || 36500; // 100 năm
+    this.w = params.w || [...DEFAULT_FSRS_PARAMS.w];
+    this.requestRetention = params.requestRetention || DEFAULT_FSRS_PARAMS.requestRetention; // Mặc định 90%
+    this.maximumInterval = params.maximumInterval || DEFAULT_FSRS_PARAMS.maximumInterval; // 100 năm
     this.decay = 0.5;
     this.factor = 19 / 81; // ~0.2345679 -> R(S, S) = (1 + (19/81)*1)^(-0.5) = (100/81)^(-0.5) = 9/10 = 0.90
   }

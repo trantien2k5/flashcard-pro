@@ -1,9 +1,9 @@
 /**
- * Storage Manager for FSRS Progress, Decks, User Settings & Review Logs
+ * Storage Service for FSRS Progress, Decks, User Settings & Review Logs
  * Thuần Client-side: Lưu trữ bền vững với IndexedDB kết hợp RAM Cache và LocalStorage fallback.
  */
 
-import { LEGACY_ID_MAP } from '../data/index.js';
+import { LEGACY_ID_MAP } from '../../data/index.js';
 
 const DB_NAME = 'FlashcardProDB';
 const DB_VERSION = 1;
@@ -90,6 +90,7 @@ export class StorageManager {
   static bumpStateRevision() {
     _stateRevision++;
   }
+
   /**
    * Khởi tạo kết nối IndexedDB và nạp trước dữ liệu vào RAM Cache
    */

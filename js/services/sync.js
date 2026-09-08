@@ -1,5 +1,5 @@
 /**
- * SYNC MANAGER - Flashcard English Pro (Universal 2-Way Smart Sync)
+ * SYNC SERVICE - Flashcard English Pro (Universal 2-Way Smart Sync)
  * Đồng bộ 2 chiều thông minh 1 chạm (Zero-Friction Handshake)
  * 1 Máy mở QR — 1 Máy quét QR -> Cả 2 máy tự động hợp nhất lên bản mới nhất 100%!
  */
@@ -141,9 +141,6 @@ export class SyncManager {
 
   /**
    * BẬT TRẠM CHỜ ĐỒNG BỘ 2 CHIỀU (Host Session)
-   * 1. Sinh mã PIN + Link QR
-   * 2. Lắng nghe dữ liệu từ máy quét
-   * 3. Tự động merge trên Host và đẩy trả ngược bản merge về cho máy quét
    */
   static startUniversalHostSession({ onConnected, onSyncCompleted, onError }) {
     const pin = String(Math.floor(100000 + Math.random() * 900000));
@@ -220,8 +217,6 @@ export class SyncManager {
 
   /**
    * MÁY QUÉT THỰC HIỆN BẮT TAY 2 CHIỀU (Client Handshake)
-   * 1. Gửi dữ liệu của Client lên Host
-   * 2. Lắng nghe và nhận bản Merged chuẩn từ Host về nạp vào Client
    */
   static async executeClientHandshake(pinOrUrl) {
     let pin = String(pinOrUrl || '').trim();
@@ -255,7 +250,7 @@ export class SyncManager {
       return { success: false, error: 'Lỗi mạng khi kết nối thiết bị.' };
     }
 
-    // 2. Chờ nhận phản hồi bản Merged từ Host (Tối đa 6 giây qua long polling)
+    // 2. Chờ nhận phản hồi bản Merged từ Host (Tối đa 6.5 giây)
     try {
       const startTime = Date.now();
       while (Date.now() - startTime < 6500) {
@@ -297,7 +292,6 @@ export class SyncManager {
       console.warn('Lỗi chờ nhận bản merge:', err);
     }
 
-    // Nếu không nhận được resp từ Host (có thể mạng 1 chiều), Client vẫn tự merge an toàn
     return {
       success: true,
       pin,
