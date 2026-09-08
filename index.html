@@ -1047,24 +1047,6 @@
       </div>
     </div>
 
-    <!-- ================= MODAL: TÌM KIẾM TỪ VỰNG NHANH ================= -->
-    <div id="search-modal" class="modal-backdrop">
-      <div class="modal-dialog search-modal-dialog">
-        <div class="search-modal-header">
-          <div class="search-box-wrapper" style="margin-bottom: 0; flex: 1;">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="global-search-input" class="search-input" placeholder="Tìm từ vựng, phiên âm, định nghĩa..." autofocus>
-          </div>
-          <button class="btn-icon-close" id="btn-close-search-modal" title="Đóng tìm kiếm">✕</button>
-        </div>
-        <div class="search-modal-results" id="search-modal-results">
-          <div style="text-align: center; padding: 40px 20px; color: var(--text-muted);">
-            <div style="font-size: 2rem; margin-bottom: 8px;">🔍</div>
-            Nhập từ vựng, phiên âm hoặc định nghĩa để tìm kiếm nhanh
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- ================= MODAL: ĐỒNG BỘ ĐA THIẾT BỊ 2 CHIỀU THÔNG MINH ================= -->
     <div id="sync-modal" class="modal-backdrop">
@@ -1141,8 +1123,8 @@
     </div>
 
     <!-- ================= UNIVERSAL SPOTLIGHT SEARCH MODAL ================= -->
-    <div id="search-modal" class="modal-overlay">
-      <div class="modal-content search-modal-dialog">
+    <div id="search-modal" class="modal-backdrop">
+      <div class="modal-dialog search-modal-dialog">
         <!-- Search Top Header Input -->
         <div class="search-modal-header">
           <div class="search-box-wrapper">
@@ -1150,7 +1132,7 @@
             <input type="text" id="global-search-input" class="search-input" placeholder="Tìm từ vựng, nghĩa, IPA, ví dụ, cấp độ CEFR..." autocomplete="off" spellcheck="false">
             <button type="button" id="btn-clear-search-input" class="search-clear-btn" style="display: none;" title="Xóa từ khóa">✕</button>
           </div>
-          <button type="button" class="modal-close" id="btn-close-search-modal" aria-label="Đóng tìm kiếm">✕</button>
+          <button type="button" class="btn-icon-close" id="btn-close-search-modal" title="Đóng tìm kiếm" aria-label="Đóng tìm kiếm">✕</button>
         </div>
 
         <!-- Quick Filter Chips: POS, CEFR Level, Memory State -->
