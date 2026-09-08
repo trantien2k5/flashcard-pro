@@ -474,6 +474,43 @@ export class StorageManager {
     return Array.isArray(progress.completedSubtopics) && progress.completedSubtopics.includes(subtopicId);
   }
 
+  // ==========================================
+  // PINNED TOPICS (GHIM CHỦ ĐỀ YÊU THÍCH)
+  // ==========================================
+
+  static getPinnedTopicIds() {
+    const progress = this.getUserProgress();
+    if (!Array.isArray(progress.pinnedTopics)) {
+      progress.pinnedTopics = [];
+    }
+    return progress.pinnedTopics;
+  }
+
+  static isTopicPinned(topicId) {
+    if (!topicId) return false;
+    const pinned = this.getPinnedTopicIds();
+    return pinned.includes(topicId);
+  }
+
+  static togglePinTopic(topicId) {
+    if (!topicId) return false;
+    const progress = this.getUserProgress();
+    if (!Array.isArray(progress.pinnedTopics)) {
+      progress.pinnedTopics = [];
+    }
+    const idx = progress.pinnedTopics.indexOf(topicId);
+    let isPinned = false;
+    if (idx >= 0) {
+      progress.pinnedTopics.splice(idx, 1);
+      isPinned = false;
+    } else {
+      progress.pinnedTopics.push(topicId);
+      isPinned = true;
+    }
+    this.saveUserProgress(progress);
+    return isPinned;
+  }
+
   static getCustomDecks() {
     if (_customDecksCache !== null) return _customDecksCache;
     try {

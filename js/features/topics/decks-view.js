@@ -3,6 +3,8 @@
  */
 
 import { DECK_ENGLISH_NAMES } from '../../config/app.js';
+import { StorageManager } from '../../services/storage.js';
+import { showToast } from '../../shared/feedback.js';
 import { escapeHTML, safeColor } from '../../utils/sanitize.js';
 import { openSubtopicsPage, renderSubtopicsPage } from './subtopics-view.js';
 import { openSubtopicDetailPage, renderSubtopicDetailPage } from '../../shared/modal.js';
@@ -72,15 +74,21 @@ export function createDeckCardElement(app, deck, extraOptions = {}) {
   const learnedCount = deckStats.total - deckStats.newCount;
   const subCount = (deck.subtopics && deck.subtopics.length) ? deck.subtopics.length : (deck.subcategories && deck.subcategories.length ? deck.subcategories.length : 1);
   const deckColor = safeColor(deck.color);
+  const isPinned = extraOptions.isPinned !== undefined ? extraOptions.isPinned : StorageManager.isTopicPinned(deck.id);
   
   const cardEl = document.createElement('div');
   cardEl.className = 'deck-item-card';
+  if (isPinned) {
+    cardEl.classList.add('deck-item-pinned');
+  }
   if (extraOptions.isMostRecent) {
     cardEl.classList.add('deck-item-recent');
   }
 
   let statusBadgeHtml = '';
-  if (deckStats.dueCount > 0) {
+  if (isPinned) {
+    statusBadgeHtml = `<span class="subtopic-badge badge-pinned">📌 Đã ghim</span>`;
+  } else if (deckStats.dueCount > 0) {
     statusBadgeHtml = `<span class="subtopic-badge badge-due">⚠️ ${deckStats.dueCount} cần ôn</span>`;
   } else if (extraOptions.isMostRecent || (deckStats.lastStudiedTime > 0 && (Date.now() - deckStats.lastStudiedTime < 3 * 86400000))) {
     statusBadgeHtml = `<span class="subtopic-badge badge-recent">🔥 Vừa học</span>`;
@@ -108,6 +116,9 @@ export function createDeckCardElement(app, deck, extraOptions = {}) {
         </div>
       </div>
       <div class="deck-card-right">
+        <button class="btn-deck-pin ${isPinned ? 'pinned' : ''}" type="button" title="${isPinned ? 'Bỏ ghim chủ đề' : 'Ghim chủ đề lên đầu'}" aria-label="Ghim chủ đề">
+          📌
+        </button>
         <span class="deck-stats-fraction">${learnedCount}/${deckStats.total}</span>
         <span class="deck-chevron">›</span>
       </div>
@@ -116,6 +127,21 @@ export function createDeckCardElement(app, deck, extraOptions = {}) {
       <div class="deck-progress-fill" style="width: ${deckStats.progressPercent}%;"></div>
     </div>
   `;
+
+  // Xử lý nút ghim chủ đề độc lập
+  const btnPin = cardEl.querySelector('.btn-deck-pin');
+  if (btnPin) {
+    btnPin.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const newlyPinned = StorageManager.togglePinTopic(deck.id);
+      showToast(newlyPinned ? `📌 Đã ghim "${englishTitle}" lên đầu danh sách` : `Đã bỏ ghim "${englishTitle}"`, 'success');
+      if (typeof extraOptions.onPinToggle === 'function') {
+        extraOptions.onPinToggle(deck.id, newlyPinned);
+      } else {
+        renderDecksTab(app);
+      }
+    });
+  }
 
   cardEl.addEventListener('click', () => {
     if (app && typeof app.openSubtopicsPage === 'function') {
@@ -178,6 +204,7 @@ export function renderDecksTab(app) {
     // Search (tìm cái gì) -> Danh mục (lĩnh vực nào) -> Trạng thái (học tới đâu) -> Sort (thứ tự hiển thị)
     const getProcessedDecks = () => {
       let list = allDecks.slice();
+      const pinnedIds = new Set(StorageManager.getPinnedTopicIds());
 
       // Tầng 1: Lọc theo Trạng thái học (Status)
       if (_decksCurrentStatus === 'learning') {
@@ -215,22 +242,25 @@ export function renderDecksTab(app) {
         });
       }
 
-      // Tầng 4: Sắp xếp (Sort)
-      if (_decksCurrentSort === 'due') {
-        list.sort((a, b) => app.deckManager.getDeckStats(b.id).dueCount - app.deckManager.getDeckStats(a.id).dueCount);
-      } else if (_decksCurrentSort === 'progress') {
-        list.sort((a, b) => app.deckManager.getDeckStats(b.id).progressPercent - app.deckManager.getDeckStats(a.id).progressPercent);
-      } else if (_decksCurrentSort === 'words') {
-        list.sort((a, b) => app.deckManager.getDeckStats(b.id).total - app.deckManager.getDeckStats(a.id).total);
-      } else if (_decksCurrentSort === 'az') {
-        list.sort((a, b) => {
+      // Tầng 4: Sắp xếp (Sort) - ƯU TIÊN CHỦ ĐỀ ĐƯỢC GHIM LÊN ĐẦU
+      list.sort((a, b) => {
+        const aPinned = pinnedIds.has(a.id);
+        const bPinned = pinnedIds.has(b.id);
+        if (aPinned && !bPinned) return -1;
+        if (!aPinned && bPinned) return 1;
+
+        if (_decksCurrentSort === 'due') {
+          return app.deckManager.getDeckStats(b.id).dueCount - app.deckManager.getDeckStats(a.id).dueCount;
+        } else if (_decksCurrentSort === 'progress') {
+          return app.deckManager.getDeckStats(b.id).progressPercent - app.deckManager.getDeckStats(a.id).progressPercent;
+        } else if (_decksCurrentSort === 'words') {
+          return app.deckManager.getDeckStats(b.id).total - app.deckManager.getDeckStats(a.id).total;
+        } else if (_decksCurrentSort === 'az') {
           const nameA = a.titleEn || a.nameEn || DECK_ENGLISH_NAMES[a.id] || a.title || a.name || '';
           const nameB = b.titleEn || b.nameEn || DECK_ENGLISH_NAMES[b.id] || b.title || b.name || '';
           return nameA.localeCompare(nameB);
-        });
-      } else {
-        // Mặc định: Vừa học gần nhất lên đầu -> sau đó theo thứ tự định nghĩa trong metadata
-        list.sort((a, b) => {
+        } else {
+          // Mặc định: Vừa học gần nhất lên đầu -> sau đó theo thứ tự định nghĩa trong metadata
           const statsA = app.deckManager.getDeckStats(a.id);
           const statsB = app.deckManager.getDeckStats(b.id);
           const lastA = statsA.lastStudiedTime || 0;
@@ -245,8 +275,8 @@ export function renderDecksTab(app) {
           const orderA = typeof a.order === 'number' ? a.order : 999;
           const orderB = typeof b.order === 'number' ? b.order : 999;
           return orderA - orderB;
-        });
-      }
+        }
+      });
 
       return list;
     };
@@ -258,6 +288,7 @@ export function renderDecksTab(app) {
 
     const renderList = () => {
       const processed = getProcessedDecks();
+      const pinnedIds = new Set(StorageManager.getPinnedTopicIds());
       container.innerHTML = '';
 
       if (countSummary) {
@@ -289,7 +320,12 @@ export function renderDecksTab(app) {
       const fragment = document.createDocumentFragment();
       processed.forEach(deck => {
         const isMostRecent = (deck.id === mostRecentDeckId) && (maxStudiedTime > 0);
-        const cardEl = createDeckCardElement(app, deck, { isMostRecent });
+        const isPinned = pinnedIds.has(deck.id);
+        const cardEl = createDeckCardElement(app, deck, { 
+          isMostRecent, 
+          isPinned,
+          onPinToggle: () => renderList()
+        });
         fragment.appendChild(cardEl);
       });
       container.appendChild(fragment);
