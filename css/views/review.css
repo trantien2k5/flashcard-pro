@@ -224,13 +224,12 @@
 .memory-chart-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-xl, 20px);
-  padding: 20px 22px;
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-lg, 18px);
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 14px;
+  gap: 10px;
   transition: all 0.2s ease;
 }
 
@@ -244,7 +243,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 12px;
+  padding-bottom: 8px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -259,21 +258,21 @@
 }
 
 .memory-chart-title {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.01em;
 }
 
 .memory-chart-subtitle {
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
 }
 
 .memory-chart-badge {
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: var(--radius-full);
   background: rgba(99, 102, 241, 0.12);
   color: var(--primary);
@@ -291,10 +290,10 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  height: 165px;
-  padding: 8px 4px 2px 4px;
+  height: 125px;
+  padding: 4px 2px 0 2px;
   background: transparent;
-  gap: 8px;
+  gap: 6px;
 }
 
 .memory-col {
@@ -304,7 +303,7 @@
   align-items: center;
   height: 100%;
   justify-content: flex-end;
-  gap: 3px;
+  gap: 2px;
   cursor: default;
   user-select: none;
   position: relative;
@@ -317,14 +316,14 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  max-height: 85px;
+  max-height: 52px;
 }
 
 .memory-col-track {
   width: 100%;
-  max-width: 34px;
+  max-width: 30px;
   height: 100%;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1.5px solid transparent;
   display: flex;
   flex-direction: column;

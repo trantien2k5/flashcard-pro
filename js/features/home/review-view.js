@@ -166,16 +166,22 @@ export function renderReviewTab(app) {
       }
     }
 
-    // 1. Tính toán Từ tới hạn ôn tập hôm nay
+    // 1. Tính toán Từ cần ôn tập hôm nay
     const queue = app.deckManager.getStudyQueue(null, app.settings);
     const dueCount = queue.dueCards ? queue.dueCards.length : 0;
     const dueEl = document.getElementById('home-due-count');
     const iconWrapDue = document.getElementById('icon-wrap-due');
 
+    // Cập nhật dòng tóm tắt rõ ràng trên Card Hôm nay: "6 từ cần ôn · Mục tiêu 10 từ"
+    const todaySummaryEl = document.getElementById('home-today-summary');
+    if (todaySummaryEl) {
+      todaySummaryEl.textContent = `${dueCount} từ cần ôn · Mục tiêu ${dailyGoal} từ`;
+    }
+
     if (dueEl) {
       dueEl.textContent = dueCount > 0 ? dueCount : '0';
       if (dueCount > 25) {
-        dueEl.title = `Có ${dueCount} từ vựng quá hạn cần ôn tập gấp`;
+        dueEl.title = `Có ${dueCount} từ vựng cần ôn tập gấp`;
         dueEl.style.color = '#ef4444';
         if (iconWrapDue) {
           iconWrapDue.style.background = 'rgba(239, 68, 68, 0.14)';
@@ -189,7 +195,7 @@ export function renderReviewTab(app) {
           iconWrapDue.style.color = '#f59e0b';
         }
       } else {
-        dueEl.title = dueCount > 0 ? `Có ${dueCount} từ vựng đến hạn ôn tập hôm nay` : 'Hiện không có từ nào đến hạn ôn tập';
+        dueEl.title = dueCount > 0 ? `Có ${dueCount} từ vựng cần ôn hôm nay` : 'Hiện không có từ nào cần ôn';
         dueEl.style.color = dueCount > 0 ? 'var(--primary)' : 'var(--text-primary)';
         if (iconWrapDue) {
           iconWrapDue.style.background = 'rgba(99, 102, 241, 0.12)';

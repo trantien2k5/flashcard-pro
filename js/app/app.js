@@ -156,7 +156,7 @@ export class FlashcardApp {
       
       // Mobile Header Streak
       const streakEl = document.getElementById('streak-count');
-      if (streakEl) streakEl.textContent = streak;
+      if (streakEl) streakEl.textContent = `${streak} ngày`;
 
       // Desktop Sidebar Streak
       const desktopStreakEl = document.getElementById('desktop-streak-count');
