@@ -173,6 +173,9 @@ export class FSRS {
     next.elapsed_days = elapsedDays;
     next.reps = (card.reps || 0) + 1;
 
+    const currentS = Math.max(0.1, Number(card.stability) || 1.0);
+    const currentD = Math.max(1, Math.min(10, Number(card.difficulty) || 5.0));
+
     if (card.state === State.New) {
       next.difficulty = this.initDifficulty(rating);
 
@@ -206,40 +209,40 @@ export class FSRS {
         next.due = new Date(nowDate.getTime() + 10 * 60 * 1000).toISOString();
       } else if (rating === Rating.Good) {
         next.state = State.Review;
-        next.stability = Math.max(3.2, next.stability * 1.2);
+        next.stability = Math.max(3.2, currentS * 1.2);
         const days = Math.max(1, this.nextInterval(next.stability));
         next.scheduled_days = days;
         next.due = new Date(nowDate.getTime() + days * 24 * 60 * 60 * 1000).toISOString();
       } else if (rating === Rating.Easy) {
         next.state = State.Review;
-        next.stability = Math.max(4.0, next.stability * 1.5);
+        next.stability = Math.max(4.0, currentS * 1.5);
         const days = Math.max(3, this.nextInterval(next.stability));
         next.scheduled_days = days;
         next.due = new Date(nowDate.getTime() + days * 24 * 60 * 60 * 1000).toISOString();
       }
     } else { // State.Review
-      next.difficulty = this.nextDifficulty(card.difficulty || 5, rating);
+      next.difficulty = this.nextDifficulty(currentD, rating);
       if (rating === Rating.Again) {
         next.state = State.Relearning;
         next.lapses = (card.lapses || 0) + 1;
-        next.stability = this.nextForgetStability(card.difficulty || 5, card.stability, retrievability);
+        next.stability = this.nextForgetStability(currentD, currentS, retrievability);
         next.scheduled_days = 0; // < 1m
         next.due = new Date(nowDate.getTime() + 1 * 60 * 1000).toISOString();
       } else if (rating === Rating.Hard) {
         next.state = State.Review;
-        next.stability = this.nextRecallStability(card.difficulty || 5, card.stability, retrievability, Rating.Hard);
+        next.stability = this.nextRecallStability(currentD, currentS, retrievability, Rating.Hard);
         const days = Math.max(1, Math.round(this.nextInterval(next.stability) * 0.8));
         next.scheduled_days = days;
         next.due = new Date(nowDate.getTime() + days * 24 * 60 * 60 * 1000).toISOString();
       } else if (rating === Rating.Good) {
         next.state = State.Review;
-        next.stability = this.nextRecallStability(card.difficulty || 5, card.stability, retrievability, Rating.Good);
+        next.stability = this.nextRecallStability(currentD, currentS, retrievability, Rating.Good);
         const days = Math.max(2, this.nextInterval(next.stability));
         next.scheduled_days = days;
         next.due = new Date(nowDate.getTime() + days * 24 * 60 * 60 * 1000).toISOString();
       } else if (rating === Rating.Easy) {
         next.state = State.Review;
-        next.stability = this.nextRecallStability(card.difficulty || 5, card.stability, retrievability, Rating.Easy);
+        next.stability = this.nextRecallStability(currentD, currentS, retrievability, Rating.Easy);
         const days = Math.max(4, this.nextInterval(next.stability));
         next.scheduled_days = days;
         next.due = new Date(nowDate.getTime() + days * 24 * 60 * 60 * 1000).toISOString();

@@ -1,7 +1,7 @@
 /**
- * WORDS SSOT - Flashcard English Pro
- * Dữ liệu gốc tập trung của toàn bộ từ vựng (Word-Centric SSOT)
- * Mỗi từ là một thực thể duy nhất với đầy đủ thông tin ngữ nghĩa
+ * WORDS DICTIONARY (SSOT) - Flashcard English Pro
+ * Cơ sở dữ liệu từ vựng chuẩn hóa tập trung (Word-Centric SSOT)
+ * Mỗi từ có duy nhất một bản ghi định danh (Canonical ID) và ánh xạ nhiều Topic qua topicIds
  */
 
 export const WORDS = [
@@ -16,7 +16,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-1"
     ],
     "tags": []
   },
@@ -31,7 +33,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-3"
     ],
     "tags": []
   },
@@ -46,8 +50,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang",
-      "home-living-2-phong-ngu-giac-ngu"
+      "daily-life-routines-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-52"
     ],
     "tags": []
   },
@@ -62,7 +67,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-8"
     ],
     "tags": []
   },
@@ -77,7 +84,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-8"
     ],
     "tags": []
   },
@@ -92,7 +101,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-8"
     ],
     "tags": []
   },
@@ -107,7 +118,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-3"
     ],
     "tags": []
   },
@@ -122,8 +135,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang",
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "daily-life-routines-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-53"
     ],
     "tags": []
   },
@@ -138,8 +152,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang",
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "daily-life-routines-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-53"
     ],
     "tags": []
   },
@@ -154,7 +169,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-3"
     ],
     "tags": []
   },
@@ -169,8 +186,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang",
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "daily-life-routines-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-53"
     ],
     "tags": []
   },
@@ -185,8 +203,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang",
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "daily-life-routines-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-53"
     ],
     "tags": []
   },
@@ -201,8 +220,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang",
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "daily-life-routines-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-53"
     ],
     "tags": []
   },
@@ -217,8 +237,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang",
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "daily-life-routines-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-53"
     ],
     "tags": []
   },
@@ -233,7 +254,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-3"
     ],
     "tags": []
   },
@@ -248,8 +271,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang",
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "daily-life-routines-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-58"
     ],
     "tags": []
   },
@@ -264,7 +288,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-8"
     ],
     "tags": []
   },
@@ -279,7 +305,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-58"
     ],
     "tags": []
   },
@@ -294,7 +322,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-58"
     ],
     "tags": []
   },
@@ -309,8 +339,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang",
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "daily-life-routines-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-58"
     ],
     "tags": []
   },
@@ -325,7 +356,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-58"
     ],
     "tags": []
   },
@@ -340,7 +373,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-51"
     ],
     "tags": []
   },
@@ -355,7 +390,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-3"
     ],
     "tags": []
   },
@@ -370,7 +407,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-58"
     ],
     "tags": []
   },
@@ -385,8 +424,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang",
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "daily-life-routines-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-53"
     ],
     "tags": []
   },
@@ -401,7 +441,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-48"
     ],
     "tags": []
   },
@@ -416,7 +458,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-53"
     ],
     "tags": []
   },
@@ -431,8 +475,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang",
-      "food-drink-4-o-uong-thuc-uong-giai-khat"
+      "daily-life-routines-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-17"
     ],
     "tags": []
   },
@@ -447,7 +492,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-3"
     ],
     "tags": []
   },
@@ -462,8 +509,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang",
-      "home-living-3-bep-thiet-bi-nau-an"
+      "daily-life-routines-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-58"
     ],
     "tags": []
   },
@@ -478,7 +526,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-17"
     ],
     "tags": []
   },
@@ -493,7 +543,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-8"
     ],
     "tags": []
   },
@@ -508,7 +560,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-53"
     ],
     "tags": []
   },
@@ -523,7 +577,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-4"
     ],
     "tags": []
   },
@@ -538,7 +592,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-8"
     ],
     "tags": []
   },
@@ -553,7 +609,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-17"
     ],
     "tags": []
   },
@@ -568,7 +626,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-1"
     ],
     "tags": []
   },
@@ -583,7 +643,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-1"
     ],
     "tags": []
   },
@@ -598,7 +660,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-3"
     ],
     "tags": []
   },
@@ -613,7 +677,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-3"
     ],
     "tags": []
   },
@@ -628,7 +694,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-1"
     ],
     "tags": []
   },
@@ -643,7 +711,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-1"
     ],
     "tags": []
   },
@@ -658,7 +728,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-4"
     ],
     "tags": []
   },
@@ -673,7 +745,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-17"
     ],
     "tags": []
   },
@@ -688,7 +762,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-sang"
+      "daily-life-routines-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-8"
     ],
     "tags": []
   },
@@ -703,9 +779,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat",
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang",
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat"
+      "daily-life-routines-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-8"
     ],
     "tags": []
   },
@@ -720,7 +796,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-4"
     ],
     "tags": []
   },
@@ -735,7 +813,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-4"
     ],
     "tags": []
   },
@@ -750,7 +830,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-4"
     ],
     "tags": []
   },
@@ -765,7 +847,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-1"
     ],
     "tags": []
   },
@@ -780,7 +864,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-1"
     ],
     "tags": []
   },
@@ -795,7 +881,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-1"
     ],
     "tags": []
   },
@@ -810,7 +898,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-4"
     ],
     "tags": []
   },
@@ -825,7 +915,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-4"
     ],
     "tags": []
   },
@@ -840,7 +932,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-4"
     ],
     "tags": []
   },
@@ -855,7 +949,9 @@ export const WORDS = [
     "level": "B2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-30"
     ],
     "tags": []
   },
@@ -870,7 +966,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-1"
     ],
     "tags": []
   },
@@ -885,7 +983,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-1"
     ],
     "tags": []
   },
@@ -900,7 +1000,9 @@ export const WORDS = [
     "level": "B2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-31"
     ],
     "tags": []
   },
@@ -915,7 +1017,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-4"
     ],
     "tags": []
   },
@@ -930,7 +1034,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-8"
     ],
     "tags": []
   },
@@ -945,7 +1051,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-2"
     ],
     "tags": []
   },
@@ -960,8 +1068,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat",
-      "work-jobs-7-email-giao-tiep-cong-viec"
+      "daily-life-routines-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-9"
     ],
     "tags": []
   },
@@ -976,7 +1085,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-9"
     ],
     "tags": []
   },
@@ -991,7 +1102,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-9"
     ],
     "tags": []
   },
@@ -1006,7 +1119,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-2"
     ],
     "tags": []
   },
@@ -1021,7 +1136,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-9"
     ],
     "tags": []
   },
@@ -1036,7 +1153,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-4"
     ],
     "tags": []
   },
@@ -1051,7 +1170,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-2"
     ],
     "tags": []
   },
@@ -1066,7 +1187,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-2"
     ],
     "tags": []
   },
@@ -1081,7 +1204,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-4"
     ],
     "tags": []
   },
@@ -1096,7 +1221,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-5"
     ],
     "tags": []
   },
@@ -1111,7 +1238,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-5"
     ],
     "tags": []
   },
@@ -1126,7 +1255,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-5"
     ],
     "tags": []
   },
@@ -1141,7 +1272,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-5"
     ],
     "tags": []
   },
@@ -1156,7 +1289,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-5"
     ],
     "tags": []
   },
@@ -1171,7 +1306,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-5"
     ],
     "tags": []
   },
@@ -1186,7 +1323,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-9"
     ],
     "tags": []
   },
@@ -1201,7 +1340,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-9"
     ],
     "tags": []
   },
@@ -1216,8 +1357,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat",
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "daily-life-routines-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-9"
     ],
     "tags": []
   },
@@ -1232,7 +1374,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-9"
     ],
     "tags": []
   },
@@ -1247,7 +1391,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-51"
     ],
     "tags": []
   },
@@ -1262,7 +1408,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-51"
     ],
     "tags": []
   },
@@ -1277,8 +1425,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat",
-      "home-living-3-bep-thiet-bi-nau-an"
+      "daily-life-routines-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-58"
     ],
     "tags": []
   },
@@ -1293,7 +1442,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-9"
     ],
     "tags": []
   },
@@ -1308,8 +1459,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat",
-      "home-living-5-don-dep-viec-nha"
+      "daily-life-routines-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-9"
     ],
     "tags": []
   },
@@ -1324,8 +1476,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat",
-      "home-living-5-don-dep-viec-nha"
+      "daily-life-routines-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-59"
     ],
     "tags": []
   },
@@ -1340,7 +1493,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-10"
     ],
     "tags": []
   },
@@ -1355,7 +1510,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-10"
     ],
     "tags": []
   },
@@ -1370,8 +1527,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat",
-      "home-living-5-don-dep-viec-nha"
+      "daily-life-routines-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-10"
     ],
     "tags": []
   },
@@ -1386,7 +1544,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-5"
     ],
     "tags": []
   },
@@ -1401,7 +1561,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-10"
     ],
     "tags": []
   },
@@ -1416,8 +1578,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat",
-      "home-living-5-don-dep-viec-nha"
+      "daily-life-routines-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-10"
     ],
     "tags": []
   },
@@ -1432,7 +1595,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat"
+      "daily-life-routines-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-49"
     ],
     "tags": []
   },
@@ -1447,8 +1612,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-hoat-ong-thuong-nhat",
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "daily-life-routines-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-53"
     ],
     "tags": []
   },
@@ -1463,8 +1629,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep",
-      "home-living-5-don-dep-viec-nha"
+      "daily-life-routines-chặng-10"
     ],
     "tags": []
   },
@@ -1479,7 +1644,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-55"
     ],
     "tags": []
   },
@@ -1494,7 +1661,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-10"
     ],
     "tags": []
   },
@@ -1509,7 +1678,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-10"
     ],
     "tags": []
   },
@@ -1524,7 +1695,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-48"
     ],
     "tags": []
   },
@@ -1539,7 +1712,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-54"
     ],
     "tags": []
   },
@@ -1554,9 +1729,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep",
-      "home-living-5-don-dep-viec-nha",
-      "nature-weather-10-moi-truong-bien-oi-khi-hau"
+      "daily-life-routines-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-10"
     ],
     "tags": []
   },
@@ -1571,7 +1746,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-48"
     ],
     "tags": []
   },
@@ -1586,7 +1763,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-51"
     ],
     "tags": []
   },
@@ -1601,7 +1780,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-51"
     ],
     "tags": []
   },
@@ -1616,8 +1797,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep",
-      "home-living-7-sua-chua-dung-cu-nha-cua"
+      "daily-life-routines-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-10"
     ],
     "tags": []
   },
@@ -1632,8 +1814,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep",
-      "home-living-7-sua-chua-dung-cu-nha-cua"
+      "daily-life-routines-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-17"
     ],
     "tags": []
   },
@@ -1648,7 +1831,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-10"
     ],
     "tags": []
   },
@@ -1663,7 +1848,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-5"
     ],
     "tags": []
   },
@@ -1678,7 +1865,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-5"
     ],
     "tags": []
   },
@@ -1693,7 +1882,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-49"
     ],
     "tags": []
   },
@@ -1708,7 +1899,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-17"
     ],
     "tags": []
   },
@@ -1723,8 +1916,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep",
-      "home-living-5-don-dep-viec-nha"
+      "daily-life-routines-chặng-12"
     ],
     "tags": []
   },
@@ -1739,8 +1931,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep",
-      "home-living-2-phong-ngu-giac-ngu"
+      "daily-life-routines-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-59"
     ],
     "tags": []
   },
@@ -1755,7 +1948,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-59"
     ],
     "tags": []
   },
@@ -1770,7 +1965,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-59"
     ],
     "tags": []
   },
@@ -1785,7 +1982,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adverb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-5"
     ],
     "tags": []
   },
@@ -1800,7 +1999,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adverb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-6"
     ],
     "tags": []
   },
@@ -1815,7 +2016,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-49"
     ],
     "tags": []
   },
@@ -1830,7 +2033,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-49"
     ],
     "tags": []
   },
@@ -1845,7 +2050,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adverb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-6"
     ],
     "tags": []
   },
@@ -1860,7 +2067,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adverb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-6"
     ],
     "tags": []
   },
@@ -1875,7 +2084,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adverb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-6"
     ],
     "tags": []
   },
@@ -1890,7 +2101,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adverb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-6"
     ],
     "tags": []
   },
@@ -1905,7 +2118,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adverb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-11"
     ],
     "tags": []
   },
@@ -1920,7 +2135,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adverb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-6"
     ],
     "tags": []
   },
@@ -1935,7 +2152,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adverb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-17"
     ],
     "tags": []
   },
@@ -1950,7 +2169,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-54"
     ],
     "tags": []
   },
@@ -1965,7 +2186,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-54"
     ],
     "tags": []
   },
@@ -1980,7 +2203,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-54"
     ],
     "tags": []
   },
@@ -1995,7 +2220,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-54"
     ],
     "tags": []
   },
@@ -2010,7 +2237,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-54"
     ],
     "tags": []
   },
@@ -2025,7 +2254,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-54"
     ],
     "tags": []
   },
@@ -2040,7 +2271,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-54"
     ],
     "tags": []
   },
@@ -2055,7 +2288,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-59"
     ],
     "tags": []
   },
@@ -2070,7 +2305,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-14"
     ],
     "tags": []
   },
@@ -2085,7 +2320,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-59"
     ],
     "tags": []
   },
@@ -2100,7 +2337,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep"
+      "daily-life-routines-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-59"
     ],
     "tags": []
   },
@@ -2115,8 +2354,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep",
-      "health-body-4-tham-kham-bac-si-benh-vien"
+      "daily-life-routines-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-59"
     ],
     "tags": []
   },
@@ -2131,8 +2371,9 @@ export const WORDS = [
     "level": "B2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-viec-nha-don-dep",
-      "home-living-5-don-dep-viec-nha"
+      "daily-life-routines-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-31"
     ],
     "tags": []
   },
@@ -2147,7 +2388,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-11"
     ],
     "tags": []
   },
@@ -2162,9 +2405,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh",
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so",
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "daily-life-routines-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-17"
     ],
     "tags": []
   },
@@ -2179,8 +2422,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh",
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "daily-life-routines-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-17"
     ],
     "tags": []
   },
@@ -2195,7 +2439,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-48"
     ],
     "tags": []
   },
@@ -2210,7 +2456,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-50"
     ],
     "tags": []
   },
@@ -2225,7 +2473,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-50"
     ],
     "tags": []
   },
@@ -2240,7 +2490,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-49"
     ],
     "tags": []
   },
@@ -2255,7 +2507,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-51"
     ],
     "tags": []
   },
@@ -2270,8 +2524,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh",
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "daily-life-routines-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-61"
     ],
     "tags": []
   },
@@ -2286,8 +2541,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh",
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "daily-life-routines-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-59"
     ],
     "tags": []
   },
@@ -2302,7 +2558,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-16"
     ],
     "tags": []
   },
@@ -2317,7 +2573,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-16",
+      "top-1000-core",
+      "top-1000-core-chặng-2"
     ],
     "tags": []
   },
@@ -2332,7 +2590,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-16",
+      "top-1000-core",
+      "top-1000-core-chặng-2"
     ],
     "tags": []
   },
@@ -2347,7 +2607,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-16",
+      "top-1000-core",
+      "top-1000-core-chặng-11"
     ],
     "tags": []
   },
@@ -2362,7 +2624,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-16",
+      "top-1000-core",
+      "top-1000-core-chặng-6"
     ],
     "tags": []
   },
@@ -2377,7 +2641,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-16",
+      "top-1000-core",
+      "top-1000-core-chặng-11"
     ],
     "tags": []
   },
@@ -2392,7 +2658,9 @@ export const WORDS = [
     "level": "B2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-16",
+      "top-1000-core",
+      "top-1000-core-chặng-31"
     ],
     "tags": []
   },
@@ -2407,7 +2675,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-16",
+      "top-1000-core",
+      "top-1000-core-chặng-18"
     ],
     "tags": []
   },
@@ -2422,9 +2692,9 @@ export const WORDS = [
     "level": "B2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh",
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline",
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "daily-life-routines-chặng-16",
+      "top-1000-core",
+      "top-1000-core-chặng-31"
     ],
     "tags": []
   },
@@ -2439,8 +2709,9 @@ export const WORDS = [
     "level": "B2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh",
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "daily-life-routines-chặng-16",
+      "top-1000-core",
+      "top-1000-core-chặng-31"
     ],
     "tags": []
   },
@@ -2455,7 +2726,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-17",
+      "top-1000-core",
+      "top-1000-core-chặng-2"
     ],
     "tags": []
   },
@@ -2470,8 +2743,9 @@ export const WORDS = [
     "level": "B2",
     "pos": "adverb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh",
-      "toeic-b1-2-email-thu-tin-cong-so"
+      "daily-life-routines-chặng-17",
+      "top-1000-core",
+      "top-1000-core-chặng-31"
     ],
     "tags": []
   },
@@ -2486,7 +2760,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-17",
+      "top-1000-core",
+      "top-1000-core-chặng-11"
     ],
     "tags": []
   },
@@ -2501,7 +2777,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-17",
+      "top-1000-core",
+      "top-1000-core-chặng-11"
     ],
     "tags": []
   },
@@ -2516,7 +2794,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-17",
+      "top-1000-core",
+      "top-1000-core-chặng-11"
     ],
     "tags": []
   },
@@ -2531,8 +2811,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh",
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "daily-life-routines-chặng-17",
+      "top-1000-core",
+      "top-1000-core-chặng-59"
     ],
     "tags": []
   },
@@ -2547,9 +2828,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh",
-      "shopping-money-9-vay-no-tin-dung",
-      "toeic-b1-9-on-hang-hoa-on"
+      "daily-life-routines-chặng-17"
     ],
     "tags": []
   },
@@ -2564,8 +2843,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh",
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "daily-life-routines-chặng-17",
+      "top-1000-core",
+      "top-1000-core-chặng-60"
     ],
     "tags": []
   },
@@ -2580,7 +2860,9 @@ export const WORDS = [
     "level": "B2",
     "pos": "adverb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-17",
+      "top-1000-core",
+      "top-1000-core-chặng-31"
     ],
     "tags": []
   },
@@ -2595,7 +2877,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-17",
+      "top-1000-core",
+      "top-1000-core-chặng-18"
     ],
     "tags": []
   },
@@ -2610,7 +2894,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-18"
     ],
     "tags": []
   },
@@ -2625,8 +2909,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh",
-      "shopping-money-4-thanh-toan-tien-te"
+      "daily-life-routines-chặng-18",
+      "top-1000-core",
+      "top-1000-core-chặng-60"
     ],
     "tags": []
   },
@@ -2641,7 +2926,9 @@ export const WORDS = [
     "level": "B2",
     "pos": "adverb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-18",
+      "top-1000-core",
+      "top-1000-core-chặng-31"
     ],
     "tags": []
   },
@@ -2656,7 +2943,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-18",
+      "top-1000-core",
+      "top-1000-core-chặng-55"
     ],
     "tags": []
   },
@@ -2671,7 +2960,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-18"
     ],
     "tags": []
   },
@@ -2686,7 +2975,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-18",
+      "top-1000-core",
+      "top-1000-core-chặng-61"
     ],
     "tags": []
   },
@@ -2701,8 +2992,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh",
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "daily-life-routines-chặng-18",
+      "top-1000-core",
+      "top-1000-core-chặng-56"
     ],
     "tags": []
   },
@@ -2717,7 +3009,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-18",
+      "top-1000-core",
+      "top-1000-core-chặng-11"
     ],
     "tags": []
   },
@@ -2732,7 +3026,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-18",
+      "top-1000-core",
+      "top-1000-core-chặng-11"
     ],
     "tags": []
   },
@@ -2747,7 +3043,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-thoi-gian-lich-trinh"
+      "daily-life-routines-chặng-18"
     ],
     "tags": []
   },
@@ -2762,7 +3058,9 @@ export const WORDS = [
     "level": "B2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-19",
+      "top-1000-core",
+      "top-1000-core-chặng-31"
     ],
     "tags": []
   },
@@ -2777,7 +3075,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-19"
     ],
     "tags": []
   },
@@ -2792,7 +3090,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-19",
+      "top-1000-core",
+      "top-1000-core-chặng-56"
     ],
     "tags": []
   },
@@ -2807,7 +3107,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-19",
+      "top-1000-core",
+      "top-1000-core-chặng-54"
     ],
     "tags": []
   },
@@ -2822,9 +3124,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay",
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo",
-      "toeic-b1-11-hop-ong-am-phan"
+      "daily-life-routines-chặng-19"
     ],
     "tags": []
   },
@@ -2839,7 +3139,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-19",
+      "top-1000-core",
+      "top-1000-core-chặng-54"
     ],
     "tags": []
   },
@@ -2854,7 +3156,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-19",
+      "top-1000-core",
+      "top-1000-core-chặng-48"
     ],
     "tags": []
   },
@@ -2869,8 +3173,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay",
-      "transport-directions-4-san-bay-hang-khong"
+      "daily-life-routines-chặng-19",
+      "top-1000-core",
+      "top-1000-core-chặng-2"
     ],
     "tags": []
   },
@@ -2885,7 +3190,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-19",
+      "top-1000-core",
+      "top-1000-core-chặng-18"
     ],
     "tags": []
   },
@@ -2900,7 +3207,9 @@ export const WORDS = [
     "level": "B2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-19",
+      "top-1000-core",
+      "top-1000-core-chặng-31"
     ],
     "tags": []
   },
@@ -2915,7 +3224,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-20",
+      "top-1000-core",
+      "top-1000-core-chặng-6"
     ],
     "tags": []
   },
@@ -2930,7 +3241,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-20",
+      "top-1000-core",
+      "top-1000-core-chặng-6"
     ],
     "tags": []
   },
@@ -2945,7 +3258,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-20",
+      "top-1000-core",
+      "top-1000-core-chặng-50"
     ],
     "tags": []
   },
@@ -2960,7 +3275,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-20",
+      "top-1000-core",
+      "top-1000-core-chặng-18"
     ],
     "tags": []
   },
@@ -2975,7 +3292,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-20",
+      "top-1000-core",
+      "top-1000-core-chặng-56"
     ],
     "tags": []
   },
@@ -2990,7 +3309,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-20",
+      "top-1000-core",
+      "top-1000-core-chặng-51"
     ],
     "tags": []
   },
@@ -3005,7 +3326,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-20",
+      "top-1000-core",
+      "top-1000-core-chặng-48"
     ],
     "tags": []
   },
@@ -3020,7 +3343,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-20",
+      "top-1000-core",
+      "top-1000-core-chặng-61"
     ],
     "tags": []
   },
@@ -3035,7 +3360,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-20",
+      "top-1000-core",
+      "top-1000-core-chặng-55"
     ],
     "tags": []
   },
@@ -3050,7 +3377,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-20",
+      "top-1000-core",
+      "top-1000-core-chặng-56"
     ],
     "tags": []
   },
@@ -3065,7 +3394,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-21",
+      "top-1000-core",
+      "top-1000-core-chặng-52"
     ],
     "tags": []
   },
@@ -3080,7 +3411,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-21",
+      "top-1000-core",
+      "top-1000-core-chặng-52"
     ],
     "tags": []
   },
@@ -3095,7 +3428,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-21",
+      "top-1000-core",
+      "top-1000-core-chặng-48"
     ],
     "tags": []
   },
@@ -3110,7 +3445,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-21",
+      "top-1000-core",
+      "top-1000-core-chặng-56"
     ],
     "tags": []
   },
@@ -3125,7 +3462,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-21",
+      "top-1000-core",
+      "top-1000-core-chặng-50"
     ],
     "tags": []
   },
@@ -3140,7 +3479,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-21",
+      "top-1000-core",
+      "top-1000-core-chặng-52"
     ],
     "tags": []
   },
@@ -3155,7 +3496,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-21",
+      "top-1000-core",
+      "top-1000-core-chặng-55"
     ],
     "tags": []
   },
@@ -3170,7 +3513,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-21",
+      "top-1000-core",
+      "top-1000-core-chặng-60"
     ],
     "tags": []
   },
@@ -3185,7 +3530,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-21",
+      "top-1000-core",
+      "top-1000-core-chặng-61"
     ],
     "tags": []
   },
@@ -3200,8 +3547,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay",
-      "home-living-2-phong-ngu-giac-ngu"
+      "daily-life-routines-chặng-21"
     ],
     "tags": []
   },
@@ -3216,8 +3562,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay",
-      "home-living-2-phong-ngu-giac-ngu"
+      "daily-life-routines-chặng-22",
+      "top-1000-core",
+      "top-1000-core-chặng-11"
     ],
     "tags": []
   },
@@ -3232,7 +3579,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-22"
     ],
     "tags": []
   },
@@ -3247,7 +3594,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-22"
     ],
     "tags": []
   },
@@ -3262,7 +3609,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-22",
+      "top-1000-core",
+      "top-1000-core-chặng-61"
     ],
     "tags": []
   },
@@ -3277,7 +3626,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-22",
+      "top-1000-core",
+      "top-1000-core-chặng-60"
     ],
     "tags": []
   },
@@ -3292,7 +3643,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-22",
+      "top-1000-core",
+      "top-1000-core-chặng-60"
     ],
     "tags": []
   },
@@ -3307,7 +3660,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-22",
+      "top-1000-core",
+      "top-1000-core-chặng-55"
     ],
     "tags": []
   },
@@ -3322,7 +3677,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-22",
+      "top-1000-core",
+      "top-1000-core-chặng-2"
     ],
     "tags": []
   },
@@ -3337,7 +3694,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-nhu-cau-hang-ngay"
+      "daily-life-routines-chặng-22",
+      "top-1000-core",
+      "top-1000-core-chặng-12"
     ],
     "tags": []
   },
@@ -3352,7 +3711,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-22"
     ],
     "tags": []
   },
@@ -3367,8 +3726,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu",
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang"
+      "daily-life-routines-chặng-23"
     ],
     "tags": []
   },
@@ -3383,7 +3741,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-23",
+      "top-1000-core",
+      "top-1000-core-chặng-52"
     ],
     "tags": []
   },
@@ -3398,7 +3758,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-23",
+      "top-1000-core",
+      "top-1000-core-chặng-50"
     ],
     "tags": []
   },
@@ -3413,7 +3775,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-23",
+      "top-1000-core",
+      "top-1000-core-chặng-48"
     ],
     "tags": []
   },
@@ -3428,7 +3792,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-23",
+      "top-1000-core",
+      "top-1000-core-chặng-56"
     ],
     "tags": []
   },
@@ -3443,7 +3809,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-23",
+      "top-1000-core",
+      "top-1000-core-chặng-56"
     ],
     "tags": []
   },
@@ -3458,7 +3826,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-23",
+      "top-1000-core",
+      "top-1000-core-chặng-50"
     ],
     "tags": []
   },
@@ -3473,7 +3843,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-23",
+      "top-1000-core",
+      "top-1000-core-chặng-50"
     ],
     "tags": []
   },
@@ -3488,7 +3860,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-23",
+      "top-1000-core",
+      "top-1000-core-chặng-56"
     ],
     "tags": []
   },
@@ -3503,7 +3877,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-23",
+      "top-1000-core",
+      "top-1000-core-chặng-56"
     ],
     "tags": []
   },
@@ -3518,7 +3894,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-24",
+      "top-1000-core",
+      "top-1000-core-chặng-48"
     ],
     "tags": []
   },
@@ -3533,7 +3911,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-24",
+      "top-1000-core",
+      "top-1000-core-chặng-48"
     ],
     "tags": []
   },
@@ -3548,7 +3928,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "idiom",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-24"
     ],
     "tags": []
   },
@@ -3563,7 +3943,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "idiom",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-24",
+      "top-1000-core",
+      "top-1000-core-chặng-58"
     ],
     "tags": []
   },
@@ -3578,7 +3960,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-24",
+      "top-1000-core",
+      "top-1000-core-chặng-56"
     ],
     "tags": []
   },
@@ -3593,7 +3977,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-24",
+      "top-1000-core",
+      "top-1000-core-chặng-41"
     ],
     "tags": []
   },
@@ -3608,7 +3994,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-24",
+      "top-1000-core",
+      "top-1000-core-chặng-57"
     ],
     "tags": []
   },
@@ -3623,7 +4011,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-24",
+      "top-1000-core",
+      "top-1000-core-chặng-50"
     ],
     "tags": []
   },
@@ -3638,7 +4028,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-24",
+      "top-1000-core",
+      "top-1000-core-chặng-50"
     ],
     "tags": []
   },
@@ -3653,7 +4045,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-24",
+      "top-1000-core",
+      "top-1000-core-chặng-51"
     ],
     "tags": []
   },
@@ -3668,7 +4062,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "idiom",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-25",
+      "top-1000-core",
+      "top-1000-core-chặng-52"
     ],
     "tags": []
   },
@@ -3683,7 +4079,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-25",
+      "top-1000-core",
+      "top-1000-core-chặng-2"
     ],
     "tags": []
   },
@@ -3698,7 +4096,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-25",
+      "top-1000-core",
+      "top-1000-core-chặng-18"
     ],
     "tags": []
   },
@@ -3713,7 +4113,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-25",
+      "top-1000-core",
+      "top-1000-core-chặng-52"
     ],
     "tags": []
   },
@@ -3728,7 +4130,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-25",
+      "top-1000-core",
+      "top-1000-core-chặng-61"
     ],
     "tags": []
   },
@@ -3743,7 +4147,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-25",
+      "top-1000-core",
+      "top-1000-core-chặng-60"
     ],
     "tags": []
   },
@@ -3758,7 +4164,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-25",
+      "top-1000-core",
+      "top-1000-core-chặng-55"
     ],
     "tags": []
   },
@@ -3773,7 +4181,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-25",
+      "top-1000-core",
+      "top-1000-core-chặng-12"
     ],
     "tags": []
   },
@@ -3788,7 +4198,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-25",
+      "top-1000-core",
+      "top-1000-core-chặng-18"
     ],
     "tags": []
   },
@@ -3803,7 +4215,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-25",
+      "top-1000-core",
+      "top-1000-core-chặng-57"
     ],
     "tags": []
   },
@@ -3818,7 +4232,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-26",
+      "top-1000-core",
+      "top-1000-core-chặng-52"
     ],
     "tags": []
   },
@@ -3833,7 +4249,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-26",
+      "top-1000-core",
+      "top-1000-core-chặng-52"
     ],
     "tags": []
   },
@@ -3848,7 +4266,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-26",
+      "top-1000-core",
+      "top-1000-core-chặng-12"
     ],
     "tags": []
   },
@@ -3863,7 +4283,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-26",
+      "top-1000-core",
+      "top-1000-core-chặng-12"
     ],
     "tags": []
   },
@@ -3878,7 +4300,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-26",
+      "top-1000-core",
+      "top-1000-core-chặng-57"
     ],
     "tags": []
   },
@@ -3893,7 +4317,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-26",
+      "top-1000-core",
+      "top-1000-core-chặng-18"
     ],
     "tags": []
   },
@@ -3908,7 +4334,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-26",
+      "top-1000-core",
+      "top-1000-core-chặng-57"
     ],
     "tags": []
   },
@@ -3923,7 +4351,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-26",
+      "top-1000-core",
+      "top-1000-core-chặng-50"
     ],
     "tags": []
   },
@@ -3938,7 +4368,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-26",
+      "top-1000-core",
+      "top-1000-core-chặng-60"
     ],
     "tags": []
   },
@@ -3953,7 +4385,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-buoi-toi-giac-ngu"
+      "daily-life-routines-chặng-26",
+      "top-1000-core",
+      "top-1000-core-chặng-18"
     ],
     "tags": []
   },
@@ -3968,7 +4402,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-27",
+      "top-1000-core",
+      "top-1000-core-chặng-60"
     ],
     "tags": []
   },
@@ -3983,7 +4419,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-27",
+      "top-1000-core",
+      "top-1000-core-chặng-6"
     ],
     "tags": []
   },
@@ -3998,7 +4436,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-27",
+      "top-1000-core",
+      "top-1000-core-chặng-12"
     ],
     "tags": []
   },
@@ -4013,7 +4453,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-27",
+      "top-1000-core",
+      "top-1000-core-chặng-12"
     ],
     "tags": []
   },
@@ -4028,7 +4470,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-27",
+      "top-1000-core",
+      "top-1000-core-chặng-12"
     ],
     "tags": []
   },
@@ -4043,7 +4487,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-27",
+      "top-1000-core",
+      "top-1000-core-chặng-12"
     ],
     "tags": []
   },
@@ -4058,7 +4504,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-27",
+      "top-1000-core",
+      "top-1000-core-chặng-12"
     ],
     "tags": []
   },
@@ -4073,7 +4521,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-27",
+      "top-1000-core",
+      "top-1000-core-chặng-55"
     ],
     "tags": []
   },
@@ -4088,7 +4538,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-27",
+      "top-1000-core",
+      "top-1000-core-chặng-55"
     ],
     "tags": []
   },
@@ -4103,8 +4555,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung",
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "daily-life-routines-chặng-27",
+      "top-1000-core",
+      "top-1000-core-chặng-60"
     ],
     "tags": []
   },
@@ -4119,7 +4572,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-28",
+      "top-1000-core",
+      "top-1000-core-chặng-61"
     ],
     "tags": []
   },
@@ -4134,7 +4589,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-28",
+      "top-1000-core",
+      "top-1000-core-chặng-12"
     ],
     "tags": []
   },
@@ -4149,7 +4606,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-28",
+      "top-1000-core",
+      "top-1000-core-chặng-13"
     ],
     "tags": []
   },
@@ -4164,7 +4623,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-28",
+      "top-1000-core",
+      "top-1000-core-chặng-13"
     ],
     "tags": []
   },
@@ -4179,7 +4640,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-28",
+      "top-1000-core",
+      "top-1000-core-chặng-51"
     ],
     "tags": []
   },
@@ -4194,7 +4657,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-28",
+      "top-1000-core",
+      "top-1000-core-chặng-3"
     ],
     "tags": []
   },
@@ -4209,7 +4674,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-28",
+      "top-1000-core",
+      "top-1000-core-chặng-57"
     ],
     "tags": []
   },
@@ -4224,7 +4691,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-28",
+      "top-1000-core",
+      "top-1000-core-chặng-49"
     ],
     "tags": []
   },
@@ -4239,7 +4708,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-28",
+      "top-1000-core",
+      "top-1000-core-chặng-57"
     ],
     "tags": []
   },
@@ -4254,7 +4725,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-28",
+      "top-1000-core",
+      "top-1000-core-chặng-57"
     ],
     "tags": []
   },
@@ -4269,7 +4742,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-29",
+      "top-1000-core",
+      "top-1000-core-chặng-57"
     ],
     "tags": []
   },
@@ -4284,7 +4759,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-29",
+      "top-1000-core",
+      "top-1000-core-chặng-51"
     ],
     "tags": []
   },
@@ -4299,7 +4776,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-29",
+      "top-1000-core",
+      "top-1000-core-chặng-60"
     ],
     "tags": []
   },
@@ -4314,7 +4793,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-29",
+      "top-1000-core",
+      "top-1000-core-chặng-61"
     ],
     "tags": []
   },
@@ -4329,7 +4810,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-29",
+      "top-1000-core",
+      "top-1000-core-chặng-62"
     ],
     "tags": []
   },
@@ -4344,7 +4827,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-29",
+      "top-1000-core",
+      "top-1000-core-chặng-61"
     ],
     "tags": []
   },
@@ -4359,7 +4844,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-29",
+      "top-1000-core",
+      "top-1000-core-chặng-61"
     ],
     "tags": []
   },
@@ -4374,7 +4861,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-29",
+      "top-1000-core",
+      "top-1000-core-chặng-55"
     ],
     "tags": []
   },
@@ -4389,7 +4878,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-29",
+      "top-1000-core",
+      "top-1000-core-chặng-49"
     ],
     "tags": []
   },
@@ -4404,7 +4895,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-29",
+      "top-1000-core",
+      "top-1000-core-chặng-13"
     ],
     "tags": []
   },
@@ -4419,7 +4912,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-30",
+      "top-1000-core",
+      "top-1000-core-chặng-52"
     ],
     "tags": []
   },
@@ -4434,7 +4929,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-30",
+      "top-1000-core",
+      "top-1000-core-chặng-49"
     ],
     "tags": []
   },
@@ -4449,7 +4946,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-30",
+      "top-1000-core",
+      "top-1000-core-chặng-13"
     ],
     "tags": []
   },
@@ -4464,7 +4963,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-30",
+      "top-1000-core",
+      "top-1000-core-chặng-7"
     ],
     "tags": []
   },
@@ -4479,7 +4980,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-30",
+      "top-1000-core",
+      "top-1000-core-chặng-13"
     ],
     "tags": []
   },
@@ -4494,7 +4997,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-30",
+      "top-1000-core",
+      "top-1000-core-chặng-13"
     ],
     "tags": []
   },
@@ -4509,7 +5014,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-30",
+      "top-1000-core",
+      "top-1000-core-chặng-49"
     ],
     "tags": []
   },
@@ -4524,7 +5031,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-30",
+      "top-1000-core",
+      "top-1000-core-chặng-62"
     ],
     "tags": []
   },
@@ -4539,7 +5048,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-30",
+      "top-1000-core",
+      "top-1000-core-chặng-13"
     ],
     "tags": []
   },
@@ -4554,7 +5065,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "daily-life-routines-cum-tu-thong-dung"
+      "daily-life-routines-chặng-30",
+      "top-1000-core",
+      "top-1000-core-chặng-49"
     ],
     "tags": []
   },
@@ -4569,7 +5082,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh"
+      "people-relationships-chặng-1"
     ],
     "tags": []
   },
@@ -4584,7 +5097,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh"
+      "people-relationships-chặng-1"
     ],
     "tags": []
   },
@@ -4599,7 +5112,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh"
+      "people-relationships-chặng-1"
     ],
     "tags": []
   },
@@ -4614,7 +5127,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh"
+      "people-relationships-chặng-1"
     ],
     "tags": []
   },
@@ -4629,7 +5142,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh"
+      "people-relationships-chặng-1"
     ],
     "tags": []
   },
@@ -4644,7 +5157,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh"
+      "people-relationships-chặng-1"
     ],
     "tags": []
   },
@@ -4659,7 +5172,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh"
+      "people-relationships-chặng-1"
     ],
     "tags": []
   },
@@ -4674,7 +5187,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh"
+      "people-relationships-chặng-1"
     ],
     "tags": []
   },
@@ -4689,7 +5202,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh"
+      "people-relationships-chặng-1"
     ],
     "tags": []
   },
@@ -4704,7 +5217,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh"
+      "people-relationships-chặng-1"
     ],
     "tags": []
   },
@@ -4719,7 +5232,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh"
+      "people-relationships-chặng-2"
     ],
     "tags": []
   },
@@ -4734,7 +5247,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh"
+      "people-relationships-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-32"
     ],
     "tags": []
   },
@@ -4749,7 +5264,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh"
+      "people-relationships-chặng-2"
     ],
     "tags": []
   },
@@ -4764,7 +5279,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh"
+      "people-relationships-chặng-2"
     ],
     "tags": []
   },
@@ -4779,8 +5294,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-1-thanh-vien-gia-inh",
-      "travel-places-3-tham-quan-danh-lam-thang-canh"
+      "people-relationships-chặng-2"
     ],
     "tags": []
   },
@@ -4795,7 +5309,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-2"
     ],
     "tags": []
   },
@@ -4810,7 +5324,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-2"
     ],
     "tags": []
   },
@@ -4825,7 +5339,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-2"
     ],
     "tags": []
   },
@@ -4840,7 +5354,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-2"
     ],
     "tags": []
   },
@@ -4855,7 +5369,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-2"
     ],
     "tags": []
   },
@@ -4870,7 +5384,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-3"
     ],
     "tags": []
   },
@@ -4885,7 +5399,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-3"
     ],
     "tags": []
   },
@@ -4900,7 +5414,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-3"
     ],
     "tags": []
   },
@@ -4915,7 +5429,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-3"
     ],
     "tags": []
   },
@@ -4930,7 +5444,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-3"
     ],
     "tags": []
   },
@@ -4945,7 +5459,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-3"
     ],
     "tags": []
   },
@@ -4960,7 +5474,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-3"
     ],
     "tags": []
   },
@@ -4975,7 +5489,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-3"
     ],
     "tags": []
   },
@@ -4990,7 +5504,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-3"
     ],
     "tags": []
   },
@@ -5005,7 +5519,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-2-quan-he-ho-hang-hon-nhan"
+      "people-relationships-chặng-3"
     ],
     "tags": []
   },
@@ -5020,7 +5534,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu"
+      "people-relationships-chặng-4"
     ],
     "tags": []
   },
@@ -5035,7 +5549,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu"
+      "people-relationships-chặng-4"
     ],
     "tags": []
   },
@@ -5050,7 +5564,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu"
+      "people-relationships-chặng-4"
     ],
     "tags": []
   },
@@ -5065,7 +5579,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu"
+      "people-relationships-chặng-4"
     ],
     "tags": []
   },
@@ -5080,7 +5594,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu"
+      "people-relationships-chặng-4"
     ],
     "tags": []
   },
@@ -5095,7 +5609,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu"
+      "people-relationships-chặng-4"
     ],
     "tags": []
   },
@@ -5110,7 +5624,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu"
+      "people-relationships-chặng-4"
     ],
     "tags": []
   },
@@ -5125,8 +5639,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu",
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "people-relationships-chặng-4"
     ],
     "tags": []
   },
@@ -5141,7 +5654,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu"
+      "people-relationships-chặng-4"
     ],
     "tags": []
   },
@@ -5156,7 +5669,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu"
+      "people-relationships-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-32"
     ],
     "tags": []
   },
@@ -5171,7 +5686,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu"
+      "people-relationships-chặng-5"
     ],
     "tags": []
   },
@@ -5186,7 +5701,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu"
+      "people-relationships-chặng-5"
     ],
     "tags": []
   },
@@ -5201,9 +5716,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu",
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich",
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "people-relationships-chặng-5"
     ],
     "tags": []
   },
@@ -5218,7 +5731,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu"
+      "people-relationships-chặng-5"
     ],
     "tags": []
   },
@@ -5233,8 +5746,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-3-ban-be-tinh-bang-huu",
-      "people-relationships-10-cam-xuc-trong-moi-quan-he"
+      "people-relationships-chặng-5"
     ],
     "tags": []
   },
@@ -5249,7 +5761,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc"
+      "people-relationships-chặng-5"
     ],
     "tags": []
   },
@@ -5264,7 +5776,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc"
+      "people-relationships-chặng-5"
     ],
     "tags": []
   },
@@ -5279,7 +5791,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc"
+      "people-relationships-chặng-5"
     ],
     "tags": []
   },
@@ -5294,7 +5806,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc"
+      "people-relationships-chặng-5"
     ],
     "tags": []
   },
@@ -5309,7 +5821,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc"
+      "people-relationships-chặng-5"
     ],
     "tags": []
   },
@@ -5324,7 +5836,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc"
+      "people-relationships-chặng-6"
     ],
     "tags": []
   },
@@ -5339,7 +5851,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc"
+      "people-relationships-chặng-6"
     ],
     "tags": []
   },
@@ -5354,7 +5866,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc"
+      "people-relationships-chặng-6"
     ],
     "tags": []
   },
@@ -5369,7 +5881,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc"
+      "people-relationships-chặng-6"
     ],
     "tags": []
   },
@@ -5384,7 +5896,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc"
+      "people-relationships-chặng-6"
     ],
     "tags": []
   },
@@ -5399,7 +5911,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc"
+      "people-relationships-chặng-6"
     ],
     "tags": []
   },
@@ -5414,8 +5926,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc",
-      "communication-feelings-9-thai-o-phan-ung-tam-ly"
+      "people-relationships-chặng-6"
     ],
     "tags": []
   },
@@ -5430,7 +5941,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc"
+      "people-relationships-chặng-6"
     ],
     "tags": []
   },
@@ -5445,8 +5956,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc",
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem"
+      "people-relationships-chặng-6"
     ],
     "tags": []
   },
@@ -5461,8 +5971,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-4-tinh-cach-tich-cuc",
-      "communication-feelings-9-thai-o-phan-ung-tam-ly"
+      "people-relationships-chặng-6"
     ],
     "tags": []
   },
@@ -5477,7 +5986,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi"
+      "people-relationships-chặng-7"
     ],
     "tags": []
   },
@@ -5492,7 +6001,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi"
+      "people-relationships-chặng-7"
     ],
     "tags": []
   },
@@ -5507,7 +6016,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi"
+      "people-relationships-chặng-7"
     ],
     "tags": []
   },
@@ -5522,7 +6031,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi"
+      "people-relationships-chặng-7"
     ],
     "tags": []
   },
@@ -5537,7 +6046,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi"
+      "people-relationships-chặng-7"
     ],
     "tags": []
   },
@@ -5552,7 +6061,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi"
+      "people-relationships-chặng-7"
     ],
     "tags": []
   },
@@ -5567,7 +6076,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi"
+      "people-relationships-chặng-7"
     ],
     "tags": []
   },
@@ -5582,7 +6091,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi"
+      "people-relationships-chặng-7"
     ],
     "tags": []
   },
@@ -5597,8 +6106,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi",
-      "communication-feelings-9-thai-o-phan-ung-tam-ly"
+      "people-relationships-chặng-7"
     ],
     "tags": []
   },
@@ -5613,7 +6121,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi"
+      "people-relationships-chặng-7"
     ],
     "tags": []
   },
@@ -5628,7 +6136,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi"
+      "people-relationships-chặng-8"
     ],
     "tags": []
   },
@@ -5643,7 +6151,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi"
+      "people-relationships-chặng-8"
     ],
     "tags": []
   },
@@ -5658,7 +6166,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi"
+      "people-relationships-chặng-8"
     ],
     "tags": []
   },
@@ -5673,7 +6181,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi"
+      "people-relationships-chặng-8"
     ],
     "tags": []
   },
@@ -5688,7 +6196,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-5-tinh-cach-ung-xu-xa-hoi"
+      "people-relationships-chặng-8"
     ],
     "tags": []
   },
@@ -5703,7 +6211,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang"
+      "people-relationships-chặng-8"
     ],
     "tags": []
   },
@@ -5718,7 +6226,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang"
+      "people-relationships-chặng-8"
     ],
     "tags": []
   },
@@ -5733,7 +6241,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang"
+      "people-relationships-chặng-8"
     ],
     "tags": []
   },
@@ -5748,7 +6256,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang"
+      "people-relationships-chặng-8"
     ],
     "tags": []
   },
@@ -5763,8 +6271,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang",
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu"
+      "people-relationships-chặng-8"
     ],
     "tags": []
   },
@@ -5779,7 +6286,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang"
+      "people-relationships-chặng-9"
     ],
     "tags": []
   },
@@ -5794,7 +6301,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang"
+      "people-relationships-chặng-9"
     ],
     "tags": []
   },
@@ -5809,7 +6316,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang"
+      "people-relationships-chặng-9"
     ],
     "tags": []
   },
@@ -5824,7 +6331,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang"
+      "people-relationships-chặng-9"
     ],
     "tags": []
   },
@@ -5839,7 +6346,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang"
+      "people-relationships-chặng-9"
     ],
     "tags": []
   },
@@ -5854,7 +6361,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang"
+      "people-relationships-chặng-9"
     ],
     "tags": []
   },
@@ -5869,7 +6376,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang"
+      "people-relationships-chặng-9"
     ],
     "tags": []
   },
@@ -5884,7 +6391,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang"
+      "people-relationships-chặng-9"
     ],
     "tags": []
   },
@@ -5899,7 +6406,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang"
+      "people-relationships-chặng-9"
     ],
     "tags": []
   },
@@ -5914,7 +6421,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-6-ngoai-hinh-voc-dang"
+      "people-relationships-chặng-9"
     ],
     "tags": []
   },
@@ -5929,7 +6436,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao"
+      "people-relationships-chặng-10"
     ],
     "tags": []
   },
@@ -5944,7 +6451,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao"
+      "people-relationships-chặng-10"
     ],
     "tags": []
   },
@@ -5959,7 +6466,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao"
+      "people-relationships-chặng-10"
     ],
     "tags": []
   },
@@ -5974,7 +6481,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao"
+      "people-relationships-chặng-10"
     ],
     "tags": []
   },
@@ -5989,7 +6496,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao"
+      "people-relationships-chặng-10"
     ],
     "tags": []
   },
@@ -6004,7 +6511,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao"
+      "people-relationships-chặng-10"
     ],
     "tags": []
   },
@@ -6019,7 +6526,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao"
+      "people-relationships-chặng-10"
     ],
     "tags": []
   },
@@ -6034,7 +6541,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao"
+      "people-relationships-chặng-10"
     ],
     "tags": []
   },
@@ -6049,7 +6556,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao"
+      "people-relationships-chặng-10"
     ],
     "tags": []
   },
@@ -6064,8 +6571,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao",
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "people-relationships-chặng-10"
     ],
     "tags": []
   },
@@ -6080,7 +6586,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao"
+      "people-relationships-chặng-11"
     ],
     "tags": []
   },
@@ -6095,7 +6601,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao"
+      "people-relationships-chặng-11"
     ],
     "tags": []
   },
@@ -6110,7 +6616,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao"
+      "people-relationships-chặng-11"
     ],
     "tags": []
   },
@@ -6125,7 +6631,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao"
+      "people-relationships-chặng-11"
     ],
     "tags": []
   },
@@ -6140,8 +6646,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-7-khuon-mat-dien-mao",
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "people-relationships-chặng-11"
     ],
     "tags": []
   },
@@ -6156,7 +6661,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi"
+      "people-relationships-chặng-11"
     ],
     "tags": []
   },
@@ -6171,7 +6676,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi"
+      "people-relationships-chặng-11"
     ],
     "tags": []
   },
@@ -6186,7 +6691,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi"
+      "people-relationships-chặng-11"
     ],
     "tags": []
   },
@@ -6201,7 +6706,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi"
+      "people-relationships-chặng-11"
     ],
     "tags": []
   },
@@ -6216,8 +6721,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi",
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "people-relationships-chặng-11"
     ],
     "tags": []
   },
@@ -6232,7 +6736,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi"
+      "people-relationships-chặng-12"
     ],
     "tags": []
   },
@@ -6247,9 +6751,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi",
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline",
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "people-relationships-chặng-12"
     ],
     "tags": []
   },
@@ -6264,7 +6766,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi"
+      "people-relationships-chặng-12"
     ],
     "tags": []
   },
@@ -6279,7 +6781,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi"
+      "people-relationships-chặng-12"
     ],
     "tags": []
   },
@@ -6294,7 +6796,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi"
+      "people-relationships-chặng-12"
     ],
     "tags": []
   },
@@ -6309,7 +6811,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi"
+      "people-relationships-chặng-12"
     ],
     "tags": []
   },
@@ -6324,7 +6826,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi"
+      "people-relationships-chặng-12"
     ],
     "tags": []
   },
@@ -6339,7 +6841,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi"
+      "people-relationships-chặng-12"
     ],
     "tags": []
   },
@@ -6354,7 +6856,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi"
+      "people-relationships-chặng-12"
     ],
     "tags": []
   },
@@ -6369,7 +6871,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-8-cac-giai-oan-cuoc-oi"
+      "people-relationships-chặng-12"
     ],
     "tags": []
   },
@@ -6384,8 +6886,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi",
-      "work-jobs-2-noi-lam-viec-van-phong"
+      "people-relationships-chặng-13"
     ],
     "tags": []
   },
@@ -6400,9 +6901,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi",
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep",
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "people-relationships-chặng-13"
     ],
     "tags": []
   },
@@ -6417,7 +6916,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi"
+      "people-relationships-chặng-13"
     ],
     "tags": []
   },
@@ -6432,7 +6931,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi"
+      "people-relationships-chặng-13"
     ],
     "tags": []
   },
@@ -6447,7 +6946,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi"
+      "people-relationships-chặng-13"
     ],
     "tags": []
   },
@@ -6462,7 +6961,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi"
+      "people-relationships-chặng-13"
     ],
     "tags": []
   },
@@ -6477,7 +6976,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi"
+      "people-relationships-chặng-13"
     ],
     "tags": []
   },
@@ -6492,7 +6991,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi"
+      "people-relationships-chặng-13"
     ],
     "tags": []
   },
@@ -6507,7 +7006,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi"
+      "people-relationships-chặng-13"
     ],
     "tags": []
   },
@@ -6522,7 +7021,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi"
+      "people-relationships-chặng-13"
     ],
     "tags": []
   },
@@ -6537,7 +7036,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi"
+      "people-relationships-chặng-14"
     ],
     "tags": []
   },
@@ -6552,8 +7051,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi",
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "people-relationships-chặng-14"
     ],
     "tags": []
   },
@@ -6568,7 +7066,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi"
+      "people-relationships-chặng-14"
     ],
     "tags": []
   },
@@ -6583,7 +7081,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi"
+      "people-relationships-chặng-14"
     ],
     "tags": []
   },
@@ -6598,7 +7096,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-9-moi-quan-he-cong-viec-xa-hoi"
+      "people-relationships-chặng-14"
     ],
     "tags": []
   },
@@ -6613,7 +7111,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-10-cam-xuc-trong-moi-quan-he"
+      "people-relationships-chặng-14"
     ],
     "tags": []
   },
@@ -6628,8 +7126,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-10-cam-xuc-trong-moi-quan-he",
-      "communication-feelings-4-lang-nghe-thau-hieu"
+      "people-relationships-chặng-14"
     ],
     "tags": []
   },
@@ -6644,7 +7141,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-10-cam-xuc-trong-moi-quan-he"
+      "people-relationships-chặng-14"
     ],
     "tags": []
   },
@@ -6659,7 +7156,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-10-cam-xuc-trong-moi-quan-he"
+      "people-relationships-chặng-14"
     ],
     "tags": []
   },
@@ -6674,7 +7171,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-10-cam-xuc-trong-moi-quan-he"
+      "people-relationships-chặng-14"
     ],
     "tags": []
   },
@@ -6689,7 +7186,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-10-cam-xuc-trong-moi-quan-he"
+      "people-relationships-chặng-15"
     ],
     "tags": []
   },
@@ -6704,7 +7201,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-10-cam-xuc-trong-moi-quan-he"
+      "people-relationships-chặng-15"
     ],
     "tags": []
   },
@@ -6719,7 +7216,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-10-cam-xuc-trong-moi-quan-he"
+      "people-relationships-chặng-15"
     ],
     "tags": []
   },
@@ -6734,7 +7231,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-10-cam-xuc-trong-moi-quan-he"
+      "people-relationships-chặng-15"
     ],
     "tags": []
   },
@@ -6749,7 +7246,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-10-cam-xuc-trong-moi-quan-he"
+      "people-relationships-chặng-15"
     ],
     "tags": []
   },
@@ -6764,7 +7261,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-10-cam-xuc-trong-moi-quan-he"
+      "people-relationships-chặng-15"
     ],
     "tags": []
   },
@@ -6779,7 +7276,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-10-cam-xuc-trong-moi-quan-he"
+      "people-relationships-chặng-15"
     ],
     "tags": []
   },
@@ -6794,7 +7291,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-10-cam-xuc-trong-moi-quan-he"
+      "people-relationships-chặng-15"
     ],
     "tags": []
   },
@@ -6809,7 +7306,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "people-relationships-10-cam-xuc-trong-moi-quan-he"
+      "people-relationships-chặng-15"
     ],
     "tags": []
   },
@@ -6824,7 +7321,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-18"
     ],
     "tags": []
   },
@@ -6839,7 +7338,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-1"
     ],
     "tags": []
   },
@@ -6854,7 +7353,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-18"
     ],
     "tags": []
   },
@@ -6869,7 +7370,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-1"
     ],
     "tags": []
   },
@@ -6884,7 +7385,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-1"
     ],
     "tags": []
   },
@@ -6899,7 +7400,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-19"
     ],
     "tags": []
   },
@@ -6914,7 +7417,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-35"
     ],
     "tags": []
   },
@@ -6929,7 +7434,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-19"
     ],
     "tags": []
   },
@@ -6944,7 +7451,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-1"
     ],
     "tags": []
   },
@@ -6959,7 +7466,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-1"
     ],
     "tags": []
   },
@@ -6974,7 +7481,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-2"
     ],
     "tags": []
   },
@@ -6989,7 +7496,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-19"
     ],
     "tags": []
   },
@@ -7004,7 +7513,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-19"
     ],
     "tags": []
   },
@@ -7019,7 +7530,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-19"
     ],
     "tags": []
   },
@@ -7034,7 +7547,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-1-tro-chuyen-oi-thoai"
+      "communication-feelings-chặng-2"
     ],
     "tags": []
   },
@@ -7049,7 +7562,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan"
+      "communication-feelings-chặng-2"
     ],
     "tags": []
   },
@@ -7064,7 +7577,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan"
+      "communication-feelings-chặng-2"
     ],
     "tags": []
   },
@@ -7079,7 +7592,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan"
+      "communication-feelings-chặng-2"
     ],
     "tags": []
   },
@@ -7094,8 +7607,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan",
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so"
+      "communication-feelings-chặng-2"
     ],
     "tags": []
   },
@@ -7110,7 +7622,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan"
+      "communication-feelings-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-19"
     ],
     "tags": []
   },
@@ -7125,7 +7639,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan"
+      "communication-feelings-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-19"
     ],
     "tags": []
   },
@@ -7140,7 +7656,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan"
+      "communication-feelings-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-19"
     ],
     "tags": []
   },
@@ -7155,7 +7673,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan"
+      "communication-feelings-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-19"
     ],
     "tags": []
   },
@@ -7170,7 +7690,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan"
+      "communication-feelings-chặng-3"
     ],
     "tags": []
   },
@@ -7185,7 +7705,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan"
+      "communication-feelings-chặng-3"
     ],
     "tags": []
   },
@@ -7200,7 +7720,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan"
+      "communication-feelings-chặng-3"
     ],
     "tags": []
   },
@@ -7215,7 +7735,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan"
+      "communication-feelings-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-19"
     ],
     "tags": []
   },
@@ -7230,7 +7752,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan"
+      "communication-feelings-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-20"
     ],
     "tags": []
   },
@@ -7245,7 +7769,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan"
+      "communication-feelings-chặng-3"
     ],
     "tags": []
   },
@@ -7260,7 +7784,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-2-thao-luan-tranh-luan"
+      "communication-feelings-chặng-3"
     ],
     "tags": []
   },
@@ -7275,7 +7799,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay"
+      "communication-feelings-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-20"
     ],
     "tags": []
   },
@@ -7290,8 +7816,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay",
-      "education-learning-7-phuong-phap-hoc-tu-hoc"
+      "communication-feelings-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-20"
     ],
     "tags": []
   },
@@ -7306,7 +7833,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay"
+      "communication-feelings-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-20"
     ],
     "tags": []
   },
@@ -7321,7 +7850,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay"
+      "communication-feelings-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-20"
     ],
     "tags": []
   },
@@ -7336,7 +7867,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay"
+      "communication-feelings-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-20"
     ],
     "tags": []
   },
@@ -7351,7 +7884,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay"
+      "communication-feelings-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-20"
     ],
     "tags": []
   },
@@ -7366,7 +7901,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay"
+      "communication-feelings-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-20"
     ],
     "tags": []
   },
@@ -7381,7 +7918,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay"
+      "communication-feelings-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-20"
     ],
     "tags": []
   },
@@ -7396,7 +7935,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay"
+      "communication-feelings-chặng-4"
     ],
     "tags": []
   },
@@ -7411,7 +7950,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay"
+      "communication-feelings-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-35"
     ],
     "tags": []
   },
@@ -7426,7 +7967,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay"
+      "communication-feelings-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-35"
     ],
     "tags": []
   },
@@ -7441,7 +7984,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay"
+      "communication-feelings-chặng-5"
     ],
     "tags": []
   },
@@ -7456,7 +7999,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay"
+      "communication-feelings-chặng-5"
     ],
     "tags": []
   },
@@ -7471,7 +8014,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay"
+      "communication-feelings-chặng-5"
     ],
     "tags": []
   },
@@ -7486,7 +8029,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-3-dien-at-trinh-bay"
+      "communication-feelings-chặng-5"
     ],
     "tags": []
   },
@@ -7501,8 +8044,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-4-lang-nghe-thau-hieu",
-      "education-learning-7-phuong-phap-hoc-tu-hoc"
+      "communication-feelings-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-20"
     ],
     "tags": []
   },
@@ -7517,7 +8061,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-4-lang-nghe-thau-hieu"
+      "communication-feelings-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-21"
     ],
     "tags": []
   },
@@ -7532,7 +8078,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-4-lang-nghe-thau-hieu"
+      "communication-feelings-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-21"
     ],
     "tags": []
   },
@@ -7547,7 +8095,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-4-lang-nghe-thau-hieu"
+      "communication-feelings-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-36"
     ],
     "tags": []
   },
@@ -7562,7 +8112,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-4-lang-nghe-thau-hieu"
+      "communication-feelings-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-21"
     ],
     "tags": []
   },
@@ -7577,7 +8129,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-4-lang-nghe-thau-hieu"
+      "communication-feelings-chặng-6"
     ],
     "tags": []
   },
@@ -7592,8 +8144,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-4-lang-nghe-thau-hieu",
-      "communication-feelings-9-thai-o-phan-ung-tam-ly"
+      "communication-feelings-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-36"
     ],
     "tags": []
   },
@@ -7608,9 +8161,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-4-lang-nghe-thau-hieu",
-      "work-jobs-7-email-giao-tiep-cong-viec",
-      "toeic-b1-2-email-thu-tin-cong-so"
+      "communication-feelings-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-21"
     ],
     "tags": []
   },
@@ -7625,10 +8178,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-4-lang-nghe-thau-hieu",
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang",
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so",
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "communication-feelings-chặng-6"
     ],
     "tags": []
   },
@@ -7643,7 +8193,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-4-lang-nghe-thau-hieu"
+      "communication-feelings-chặng-6"
     ],
     "tags": []
   },
@@ -7658,7 +8208,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-4-lang-nghe-thau-hieu"
+      "communication-feelings-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-21"
     ],
     "tags": []
   },
@@ -7673,7 +8225,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-4-lang-nghe-thau-hieu"
+      "communication-feelings-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-21"
     ],
     "tags": []
   },
@@ -7688,7 +8242,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-4-lang-nghe-thau-hieu"
+      "communication-feelings-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-21"
     ],
     "tags": []
   },
@@ -7703,7 +8259,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-4-lang-nghe-thau-hieu"
+      "communication-feelings-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-36"
     ],
     "tags": []
   },
@@ -7718,7 +8276,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "communication-feelings-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-36"
     ],
     "tags": []
   },
@@ -7733,7 +8293,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "communication-feelings-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-36"
     ],
     "tags": []
   },
@@ -7748,7 +8310,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "communication-feelings-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-36"
     ],
     "tags": []
   },
@@ -7763,7 +8327,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "communication-feelings-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-36"
     ],
     "tags": []
   },
@@ -7778,7 +8344,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "communication-feelings-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-36"
     ],
     "tags": []
   },
@@ -7793,7 +8361,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "communication-feelings-chặng-7"
     ],
     "tags": []
   },
@@ -7808,7 +8376,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "communication-feelings-chặng-7"
     ],
     "tags": []
   },
@@ -7823,7 +8391,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "communication-feelings-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-36"
     ],
     "tags": []
   },
@@ -7838,7 +8408,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "communication-feelings-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-36"
     ],
     "tags": []
   },
@@ -7853,7 +8425,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "communication-feelings-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-37"
     ],
     "tags": []
   },
@@ -7868,7 +8442,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "communication-feelings-chặng-7"
     ],
     "tags": []
   },
@@ -7883,7 +8457,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "communication-feelings-chặng-8"
     ],
     "tags": []
   },
@@ -7898,7 +8472,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "communication-feelings-chặng-8"
     ],
     "tags": []
   },
@@ -7913,7 +8487,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-5-cam-xuc-vui-mung-hanh-phuc"
+      "communication-feelings-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-37"
     ],
     "tags": []
   },
@@ -7928,7 +8504,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong"
+      "communication-feelings-chặng-8"
     ],
     "tags": []
   },
@@ -7943,7 +8519,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong"
+      "communication-feelings-chặng-8"
     ],
     "tags": []
   },
@@ -7958,7 +8534,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong"
+      "communication-feelings-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-37"
     ],
     "tags": []
   },
@@ -7973,7 +8551,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong"
+      "communication-feelings-chặng-8"
     ],
     "tags": []
   },
@@ -7988,7 +8566,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong"
+      "communication-feelings-chặng-8"
     ],
     "tags": []
   },
@@ -8003,7 +8581,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong"
+      "communication-feelings-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-37"
     ],
     "tags": []
   },
@@ -8018,7 +8598,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong"
+      "communication-feelings-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-37"
     ],
     "tags": []
   },
@@ -8033,7 +8615,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong"
+      "communication-feelings-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-37"
     ],
     "tags": []
   },
@@ -8048,7 +8632,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong"
+      "communication-feelings-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-37"
     ],
     "tags": []
   },
@@ -8063,7 +8649,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong"
+      "communication-feelings-chặng-9"
     ],
     "tags": []
   },
@@ -8078,8 +8664,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong",
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "communication-feelings-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-37"
     ],
     "tags": []
   },
@@ -8094,7 +8681,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong"
+      "communication-feelings-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-37"
     ],
     "tags": []
   },
@@ -8109,7 +8698,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong"
+      "communication-feelings-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-37"
     ],
     "tags": []
   },
@@ -8124,7 +8715,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong"
+      "communication-feelings-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-21"
     ],
     "tags": []
   },
@@ -8139,7 +8732,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-6-cam-xuc-buon-ba-that-vong"
+      "communication-feelings-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-38"
     ],
     "tags": []
   },
@@ -8154,8 +8749,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang",
-      "health-body-9-suc-khoe-tinh-than-cang-thang"
+      "communication-feelings-chặng-9"
     ],
     "tags": []
   },
@@ -8170,7 +8764,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang"
+      "communication-feelings-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-38"
     ],
     "tags": []
   },
@@ -8185,7 +8781,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang"
+      "communication-feelings-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-38"
     ],
     "tags": []
   },
@@ -8200,7 +8798,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang"
+      "communication-feelings-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-38"
     ],
     "tags": []
   },
@@ -8215,7 +8815,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang"
+      "communication-feelings-chặng-10"
     ],
     "tags": []
   },
@@ -8230,7 +8830,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang"
+      "communication-feelings-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-38"
     ],
     "tags": []
   },
@@ -8245,8 +8847,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang",
-      "health-body-9-suc-khoe-tinh-than-cang-thang"
+      "communication-feelings-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-38"
     ],
     "tags": []
   },
@@ -8261,7 +8864,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang"
+      "communication-feelings-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-38"
     ],
     "tags": []
   },
@@ -8276,7 +8881,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang"
+      "communication-feelings-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-38"
     ],
     "tags": []
   },
@@ -8291,7 +8898,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang"
+      "communication-feelings-chặng-10"
     ],
     "tags": []
   },
@@ -8306,7 +8913,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang"
+      "communication-feelings-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-38"
     ],
     "tags": []
   },
@@ -8321,7 +8930,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang"
+      "communication-feelings-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-38"
     ],
     "tags": []
   },
@@ -8336,9 +8947,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang",
-      "health-body-9-suc-khoe-tinh-than-cang-thang",
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "communication-feelings-chặng-11"
     ],
     "tags": []
   },
@@ -8353,7 +8962,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-7-cam-xuc-lo-lang-cang-thang"
+      "communication-feelings-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-39"
     ],
     "tags": []
   },
@@ -8368,7 +8979,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-39"
     ],
     "tags": []
   },
@@ -8383,7 +8996,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-39"
     ],
     "tags": []
   },
@@ -8398,7 +9013,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-39"
     ],
     "tags": []
   },
@@ -8413,7 +9030,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-39"
     ],
     "tags": []
   },
@@ -8428,7 +9047,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-39"
     ],
     "tags": []
   },
@@ -8443,7 +9064,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-39"
     ],
     "tags": []
   },
@@ -8458,7 +9081,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-11"
     ],
     "tags": []
   },
@@ -8473,7 +9096,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-39"
     ],
     "tags": []
   },
@@ -8488,7 +9113,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-39"
     ],
     "tags": []
   },
@@ -8503,7 +9130,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-39"
     ],
     "tags": []
   },
@@ -8518,7 +9147,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-40"
     ],
     "tags": []
   },
@@ -8533,7 +9164,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-12"
     ],
     "tags": []
   },
@@ -8548,7 +9179,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-12"
     ],
     "tags": []
   },
@@ -8563,7 +9194,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-40"
     ],
     "tags": []
   },
@@ -8578,7 +9211,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-8-cam-xuc-ngac-nhien-to-mo"
+      "communication-feelings-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-40"
     ],
     "tags": []
   },
@@ -8593,7 +9228,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-9-thai-o-phan-ung-tam-ly"
+      "communication-feelings-chặng-12"
     ],
     "tags": []
   },
@@ -8608,7 +9243,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-9-thai-o-phan-ung-tam-ly"
+      "communication-feelings-chặng-12"
     ],
     "tags": []
   },
@@ -8623,8 +9258,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-9-thai-o-phan-ung-tam-ly",
-      "society-world-7-quyen-con-nguoi-binh-ang-xa-hoi"
+      "communication-feelings-chặng-12"
     ],
     "tags": []
   },
@@ -8639,7 +9273,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-9-thai-o-phan-ung-tam-ly"
+      "communication-feelings-chặng-13"
     ],
     "tags": []
   },
@@ -8654,7 +9288,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-9-thai-o-phan-ung-tam-ly"
+      "communication-feelings-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-40"
     ],
     "tags": []
   },
@@ -8669,7 +9305,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-9-thai-o-phan-ung-tam-ly"
+      "communication-feelings-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-40"
     ],
     "tags": []
   },
@@ -8684,7 +9322,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-9-thai-o-phan-ung-tam-ly"
+      "communication-feelings-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-40"
     ],
     "tags": []
   },
@@ -8699,7 +9339,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-9-thai-o-phan-ung-tam-ly"
+      "communication-feelings-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-40"
     ],
     "tags": []
   },
@@ -8714,7 +9356,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-9-thai-o-phan-ung-tam-ly"
+      "communication-feelings-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-40"
     ],
     "tags": []
   },
@@ -8729,7 +9373,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-9-thai-o-phan-ung-tam-ly"
+      "communication-feelings-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-40"
     ],
     "tags": []
   },
@@ -8744,7 +9390,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "communication-feelings-9-thai-o-phan-ung-tam-ly"
+      "communication-feelings-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-40"
     ],
     "tags": []
   },
@@ -8759,8 +9407,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu",
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "communication-feelings-chặng-13"
     ],
     "tags": []
   },
@@ -8775,7 +9422,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu"
+      "communication-feelings-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-21"
     ],
     "tags": []
   },
@@ -8790,7 +9439,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu"
+      "communication-feelings-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-21"
     ],
     "tags": []
   },
@@ -8805,7 +9456,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu"
+      "communication-feelings-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-22"
     ],
     "tags": []
   },
@@ -8820,7 +9473,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu"
+      "communication-feelings-chặng-14"
     ],
     "tags": []
   },
@@ -8835,7 +9488,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu"
+      "communication-feelings-chặng-14"
     ],
     "tags": []
   },
@@ -8850,7 +9503,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu"
+      "communication-feelings-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-22"
     ],
     "tags": []
   },
@@ -8865,7 +9520,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu"
+      "communication-feelings-chặng-14"
     ],
     "tags": []
   },
@@ -8880,7 +9535,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu"
+      "communication-feelings-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-22"
     ],
     "tags": []
   },
@@ -8895,7 +9552,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu"
+      "communication-feelings-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-22"
     ],
     "tags": []
   },
@@ -8910,7 +9569,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu"
+      "communication-feelings-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-22"
     ],
     "tags": []
   },
@@ -8925,7 +9586,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu"
+      "communication-feelings-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-22"
     ],
     "tags": []
   },
@@ -8940,7 +9603,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu"
+      "communication-feelings-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-22"
     ],
     "tags": []
   },
@@ -8955,7 +9620,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "communication-feelings-10-ngon-ngu-co-the-phi-ngon-ngu"
+      "communication-feelings-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-22"
     ],
     "tags": []
   },
@@ -8970,7 +9637,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi"
+      "food-drink-chặng-1"
     ],
     "tags": []
   },
@@ -8985,7 +9652,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi"
+      "food-drink-chặng-1"
     ],
     "tags": []
   },
@@ -9000,7 +9667,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi"
+      "food-drink-chặng-1"
     ],
     "tags": []
   },
@@ -9015,7 +9682,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi"
+      "food-drink-chặng-1"
     ],
     "tags": []
   },
@@ -9030,8 +9697,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi",
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "food-drink-chặng-1"
     ],
     "tags": []
   },
@@ -9046,7 +9712,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi"
+      "food-drink-chặng-1"
     ],
     "tags": []
   },
@@ -9061,7 +9727,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi"
+      "food-drink-chặng-1"
     ],
     "tags": []
   },
@@ -9076,7 +9742,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi"
+      "food-drink-chặng-1"
     ],
     "tags": []
   },
@@ -9091,7 +9757,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi"
+      "food-drink-chặng-1"
     ],
     "tags": []
   },
@@ -9106,7 +9772,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi"
+      "food-drink-chặng-1"
     ],
     "tags": []
   },
@@ -9121,7 +9787,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi"
+      "food-drink-chặng-2"
     ],
     "tags": []
   },
@@ -9136,7 +9802,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi"
+      "food-drink-chặng-2"
     ],
     "tags": []
   },
@@ -9151,8 +9817,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi",
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "food-drink-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-62"
     ],
     "tags": []
   },
@@ -9167,7 +9834,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi"
+      "food-drink-chặng-2"
     ],
     "tags": []
   },
@@ -9182,7 +9849,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-1-nguyen-lieu-thuc-pham-tuoi"
+      "food-drink-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-62"
     ],
     "tags": []
   },
@@ -9197,7 +9866,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-2"
     ],
     "tags": []
   },
@@ -9212,7 +9881,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-2"
     ],
     "tags": []
   },
@@ -9227,7 +9896,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-2"
     ],
     "tags": []
   },
@@ -9242,7 +9911,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-2"
     ],
     "tags": []
   },
@@ -9257,7 +9926,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-2"
     ],
     "tags": []
   },
@@ -9272,7 +9941,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-3"
     ],
     "tags": []
   },
@@ -9287,7 +9956,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-3"
     ],
     "tags": []
   },
@@ -9302,7 +9971,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-3"
     ],
     "tags": []
   },
@@ -9317,7 +9986,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-3"
     ],
     "tags": []
   },
@@ -9332,7 +10001,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-3"
     ],
     "tags": []
   },
@@ -9347,7 +10016,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-3"
     ],
     "tags": []
   },
@@ -9362,7 +10031,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-3"
     ],
     "tags": []
   },
@@ -9377,7 +10046,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-3"
     ],
     "tags": []
   },
@@ -9392,7 +10061,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-3"
     ],
     "tags": []
   },
@@ -9407,7 +10076,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-2-trai-cay-rau-cu-qua"
+      "food-drink-chặng-3"
     ],
     "tags": []
   },
@@ -9422,7 +10091,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-4"
     ],
     "tags": []
   },
@@ -9437,7 +10106,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-4"
     ],
     "tags": []
   },
@@ -9452,7 +10121,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-4"
     ],
     "tags": []
   },
@@ -9467,7 +10136,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-4"
     ],
     "tags": []
   },
@@ -9482,7 +10151,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-4"
     ],
     "tags": []
   },
@@ -9497,7 +10166,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-4"
     ],
     "tags": []
   },
@@ -9512,7 +10181,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-4"
     ],
     "tags": []
   },
@@ -9527,7 +10196,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-4"
     ],
     "tags": []
   },
@@ -9542,7 +10211,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-4"
     ],
     "tags": []
   },
@@ -9557,7 +10226,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-4"
     ],
     "tags": []
   },
@@ -9572,7 +10241,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-5"
     ],
     "tags": []
   },
@@ -9587,7 +10256,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-5"
     ],
     "tags": []
   },
@@ -9602,7 +10271,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-5"
     ],
     "tags": []
   },
@@ -9617,7 +10286,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-5"
     ],
     "tags": []
   },
@@ -9632,7 +10301,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-3-thit-thuy-hai-san-gia-cam"
+      "food-drink-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-22"
     ],
     "tags": []
   },
@@ -9647,7 +10318,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-4-o-uong-thuc-uong-giai-khat"
+      "food-drink-chặng-5"
     ],
     "tags": []
   },
@@ -9662,7 +10333,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-4-o-uong-thuc-uong-giai-khat"
+      "food-drink-chặng-5"
     ],
     "tags": []
   },
@@ -9677,7 +10348,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-4-o-uong-thuc-uong-giai-khat"
+      "food-drink-chặng-5"
     ],
     "tags": []
   },
@@ -9692,7 +10363,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-4-o-uong-thuc-uong-giai-khat"
+      "food-drink-chặng-5"
     ],
     "tags": []
   },
@@ -9707,7 +10378,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-4-o-uong-thuc-uong-giai-khat"
+      "food-drink-chặng-5"
     ],
     "tags": []
   },
@@ -9722,8 +10393,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-4-o-uong-thuc-uong-giai-khat",
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "food-drink-chặng-6"
     ],
     "tags": []
   },
@@ -9738,7 +10408,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-4-o-uong-thuc-uong-giai-khat"
+      "food-drink-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-62"
     ],
     "tags": []
   },
@@ -9753,7 +10425,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-4-o-uong-thuc-uong-giai-khat"
+      "food-drink-chặng-6"
     ],
     "tags": []
   },
@@ -9768,7 +10440,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-4-o-uong-thuc-uong-giai-khat"
+      "food-drink-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-62"
     ],
     "tags": []
   },
@@ -9783,7 +10457,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-4-o-uong-thuc-uong-giai-khat"
+      "food-drink-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-22"
     ],
     "tags": []
   },
@@ -9798,7 +10474,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-4-o-uong-thuc-uong-giai-khat"
+      "food-drink-chặng-6"
     ],
     "tags": []
   },
@@ -9813,7 +10489,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-4-o-uong-thuc-uong-giai-khat"
+      "food-drink-chặng-6"
     ],
     "tags": []
   },
@@ -9828,7 +10504,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-4-o-uong-thuc-uong-giai-khat"
+      "food-drink-chặng-6"
     ],
     "tags": []
   },
@@ -9843,7 +10519,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-4-o-uong-thuc-uong-giai-khat"
+      "food-drink-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-23"
     ],
     "tags": []
   },
@@ -9858,7 +10536,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "food-drink-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-23"
     ],
     "tags": []
   },
@@ -9873,7 +10553,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "food-drink-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-23"
     ],
     "tags": []
   },
@@ -9888,7 +10570,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "food-drink-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-23"
     ],
     "tags": []
   },
@@ -9903,7 +10587,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "food-drink-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-23"
     ],
     "tags": []
   },
@@ -9918,7 +10604,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "food-drink-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-23"
     ],
     "tags": []
   },
@@ -9933,7 +10621,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "food-drink-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-23"
     ],
     "tags": []
   },
@@ -9948,7 +10638,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "food-drink-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-23"
     ],
     "tags": []
   },
@@ -9963,7 +10655,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "food-drink-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-23"
     ],
     "tags": []
   },
@@ -9978,7 +10672,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "food-drink-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-23"
     ],
     "tags": []
   },
@@ -9993,7 +10689,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "food-drink-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-24"
     ],
     "tags": []
   },
@@ -10008,7 +10706,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "food-drink-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-24"
     ],
     "tags": []
   },
@@ -10023,7 +10723,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "food-drink-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-24"
     ],
     "tags": []
   },
@@ -10038,7 +10740,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "food-drink-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-24"
     ],
     "tags": []
   },
@@ -10053,7 +10757,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "food-drink-5-phuong-phap-nau-nuong-che-bien"
+      "food-drink-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-24"
     ],
     "tags": []
   },
@@ -10068,7 +10774,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "food-drink-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-62"
     ],
     "tags": []
   },
@@ -10083,7 +10791,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "food-drink-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-62"
     ],
     "tags": []
   },
@@ -10098,7 +10808,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "food-drink-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-63"
     ],
     "tags": []
   },
@@ -10113,7 +10825,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "food-drink-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-63"
     ],
     "tags": []
   },
@@ -10128,7 +10842,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "food-drink-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-63"
     ],
     "tags": []
   },
@@ -10143,7 +10859,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "food-drink-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-63"
     ],
     "tags": []
   },
@@ -10158,7 +10876,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "food-drink-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-63"
     ],
     "tags": []
   },
@@ -10173,7 +10893,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "food-drink-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-63"
     ],
     "tags": []
   },
@@ -10188,7 +10910,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "food-drink-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-63"
     ],
     "tags": []
   },
@@ -10203,7 +10927,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "food-drink-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-63"
     ],
     "tags": []
   },
@@ -10218,7 +10944,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "food-drink-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-63"
     ],
     "tags": []
   },
@@ -10233,7 +10961,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "food-drink-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-63"
     ],
     "tags": []
   },
@@ -10248,7 +10978,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "food-drink-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-64"
     ],
     "tags": []
   },
@@ -10263,7 +10995,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-6-huong-vi-cam-nhan-am-thuc"
+      "food-drink-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-64"
     ],
     "tags": []
   },
@@ -10278,8 +11012,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an",
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "food-drink-chặng-9"
     ],
     "tags": []
   },
@@ -10294,7 +11027,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an"
+      "food-drink-chặng-9"
     ],
     "tags": []
   },
@@ -10309,7 +11042,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an"
+      "food-drink-chặng-9"
     ],
     "tags": []
   },
@@ -10324,7 +11057,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an"
+      "food-drink-chặng-10"
     ],
     "tags": []
   },
@@ -10339,8 +11072,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an",
-      "home-living-3-bep-thiet-bi-nau-an"
+      "food-drink-chặng-10"
     ],
     "tags": []
   },
@@ -10355,7 +11087,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an"
+      "food-drink-chặng-10"
     ],
     "tags": []
   },
@@ -10370,7 +11102,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an"
+      "food-drink-chặng-10"
     ],
     "tags": []
   },
@@ -10385,7 +11117,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an"
+      "food-drink-chặng-10"
     ],
     "tags": []
   },
@@ -10400,7 +11132,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an"
+      "food-drink-chặng-10"
     ],
     "tags": []
   },
@@ -10415,7 +11147,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an"
+      "food-drink-chặng-10"
     ],
     "tags": []
   },
@@ -10430,7 +11162,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an"
+      "food-drink-chặng-10"
     ],
     "tags": []
   },
@@ -10445,7 +11177,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an"
+      "food-drink-chặng-10"
     ],
     "tags": []
   },
@@ -10460,7 +11192,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an"
+      "food-drink-chặng-10"
     ],
     "tags": []
   },
@@ -10475,7 +11207,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an"
+      "food-drink-chặng-11"
     ],
     "tags": []
   },
@@ -10490,7 +11222,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-7-dung-cu-nha-bep-nau-an"
+      "food-drink-chặng-11"
     ],
     "tags": []
   },
@@ -10505,7 +11237,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an"
+      "food-drink-chặng-11"
     ],
     "tags": []
   },
@@ -10520,7 +11252,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an"
+      "food-drink-chặng-11"
     ],
     "tags": []
   },
@@ -10535,7 +11267,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an"
+      "food-drink-chặng-11"
     ],
     "tags": []
   },
@@ -10550,7 +11282,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an"
+      "food-drink-chặng-11"
     ],
     "tags": []
   },
@@ -10565,7 +11297,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an"
+      "food-drink-chặng-11"
     ],
     "tags": []
   },
@@ -10580,7 +11312,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an"
+      "food-drink-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-64"
     ],
     "tags": []
   },
@@ -10595,7 +11329,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an"
+      "food-drink-chặng-11"
     ],
     "tags": []
   },
@@ -10610,7 +11344,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an"
+      "food-drink-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-64"
     ],
     "tags": []
   },
@@ -10625,7 +11361,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an"
+      "food-drink-chặng-12"
     ],
     "tags": []
   },
@@ -10640,7 +11376,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an"
+      "food-drink-chặng-12"
     ],
     "tags": []
   },
@@ -10655,7 +11391,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an"
+      "food-drink-chặng-12"
     ],
     "tags": []
   },
@@ -10670,8 +11406,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an",
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem"
+      "food-drink-chặng-12"
     ],
     "tags": []
   },
@@ -10686,7 +11421,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an"
+      "food-drink-chặng-12"
     ],
     "tags": []
   },
@@ -10701,9 +11436,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an",
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i",
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "food-drink-chặng-12"
     ],
     "tags": []
   },
@@ -10718,8 +11451,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-8-nha-hang-goi-mon-an",
-      "shopping-money-4-thanh-toan-tien-te"
+      "food-drink-chặng-12"
     ],
     "tags": []
   },
@@ -10734,7 +11466,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot"
+      "food-drink-chặng-12"
     ],
     "tags": []
   },
@@ -10749,7 +11481,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot"
+      "food-drink-chặng-12"
     ],
     "tags": []
   },
@@ -10764,7 +11496,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot"
+      "food-drink-chặng-12"
     ],
     "tags": []
   },
@@ -10779,7 +11511,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot"
+      "food-drink-chặng-13"
     ],
     "tags": []
   },
@@ -10794,7 +11526,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot"
+      "food-drink-chặng-13"
     ],
     "tags": []
   },
@@ -10809,7 +11541,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot"
+      "food-drink-chặng-13"
     ],
     "tags": []
   },
@@ -10824,7 +11556,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot"
+      "food-drink-chặng-13"
     ],
     "tags": []
   },
@@ -10839,7 +11571,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot"
+      "food-drink-chặng-13"
     ],
     "tags": []
   },
@@ -10854,7 +11586,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot"
+      "food-drink-chặng-13"
     ],
     "tags": []
   },
@@ -10869,8 +11601,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot",
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem"
+      "food-drink-chặng-13"
     ],
     "tags": []
   },
@@ -10885,7 +11616,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot"
+      "food-drink-chặng-13"
     ],
     "tags": []
   },
@@ -10900,7 +11631,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot"
+      "food-drink-chặng-13"
     ],
     "tags": []
   },
@@ -10915,7 +11646,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot"
+      "food-drink-chặng-13"
     ],
     "tags": []
   },
@@ -10930,7 +11661,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot"
+      "food-drink-chặng-14"
     ],
     "tags": []
   },
@@ -10945,7 +11676,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-9-mon-trang-mieng-o-ngot"
+      "food-drink-chặng-14"
     ],
     "tags": []
   },
@@ -10960,8 +11691,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong",
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "food-drink-chặng-14"
     ],
     "tags": []
   },
@@ -10976,8 +11706,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong",
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "food-drink-chặng-14"
     ],
     "tags": []
   },
@@ -10992,7 +11721,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong"
+      "food-drink-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-64"
     ],
     "tags": []
   },
@@ -11007,8 +11738,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong",
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "food-drink-chặng-14"
     ],
     "tags": []
   },
@@ -11023,8 +11753,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong",
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "food-drink-chặng-14"
     ],
     "tags": []
   },
@@ -11039,8 +11768,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong",
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "food-drink-chặng-14"
     ],
     "tags": []
   },
@@ -11055,7 +11783,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong"
+      "food-drink-chặng-14"
     ],
     "tags": []
   },
@@ -11070,8 +11798,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong",
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "food-drink-chặng-14"
     ],
     "tags": []
   },
@@ -11086,7 +11813,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong"
+      "food-drink-chặng-15"
     ],
     "tags": []
   },
@@ -11101,8 +11828,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong",
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "food-drink-chặng-15"
     ],
     "tags": []
   },
@@ -11117,7 +11843,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong"
+      "food-drink-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-64"
     ],
     "tags": []
   },
@@ -11132,7 +11860,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong"
+      "food-drink-chặng-15"
     ],
     "tags": []
   },
@@ -11147,7 +11875,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong"
+      "food-drink-chặng-15"
     ],
     "tags": []
   },
@@ -11162,7 +11890,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong"
+      "food-drink-chặng-15"
     ],
     "tags": []
   },
@@ -11177,8 +11905,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "food-drink-10-dinh-duong-thoi-quen-an-uong",
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "food-drink-chặng-15"
     ],
     "tags": []
   },
@@ -11193,7 +11920,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach"
+      "home-living-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-81"
     ],
     "tags": []
   },
@@ -11208,7 +11937,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach"
+      "home-living-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-81"
     ],
     "tags": []
   },
@@ -11223,7 +11954,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach"
+      "home-living-chặng-1"
     ],
     "tags": []
   },
@@ -11238,7 +11969,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach"
+      "home-living-chặng-1"
     ],
     "tags": []
   },
@@ -11253,8 +11984,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach",
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "home-living-chặng-1"
     ],
     "tags": []
   },
@@ -11269,7 +11999,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach"
+      "home-living-chặng-1"
     ],
     "tags": []
   },
@@ -11284,7 +12014,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach"
+      "home-living-chặng-1"
     ],
     "tags": []
   },
@@ -11299,7 +12029,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach"
+      "home-living-chặng-1"
     ],
     "tags": []
   },
@@ -11314,7 +12044,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach"
+      "home-living-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-81"
     ],
     "tags": []
   },
@@ -11329,7 +12061,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach"
+      "home-living-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-81"
     ],
     "tags": []
   },
@@ -11344,7 +12078,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach"
+      "home-living-chặng-2"
     ],
     "tags": []
   },
@@ -11359,7 +12093,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach"
+      "home-living-chặng-2"
     ],
     "tags": []
   },
@@ -11374,7 +12108,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach"
+      "home-living-chặng-2"
     ],
     "tags": []
   },
@@ -11389,7 +12123,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach"
+      "home-living-chặng-2"
     ],
     "tags": []
   },
@@ -11404,7 +12138,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "home-living-1-phong-khach-tiep-khach"
+      "home-living-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-32"
     ],
     "tags": []
   },
@@ -11419,7 +12155,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-2-phong-ngu-giac-ngu"
+      "home-living-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-81"
     ],
     "tags": []
   },
@@ -11434,7 +12172,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-2-phong-ngu-giac-ngu"
+      "home-living-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-82"
     ],
     "tags": []
   },
@@ -11449,7 +12189,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-2-phong-ngu-giac-ngu"
+      "home-living-chặng-2"
     ],
     "tags": []
   },
@@ -11464,7 +12204,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-2-phong-ngu-giac-ngu"
+      "home-living-chặng-2"
     ],
     "tags": []
   },
@@ -11479,7 +12219,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-2-phong-ngu-giac-ngu"
+      "home-living-chặng-2"
     ],
     "tags": []
   },
@@ -11494,7 +12234,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-2-phong-ngu-giac-ngu"
+      "home-living-chặng-3"
     ],
     "tags": []
   },
@@ -11509,7 +12249,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-2-phong-ngu-giac-ngu"
+      "home-living-chặng-3"
     ],
     "tags": []
   },
@@ -11524,7 +12264,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-2-phong-ngu-giac-ngu"
+      "home-living-chặng-3"
     ],
     "tags": []
   },
@@ -11539,7 +12279,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-2-phong-ngu-giac-ngu"
+      "home-living-chặng-3"
     ],
     "tags": []
   },
@@ -11554,7 +12294,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "home-living-2-phong-ngu-giac-ngu"
+      "home-living-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-82"
     ],
     "tags": []
   },
@@ -11569,7 +12311,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-2-phong-ngu-giac-ngu"
+      "home-living-chặng-3"
     ],
     "tags": []
   },
@@ -11584,7 +12326,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-3-bep-thiet-bi-nau-an"
+      "home-living-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-82"
     ],
     "tags": []
   },
@@ -11599,7 +12343,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-3-bep-thiet-bi-nau-an"
+      "home-living-chặng-3"
     ],
     "tags": []
   },
@@ -11614,7 +12358,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-3-bep-thiet-bi-nau-an"
+      "home-living-chặng-3"
     ],
     "tags": []
   },
@@ -11629,7 +12373,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-3-bep-thiet-bi-nau-an"
+      "home-living-chặng-3"
     ],
     "tags": []
   },
@@ -11644,7 +12388,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-3-bep-thiet-bi-nau-an"
+      "home-living-chặng-4"
     ],
     "tags": []
   },
@@ -11659,7 +12403,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-3-bep-thiet-bi-nau-an"
+      "home-living-chặng-4"
     ],
     "tags": []
   },
@@ -11674,7 +12418,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-3-bep-thiet-bi-nau-an"
+      "home-living-chặng-4"
     ],
     "tags": []
   },
@@ -11689,7 +12433,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-3-bep-thiet-bi-nau-an"
+      "home-living-chặng-4"
     ],
     "tags": []
   },
@@ -11704,7 +12448,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-3-bep-thiet-bi-nau-an"
+      "home-living-chặng-4"
     ],
     "tags": []
   },
@@ -11719,7 +12463,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-3-bep-thiet-bi-nau-an"
+      "home-living-chặng-4"
     ],
     "tags": []
   },
@@ -11734,7 +12478,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-3-bep-thiet-bi-nau-an"
+      "home-living-chặng-4"
     ],
     "tags": []
   },
@@ -11749,7 +12493,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-3-bep-thiet-bi-nau-an"
+      "home-living-chặng-4"
     ],
     "tags": []
   },
@@ -11764,7 +12508,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "home-living-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-82"
     ],
     "tags": []
   },
@@ -11779,7 +12525,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "home-living-chặng-4"
     ],
     "tags": []
   },
@@ -11794,7 +12540,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "home-living-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-82"
     ],
     "tags": []
   },
@@ -11809,7 +12557,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "home-living-chặng-5"
     ],
     "tags": []
   },
@@ -11824,7 +12572,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "home-living-chặng-5"
     ],
     "tags": []
   },
@@ -11839,7 +12587,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "home-living-chặng-5"
     ],
     "tags": []
   },
@@ -11854,7 +12602,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-4-phong-tam-ve-sinh-ca-nhan"
+      "home-living-chặng-5"
     ],
     "tags": []
   },
@@ -11869,7 +12617,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-5-don-dep-viec-nha"
+      "home-living-chặng-5"
     ],
     "tags": []
   },
@@ -11884,7 +12632,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-5-don-dep-viec-nha"
+      "home-living-chặng-5"
     ],
     "tags": []
   },
@@ -11899,7 +12647,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-5-don-dep-viec-nha"
+      "home-living-chặng-5"
     ],
     "tags": []
   },
@@ -11914,7 +12662,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-5-don-dep-viec-nha"
+      "home-living-chặng-5"
     ],
     "tags": []
   },
@@ -11929,7 +12677,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-5-don-dep-viec-nha"
+      "home-living-chặng-5"
     ],
     "tags": []
   },
@@ -11944,7 +12692,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "home-living-5-don-dep-viec-nha"
+      "home-living-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-64"
     ],
     "tags": []
   },
@@ -11959,7 +12709,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "home-living-5-don-dep-viec-nha"
+      "home-living-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-32"
     ],
     "tags": []
   },
@@ -11974,7 +12726,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "home-living-chặng-6"
     ],
     "tags": []
   },
@@ -11989,7 +12741,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "home-living-chặng-6"
     ],
     "tags": []
   },
@@ -12004,7 +12756,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "home-living-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-82"
     ],
     "tags": []
   },
@@ -12019,7 +12773,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "home-living-chặng-6"
     ],
     "tags": []
   },
@@ -12034,7 +12788,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "home-living-chặng-6"
     ],
     "tags": []
   },
@@ -12049,7 +12803,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "home-living-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-81"
     ],
     "tags": []
   },
@@ -12064,7 +12820,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "home-living-chặng-6"
     ],
     "tags": []
   },
@@ -12079,7 +12835,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "home-living-chặng-6"
     ],
     "tags": []
   },
@@ -12094,7 +12850,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "home-living-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-82"
     ],
     "tags": []
   },
@@ -12109,7 +12867,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "home-living-chặng-7"
     ],
     "tags": []
   },
@@ -12124,7 +12882,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "home-living-chặng-7"
     ],
     "tags": []
   },
@@ -12139,7 +12897,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-6-thiet-bi-ien-gia-dung"
+      "home-living-chặng-7"
     ],
     "tags": []
   },
@@ -12154,7 +12912,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-7-sua-chua-dung-cu-nha-cua"
+      "home-living-chặng-7"
     ],
     "tags": []
   },
@@ -12169,7 +12927,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-7-sua-chua-dung-cu-nha-cua"
+      "home-living-chặng-7"
     ],
     "tags": []
   },
@@ -12184,7 +12942,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-7-sua-chua-dung-cu-nha-cua"
+      "home-living-chặng-7"
     ],
     "tags": []
   },
@@ -12199,7 +12957,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-7-sua-chua-dung-cu-nha-cua"
+      "home-living-chặng-7"
     ],
     "tags": []
   },
@@ -12214,7 +12972,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-7-sua-chua-dung-cu-nha-cua"
+      "home-living-chặng-7"
     ],
     "tags": []
   },
@@ -12229,7 +12987,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-7-sua-chua-dung-cu-nha-cua"
+      "home-living-chặng-7"
     ],
     "tags": []
   },
@@ -12244,7 +13002,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-7-sua-chua-dung-cu-nha-cua"
+      "home-living-chặng-8"
     ],
     "tags": []
   },
@@ -12259,7 +13017,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-7-sua-chua-dung-cu-nha-cua"
+      "home-living-chặng-8"
     ],
     "tags": []
   },
@@ -12274,7 +13032,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-7-sua-chua-dung-cu-nha-cua"
+      "home-living-chặng-8"
     ],
     "tags": []
   },
@@ -12289,7 +13047,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "home-living-7-sua-chua-dung-cu-nha-cua"
+      "home-living-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-32"
     ],
     "tags": []
   },
@@ -12304,7 +13064,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-7-sua-chua-dung-cu-nha-cua"
+      "home-living-chặng-8"
     ],
     "tags": []
   },
@@ -12319,7 +13079,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-7-sua-chua-dung-cu-nha-cua"
+      "home-living-chặng-8"
     ],
     "tags": []
   },
@@ -12334,8 +13094,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-7-sua-chua-dung-cu-nha-cua",
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "home-living-chặng-8"
     ],
     "tags": []
   },
@@ -12350,7 +13109,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi"
+      "home-living-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-82"
     ],
     "tags": []
   },
@@ -12365,7 +13126,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi"
+      "home-living-chặng-8"
     ],
     "tags": []
   },
@@ -12380,7 +13141,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi"
+      "home-living-chặng-8"
     ],
     "tags": []
   },
@@ -12395,7 +13156,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi"
+      "home-living-chặng-9"
     ],
     "tags": []
   },
@@ -12410,7 +13171,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi"
+      "home-living-chặng-9"
     ],
     "tags": []
   },
@@ -12425,8 +13186,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi",
-      "transport-directions-4-san-bay-hang-khong"
+      "home-living-chặng-9"
     ],
     "tags": []
   },
@@ -12441,7 +13201,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi"
+      "home-living-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-82"
     ],
     "tags": []
   },
@@ -12456,7 +13218,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi"
+      "home-living-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-3"
     ],
     "tags": []
   },
@@ -12471,7 +13235,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi"
+      "home-living-chặng-9"
     ],
     "tags": []
   },
@@ -12486,7 +13250,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi"
+      "home-living-chặng-9"
     ],
     "tags": []
   },
@@ -12501,7 +13265,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi"
+      "home-living-chặng-9"
     ],
     "tags": []
   },
@@ -12516,7 +13280,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi"
+      "home-living-chặng-9"
     ],
     "tags": []
   },
@@ -12531,7 +13295,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi"
+      "home-living-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-32"
     ],
     "tags": []
   },
@@ -12546,7 +13312,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi"
+      "home-living-chặng-10"
     ],
     "tags": []
   },
@@ -12561,8 +13327,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-8-vuon-khong-gian-ngoai-troi",
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "home-living-chặng-10"
     ],
     "tags": []
   },
@@ -12577,7 +13342,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-64"
     ],
     "tags": []
   },
@@ -12592,7 +13359,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-24"
     ],
     "tags": []
   },
@@ -12607,7 +13376,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-10"
     ],
     "tags": []
   },
@@ -12622,7 +13391,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-10"
     ],
     "tags": []
   },
@@ -12637,7 +13406,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-10"
     ],
     "tags": []
   },
@@ -12652,7 +13421,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-10"
     ],
     "tags": []
   },
@@ -12667,7 +13436,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-10"
     ],
     "tags": []
   },
@@ -12682,7 +13451,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-10"
     ],
     "tags": []
   },
@@ -12697,7 +13466,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-11"
     ],
     "tags": []
   },
@@ -12712,7 +13481,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-11"
     ],
     "tags": []
   },
@@ -12727,7 +13496,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-11"
     ],
     "tags": []
   },
@@ -12742,7 +13511,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-11"
     ],
     "tags": []
   },
@@ -12757,7 +13526,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-11"
     ],
     "tags": []
   },
@@ -12772,7 +13541,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-32"
     ],
     "tags": []
   },
@@ -12787,7 +13558,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "home-living-9-thue-nha-bat-ong-san"
+      "home-living-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-24"
     ],
     "tags": []
   },
@@ -12802,7 +13575,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu"
+      "home-living-chặng-11"
     ],
     "tags": []
   },
@@ -12817,7 +13590,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu"
+      "home-living-chặng-11"
     ],
     "tags": []
   },
@@ -12832,7 +13605,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu"
+      "home-living-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-82"
     ],
     "tags": []
   },
@@ -12847,7 +13622,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu"
+      "home-living-chặng-12"
     ],
     "tags": []
   },
@@ -12862,7 +13637,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu"
+      "home-living-chặng-12"
     ],
     "tags": []
   },
@@ -12877,7 +13652,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu"
+      "home-living-chặng-12"
     ],
     "tags": []
   },
@@ -12892,7 +13667,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu"
+      "home-living-chặng-12"
     ],
     "tags": []
   },
@@ -12907,7 +13682,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu"
+      "home-living-chặng-12"
     ],
     "tags": []
   },
@@ -12922,7 +13697,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu"
+      "home-living-chặng-12"
     ],
     "tags": []
   },
@@ -12937,7 +13712,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu"
+      "home-living-chặng-12"
     ],
     "tags": []
   },
@@ -12952,7 +13727,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu"
+      "home-living-chặng-12"
     ],
     "tags": []
   },
@@ -12967,7 +13742,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu"
+      "home-living-chặng-12"
     ],
     "tags": []
   },
@@ -12982,7 +13757,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu"
+      "home-living-chặng-12"
     ],
     "tags": []
   },
@@ -12997,7 +13772,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu"
+      "home-living-chặng-13"
     ],
     "tags": []
   },
@@ -13012,8 +13787,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "home-living-10-an-ninh-tien-ich-khu-dan-cu",
-      "society-world-3-cong-ong-o-thi-nong-thon"
+      "home-living-chặng-13"
     ],
     "tags": []
   },
@@ -13028,7 +13802,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "health-body-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-41"
     ],
     "tags": []
   },
@@ -13043,7 +13819,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "health-body-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-41"
     ],
     "tags": []
   },
@@ -13058,7 +13836,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "health-body-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-42"
     ],
     "tags": []
   },
@@ -13073,7 +13853,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "health-body-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-41"
     ],
     "tags": []
   },
@@ -13088,7 +13870,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "health-body-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-43"
     ],
     "tags": []
   },
@@ -13103,7 +13887,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "health-body-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-43"
     ],
     "tags": []
   },
@@ -13118,7 +13904,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "health-body-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-42"
     ],
     "tags": []
   },
@@ -13133,7 +13921,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "health-body-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-43"
     ],
     "tags": []
   },
@@ -13148,7 +13938,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "health-body-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-43"
     ],
     "tags": []
   },
@@ -13163,7 +13955,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "health-body-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-43"
     ],
     "tags": []
   },
@@ -13178,7 +13972,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "health-body-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-42"
     ],
     "tags": []
   },
@@ -13193,7 +13989,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "health-body-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-42"
     ],
     "tags": []
   },
@@ -13208,7 +14006,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "health-body-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-43"
     ],
     "tags": []
   },
@@ -13223,7 +14023,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-1-bo-phan-co-the-ben-ngoai"
+      "health-body-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-43"
     ],
     "tags": []
   },
@@ -13238,7 +14040,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-43"
     ],
     "tags": []
   },
@@ -13253,7 +14057,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-42"
     ],
     "tags": []
   },
@@ -13268,7 +14074,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-43"
     ],
     "tags": []
   },
@@ -13283,7 +14091,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-43"
     ],
     "tags": []
   },
@@ -13298,7 +14108,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-2"
     ],
     "tags": []
   },
@@ -13313,7 +14123,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-2"
     ],
     "tags": []
   },
@@ -13328,7 +14138,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-44"
     ],
     "tags": []
   },
@@ -13343,7 +14155,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-44"
     ],
     "tags": []
   },
@@ -13358,7 +14172,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-44"
     ],
     "tags": []
   },
@@ -13373,7 +14189,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-3"
     ],
     "tags": []
   },
@@ -13388,7 +14204,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-3"
     ],
     "tags": []
   },
@@ -13403,7 +14219,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-3"
     ],
     "tags": []
   },
@@ -13418,7 +14234,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-3"
     ],
     "tags": []
   },
@@ -13433,7 +14249,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-3"
     ],
     "tags": []
   },
@@ -13448,7 +14264,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-2-co-quan-noi-tang-he-tuan-hoan"
+      "health-body-chặng-3"
     ],
     "tags": []
   },
@@ -13463,7 +14279,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-3"
     ],
     "tags": []
   },
@@ -13478,7 +14294,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-44"
     ],
     "tags": []
   },
@@ -13493,7 +14311,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-44"
     ],
     "tags": []
   },
@@ -13508,7 +14328,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-44"
     ],
     "tags": []
   },
@@ -13523,7 +14345,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-44"
     ],
     "tags": []
   },
@@ -13538,7 +14362,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-44"
     ],
     "tags": []
   },
@@ -13553,7 +14379,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-41"
     ],
     "tags": []
   },
@@ -13568,7 +14396,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-47"
     ],
     "tags": []
   },
@@ -13583,7 +14413,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-4"
     ],
     "tags": []
   },
@@ -13598,7 +14428,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-4"
     ],
     "tags": []
   },
@@ -13613,7 +14443,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-4"
     ],
     "tags": []
   },
@@ -13628,7 +14458,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-5"
     ],
     "tags": []
   },
@@ -13643,7 +14473,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-5"
     ],
     "tags": []
   },
@@ -13658,7 +14488,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-5"
     ],
     "tags": []
   },
@@ -13673,7 +14503,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "health-body-3-trieu-chung-benh-thong-thuong"
+      "health-body-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-24"
     ],
     "tags": []
   },
@@ -13688,7 +14520,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-4-tham-kham-bac-si-benh-vien"
+      "health-body-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-41"
     ],
     "tags": []
   },
@@ -13703,7 +14537,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-4-tham-kham-bac-si-benh-vien"
+      "health-body-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-44"
     ],
     "tags": []
   },
@@ -13718,7 +14554,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-4-tham-kham-bac-si-benh-vien"
+      "health-body-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-41"
     ],
     "tags": []
   },
@@ -13733,7 +14571,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-4-tham-kham-bac-si-benh-vien"
+      "health-body-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-42"
     ],
     "tags": []
   },
@@ -13748,7 +14588,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-4-tham-kham-bac-si-benh-vien"
+      "health-body-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-44"
     ],
     "tags": []
   },
@@ -13763,7 +14605,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-4-tham-kham-bac-si-benh-vien"
+      "health-body-chặng-5"
     ],
     "tags": []
   },
@@ -13778,8 +14620,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-4-tham-kham-bac-si-benh-vien",
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "health-body-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-45"
     ],
     "tags": []
   },
@@ -13794,7 +14637,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "health-body-4-tham-kham-bac-si-benh-vien"
+      "health-body-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-24"
     ],
     "tags": []
   },
@@ -13809,7 +14654,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "health-body-4-tham-kham-bac-si-benh-vien"
+      "health-body-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-24"
     ],
     "tags": []
   },
@@ -13824,7 +14671,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-4-tham-kham-bac-si-benh-vien"
+      "health-body-chặng-6"
     ],
     "tags": []
   },
@@ -13839,7 +14686,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-4-tham-kham-bac-si-benh-vien"
+      "health-body-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-45"
     ],
     "tags": []
   },
@@ -13854,7 +14703,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-4-tham-kham-bac-si-benh-vien"
+      "health-body-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-45"
     ],
     "tags": []
   },
@@ -13869,7 +14720,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-4-tham-kham-bac-si-benh-vien"
+      "health-body-chặng-6"
     ],
     "tags": []
   },
@@ -13884,7 +14735,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-4-tham-kham-bac-si-benh-vien"
+      "health-body-chặng-6"
     ],
     "tags": []
   },
@@ -13899,7 +14750,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri"
+      "health-body-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-41"
     ],
     "tags": []
   },
@@ -13914,7 +14767,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri"
+      "health-body-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-45"
     ],
     "tags": []
   },
@@ -13929,7 +14784,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri"
+      "health-body-chặng-7"
     ],
     "tags": []
   },
@@ -13944,7 +14799,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri"
+      "health-body-chặng-7"
     ],
     "tags": []
   },
@@ -13959,7 +14814,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri"
+      "health-body-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-45"
     ],
     "tags": []
   },
@@ -13974,8 +14831,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri",
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "health-body-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-45"
     ],
     "tags": []
   },
@@ -13990,7 +14848,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri"
+      "health-body-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-45"
     ],
     "tags": []
   },
@@ -14005,7 +14865,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri"
+      "health-body-chặng-7"
     ],
     "tags": []
   },
@@ -14020,7 +14880,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri"
+      "health-body-chặng-7"
     ],
     "tags": []
   },
@@ -14035,7 +14895,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri"
+      "health-body-chặng-7"
     ],
     "tags": []
   },
@@ -14050,7 +14910,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri"
+      "health-body-chặng-7"
     ],
     "tags": []
   },
@@ -14065,7 +14925,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri"
+      "health-body-chặng-7"
     ],
     "tags": []
   },
@@ -14080,7 +14940,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri"
+      "health-body-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-13"
     ],
     "tags": []
   },
@@ -14095,7 +14957,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri"
+      "health-body-chặng-8"
     ],
     "tags": []
   },
@@ -14110,7 +14972,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "health-body-5-thuoc-men-ieu-tri"
+      "health-body-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-25"
     ],
     "tags": []
   },
@@ -14125,7 +14989,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-42"
     ],
     "tags": []
   },
@@ -14140,7 +15006,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-42"
     ],
     "tags": []
   },
@@ -14155,7 +15023,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-42"
     ],
     "tags": []
   },
@@ -14170,7 +15040,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-45"
     ],
     "tags": []
   },
@@ -14185,7 +15057,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-8"
     ],
     "tags": []
   },
@@ -14200,7 +15072,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-8"
     ],
     "tags": []
   },
@@ -14215,7 +15087,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-8"
     ],
     "tags": []
   },
@@ -14230,7 +15102,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-45"
     ],
     "tags": []
   },
@@ -14245,7 +15119,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-45"
     ],
     "tags": []
   },
@@ -14260,7 +15136,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-9"
     ],
     "tags": []
   },
@@ -14275,7 +15151,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-25"
     ],
     "tags": []
   },
@@ -14290,7 +15168,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-9"
     ],
     "tags": []
   },
@@ -14305,7 +15183,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-9"
     ],
     "tags": []
   },
@@ -14320,7 +15198,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-9"
     ],
     "tags": []
   },
@@ -14335,7 +15213,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-6-nha-khoa-cham-soc-rang-mieng"
+      "health-body-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-46"
     ],
     "tags": []
   },
@@ -14350,7 +15230,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "health-body-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-46"
     ],
     "tags": []
   },
@@ -14365,7 +15247,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "health-body-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-46"
     ],
     "tags": []
   },
@@ -14380,7 +15264,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "health-body-chặng-10"
     ],
     "tags": []
   },
@@ -14395,7 +15279,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "health-body-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-41"
     ],
     "tags": []
   },
@@ -14410,7 +15296,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-7-dinh-duong-che-o-an-lanh-manh"
+      "health-body-chặng-10"
     ],
     "tags": []
   },
@@ -14425,7 +15311,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-7"
     ],
     "tags": []
   },
@@ -14440,7 +15328,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-46"
     ],
     "tags": []
   },
@@ -14455,7 +15345,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-42"
     ],
     "tags": []
   },
@@ -14470,7 +15362,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-46"
     ],
     "tags": []
   },
@@ -14485,7 +15379,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-46"
     ],
     "tags": []
   },
@@ -14500,7 +15396,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-13"
     ],
     "tags": []
   },
@@ -14515,7 +15413,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-10"
     ],
     "tags": []
   },
@@ -14530,7 +15428,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-11"
     ],
     "tags": []
   },
@@ -14545,7 +15443,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-46"
     ],
     "tags": []
   },
@@ -14560,7 +15460,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-46"
     ],
     "tags": []
   },
@@ -14575,7 +15477,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-46"
     ],
     "tags": []
   },
@@ -14590,7 +15494,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-46"
     ],
     "tags": []
   },
@@ -14605,7 +15511,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-47"
     ],
     "tags": []
   },
@@ -14620,7 +15528,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-13"
     ],
     "tags": []
   },
@@ -14635,7 +15545,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-8-the-duc-luyen-tap-the-chat"
+      "health-body-chặng-11"
     ],
     "tags": []
   },
@@ -14650,7 +15560,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-9-suc-khoe-tinh-than-cang-thang"
+      "health-body-chặng-11"
     ],
     "tags": []
   },
@@ -14665,7 +15575,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-9-suc-khoe-tinh-than-cang-thang"
+      "health-body-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-47"
     ],
     "tags": []
   },
@@ -14680,7 +15592,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-9-suc-khoe-tinh-than-cang-thang"
+      "health-body-chặng-12"
     ],
     "tags": []
   },
@@ -14695,7 +15607,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-9-suc-khoe-tinh-than-cang-thang"
+      "health-body-chặng-12"
     ],
     "tags": []
   },
@@ -14710,7 +15622,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-9-suc-khoe-tinh-than-cang-thang"
+      "health-body-chặng-12"
     ],
     "tags": []
   },
@@ -14725,7 +15637,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "health-body-9-suc-khoe-tinh-than-cang-thang"
+      "health-body-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-7"
     ],
     "tags": []
   },
@@ -14740,7 +15654,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-9-suc-khoe-tinh-than-cang-thang"
+      "health-body-chặng-12"
     ],
     "tags": []
   },
@@ -14755,7 +15669,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-9-suc-khoe-tinh-than-cang-thang"
+      "health-body-chặng-12"
     ],
     "tags": []
   },
@@ -14770,7 +15684,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-9-suc-khoe-tinh-than-cang-thang"
+      "health-body-chặng-12"
     ],
     "tags": []
   },
@@ -14785,7 +15699,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-9-suc-khoe-tinh-than-cang-thang"
+      "health-body-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-35"
     ],
     "tags": []
   },
@@ -14800,7 +15716,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "health-body-9-suc-khoe-tinh-than-cang-thang"
+      "health-body-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-25"
     ],
     "tags": []
   },
@@ -14815,7 +15733,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-9-suc-khoe-tinh-than-cang-thang"
+      "health-body-chặng-12"
     ],
     "tags": []
   },
@@ -14830,8 +15748,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te",
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap"
+      "health-body-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-47"
     ],
     "tags": []
   },
@@ -14846,7 +15765,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te"
+      "health-body-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-47"
     ],
     "tags": []
   },
@@ -14861,7 +15782,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te"
+      "health-body-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-47"
     ],
     "tags": []
   },
@@ -14876,7 +15799,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te"
+      "health-body-chặng-13"
     ],
     "tags": []
   },
@@ -14891,7 +15814,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te"
+      "health-body-chặng-13"
     ],
     "tags": []
   },
@@ -14906,7 +15829,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te"
+      "health-body-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-47"
     ],
     "tags": []
   },
@@ -14921,7 +15846,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te"
+      "health-body-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-47"
     ],
     "tags": []
   },
@@ -14936,7 +15863,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te"
+      "health-body-chặng-13"
     ],
     "tags": []
   },
@@ -14951,7 +15878,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te"
+      "health-body-chặng-13"
     ],
     "tags": []
   },
@@ -14966,7 +15893,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te"
+      "health-body-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-25"
     ],
     "tags": []
   },
@@ -14981,7 +15910,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te"
+      "health-body-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-25"
     ],
     "tags": []
   },
@@ -14996,7 +15927,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te"
+      "health-body-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-47"
     ],
     "tags": []
   },
@@ -15011,7 +15944,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te"
+      "health-body-chặng-14"
     ],
     "tags": []
   },
@@ -15026,7 +15959,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te"
+      "health-body-chặng-14"
     ],
     "tags": []
   },
@@ -15041,7 +15974,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "health-body-10-so-cuu-an-toan-y-te"
+      "health-body-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-47"
     ],
     "tags": []
   },
@@ -15056,7 +15991,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "shopping-money-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-66"
     ],
     "tags": []
   },
@@ -15071,7 +16008,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "shopping-money-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-68"
     ],
     "tags": []
   },
@@ -15086,7 +16025,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "shopping-money-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-68"
     ],
     "tags": []
   },
@@ -15101,7 +16042,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "shopping-money-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-66"
     ],
     "tags": []
   },
@@ -15116,7 +16059,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "shopping-money-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-68"
     ],
     "tags": []
   },
@@ -15131,7 +16076,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "shopping-money-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-67"
     ],
     "tags": []
   },
@@ -15146,7 +16093,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "shopping-money-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-68"
     ],
     "tags": []
   },
@@ -15161,7 +16110,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "shopping-money-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-68"
     ],
     "tags": []
   },
@@ -15176,7 +16127,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "shopping-money-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-68"
     ],
     "tags": []
   },
@@ -15191,7 +16144,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "shopping-money-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-68"
     ],
     "tags": []
   },
@@ -15206,7 +16161,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "shopping-money-1-mua-sam-tai-cua-hang-sieu-thi"
+      "shopping-money-chặng-2"
     ],
     "tags": []
   },
@@ -15221,7 +16176,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-67"
     ],
     "tags": []
   },
@@ -15236,7 +16193,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-68"
     ],
     "tags": []
   },
@@ -15251,7 +16210,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-14"
     ],
     "tags": []
   },
@@ -15266,7 +16227,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-67"
     ],
     "tags": []
   },
@@ -15281,7 +16244,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-14"
     ],
     "tags": []
   },
@@ -15296,7 +16261,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-14"
     ],
     "tags": []
   },
@@ -15311,7 +16278,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-69"
     ],
     "tags": []
   },
@@ -15326,7 +16295,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-69"
     ],
     "tags": []
   },
@@ -15341,7 +16312,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-72"
     ],
     "tags": []
   },
@@ -15356,7 +16329,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-57"
     ],
     "tags": []
   },
@@ -15371,7 +16346,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-72"
     ],
     "tags": []
   },
@@ -15386,7 +16363,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-3"
     ],
     "tags": []
   },
@@ -15401,7 +16378,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-3"
     ],
     "tags": []
   },
@@ -15416,7 +16393,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-67"
     ],
     "tags": []
   },
@@ -15431,7 +16410,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-2-quan-ao-thoi-trang"
+      "shopping-money-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-67"
     ],
     "tags": []
   },
@@ -15446,7 +16427,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia"
+      "shopping-money-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-65"
     ],
     "tags": []
   },
@@ -15461,7 +16444,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia"
+      "shopping-money-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-66"
     ],
     "tags": []
   },
@@ -15476,8 +16461,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia",
-      "toeic-b1-9-on-hang-hoa-on"
+      "shopping-money-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-69"
     ],
     "tags": []
   },
@@ -15492,7 +16478,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia"
+      "shopping-money-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-67"
     ],
     "tags": []
   },
@@ -15507,7 +16495,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia"
+      "shopping-money-chặng-4"
     ],
     "tags": []
   },
@@ -15522,8 +16510,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia",
-      "education-learning-6-hoc-phi-hoc-bong"
+      "shopping-money-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-65"
     ],
     "tags": []
   },
@@ -15538,7 +16527,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia"
+      "shopping-money-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-66"
     ],
     "tags": []
   },
@@ -15553,7 +16544,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia"
+      "shopping-money-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-66"
     ],
     "tags": []
   },
@@ -15568,7 +16561,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia"
+      "shopping-money-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-69"
     ],
     "tags": []
   },
@@ -15583,10 +16578,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia",
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep",
-      "toeic-b1-5-luong-thuong-ai-ngo",
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "shopping-money-chặng-4"
     ],
     "tags": []
   },
@@ -15601,7 +16593,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia"
+      "shopping-money-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-64"
     ],
     "tags": []
   },
@@ -15616,7 +16610,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia"
+      "shopping-money-chặng-4"
     ],
     "tags": []
   },
@@ -15631,7 +16625,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia"
+      "shopping-money-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-72"
     ],
     "tags": []
   },
@@ -15646,7 +16642,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia"
+      "shopping-money-chặng-4"
     ],
     "tags": []
   },
@@ -15661,7 +16657,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-3-gia-ca-khuyen-mai-giam-gia"
+      "shopping-money-chặng-5"
     ],
     "tags": []
   },
@@ -15676,7 +16672,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-4-thanh-toan-tien-te"
+      "shopping-money-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-66"
     ],
     "tags": []
   },
@@ -15691,7 +16689,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-4-thanh-toan-tien-te"
+      "shopping-money-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-69"
     ],
     "tags": []
   },
@@ -15706,7 +16706,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-4-thanh-toan-tien-te"
+      "shopping-money-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-69"
     ],
     "tags": []
   },
@@ -15721,8 +16723,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-4-thanh-toan-tien-te",
-      "toeic-b1-9-on-hang-hoa-on"
+      "shopping-money-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-69"
     ],
     "tags": []
   },
@@ -15737,7 +16740,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-4-thanh-toan-tien-te"
+      "shopping-money-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-67"
     ],
     "tags": []
   },
@@ -15752,7 +16757,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-4-thanh-toan-tien-te"
+      "shopping-money-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-69"
     ],
     "tags": []
   },
@@ -15767,7 +16774,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-4-thanh-toan-tien-te"
+      "shopping-money-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-67"
     ],
     "tags": []
   },
@@ -15782,7 +16791,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-4-thanh-toan-tien-te"
+      "shopping-money-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-69"
     ],
     "tags": []
   },
@@ -15797,7 +16808,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-4-thanh-toan-tien-te"
+      "shopping-money-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-72"
     ],
     "tags": []
   },
@@ -15812,7 +16825,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-4-thanh-toan-tien-te"
+      "shopping-money-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-69"
     ],
     "tags": []
   },
@@ -15827,7 +16842,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-4-thanh-toan-tien-te"
+      "shopping-money-chặng-6"
     ],
     "tags": []
   },
@@ -15842,8 +16857,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-4-thanh-toan-tien-te",
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "shopping-money-chặng-6"
     ],
     "tags": []
   },
@@ -15858,7 +16872,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "shopping-money-4-thanh-toan-tien-te"
+      "shopping-money-chặng-6"
     ],
     "tags": []
   },
@@ -15873,7 +16887,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang"
+      "shopping-money-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-70"
     ],
     "tags": []
   },
@@ -15888,7 +16904,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang"
+      "shopping-money-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-68"
     ],
     "tags": []
   },
@@ -15903,8 +16921,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang",
-      "toeic-b1-10-van-chuyen-kho-van"
+      "shopping-money-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-70"
     ],
     "tags": []
   },
@@ -15919,7 +16938,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang"
+      "shopping-money-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-70"
     ],
     "tags": []
   },
@@ -15934,7 +16955,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang"
+      "shopping-money-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-70"
     ],
     "tags": []
   },
@@ -15949,7 +16972,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang"
+      "shopping-money-chặng-6"
     ],
     "tags": []
   },
@@ -15964,7 +16987,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang"
+      "shopping-money-chặng-7"
     ],
     "tags": []
   },
@@ -15979,7 +17002,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang"
+      "shopping-money-chặng-7"
     ],
     "tags": []
   },
@@ -15994,7 +17017,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang"
+      "shopping-money-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-70"
     ],
     "tags": []
   },
@@ -16009,7 +17034,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang"
+      "shopping-money-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-70"
     ],
     "tags": []
   },
@@ -16024,7 +17051,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang"
+      "shopping-money-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-70"
     ],
     "tags": []
   },
@@ -16039,7 +17068,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang"
+      "shopping-money-chặng-7"
     ],
     "tags": []
   },
@@ -16054,7 +17083,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang"
+      "shopping-money-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-66"
     ],
     "tags": []
   },
@@ -16069,8 +17100,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang",
-      "toeic-b1-10-van-chuyen-kho-van"
+      "shopping-money-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-28"
     ],
     "tags": []
   },
@@ -16085,7 +17117,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-5-mua-sam-truc-tuyen-giao-hang"
+      "shopping-money-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-28"
     ],
     "tags": []
   },
@@ -16100,8 +17134,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang",
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "shopping-money-chặng-7"
     ],
     "tags": []
   },
@@ -16116,7 +17149,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang"
+      "shopping-money-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-14"
     ],
     "tags": []
   },
@@ -16131,8 +17166,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang",
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "shopping-money-chặng-8"
     ],
     "tags": []
   },
@@ -16147,7 +17181,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang"
+      "shopping-money-chặng-8"
     ],
     "tags": []
   },
@@ -16162,7 +17196,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang"
+      "shopping-money-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-70"
     ],
     "tags": []
   },
@@ -16177,7 +17213,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang"
+      "shopping-money-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-72"
     ],
     "tags": []
   },
@@ -16192,7 +17230,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang"
+      "shopping-money-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-67"
     ],
     "tags": []
   },
@@ -16207,8 +17247,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang",
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "shopping-money-chặng-8"
     ],
     "tags": []
   },
@@ -16223,7 +17262,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang"
+      "shopping-money-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-14"
     ],
     "tags": []
   },
@@ -16238,7 +17279,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang"
+      "shopping-money-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-67"
     ],
     "tags": []
   },
@@ -16253,8 +17296,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang",
-      "toeic-b1-5-luong-thuong-ai-ngo"
+      "shopping-money-chặng-8"
     ],
     "tags": []
   },
@@ -16269,7 +17311,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang"
+      "shopping-money-chặng-9"
     ],
     "tags": []
   },
@@ -16284,8 +17326,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-6-oi-tra-hang-dich-vu-khach-hang",
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo"
+      "shopping-money-chặng-9"
     ],
     "tags": []
   },
@@ -16300,7 +17341,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh"
+      "shopping-money-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-68"
     ],
     "tags": []
   },
@@ -16315,7 +17358,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh"
+      "shopping-money-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-70"
     ],
     "tags": []
   },
@@ -16330,7 +17375,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh"
+      "shopping-money-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-70"
     ],
     "tags": []
   },
@@ -16345,8 +17392,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh",
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "shopping-money-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-28"
     ],
     "tags": []
   },
@@ -16361,8 +17409,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh",
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "shopping-money-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-28"
     ],
     "tags": []
   },
@@ -16377,8 +17426,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh",
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "shopping-money-chặng-9"
     ],
     "tags": []
   },
@@ -16393,8 +17441,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh",
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "shopping-money-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-14"
     ],
     "tags": []
   },
@@ -16409,7 +17458,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh"
+      "shopping-money-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-71"
     ],
     "tags": []
   },
@@ -16424,8 +17475,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh",
-      "toeic-b1-9-on-hang-hoa-on"
+      "shopping-money-chặng-10"
     ],
     "tags": []
   },
@@ -16440,8 +17490,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh",
-      "nature-weather-6-cay-coi-rung-hoa-la"
+      "shopping-money-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-71"
     ],
     "tags": []
   },
@@ -16456,7 +17507,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh"
+      "shopping-money-chặng-10"
     ],
     "tags": []
   },
@@ -16471,7 +17522,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh"
+      "shopping-money-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-71"
     ],
     "tags": []
   },
@@ -16486,7 +17539,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh"
+      "shopping-money-chặng-10"
     ],
     "tags": []
   },
@@ -16501,7 +17554,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh"
+      "shopping-money-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-71"
     ],
     "tags": []
   },
@@ -16516,7 +17571,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-7-ngan-hang-tai-khoan-tai-chinh"
+      "shopping-money-chặng-10"
     ],
     "tags": []
   },
@@ -16531,9 +17586,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan",
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i",
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "shopping-money-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-71"
     ],
     "tags": []
   },
@@ -16548,7 +17603,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan"
+      "shopping-money-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-7"
     ],
     "tags": []
   },
@@ -16563,7 +17620,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan"
+      "shopping-money-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-71"
     ],
     "tags": []
   },
@@ -16578,7 +17637,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan"
+      "shopping-money-chặng-11"
     ],
     "tags": []
   },
@@ -16593,7 +17652,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan"
+      "shopping-money-chặng-11"
     ],
     "tags": []
   },
@@ -16608,7 +17667,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan"
+      "shopping-money-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-7"
     ],
     "tags": []
   },
@@ -16623,7 +17684,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan"
+      "shopping-money-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-72"
     ],
     "tags": []
   },
@@ -16638,7 +17701,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan"
+      "shopping-money-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-14"
     ],
     "tags": []
   },
@@ -16653,7 +17718,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan"
+      "shopping-money-chặng-11"
     ],
     "tags": []
   },
@@ -16668,7 +17733,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan"
+      "shopping-money-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-28"
     ],
     "tags": []
   },
@@ -16683,7 +17750,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan"
+      "shopping-money-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-71"
     ],
     "tags": []
   },
@@ -16698,7 +17767,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan"
+      "shopping-money-chặng-11"
     ],
     "tags": []
   },
@@ -16713,8 +17782,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan",
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "shopping-money-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-14"
     ],
     "tags": []
   },
@@ -16729,7 +17799,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan"
+      "shopping-money-chặng-12"
     ],
     "tags": []
   },
@@ -16744,7 +17814,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-8-ngan-sach-tiet-kiem-ca-nhan"
+      "shopping-money-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-66"
     ],
     "tags": []
   },
@@ -16759,7 +17831,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-9-vay-no-tin-dung"
+      "shopping-money-chặng-12"
     ],
     "tags": []
   },
@@ -16774,8 +17846,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-9-vay-no-tin-dung",
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat"
+      "shopping-money-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-14"
     ],
     "tags": []
   },
@@ -16790,7 +17863,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-9-vay-no-tin-dung"
+      "shopping-money-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-14"
     ],
     "tags": []
   },
@@ -16805,7 +17880,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-9-vay-no-tin-dung"
+      "shopping-money-chặng-12"
     ],
     "tags": []
   },
@@ -16820,7 +17895,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-9-vay-no-tin-dung"
+      "shopping-money-chặng-12"
     ],
     "tags": []
   },
@@ -16835,8 +17910,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-9-vay-no-tin-dung",
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "shopping-money-chặng-12"
     ],
     "tags": []
   },
@@ -16851,8 +17925,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-9-vay-no-tin-dung",
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "shopping-money-chặng-12"
     ],
     "tags": []
   },
@@ -16867,8 +17940,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-9-vay-no-tin-dung",
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "shopping-money-chặng-12"
     ],
     "tags": []
   },
@@ -16883,8 +17955,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-9-vay-no-tin-dung",
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "shopping-money-chặng-13"
     ],
     "tags": []
   },
@@ -16899,7 +17970,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-9-vay-no-tin-dung"
+      "shopping-money-chặng-13"
     ],
     "tags": []
   },
@@ -16914,7 +17985,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrasal verb",
     "topicIds": [
-      "shopping-money-9-vay-no-tin-dung"
+      "shopping-money-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-7"
     ],
     "tags": []
   },
@@ -16929,7 +18002,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-9-vay-no-tin-dung"
+      "shopping-money-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-15"
     ],
     "tags": []
   },
@@ -16944,8 +18019,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-9-vay-no-tin-dung",
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "shopping-money-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-28"
     ],
     "tags": []
   },
@@ -16960,7 +18036,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "shopping-money-9-vay-no-tin-dung"
+      "shopping-money-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-72"
     ],
     "tags": []
   },
@@ -16975,7 +18053,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban"
+      "shopping-money-chặng-13"
     ],
     "tags": []
   },
@@ -16990,7 +18068,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban"
+      "shopping-money-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-28"
     ],
     "tags": []
   },
@@ -17005,7 +18085,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban"
+      "shopping-money-chặng-13"
     ],
     "tags": []
   },
@@ -17020,8 +18100,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban",
-      "toeic-b1-15-au-tu-tang-truong"
+      "shopping-money-chặng-13"
     ],
     "tags": []
   },
@@ -17036,8 +18115,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban",
-      "toeic-b1-15-au-tu-tang-truong"
+      "shopping-money-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-71"
     ],
     "tags": []
   },
@@ -17052,7 +18132,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban"
+      "shopping-money-chặng-14"
     ],
     "tags": []
   },
@@ -17067,7 +18147,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban"
+      "shopping-money-chặng-14"
     ],
     "tags": []
   },
@@ -17082,8 +18162,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban",
-      "toeic-b1-15-au-tu-tang-truong"
+      "shopping-money-chặng-14"
     ],
     "tags": []
   },
@@ -17098,8 +18177,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban",
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "shopping-money-chặng-14"
     ],
     "tags": []
   },
@@ -17114,8 +18192,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban",
-      "toeic-b1-15-au-tu-tang-truong"
+      "shopping-money-chặng-14"
     ],
     "tags": []
   },
@@ -17130,7 +18207,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban"
+      "shopping-money-chặng-14"
     ],
     "tags": []
   },
@@ -17145,7 +18222,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban"
+      "shopping-money-chặng-14"
     ],
     "tags": []
   },
@@ -17160,9 +18237,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban",
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv",
-      "toeic-b1-15-au-tu-tang-truong"
+      "shopping-money-chặng-14"
     ],
     "tags": []
   },
@@ -17177,7 +18252,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban"
+      "shopping-money-chặng-14"
     ],
     "tags": []
   },
@@ -17192,7 +18267,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "shopping-money-10-au-tu-tai-chinh-co-ban"
+      "shopping-money-chặng-15"
     ],
     "tags": []
   },
@@ -17207,7 +18282,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "transport-directions-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-76"
     ],
     "tags": []
   },
@@ -17222,7 +18299,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "transport-directions-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-73"
     ],
     "tags": []
   },
@@ -17237,7 +18316,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "transport-directions-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-76"
     ],
     "tags": []
   },
@@ -17252,7 +18333,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "transport-directions-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-74"
     ],
     "tags": []
   },
@@ -17267,7 +18350,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "transport-directions-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-73"
     ],
     "tags": []
   },
@@ -17282,7 +18367,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "transport-directions-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-74"
     ],
     "tags": []
   },
@@ -17297,7 +18384,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "transport-directions-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-76"
     ],
     "tags": []
   },
@@ -17312,7 +18401,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "transport-directions-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-76"
     ],
     "tags": []
   },
@@ -17327,7 +18418,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "transport-directions-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-76"
     ],
     "tags": []
   },
@@ -17342,7 +18435,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "transport-directions-chặng-1"
     ],
     "tags": []
   },
@@ -17357,7 +18450,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "transport-directions-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-76"
     ],
     "tags": []
   },
@@ -17372,7 +18467,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "transport-directions-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-29"
     ],
     "tags": []
   },
@@ -17387,7 +18484,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "transport-directions-chặng-2"
     ],
     "tags": []
   },
@@ -17402,7 +18499,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-1-phuong-tien-giao-thong-uong-bo"
+      "transport-directions-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-64"
     ],
     "tags": []
   },
@@ -17417,7 +18516,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "transport-directions-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-76"
     ],
     "tags": []
   },
@@ -17432,7 +18533,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "transport-directions-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-73"
     ],
     "tags": []
   },
@@ -17447,7 +18550,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "transport-directions-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-74"
     ],
     "tags": []
   },
@@ -17462,7 +18567,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "transport-directions-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-73"
     ],
     "tags": []
   },
@@ -17477,7 +18584,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "transport-directions-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-66"
     ],
     "tags": []
   },
@@ -17492,7 +18601,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "transport-directions-chặng-2"
     ],
     "tags": []
   },
@@ -17507,7 +18616,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "transport-directions-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-29"
     ],
     "tags": []
   },
@@ -17522,7 +18633,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "transport-directions-chặng-3"
     ],
     "tags": []
   },
@@ -17537,7 +18648,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "transport-directions-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-15"
     ],
     "tags": []
   },
@@ -17552,7 +18665,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrasal verb",
     "topicIds": [
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "transport-directions-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-7"
     ],
     "tags": []
   },
@@ -17567,7 +18682,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "transport-directions-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-76"
     ],
     "tags": []
   },
@@ -17582,7 +18699,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "transport-directions-chặng-3"
     ],
     "tags": []
   },
@@ -17597,7 +18714,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-2-giao-thong-cong-cong-xe-buyt"
+      "transport-directions-chặng-3"
     ],
     "tags": []
   },
@@ -17612,7 +18729,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam"
+      "transport-directions-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-73"
     ],
     "tags": []
   },
@@ -17627,7 +18746,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam"
+      "transport-directions-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-76"
     ],
     "tags": []
   },
@@ -17642,7 +18763,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam"
+      "transport-directions-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-76"
     ],
     "tags": []
   },
@@ -17657,9 +18780,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam",
-      "education-learning-10-hoc-truc-tuyen-du-hoc",
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe"
+      "transport-directions-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-77"
     ],
     "tags": []
   },
@@ -17674,7 +18797,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam"
+      "transport-directions-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-77"
     ],
     "tags": []
   },
@@ -17689,7 +18814,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam"
+      "transport-directions-chặng-4"
     ],
     "tags": []
   },
@@ -17704,7 +18829,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam"
+      "transport-directions-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-77"
     ],
     "tags": []
   },
@@ -17719,7 +18846,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam"
+      "transport-directions-chặng-4"
     ],
     "tags": []
   },
@@ -17734,7 +18861,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam"
+      "transport-directions-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-29"
     ],
     "tags": []
   },
@@ -17749,7 +18878,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam"
+      "transport-directions-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-7"
     ],
     "tags": []
   },
@@ -17764,7 +18895,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam"
+      "transport-directions-chặng-4"
     ],
     "tags": []
   },
@@ -17779,7 +18910,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam"
+      "transport-directions-chặng-4"
     ],
     "tags": []
   },
@@ -17794,7 +18925,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam"
+      "transport-directions-chặng-4"
     ],
     "tags": []
   },
@@ -17809,7 +18940,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam"
+      "transport-directions-chặng-5"
     ],
     "tags": []
   },
@@ -17824,7 +18955,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-3-tau-hoa-tau-ien-ngam"
+      "transport-directions-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-74"
     ],
     "tags": []
   },
@@ -17839,7 +18972,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-4-san-bay-hang-khong"
+      "transport-directions-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-74"
     ],
     "tags": []
   },
@@ -17854,7 +18989,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-4-san-bay-hang-khong"
+      "transport-directions-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-74"
     ],
     "tags": []
   },
@@ -17869,7 +19006,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-4-san-bay-hang-khong"
+      "transport-directions-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-77"
     ],
     "tags": []
   },
@@ -17884,8 +19023,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-4-san-bay-hang-khong",
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "transport-directions-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-77"
     ],
     "tags": []
   },
@@ -17900,7 +19040,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-4-san-bay-hang-khong"
+      "transport-directions-chặng-5"
     ],
     "tags": []
   },
@@ -17915,7 +19055,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-4-san-bay-hang-khong"
+      "transport-directions-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-77"
     ],
     "tags": []
   },
@@ -17930,7 +19072,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-4-san-bay-hang-khong"
+      "transport-directions-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-77"
     ],
     "tags": []
   },
@@ -17945,9 +19089,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-4-san-bay-hang-khong",
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i",
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "transport-directions-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-77"
     ],
     "tags": []
   },
@@ -17962,7 +19106,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-4-san-bay-hang-khong"
+      "transport-directions-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-77"
     ],
     "tags": []
   },
@@ -17977,7 +19123,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-4-san-bay-hang-khong"
+      "transport-directions-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-77"
     ],
     "tags": []
   },
@@ -17992,9 +19140,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-4-san-bay-hang-khong",
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i",
-      "toeic-b1-10-van-chuyen-kho-van"
+      "transport-directions-chặng-6"
     ],
     "tags": []
   },
@@ -18009,7 +19155,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "transport-directions-4-san-bay-hang-khong"
+      "transport-directions-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-15"
     ],
     "tags": []
   },
@@ -18024,7 +19172,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-4-san-bay-hang-khong"
+      "transport-directions-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-78"
     ],
     "tags": []
   },
@@ -18039,7 +19189,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen"
+      "transport-directions-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-74"
     ],
     "tags": []
   },
@@ -18054,7 +19206,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen"
+      "transport-directions-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-74"
     ],
     "tags": []
   },
@@ -18069,7 +19223,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen"
+      "transport-directions-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-78"
     ],
     "tags": []
   },
@@ -18084,7 +19240,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen"
+      "transport-directions-chặng-6"
     ],
     "tags": []
   },
@@ -18099,7 +19255,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen"
+      "transport-directions-chặng-6"
     ],
     "tags": []
   },
@@ -18114,7 +19270,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen"
+      "transport-directions-chặng-7"
     ],
     "tags": []
   },
@@ -18129,7 +19285,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen"
+      "transport-directions-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-15"
     ],
     "tags": []
   },
@@ -18144,7 +19302,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen"
+      "transport-directions-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-78"
     ],
     "tags": []
   },
@@ -18159,8 +19319,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen",
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "transport-directions-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-78"
     ],
     "tags": []
   },
@@ -18175,7 +19336,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen"
+      "transport-directions-chặng-7"
     ],
     "tags": []
   },
@@ -18190,7 +19351,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen"
+      "transport-directions-chặng-7"
     ],
     "tags": []
   },
@@ -18205,7 +19366,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen"
+      "transport-directions-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-78"
     ],
     "tags": []
   },
@@ -18220,7 +19383,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen"
+      "transport-directions-chặng-7"
     ],
     "tags": []
   },
@@ -18235,7 +19398,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen"
+      "transport-directions-chặng-7"
     ],
     "tags": []
   },
@@ -18250,7 +19413,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-5-uong-thuy-tau-thuyen"
+      "transport-directions-chặng-7"
     ],
     "tags": []
   },
@@ -18265,7 +19428,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-7"
     ],
     "tags": []
   },
@@ -18280,7 +19445,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-78"
     ],
     "tags": []
   },
@@ -18295,7 +19462,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-65"
     ],
     "tags": []
   },
@@ -18310,7 +19479,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-78"
     ],
     "tags": []
   },
@@ -18325,7 +19496,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-78"
     ],
     "tags": []
   },
@@ -18340,7 +19513,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-8"
     ],
     "tags": []
   },
@@ -18355,7 +19528,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-8"
     ],
     "tags": []
   },
@@ -18370,7 +19543,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-78"
     ],
     "tags": []
   },
@@ -18385,7 +19560,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-78"
     ],
     "tags": []
   },
@@ -18400,7 +19577,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-8"
     ],
     "tags": []
   },
@@ -18415,7 +19592,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-79"
     ],
     "tags": []
   },
@@ -18430,7 +19609,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-79"
     ],
     "tags": []
   },
@@ -18445,7 +19626,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-7"
     ],
     "tags": []
   },
@@ -18460,7 +19643,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-79"
     ],
     "tags": []
   },
@@ -18475,7 +19660,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "transport-directions-6-lai-xe-quy-tac-uong-bo"
+      "transport-directions-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-29"
     ],
     "tags": []
   },
@@ -18490,7 +19677,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-75"
     ],
     "tags": []
   },
@@ -18505,7 +19694,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-79"
     ],
     "tags": []
   },
@@ -18520,7 +19711,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-79"
     ],
     "tags": []
   },
@@ -18535,7 +19728,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-79"
     ],
     "tags": []
   },
@@ -18550,7 +19745,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-9"
     ],
     "tags": []
   },
@@ -18565,7 +19760,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-10"
     ],
     "tags": []
   },
@@ -18580,7 +19775,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-79"
     ],
     "tags": []
   },
@@ -18595,7 +19792,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-73"
     ],
     "tags": []
   },
@@ -18610,7 +19809,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-10"
     ],
     "tags": []
   },
@@ -18625,7 +19824,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-79"
     ],
     "tags": []
   },
@@ -18640,7 +19841,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-79"
     ],
     "tags": []
   },
@@ -18655,7 +19858,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-29"
     ],
     "tags": []
   },
@@ -18670,7 +19875,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-79"
     ],
     "tags": []
   },
@@ -18685,7 +19892,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-80"
     ],
     "tags": []
   },
@@ -18700,7 +19909,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-7-luat-giao-thong-bien-bao"
+      "transport-directions-chặng-10"
     ],
     "tags": []
   },
@@ -18715,7 +19924,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban"
+      "transport-directions-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-75"
     ],
     "tags": []
   },
@@ -18730,7 +19941,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban"
+      "transport-directions-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-72"
     ],
     "tags": []
   },
@@ -18745,7 +19958,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban"
+      "transport-directions-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-73"
     ],
     "tags": []
   },
@@ -18760,7 +19975,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "phrase",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban"
+      "transport-directions-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-73"
     ],
     "tags": []
   },
@@ -18775,7 +19992,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "preposition",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban"
+      "transport-directions-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-75"
     ],
     "tags": []
   },
@@ -18790,7 +20009,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "preposition",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban"
+      "transport-directions-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-73"
     ],
     "tags": []
   },
@@ -18805,7 +20026,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "preposition",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban"
+      "transport-directions-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-74"
     ],
     "tags": []
   },
@@ -18820,7 +20043,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban"
+      "transport-directions-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-80"
     ],
     "tags": []
   },
@@ -18835,7 +20060,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban"
+      "transport-directions-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-8"
     ],
     "tags": []
   },
@@ -18850,7 +20077,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "preposition",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban"
+      "transport-directions-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-75"
     ],
     "tags": []
   },
@@ -18865,7 +20094,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "preposition",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban"
+      "transport-directions-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-73"
     ],
     "tags": []
   },
@@ -18880,7 +20111,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adjective",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban"
+      "transport-directions-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-72"
     ],
     "tags": []
   },
@@ -18895,7 +20128,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban"
+      "transport-directions-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-80"
     ],
     "tags": []
   },
@@ -18910,7 +20145,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban"
+      "transport-directions-chặng-12"
     ],
     "tags": []
   },
@@ -18925,8 +20160,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "transport-directions-8-hoi-chi-uong-co-ban",
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap"
+      "transport-directions-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-75"
     ],
     "tags": []
   },
@@ -18941,7 +20177,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-75"
     ],
     "tags": []
   },
@@ -18956,7 +20194,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-80"
     ],
     "tags": []
   },
@@ -18971,7 +20211,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-12"
     ],
     "tags": []
   },
@@ -18986,7 +20226,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-12"
     ],
     "tags": []
   },
@@ -19001,7 +20241,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-75"
     ],
     "tags": []
   },
@@ -19016,7 +20258,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-75"
     ],
     "tags": []
   },
@@ -19031,7 +20275,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-75"
     ],
     "tags": []
   },
@@ -19046,7 +20292,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-75"
     ],
     "tags": []
   },
@@ -19061,7 +20309,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-80"
     ],
     "tags": []
   },
@@ -19076,7 +20326,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-80"
     ],
     "tags": []
   },
@@ -19091,7 +20343,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-13"
     ],
     "tags": []
   },
@@ -19106,7 +20358,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-80"
     ],
     "tags": []
   },
@@ -19121,7 +20375,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-13"
     ],
     "tags": []
   },
@@ -19136,7 +20390,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-55"
     ],
     "tags": []
   },
@@ -19151,7 +20407,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "transport-directions-9-inh-vi-ban-o"
+      "transport-directions-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-15"
     ],
     "tags": []
   },
@@ -19166,7 +20424,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac"
+      "transport-directions-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-80"
     ],
     "tags": []
   },
@@ -19181,7 +20441,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac"
+      "transport-directions-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-80"
     ],
     "tags": []
   },
@@ -19196,7 +20458,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac"
+      "transport-directions-chặng-14"
     ],
     "tags": []
   },
@@ -19211,7 +20473,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac"
+      "transport-directions-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-80"
     ],
     "tags": []
   },
@@ -19226,7 +20490,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac"
+      "transport-directions-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-81"
     ],
     "tags": []
   },
@@ -19241,7 +20507,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac"
+      "transport-directions-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-81"
     ],
     "tags": []
   },
@@ -19256,7 +20524,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac"
+      "transport-directions-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-15"
     ],
     "tags": []
   },
@@ -19271,7 +20541,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac"
+      "transport-directions-chặng-14"
     ],
     "tags": []
   },
@@ -19286,7 +20556,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac"
+      "transport-directions-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-81"
     ],
     "tags": []
   },
@@ -19301,8 +20573,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac",
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so"
+      "transport-directions-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-15"
     ],
     "tags": []
   },
@@ -19317,7 +20590,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac"
+      "transport-directions-chặng-15"
     ],
     "tags": []
   },
@@ -19332,7 +20605,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac"
+      "transport-directions-chặng-15"
     ],
     "tags": []
   },
@@ -19347,7 +20620,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac"
+      "transport-directions-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-62"
     ],
     "tags": []
   },
@@ -19362,7 +20637,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac"
+      "transport-directions-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-65"
     ],
     "tags": []
   },
@@ -19377,7 +20654,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "transport-directions-10-su-co-giao-thong-un-tac"
+      "transport-directions-chặng-15"
     ],
     "tags": []
   },
@@ -19392,7 +20669,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien"
+      "work-jobs-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-84"
     ],
     "tags": []
   },
@@ -19407,7 +20686,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien"
+      "work-jobs-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-83"
     ],
     "tags": []
   },
@@ -19422,7 +20703,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien"
+      "work-jobs-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-84"
     ],
     "tags": []
   },
@@ -19437,7 +20720,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien"
+      "work-jobs-chặng-1"
     ],
     "tags": []
   },
@@ -19452,8 +20735,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien",
-      "society-world-4-tin-tuc-bao-chi-truyen-thong-ai-chung"
+      "work-jobs-chặng-1"
     ],
     "tags": []
   },
@@ -19468,7 +20750,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien"
+      "work-jobs-chặng-1"
     ],
     "tags": []
   },
@@ -19483,8 +20765,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien",
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "work-jobs-chặng-1"
     ],
     "tags": []
   },
@@ -19499,7 +20780,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien"
+      "work-jobs-chặng-1"
     ],
     "tags": []
   },
@@ -19514,7 +20795,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien"
+      "work-jobs-chặng-1"
     ],
     "tags": []
   },
@@ -19529,7 +20810,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien"
+      "work-jobs-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-85"
     ],
     "tags": []
   },
@@ -19544,7 +20827,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien"
+      "work-jobs-chặng-2"
     ],
     "tags": []
   },
@@ -19559,7 +20842,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien"
+      "work-jobs-chặng-2"
     ],
     "tags": []
   },
@@ -19574,7 +20857,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien"
+      "work-jobs-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-85"
     ],
     "tags": []
   },
@@ -19589,7 +20874,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien"
+      "work-jobs-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-85"
     ],
     "tags": []
   },
@@ -19604,7 +20891,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-1-cac-nganh-nghe-vi-tri-pho-bien"
+      "work-jobs-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-85"
     ],
     "tags": []
   },
@@ -19619,7 +20908,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-2-noi-lam-viec-van-phong"
+      "work-jobs-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-62"
     ],
     "tags": []
   },
@@ -19634,7 +20925,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-2-noi-lam-viec-van-phong"
+      "work-jobs-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-85"
     ],
     "tags": []
   },
@@ -19649,8 +20942,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-2-noi-lam-viec-van-phong",
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "work-jobs-chặng-2"
     ],
     "tags": []
   },
@@ -19665,8 +20957,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-2-noi-lam-viec-van-phong",
-      "education-learning-2-lop-hoc-o-dung-hoc-tap"
+      "work-jobs-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-84"
     ],
     "tags": []
   },
@@ -19681,7 +20974,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-2-noi-lam-viec-van-phong"
+      "work-jobs-chặng-2"
     ],
     "tags": []
   },
@@ -19696,7 +20989,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-2-noi-lam-viec-van-phong"
+      "work-jobs-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-83"
     ],
     "tags": []
   },
@@ -19711,8 +21006,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-2-noi-lam-viec-van-phong",
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "work-jobs-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-83"
     ],
     "tags": []
   },
@@ -19727,7 +21023,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-2-noi-lam-viec-van-phong"
+      "work-jobs-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-85"
     ],
     "tags": []
   },
@@ -19742,8 +21040,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-2-noi-lam-viec-van-phong",
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "work-jobs-chặng-3"
     ],
     "tags": []
   },
@@ -19758,8 +21055,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-2-noi-lam-viec-van-phong",
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "work-jobs-chặng-3"
     ],
     "tags": []
   },
@@ -19774,8 +21070,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-2-noi-lam-viec-van-phong",
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "work-jobs-chặng-3"
     ],
     "tags": []
   },
@@ -19790,8 +21085,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-2-noi-lam-viec-van-phong",
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "work-jobs-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-85"
     ],
     "tags": []
   },
@@ -19806,7 +21102,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-2-noi-lam-viec-van-phong"
+      "work-jobs-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-83"
     ],
     "tags": []
   },
@@ -19821,8 +21119,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-2-noi-lam-viec-van-phong",
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "work-jobs-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-85"
     ],
     "tags": []
   },
@@ -19837,8 +21136,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv",
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "work-jobs-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-85"
     ],
     "tags": []
   },
@@ -19853,7 +21153,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv"
+      "work-jobs-chặng-4"
     ],
     "tags": []
   },
@@ -19868,8 +21168,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv",
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "work-jobs-chặng-4"
     ],
     "tags": []
   },
@@ -19884,7 +21183,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv"
+      "work-jobs-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-15"
     ],
     "tags": []
   },
@@ -19899,8 +21200,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv",
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "work-jobs-chặng-4"
     ],
     "tags": []
   },
@@ -19915,8 +21215,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv",
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "work-jobs-chặng-4"
     ],
     "tags": []
   },
@@ -19931,9 +21230,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv",
-      "education-learning-5-bang-cap-tot-nghiep",
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "work-jobs-chặng-4"
     ],
     "tags": []
   },
@@ -19948,8 +21245,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv",
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "work-jobs-chặng-4"
     ],
     "tags": []
   },
@@ -19964,8 +21260,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv",
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "work-jobs-chặng-4"
     ],
     "tags": []
   },
@@ -19980,7 +21275,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv"
+      "work-jobs-chặng-4"
     ],
     "tags": []
   },
@@ -19995,7 +21290,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv"
+      "work-jobs-chặng-4"
     ],
     "tags": []
   },
@@ -20010,10 +21305,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv",
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat",
-      "toeic-b1-2-email-thu-tin-cong-so",
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "work-jobs-chặng-5"
     ],
     "tags": []
   },
@@ -20028,7 +21320,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv"
+      "work-jobs-chặng-5"
     ],
     "tags": []
   },
@@ -20043,7 +21335,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-3-tim-viec-ho-so-xin-viec-cv"
+      "work-jobs-chặng-5"
     ],
     "tags": []
   },
@@ -20058,9 +21350,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung",
-      "society-world-4-tin-tuc-bao-chi-truyen-thong-ai-chung",
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "work-jobs-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-85"
     ],
     "tags": []
   },
@@ -20075,7 +21367,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung"
+      "work-jobs-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-86"
     ],
     "tags": []
   },
@@ -20090,7 +21384,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung"
+      "work-jobs-chặng-5"
     ],
     "tags": []
   },
@@ -20105,7 +21399,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung"
+      "work-jobs-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-29"
     ],
     "tags": []
   },
@@ -20120,7 +21416,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung"
+      "work-jobs-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-86"
     ],
     "tags": []
   },
@@ -20135,7 +21433,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung"
+      "work-jobs-chặng-5"
     ],
     "tags": []
   },
@@ -20150,7 +21448,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung"
+      "work-jobs-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-86"
     ],
     "tags": []
   },
@@ -20165,7 +21465,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung"
+      "work-jobs-chặng-6"
     ],
     "tags": []
   },
@@ -20180,7 +21480,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung"
+      "work-jobs-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-15"
     ],
     "tags": []
   },
@@ -20195,7 +21497,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung"
+      "work-jobs-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-29"
     ],
     "tags": []
   },
@@ -20210,7 +21514,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung"
+      "work-jobs-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-86"
     ],
     "tags": []
   },
@@ -20225,8 +21531,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung",
-      "toeic-b1-11-hop-ong-am-phan"
+      "work-jobs-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-29"
     ],
     "tags": []
   },
@@ -20241,7 +21548,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung"
+      "work-jobs-chặng-6"
     ],
     "tags": []
   },
@@ -20256,7 +21563,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung"
+      "work-jobs-chặng-6"
     ],
     "tags": []
   },
@@ -20271,8 +21578,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-4-phong-van-tuyen-dung",
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "work-jobs-chặng-6"
     ],
     "tags": []
   },
@@ -20287,7 +21593,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi"
+      "work-jobs-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-86"
     ],
     "tags": []
   },
@@ -20302,7 +21610,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi"
+      "work-jobs-chặng-6"
     ],
     "tags": []
   },
@@ -20317,8 +21625,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi",
-      "toeic-b1-11-hop-ong-am-phan"
+      "work-jobs-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-86"
     ],
     "tags": []
   },
@@ -20333,8 +21642,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi",
-      "toeic-b1-5-luong-thuong-ai-ngo"
+      "work-jobs-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-71"
     ],
     "tags": []
   },
@@ -20349,7 +21659,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi"
+      "work-jobs-chặng-7"
     ],
     "tags": []
   },
@@ -20364,7 +21674,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi"
+      "work-jobs-chặng-7"
     ],
     "tags": []
   },
@@ -20379,8 +21689,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi",
-      "toeic-b1-5-luong-thuong-ai-ngo"
+      "work-jobs-chặng-7"
     ],
     "tags": []
   },
@@ -20395,7 +21704,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi"
+      "work-jobs-chặng-7"
     ],
     "tags": []
   },
@@ -20410,7 +21719,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi"
+      "work-jobs-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-41"
     ],
     "tags": []
   },
@@ -20425,7 +21736,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi"
+      "work-jobs-chặng-7"
     ],
     "tags": []
   },
@@ -20440,8 +21751,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi",
-      "toeic-b1-5-luong-thuong-ai-ngo"
+      "work-jobs-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-86"
     ],
     "tags": []
   },
@@ -20456,8 +21768,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi",
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "work-jobs-chặng-7"
     ],
     "tags": []
   },
@@ -20472,7 +21783,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi"
+      "work-jobs-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-57"
     ],
     "tags": []
   },
@@ -20487,7 +21800,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi"
+      "work-jobs-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-58"
     ],
     "tags": []
   },
@@ -20502,7 +21817,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-5-hop-ong-luong-phuc-loi"
+      "work-jobs-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-66"
     ],
     "tags": []
   },
@@ -20517,7 +21834,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so"
+      "work-jobs-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-84"
     ],
     "tags": []
   },
@@ -20532,8 +21851,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so",
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "work-jobs-chặng-8"
     ],
     "tags": []
   },
@@ -20548,7 +21866,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so"
+      "work-jobs-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-86"
     ],
     "tags": []
   },
@@ -20563,8 +21883,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so",
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "work-jobs-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-86"
     ],
     "tags": []
   },
@@ -20579,7 +21900,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so"
+      "work-jobs-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-86"
     ],
     "tags": []
   },
@@ -20594,7 +21917,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so"
+      "work-jobs-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-15"
     ],
     "tags": []
   },
@@ -20609,7 +21934,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so"
+      "work-jobs-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-29"
     ],
     "tags": []
   },
@@ -20624,8 +21951,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so",
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "work-jobs-chặng-9"
     ],
     "tags": []
   },
@@ -20640,7 +21966,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so"
+      "work-jobs-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-16"
     ],
     "tags": []
   },
@@ -20655,7 +21983,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so"
+      "work-jobs-chặng-9"
     ],
     "tags": []
   },
@@ -20670,7 +21998,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-6-hop-hanh-thuyet-trinh-cong-so"
+      "work-jobs-chặng-9"
     ],
     "tags": []
   },
@@ -20685,7 +22013,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-7-email-giao-tiep-cong-viec"
+      "work-jobs-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-84"
     ],
     "tags": []
   },
@@ -20700,7 +22030,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-7-email-giao-tiep-cong-viec"
+      "work-jobs-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-87"
     ],
     "tags": []
   },
@@ -20715,8 +22047,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-7-email-giao-tiep-cong-viec",
-      "toeic-b1-2-email-thu-tin-cong-so"
+      "work-jobs-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-87"
     ],
     "tags": []
   },
@@ -20731,8 +22064,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-7-email-giao-tiep-cong-viec",
-      "toeic-b1-2-email-thu-tin-cong-so"
+      "work-jobs-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-16"
     ],
     "tags": []
   },
@@ -20747,7 +22081,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-7-email-giao-tiep-cong-viec"
+      "work-jobs-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-87"
     ],
     "tags": []
   },
@@ -20762,7 +22098,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-7-email-giao-tiep-cong-viec"
+      "work-jobs-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-29"
     ],
     "tags": []
   },
@@ -20777,7 +22115,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-7-email-giao-tiep-cong-viec"
+      "work-jobs-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-30"
     ],
     "tags": []
   },
@@ -20792,7 +22132,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-7-email-giao-tiep-cong-viec"
+      "work-jobs-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-87"
     ],
     "tags": []
   },
@@ -20807,8 +22149,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-7-email-giao-tiep-cong-viec",
-      "toeic-b1-2-email-thu-tin-cong-so"
+      "work-jobs-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-30"
     ],
     "tags": []
   },
@@ -20823,7 +22166,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-7-email-giao-tiep-cong-viec"
+      "work-jobs-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-87"
     ],
     "tags": []
   },
@@ -20838,8 +22183,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "work-jobs-7-email-giao-tiep-cong-viec",
-      "toeic-b1-2-email-thu-tin-cong-so"
+      "work-jobs-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-84"
     ],
     "tags": []
   },
@@ -20854,8 +22200,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-7-email-giao-tiep-cong-viec",
-      "toeic-b1-2-email-thu-tin-cong-so"
+      "work-jobs-chặng-10"
     ],
     "tags": []
   },
@@ -20870,7 +22215,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "work-jobs-7-email-giao-tiep-cong-viec"
+      "work-jobs-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-84"
     ],
     "tags": []
   },
@@ -20885,7 +22232,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline"
+      "work-jobs-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-87"
     ],
     "tags": []
   },
@@ -20900,8 +22249,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline",
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "work-jobs-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-87"
     ],
     "tags": []
   },
@@ -20916,7 +22266,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline"
+      "work-jobs-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-87"
     ],
     "tags": []
   },
@@ -20931,7 +22283,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline"
+      "work-jobs-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-30"
     ],
     "tags": []
   },
@@ -20946,8 +22300,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline",
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "work-jobs-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-30"
     ],
     "tags": []
   },
@@ -20962,8 +22317,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline",
-      "society-world-10-xu-huong-toan-cau-tuong-lai-nhan-loai"
+      "work-jobs-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-87"
     ],
     "tags": []
   },
@@ -20978,7 +22334,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline"
+      "work-jobs-chặng-11"
     ],
     "tags": []
   },
@@ -20993,8 +22349,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline",
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "work-jobs-chặng-11"
     ],
     "tags": []
   },
@@ -21009,8 +22364,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline",
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "work-jobs-chặng-11"
     ],
     "tags": []
   },
@@ -21025,7 +22379,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline"
+      "work-jobs-chặng-11"
     ],
     "tags": []
   },
@@ -21040,7 +22394,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline"
+      "work-jobs-chặng-11"
     ],
     "tags": []
   },
@@ -21055,8 +22409,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline",
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "work-jobs-chặng-11"
     ],
     "tags": []
   },
@@ -21071,7 +22424,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-8-quan-ly-du-an-tien-o-deadline"
+      "work-jobs-chặng-11"
     ],
     "tags": []
   },
@@ -21086,7 +22439,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep"
+      "work-jobs-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-30"
     ],
     "tags": []
   },
@@ -21101,7 +22456,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep"
+      "work-jobs-chặng-12"
     ],
     "tags": []
   },
@@ -21116,7 +22471,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep"
+      "work-jobs-chặng-12"
     ],
     "tags": []
   },
@@ -21131,7 +22486,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep"
+      "work-jobs-chặng-12"
     ],
     "tags": []
   },
@@ -21146,7 +22501,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep"
+      "work-jobs-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-65"
     ],
     "tags": []
   },
@@ -21161,7 +22518,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep"
+      "work-jobs-chặng-12"
     ],
     "tags": []
   },
@@ -21176,7 +22533,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep"
+      "work-jobs-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-65"
     ],
     "tags": []
   },
@@ -21191,8 +22550,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep",
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "work-jobs-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-87"
     ],
     "tags": []
   },
@@ -21207,7 +22567,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep"
+      "work-jobs-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-30"
     ],
     "tags": []
   },
@@ -21222,7 +22584,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep"
+      "work-jobs-chặng-12"
     ],
     "tags": []
   },
@@ -21237,7 +22599,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep"
+      "work-jobs-chặng-13"
     ],
     "tags": []
   },
@@ -21252,8 +22614,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep",
-      "education-learning-5-bang-cap-tot-nghiep"
+      "work-jobs-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-88"
     ],
     "tags": []
   },
@@ -21268,8 +22631,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-9-thang-tien-phat-trien-nghe-nghiep",
-      "toeic-b1-5-luong-thuong-ai-ngo"
+      "work-jobs-chặng-13"
     ],
     "tags": []
   },
@@ -21284,7 +22646,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "work-jobs-chặng-13"
     ],
     "tags": []
   },
@@ -21299,7 +22661,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "work-jobs-chặng-13"
     ],
     "tags": []
   },
@@ -21314,7 +22676,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "work-jobs-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-30"
     ],
     "tags": []
   },
@@ -21329,7 +22693,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "work-jobs-chặng-13"
     ],
     "tags": []
   },
@@ -21344,7 +22708,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrasal verb",
     "topicIds": [
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "work-jobs-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-30"
     ],
     "tags": []
   },
@@ -21359,7 +22725,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "work-jobs-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-30"
     ],
     "tags": []
   },
@@ -21374,7 +22742,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "work-jobs-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-16"
     ],
     "tags": []
   },
@@ -21389,7 +22759,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "work-jobs-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-83"
     ],
     "tags": []
   },
@@ -21404,7 +22776,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "work-jobs-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-65"
     ],
     "tags": []
   },
@@ -21419,7 +22793,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "work-jobs-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-88"
     ],
     "tags": []
   },
@@ -21434,7 +22810,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "work-jobs-chặng-14"
     ],
     "tags": []
   },
@@ -21449,7 +22825,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "work-jobs-chặng-14"
     ],
     "tags": []
   },
@@ -21464,7 +22840,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "work-jobs-10-ap-luc-can-bang-cong-viec"
+      "work-jobs-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-83"
     ],
     "tags": []
   },
@@ -21479,7 +22857,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-88"
     ],
     "tags": []
   },
@@ -21494,7 +22874,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-1"
     ],
     "tags": []
   },
@@ -21509,7 +22889,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-1"
     ],
     "tags": []
   },
@@ -21524,7 +22904,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-1"
     ],
     "tags": []
   },
@@ -21539,7 +22919,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-1"
     ],
     "tags": []
   },
@@ -21554,7 +22934,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-88"
     ],
     "tags": []
   },
@@ -21569,7 +22951,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-1"
     ],
     "tags": []
   },
@@ -21584,7 +22966,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-1"
     ],
     "tags": []
   },
@@ -21599,7 +22981,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-1"
     ],
     "tags": []
   },
@@ -21614,7 +22996,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-1"
     ],
     "tags": []
   },
@@ -21629,7 +23011,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-2"
     ],
     "tags": []
   },
@@ -21644,7 +23026,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-2"
     ],
     "tags": []
   },
@@ -21659,7 +23041,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-2"
     ],
     "tags": []
   },
@@ -21674,7 +23056,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-2"
     ],
     "tags": []
   },
@@ -21689,7 +23071,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-1-truong-hoc-cac-bac-hoc"
+      "education-learning-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-71"
     ],
     "tags": []
   },
@@ -21704,7 +23088,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-2-lop-hoc-o-dung-hoc-tap"
+      "education-learning-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-83"
     ],
     "tags": []
   },
@@ -21719,7 +23105,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-2-lop-hoc-o-dung-hoc-tap"
+      "education-learning-chặng-2"
     ],
     "tags": []
   },
@@ -21734,7 +23120,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-2-lop-hoc-o-dung-hoc-tap"
+      "education-learning-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-88"
     ],
     "tags": []
   },
@@ -21749,8 +23137,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-2-lop-hoc-o-dung-hoc-tap",
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "education-learning-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-88"
     ],
     "tags": []
   },
@@ -21765,7 +23154,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-2-lop-hoc-o-dung-hoc-tap"
+      "education-learning-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-88"
     ],
     "tags": []
   },
@@ -21780,7 +23171,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-2-lop-hoc-o-dung-hoc-tap"
+      "education-learning-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-88"
     ],
     "tags": []
   },
@@ -21795,7 +23188,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-2-lop-hoc-o-dung-hoc-tap"
+      "education-learning-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-88"
     ],
     "tags": []
   },
@@ -21810,7 +23205,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-2-lop-hoc-o-dung-hoc-tap"
+      "education-learning-chặng-3"
     ],
     "tags": []
   },
@@ -21825,7 +23220,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-2-lop-hoc-o-dung-hoc-tap"
+      "education-learning-chặng-3"
     ],
     "tags": []
   },
@@ -21840,7 +23235,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-2-lop-hoc-o-dung-hoc-tap"
+      "education-learning-chặng-3"
     ],
     "tags": []
   },
@@ -21855,7 +23250,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-2-lop-hoc-o-dung-hoc-tap"
+      "education-learning-chặng-3"
     ],
     "tags": []
   },
@@ -21870,7 +23265,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-2-lop-hoc-o-dung-hoc-tap"
+      "education-learning-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-88"
     ],
     "tags": []
   },
@@ -21885,7 +23282,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-2-lop-hoc-o-dung-hoc-tap"
+      "education-learning-chặng-3"
     ],
     "tags": []
   },
@@ -21900,8 +23297,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-2-lop-hoc-o-dung-hoc-tap",
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "education-learning-chặng-3"
     ],
     "tags": []
   },
@@ -21916,7 +23312,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-89"
     ],
     "tags": []
   },
@@ -21931,7 +23329,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-4"
     ],
     "tags": []
   },
@@ -21946,7 +23344,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-4"
     ],
     "tags": []
   },
@@ -21961,7 +23359,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-4"
     ],
     "tags": []
   },
@@ -21976,7 +23374,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-4"
     ],
     "tags": []
   },
@@ -21991,7 +23389,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-89"
     ],
     "tags": []
   },
@@ -22006,7 +23406,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-4"
     ],
     "tags": []
   },
@@ -22021,7 +23421,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-4"
     ],
     "tags": []
   },
@@ -22036,7 +23436,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-4"
     ],
     "tags": []
   },
@@ -22051,7 +23451,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-4"
     ],
     "tags": []
   },
@@ -22066,7 +23466,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-4"
     ],
     "tags": []
   },
@@ -22081,7 +23481,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-5"
     ],
     "tags": []
   },
@@ -22096,7 +23496,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-5"
     ],
     "tags": []
   },
@@ -22111,7 +23511,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-5"
     ],
     "tags": []
   },
@@ -22126,7 +23526,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-3-mon-hoc-cac-nganh-khoa-hoc"
+      "education-learning-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-89"
     ],
     "tags": []
   },
@@ -22141,7 +23543,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia"
+      "education-learning-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-89"
     ],
     "tags": []
   },
@@ -22156,7 +23560,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia"
+      "education-learning-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-89"
     ],
     "tags": []
   },
@@ -22171,8 +23577,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia",
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "education-learning-chặng-5"
     ],
     "tags": []
   },
@@ -22187,7 +23592,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia"
+      "education-learning-chặng-5"
     ],
     "tags": []
   },
@@ -22202,7 +23607,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia"
+      "education-learning-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-25"
     ],
     "tags": []
   },
@@ -22217,7 +23624,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia"
+      "education-learning-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-25"
     ],
     "tags": []
   },
@@ -22232,7 +23641,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia"
+      "education-learning-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-32"
     ],
     "tags": []
   },
@@ -22247,7 +23658,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia"
+      "education-learning-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-32"
     ],
     "tags": []
   },
@@ -22262,7 +23675,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia"
+      "education-learning-chặng-6"
     ],
     "tags": []
   },
@@ -22277,7 +23690,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia"
+      "education-learning-chặng-6"
     ],
     "tags": []
   },
@@ -22292,7 +23705,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia"
+      "education-learning-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-32"
     ],
     "tags": []
   },
@@ -22307,8 +23722,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia",
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo"
+      "education-learning-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-33"
     ],
     "tags": []
   },
@@ -22323,7 +23739,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia"
+      "education-learning-chặng-6"
     ],
     "tags": []
   },
@@ -22338,7 +23754,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia"
+      "education-learning-chặng-6"
     ],
     "tags": []
   },
@@ -22353,7 +23769,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-4-thi-cu-kiem-tra-anh-gia"
+      "education-learning-chặng-6"
     ],
     "tags": []
   },
@@ -22368,7 +23784,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-5-bang-cap-tot-nghiep"
+      "education-learning-chặng-6"
     ],
     "tags": []
   },
@@ -22383,7 +23799,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-5-bang-cap-tot-nghiep"
+      "education-learning-chặng-7"
     ],
     "tags": []
   },
@@ -22398,7 +23814,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-5-bang-cap-tot-nghiep"
+      "education-learning-chặng-7"
     ],
     "tags": []
   },
@@ -22413,7 +23829,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-5-bang-cap-tot-nghiep"
+      "education-learning-chặng-7"
     ],
     "tags": []
   },
@@ -22428,7 +23844,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-5-bang-cap-tot-nghiep"
+      "education-learning-chặng-7"
     ],
     "tags": []
   },
@@ -22443,7 +23859,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "education-learning-5-bang-cap-tot-nghiep"
+      "education-learning-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-25"
     ],
     "tags": []
   },
@@ -22458,7 +23876,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-5-bang-cap-tot-nghiep"
+      "education-learning-chặng-7"
     ],
     "tags": []
   },
@@ -22473,7 +23891,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-5-bang-cap-tot-nghiep"
+      "education-learning-chặng-7"
     ],
     "tags": []
   },
@@ -22488,7 +23906,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-5-bang-cap-tot-nghiep"
+      "education-learning-chặng-7"
     ],
     "tags": []
   },
@@ -22503,7 +23921,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-5-bang-cap-tot-nghiep"
+      "education-learning-chặng-7"
     ],
     "tags": []
   },
@@ -22518,7 +23936,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-5-bang-cap-tot-nghiep"
+      "education-learning-chặng-7"
     ],
     "tags": []
   },
@@ -22533,7 +23951,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-5-bang-cap-tot-nghiep"
+      "education-learning-chặng-8"
     ],
     "tags": []
   },
@@ -22548,7 +23966,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-5-bang-cap-tot-nghiep"
+      "education-learning-chặng-8"
     ],
     "tags": []
   },
@@ -22563,7 +23981,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-6-hoc-phi-hoc-bong"
+      "education-learning-chặng-8"
     ],
     "tags": []
   },
@@ -22578,7 +23996,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-6-hoc-phi-hoc-bong"
+      "education-learning-chặng-8"
     ],
     "tags": []
   },
@@ -22593,7 +24011,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-6-hoc-phi-hoc-bong"
+      "education-learning-chặng-8"
     ],
     "tags": []
   },
@@ -22608,7 +24026,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-6-hoc-phi-hoc-bong"
+      "education-learning-chặng-8"
     ],
     "tags": []
   },
@@ -22623,7 +24041,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-6-hoc-phi-hoc-bong"
+      "education-learning-chặng-8"
     ],
     "tags": []
   },
@@ -22638,7 +24056,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-6-hoc-phi-hoc-bong"
+      "education-learning-chặng-8"
     ],
     "tags": []
   },
@@ -22653,7 +24071,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-6-hoc-phi-hoc-bong"
+      "education-learning-chặng-8"
     ],
     "tags": []
   },
@@ -22668,7 +24086,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-6-hoc-phi-hoc-bong"
+      "education-learning-chặng-8"
     ],
     "tags": []
   },
@@ -22683,7 +24101,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-6-hoc-phi-hoc-bong"
+      "education-learning-chặng-9"
     ],
     "tags": []
   },
@@ -22698,7 +24116,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-6-hoc-phi-hoc-bong"
+      "education-learning-chặng-9"
     ],
     "tags": []
   },
@@ -22713,7 +24131,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-6-hoc-phi-hoc-bong"
+      "education-learning-chặng-9"
     ],
     "tags": []
   },
@@ -22728,7 +24146,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "education-learning-6-hoc-phi-hoc-bong"
+      "education-learning-chặng-9"
     ],
     "tags": []
   },
@@ -22743,7 +24161,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "education-learning-6-hoc-phi-hoc-bong"
+      "education-learning-chặng-9"
     ],
     "tags": []
   },
@@ -22758,7 +24176,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-6-hoc-phi-hoc-bong"
+      "education-learning-chặng-9"
     ],
     "tags": []
   },
@@ -22773,7 +24191,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-7-phuong-phap-hoc-tu-hoc"
+      "education-learning-chặng-9"
     ],
     "tags": []
   },
@@ -22788,7 +24206,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-7-phuong-phap-hoc-tu-hoc"
+      "education-learning-chặng-9"
     ],
     "tags": []
   },
@@ -22803,7 +24221,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "education-learning-7-phuong-phap-hoc-tu-hoc"
+      "education-learning-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-25"
     ],
     "tags": []
   },
@@ -22818,8 +24238,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-7-phuong-phap-hoc-tu-hoc",
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "education-learning-chặng-9"
     ],
     "tags": []
   },
@@ -22834,7 +24253,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-7-phuong-phap-hoc-tu-hoc"
+      "education-learning-chặng-10"
     ],
     "tags": []
   },
@@ -22849,7 +24268,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "education-learning-7-phuong-phap-hoc-tu-hoc"
+      "education-learning-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-25"
     ],
     "tags": []
   },
@@ -22864,8 +24285,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "education-learning-7-phuong-phap-hoc-tu-hoc",
-      "entertainment-hobbies-7-nhiep-anh-quay-phim"
+      "education-learning-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-16"
     ],
     "tags": []
   },
@@ -22880,7 +24302,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-7-phuong-phap-hoc-tu-hoc"
+      "education-learning-chặng-10"
     ],
     "tags": []
   },
@@ -22895,7 +24317,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-7-phuong-phap-hoc-tu-hoc"
+      "education-learning-chặng-10"
     ],
     "tags": []
   },
@@ -22910,7 +24332,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-7-phuong-phap-hoc-tu-hoc"
+      "education-learning-chặng-10"
     ],
     "tags": []
   },
@@ -22925,7 +24347,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "education-learning-7-phuong-phap-hoc-tu-hoc"
+      "education-learning-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-16"
     ],
     "tags": []
   },
@@ -22940,7 +24364,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "education-learning-7-phuong-phap-hoc-tu-hoc"
+      "education-learning-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-16"
     ],
     "tags": []
   },
@@ -22955,7 +24381,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-7-phuong-phap-hoc-tu-hoc"
+      "education-learning-chặng-10"
     ],
     "tags": []
   },
@@ -22970,7 +24396,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat"
+      "education-learning-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-89"
     ],
     "tags": []
   },
@@ -22985,7 +24413,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat"
+      "education-learning-chặng-11"
     ],
     "tags": []
   },
@@ -23000,7 +24428,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat"
+      "education-learning-chặng-11"
     ],
     "tags": []
   },
@@ -23015,7 +24443,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat"
+      "education-learning-chặng-11"
     ],
     "tags": []
   },
@@ -23030,7 +24458,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat"
+      "education-learning-chặng-11"
     ],
     "tags": []
   },
@@ -23045,7 +24473,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat"
+      "education-learning-chặng-11"
     ],
     "tags": []
   },
@@ -23060,7 +24488,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat"
+      "education-learning-chặng-11"
     ],
     "tags": []
   },
@@ -23075,8 +24503,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat",
-      "technology-internet-7-ien-toan-am-may-du-lieu"
+      "education-learning-chặng-11"
     ],
     "tags": []
   },
@@ -23091,7 +24518,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat"
+      "education-learning-chặng-11"
     ],
     "tags": []
   },
@@ -23106,7 +24533,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat"
+      "education-learning-chặng-11"
     ],
     "tags": []
   },
@@ -23121,7 +24548,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat"
+      "education-learning-chặng-11"
     ],
     "tags": []
   },
@@ -23136,7 +24563,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-8-thu-vien-nghien-cuu-hoc-thuat"
+      "education-learning-chặng-12"
     ],
     "tags": []
   },
@@ -23151,7 +24578,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "education-learning-chặng-12"
     ],
     "tags": []
   },
@@ -23166,7 +24593,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "education-learning-chặng-12"
     ],
     "tags": []
   },
@@ -23181,7 +24608,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "education-learning-chặng-12"
     ],
     "tags": []
   },
@@ -23196,7 +24623,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "education-learning-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-89"
     ],
     "tags": []
   },
@@ -23211,7 +24640,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "education-learning-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-89"
     ],
     "tags": []
   },
@@ -23226,7 +24657,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "education-learning-chặng-12"
     ],
     "tags": []
   },
@@ -23241,7 +24672,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "education-learning-chặng-12"
     ],
     "tags": []
   },
@@ -23256,7 +24687,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "education-learning-chặng-12"
     ],
     "tags": []
   },
@@ -23271,7 +24702,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "education-learning-chặng-12"
     ],
     "tags": []
   },
@@ -23286,7 +24717,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "education-learning-chặng-13"
     ],
     "tags": []
   },
@@ -23301,7 +24732,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "education-learning-chặng-13"
     ],
     "tags": []
   },
@@ -23316,7 +24747,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "education-learning-chặng-13"
     ],
     "tags": []
   },
@@ -23331,7 +24762,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-9-giang-vien-hoc-sinh-sinh-vien"
+      "education-learning-chặng-13"
     ],
     "tags": []
   },
@@ -23346,7 +24777,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-10-hoc-truc-tuyen-du-hoc"
+      "education-learning-chặng-13"
     ],
     "tags": []
   },
@@ -23361,7 +24792,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-10-hoc-truc-tuyen-du-hoc"
+      "education-learning-chặng-13"
     ],
     "tags": []
   },
@@ -23376,7 +24807,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrase",
     "topicIds": [
-      "education-learning-10-hoc-truc-tuyen-du-hoc"
+      "education-learning-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-91"
     ],
     "tags": []
   },
@@ -23391,7 +24824,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-10-hoc-truc-tuyen-du-hoc"
+      "education-learning-chặng-13"
     ],
     "tags": []
   },
@@ -23406,7 +24839,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-10-hoc-truc-tuyen-du-hoc"
+      "education-learning-chặng-13"
     ],
     "tags": []
   },
@@ -23421,7 +24854,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-10-hoc-truc-tuyen-du-hoc"
+      "education-learning-chặng-13"
     ],
     "tags": []
   },
@@ -23436,7 +24869,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-10-hoc-truc-tuyen-du-hoc"
+      "education-learning-chặng-14"
     ],
     "tags": []
   },
@@ -23451,8 +24884,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-10-hoc-truc-tuyen-du-hoc",
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i"
+      "education-learning-chặng-14"
     ],
     "tags": []
   },
@@ -23467,7 +24899,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "education-learning-10-hoc-truc-tuyen-du-hoc"
+      "education-learning-chặng-14"
     ],
     "tags": []
   },
@@ -23482,7 +24914,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-10-hoc-truc-tuyen-du-hoc"
+      "education-learning-chặng-14"
     ],
     "tags": []
   },
@@ -23497,7 +24929,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-10-hoc-truc-tuyen-du-hoc"
+      "education-learning-chặng-14"
     ],
     "tags": []
   },
@@ -23512,7 +24944,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "education-learning-10-hoc-truc-tuyen-du-hoc"
+      "education-learning-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-83"
     ],
     "tags": []
   },
@@ -23527,7 +24961,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-10-hoc-truc-tuyen-du-hoc"
+      "education-learning-chặng-14"
     ],
     "tags": []
   },
@@ -23542,7 +24976,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "education-learning-10-hoc-truc-tuyen-du-hoc"
+      "education-learning-chặng-14"
     ],
     "tags": []
   },
@@ -23557,7 +24991,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i"
+      "travel-places-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-16"
     ],
     "tags": []
   },
@@ -23572,7 +25008,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i"
+      "travel-places-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-92"
     ],
     "tags": []
   },
@@ -23587,8 +25025,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i",
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "travel-places-chặng-1"
     ],
     "tags": []
   },
@@ -23603,7 +25040,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i"
+      "travel-places-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-16"
     ],
     "tags": []
   },
@@ -23618,7 +25057,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i"
+      "travel-places-chặng-1"
     ],
     "tags": []
   },
@@ -23633,7 +25072,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i"
+      "travel-places-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-92"
     ],
     "tags": []
   },
@@ -23648,7 +25089,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i"
+      "travel-places-chặng-1"
     ],
     "tags": []
   },
@@ -23663,7 +25104,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i"
+      "travel-places-chặng-1"
     ],
     "tags": []
   },
@@ -23678,7 +25119,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i"
+      "travel-places-chặng-1"
     ],
     "tags": []
   },
@@ -23693,7 +25134,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-1-len-ke-hoach-chuan-bi-chuyen-i"
+      "travel-places-chặng-1"
     ],
     "tags": []
   },
@@ -23708,7 +25149,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru"
+      "travel-places-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-92"
     ],
     "tags": []
   },
@@ -23723,7 +25166,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru"
+      "travel-places-chặng-2"
     ],
     "tags": []
   },
@@ -23738,7 +25181,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru"
+      "travel-places-chặng-2"
     ],
     "tags": []
   },
@@ -23753,7 +25196,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru"
+      "travel-places-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-26"
     ],
     "tags": []
   },
@@ -23768,7 +25213,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "phrasal verb",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru"
+      "travel-places-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-26"
     ],
     "tags": []
   },
@@ -23783,7 +25230,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru"
+      "travel-places-chặng-2"
     ],
     "tags": []
   },
@@ -23798,7 +25245,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru"
+      "travel-places-chặng-2"
     ],
     "tags": []
   },
@@ -23813,7 +25260,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru"
+      "travel-places-chặng-2"
     ],
     "tags": []
   },
@@ -23828,7 +25275,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru"
+      "travel-places-chặng-2"
     ],
     "tags": []
   },
@@ -23843,7 +25290,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru"
+      "travel-places-chặng-2"
     ],
     "tags": []
   },
@@ -23858,7 +25305,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru"
+      "travel-places-chặng-3"
     ],
     "tags": []
   },
@@ -23873,7 +25320,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru"
+      "travel-places-chặng-3"
     ],
     "tags": []
   },
@@ -23888,8 +25335,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru",
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "travel-places-chặng-3"
     ],
     "tags": []
   },
@@ -23904,7 +25350,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru"
+      "travel-places-chặng-3"
     ],
     "tags": []
   },
@@ -23919,7 +25365,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-2-khach-san-noi-luu-tru"
+      "travel-places-chặng-3"
     ],
     "tags": []
   },
@@ -23934,7 +25380,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-3-tham-quan-danh-lam-thang-canh"
+      "travel-places-chặng-3"
     ],
     "tags": []
   },
@@ -23949,7 +25395,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-3-tham-quan-danh-lam-thang-canh"
+      "travel-places-chặng-3"
     ],
     "tags": []
   },
@@ -23964,7 +25410,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-3-tham-quan-danh-lam-thang-canh"
+      "travel-places-chặng-3"
     ],
     "tags": []
   },
@@ -23979,7 +25425,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-3-tham-quan-danh-lam-thang-canh"
+      "travel-places-chặng-3"
     ],
     "tags": []
   },
@@ -23994,7 +25440,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-3-tham-quan-danh-lam-thang-canh"
+      "travel-places-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-92"
     ],
     "tags": []
   },
@@ -24009,7 +25457,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-3-tham-quan-danh-lam-thang-canh"
+      "travel-places-chặng-4"
     ],
     "tags": []
   },
@@ -24024,7 +25472,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-3-tham-quan-danh-lam-thang-canh"
+      "travel-places-chặng-4"
     ],
     "tags": []
   },
@@ -24039,7 +25487,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-3-tham-quan-danh-lam-thang-canh"
+      "travel-places-chặng-4"
     ],
     "tags": []
   },
@@ -24054,8 +25502,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-3-tham-quan-danh-lam-thang-canh",
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "travel-places-chặng-4"
     ],
     "tags": []
   },
@@ -24070,8 +25517,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-3-tham-quan-danh-lam-thang-canh",
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "travel-places-chặng-4"
     ],
     "tags": []
   },
@@ -24086,7 +25532,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-3-tham-quan-danh-lam-thang-canh"
+      "travel-places-chặng-4"
     ],
     "tags": []
   },
@@ -24101,7 +25547,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-3-tham-quan-danh-lam-thang-canh"
+      "travel-places-chặng-4"
     ],
     "tags": []
   },
@@ -24116,7 +25562,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-3-tham-quan-danh-lam-thang-canh"
+      "travel-places-chặng-4"
     ],
     "tags": []
   },
@@ -24131,7 +25577,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-3-tham-quan-danh-lam-thang-canh"
+      "travel-places-chặng-4"
     ],
     "tags": []
   },
@@ -24146,7 +25592,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "travel-places-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-92"
     ],
     "tags": []
   },
@@ -24161,7 +25609,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "travel-places-chặng-5"
     ],
     "tags": []
   },
@@ -24176,7 +25624,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "travel-places-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-92"
     ],
     "tags": []
   },
@@ -24191,7 +25641,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "travel-places-chặng-5"
     ],
     "tags": []
   },
@@ -24206,7 +25656,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "travel-places-chặng-5"
     ],
     "tags": []
   },
@@ -24221,7 +25671,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "travel-places-chặng-5"
     ],
     "tags": []
   },
@@ -24236,7 +25686,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "travel-places-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-92"
     ],
     "tags": []
   },
@@ -24251,7 +25703,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "travel-places-chặng-5"
     ],
     "tags": []
   },
@@ -24266,7 +25718,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "travel-places-chặng-5"
     ],
     "tags": []
   },
@@ -24281,7 +25733,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "travel-places-chặng-5"
     ],
     "tags": []
   },
@@ -24296,7 +25748,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "travel-places-chặng-5"
     ],
     "tags": []
   },
@@ -24311,7 +25763,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "travel-places-chặng-6"
     ],
     "tags": []
   },
@@ -24326,7 +25778,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "travel-places-chặng-6"
     ],
     "tags": []
   },
@@ -24341,7 +25793,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-4-du-lich-bien-nghi-duong"
+      "travel-places-chặng-6"
     ],
     "tags": []
   },
@@ -24356,7 +25808,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "travel-places-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-93"
     ],
     "tags": []
   },
@@ -24371,7 +25825,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "travel-places-chặng-6"
     ],
     "tags": []
   },
@@ -24386,7 +25840,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "travel-places-chặng-6"
     ],
     "tags": []
   },
@@ -24401,7 +25855,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "travel-places-chặng-6"
     ],
     "tags": []
   },
@@ -24416,7 +25870,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "travel-places-chặng-6"
     ],
     "tags": []
   },
@@ -24431,7 +25885,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "travel-places-chặng-6"
     ],
     "tags": []
   },
@@ -24446,7 +25900,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "travel-places-chặng-6"
     ],
     "tags": []
   },
@@ -24461,7 +25915,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "travel-places-chặng-7"
     ],
     "tags": []
   },
@@ -24476,7 +25930,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "travel-places-chặng-7"
     ],
     "tags": []
   },
@@ -24491,7 +25945,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "travel-places-chặng-7"
     ],
     "tags": []
   },
@@ -24506,7 +25960,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "travel-places-chặng-7"
     ],
     "tags": []
   },
@@ -24521,7 +25975,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "travel-places-chặng-7"
     ],
     "tags": []
   },
@@ -24536,7 +25990,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "travel-places-chặng-7"
     ],
     "tags": []
   },
@@ -24551,7 +26005,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-5-du-lich-nui-da-ngoai-kham-pha"
+      "travel-places-chặng-7"
     ],
     "tags": []
   },
@@ -24566,7 +26020,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem"
+      "travel-places-chặng-7"
     ],
     "tags": []
   },
@@ -24581,7 +26035,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem"
+      "travel-places-chặng-7"
     ],
     "tags": []
   },
@@ -24596,7 +26050,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem"
+      "travel-places-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-74"
     ],
     "tags": []
   },
@@ -24611,7 +26067,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem"
+      "travel-places-chặng-8"
     ],
     "tags": []
   },
@@ -24626,7 +26082,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem"
+      "travel-places-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-33"
     ],
     "tags": []
   },
@@ -24641,7 +26099,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem"
+      "travel-places-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-93"
     ],
     "tags": []
   },
@@ -24656,8 +26116,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem",
-      "toeic-b1-9-on-hang-hoa-on"
+      "travel-places-chặng-8"
     ],
     "tags": []
   },
@@ -24672,7 +26131,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem"
+      "travel-places-chặng-8"
     ],
     "tags": []
   },
@@ -24687,7 +26146,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem"
+      "travel-places-chặng-8"
     ],
     "tags": []
   },
@@ -24702,7 +26161,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem"
+      "travel-places-chặng-8"
     ],
     "tags": []
   },
@@ -24717,7 +26176,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem"
+      "travel-places-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-93"
     ],
     "tags": []
   },
@@ -24732,7 +26193,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-6-trai-nghiem-am-thuc-mua-qua-luu-niem"
+      "travel-places-chặng-8"
     ],
     "tags": []
   },
@@ -24747,7 +26208,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-8"
     ],
     "tags": []
   },
@@ -24762,7 +26223,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-9"
     ],
     "tags": []
   },
@@ -24777,7 +26238,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-9"
     ],
     "tags": []
   },
@@ -24792,7 +26253,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-9"
     ],
     "tags": []
   },
@@ -24807,7 +26268,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-9"
     ],
     "tags": []
   },
@@ -24822,7 +26283,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-9"
     ],
     "tags": []
   },
@@ -24837,7 +26298,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-9"
     ],
     "tags": []
   },
@@ -24852,7 +26313,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-9"
     ],
     "tags": []
   },
@@ -24867,7 +26328,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-9"
     ],
     "tags": []
   },
@@ -24882,7 +26343,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-9"
     ],
     "tags": []
   },
@@ -24897,7 +26358,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-9"
     ],
     "tags": []
   },
@@ -24912,7 +26373,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-10"
     ],
     "tags": []
   },
@@ -24927,7 +26388,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-10"
     ],
     "tags": []
   },
@@ -24942,7 +26403,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-10"
     ],
     "tags": []
   },
@@ -24957,7 +26418,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-7-phong-canh-thien-nhien-ky-quan"
+      "travel-places-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-93"
     ],
     "tags": []
   },
@@ -24972,7 +26435,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-10"
     ],
     "tags": []
   },
@@ -24987,7 +26450,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-10"
     ],
     "tags": []
   },
@@ -25002,7 +26465,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-10"
     ],
     "tags": []
   },
@@ -25017,7 +26480,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-10"
     ],
     "tags": []
   },
@@ -25032,7 +26495,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-93"
     ],
     "tags": []
   },
@@ -25047,7 +26512,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-10"
     ],
     "tags": []
   },
@@ -25062,7 +26527,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-11"
     ],
     "tags": []
   },
@@ -25077,7 +26542,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-11"
     ],
     "tags": []
   },
@@ -25092,7 +26557,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-11"
     ],
     "tags": []
   },
@@ -25107,7 +26572,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-91"
     ],
     "tags": []
   },
@@ -25122,7 +26589,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-11"
     ],
     "tags": []
   },
@@ -25137,7 +26604,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-11"
     ],
     "tags": []
   },
@@ -25152,7 +26619,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-11"
     ],
     "tags": []
   },
@@ -25167,7 +26634,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-11"
     ],
     "tags": []
   },
@@ -25182,7 +26649,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-8-thanh-pho-pho-co-kien-truc"
+      "travel-places-chặng-11"
     ],
     "tags": []
   },
@@ -25197,7 +26664,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich"
+      "travel-places-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-65"
     ],
     "tags": []
   },
@@ -25212,7 +26681,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich"
+      "travel-places-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-65"
     ],
     "tags": []
   },
@@ -25227,7 +26698,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich"
+      "travel-places-chặng-12"
     ],
     "tags": []
   },
@@ -25242,7 +26713,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich"
+      "travel-places-chặng-12"
     ],
     "tags": []
   },
@@ -25257,8 +26728,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich",
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "travel-places-chặng-12"
     ],
     "tags": []
   },
@@ -25273,7 +26743,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich"
+      "travel-places-chặng-12"
     ],
     "tags": []
   },
@@ -25288,7 +26758,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich"
+      "travel-places-chặng-12"
     ],
     "tags": []
   },
@@ -25303,7 +26773,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich"
+      "travel-places-chặng-12"
     ],
     "tags": []
   },
@@ -25318,7 +26788,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich"
+      "travel-places-chặng-12"
     ],
     "tags": []
   },
@@ -25333,7 +26803,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich"
+      "travel-places-chặng-12"
     ],
     "tags": []
   },
@@ -25348,7 +26818,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich"
+      "travel-places-chặng-12"
     ],
     "tags": []
   },
@@ -25363,7 +26833,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich"
+      "travel-places-chặng-13"
     ],
     "tags": []
   },
@@ -25378,7 +26848,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich"
+      "travel-places-chặng-13"
     ],
     "tags": []
   },
@@ -25393,7 +26863,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-9-van-hoa-ban-ia-le-hoi-du-lich"
+      "travel-places-chặng-13"
     ],
     "tags": []
   },
@@ -25408,7 +26878,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap"
+      "travel-places-chặng-13"
     ],
     "tags": []
   },
@@ -25423,7 +26893,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap"
+      "travel-places-chặng-13"
     ],
     "tags": []
   },
@@ -25438,7 +26908,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap"
+      "travel-places-chặng-13"
     ],
     "tags": []
   },
@@ -25453,7 +26923,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap"
+      "travel-places-chặng-13"
     ],
     "tags": []
   },
@@ -25468,8 +26938,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap",
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "travel-places-chặng-13"
     ],
     "tags": []
   },
@@ -25484,7 +26953,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap"
+      "travel-places-chặng-13"
     ],
     "tags": []
   },
@@ -25499,7 +26968,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap"
+      "travel-places-chặng-13"
     ],
     "tags": []
   },
@@ -25514,7 +26983,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap"
+      "travel-places-chặng-14"
     ],
     "tags": []
   },
@@ -25529,7 +26998,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap"
+      "travel-places-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-93"
     ],
     "tags": []
   },
@@ -25544,7 +27015,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap"
+      "travel-places-chặng-14"
     ],
     "tags": []
   },
@@ -25559,7 +27030,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap"
+      "travel-places-chặng-14"
     ],
     "tags": []
   },
@@ -25574,7 +27045,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap"
+      "travel-places-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-93"
     ],
     "tags": []
   },
@@ -25589,7 +27062,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "travel-places-10-an-toan-du-lich-tinh-huong-khan-cap"
+      "travel-places-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-81"
     ],
     "tags": []
   },
@@ -25604,7 +27079,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "entertainment-hobbies-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-93"
     ],
     "tags": []
   },
@@ -25619,7 +27096,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "entertainment-hobbies-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-93"
     ],
     "tags": []
   },
@@ -25634,7 +27113,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "entertainment-hobbies-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-93"
     ],
     "tags": []
   },
@@ -25649,7 +27130,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "entertainment-hobbies-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-94"
     ],
     "tags": []
   },
@@ -25664,7 +27147,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "entertainment-hobbies-chặng-1"
     ],
     "tags": []
   },
@@ -25679,7 +27162,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "entertainment-hobbies-chặng-1"
     ],
     "tags": []
   },
@@ -25694,7 +27177,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "entertainment-hobbies-chặng-1"
     ],
     "tags": []
   },
@@ -25709,7 +27192,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "entertainment-hobbies-chặng-1"
     ],
     "tags": []
   },
@@ -25724,7 +27207,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "entertainment-hobbies-chặng-1"
     ],
     "tags": []
   },
@@ -25739,7 +27222,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "entertainment-hobbies-chặng-1"
     ],
     "tags": []
   },
@@ -25754,7 +27237,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "entertainment-hobbies-chặng-2"
     ],
     "tags": []
   },
@@ -25769,7 +27252,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "entertainment-hobbies-chặng-2"
     ],
     "tags": []
   },
@@ -25784,7 +27267,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "entertainment-hobbies-chặng-2"
     ],
     "tags": []
   },
@@ -25799,7 +27282,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-1-ien-anh-phim-anh"
+      "entertainment-hobbies-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-94"
     ],
     "tags": []
   },
@@ -25814,7 +27299,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-94"
     ],
     "tags": []
   },
@@ -25829,7 +27316,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-94"
     ],
     "tags": []
   },
@@ -25844,7 +27333,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-94"
     ],
     "tags": []
   },
@@ -25859,7 +27350,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-94"
     ],
     "tags": []
   },
@@ -25874,7 +27367,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-94"
     ],
     "tags": []
   },
@@ -25889,7 +27384,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-2"
     ],
     "tags": []
   },
@@ -25904,7 +27399,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-3"
     ],
     "tags": []
   },
@@ -25919,7 +27414,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-94"
     ],
     "tags": []
   },
@@ -25934,7 +27431,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-94"
     ],
     "tags": []
   },
@@ -25949,7 +27448,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-3"
     ],
     "tags": []
   },
@@ -25964,7 +27463,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-3"
     ],
     "tags": []
   },
@@ -25979,7 +27478,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-3"
     ],
     "tags": []
   },
@@ -25994,7 +27493,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-3"
     ],
     "tags": []
   },
@@ -26009,7 +27508,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-94"
     ],
     "tags": []
   },
@@ -26024,7 +27525,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-2-am-nhac-nhac-cu"
+      "entertainment-hobbies-chặng-3"
     ],
     "tags": []
   },
@@ -26039,7 +27540,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-95"
     ],
     "tags": []
   },
@@ -26054,7 +27557,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-4"
     ],
     "tags": []
   },
@@ -26069,7 +27572,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-4"
     ],
     "tags": []
   },
@@ -26084,7 +27587,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-4"
     ],
     "tags": []
   },
@@ -26099,7 +27602,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-4"
     ],
     "tags": []
   },
@@ -26114,7 +27617,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-95"
     ],
     "tags": []
   },
@@ -26129,7 +27634,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-4"
     ],
     "tags": []
   },
@@ -26144,7 +27649,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-4"
     ],
     "tags": []
   },
@@ -26159,7 +27664,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-4"
     ],
     "tags": []
   },
@@ -26174,7 +27679,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-4"
     ],
     "tags": []
   },
@@ -26189,7 +27694,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-4"
     ],
     "tags": []
   },
@@ -26204,7 +27709,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-5"
     ],
     "tags": []
   },
@@ -26219,7 +27724,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-5"
     ],
     "tags": []
   },
@@ -26234,7 +27739,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-5"
     ],
     "tags": []
   },
@@ -26249,7 +27754,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-3-oc-sach-van-hoc-giai-tri"
+      "entertainment-hobbies-chặng-5"
     ],
     "tags": []
   },
@@ -26264,7 +27769,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "entertainment-hobbies-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-95"
     ],
     "tags": []
   },
@@ -26279,7 +27786,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "entertainment-hobbies-chặng-5"
     ],
     "tags": []
   },
@@ -26294,7 +27801,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "entertainment-hobbies-chặng-5"
     ],
     "tags": []
   },
@@ -26309,7 +27816,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "entertainment-hobbies-chặng-5"
     ],
     "tags": []
   },
@@ -26324,7 +27831,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "entertainment-hobbies-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-95"
     ],
     "tags": []
   },
@@ -26339,7 +27848,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "entertainment-hobbies-chặng-5"
     ],
     "tags": []
   },
@@ -26354,7 +27863,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "entertainment-hobbies-chặng-6"
     ],
     "tags": []
   },
@@ -26369,7 +27878,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "entertainment-hobbies-chặng-6"
     ],
     "tags": []
   },
@@ -26384,7 +27893,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "entertainment-hobbies-chặng-6"
     ],
     "tags": []
   },
@@ -26399,7 +27908,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "entertainment-hobbies-chặng-6"
     ],
     "tags": []
   },
@@ -26414,7 +27923,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "entertainment-hobbies-chặng-6"
     ],
     "tags": []
   },
@@ -26429,7 +27938,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "entertainment-hobbies-chặng-6"
     ],
     "tags": []
   },
@@ -26444,7 +27953,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "entertainment-hobbies-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-26"
     ],
     "tags": []
   },
@@ -26459,7 +27970,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-4-tro-choi-ien-tu-gaming-the-thao-ien-tu"
+      "entertainment-hobbies-chặng-6"
     ],
     "tags": []
   },
@@ -26474,7 +27985,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "entertainment-hobbies-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-95"
     ],
     "tags": []
   },
@@ -26489,7 +28002,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "entertainment-hobbies-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-95"
     ],
     "tags": []
   },
@@ -26504,7 +28019,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "entertainment-hobbies-chặng-7"
     ],
     "tags": []
   },
@@ -26519,7 +28034,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "entertainment-hobbies-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-95"
     ],
     "tags": []
   },
@@ -26534,7 +28051,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "entertainment-hobbies-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-95"
     ],
     "tags": []
   },
@@ -26549,7 +28068,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "entertainment-hobbies-chặng-7"
     ],
     "tags": []
   },
@@ -26564,7 +28083,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "entertainment-hobbies-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-95"
     ],
     "tags": []
   },
@@ -26579,7 +28100,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "entertainment-hobbies-chặng-7"
     ],
     "tags": []
   },
@@ -26594,7 +28115,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "entertainment-hobbies-chặng-7"
     ],
     "tags": []
   },
@@ -26609,7 +28130,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "entertainment-hobbies-chặng-7"
     ],
     "tags": []
   },
@@ -26624,7 +28145,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "entertainment-hobbies-chặng-7"
     ],
     "tags": []
   },
@@ -26639,7 +28160,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "entertainment-hobbies-chặng-7"
     ],
     "tags": []
   },
@@ -26654,7 +28175,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "entertainment-hobbies-chặng-8"
     ],
     "tags": []
   },
@@ -26669,7 +28190,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-5-the-thao-ong-oi"
+      "entertainment-hobbies-chặng-8"
     ],
     "tags": []
   },
@@ -26684,7 +28205,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang"
+      "entertainment-hobbies-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-95"
     ],
     "tags": []
   },
@@ -26699,7 +28222,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang"
+      "entertainment-hobbies-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-96"
     ],
     "tags": []
   },
@@ -26714,7 +28239,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang"
+      "entertainment-hobbies-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-96"
     ],
     "tags": []
   },
@@ -26729,7 +28256,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang"
+      "entertainment-hobbies-chặng-8"
     ],
     "tags": []
   },
@@ -26744,7 +28271,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang"
+      "entertainment-hobbies-chặng-8"
     ],
     "tags": []
   },
@@ -26759,7 +28286,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang"
+      "entertainment-hobbies-chặng-8"
     ],
     "tags": []
   },
@@ -26774,7 +28301,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang"
+      "entertainment-hobbies-chặng-8"
     ],
     "tags": []
   },
@@ -26789,8 +28316,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang",
-      "society-world-2-chinh-phu-phap-luat-nha-nuoc"
+      "entertainment-hobbies-chặng-8"
     ],
     "tags": []
   },
@@ -26805,7 +28331,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang"
+      "entertainment-hobbies-chặng-9"
     ],
     "tags": []
   },
@@ -26820,7 +28346,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang"
+      "entertainment-hobbies-chặng-9"
     ],
     "tags": []
   },
@@ -26835,7 +28361,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang"
+      "entertainment-hobbies-chặng-9"
     ],
     "tags": []
   },
@@ -26850,7 +28376,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang"
+      "entertainment-hobbies-chặng-9"
     ],
     "tags": []
   },
@@ -26865,7 +28391,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang"
+      "entertainment-hobbies-chặng-9"
     ],
     "tags": []
   },
@@ -26880,7 +28406,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang"
+      "entertainment-hobbies-chặng-9"
     ],
     "tags": []
   },
@@ -26895,7 +28421,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-6-the-thao-ca-nhan-oi-khang"
+      "entertainment-hobbies-chặng-9"
     ],
     "tags": []
   },
@@ -26910,7 +28436,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-7-nhiep-anh-quay-phim"
+      "entertainment-hobbies-chặng-9"
     ],
     "tags": []
   },
@@ -26925,7 +28451,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-7-nhiep-anh-quay-phim"
+      "entertainment-hobbies-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-96"
     ],
     "tags": []
   },
@@ -26940,7 +28468,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-7-nhiep-anh-quay-phim"
+      "entertainment-hobbies-chặng-9"
     ],
     "tags": []
   },
@@ -26955,7 +28483,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-7-nhiep-anh-quay-phim"
+      "entertainment-hobbies-chặng-10"
     ],
     "tags": []
   },
@@ -26970,7 +28498,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-7-nhiep-anh-quay-phim"
+      "entertainment-hobbies-chặng-10"
     ],
     "tags": []
   },
@@ -26985,7 +28513,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "entertainment-hobbies-7-nhiep-anh-quay-phim"
+      "entertainment-hobbies-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-33"
     ],
     "tags": []
   },
@@ -27000,7 +28530,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-7-nhiep-anh-quay-phim"
+      "entertainment-hobbies-chặng-10"
     ],
     "tags": []
   },
@@ -27015,7 +28545,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-7-nhiep-anh-quay-phim"
+      "entertainment-hobbies-chặng-10"
     ],
     "tags": []
   },
@@ -27030,7 +28560,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "entertainment-hobbies-7-nhiep-anh-quay-phim"
+      "entertainment-hobbies-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-26"
     ],
     "tags": []
   },
@@ -27045,7 +28577,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-7-nhiep-anh-quay-phim"
+      "entertainment-hobbies-chặng-10"
     ],
     "tags": []
   },
@@ -27060,7 +28592,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-7-nhiep-anh-quay-phim"
+      "entertainment-hobbies-chặng-10"
     ],
     "tags": []
   },
@@ -27075,7 +28607,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-7-nhiep-anh-quay-phim"
+      "entertainment-hobbies-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-96"
     ],
     "tags": []
   },
@@ -27090,7 +28624,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-7-nhiep-anh-quay-phim"
+      "entertainment-hobbies-chặng-10"
     ],
     "tags": []
   },
@@ -27105,8 +28639,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-7-nhiep-anh-quay-phim",
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "entertainment-hobbies-chặng-11"
     ],
     "tags": []
   },
@@ -27121,7 +28654,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-96"
     ],
     "tags": []
   },
@@ -27136,7 +28671,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-96"
     ],
     "tags": []
   },
@@ -27151,7 +28688,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-11"
     ],
     "tags": []
   },
@@ -27166,7 +28703,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-11"
     ],
     "tags": []
   },
@@ -27181,7 +28718,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-11"
     ],
     "tags": []
   },
@@ -27196,7 +28733,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-11"
     ],
     "tags": []
   },
@@ -27211,7 +28748,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-11"
     ],
     "tags": []
   },
@@ -27226,7 +28763,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-11"
     ],
     "tags": []
   },
@@ -27241,7 +28778,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-11"
     ],
     "tags": []
   },
@@ -27256,7 +28793,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-12"
     ],
     "tags": []
   },
@@ -27271,7 +28808,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-12"
     ],
     "tags": []
   },
@@ -27286,7 +28823,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-12"
     ],
     "tags": []
   },
@@ -27301,7 +28838,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-12"
     ],
     "tags": []
   },
@@ -27316,7 +28853,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-12"
     ],
     "tags": []
   },
@@ -27331,7 +28868,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-8-nghe-thuat-thi-giac-thu-cong"
+      "entertainment-hobbies-chặng-12"
     ],
     "tags": []
   },
@@ -27346,7 +28883,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "entertainment-hobbies-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-83"
     ],
     "tags": []
   },
@@ -27361,7 +28900,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "entertainment-hobbies-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-96"
     ],
     "tags": []
   },
@@ -27376,7 +28917,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "entertainment-hobbies-chặng-12"
     ],
     "tags": []
   },
@@ -27391,7 +28932,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "entertainment-hobbies-chặng-12"
     ],
     "tags": []
   },
@@ -27406,7 +28947,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "entertainment-hobbies-chặng-13"
     ],
     "tags": []
   },
@@ -27421,7 +28962,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "entertainment-hobbies-chặng-13"
     ],
     "tags": []
   },
@@ -27436,7 +28977,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "entertainment-hobbies-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-96"
     ],
     "tags": []
   },
@@ -27451,7 +28994,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "entertainment-hobbies-chặng-13"
     ],
     "tags": []
   },
@@ -27466,7 +29009,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "entertainment-hobbies-chặng-13"
     ],
     "tags": []
   },
@@ -27481,7 +29024,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "entertainment-hobbies-chặng-13"
     ],
     "tags": []
   },
@@ -27496,7 +29039,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "entertainment-hobbies-chặng-13"
     ],
     "tags": []
   },
@@ -27511,7 +29054,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "entertainment-hobbies-chặng-13"
     ],
     "tags": []
   },
@@ -27526,7 +29069,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-9-khieu-vu-san-khau-kich-nghe"
+      "entertainment-hobbies-chặng-13"
     ],
     "tags": []
   },
@@ -27541,7 +29084,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "entertainment-hobbies-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-96"
     ],
     "tags": []
   },
@@ -27556,7 +29101,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "entertainment-hobbies-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-96"
     ],
     "tags": []
   },
@@ -27571,7 +29118,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "entertainment-hobbies-chặng-14"
     ],
     "tags": []
   },
@@ -27586,7 +29133,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "entertainment-hobbies-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-97"
     ],
     "tags": []
   },
@@ -27601,7 +29150,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "entertainment-hobbies-chặng-14"
     ],
     "tags": []
   },
@@ -27616,7 +29165,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "entertainment-hobbies-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-26"
     ],
     "tags": []
   },
@@ -27631,7 +29182,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "entertainment-hobbies-chặng-14"
     ],
     "tags": []
   },
@@ -27646,7 +29197,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "entertainment-hobbies-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-97"
     ],
     "tags": []
   },
@@ -27661,7 +29214,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "entertainment-hobbies-chặng-14"
     ],
     "tags": []
   },
@@ -27676,7 +29229,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "entertainment-hobbies-chặng-14"
     ],
     "tags": []
   },
@@ -27691,7 +29244,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "entertainment-hobbies-chặng-14"
     ],
     "tags": []
   },
@@ -27706,7 +29259,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "entertainment-hobbies-chặng-15"
     ],
     "tags": []
   },
@@ -27721,7 +29274,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "entertainment-hobbies-chặng-15",
+      "top-1000-core",
+      "top-1000-core-chặng-26"
     ],
     "tags": []
   },
@@ -27736,7 +29291,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "entertainment-hobbies-10-giai-tri-ngoai-troi-thu-tieu-khien"
+      "entertainment-hobbies-chặng-15"
     ],
     "tags": []
   },
@@ -27751,7 +29306,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-89"
     ],
     "tags": []
   },
@@ -27766,7 +29323,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-89"
     ],
     "tags": []
   },
@@ -27781,7 +29340,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-90"
     ],
     "tags": []
   },
@@ -27796,7 +29357,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-90"
     ],
     "tags": []
   },
@@ -27811,7 +29374,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-1"
     ],
     "tags": []
   },
@@ -27826,7 +29389,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-1"
     ],
     "tags": []
   },
@@ -27841,7 +29404,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-1"
     ],
     "tags": []
   },
@@ -27856,7 +29419,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-1"
     ],
     "tags": []
   },
@@ -27871,7 +29434,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-1"
     ],
     "tags": []
   },
@@ -27886,7 +29449,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-1"
     ],
     "tags": []
   },
@@ -27901,7 +29464,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-2"
     ],
     "tags": []
   },
@@ -27916,7 +29479,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-90"
     ],
     "tags": []
   },
@@ -27931,7 +29496,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-2"
     ],
     "tags": []
   },
@@ -27946,7 +29511,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-2"
     ],
     "tags": []
   },
@@ -27961,7 +29526,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-1-may-tinh-phan-cung-hardware"
+      "technology-internet-chặng-2"
     ],
     "tags": []
   },
@@ -27976,7 +29541,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-2"
     ],
     "tags": []
   },
@@ -27991,7 +29556,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-2"
     ],
     "tags": []
   },
@@ -28006,7 +29571,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-2"
     ],
     "tags": []
   },
@@ -28021,7 +29586,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-2"
     ],
     "tags": []
   },
@@ -28036,7 +29601,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-26"
     ],
     "tags": []
   },
@@ -28051,7 +29618,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-33"
     ],
     "tags": []
   },
@@ -28066,7 +29635,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-26"
     ],
     "tags": []
   },
@@ -28081,7 +29652,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-3"
     ],
     "tags": []
   },
@@ -28096,7 +29667,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-26"
     ],
     "tags": []
   },
@@ -28111,7 +29684,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-3"
     ],
     "tags": []
   },
@@ -28126,7 +29699,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-3"
     ],
     "tags": []
   },
@@ -28141,7 +29714,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-90"
     ],
     "tags": []
   },
@@ -28156,7 +29731,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-33"
     ],
     "tags": []
   },
@@ -28171,7 +29748,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-3"
     ],
     "tags": []
   },
@@ -28186,7 +29763,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-2-phan-mem-ung-dung-software"
+      "technology-internet-chặng-3"
     ],
     "tags": []
   },
@@ -28201,7 +29778,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-90"
     ],
     "tags": []
   },
@@ -28216,7 +29795,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-90"
     ],
     "tags": []
   },
@@ -28231,7 +29812,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-4"
     ],
     "tags": []
   },
@@ -28246,7 +29827,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-4"
     ],
     "tags": []
   },
@@ -28261,7 +29842,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-4"
     ],
     "tags": []
   },
@@ -28276,7 +29857,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-26"
     ],
     "tags": []
   },
@@ -28291,7 +29874,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-27"
     ],
     "tags": []
   },
@@ -28306,7 +29891,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-90"
     ],
     "tags": []
   },
@@ -28321,7 +29908,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adjective",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-84"
     ],
     "tags": []
   },
@@ -28336,7 +29925,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-90"
     ],
     "tags": []
   },
@@ -28351,7 +29942,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-5"
     ],
     "tags": []
   },
@@ -28366,7 +29957,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-5"
     ],
     "tags": []
   },
@@ -28381,7 +29972,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-5"
     ],
     "tags": []
   },
@@ -28396,7 +29987,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-5"
     ],
     "tags": []
   },
@@ -28411,7 +30002,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-3-mang-internet-ket-noi"
+      "technology-internet-chặng-5"
     ],
     "tags": []
   },
@@ -28426,7 +30017,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "technology-internet-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-90"
     ],
     "tags": []
   },
@@ -28441,7 +30034,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "technology-internet-chặng-5"
     ],
     "tags": []
   },
@@ -28456,7 +30049,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "technology-internet-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-90"
     ],
     "tags": []
   },
@@ -28471,7 +30066,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "technology-internet-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-91"
     ],
     "tags": []
   },
@@ -28486,7 +30083,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "technology-internet-chặng-5"
     ],
     "tags": []
   },
@@ -28501,7 +30098,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "technology-internet-chặng-6"
     ],
     "tags": []
   },
@@ -28516,7 +30113,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "technology-internet-chặng-6"
     ],
     "tags": []
   },
@@ -28531,7 +30128,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "technology-internet-chặng-6"
     ],
     "tags": []
   },
@@ -28546,7 +30143,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "technology-internet-chặng-6"
     ],
     "tags": []
   },
@@ -28561,7 +30158,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "technology-internet-chặng-6"
     ],
     "tags": []
   },
@@ -28576,7 +30173,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "technology-internet-chặng-6"
     ],
     "tags": []
   },
@@ -28591,7 +30188,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "technology-internet-chặng-6"
     ],
     "tags": []
   },
@@ -28606,7 +30203,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-4-ien-thoai-thong-minh-thiet-bi-di-ong"
+      "technology-internet-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-27"
     ],
     "tags": []
   },
@@ -28621,7 +30220,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-6"
     ],
     "tags": []
   },
@@ -28636,7 +30235,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-6"
     ],
     "tags": []
   },
@@ -28651,7 +30250,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-16"
     ],
     "tags": []
   },
@@ -28666,7 +30267,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-16"
     ],
     "tags": []
   },
@@ -28681,7 +30284,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-7"
     ],
     "tags": []
   },
@@ -28696,7 +30299,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-7"
     ],
     "tags": []
   },
@@ -28711,7 +30314,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-27"
     ],
     "tags": []
   },
@@ -28726,7 +30331,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-7"
     ],
     "tags": []
   },
@@ -28741,7 +30346,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-7"
     ],
     "tags": []
   },
@@ -28756,7 +30361,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-7"
     ],
     "tags": []
   },
@@ -28771,7 +30376,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-7"
     ],
     "tags": []
   },
@@ -28786,7 +30391,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-7"
     ],
     "tags": []
   },
@@ -28801,7 +30406,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-27"
     ],
     "tags": []
   },
@@ -28816,7 +30423,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-8"
     ],
     "tags": []
   },
@@ -28831,7 +30438,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-5-mang-xa-hoi-truyen-thong-truc-tuyen"
+      "technology-internet-chặng-8"
     ],
     "tags": []
   },
@@ -28846,7 +30453,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "technology-internet-chặng-8"
     ],
     "tags": []
   },
@@ -28861,7 +30468,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "technology-internet-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-91"
     ],
     "tags": []
   },
@@ -28876,7 +30485,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "technology-internet-chặng-8"
     ],
     "tags": []
   },
@@ -28891,7 +30500,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "technology-internet-chặng-8"
     ],
     "tags": []
   },
@@ -28906,7 +30515,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "technology-internet-chặng-8"
     ],
     "tags": []
   },
@@ -28921,7 +30530,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "technology-internet-chặng-8"
     ],
     "tags": []
   },
@@ -28936,7 +30545,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "technology-internet-chặng-8"
     ],
     "tags": []
   },
@@ -28951,7 +30560,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "technology-internet-chặng-9"
     ],
     "tags": []
   },
@@ -28966,7 +30575,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "technology-internet-chặng-9"
     ],
     "tags": []
   },
@@ -28981,7 +30590,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "technology-internet-chặng-9"
     ],
     "tags": []
   },
@@ -28996,7 +30605,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "technology-internet-chặng-9"
     ],
     "tags": []
   },
@@ -29011,7 +30620,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "technology-internet-chặng-9"
     ],
     "tags": []
   },
@@ -29026,7 +30635,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "technology-internet-chặng-9"
     ],
     "tags": []
   },
@@ -29041,7 +30650,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "technology-internet-6-an-ninh-mang-quyen-rieng-tu"
+      "technology-internet-chặng-9"
     ],
     "tags": []
   },
@@ -29056,7 +30665,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-7-ien-toan-am-may-du-lieu"
+      "technology-internet-chặng-9"
     ],
     "tags": []
   },
@@ -29071,7 +30680,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-7-ien-toan-am-may-du-lieu"
+      "technology-internet-chặng-9"
     ],
     "tags": []
   },
@@ -29086,7 +30695,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-7-ien-toan-am-may-du-lieu"
+      "technology-internet-chặng-9"
     ],
     "tags": []
   },
@@ -29101,7 +30710,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-7-ien-toan-am-may-du-lieu"
+      "technology-internet-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-27"
     ],
     "tags": []
   },
@@ -29116,7 +30727,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-7-ien-toan-am-may-du-lieu"
+      "technology-internet-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-84"
     ],
     "tags": []
   },
@@ -29131,7 +30744,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-7-ien-toan-am-may-du-lieu"
+      "technology-internet-chặng-10"
     ],
     "tags": []
   },
@@ -29146,8 +30759,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-7-ien-toan-am-may-du-lieu",
-      "nature-weather-5-chim-choc-sinh-vat-bien"
+      "technology-internet-chặng-10"
     ],
     "tags": []
   },
@@ -29162,7 +30774,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-7-ien-toan-am-may-du-lieu"
+      "technology-internet-chặng-10"
     ],
     "tags": []
   },
@@ -29177,7 +30789,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-7-ien-toan-am-may-du-lieu"
+      "technology-internet-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-33"
     ],
     "tags": []
   },
@@ -29192,8 +30806,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-7-ien-toan-am-may-du-lieu",
-      "society-world-5-kinh-te-toan-cau-thuong-mai-quoc-te"
+      "technology-internet-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-27"
     ],
     "tags": []
   },
@@ -29208,8 +30823,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-7-ien-toan-am-may-du-lieu",
-      "society-world-5-kinh-te-toan-cau-thuong-mai-quoc-te"
+      "technology-internet-chặng-10",
+      "top-1000-core",
+      "top-1000-core-chặng-27"
     ],
     "tags": []
   },
@@ -29224,7 +30840,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-7-ien-toan-am-may-du-lieu"
+      "technology-internet-chặng-10"
     ],
     "tags": []
   },
@@ -29239,7 +30855,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-7-ien-toan-am-may-du-lieu"
+      "technology-internet-chặng-10"
     ],
     "tags": []
   },
@@ -29254,7 +30870,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-7-ien-toan-am-may-du-lieu"
+      "technology-internet-chặng-11"
     ],
     "tags": []
   },
@@ -29269,7 +30885,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-11"
     ],
     "tags": []
   },
@@ -29284,7 +30900,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-11"
     ],
     "tags": []
   },
@@ -29299,7 +30915,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-11"
     ],
     "tags": []
   },
@@ -29314,7 +30930,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-11"
     ],
     "tags": []
   },
@@ -29329,7 +30945,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-11",
+      "top-1000-core",
+      "top-1000-core-chặng-91"
     ],
     "tags": []
   },
@@ -29344,7 +30962,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-11"
     ],
     "tags": []
   },
@@ -29359,7 +30977,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-11"
     ],
     "tags": []
   },
@@ -29374,7 +30992,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-11"
     ],
     "tags": []
   },
@@ -29389,7 +31007,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-11"
     ],
     "tags": []
   },
@@ -29404,7 +31022,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-12"
     ],
     "tags": []
   },
@@ -29419,7 +31037,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-12"
     ],
     "tags": []
   },
@@ -29434,7 +31052,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-12"
     ],
     "tags": []
   },
@@ -29449,7 +31067,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-12"
     ],
     "tags": []
   },
@@ -29464,7 +31082,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-12"
     ],
     "tags": []
   },
@@ -29479,7 +31097,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-8-tri-tue-nhan-tao-ai-cong-nghe-moi"
+      "technology-internet-chặng-12"
     ],
     "tags": []
   },
@@ -29494,7 +31112,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem"
+      "technology-internet-chặng-12"
     ],
     "tags": []
   },
@@ -29509,7 +31127,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem"
+      "technology-internet-chặng-12"
     ],
     "tags": []
   },
@@ -29524,7 +31142,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem"
+      "technology-internet-chặng-12"
     ],
     "tags": []
   },
@@ -29539,8 +31157,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem",
-      "society-world-1-at-nuoc-quoc-tich-ngon-ngu"
+      "technology-internet-chặng-12",
+      "top-1000-core",
+      "top-1000-core-chặng-91"
     ],
     "tags": []
   },
@@ -29555,7 +31174,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem"
+      "technology-internet-chặng-13"
     ],
     "tags": []
   },
@@ -29570,7 +31189,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem"
+      "technology-internet-chặng-13"
     ],
     "tags": []
   },
@@ -29585,7 +31204,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem"
+      "technology-internet-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-33"
     ],
     "tags": []
   },
@@ -29600,7 +31221,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem"
+      "technology-internet-chặng-13"
     ],
     "tags": []
   },
@@ -29615,7 +31236,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem"
+      "technology-internet-chặng-13"
     ],
     "tags": []
   },
@@ -29630,7 +31251,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem"
+      "technology-internet-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-33"
     ],
     "tags": []
   },
@@ -29645,7 +31268,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem"
+      "technology-internet-chặng-13"
     ],
     "tags": []
   },
@@ -29660,7 +31283,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem"
+      "technology-internet-chặng-13"
     ],
     "tags": []
   },
@@ -29675,7 +31298,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem"
+      "technology-internet-chặng-13"
     ],
     "tags": []
   },
@@ -29690,7 +31313,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem"
+      "technology-internet-chặng-13",
+      "top-1000-core",
+      "top-1000-core-chặng-84"
     ],
     "tags": []
   },
@@ -29705,7 +31330,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "technology-internet-9-lap-trinh-phat-trien-phan-mem"
+      "technology-internet-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-33"
     ],
     "tags": []
   },
@@ -29720,7 +31347,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe"
+      "technology-internet-chặng-14"
     ],
     "tags": []
   },
@@ -29735,7 +31362,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe"
+      "technology-internet-chặng-14"
     ],
     "tags": []
   },
@@ -29750,7 +31377,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "adjective",
     "topicIds": [
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe"
+      "technology-internet-chặng-14",
+      "top-1000-core",
+      "top-1000-core-chặng-91"
     ],
     "tags": []
   },
@@ -29765,7 +31394,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe"
+      "technology-internet-chặng-14"
     ],
     "tags": []
   },
@@ -29780,7 +31409,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe"
+      "technology-internet-chặng-14"
     ],
     "tags": []
   },
@@ -29795,7 +31424,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe"
+      "technology-internet-chặng-14"
     ],
     "tags": []
   },
@@ -29810,7 +31439,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe"
+      "technology-internet-chặng-14"
     ],
     "tags": []
   },
@@ -29825,7 +31454,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe"
+      "technology-internet-chặng-14"
     ],
     "tags": []
   },
@@ -29840,7 +31469,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe"
+      "technology-internet-chặng-14"
     ],
     "tags": []
   },
@@ -29855,7 +31484,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe"
+      "technology-internet-chặng-15"
     ],
     "tags": []
   },
@@ -29870,8 +31499,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe",
-      "toeic-b1-15-au-tu-tang-truong"
+      "technology-internet-chặng-15"
     ],
     "tags": []
   },
@@ -29886,7 +31514,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe"
+      "technology-internet-chặng-15"
     ],
     "tags": []
   },
@@ -29901,7 +31529,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe"
+      "technology-internet-chặng-15"
     ],
     "tags": []
   },
@@ -29916,7 +31544,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "technology-internet-10-thuong-mai-so-oi-moi-cong-nghe"
+      "technology-internet-chặng-15"
     ],
     "tags": []
   },
@@ -29931,7 +31559,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-1-thoi-tiet-nhiet-o"
+      "nature-weather-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-97"
     ],
     "tags": []
   },
@@ -29946,7 +31576,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adjective",
     "topicIds": [
-      "nature-weather-1-thoi-tiet-nhiet-o"
+      "nature-weather-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-91"
     ],
     "tags": []
   },
@@ -29961,7 +31593,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adjective",
     "topicIds": [
-      "nature-weather-1-thoi-tiet-nhiet-o"
+      "nature-weather-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-91"
     ],
     "tags": []
   },
@@ -29976,7 +31610,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adjective",
     "topicIds": [
-      "nature-weather-1-thoi-tiet-nhiet-o"
+      "nature-weather-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-91"
     ],
     "tags": []
   },
@@ -29991,7 +31627,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "adjective",
     "topicIds": [
-      "nature-weather-1-thoi-tiet-nhiet-o"
+      "nature-weather-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-92"
     ],
     "tags": []
   },
@@ -30006,7 +31644,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-1-thoi-tiet-nhiet-o"
+      "nature-weather-chặng-1"
     ],
     "tags": []
   },
@@ -30021,7 +31659,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-1-thoi-tiet-nhiet-o"
+      "nature-weather-chặng-1"
     ],
     "tags": []
   },
@@ -30036,7 +31674,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-1-thoi-tiet-nhiet-o"
+      "nature-weather-chặng-1"
     ],
     "tags": []
   },
@@ -30051,7 +31689,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-1-thoi-tiet-nhiet-o"
+      "nature-weather-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-97"
     ],
     "tags": []
   },
@@ -30066,7 +31706,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-1-thoi-tiet-nhiet-o"
+      "nature-weather-chặng-1"
     ],
     "tags": []
   },
@@ -30081,7 +31721,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-2-bon-mua-trong-nam"
+      "nature-weather-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-97"
     ],
     "tags": []
   },
@@ -30096,8 +31738,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-2-bon-mua-trong-nam",
-      "nature-weather-7-song-ho-ai-duong"
+      "nature-weather-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-97"
     ],
     "tags": []
   },
@@ -30112,7 +31755,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-2-bon-mua-trong-nam"
+      "nature-weather-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-97"
     ],
     "tags": []
   },
@@ -30127,7 +31772,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-2-bon-mua-trong-nam"
+      "nature-weather-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-97"
     ],
     "tags": []
   },
@@ -30142,7 +31789,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-2-bon-mua-trong-nam"
+      "nature-weather-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-97"
     ],
     "tags": []
   },
@@ -30157,7 +31806,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-2-bon-mua-trong-nam"
+      "nature-weather-chặng-2"
     ],
     "tags": []
   },
@@ -30172,7 +31821,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "nature-weather-2-bon-mua-trong-nam"
+      "nature-weather-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-27"
     ],
     "tags": []
   },
@@ -30187,7 +31838,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-2-bon-mua-trong-nam"
+      "nature-weather-chặng-2"
     ],
     "tags": []
   },
@@ -30202,7 +31853,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "nature-weather-2-bon-mua-trong-nam"
+      "nature-weather-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-33"
     ],
     "tags": []
   },
@@ -30217,7 +31870,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-2-bon-mua-trong-nam"
+      "nature-weather-chặng-2"
     ],
     "tags": []
   },
@@ -30232,7 +31885,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-3-thien-tai-hien-tuong-cuc-oan"
+      "nature-weather-chặng-3"
     ],
     "tags": []
   },
@@ -30247,7 +31900,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-3-thien-tai-hien-tuong-cuc-oan"
+      "nature-weather-chặng-3"
     ],
     "tags": []
   },
@@ -30262,7 +31915,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-3-thien-tai-hien-tuong-cuc-oan"
+      "nature-weather-chặng-3"
     ],
     "tags": []
   },
@@ -30277,7 +31930,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-3-thien-tai-hien-tuong-cuc-oan"
+      "nature-weather-chặng-3"
     ],
     "tags": []
   },
@@ -30292,7 +31945,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-3-thien-tai-hien-tuong-cuc-oan"
+      "nature-weather-chặng-3"
     ],
     "tags": []
   },
@@ -30307,7 +31960,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-3-thien-tai-hien-tuong-cuc-oan"
+      "nature-weather-chặng-3"
     ],
     "tags": []
   },
@@ -30322,7 +31975,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-3-thien-tai-hien-tuong-cuc-oan"
+      "nature-weather-chặng-3"
     ],
     "tags": []
   },
@@ -30337,7 +31990,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-3-thien-tai-hien-tuong-cuc-oan"
+      "nature-weather-chặng-3"
     ],
     "tags": []
   },
@@ -30352,7 +32005,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-3-thien-tai-hien-tuong-cuc-oan"
+      "nature-weather-chặng-3"
     ],
     "tags": []
   },
@@ -30367,7 +32020,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-3-thien-tai-hien-tuong-cuc-oan"
+      "nature-weather-chặng-3"
     ],
     "tags": []
   },
@@ -30382,7 +32035,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-4-ong-vat-hoang-da-thu-cung"
+      "nature-weather-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-97"
     ],
     "tags": []
   },
@@ -30397,7 +32052,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-4-ong-vat-hoang-da-thu-cung"
+      "nature-weather-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-98"
     ],
     "tags": []
   },
@@ -30412,7 +32069,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-4-ong-vat-hoang-da-thu-cung"
+      "nature-weather-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-98"
     ],
     "tags": []
   },
@@ -30427,7 +32086,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-4-ong-vat-hoang-da-thu-cung"
+      "nature-weather-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-98"
     ],
     "tags": []
   },
@@ -30442,7 +32103,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-4-ong-vat-hoang-da-thu-cung"
+      "nature-weather-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-98"
     ],
     "tags": []
   },
@@ -30457,7 +32120,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-4-ong-vat-hoang-da-thu-cung"
+      "nature-weather-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-98"
     ],
     "tags": []
   },
@@ -30472,7 +32137,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-4-ong-vat-hoang-da-thu-cung"
+      "nature-weather-chặng-4"
     ],
     "tags": []
   },
@@ -30487,7 +32152,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-4-ong-vat-hoang-da-thu-cung"
+      "nature-weather-chặng-4"
     ],
     "tags": []
   },
@@ -30502,7 +32167,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-4-ong-vat-hoang-da-thu-cung"
+      "nature-weather-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-83"
     ],
     "tags": []
   },
@@ -30517,7 +32184,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-4-ong-vat-hoang-da-thu-cung"
+      "nature-weather-chặng-4"
     ],
     "tags": []
   },
@@ -30532,7 +32199,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-5-chim-choc-sinh-vat-bien"
+      "nature-weather-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-98"
     ],
     "tags": []
   },
@@ -30547,7 +32216,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-5-chim-choc-sinh-vat-bien"
+      "nature-weather-chặng-5"
     ],
     "tags": []
   },
@@ -30562,7 +32231,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-5-chim-choc-sinh-vat-bien"
+      "nature-weather-chặng-5"
     ],
     "tags": []
   },
@@ -30577,7 +32246,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-5-chim-choc-sinh-vat-bien"
+      "nature-weather-chặng-5"
     ],
     "tags": []
   },
@@ -30592,7 +32261,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-5-chim-choc-sinh-vat-bien"
+      "nature-weather-chặng-5"
     ],
     "tags": []
   },
@@ -30607,7 +32276,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-5-chim-choc-sinh-vat-bien"
+      "nature-weather-chặng-5"
     ],
     "tags": []
   },
@@ -30622,7 +32291,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-5-chim-choc-sinh-vat-bien"
+      "nature-weather-chặng-5"
     ],
     "tags": []
   },
@@ -30637,7 +32306,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-5-chim-choc-sinh-vat-bien"
+      "nature-weather-chặng-5"
     ],
     "tags": []
   },
@@ -30652,7 +32321,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-5-chim-choc-sinh-vat-bien"
+      "nature-weather-chặng-5"
     ],
     "tags": []
   },
@@ -30667,7 +32336,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-6-cay-coi-rung-hoa-la"
+      "nature-weather-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-98"
     ],
     "tags": []
   },
@@ -30682,7 +32353,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-6-cay-coi-rung-hoa-la"
+      "nature-weather-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-98"
     ],
     "tags": []
   },
@@ -30697,7 +32370,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-6-cay-coi-rung-hoa-la"
+      "nature-weather-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-98"
     ],
     "tags": []
   },
@@ -30712,7 +32387,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-6-cay-coi-rung-hoa-la"
+      "nature-weather-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-98"
     ],
     "tags": []
   },
@@ -30727,7 +32404,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-6-cay-coi-rung-hoa-la"
+      "nature-weather-chặng-6"
     ],
     "tags": []
   },
@@ -30742,7 +32419,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-6-cay-coi-rung-hoa-la"
+      "nature-weather-chặng-6"
     ],
     "tags": []
   },
@@ -30757,7 +32434,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-6-cay-coi-rung-hoa-la"
+      "nature-weather-chặng-6"
     ],
     "tags": []
   },
@@ -30772,7 +32449,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-6-cay-coi-rung-hoa-la"
+      "nature-weather-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-99"
     ],
     "tags": []
   },
@@ -30787,7 +32466,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-6-cay-coi-rung-hoa-la"
+      "nature-weather-chặng-6"
     ],
     "tags": []
   },
@@ -30802,7 +32481,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-7-song-ho-ai-duong"
+      "nature-weather-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-99"
     ],
     "tags": []
   },
@@ -30817,7 +32498,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-7-song-ho-ai-duong"
+      "nature-weather-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-99"
     ],
     "tags": []
   },
@@ -30832,7 +32515,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-7-song-ho-ai-duong"
+      "nature-weather-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-99"
     ],
     "tags": []
   },
@@ -30847,7 +32532,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-7-song-ho-ai-duong"
+      "nature-weather-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-99"
     ],
     "tags": []
   },
@@ -30862,7 +32549,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-7-song-ho-ai-duong"
+      "nature-weather-chặng-7"
     ],
     "tags": []
   },
@@ -30877,7 +32564,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-7-song-ho-ai-duong"
+      "nature-weather-chặng-7"
     ],
     "tags": []
   },
@@ -30892,7 +32579,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-7-song-ho-ai-duong"
+      "nature-weather-chặng-7"
     ],
     "tags": []
   },
@@ -30907,7 +32594,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-7-song-ho-ai-duong"
+      "nature-weather-chặng-7"
     ],
     "tags": []
   },
@@ -30922,7 +32609,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-7-song-ho-ai-duong"
+      "nature-weather-chặng-7"
     ],
     "tags": []
   },
@@ -30937,7 +32624,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-8-ia-hinh-canh-quan-trai-at"
+      "nature-weather-chặng-7"
     ],
     "tags": []
   },
@@ -30952,7 +32639,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-8-ia-hinh-canh-quan-trai-at"
+      "nature-weather-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-99"
     ],
     "tags": []
   },
@@ -30967,7 +32656,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-8-ia-hinh-canh-quan-trai-at"
+      "nature-weather-chặng-7"
     ],
     "tags": []
   },
@@ -30982,7 +32671,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-8-ia-hinh-canh-quan-trai-at"
+      "nature-weather-chặng-8"
     ],
     "tags": []
   },
@@ -30997,7 +32686,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-8-ia-hinh-canh-quan-trai-at"
+      "nature-weather-chặng-8"
     ],
     "tags": []
   },
@@ -31012,7 +32701,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-8-ia-hinh-canh-quan-trai-at"
+      "nature-weather-chặng-8"
     ],
     "tags": []
   },
@@ -31027,7 +32716,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-8-ia-hinh-canh-quan-trai-at"
+      "nature-weather-chặng-8"
     ],
     "tags": []
   },
@@ -31042,7 +32731,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-8-ia-hinh-canh-quan-trai-at"
+      "nature-weather-chặng-8"
     ],
     "tags": []
   },
@@ -31057,7 +32746,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-8-ia-hinh-canh-quan-trai-at"
+      "nature-weather-chặng-8"
     ],
     "tags": []
   },
@@ -31072,7 +32761,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "nature-weather-8-ia-hinh-canh-quan-trai-at"
+      "nature-weather-chặng-8"
     ],
     "tags": []
   },
@@ -31087,7 +32776,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-9-vu-tru-mat-troi-bau-troi"
+      "nature-weather-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-99"
     ],
     "tags": []
   },
@@ -31102,7 +32793,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-9-vu-tru-mat-troi-bau-troi"
+      "nature-weather-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-99"
     ],
     "tags": []
   },
@@ -31117,7 +32810,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-9-vu-tru-mat-troi-bau-troi"
+      "nature-weather-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-65"
     ],
     "tags": []
   },
@@ -31132,7 +32827,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-9-vu-tru-mat-troi-bau-troi"
+      "nature-weather-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-99"
     ],
     "tags": []
   },
@@ -31147,7 +32844,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-9-vu-tru-mat-troi-bau-troi"
+      "nature-weather-chặng-9"
     ],
     "tags": []
   },
@@ -31162,7 +32859,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-9-vu-tru-mat-troi-bau-troi"
+      "nature-weather-chặng-9"
     ],
     "tags": []
   },
@@ -31177,7 +32874,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-9-vu-tru-mat-troi-bau-troi"
+      "nature-weather-chặng-9"
     ],
     "tags": []
   },
@@ -31192,7 +32889,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-9-vu-tru-mat-troi-bau-troi"
+      "nature-weather-chặng-9"
     ],
     "tags": []
   },
@@ -31207,7 +32904,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-9-vu-tru-mat-troi-bau-troi"
+      "nature-weather-chặng-9"
     ],
     "tags": []
   },
@@ -31222,7 +32919,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-9-vu-tru-mat-troi-bau-troi"
+      "nature-weather-chặng-9"
     ],
     "tags": []
   },
@@ -31237,7 +32934,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-10-moi-truong-bien-oi-khi-hau"
+      "nature-weather-chặng-9"
     ],
     "tags": []
   },
@@ -31252,7 +32949,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-10-moi-truong-bien-oi-khi-hau"
+      "nature-weather-chặng-9"
     ],
     "tags": []
   },
@@ -31267,7 +32964,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-10-moi-truong-bien-oi-khi-hau"
+      "nature-weather-chặng-9"
     ],
     "tags": []
   },
@@ -31282,7 +32979,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-10-moi-truong-bien-oi-khi-hau"
+      "nature-weather-chặng-10"
     ],
     "tags": []
   },
@@ -31297,7 +32994,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-10-moi-truong-bien-oi-khi-hau"
+      "nature-weather-chặng-10"
     ],
     "tags": []
   },
@@ -31312,7 +33009,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-10-moi-truong-bien-oi-khi-hau"
+      "nature-weather-chặng-10"
     ],
     "tags": []
   },
@@ -31327,7 +33024,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-10-moi-truong-bien-oi-khi-hau"
+      "nature-weather-chặng-10"
     ],
     "tags": []
   },
@@ -31342,7 +33039,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-10-moi-truong-bien-oi-khi-hau"
+      "nature-weather-chặng-10"
     ],
     "tags": []
   },
@@ -31357,7 +33054,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "nature-weather-10-moi-truong-bien-oi-khi-hau"
+      "nature-weather-chặng-10"
     ],
     "tags": []
   },
@@ -31372,7 +33069,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "society-world-1-at-nuoc-quoc-tich-ngon-ngu"
+      "society-world-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-99"
     ],
     "tags": []
   },
@@ -31387,7 +33086,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-1-at-nuoc-quoc-tich-ngon-ngu"
+      "society-world-chặng-1"
     ],
     "tags": []
   },
@@ -31402,7 +33101,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "society-world-1-at-nuoc-quoc-tich-ngon-ngu"
+      "society-world-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-100"
     ],
     "tags": []
   },
@@ -31417,7 +33118,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-1-at-nuoc-quoc-tich-ngon-ngu"
+      "society-world-chặng-1"
     ],
     "tags": []
   },
@@ -31432,7 +33133,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "society-world-1-at-nuoc-quoc-tich-ngon-ngu"
+      "society-world-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-100"
     ],
     "tags": []
   },
@@ -31447,7 +33150,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-1-at-nuoc-quoc-tich-ngon-ngu"
+      "society-world-chặng-1"
     ],
     "tags": []
   },
@@ -31462,7 +33165,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-1-at-nuoc-quoc-tich-ngon-ngu"
+      "society-world-chặng-1"
     ],
     "tags": []
   },
@@ -31477,7 +33180,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-1-at-nuoc-quoc-tich-ngon-ngu"
+      "society-world-chặng-1"
     ],
     "tags": []
   },
@@ -31492,7 +33195,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-1-at-nuoc-quoc-tich-ngon-ngu"
+      "society-world-chặng-1"
     ],
     "tags": []
   },
@@ -31507,7 +33210,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-2-chinh-phu-phap-luat-nha-nuoc"
+      "society-world-chặng-1"
     ],
     "tags": []
   },
@@ -31522,7 +33225,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "society-world-2-chinh-phu-phap-luat-nha-nuoc"
+      "society-world-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-100"
     ],
     "tags": []
   },
@@ -31537,7 +33242,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "society-world-2-chinh-phu-phap-luat-nha-nuoc"
+      "society-world-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-100"
     ],
     "tags": []
   },
@@ -31552,7 +33259,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-2-chinh-phu-phap-luat-nha-nuoc"
+      "society-world-chặng-2"
     ],
     "tags": []
   },
@@ -31567,7 +33274,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-2-chinh-phu-phap-luat-nha-nuoc"
+      "society-world-chặng-2"
     ],
     "tags": []
   },
@@ -31582,7 +33289,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-2-chinh-phu-phap-luat-nha-nuoc"
+      "society-world-chặng-2"
     ],
     "tags": []
   },
@@ -31597,7 +33304,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "society-world-2-chinh-phu-phap-luat-nha-nuoc"
+      "society-world-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-27"
     ],
     "tags": []
   },
@@ -31612,7 +33321,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-2-chinh-phu-phap-luat-nha-nuoc"
+      "society-world-chặng-2"
     ],
     "tags": []
   },
@@ -31627,7 +33336,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-2-chinh-phu-phap-luat-nha-nuoc"
+      "society-world-chặng-2"
     ],
     "tags": []
   },
@@ -31642,7 +33351,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-3-cong-ong-o-thi-nong-thon"
+      "society-world-chặng-2"
     ],
     "tags": []
   },
@@ -31657,7 +33366,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-3-cong-ong-o-thi-nong-thon"
+      "society-world-chặng-2"
     ],
     "tags": []
   },
@@ -31672,7 +33381,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "society-world-3-cong-ong-o-thi-nong-thon"
+      "society-world-chặng-3"
     ],
     "tags": []
   },
@@ -31687,7 +33396,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "society-world-3-cong-ong-o-thi-nong-thon"
+      "society-world-chặng-3"
     ],
     "tags": []
   },
@@ -31702,7 +33411,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-3-cong-ong-o-thi-nong-thon"
+      "society-world-chặng-3"
     ],
     "tags": []
   },
@@ -31717,7 +33426,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-3-cong-ong-o-thi-nong-thon"
+      "society-world-chặng-3"
     ],
     "tags": []
   },
@@ -31732,7 +33441,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-3-cong-ong-o-thi-nong-thon"
+      "society-world-chặng-3"
     ],
     "tags": []
   },
@@ -31747,7 +33456,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "society-world-3-cong-ong-o-thi-nong-thon"
+      "society-world-chặng-3"
     ],
     "tags": []
   },
@@ -31762,7 +33471,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-3-cong-ong-o-thi-nong-thon"
+      "society-world-chặng-3"
     ],
     "tags": []
   },
@@ -31777,7 +33486,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "society-world-4-tin-tuc-bao-chi-truyen-thong-ai-chung"
+      "society-world-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-100"
     ],
     "tags": []
   },
@@ -31792,7 +33503,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "society-world-4-tin-tuc-bao-chi-truyen-thong-ai-chung"
+      "society-world-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-100"
     ],
     "tags": []
   },
@@ -31807,7 +33520,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "society-world-4-tin-tuc-bao-chi-truyen-thong-ai-chung"
+      "society-world-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-27"
     ],
     "tags": []
   },
@@ -31822,7 +33537,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-4-tin-tuc-bao-chi-truyen-thong-ai-chung"
+      "society-world-chặng-4"
     ],
     "tags": []
   },
@@ -31837,7 +33552,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-4-tin-tuc-bao-chi-truyen-thong-ai-chung"
+      "society-world-chặng-4"
     ],
     "tags": []
   },
@@ -31852,7 +33567,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-4-tin-tuc-bao-chi-truyen-thong-ai-chung"
+      "society-world-chặng-4"
     ],
     "tags": []
   },
@@ -31867,7 +33582,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-4-tin-tuc-bao-chi-truyen-thong-ai-chung"
+      "society-world-chặng-4"
     ],
     "tags": []
   },
@@ -31882,7 +33597,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-4-tin-tuc-bao-chi-truyen-thong-ai-chung"
+      "society-world-chặng-4"
     ],
     "tags": []
   },
@@ -31897,7 +33612,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-5-kinh-te-toan-cau-thuong-mai-quoc-te"
+      "society-world-chặng-4"
     ],
     "tags": []
   },
@@ -31912,7 +33627,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-5-kinh-te-toan-cau-thuong-mai-quoc-te"
+      "society-world-chặng-4"
     ],
     "tags": []
   },
@@ -31927,7 +33642,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-5-kinh-te-toan-cau-thuong-mai-quoc-te"
+      "society-world-chặng-4"
     ],
     "tags": []
   },
@@ -31942,7 +33657,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-5-kinh-te-toan-cau-thuong-mai-quoc-te"
+      "society-world-chặng-4"
     ],
     "tags": []
   },
@@ -31957,7 +33672,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-5-kinh-te-toan-cau-thuong-mai-quoc-te"
+      "society-world-chặng-4"
     ],
     "tags": []
   },
@@ -31972,7 +33687,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-5-kinh-te-toan-cau-thuong-mai-quoc-te"
+      "society-world-chặng-5"
     ],
     "tags": []
   },
@@ -31987,7 +33702,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "society-world-5-kinh-te-toan-cau-thuong-mai-quoc-te"
+      "society-world-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-100"
     ],
     "tags": []
   },
@@ -32002,7 +33719,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-5-kinh-te-toan-cau-thuong-mai-quoc-te"
+      "society-world-chặng-5"
     ],
     "tags": []
   },
@@ -32017,7 +33734,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "society-world-6-hoa-binh-chien-tranh-ngoai-giao"
+      "society-world-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-100"
     ],
     "tags": []
   },
@@ -32032,7 +33751,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "society-world-6-hoa-binh-chien-tranh-ngoai-giao"
+      "society-world-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-100"
     ],
     "tags": []
   },
@@ -32047,7 +33768,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-6-hoa-binh-chien-tranh-ngoai-giao"
+      "society-world-chặng-5"
     ],
     "tags": []
   },
@@ -32062,7 +33783,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-6-hoa-binh-chien-tranh-ngoai-giao"
+      "society-world-chặng-5"
     ],
     "tags": []
   },
@@ -32077,7 +33798,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-6-hoa-binh-chien-tranh-ngoai-giao"
+      "society-world-chặng-5"
     ],
     "tags": []
   },
@@ -32092,8 +33813,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-6-hoa-binh-chien-tranh-ngoai-giao",
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "society-world-chặng-5"
     ],
     "tags": []
   },
@@ -32108,7 +33828,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-6-hoa-binh-chien-tranh-ngoai-giao"
+      "society-world-chặng-5"
     ],
     "tags": []
   },
@@ -32123,7 +33843,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-6-hoa-binh-chien-tranh-ngoai-giao"
+      "society-world-chặng-6"
     ],
     "tags": []
   },
@@ -32138,7 +33858,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-6-hoa-binh-chien-tranh-ngoai-giao"
+      "society-world-chặng-6"
     ],
     "tags": []
   },
@@ -32153,8 +33873,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-6-hoa-binh-chien-tranh-ngoai-giao",
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "society-world-chặng-6"
     ],
     "tags": []
   },
@@ -32169,7 +33888,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-7-quyen-con-nguoi-binh-ang-xa-hoi"
+      "society-world-chặng-6"
     ],
     "tags": []
   },
@@ -32184,7 +33903,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-7-quyen-con-nguoi-binh-ang-xa-hoi"
+      "society-world-chặng-6"
     ],
     "tags": []
   },
@@ -32199,7 +33918,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-7-quyen-con-nguoi-binh-ang-xa-hoi"
+      "society-world-chặng-6"
     ],
     "tags": []
   },
@@ -32214,7 +33933,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-7-quyen-con-nguoi-binh-ang-xa-hoi"
+      "society-world-chặng-6"
     ],
     "tags": []
   },
@@ -32229,7 +33948,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-7-quyen-con-nguoi-binh-ang-xa-hoi"
+      "society-world-chặng-6"
     ],
     "tags": []
   },
@@ -32244,7 +33963,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-7-quyen-con-nguoi-binh-ang-xa-hoi"
+      "society-world-chặng-6"
     ],
     "tags": []
   },
@@ -32259,7 +33978,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-7-quyen-con-nguoi-binh-ang-xa-hoi"
+      "society-world-chặng-6"
     ],
     "tags": []
   },
@@ -32274,7 +33993,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-7-quyen-con-nguoi-binh-ang-xa-hoi"
+      "society-world-chặng-7"
     ],
     "tags": []
   },
@@ -32289,7 +34008,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-7-quyen-con-nguoi-binh-ang-xa-hoi"
+      "society-world-chặng-7"
     ],
     "tags": []
   },
@@ -32304,7 +34023,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-8-ton-giao-tin-nguong-triet-hoc"
+      "society-world-chặng-7"
     ],
     "tags": []
   },
@@ -32319,7 +34038,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-8-ton-giao-tin-nguong-triet-hoc"
+      "society-world-chặng-7"
     ],
     "tags": []
   },
@@ -32334,7 +34053,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "society-world-8-ton-giao-tin-nguong-triet-hoc"
+      "society-world-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-72"
     ],
     "tags": []
   },
@@ -32349,7 +34070,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-8-ton-giao-tin-nguong-triet-hoc"
+      "society-world-chặng-7"
     ],
     "tags": []
   },
@@ -32364,7 +34085,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-8-ton-giao-tin-nguong-triet-hoc"
+      "society-world-chặng-7"
     ],
     "tags": []
   },
@@ -32379,7 +34100,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "society-world-8-ton-giao-tin-nguong-triet-hoc"
+      "society-world-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-28"
     ],
     "tags": []
   },
@@ -32394,7 +34117,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "society-world-8-ton-giao-tin-nguong-triet-hoc"
+      "society-world-chặng-7"
     ],
     "tags": []
   },
@@ -32409,7 +34132,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "society-world-8-ton-giao-tin-nguong-triet-hoc"
+      "society-world-chặng-7"
     ],
     "tags": []
   },
@@ -32424,7 +34147,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-8-ton-giao-tin-nguong-triet-hoc"
+      "society-world-chặng-8"
     ],
     "tags": []
   },
@@ -32439,7 +34162,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-8-ton-giao-tin-nguong-triet-hoc"
+      "society-world-chặng-8"
     ],
     "tags": []
   },
@@ -32454,7 +34177,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-9-tu-thien-hoat-ong-tinh-nguyen"
+      "society-world-chặng-8"
     ],
     "tags": []
   },
@@ -32469,7 +34192,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-9-tu-thien-hoat-ong-tinh-nguyen"
+      "society-world-chặng-8"
     ],
     "tags": []
   },
@@ -32484,7 +34207,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "society-world-9-tu-thien-hoat-ong-tinh-nguyen"
+      "society-world-chặng-8",
+      "top-1000-core",
+      "top-1000-core-chặng-28"
     ],
     "tags": []
   },
@@ -32499,7 +34224,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "society-world-9-tu-thien-hoat-ong-tinh-nguyen"
+      "society-world-chặng-8"
     ],
     "tags": []
   },
@@ -32514,7 +34239,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-9-tu-thien-hoat-ong-tinh-nguyen"
+      "society-world-chặng-8"
     ],
     "tags": []
   },
@@ -32529,7 +34254,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-9-tu-thien-hoat-ong-tinh-nguyen"
+      "society-world-chặng-8"
     ],
     "tags": []
   },
@@ -32544,7 +34269,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-9-tu-thien-hoat-ong-tinh-nguyen"
+      "society-world-chặng-8"
     ],
     "tags": []
   },
@@ -32559,7 +34284,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "society-world-9-tu-thien-hoat-ong-tinh-nguyen"
+      "society-world-chặng-8"
     ],
     "tags": []
   },
@@ -32574,7 +34299,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "verb",
     "topicIds": [
-      "society-world-9-tu-thien-hoat-ong-tinh-nguyen"
+      "society-world-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-17"
     ],
     "tags": []
   },
@@ -32589,7 +34316,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-9-tu-thien-hoat-ong-tinh-nguyen"
+      "society-world-chặng-9"
     ],
     "tags": []
   },
@@ -32604,7 +34331,9 @@ export const WORDS = [
     "level": "A1",
     "pos": "noun",
     "topicIds": [
-      "society-world-10-xu-huong-toan-cau-tuong-lai-nhan-loai"
+      "society-world-chặng-9",
+      "top-1000-core",
+      "top-1000-core-chặng-100"
     ],
     "tags": []
   },
@@ -32619,7 +34348,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-10-xu-huong-toan-cau-tuong-lai-nhan-loai"
+      "society-world-chặng-9"
     ],
     "tags": []
   },
@@ -32634,7 +34363,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-10-xu-huong-toan-cau-tuong-lai-nhan-loai"
+      "society-world-chặng-9"
     ],
     "tags": []
   },
@@ -32649,7 +34378,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-10-xu-huong-toan-cau-tuong-lai-nhan-loai"
+      "society-world-chặng-9"
     ],
     "tags": []
   },
@@ -32664,7 +34393,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-10-xu-huong-toan-cau-tuong-lai-nhan-loai"
+      "society-world-chặng-9"
     ],
     "tags": []
   },
@@ -32679,7 +34408,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-10-xu-huong-toan-cau-tuong-lai-nhan-loai"
+      "society-world-chặng-9"
     ],
     "tags": []
   },
@@ -32694,7 +34423,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-10-xu-huong-toan-cau-tuong-lai-nhan-loai"
+      "society-world-chặng-9"
     ],
     "tags": []
   },
@@ -32709,7 +34438,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-10-xu-huong-toan-cau-tuong-lai-nhan-loai"
+      "society-world-chặng-9"
     ],
     "tags": []
   },
@@ -32724,7 +34453,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "society-world-10-xu-huong-toan-cau-tuong-lai-nhan-loai"
+      "society-world-chặng-10"
     ],
     "tags": []
   },
@@ -32739,7 +34468,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "toeic-b1-chặng-1"
     ],
     "tags": []
   },
@@ -32754,7 +34483,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "toeic-b1-chặng-1"
     ],
     "tags": []
   },
@@ -32769,7 +34498,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "toeic-b1-chặng-1"
     ],
     "tags": []
   },
@@ -32784,7 +34513,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "toeic-b1-chặng-1"
     ],
     "tags": []
   },
@@ -32799,7 +34528,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "toeic-b1-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-34"
     ],
     "tags": []
   },
@@ -32814,7 +34545,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "toeic-b1-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-34"
     ],
     "tags": []
   },
@@ -32829,7 +34562,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-1-moi-truong-thiet-bi-van-phong"
+      "toeic-b1-chặng-1"
     ],
     "tags": []
   },
@@ -32844,7 +34577,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-2-email-thu-tin-cong-so"
+      "toeic-b1-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-34"
     ],
     "tags": []
   },
@@ -32859,7 +34594,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-2-email-thu-tin-cong-so"
+      "toeic-b1-chặng-1"
     ],
     "tags": []
   },
@@ -32874,7 +34609,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-2-email-thu-tin-cong-so"
+      "toeic-b1-chặng-1",
+      "top-1000-core",
+      "top-1000-core-chặng-34"
     ],
     "tags": []
   },
@@ -32889,7 +34626,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-2-email-thu-tin-cong-so"
+      "toeic-b1-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-34"
     ],
     "tags": []
   },
@@ -32904,7 +34643,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "preposition",
     "topicIds": [
-      "toeic-b1-2-email-thu-tin-cong-so"
+      "toeic-b1-chặng-2"
     ],
     "tags": []
   },
@@ -32919,7 +34658,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-2-email-thu-tin-cong-so"
+      "toeic-b1-chặng-2"
     ],
     "tags": []
   },
@@ -32934,7 +34673,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-2-email-thu-tin-cong-so"
+      "toeic-b1-chặng-2"
     ],
     "tags": []
   },
@@ -32949,7 +34688,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "toeic-b1-chặng-2"
     ],
     "tags": []
   },
@@ -32964,7 +34703,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "toeic-b1-chặng-2"
     ],
     "tags": []
   },
@@ -32979,7 +34718,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "toeic-b1-chặng-2"
     ],
     "tags": []
   },
@@ -32994,7 +34733,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "toeic-b1-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-34"
     ],
     "tags": []
   },
@@ -33009,7 +34750,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "toeic-b1-chặng-2"
     ],
     "tags": []
   },
@@ -33024,7 +34765,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "toeic-b1-chặng-2"
     ],
     "tags": []
   },
@@ -33039,7 +34780,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "toeic-b1-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-34"
     ],
     "tags": []
   },
@@ -33054,7 +34797,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-3-lich-trinh-hop-hanh"
+      "toeic-b1-chặng-3"
     ],
     "tags": []
   },
@@ -33069,7 +34812,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "toeic-b1-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-34"
     ],
     "tags": []
   },
@@ -33084,7 +34829,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "toeic-b1-chặng-3"
     ],
     "tags": []
   },
@@ -33099,7 +34844,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "toeic-b1-chặng-3"
     ],
     "tags": []
   },
@@ -33114,7 +34859,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-4-tuyen-dung-ung-tuyen"
+      "toeic-b1-chặng-3",
+      "top-1000-core",
+      "top-1000-core-chặng-34"
     ],
     "tags": []
   },
@@ -33129,7 +34876,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-5-luong-thuong-ai-ngo"
+      "toeic-b1-chặng-3"
     ],
     "tags": []
   },
@@ -33144,7 +34891,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-5-luong-thuong-ai-ngo"
+      "toeic-b1-chặng-3"
     ],
     "tags": []
   },
@@ -33159,7 +34906,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-5-luong-thuong-ai-ngo"
+      "toeic-b1-chặng-3"
     ],
     "tags": []
   },
@@ -33174,7 +34921,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-5-luong-thuong-ai-ngo"
+      "toeic-b1-chặng-3"
     ],
     "tags": []
   },
@@ -33189,7 +34936,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-5-luong-thuong-ai-ngo"
+      "toeic-b1-chặng-4"
     ],
     "tags": []
   },
@@ -33204,7 +34951,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-5-luong-thuong-ai-ngo"
+      "toeic-b1-chặng-4"
     ],
     "tags": []
   },
@@ -33219,7 +34966,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-5-luong-thuong-ai-ngo"
+      "toeic-b1-chặng-4"
     ],
     "tags": []
   },
@@ -33234,7 +34981,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-5-luong-thuong-ai-ngo"
+      "toeic-b1-chặng-4"
     ],
     "tags": []
   },
@@ -33249,7 +34996,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-5-luong-thuong-ai-ngo"
+      "toeic-b1-chặng-4"
     ],
     "tags": []
   },
@@ -33264,7 +35011,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo"
+      "toeic-b1-chặng-4",
+      "top-1000-core",
+      "top-1000-core-chặng-34"
     ],
     "tags": []
   },
@@ -33279,7 +35028,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo"
+      "toeic-b1-chặng-4"
     ],
     "tags": []
   },
@@ -33294,7 +35043,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo"
+      "toeic-b1-chặng-4"
     ],
     "tags": []
   },
@@ -33309,7 +35058,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo"
+      "toeic-b1-chặng-4"
     ],
     "tags": []
   },
@@ -33324,7 +35073,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo"
+      "toeic-b1-chặng-4"
     ],
     "tags": []
   },
@@ -33339,7 +35088,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo"
+      "toeic-b1-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-35"
     ],
     "tags": []
   },
@@ -33354,7 +35105,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo"
+      "toeic-b1-chặng-5"
     ],
     "tags": []
   },
@@ -33369,7 +35120,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo"
+      "toeic-b1-chặng-5"
     ],
     "tags": []
   },
@@ -33384,7 +35135,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo"
+      "toeic-b1-chặng-5"
     ],
     "tags": []
   },
@@ -33399,7 +35150,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo"
+      "toeic-b1-chặng-5"
     ],
     "tags": []
   },
@@ -33414,7 +35165,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo"
+      "toeic-b1-chặng-5"
     ],
     "tags": []
   },
@@ -33429,7 +35180,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-6-quy-inh-chinh-sach-noi-bo"
+      "toeic-b1-chặng-5",
+      "top-1000-core",
+      "top-1000-core-chặng-35"
     ],
     "tags": []
   },
@@ -33444,7 +35197,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "toeic-b1-chặng-5"
     ],
     "tags": []
   },
@@ -33459,7 +35212,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "toeic-b1-chặng-5"
     ],
     "tags": []
   },
@@ -33474,7 +35227,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "toeic-b1-chặng-5"
     ],
     "tags": []
   },
@@ -33489,7 +35242,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "toeic-b1-chặng-6"
     ],
     "tags": []
   },
@@ -33504,7 +35257,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "toeic-b1-chặng-6"
     ],
     "tags": []
   },
@@ -33519,7 +35272,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "toeic-b1-chặng-6"
     ],
     "tags": []
   },
@@ -33534,7 +35287,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "toeic-b1-chặng-6"
     ],
     "tags": []
   },
@@ -33549,7 +35302,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "toeic-b1-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-35"
     ],
     "tags": []
   },
@@ -33564,7 +35319,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "toeic-b1-chặng-6",
+      "top-1000-core",
+      "top-1000-core-chặng-35"
     ],
     "tags": []
   },
@@ -33579,7 +35336,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "toeic-b1-chặng-6"
     ],
     "tags": []
   },
@@ -33594,7 +35351,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "toeic-b1-chặng-6"
     ],
     "tags": []
   },
@@ -33609,7 +35366,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-7-tiep-thi-quang-ba"
+      "toeic-b1-chặng-6"
     ],
     "tags": []
   },
@@ -33624,7 +35381,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "toeic-b1-chặng-6"
     ],
     "tags": []
   },
@@ -33639,7 +35396,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "toeic-b1-chặng-7"
     ],
     "tags": []
   },
@@ -33654,7 +35411,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "toeic-b1-chặng-7"
     ],
     "tags": []
   },
@@ -33669,7 +35426,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "toeic-b1-chặng-7"
     ],
     "tags": []
   },
@@ -33684,7 +35441,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "toeic-b1-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-35"
     ],
     "tags": []
   },
@@ -33699,7 +35458,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "toeic-b1-chặng-7",
+      "top-1000-core",
+      "top-1000-core-chặng-35"
     ],
     "tags": []
   },
@@ -33714,7 +35475,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "toeic-b1-chặng-7"
     ],
     "tags": []
   },
@@ -33729,7 +35490,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "toeic-b1-chặng-7"
     ],
     "tags": []
   },
@@ -33744,7 +35505,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "toeic-b1-chặng-7"
     ],
     "tags": []
   },
@@ -33759,7 +35520,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-8-ban-hang-dich-vu-khach-hang"
+      "toeic-b1-chặng-7"
     ],
     "tags": []
   },
@@ -33774,7 +35535,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-9-on-hang-hoa-on"
+      "toeic-b1-chặng-7"
     ],
     "tags": []
   },
@@ -33789,7 +35550,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-9-on-hang-hoa-on"
+      "toeic-b1-chặng-8"
     ],
     "tags": []
   },
@@ -33804,7 +35565,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-9-on-hang-hoa-on"
+      "toeic-b1-chặng-8"
     ],
     "tags": []
   },
@@ -33819,7 +35580,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-9-on-hang-hoa-on"
+      "toeic-b1-chặng-8"
     ],
     "tags": []
   },
@@ -33834,7 +35595,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-9-on-hang-hoa-on"
+      "toeic-b1-chặng-8"
     ],
     "tags": []
   },
@@ -33849,7 +35610,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-9-on-hang-hoa-on"
+      "toeic-b1-chặng-8"
     ],
     "tags": []
   },
@@ -33864,7 +35625,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-9-on-hang-hoa-on"
+      "toeic-b1-chặng-8"
     ],
     "tags": []
   },
@@ -33879,7 +35640,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-9-on-hang-hoa-on"
+      "toeic-b1-chặng-8"
     ],
     "tags": []
   },
@@ -33894,7 +35655,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-9-on-hang-hoa-on"
+      "toeic-b1-chặng-8"
     ],
     "tags": []
   },
@@ -33909,7 +35670,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-9-on-hang-hoa-on"
+      "toeic-b1-chặng-8"
     ],
     "tags": []
   },
@@ -33924,7 +35685,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-10-van-chuyen-kho-van"
+      "toeic-b1-chặng-8"
     ],
     "tags": []
   },
@@ -33939,7 +35700,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-10-van-chuyen-kho-van"
+      "toeic-b1-chặng-9"
     ],
     "tags": []
   },
@@ -33954,7 +35715,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-10-van-chuyen-kho-van"
+      "toeic-b1-chặng-9"
     ],
     "tags": []
   },
@@ -33969,7 +35730,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-10-van-chuyen-kho-van"
+      "toeic-b1-chặng-9"
     ],
     "tags": []
   },
@@ -33984,7 +35745,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-10-van-chuyen-kho-van"
+      "toeic-b1-chặng-9"
     ],
     "tags": []
   },
@@ -33999,7 +35760,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-10-van-chuyen-kho-van"
+      "toeic-b1-chặng-9"
     ],
     "tags": []
   },
@@ -34014,7 +35775,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-10-van-chuyen-kho-van"
+      "toeic-b1-chặng-9"
     ],
     "tags": []
   },
@@ -34029,7 +35790,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-10-van-chuyen-kho-van"
+      "toeic-b1-chặng-9"
     ],
     "tags": []
   },
@@ -34044,7 +35805,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-10-van-chuyen-kho-van"
+      "toeic-b1-chặng-9"
     ],
     "tags": []
   },
@@ -34059,7 +35820,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-10-van-chuyen-kho-van"
+      "toeic-b1-chặng-9"
     ],
     "tags": []
   },
@@ -34074,7 +35835,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-10-van-chuyen-kho-van"
+      "toeic-b1-chặng-9"
     ],
     "tags": []
   },
@@ -34089,7 +35850,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-10-van-chuyen-kho-van"
+      "toeic-b1-chặng-10"
     ],
     "tags": []
   },
@@ -34104,7 +35865,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-11-hop-ong-am-phan"
+      "toeic-b1-chặng-10"
     ],
     "tags": []
   },
@@ -34119,7 +35880,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-11-hop-ong-am-phan"
+      "toeic-b1-chặng-10"
     ],
     "tags": []
   },
@@ -34134,7 +35895,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-11-hop-ong-am-phan"
+      "toeic-b1-chặng-10"
     ],
     "tags": []
   },
@@ -34149,7 +35910,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-11-hop-ong-am-phan"
+      "toeic-b1-chặng-10"
     ],
     "tags": []
   },
@@ -34164,7 +35925,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-11-hop-ong-am-phan"
+      "toeic-b1-chặng-10"
     ],
     "tags": []
   },
@@ -34179,7 +35940,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-11-hop-ong-am-phan"
+      "toeic-b1-chặng-10"
     ],
     "tags": []
   },
@@ -34194,7 +35955,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-11-hop-ong-am-phan"
+      "toeic-b1-chặng-10"
     ],
     "tags": []
   },
@@ -34209,7 +35970,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-11-hop-ong-am-phan"
+      "toeic-b1-chặng-10"
     ],
     "tags": []
   },
@@ -34224,7 +35985,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-11-hop-ong-am-phan"
+      "toeic-b1-chặng-10"
     ],
     "tags": []
   },
@@ -34239,7 +36000,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-11-hop-ong-am-phan"
+      "toeic-b1-chặng-11"
     ],
     "tags": []
   },
@@ -34254,7 +36015,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-11-hop-ong-am-phan"
+      "toeic-b1-chặng-11"
     ],
     "tags": []
   },
@@ -34269,7 +36030,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-11-hop-ong-am-phan"
+      "toeic-b1-chặng-11"
     ],
     "tags": []
   },
@@ -34284,7 +36045,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "toeic-b1-chặng-11"
     ],
     "tags": []
   },
@@ -34299,7 +36060,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "toeic-b1-chặng-11"
     ],
     "tags": []
   },
@@ -34314,7 +36075,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "toeic-b1-chặng-11"
     ],
     "tags": []
   },
@@ -34329,7 +36090,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "toeic-b1-chặng-11"
     ],
     "tags": []
   },
@@ -34344,7 +36105,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "toeic-b1-chặng-11"
     ],
     "tags": []
   },
@@ -34359,7 +36120,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "toeic-b1-chặng-11"
     ],
     "tags": []
   },
@@ -34374,7 +36135,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "toeic-b1-chặng-11"
     ],
     "tags": []
   },
@@ -34389,7 +36150,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "toeic-b1-chặng-12"
     ],
     "tags": []
   },
@@ -34404,7 +36165,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "toeic-b1-chặng-12"
     ],
     "tags": []
   },
@@ -34419,7 +36180,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "toeic-b1-chặng-12"
     ],
     "tags": []
   },
@@ -34434,7 +36195,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "toeic-b1-chặng-12"
     ],
     "tags": []
   },
@@ -34449,7 +36210,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "toeic-b1-chặng-12"
     ],
     "tags": []
   },
@@ -34464,7 +36225,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-12-hop-tac-oi-tac-doanh-nghiep"
+      "toeic-b1-chặng-12"
     ],
     "tags": []
   },
@@ -34479,7 +36240,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "toeic-b1-chặng-12"
     ],
     "tags": []
   },
@@ -34494,7 +36255,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "toeic-b1-chặng-12"
     ],
     "tags": []
   },
@@ -34509,7 +36270,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "toeic-b1-chặng-12"
     ],
     "tags": []
   },
@@ -34524,7 +36285,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "toeic-b1-chặng-12"
     ],
     "tags": []
   },
@@ -34539,7 +36300,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "toeic-b1-chặng-13"
     ],
     "tags": []
   },
@@ -34554,7 +36315,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-13-ngan-hang-thanh-toan"
+      "toeic-b1-chặng-13"
     ],
     "tags": []
   },
@@ -34569,7 +36330,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "toeic-b1-chặng-13"
     ],
     "tags": []
   },
@@ -34584,7 +36345,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "toeic-b1-chặng-13"
     ],
     "tags": []
   },
@@ -34599,7 +36360,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "toeic-b1-chặng-13"
     ],
     "tags": []
   },
@@ -34614,7 +36375,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "toeic-b1-chặng-13"
     ],
     "tags": []
   },
@@ -34629,7 +36390,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "toeic-b1-chặng-13"
     ],
     "tags": []
   },
@@ -34644,7 +36405,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "toeic-b1-chặng-13"
     ],
     "tags": []
   },
@@ -34659,7 +36420,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "toeic-b1-chặng-13"
     ],
     "tags": []
   },
@@ -34674,7 +36435,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "toeic-b1-chặng-13"
     ],
     "tags": []
   },
@@ -34689,7 +36450,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "toeic-b1-chặng-14"
     ],
     "tags": []
   },
@@ -34704,7 +36465,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "toeic-b1-chặng-14"
     ],
     "tags": []
   },
@@ -34719,7 +36480,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "toeic-b1-chặng-14"
     ],
     "tags": []
   },
@@ -34734,7 +36495,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "toeic-b1-chặng-14"
     ],
     "tags": []
   },
@@ -34749,7 +36510,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-14-ke-toan-du-toan-ngan-sach"
+      "toeic-b1-chặng-14"
     ],
     "tags": []
   },
@@ -34764,7 +36525,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-15-au-tu-tang-truong"
+      "toeic-b1-chặng-14"
     ],
     "tags": []
   },
@@ -34779,7 +36540,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-15-au-tu-tang-truong"
+      "toeic-b1-chặng-14"
     ],
     "tags": []
   },
@@ -34794,7 +36555,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-15-au-tu-tang-truong"
+      "toeic-b1-chặng-14"
     ],
     "tags": []
   },
@@ -34809,7 +36570,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-15-au-tu-tang-truong"
+      "toeic-b1-chặng-14"
     ],
     "tags": []
   },
@@ -34824,7 +36585,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-15-au-tu-tang-truong"
+      "toeic-b1-chặng-14"
     ],
     "tags": []
   },
@@ -34839,7 +36600,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-15-au-tu-tang-truong"
+      "toeic-b1-chặng-15"
     ],
     "tags": []
   },
@@ -34854,7 +36615,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-15-au-tu-tang-truong"
+      "toeic-b1-chặng-15"
     ],
     "tags": []
   },
@@ -34869,7 +36630,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-15-au-tu-tang-truong"
+      "toeic-b1-chặng-15"
     ],
     "tags": []
   },
@@ -34884,7 +36645,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-15-au-tu-tang-truong"
+      "toeic-b1-chặng-15"
     ],
     "tags": []
   },
@@ -34899,7 +36660,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "toeic-b1-chặng-15"
     ],
     "tags": []
   },
@@ -34914,7 +36675,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "toeic-b1-chặng-15"
     ],
     "tags": []
   },
@@ -34929,7 +36690,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "toeic-b1-chặng-15"
     ],
     "tags": []
   },
@@ -34944,7 +36705,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "toeic-b1-chặng-15"
     ],
     "tags": []
   },
@@ -34959,7 +36720,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "toeic-b1-chặng-15"
     ],
     "tags": []
   },
@@ -34974,7 +36735,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "toeic-b1-chặng-15"
     ],
     "tags": []
   },
@@ -34989,7 +36750,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "toeic-b1-chặng-16"
     ],
     "tags": []
   },
@@ -35004,7 +36765,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "toeic-b1-chặng-16"
     ],
     "tags": []
   },
@@ -35019,7 +36780,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-16-cong-tac-tiep-ai-oi-tac"
+      "toeic-b1-chặng-16"
     ],
     "tags": []
   },
@@ -35034,7 +36795,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "toeic-b1-chặng-16"
     ],
     "tags": []
   },
@@ -35049,7 +36810,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "toeic-b1-chặng-16"
     ],
     "tags": []
   },
@@ -35064,7 +36825,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "toeic-b1-chặng-16"
     ],
     "tags": []
   },
@@ -35079,7 +36840,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "toeic-b1-chặng-16"
     ],
     "tags": []
   },
@@ -35094,7 +36855,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "toeic-b1-chặng-16"
     ],
     "tags": []
   },
@@ -35109,7 +36870,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "toeic-b1-chặng-16"
     ],
     "tags": []
   },
@@ -35124,7 +36885,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "toeic-b1-chặng-16"
     ],
     "tags": []
   },
@@ -35139,7 +36900,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "toeic-b1-chặng-17"
     ],
     "tags": []
   },
@@ -35154,7 +36915,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "toeic-b1-chặng-17"
     ],
     "tags": []
   },
@@ -35169,7 +36930,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "toeic-b1-chặng-17"
     ],
     "tags": []
   },
@@ -35184,7 +36945,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-17-hoi-nghi-su-kien-cong-ty"
+      "toeic-b1-chặng-17"
     ],
     "tags": []
   },
@@ -35199,7 +36960,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "toeic-b1-chặng-17"
     ],
     "tags": []
   },
@@ -35214,7 +36975,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "toeic-b1-chặng-17"
     ],
     "tags": []
   },
@@ -35229,7 +36990,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "toeic-b1-chặng-17"
     ],
     "tags": []
   },
@@ -35244,7 +37005,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "toeic-b1-chặng-17"
     ],
     "tags": []
   },
@@ -35259,7 +37020,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "toeic-b1-chặng-17"
     ],
     "tags": []
   },
@@ -35274,7 +37035,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "toeic-b1-chặng-17"
     ],
     "tags": []
   },
@@ -35289,7 +37050,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-18-quan-ly-du-an-nang-suat"
+      "toeic-b1-chặng-18"
     ],
     "tags": []
   },
@@ -35304,7 +37065,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-18"
     ],
     "tags": []
   },
@@ -35319,7 +37080,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-18"
     ],
     "tags": []
   },
@@ -35334,7 +37095,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-18"
     ],
     "tags": []
   },
@@ -35349,7 +37110,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-18"
     ],
     "tags": []
   },
@@ -35364,7 +37125,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-18"
     ],
     "tags": []
   },
@@ -35379,7 +37140,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-18"
     ],
     "tags": []
   },
@@ -35394,7 +37155,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-18"
     ],
     "tags": []
   },
@@ -35409,7 +37170,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-18"
     ],
     "tags": []
   },
@@ -35424,7 +37185,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-18"
     ],
     "tags": []
   },
@@ -35439,7 +37200,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-19"
     ],
     "tags": []
   },
@@ -35454,7 +37215,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "adjective",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-19"
     ],
     "tags": []
   },
@@ -35469,7 +37230,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-19"
     ],
     "tags": []
   },
@@ -35484,7 +37245,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-19"
     ],
     "tags": []
   },
@@ -35499,7 +37260,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-19"
     ],
     "tags": []
   },
@@ -35514,7 +37275,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "toeic-b1-19-kiem-soat-chat-luong-an-toan"
+      "toeic-b1-chặng-19"
     ],
     "tags": []
   },
@@ -35529,7 +37290,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-19"
     ],
     "tags": []
   },
@@ -35544,7 +37305,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-19"
     ],
     "tags": []
   },
@@ -35559,7 +37320,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-19",
+      "top-1000-core",
+      "top-1000-core-chặng-92"
     ],
     "tags": []
   },
@@ -35574,7 +37337,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-19"
     ],
     "tags": []
   },
@@ -35589,7 +37352,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-20"
     ],
     "tags": []
   },
@@ -35604,7 +37367,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-20"
     ],
     "tags": []
   },
@@ -35619,7 +37382,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-20"
     ],
     "tags": []
   },
@@ -35634,7 +37397,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-20"
     ],
     "tags": []
   },
@@ -35649,7 +37412,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-20"
     ],
     "tags": []
   },
@@ -35664,7 +37427,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-20"
     ],
     "tags": []
   },
@@ -35679,7 +37442,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-20"
     ],
     "tags": []
   },
@@ -35694,7 +37457,9 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-20",
+      "top-1000-core",
+      "top-1000-core-chặng-92"
     ],
     "tags": []
   },
@@ -35709,7 +37474,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-20"
     ],
     "tags": []
   },
@@ -35724,7 +37489,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-20"
     ],
     "tags": []
   },
@@ -35739,7 +37504,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "phrase",
     "topicIds": [
-      "toeic-b1-20-cum-tu-collocations-iem-cao"
+      "toeic-b1-chặng-21"
     ],
     "tags": []
   },
@@ -35754,8 +37519,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-1"
     ],
     "tags": [
       "finance",
@@ -35773,7 +37537,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance"
+      "finance-banking-chặng-1"
     ],
     "tags": [
       "income"
@@ -35790,8 +37554,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-1"
     ],
     "tags": [
       "spending"
@@ -35808,8 +37571,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance",
-      "fb-savings-interest"
+      "finance-banking-chặng-1"
     ],
     "tags": [
       "savings"
@@ -35826,7 +37588,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance"
+      "finance-banking-chặng-1"
     ],
     "tags": [
       "salary"
@@ -35843,7 +37605,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance"
+      "finance-banking-chặng-1"
     ],
     "tags": [
       "income"
@@ -35860,8 +37622,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-1"
     ],
     "tags": [
       "wealth"
@@ -35878,8 +37639,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance",
-      "fb-savings-interest"
+      "finance-banking-chặng-1"
     ],
     "tags": [
       "planning"
@@ -35896,8 +37656,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-1"
     ],
     "tags": [
       "money"
@@ -35914,7 +37673,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance"
+      "finance-banking-chặng-1"
     ],
     "tags": [
       "retirement"
@@ -35931,7 +37690,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "adjective",
     "topicIds": [
-      "fb-personal-finance"
+      "finance-banking-chặng-2"
     ],
     "tags": [
       "mindset"
@@ -35948,7 +37707,9 @@ export const WORDS = [
     "level": "A2",
     "pos": "verb",
     "topicIds": [
-      "fb-personal-finance"
+      "finance-banking-chặng-2",
+      "top-1000-core",
+      "top-1000-core-chặng-28"
     ],
     "tags": [
       "spending"
@@ -35965,7 +37726,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance"
+      "finance-banking-chặng-2"
     ],
     "tags": [
       "allowance"
@@ -35982,8 +37743,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-2"
     ],
     "tags": [
       "assets"
@@ -36000,9 +37760,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance",
-      "fb-corporate-accounting",
-      "fb-loans-credit"
+      "finance-banking-chặng-2"
     ],
     "tags": [
       "debt"
@@ -36019,7 +37777,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance"
+      "finance-banking-chặng-2"
     ],
     "tags": [
       "income"
@@ -36036,7 +37794,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance"
+      "finance-banking-chặng-2"
     ],
     "tags": [
       "goals"
@@ -36053,7 +37811,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "idiom",
     "topicIds": [
-      "fb-personal-finance"
+      "finance-banking-chặng-2"
     ],
     "tags": [
       "spending"
@@ -36070,7 +37828,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance"
+      "finance-banking-chặng-2"
     ],
     "tags": [
       "money"
@@ -36087,8 +37845,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "adjective",
     "topicIds": [
-      "fb-personal-finance",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-2"
     ],
     "tags": [
       "solvency"
@@ -36105,7 +37862,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services"
+      "finance-banking-chặng-3"
     ],
     "tags": [
       "banking"
@@ -36122,8 +37879,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-payments-cards"
+      "finance-banking-chặng-3"
     ],
     "tags": [
       "banking"
@@ -36140,8 +37896,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-savings-interest"
+      "finance-banking-chặng-3"
     ],
     "tags": [
       "banking"
@@ -36158,7 +37913,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "fb-banking-services"
+      "finance-banking-chặng-3"
     ],
     "tags": [
       "banking"
@@ -36175,8 +37930,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "verb",
     "topicIds": [
-      "fb-banking-services",
-      "fb-payments-cards"
+      "finance-banking-chặng-3"
     ],
     "tags": [
       "banking"
@@ -36193,8 +37947,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-loans-credit"
+      "finance-banking-chặng-3"
     ],
     "tags": [
       "banking"
@@ -36211,8 +37964,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-loans-credit"
+      "finance-banking-chặng-3"
     ],
     "tags": [
       "banking"
@@ -36229,7 +37981,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services"
+      "finance-banking-chặng-3"
     ],
     "tags": [
       "banking"
@@ -36246,7 +37998,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services"
+      "finance-banking-chặng-3"
     ],
     "tags": [
       "banking"
@@ -36263,8 +38015,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-payments-cards"
+      "finance-banking-chặng-3"
     ],
     "tags": [
       "banking"
@@ -36281,8 +38032,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-savings-interest"
+      "finance-banking-chặng-4"
     ],
     "tags": [
       "banking"
@@ -36299,8 +38049,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-payments-cards"
+      "finance-banking-chặng-4"
     ],
     "tags": [
       "banking"
@@ -36317,8 +38066,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-personal-finance"
+      "finance-banking-chặng-4"
     ],
     "tags": [
       "banking"
@@ -36335,7 +38083,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services"
+      "finance-banking-chặng-4"
     ],
     "tags": [
       "banking"
@@ -36352,8 +38100,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-payments-cards"
+      "finance-banking-chặng-4"
     ],
     "tags": [
       "banking"
@@ -36370,7 +38117,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services"
+      "finance-banking-chặng-4"
     ],
     "tags": [
       "banking"
@@ -36387,9 +38134,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-investments-stocks",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-4"
     ],
     "tags": [
       "liquidity"
@@ -36406,7 +38151,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services"
+      "finance-banking-chặng-4"
     ],
     "tags": [
       "banking"
@@ -36423,8 +38168,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-savings-interest"
+      "finance-banking-chặng-4"
     ],
     "tags": [
       "macro"
@@ -36441,8 +38185,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-payments-cards"
+      "finance-banking-chặng-4"
     ],
     "tags": [
       "compliance"
@@ -36459,8 +38202,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards",
-      "fb-loans-credit"
+      "finance-banking-chặng-5"
     ],
     "tags": [
       "cards"
@@ -36477,7 +38219,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards"
+      "finance-banking-chặng-5"
     ],
     "tags": [
       "cards"
@@ -36494,7 +38236,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards"
+      "finance-banking-chặng-5"
     ],
     "tags": [
       "tech"
@@ -36511,8 +38253,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-5"
     ],
     "tags": [
       "billing"
@@ -36529,7 +38270,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards"
+      "finance-banking-chặng-5"
     ],
     "tags": [
       "billing"
@@ -36546,8 +38287,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards",
-      "fb-banking-services"
+      "finance-banking-chặng-5"
     ],
     "tags": [
       "fees"
@@ -36564,7 +38304,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards"
+      "finance-banking-chặng-5"
     ],
     "tags": [
       "cards"
@@ -36581,7 +38321,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards"
+      "finance-banking-chặng-5"
     ],
     "tags": [
       "dispute"
@@ -36598,8 +38338,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards",
-      "fb-banking-services"
+      "finance-banking-chặng-5"
     ],
     "tags": [
       "security"
@@ -36616,7 +38355,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards"
+      "finance-banking-chặng-5"
     ],
     "tags": [
       "commerce"
@@ -36633,7 +38372,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards"
+      "finance-banking-chặng-6"
     ],
     "tags": [
       "tech"
@@ -36650,8 +38389,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards",
-      "fb-loans-credit"
+      "finance-banking-chặng-6"
     ],
     "tags": [
       "cards"
@@ -36668,8 +38406,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards",
-      "fb-loans-credit"
+      "finance-banking-chặng-6"
     ],
     "tags": [
       "cards"
@@ -36686,7 +38423,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards"
+      "finance-banking-chặng-6"
     ],
     "tags": [
       "cards"
@@ -36703,8 +38440,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards",
-      "fb-banking-services"
+      "finance-banking-chặng-6"
     ],
     "tags": [
       "security"
@@ -36721,7 +38457,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit"
+      "finance-banking-chặng-6"
     ],
     "tags": [
       "loans"
@@ -36738,7 +38474,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit"
+      "finance-banking-chặng-6"
     ],
     "tags": [
       "loans"
@@ -36755,7 +38491,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit"
+      "finance-banking-chặng-6"
     ],
     "tags": [
       "loans"
@@ -36772,8 +38508,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit",
-      "fb-savings-interest"
+      "finance-banking-chặng-6"
     ],
     "tags": [
       "loans"
@@ -36790,8 +38525,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit",
-      "fb-savings-interest"
+      "finance-banking-chặng-6"
     ],
     "tags": [
       "interest"
@@ -36808,7 +38542,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit"
+      "finance-banking-chặng-7"
     ],
     "tags": [
       "loans"
@@ -36825,7 +38559,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit"
+      "finance-banking-chặng-7"
     ],
     "tags": [
       "loans"
@@ -36842,8 +38576,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "verb",
     "topicIds": [
-      "fb-loans-credit",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-7"
     ],
     "tags": [
       "risk"
@@ -36860,8 +38593,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit",
-      "fb-personal-finance"
+      "finance-banking-chặng-7"
     ],
     "tags": [
       "credit"
@@ -36878,8 +38610,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit",
-      "fb-personal-finance"
+      "finance-banking-chặng-7"
     ],
     "tags": [
       "debt"
@@ -36896,7 +38627,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit"
+      "finance-banking-chặng-7"
     ],
     "tags": [
       "loans"
@@ -36913,8 +38644,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit",
-      "fb-payments-cards"
+      "finance-banking-chặng-7"
     ],
     "tags": [
       "loans"
@@ -36931,7 +38661,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit"
+      "finance-banking-chặng-7"
     ],
     "tags": [
       "loans"
@@ -36948,9 +38678,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit",
-      "fb-savings-interest",
-      "fb-investments-stocks"
+      "finance-banking-chặng-7"
     ],
     "tags": [
       "maturity"
@@ -36967,7 +38695,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "verb",
     "topicIds": [
-      "fb-loans-credit"
+      "finance-banking-chặng-7"
     ],
     "tags": [
       "loans"
@@ -36984,8 +38712,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-8"
     ],
     "tags": [
       "debt"
@@ -37002,8 +38729,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-8"
     ],
     "tags": [
       "finance"
@@ -37020,7 +38746,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit"
+      "finance-banking-chặng-8"
     ],
     "tags": [
       "risk"
@@ -37037,7 +38763,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit"
+      "finance-banking-chặng-8"
     ],
     "tags": [
       "credit"
@@ -37054,8 +38780,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-8"
     ],
     "tags": [
       "legal"
@@ -37072,8 +38797,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest",
-      "fb-investments-stocks"
+      "finance-banking-chặng-8"
     ],
     "tags": [
       "wealth"
@@ -37090,7 +38814,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest"
+      "finance-banking-chặng-8"
     ],
     "tags": [
       "math"
@@ -37107,8 +38831,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest",
-      "fb-investments-stocks"
+      "finance-banking-chặng-8"
     ],
     "tags": [
       "return"
@@ -37125,8 +38848,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest",
-      "fb-banking-services"
+      "finance-banking-chặng-8"
     ],
     "tags": [
       "savings"
@@ -37143,8 +38865,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest",
-      "fb-investments-stocks"
+      "finance-banking-chặng-8"
     ],
     "tags": [
       "macro"
@@ -37161,7 +38882,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest"
+      "finance-banking-chặng-9"
     ],
     "tags": [
       "macro"
@@ -37178,8 +38899,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest",
-      "fb-investments-stocks"
+      "finance-banking-chặng-9"
     ],
     "tags": [
       "macro"
@@ -37196,8 +38916,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest",
-      "fb-loans-credit"
+      "finance-banking-chặng-9"
     ],
     "tags": [
       "interest"
@@ -37214,7 +38933,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest"
+      "finance-banking-chặng-9"
     ],
     "tags": [
       "interest"
@@ -37231,8 +38950,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest",
-      "fb-banking-services"
+      "finance-banking-chặng-9"
     ],
     "tags": [
       "savings"
@@ -37249,7 +38967,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest"
+      "finance-banking-chặng-9"
     ],
     "tags": [
       "interest"
@@ -37266,7 +38984,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest"
+      "finance-banking-chặng-9"
     ],
     "tags": [
       "macro"
@@ -37283,7 +39001,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest"
+      "finance-banking-chặng-9"
     ],
     "tags": [
       "macro"
@@ -37300,7 +39018,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest"
+      "finance-banking-chặng-9"
     ],
     "tags": [
       "macro"
@@ -37317,8 +39035,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest",
-      "fb-investments-stocks"
+      "finance-banking-chặng-9"
     ],
     "tags": [
       "savings"
@@ -37335,7 +39052,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-10"
     ],
     "tags": [
       "stocks"
@@ -37352,7 +39069,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-10"
     ],
     "tags": [
       "stocks"
@@ -37369,8 +39086,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-10"
     ],
     "tags": [
       "stocks"
@@ -37387,8 +39103,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks",
-      "fb-personal-finance"
+      "finance-banking-chặng-10"
     ],
     "tags": [
       "investment"
@@ -37405,7 +39120,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-10"
     ],
     "tags": [
       "bonds"
@@ -37422,8 +39137,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-10"
     ],
     "tags": [
       "equity"
@@ -37440,7 +39154,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-10"
     ],
     "tags": [
       "market"
@@ -37457,7 +39171,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-10"
     ],
     "tags": [
       "market"
@@ -37474,8 +39188,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks",
-      "fb-personal-finance"
+      "finance-banking-chặng-10"
     ],
     "tags": [
       "tax"
@@ -37492,7 +39205,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-10"
     ],
     "tags": [
       "profession"
@@ -37509,7 +39222,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-11"
     ],
     "tags": [
       "funds"
@@ -37526,7 +39239,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-11"
     ],
     "tags": [
       "funds"
@@ -37543,7 +39256,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-11"
     ],
     "tags": [
       "risk"
@@ -37560,8 +39273,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks",
-      "fb-personal-finance"
+      "finance-banking-chặng-11"
     ],
     "tags": [
       "strategy"
@@ -37578,8 +39290,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-11"
     ],
     "tags": [
       "stocks"
@@ -37596,8 +39307,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-11"
     ],
     "tags": [
       "valuation"
@@ -37614,7 +39324,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-11"
     ],
     "tags": [
       "strategy"
@@ -37631,8 +39341,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks",
-      "fb-insurance-risk"
+      "finance-banking-chặng-11"
     ],
     "tags": [
       "risk"
@@ -37649,7 +39358,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-11"
     ],
     "tags": [
       "funds"
@@ -37666,8 +39375,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-11"
     ],
     "tags": [
       "performance"
@@ -37684,8 +39392,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-insurance-risk",
-      "fb-personal-finance"
+      "finance-banking-chặng-12"
     ],
     "tags": [
       "insurance"
@@ -37702,7 +39409,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-insurance-risk"
+      "finance-banking-chặng-12"
     ],
     "tags": [
       "insurance"
@@ -37719,7 +39426,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-insurance-risk"
+      "finance-banking-chặng-12"
     ],
     "tags": [
       "insurance"
@@ -37736,7 +39443,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-insurance-risk"
+      "finance-banking-chặng-12"
     ],
     "tags": [
       "insurance"
@@ -37753,7 +39460,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-insurance-risk"
+      "finance-banking-chặng-12"
     ],
     "tags": [
       "insurance"
@@ -37770,8 +39477,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-insurance-risk",
-      "fb-personal-finance"
+      "finance-banking-chặng-12"
     ],
     "tags": [
       "legal"
@@ -37788,8 +39494,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-insurance-risk",
-      "fb-investments-stocks"
+      "finance-banking-chặng-12"
     ],
     "tags": [
       "process"
@@ -37806,8 +39511,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-insurance-risk",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-12"
     ],
     "tags": [
       "legal"
@@ -37824,7 +39528,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-insurance-risk"
+      "finance-banking-chặng-12"
     ],
     "tags": [
       "legal"
@@ -37841,7 +39545,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-insurance-risk"
+      "finance-banking-chặng-12"
     ],
     "tags": [
       "profession"
@@ -37858,7 +39562,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-13"
     ],
     "tags": [
       "revenue"
@@ -37875,7 +39579,7 @@ export const WORDS = [
     "level": "A2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-13"
     ],
     "tags": [
       "profit"
@@ -37892,7 +39596,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-13"
     ],
     "tags": [
       "accounting"
@@ -37909,7 +39613,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-13"
     ],
     "tags": [
       "profit"
@@ -37926,7 +39630,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-13"
     ],
     "tags": [
       "business"
@@ -37943,7 +39647,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-13"
     ],
     "tags": [
       "accounting"
@@ -37960,7 +39664,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-13"
     ],
     "tags": [
       "business"
@@ -37977,7 +39681,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-13"
     ],
     "tags": [
       "audit"
@@ -37994,7 +39698,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-13"
     ],
     "tags": [
       "accounting"
@@ -38011,7 +39715,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-13"
     ],
     "tags": [
       "business"
@@ -38028,7 +39732,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-14"
     ],
     "tags": [
       "accounting"
@@ -38045,7 +39749,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-14"
     ],
     "tags": [
       "accounting"
@@ -38062,7 +39766,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-14"
     ],
     "tags": [
       "accounting"
@@ -38079,8 +39783,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting",
-      "fb-investments-stocks"
+      "finance-banking-chặng-14"
     ],
     "tags": [
       "business"
@@ -38097,8 +39800,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting",
-      "fb-investments-stocks"
+      "finance-banking-chặng-14"
     ],
     "tags": [
       "legal"
@@ -38115,8 +39817,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting",
-      "fb-personal-finance"
+      "finance-banking-chặng-14"
     ],
     "tags": [
       "tax"
@@ -38133,8 +39834,7 @@ export const WORDS = [
     "level": "B1",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting",
-      "fb-payments-cards"
+      "finance-banking-chặng-14"
     ],
     "tags": [
       "tax"
@@ -38151,7 +39851,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-14"
     ],
     "tags": [
       "trade"
@@ -38168,8 +39868,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting",
-      "fb-banking-services"
+      "finance-banking-chặng-14"
     ],
     "tags": [
       "compliance"
@@ -38186,8 +39885,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting",
-      "fb-investments-stocks"
+      "finance-banking-chặng-14"
     ],
     "tags": [
       "funding"
@@ -38204,8 +39902,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance",
-      "fb-insurance-risk"
+      "finance-banking-chặng-15"
     ],
     "tags": [
       "retirement"
@@ -38222,8 +39919,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance",
-      "fb-banking-services"
+      "finance-banking-chặng-15"
     ],
     "tags": [
       "money"
@@ -38240,8 +39936,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "adjective",
     "topicIds": [
-      "fb-personal-finance",
-      "fb-investments-stocks"
+      "finance-banking-chặng-15"
     ],
     "tags": [
       "legal"
@@ -38258,8 +39953,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-15"
     ],
     "tags": [
       "startup"
@@ -38276,8 +39970,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-personal-finance",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-15"
     ],
     "tags": [
       "startup"
@@ -38294,8 +39987,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-loans-credit"
+      "finance-banking-chặng-15"
     ],
     "tags": [
       "banking"
@@ -38312,8 +40004,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-savings-interest"
+      "finance-banking-chặng-15"
     ],
     "tags": [
       "macro"
@@ -38330,8 +40021,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-savings-interest"
+      "finance-banking-chặng-15"
     ],
     "tags": [
       "currency"
@@ -38348,8 +40038,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-investments-stocks"
+      "finance-banking-chặng-15"
     ],
     "tags": [
       "market"
@@ -38366,8 +40055,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-banking-services",
-      "fb-payments-cards"
+      "finance-banking-chặng-15"
     ],
     "tags": [
       "tech"
@@ -38384,8 +40072,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards",
-      "fb-banking-services"
+      "finance-banking-chặng-16"
     ],
     "tags": [
       "trend"
@@ -38402,8 +40089,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards",
-      "fb-loans-credit"
+      "finance-banking-chặng-16"
     ],
     "tags": [
       "credit"
@@ -38420,8 +40106,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards",
-      "fb-investments-stocks"
+      "finance-banking-chặng-16"
     ],
     "tags": [
       "crypto"
@@ -38438,8 +40123,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards",
-      "fb-banking-services"
+      "finance-banking-chặng-16"
     ],
     "tags": [
       "tech"
@@ -38456,8 +40140,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-payments-cards",
-      "fb-loans-credit"
+      "finance-banking-chặng-16"
     ],
     "tags": [
       "loans"
@@ -38474,8 +40157,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit",
-      "fb-personal-finance"
+      "finance-banking-chặng-16"
     ],
     "tags": [
       "credit"
@@ -38492,8 +40174,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit",
-      "fb-savings-interest"
+      "finance-banking-chặng-16"
     ],
     "tags": [
       "interest"
@@ -38510,7 +40191,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit"
+      "finance-banking-chặng-16"
     ],
     "tags": [
       "loans"
@@ -38527,7 +40208,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-loans-credit"
+      "finance-banking-chặng-16"
     ],
     "tags": [
       "loans"
@@ -38544,8 +40225,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "adjective",
     "topicIds": [
-      "fb-loans-credit",
-      "fb-investments-stocks"
+      "finance-banking-chặng-16"
     ],
     "tags": [
       "crisis"
@@ -38562,8 +40242,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest",
-      "fb-investments-stocks"
+      "finance-banking-chặng-17"
     ],
     "tags": [
       "macro"
@@ -38580,8 +40259,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest",
-      "fb-banking-services"
+      "finance-banking-chặng-17"
     ],
     "tags": [
       "macro"
@@ -38598,8 +40276,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-17"
     ],
     "tags": [
       "macro"
@@ -38616,8 +40293,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-savings-interest",
-      "fb-investments-stocks"
+      "finance-banking-chặng-17"
     ],
     "tags": [
       "wealth"
@@ -38634,7 +40310,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-17"
     ],
     "tags": [
       "stocks"
@@ -38651,7 +40327,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-17"
     ],
     "tags": [
       "trading"
@@ -38668,7 +40344,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-17"
     ],
     "tags": [
       "funds"
@@ -38685,8 +40361,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-17"
     ],
     "tags": [
       "strategy"
@@ -38703,7 +40378,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks"
+      "finance-banking-chặng-17"
     ],
     "tags": [
       "trading"
@@ -38720,8 +40395,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks",
-      "fb-personal-finance"
+      "finance-banking-chặng-17"
     ],
     "tags": [
       "stocks"
@@ -38738,8 +40412,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks",
-      "fb-personal-finance"
+      "finance-banking-chặng-18"
     ],
     "tags": [
       "equity"
@@ -38756,8 +40429,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-investments-stocks",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-18"
     ],
     "tags": [
       "startup"
@@ -38774,8 +40446,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-insurance-risk",
-      "fb-corporate-accounting"
+      "finance-banking-chặng-18"
     ],
     "tags": [
       "risk"
@@ -38792,7 +40463,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-insurance-risk"
+      "finance-banking-chặng-18"
     ],
     "tags": [
       "insurance"
@@ -38809,8 +40480,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-insurance-risk",
-      "fb-banking-services"
+      "finance-banking-chặng-18"
     ],
     "tags": [
       "risk"
@@ -38827,8 +40497,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting",
-      "fb-investments-stocks"
+      "finance-banking-chặng-18"
     ],
     "tags": [
       "accounting"
@@ -38845,7 +40514,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-18"
     ],
     "tags": [
       "accounting"
@@ -38862,7 +40531,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-18"
     ],
     "tags": [
       "accounting"
@@ -38879,8 +40548,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting",
-      "fb-loans-credit"
+      "finance-banking-chặng-18"
     ],
     "tags": [
       "legal"
@@ -38897,8 +40565,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting",
-      "fb-loans-credit"
+      "finance-banking-chặng-18"
     ],
     "tags": [
       "legal"
@@ -38915,7 +40582,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting"
+      "finance-banking-chặng-19"
     ],
     "tags": [
       "accounting"
@@ -38932,8 +40599,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting",
-      "fb-banking-services"
+      "finance-banking-chặng-19"
     ],
     "tags": [
       "accounting"
@@ -38950,8 +40616,7 @@ export const WORDS = [
     "level": "C1",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting",
-      "fb-investments-stocks"
+      "finance-banking-chặng-19"
     ],
     "tags": [
       "valuation"
@@ -38968,8 +40633,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting",
-      "fb-investments-stocks"
+      "finance-banking-chặng-19"
     ],
     "tags": [
       "legal"
@@ -38986,8 +40650,7 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "topicIds": [
-      "fb-corporate-accounting",
-      "fb-investments-stocks"
+      "finance-banking-chặng-19"
     ],
     "tags": [
       "fraud"
@@ -38995,240 +40658,9 @@ export const WORDS = [
   }
 ];
 
-export const WORDS_MAP = new Map(WORDS.map(w => [w.id, w]));
-export const LEGACY_ID_MAP = {
-  "pp-144": "pp-045",
-  "cf-054": "pp-137",
-  "cf-071": "pp-105",
-  "cf-095": "dl-221",
-  "cf-125": "pp-060",
-  "cf-130": "cf-052",
-  "cf-131": "pp-069",
-  "cf-135": "pp-057",
-  "cf-141": "pp-080",
-  "fd-055": "dl-028",
-  "fd-063": "dl-080",
-  "fd-081": "cf-086",
-  "hl-025": "dl-114",
-  "hl-026": "dl-003",
-  "hl-028": "dl-210",
-  "hl-029": "dl-211",
-  "hl-037": "dl-084",
-  "hl-039": "dl-030",
-  "hl-040": "fd-095",
-  "hl-047": "dl-011",
-  "hl-050": "dl-012",
-  "hl-051": "dl-008",
-  "hl-052": "dl-009",
-  "hl-053": "dl-013",
-  "hl-054": "dl-014",
-  "hl-056": "dl-025",
-  "hl-057": "dl-016",
-  "hl-063": "dl-087",
-  "hl-065": "dl-090",
-  "hl-066": "dl-086",
-  "hl-068": "dl-096",
-  "hl-070": "dl-102",
-  "hl-072": "dl-113",
-  "hl-073": "dl-140",
-  "hl-075": "dl-093",
-  "hl-076": "fd-091",
-  "hl-077": "dl-095",
-  "hl-083": "dl-270",
-  "hl-100": "dl-106",
-  "hl-101": "dl-107",
-  "hb-002": "pp-100",
-  "hb-051": "dl-139",
-  "hb-091": "fd-136",
-  "hb-093": "fd-137",
-  "hb-096": "fd-141",
-  "hb-097": "fd-140",
-  "hb-098": "fd-143",
-  "hb-099": "fd-051",
-  "hb-100": "fd-145",
-  "hb-101": "fd-013",
-  "hb-104": "fd-150",
-  "hb-105": "fd-139",
-  "hb-123": "cf-091",
-  "hb-130": "cf-104",
-  "hb-134": "cf-098",
-  "sm-003": "dl-166",
-  "sm-012": "fd-005",
-  "sm-013": "dl-168",
-  "sm-015": "dl-177",
-  "sm-050": "dl-172",
-  "sm-057": "fd-120",
-  "sm-078": "dl-046",
-  "sm-086": "cf-055",
-  "sm-133": "dl-167",
-  "td-011": "hb-053",
-  "td-024": "dl-150",
-  "td-027": "sm-097",
-  "td-050": "hl-111",
-  "td-058": "dl-188",
-  "wj-017": "pp-121",
-  "wj-043": "sm-148",
-  "wj-085": "dl-142",
-  "wj-086": "td-145",
-  "wj-088": "cf-055",
-  "wj-089": "cf-019",
-  "wj-095": "dl-063",
-  "wj-100": "cf-053",
-  "wj-108": "pp-112",
-  "wj-112": "dl-159",
-  "wj-121": "sm-040",
-  "wj-128": "pp-122",
-  "wj-137": "cf-104",
-  "wj-144": "pp-110",
-  "el-028": "wj-020",
-  "el-066": "wj-134",
-  "el-073": "wj-037",
-  "el-083": "sm-036",
-  "el-100": "cf-032",
-  "el-102": "cf-046",
-  "el-108": "sm-122",
-  "el-109": "dl-046",
-  "el-116": "wj-042",
-  "el-133": "pp-038",
-  "el-135": "pp-122",
-  "el-150": "td-034",
-  "tp-003": "el-143",
-  "tp-006": "td-054",
-  "tp-007": "fd-119",
-  "tp-008": "sm-106",
-  "tp-011": "td-057",
-  "tp-036": "pp-015",
-  "tp-052": "dl-020",
-  "tp-069": "el-019",
-  "tp-079": "fd-117",
-  "tp-084": "pp-059",
-  "tp-086": "fd-130",
-  "tp-127": "pp-043",
-  "tp-143": "hb-136",
-  "tp-144": "td-120",
-  "eh-005": "wj-007",
-  "eh-058": "el-048",
-  "eh-074": "td-069",
-  "eh-097": "el-097",
-  "eh-127": "hl-005",
-  "eh-133": "tp-125",
-  "eh-149": "hl-120",
-  "ti-051": "hb-066",
-  "ti-060": "cf-136",
-  "ti-086": "tp-140",
-  "ti-095": "el-115",
-  "ti-150": "td-034",
-  "nw-050": "ti-098",
-  "nw-056": "sm-100",
-  "nw-070": "nw-012",
-  "nw-095": "dl-102",
-  "sw-009": "ti-124",
-  "sw-020": "eh-083",
-  "sw-028": "hl-150",
-  "sw-032": "wj-005",
-  "sw-037": "wj-046",
-  "sw-043": "ti-101",
-  "sw-044": "ti-102",
-  "sw-066": "cf-123",
-  "sw-095": "wj-113",
-  "tb1-001": "wj-026",
-  "tb1-002": "wj-025",
-  "tb1-003": "wj-019",
-  "tb1-004": "wj-027",
-  "tb1-005": "el-030",
-  "tb1-012": "hl-105",
-  "tb1-014": "wj-023",
-  "tb1-015": "wj-028",
-  "tb1-016": "wj-093",
-  "tb1-018": "wj-094",
-  "tb1-019": "cf-053",
-  "tb1-021": "wj-104",
-  "tb1-023": "dl-162",
-  "tb1-024": "wj-101",
-  "tb1-026": "wj-103",
-  "tb1-030": "wj-042",
-  "tb1-031": "wj-077",
-  "tb1-032": "dl-142",
-  "tb1-033": "dl-143",
-  "tb1-034": "wj-083",
-  "tb1-040": "wj-107",
-  "tb1-043": "dl-149",
-  "tb1-044": "sw-056",
-  "tb1-046": "wj-035",
-  "tb1-047": "wj-036",
-  "tb1-049": "wj-037",
-  "tb1-050": "wj-031",
-  "tb1-051": "wj-039",
-  "tb1-052": "wj-046",
-  "tb1-053": "wj-072",
-  "tb1-055": "wj-033",
-  "tb1-056": "wj-038",
-  "tb1-059": "wj-042",
-  "tb1-060": "wj-060",
-  "tb1-061": "sm-088",
-  "tb1-065": "wj-071",
-  "tb1-066": "wj-135",
-  "tb1-069": "wj-067",
-  "tb1-071": "wj-064",
-  "tb1-075": "sm-040",
-  "tb1-076": "sm-090",
-  "tb1-089": "dl-185",
-  "tb1-090": "el-057",
-  "tb1-097": "sm-040",
-  "tb1-100": "tp-040",
-  "tb1-102": "eh-105",
-  "tb1-108": "sm-084",
-  "tb1-110": "cf-055",
-  "tb1-112": "sm-079",
-  "tb1-113": "sm-076",
-  "tb1-119": "el-094",
-  "tb1-124": "sm-033",
-  "tb1-127": "sm-049",
-  "tb1-129": "dl-167",
-  "tb1-130": "tp-083",
-  "tb1-135": "sm-099",
-  "tb1-143": "sm-074",
-  "tb1-144": "td-057",
-  "tb1-147": "sm-063",
-  "tb1-151": "wj-063",
-  "tb1-153": "wj-057",
-  "tb1-155": "dl-185",
-  "tb1-166": "sw-060",
-  "tb1-172": "pp-132",
-  "tb1-182": "sm-095",
-  "tb1-183": "sm-094",
-  "tb1-185": "sm-096",
-  "tb1-186": "sm-126",
-  "tb1-189": "sm-059",
-  "tb1-190": "sm-127",
-  "tb1-192": "sm-134",
-  "tb1-193": "sm-129",
-  "tb1-194": "sm-128",
-  "tb1-197": "sm-106",
-  "tb1-200": "sm-144",
-  "tb1-212": "sm-140",
-  "tb1-213": "sm-145",
-  "tb1-214": "sm-148",
-  "tb1-215": "sm-139",
-  "tb1-216": "ti-146",
-  "tb1-218": "sm-143",
-  "tb1-226": "tp-004",
-  "tb1-228": "fd-119",
-  "tb1-229": "pp-043",
-  "tb1-234": "td-054",
-  "tb1-237": "tp-028",
-  "tb1-238": "td-049",
-  "tb1-248": "tp-041",
-  "tb1-249": "wj-030",
-  "tb1-253": "wj-079",
-  "tb1-254": "wj-130",
-  "tb1-256": "pp-112",
-  "tb1-257": "dl-160",
-  "tb1-259": "wj-111",
-  "tb1-260": "wj-116",
-  "tb1-262": "wj-119",
-  "tb1-264": "dl-159",
-  "tb1-265": "sm-118",
-  "tb1-269": "wj-115"
-};
-export default WORDS;
+export const WORDS_MAP = new Map();
+for (const word of WORDS) {
+  WORDS_MAP.set(word.id, word);
+}
+
+export const LEGACY_ID_MAP = {};

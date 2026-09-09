@@ -183,12 +183,22 @@ export class DeckManager {
     if (!deck) return [];
 
     const rawSubtopics = Array.isArray(deck.subtopics) ? deck.subtopics : (Array.isArray(deck.subcategories) ? deck.subcategories : []);
+    const cleanIdent = typeof subtopicIdentifier === 'string' ? subtopicIdentifier.trim() : '';
+    const cleanIdentNoNum = cleanIdent.replace(/^\d+\.\s*/, '').toLowerCase();
+
     const subObj = typeof subtopicIdentifier === 'object' && subtopicIdentifier !== null
       ? subtopicIdentifier
-      : rawSubtopics.find(s => 
-          s === subtopicIdentifier ||
-          (typeof s === 'object' && (s.id === subtopicIdentifier || s.name === subtopicIdentifier))
-        );
+      : rawSubtopics.find(s => {
+          if (typeof s === 'string') {
+            return s === subtopicIdentifier || s.replace(/^\d+\.\s*/, '').toLowerCase() === cleanIdentNoNum;
+          }
+          if (typeof s === 'object' && s) {
+            const sName = (s.name || '').trim();
+            const sNameNoNum = sName.replace(/^\d+\.\s*/, '').toLowerCase();
+            return s.id === subtopicIdentifier || sName === cleanIdent || sNameNoNum === cleanIdentNoNum;
+          }
+          return false;
+        });
 
     if (subObj && typeof subObj === 'object' && Array.isArray(subObj.wordIds) && subObj.wordIds.length > 0) {
       return subObj.wordIds.map(id => {
@@ -380,7 +390,20 @@ export class DeckManager {
     const selectedNew = newCards.slice(0, maxNew);
 
     let queue = [];
-    if (selectedDue.length > 0) {
+    if (subtopic) {
+      // Khi học theo chặng/chủ đề con cụ thể (10 từ): Ưu tiên thẻ đến hạn trước, sau đó là thẻ mới, rồi đến thẻ đang học/thuần thục
+      const seenIds = new Set();
+      queue = [];
+      for (const card of [...selectedDue, ...selectedNew, ...learningCards, ...targetCards]) {
+        if (card && card.id && !seenIds.has(card.id)) {
+          seenIds.add(card.id);
+          queue.push({
+            ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
+            fsrsState: cardStates[card.id] || FSRS.createEmptyCard(card.id)
+          });
+        }
+      }
+    } else if (selectedDue.length > 0) {
       queue = selectedDue;
     } else if (selectedNew.length > 0) {
       queue = selectedNew;

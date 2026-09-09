@@ -6,7 +6,7 @@ import { Rating } from '../core/fsrs.js';
 import { showConfirm } from './components.js';
 import { globalStudyTimer } from '../core/stats.js';
 import { unlockAudioContext } from '../core/session.js';
-import { escapeHTML, formatCleanInterval } from '../utils.js';
+import { escapeHTML, formatCleanInterval, scrollToTop } from '../utils.js';
 import { onAudioPlayStateChange, speak } from '../services/audio.js';
 
 export function renderStudyOverlayShell() {
@@ -50,7 +50,6 @@ export function renderStudyOverlayShell() {
               <div class="card-center-content">
                 <div class="card-audio-dual-row" id="card-audio-dual-row">
                   <button type="button" class="btn-audio-accent-pill btn-audio-us" id="btn-audio-us" title="Phát âm tiếng Anh - Mỹ (US)" aria-label="Phát âm US">
-                    <span class="audio-flag">🇺🇸</span>
                     <span class="audio-accent-label">US</span>
                     <span class="audio-speaker-symbol">
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
@@ -62,7 +61,6 @@ export function renderStudyOverlayShell() {
                     </span>
                   </button>
                   <button type="button" class="btn-audio-accent-pill btn-audio-uk" id="btn-audio-uk" title="Phát âm tiếng Anh - Anh (UK)" aria-label="Phát âm UK">
-                    <span class="audio-flag">🇬🇧</span>
                     <span class="audio-accent-label">UK</span>
                     <span class="audio-speaker-symbol">
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
@@ -177,6 +175,49 @@ export function setupStudyControls(app) {
       triggerFlip();
     });
 
+    // Touch Swipe Gesture Support (Vuốt lên: Lật thẻ; Vuốt trái: Quên; Vuốt phải: Nhớ)
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartTime = 0;
+
+    flashcardEl.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
+      }
+    }, { passive: true });
+
+    flashcardEl.addEventListener('touchend', (e) => {
+      if (!e.changedTouches || e.changedTouches.length === 0) return;
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+      const elapsed = Date.now() - touchStartTime;
+
+      // Swipe detected within 500ms and > 50px
+      if (elapsed < 500) {
+        if (Math.abs(diffX) > 60 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
+          // Vuốt ngang
+          if (app.studySession.isFlipped) {
+            if (diffX < 0) {
+              // Vuốt sang trái -> Quên (Again)
+              app.studySession.rateCard(Rating.Again);
+            } else {
+              // Vuốt sang phải -> Nhớ (Good)
+              app.studySession.rateCard(Rating.Good);
+            }
+          }
+        } else if (diffY < -50 && Math.abs(diffY) > Math.abs(diffX) * 1.5) {
+          // Vuốt lên trên -> Lật thẻ
+          if (!app.studySession.isFlipped) {
+            triggerFlip();
+          }
+        }
+      }
+    }, { passive: true });
+
     // Nút phát âm Giọng Mỹ (US)
     if (btnAudioUs) {
       btnAudioUs.addEventListener('click', (e) => {
@@ -226,8 +267,10 @@ export function setupStudyControls(app) {
           });
 
           if (confirmed) {
+            app.studySession?.stopAudio();
             globalStudyTimer.endSession();
             overlay.classList.remove('active');
+            scrollToTop();
             if (reviewed > 0) {
               showSummaryModal(app, stats, true);
             } else {
@@ -293,6 +336,7 @@ export function setupStudyControls(app) {
         try {
           document.getElementById('study-summary-modal')?.classList.remove('active');
           document.getElementById('study-overlay')?.classList.remove('active');
+          scrollToTop();
           app.refreshAllViews();
         } catch (err) {
           console.error('Lỗi đóng summary modal:', err);
@@ -408,9 +452,11 @@ export function handleCardChange(app, card, progress) {
 
 export function handleStudyFinish(app, sessionStats) {
   try {
+    app.studySession?.stopAudio();
     globalStudyTimer.endSession();
     const overlay = document.getElementById('study-overlay');
     if (overlay) overlay.classList.remove('active');
+    scrollToTop();
     showSummaryModal(app, sessionStats, false);
     app.refreshAllViews();
   } catch (err) {

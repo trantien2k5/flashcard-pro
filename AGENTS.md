@@ -34,9 +34,9 @@ simple-flashcard/
 │   ├── flashcard.css             # 3D Flip Card, rating buttons (Again, Hard, Good, Easy), audio controls
 │   ├── components.css            # Global Search Modal, Feedback Toast, Confirm Dialog, Study Summary, Sync Modal
 │   └── views/                    # CSS giao diện các màn hình (1-1 với js/views/)
-│       ├── review.css            # Giao diện Ôn tập & biểu đồ 5 cấp độ trí nhớ
+│       ├── review.css            # Giao diện Trang chủ Ôn tập: Nhiệm vụ hôm nay, Kho từ vựng & Tiếp tục học
 │       ├── decks.css             # Giao diện duyệt Chủ đề 4 cấp & Danh sách từ vựng
-│       ├── stats.css             # Giao diện Báo cáo thống kê FSRS-6 & Biểu đồ 7 ngày
+│       ├── stats.css             # Giao diện Báo cáo thống kê FSRS-6 chuyên sâu & Biểu đồ 7 ngày
 │       └── settings.css          # Giao diện Cài đặt hệ thống & Hồ sơ cá nhân (Profile)
 │
 ├── js/                           # Kiến trúc JavaScript tinh gọn (~10 files, Clean Modules)
@@ -53,10 +53,10 @@ simple-flashcard/
 │   │   ├── audio.js              # Dual Native Audio Engine (CDN MP3 + Neural TTS)
 │   │   └── sync.js               # Universal 2-Way Handshake & Smart Merge FSRS
 │   └── views/                    # Giao diện các màn hình chức năng
-│       ├── review.js             # Màn hình Ôn tập & biểu đồ 5 cấp độ trí nhớ FSRS
+│       ├── review.js             # Màn hình Trang chủ Ôn tập: Nhiệm vụ ngày, Kho từ vựng & Tiếp tục học gần đây
 │       ├── decks.js              # Duyệt 4 cấp độ chủ đề (Chủ đề lớn -> Chặng -> Chi tiết -> Danh sách từ)
 │       ├── study.js              # Trình phát Flashcard 3D, phím tắt & cử chỉ vuốt
-│       ├── stats.js              # Báo cáo thống kê 4 khu vực chuẩn
+│       ├── stats.js              # Báo cáo thống kê FSRS-6 4 khu vực chuẩn chuyên sâu
 │       ├── settings.js           # Cài đặt FSRS, âm thanh, giao diện & Hồ sơ cá nhân (Profile)
 │       └── components.js         # Spotlight Search Modal, Toast alerts, Confirm Dialog & Sync Modal
 │

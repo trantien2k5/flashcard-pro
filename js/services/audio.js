@@ -221,6 +221,20 @@ export function preloadWordAudio(cleanText, accent = 'us', cardObj = null) {
     entry.failed = true;
   }
 
+  // Giới hạn bộ nhớ cache âm thanh (tối đa 150 phần tử) để tránh rò rỉ RAM khi học nhiều giờ
+  if (_audioCache.size > 150) {
+    const oldestKey = _audioCache.keys().next().value;
+    const oldestEntry = _audioCache.get(oldestKey);
+    if (oldestEntry && oldestEntry.audio) {
+      try {
+        oldestEntry.audio.pause();
+        oldestEntry.audio.src = '';
+        oldestEntry.audio.load();
+      } catch (e) {}
+    }
+    _audioCache.delete(oldestKey);
+  }
+
   _audioCache.set(key, entry);
   return entry;
 }

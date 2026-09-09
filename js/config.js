@@ -66,6 +66,7 @@ export const STABILITY_TIERS = [
 ];
 
 export const DECK_ENGLISH_NAMES = {
+  'top-1000-core': 'Top 1000 Essential Core Words',
   'daily-life-routines': 'Daily Life & Routines',
   'people-relationships': 'People & Relationships',
   'communication-feelings': 'Communication & Feelings',
@@ -82,6 +83,7 @@ export const DECK_ENGLISH_NAMES = {
   'nature-weather': 'Nature & Weather',
   'society-world': 'Society & World',
   'toeic-b1': 'TOEIC B1 Business',
+  'finance-banking': 'Finance & Banking',
   'advanced-academic-ielts': 'Advanced Academic & IELTS'
 };
 

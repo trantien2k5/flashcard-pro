@@ -93,33 +93,37 @@ export class StudySession {
   }
 
   /**
-   * Cơ chế tải trước (Preload) toàn bộ thẻ trong phiên (Cả giọng US và UK)
+   * Tải trước toàn bộ 10 từ của phiên học (Cả giọng US & UK):
+   * - Nạp ngay 3 từ đầu tiên tức thì để phát 0ms không chờ đợi.
+   * - Tự động tải ngầm toàn bộ các từ còn lại trong phiên học (10 từ) để sẵn sàng 100%.
    */
   preloadSessionAudio(cards) {
     if (!cards || !Array.isArray(cards) || typeof Audio === 'undefined') return;
 
-    // 1. Tải ngay 5 từ đầu tiên tức thì cả 2 giọng US & UK
-    const immediateBatch = cards.slice(0, 5);
+    // 1. Tải ngay 3 từ đầu tiên tức thì cả 2 giọng US & UK
+    const immediateBatch = cards.slice(0, 3);
     immediateBatch.forEach(card => {
       if (card && card.word) {
-        preloadWordAudio(card.word.trim(), 'us', card);
-        preloadWordAudio(card.word.trim(), 'uk', card);
+        const w = card.word.trim();
+        preloadWordAudio(w, 'us', card);
+        preloadWordAudio(w, 'uk', card);
       }
     });
 
-    // 2. Tải nền các từ còn lại trong phiên theo từng đợt nhỏ để tiết kiệm tài nguyên
-    if (cards.length > 5) {
-      const remainingBatch = cards.slice(5);
+    // 2. Tải ngầm toàn bộ các từ còn lại trong phiên học (từ 4 đến 10)
+    if (cards.length > 3) {
+      const remainingBatch = cards.slice(3);
       setTimeout(() => {
         remainingBatch.forEach((card, idx) => {
           setTimeout(() => {
             if (card && card.word) {
-              preloadWordAudio(card.word.trim(), 'us', card);
-              preloadWordAudio(card.word.trim(), 'uk', card);
+              const w = card.word.trim();
+              preloadWordAudio(w, 'us', card);
+              preloadWordAudio(w, 'uk', card);
             }
-          }, idx * 60);
+          }, idx * 40);
         });
-      }, 300);
+      }, 100);
     }
   }
 
@@ -169,11 +173,14 @@ export class StudySession {
       }, 120);
     }
 
-    // Đảm bảo từ tiếp theo luôn được chuẩn bị sẵn cả 2 giọng US & UK
-    if (this.currentIndex + 1 < this.queue.length && this.queue[this.currentIndex + 1]?.word) {
-      const nextWord = this.queue[this.currentIndex + 1].word.trim();
-      preloadWordAudio(nextWord, 'us');
-      preloadWordAudio(nextWord, 'uk');
+    // Tải trước trượt 2 từ tiếp theo trong hàng đợi (Sliding Window JIT)
+    for (let offset = 1; offset <= 2; offset++) {
+      const nextCard = this.queue[this.currentIndex + offset];
+      if (nextCard && nextCard.word) {
+        const cleanWord = nextCard.word.trim();
+        preloadWordAudio(cleanWord, 'us', nextCard);
+        preloadWordAudio(cleanWord, 'uk', nextCard);
+      }
     }
 
     return this.currentCard;

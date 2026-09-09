@@ -7,7 +7,7 @@ import { DECK_ENGLISH_NAMES, getSubtopicIcon } from '../config.js';
 import { StorageManager } from '../services/storage.js';
 import { State } from '../core/fsrs.js';
 import { TopicRepository } from '../../data/index.js';
-import { escapeHTML, safeColor } from '../utils.js';
+import { escapeHTML, safeColor, scrollToTop } from '../utils.js';
 import { showToast } from './components.js';
 
 let _pinnedDecks = new Set();
@@ -98,7 +98,8 @@ export function renderDecksTabShell(tabPane) {
             </div>
             <div class="decks-select-wrap">
               <select id="decks-sort-select" aria-label="Sắp xếp danh sách">
-                <option value="default">⚡ Sắp xếp: Mặc định</option>
+                <option value="default">⚡ Sắp xếp: Vừa học (Mặc định)</option>
+                <option value="recent">🕒 Vừa học gần đây</option>
                 <option value="progress">📈 Tiến độ cao nhất</option>
                 <option value="due">⚠️ Cần ôn nhiều nhất</option>
                 <option value="words">📝 Số từ nhiều nhất</option>
@@ -177,7 +178,10 @@ export function renderDecksTab(app) {
 
     // Sắp xếp
     filtered.sort((a, b) => {
+      // 1. Ưu tiên ghim lên đầu
       if (a.isPinned !== b.isPinned) return a.isPinned ? -1 : 1;
+
+      // 2. Sắp xếp theo lựa chọn
       if (activeSort === 'progress') return b.stats.progressPercent - a.stats.progressPercent;
       if (activeSort === 'due') return b.stats.dueCount - a.stats.dueCount;
       if (activeSort === 'words') return b.stats.total - a.stats.total;
@@ -186,7 +190,22 @@ export function renderDecksTab(app) {
         const nameB = (DECK_ENGLISH_NAMES[b.deck.id] || b.deck.title || b.deck.name || '').toLowerCase();
         return nameA.localeCompare(nameB);
       }
-      return 0;
+      if (activeSort === 'recent') {
+        const timeA = a.stats.lastStudiedTime || 0;
+        const timeB = b.stats.lastStudiedTime || 0;
+        if (timeA !== timeB) return timeB - timeA;
+        return (a.deck.order || 99) - (b.deck.order || 99);
+      }
+
+      // 3. Mặc định ('default'): Chủ đề vừa học gần đây nhất sẽ tự động được đưa lên đầu!
+      const timeA = a.stats.lastStudiedTime || 0;
+      const timeB = b.stats.lastStudiedTime || 0;
+      if (timeA > 0 || timeB > 0) {
+        if (timeA > 0 && timeB > 0) return timeB - timeA;
+        return timeB > 0 ? 1 : -1;
+      }
+
+      return (a.deck.order || 99) - (b.deck.order || 99);
     });
 
     // Cập nhật summary label
@@ -211,27 +230,27 @@ export function renderDecksTab(app) {
       card.dataset.deckId = deck.id;
 
       card.innerHTML = `
-        <div class="deck-card-top">
-          <div class="deck-card-main">
-            <div class="deck-icon-badge" style="background: ${deckColor}22; color: ${deckColor}; border: 1px solid ${deckColor}44;">
-              <span>${deck.icon || '📚'}</span>
-            </div>
-            <div class="deck-info">
-              <h3 class="deck-title">${escapeHTML(englishTitle)}</h3>
-              <p class="deck-sub-title">${escapeHTML(vietnameseTitle)}</p>
-              <div class="deck-meta-strip">
-                <span>📁 ${subtopicsCount} chặng</span>
-                <span>•</span>
-                <span>📝 ${stats.total} từ</span>
-              </div>
-            </div>
+        <div class="deck-card-header">
+          <div class="deck-icon-badge" style="background: ${deckColor}22; color: ${deckColor}; border: 1px solid ${deckColor}44;">
+            <span>${deck.icon || '📚'}</span>
           </div>
-          <div class="deck-card-right">
-            <button class="btn-deck-pin ${isPinned ? 'pinned' : ''}" title="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" data-pin-id="${escapeHTML(deck.id)}">📌</button>
+          <div class="deck-info">
+            <h3 class="deck-title">${escapeHTML(englishTitle)}</h3>
+            <p class="deck-sub-title">${escapeHTML(vietnameseTitle)}</p>
+          </div>
+          <button class="btn-deck-pin ${isPinned ? 'pinned' : ''}" title="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" data-pin-id="${escapeHTML(deck.id)}">📌</button>
+        </div>
+        <div class="deck-card-footer">
+          <div class="deck-meta-strip">
+            <span>📁 ${subtopicsCount} chặng</span>
+            <span>•</span>
+            <span>📝 ${stats.total} từ</span>
+          </div>
+          <div class="deck-actions-group">
+            <span class="deck-stats-fraction">${stats.progressPercent}%</span>
             <button class="btn-deck-study ${stats.dueCount > 0 ? 'due' : ''}" data-study-id="${escapeHTML(deck.id)}">
               ${stats.dueCount > 0 ? `⚡ Ôn ${stats.dueCount}` : '✨ Học'}
             </button>
-            <span class="deck-stats-fraction">${stats.progressPercent}%</span>
             <span class="deck-chevron">›</span>
           </div>
         </div>
@@ -331,13 +350,13 @@ export function renderSubtopicsPageShell(tabPane) {
         </div>
       </div>
 
-      <div class="subpage-body-content">
+      <div class="subpage-content-body">
         <div id="subpage-hero-container"></div>
-        <div class="subpage-section-header">
-          <h3 class="subpage-section-title">Danh sách chặng học</h3>
-          <span class="subpage-count-badge" id="subtopics-list-count">0 chủ đề</span>
+        <div class="subtopics-section-header">
+          <h3 class="subtopics-section-title">Danh sách chặng học</h3>
+          <span class="subtopics-section-meta" id="subtopics-list-count">0 chủ đề</span>
         </div>
-        <div class="subpage-subtopics-list" id="subpage-subtopics-list"></div>
+        <div class="subtopics-list-container" id="subpage-subtopics-list"></div>
       </div>
     `;
   }
@@ -346,6 +365,7 @@ export function renderSubtopicsPageShell(tabPane) {
 export function openSubtopicsPage(app, deckId) {
   app.currentSubtopicsDeckId = deckId;
   app.switchTab('tab-subtopics');
+  scrollToTop();
 }
 
 export function renderSubtopicsPage(app, deckId) {
@@ -475,9 +495,11 @@ export function renderSubtopicsPage(app, deckId) {
         if (!isUnlocked) {
           badgeHtml = `<span class="subtopic-badge badge-locked">🔒 Đang khóa</span>`;
         } else if (isSubDone) {
-          badgeHtml = `<span class="subtopic-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">✓ Hoàn thành</span>`;
+          badgeHtml = `<span class="subtopic-badge badge-done">✓ Hoàn thành</span>`;
         } else if (dueSubCount > 0) {
-          badgeHtml = `<span class="subtopic-badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">⚠️ ${dueSubCount} cần ôn</span>`;
+          badgeHtml = `<span class="subtopic-badge badge-due">⚠️ ${dueSubCount} cần ôn</span>`;
+        } else if (learnedSubCount > 0) {
+          badgeHtml = `<span class="subtopic-badge badge-learning">${percent}%</span>`;
         }
 
         card.innerHTML = `
@@ -486,25 +508,26 @@ export function renderSubtopicsPage(app, deckId) {
               <span>${icon}</span>
             </div>
             <div class="subtopic-card-info">
-              <div class="subtopic-card-title-row" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 2px;">
-                <h4 class="subtopic-card-title">${escapeHTML(subName)}</h4>
-                ${badgeHtml}
-              </div>
+              <h4 class="subtopic-card-title">${escapeHTML(subName)}</h4>
               <div class="subtopic-card-meta">
                 <span class="subtopic-count-text">${subCards.length} từ vựng</span>
-                <span>•</span>
-                <span>Đã học ${learnedSubCount}/${subCards.length}</span>
+                <span class="subtopic-meta-dot">•</span>
+                <span class="subtopic-learned-text">Đã học ${learnedSubCount}/${subCards.length}</span>
               </div>
             </div>
-            <div class="subtopic-chevron">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            <div class="subtopic-card-right">
+              ${badgeHtml}
+              <div class="subtopic-chevron">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              </div>
             </div>
           </div>
-          <div class="subtopic-card-progress" style="margin-top: 4px;">
+          ${percent > 0 ? `
+          <div class="subtopic-card-progress">
             <div class="deck-progress-bar-bg">
               <div class="deck-progress-fill" style="width: ${percent}%; background: ${deckColor};"></div>
             </div>
-          </div>
+          </div>` : ''}
         `;
 
         card.onclick = () => {
@@ -666,6 +689,7 @@ export async function openSubtopicWordsPage(app, deckId, subtopicName) {
     await app.deckManager.ensureTopicLoaded(deckId);
   }
   app.switchTab('tab-subtopic-words');
+  scrollToTop();
 }
 
 export async function renderSubtopicWordsPage(app, deckId, subtopicName) {

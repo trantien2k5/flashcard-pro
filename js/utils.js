@@ -98,12 +98,29 @@ export function isTouchDevice() {
 /**
  * Smoothly scroll window or container to top
  */
-export function scrollToTop(target = window, smooth = true) {
-  if (target === window) {
-    window.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
-  } else if (target && typeof target.scrollTo === 'function') {
-    target.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
-  }
+export function scrollToTop(target = null, smooth = true) {
+  try {
+    if (target && target !== window && typeof target.scrollTo === 'function') {
+      target.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
+      return;
+    }
+    const behavior = smooth ? 'smooth' : 'auto';
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior });
+    }
+    if (typeof document !== 'undefined') {
+      if (document.documentElement) document.documentElement.scrollTop = 0;
+      if (document.body) document.body.scrollTop = 0;
+      const mainContent = document.getElementById('main-content');
+      if (mainContent) mainContent.scrollTo({ top: 0, behavior });
+      const activePane = document.querySelector('.tab-pane.active');
+      if (activePane) activePane.scrollTop = 0;
+      const subtopicsList = document.getElementById('subpage-subtopics-list');
+      if (subtopicsList) subtopicsList.scrollTop = 0;
+      const wordsList = document.getElementById('subtopic-words-list');
+      if (wordsList) wordsList.scrollTop = 0;
+    }
+  } catch (e) {}
 }
 
 /**
