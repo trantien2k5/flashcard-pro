@@ -3,7 +3,7 @@
  * Fully aligned with index.html DOM IDs, CSS classes & Scroll Restoration
  */
 
-import { DECK_ENGLISH_NAMES, getSubtopicIcon } from '../config.js';
+import { DECK_ENGLISH_NAMES, getSubtopicIcon, getSubtopicColor } from '../config.js';
 import { StorageManager } from '../services/storage.js';
 import { State } from '../core/fsrs.js';
 import { TopicRepository } from '../../data/index.js';
@@ -477,7 +477,8 @@ export function renderSubtopicsPage(app, deckId) {
 
         const isSubDone = subCards.length > 0 && (learnedSubCount >= subCards.length);
         const percent = subCards.length > 0 ? Math.round((learnedSubCount / subCards.length) * 100) : 0;
-        const icon = getSubtopicIcon(subName, deck.icon || '📖');
+        const icon = (typeof subObj === 'object' && subObj.icon) ? subObj.icon : getSubtopicIcon(subObj || subName, deck.icon || '📖', i);
+        const subColor = (typeof subObj === 'object' && subObj.color) ? safeColor(subObj.color) : getSubtopicColor(subObj || subName, deckColor, i);
 
         let isUnlocked = true;
         if (isProgressive && i > 0) {
@@ -504,7 +505,7 @@ export function renderSubtopicsPage(app, deckId) {
 
         card.innerHTML = `
           <div class="subtopic-card-top-row">
-            <div class="subtopic-icon-badge" style="background: ${deckColor}18; color: ${deckColor};">
+            <div class="subtopic-icon-badge" style="background: ${subColor}18; color: ${subColor}; border: 1px solid ${subColor}33;">
               <span>${icon}</span>
             </div>
             <div class="subtopic-card-info">
@@ -525,7 +526,7 @@ export function renderSubtopicsPage(app, deckId) {
           ${percent > 0 ? `
           <div class="subtopic-card-progress">
             <div class="deck-progress-bar-bg">
-              <div class="deck-progress-fill" style="width: ${percent}%; background: ${deckColor};"></div>
+              <div class="deck-progress-fill" style="width: ${percent}%; background: ${subColor};"></div>
             </div>
           </div>` : ''}
         `;
@@ -580,8 +581,11 @@ export async function renderSubtopicDetailPage(app, deckId, subtopicName) {
     const deck = app.deckManager.getDeckById(deckId);
     if (!deck) return;
 
+    const rawSubtopics = Array.isArray(deck.subtopics) ? deck.subtopics : (Array.isArray(deck.subcategories) ? deck.subcategories : []);
+    const subObj = rawSubtopics.find(s => (typeof s === 'object' ? (s.name === subtopicName || s.id === subtopicName) : s === subtopicName));
     const subCards = app.deckManager.getSubtopicCards(deckId, subtopicName);
-    const subIcon = getSubtopicIcon(subtopicName, deck.icon || '📖');
+    const subIcon = (subObj && subObj.icon) ? subObj.icon : getSubtopicIcon(subtopicName, deck.icon || '📖');
+    const subColor = (subObj && subObj.color) ? safeColor(subObj.color) : getSubtopicColor(subtopicName, deck.color || '#6366f1');
 
     const dueSubCount = subCards.filter(c => {
       const s = StorageManager.getCardState(c.id);
@@ -716,8 +720,10 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
     const deck = app.deckManager.getDeckById(deckId);
     if (!deck) return;
 
+    const rawSubtopics = Array.isArray(deck.subtopics) ? deck.subtopics : (Array.isArray(deck.subcategories) ? deck.subcategories : []);
+    const subObj = rawSubtopics.find(s => (typeof s === 'object' ? (s.name === subtopicName || s.id === subtopicName) : s === subtopicName));
     const subCards = app.deckManager.getSubtopicCards(deckId, subtopicName);
-    const subIcon = getSubtopicIcon(subtopicName, deck.icon || '📖');
+    const subIcon = (subObj && subObj.icon) ? subObj.icon : getSubtopicIcon(subtopicName, deck.icon || '📖');
     const englishDeckTitle = DECK_ENGLISH_NAMES[deck.id] || deck.titleEn || deck.title || deck.name;
 
     const pageTitleEl = document.getElementById('subtopic-words-page-title');

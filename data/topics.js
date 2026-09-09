@@ -20,7 +20,9 @@ export const TOPICS = [
     "id": "top-1000-core-chặng-1",
     "name": "1. Động từ Hành động Cốt lõi #1",
     "parentId": "top-1000-core",
-    "description": "Gồm 10 từ vựng thực chiến tần suất cao trong Động từ Hành động Cốt lõi #1."
+    "description": "Gồm 10 từ vựng thực chiến tần suất cao trong Động từ Hành động Cốt lõi #1.",
+    "icon": "⚡",
+    "color": "#f59e0b"
   },
   {
     "id": "top-1000-core-chặng-2",
@@ -30,7 +32,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-1"
-    }
+    },
+    "icon": "🏃",
+    "color": "#6366f1"
   },
   {
     "id": "top-1000-core-chặng-3",
@@ -40,7 +44,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-2"
-    }
+    },
+    "icon": "🎯",
+    "color": "#10b981"
   },
   {
     "id": "top-1000-core-chặng-4",
@@ -50,7 +56,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-3"
-    }
+    },
+    "icon": "🚀",
+    "color": "#ec4899"
   },
   {
     "id": "top-1000-core-chặng-5",
@@ -60,7 +68,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-4"
-    }
+    },
+    "icon": "💡",
+    "color": "#06b6d4"
   },
   {
     "id": "top-1000-core-chặng-6",
@@ -70,7 +80,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-5"
-    }
+    },
+    "icon": "🧗",
+    "color": "#8b5cf6"
   },
   {
     "id": "top-1000-core-chặng-7",
@@ -80,7 +92,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-6"
-    }
+    },
+    "icon": "🏹",
+    "color": "#3b82f6"
   },
   {
     "id": "top-1000-core-chặng-8",
@@ -90,7 +104,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-7"
-    }
+    },
+    "icon": "🏋️",
+    "color": "#f97316"
   },
   {
     "id": "top-1000-core-chặng-9",
@@ -100,7 +116,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-8"
-    }
+    },
+    "icon": "🏄",
+    "color": "#14b8a6"
   },
   {
     "id": "top-1000-core-chặng-10",
@@ -110,7 +128,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-9"
-    }
+    },
+    "icon": "🚴",
+    "color": "#84cc16"
   },
   {
     "id": "top-1000-core-chặng-11",
@@ -120,7 +140,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-10"
-    }
+    },
+    "icon": "🥊",
+    "color": "#f59e0b"
   },
   {
     "id": "top-1000-core-chặng-12",
@@ -130,7 +152,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-11"
-    }
+    },
+    "icon": "⚽",
+    "color": "#6366f1"
   },
   {
     "id": "top-1000-core-chặng-13",
@@ -140,7 +164,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-12"
-    }
+    },
+    "icon": "🏆",
+    "color": "#10b981"
   },
   {
     "id": "top-1000-core-chặng-14",
@@ -150,7 +176,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-13"
-    }
+    },
+    "icon": "🧭",
+    "color": "#ec4899"
   },
   {
     "id": "top-1000-core-chặng-15",
@@ -160,7 +188,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-14"
-    }
+    },
+    "icon": "🛠️",
+    "color": "#06b6d4"
   },
   {
     "id": "top-1000-core-chặng-16",
@@ -170,7 +200,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-15"
-    }
+    },
+    "icon": "🔍",
+    "color": "#8b5cf6"
   },
   {
     "id": "top-1000-core-chặng-17",
@@ -180,7 +212,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-16"
-    }
+    },
+    "icon": "🎨",
+    "color": "#3b82f6"
   },
   {
     "id": "top-1000-core-chặng-18",
@@ -190,7 +224,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-17"
-    }
+    },
+    "icon": "🌟",
+    "color": "#f97316"
   },
   {
     "id": "top-1000-core-chặng-19",
@@ -200,7 +236,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-18"
-    }
+    },
+    "icon": "✨",
+    "color": "#14b8a6"
   },
   {
     "id": "top-1000-core-chặng-20",
@@ -210,7 +248,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-19"
-    }
+    },
+    "icon": "💥",
+    "color": "#84cc16"
   },
   {
     "id": "top-1000-core-chặng-21",
@@ -220,7 +260,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-20"
-    }
+    },
+    "icon": "🕹️",
+    "color": "#f59e0b"
   },
   {
     "id": "top-1000-core-chặng-22",
@@ -230,7 +272,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-21"
-    }
+    },
+    "icon": "🔮",
+    "color": "#6366f1"
   },
   {
     "id": "top-1000-core-chặng-23",
@@ -240,7 +284,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-22"
-    }
+    },
+    "icon": "🧩",
+    "color": "#10b981"
   },
   {
     "id": "top-1000-core-chặng-24",
@@ -250,7 +296,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-23"
-    }
+    },
+    "icon": "🎲",
+    "color": "#ec4899"
   },
   {
     "id": "top-1000-core-chặng-25",
@@ -260,7 +308,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-24"
-    }
+    },
+    "icon": "🔑",
+    "color": "#06b6d4"
   },
   {
     "id": "top-1000-core-chặng-26",
@@ -270,7 +320,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-25"
-    }
+    },
+    "icon": "🗣️",
+    "color": "#6366f1"
   },
   {
     "id": "top-1000-core-chặng-27",
@@ -280,7 +332,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-26"
-    }
+    },
+    "icon": "😊",
+    "color": "#10b981"
   },
   {
     "id": "top-1000-core-chặng-28",
@@ -290,7 +344,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-27"
-    }
+    },
+    "icon": "❤️",
+    "color": "#ec4899"
   },
   {
     "id": "top-1000-core-chặng-29",
@@ -300,7 +356,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-28"
-    }
+    },
+    "icon": "💡",
+    "color": "#06b6d4"
   },
   {
     "id": "top-1000-core-chặng-30",
@@ -310,7 +368,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-29"
-    }
+    },
+    "icon": "🎭",
+    "color": "#8b5cf6"
   },
   {
     "id": "top-1000-core-chặng-31",
@@ -320,7 +380,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-30"
-    }
+    },
+    "icon": "🤝",
+    "color": "#3b82f6"
   },
   {
     "id": "top-1000-core-chặng-32",
@@ -330,7 +392,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-31"
-    }
+    },
+    "icon": "📢",
+    "color": "#f97316"
   },
   {
     "id": "top-1000-core-chặng-33",
@@ -340,7 +404,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-32"
-    }
+    },
+    "icon": "💌",
+    "color": "#14b8a6"
   },
   {
     "id": "top-1000-core-chặng-34",
@@ -350,7 +416,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-33"
-    }
+    },
+    "icon": "🧠",
+    "color": "#84cc16"
   },
   {
     "id": "top-1000-core-chặng-35",
@@ -360,7 +428,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-34"
-    }
+    },
+    "icon": "🥳",
+    "color": "#f59e0b"
   },
   {
     "id": "top-1000-core-chặng-36",
@@ -370,7 +440,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-35"
-    }
+    },
+    "icon": "🫀",
+    "color": "#6366f1"
   },
   {
     "id": "top-1000-core-chặng-37",
@@ -380,7 +452,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-36"
-    }
+    },
+    "icon": "🩺",
+    "color": "#10b981"
   },
   {
     "id": "top-1000-core-chặng-38",
@@ -390,7 +464,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-37"
-    }
+    },
+    "icon": "🏥",
+    "color": "#ec4899"
   },
   {
     "id": "top-1000-core-chặng-39",
@@ -400,7 +476,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-38"
-    }
+    },
+    "icon": "💊",
+    "color": "#06b6d4"
   },
   {
     "id": "top-1000-core-chặng-40",
@@ -410,7 +488,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-39"
-    }
+    },
+    "icon": "🏃",
+    "color": "#8b5cf6"
   },
   {
     "id": "top-1000-core-chặng-41",
@@ -420,7 +500,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-40"
-    }
+    },
+    "icon": "🥗",
+    "color": "#3b82f6"
   },
   {
     "id": "top-1000-core-chặng-42",
@@ -430,7 +512,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-41"
-    }
+    },
+    "icon": "🧘",
+    "color": "#f97316"
   },
   {
     "id": "top-1000-core-chặng-43",
@@ -440,7 +524,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-42"
-    }
+    },
+    "icon": "🩹",
+    "color": "#14b8a6"
   },
   {
     "id": "top-1000-core-chặng-44",
@@ -450,7 +536,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-43"
-    }
+    },
+    "icon": "🦷",
+    "color": "#84cc16"
   },
   {
     "id": "top-1000-core-chặng-45",
@@ -460,7 +548,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-44"
-    }
+    },
+    "icon": "👁️",
+    "color": "#f59e0b"
   },
   {
     "id": "top-1000-core-chặng-46",
@@ -470,7 +560,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-45"
-    }
+    },
+    "icon": "⏰",
+    "color": "#6366f1"
   },
   {
     "id": "top-1000-core-chặng-47",
@@ -480,7 +572,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-46"
-    }
+    },
+    "icon": "📅",
+    "color": "#10b981"
   },
   {
     "id": "top-1000-core-chặng-48",
@@ -490,7 +584,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-47"
-    }
+    },
+    "icon": "⏳",
+    "color": "#ec4899"
   },
   {
     "id": "top-1000-core-chặng-49",
@@ -500,7 +596,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-48"
-    }
+    },
+    "icon": "🌙",
+    "color": "#06b6d4"
   },
   {
     "id": "top-1000-core-chặng-50",
@@ -510,7 +608,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-49"
-    }
+    },
+    "icon": "☕",
+    "color": "#8b5cf6"
   },
   {
     "id": "top-1000-core-chặng-51",
@@ -520,7 +620,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-50"
-    }
+    },
+    "icon": "🧹",
+    "color": "#3b82f6"
   },
   {
     "id": "top-1000-core-chặng-52",
@@ -530,7 +632,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-51"
-    }
+    },
+    "icon": "🚿",
+    "color": "#f97316"
   },
   {
     "id": "top-1000-core-chặng-53",
@@ -540,7 +644,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-52"
-    }
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
   },
   {
     "id": "top-1000-core-chặng-54",
@@ -550,7 +656,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-53"
-    }
+    },
+    "icon": "🗓️",
+    "color": "#84cc16"
   },
   {
     "id": "top-1000-core-chặng-55",
@@ -560,7 +668,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-54"
-    }
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
   },
   {
     "id": "top-1000-core-chặng-56",
@@ -570,7 +680,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-55"
-    }
+    },
+    "icon": "🍲",
+    "color": "#6366f1"
   },
   {
     "id": "top-1000-core-chặng-57",
@@ -580,7 +692,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-56"
-    }
+    },
+    "icon": "🍎",
+    "color": "#10b981"
   },
   {
     "id": "top-1000-core-chặng-58",
@@ -590,7 +704,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-57"
-    }
+    },
+    "icon": "🥦",
+    "color": "#ec4899"
   },
   {
     "id": "top-1000-core-chặng-59",
@@ -600,7 +716,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-58"
-    }
+    },
+    "icon": "🥩",
+    "color": "#06b6d4"
   },
   {
     "id": "top-1000-core-chặng-60",
@@ -610,7 +728,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-59"
-    }
+    },
+    "icon": "☕",
+    "color": "#8b5cf6"
   },
   {
     "id": "top-1000-core-chặng-61",
@@ -620,7 +740,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-60"
-    }
+    },
+    "icon": "🍰",
+    "color": "#3b82f6"
   },
   {
     "id": "top-1000-core-chặng-62",
@@ -630,7 +752,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-61"
-    }
+    },
+    "icon": "🍕",
+    "color": "#f97316"
   },
   {
     "id": "top-1000-core-chặng-63",
@@ -640,7 +764,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-62"
-    }
+    },
+    "icon": "🍜",
+    "color": "#14b8a6"
   },
   {
     "id": "top-1000-core-chặng-64",
@@ -650,7 +776,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-63"
-    }
+    },
+    "icon": "🥗",
+    "color": "#84cc16"
   },
   {
     "id": "top-1000-core-chặng-65",
@@ -660,7 +788,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-64"
-    }
+    },
+    "icon": "🍔",
+    "color": "#f59e0b"
   },
   {
     "id": "top-1000-core-chặng-66",
@@ -670,7 +800,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-65"
-    }
+    },
+    "icon": "💳",
+    "color": "#6366f1"
   },
   {
     "id": "top-1000-core-chặng-67",
@@ -680,7 +812,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-66"
-    }
+    },
+    "icon": "💰",
+    "color": "#10b981"
   },
   {
     "id": "top-1000-core-chặng-68",
@@ -690,7 +824,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-67"
-    }
+    },
+    "icon": "💵",
+    "color": "#ec4899"
   },
   {
     "id": "top-1000-core-chặng-69",
@@ -700,7 +836,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-68"
-    }
+    },
+    "icon": "🏷️",
+    "color": "#06b6d4"
   },
   {
     "id": "top-1000-core-chặng-70",
@@ -710,7 +848,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-69"
-    }
+    },
+    "icon": "🧾",
+    "color": "#8b5cf6"
   },
   {
     "id": "top-1000-core-chặng-71",
@@ -720,7 +860,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-70"
-    }
+    },
+    "icon": "📈",
+    "color": "#3b82f6"
   },
   {
     "id": "top-1000-core-chặng-72",
@@ -730,7 +872,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-71"
-    }
+    },
+    "icon": "🛒",
+    "color": "#f97316"
   },
   {
     "id": "top-1000-core-chặng-73",
@@ -740,7 +884,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-72"
-    }
+    },
+    "icon": "💎",
+    "color": "#14b8a6"
   },
   {
     "id": "top-1000-core-chặng-74",
@@ -750,7 +896,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-73"
-    }
+    },
+    "icon": "🏪",
+    "color": "#84cc16"
   },
   {
     "id": "top-1000-core-chặng-75",
@@ -760,7 +908,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-74"
-    }
+    },
+    "icon": "🪙",
+    "color": "#f59e0b"
   },
   {
     "id": "top-1000-core-chặng-76",
@@ -770,7 +920,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-75"
-    }
+    },
+    "icon": "🚌",
+    "color": "#6366f1"
   },
   {
     "id": "top-1000-core-chặng-77",
@@ -780,7 +932,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-76"
-    }
+    },
+    "icon": "🚆",
+    "color": "#10b981"
   },
   {
     "id": "top-1000-core-chặng-78",
@@ -790,7 +944,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-77"
-    }
+    },
+    "icon": "✈️",
+    "color": "#ec4899"
   },
   {
     "id": "top-1000-core-chặng-79",
@@ -800,7 +956,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-78"
-    }
+    },
+    "icon": "🚢",
+    "color": "#06b6d4"
   },
   {
     "id": "top-1000-core-chặng-80",
@@ -810,7 +968,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-79"
-    }
+    },
+    "icon": "🚲",
+    "color": "#8b5cf6"
   },
   {
     "id": "top-1000-core-chặng-81",
@@ -820,7 +980,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-80"
-    }
+    },
+    "icon": "🛵",
+    "color": "#3b82f6"
   },
   {
     "id": "top-1000-core-chặng-82",
@@ -830,7 +992,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-81"
-    }
+    },
+    "icon": "🚦",
+    "color": "#f97316"
   },
   {
     "id": "top-1000-core-chặng-83",
@@ -840,7 +1004,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-82"
-    }
+    },
+    "icon": "🧭",
+    "color": "#14b8a6"
   },
   {
     "id": "top-1000-core-chặng-84",
@@ -850,7 +1016,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-83"
-    }
+    },
+    "icon": "🗺️",
+    "color": "#84cc16"
   },
   {
     "id": "top-1000-core-chặng-85",
@@ -860,7 +1028,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-84"
-    }
+    },
+    "icon": "🚇",
+    "color": "#f59e0b"
   },
   {
     "id": "top-1000-core-chặng-86",
@@ -870,7 +1040,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-85"
-    }
+    },
+    "icon": "🛋️",
+    "color": "#6366f1"
   },
   {
     "id": "top-1000-core-chặng-87",
@@ -880,7 +1052,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-86"
-    }
+    },
+    "icon": "🛏️",
+    "color": "#10b981"
   },
   {
     "id": "top-1000-core-chặng-88",
@@ -890,7 +1064,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-87"
-    }
+    },
+    "icon": "🚿",
+    "color": "#ec4899"
   },
   {
     "id": "top-1000-core-chặng-89",
@@ -900,7 +1076,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-88"
-    }
+    },
+    "icon": "🔌",
+    "color": "#06b6d4"
   },
   {
     "id": "top-1000-core-chặng-90",
@@ -910,7 +1088,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-89"
-    }
+    },
+    "icon": "🔑",
+    "color": "#8b5cf6"
   },
   {
     "id": "top-1000-core-chặng-91",
@@ -920,7 +1100,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-90"
-    }
+    },
+    "icon": "🪴",
+    "color": "#3b82f6"
   },
   {
     "id": "top-1000-core-chặng-92",
@@ -930,7 +1112,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-91"
-    }
+    },
+    "icon": "🚪",
+    "color": "#f97316"
   },
   {
     "id": "top-1000-core-chặng-93",
@@ -940,7 +1124,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-92"
-    }
+    },
+    "icon": "🗣️",
+    "color": "#6366f1"
   },
   {
     "id": "top-1000-core-chặng-94",
@@ -950,7 +1136,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-93"
-    }
+    },
+    "icon": "😊",
+    "color": "#10b981"
   },
   {
     "id": "top-1000-core-chặng-95",
@@ -960,7 +1148,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-94"
-    }
+    },
+    "icon": "❤️",
+    "color": "#ec4899"
   },
   {
     "id": "top-1000-core-chặng-96",
@@ -970,7 +1160,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-95"
-    }
+    },
+    "icon": "💡",
+    "color": "#06b6d4"
   },
   {
     "id": "top-1000-core-chặng-97",
@@ -980,7 +1172,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-96"
-    }
+    },
+    "icon": "🎭",
+    "color": "#8b5cf6"
   },
   {
     "id": "top-1000-core-chặng-98",
@@ -990,7 +1184,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-97"
-    }
+    },
+    "icon": "🤝",
+    "color": "#3b82f6"
   },
   {
     "id": "top-1000-core-chặng-99",
@@ -1000,7 +1196,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-98"
-    }
+    },
+    "icon": "📢",
+    "color": "#f97316"
   },
   {
     "id": "top-1000-core-chặng-100",
@@ -1010,7 +1208,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "top-1000-core-chặng-99"
-    }
+    },
+    "icon": "💌",
+    "color": "#14b8a6"
   },
   {
     "id": "daily-life-routines",
@@ -1204,7 +1404,9 @@ export const TOPICS = [
     "id": "daily-life-routines-chặng-1",
     "name": "1. Thức dậy & Vệ sinh buổi sáng",
     "parentId": "daily-life-routines",
-    "description": "Gồm 10 từ vựng trọng tâm về thức dậy & vệ sinh buổi sáng."
+    "description": "Gồm 10 từ vựng trọng tâm về thức dậy & vệ sinh buổi sáng.",
+    "icon": "🌅",
+    "color": "#f59e0b"
   },
   {
     "id": "daily-life-routines-chặng-2",
@@ -1214,7 +1416,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-1"
-    }
+    },
+    "icon": "🌅",
+    "color": "#f59e0b"
   },
   {
     "id": "daily-life-routines-chặng-3",
@@ -1224,7 +1428,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-2"
-    }
+    },
+    "icon": "📅",
+    "color": "#10b981"
   },
   {
     "id": "daily-life-routines-chặng-4",
@@ -1234,7 +1440,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-3"
-    }
+    },
+    "icon": "📋",
+    "color": "#ec4899"
   },
   {
     "id": "daily-life-routines-chặng-5",
@@ -1244,7 +1452,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-4"
-    }
+    },
+    "icon": "🌙",
+    "color": "#06b6d4"
   },
   {
     "id": "daily-life-routines-chặng-6",
@@ -1254,7 +1464,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-5"
-    }
+    },
+    "icon": "📊",
+    "color": "#8b5cf6"
   },
   {
     "id": "daily-life-routines-chặng-7",
@@ -1264,7 +1476,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-6"
-    }
+    },
+    "icon": "🧹",
+    "color": "#3b82f6"
   },
   {
     "id": "daily-life-routines-chặng-8",
@@ -1274,7 +1488,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-7"
-    }
+    },
+    "icon": "🌙",
+    "color": "#6366f1"
   },
   {
     "id": "daily-life-routines-chặng-9",
@@ -1284,7 +1500,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-8"
-    }
+    },
+    "icon": "🌙",
+    "color": "#6366f1"
   },
   {
     "id": "daily-life-routines-chặng-10",
@@ -1294,7 +1512,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-9"
-    }
+    },
+    "icon": "🌙",
+    "color": "#6366f1"
   },
   {
     "id": "daily-life-routines-chặng-11",
@@ -1304,7 +1524,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-10"
-    }
+    },
+    "icon": "🧹",
+    "color": "#10b981"
   },
   {
     "id": "daily-life-routines-chặng-12",
@@ -1314,7 +1536,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-11"
-    }
+    },
+    "icon": "🍳",
+    "color": "#6366f1"
   },
   {
     "id": "daily-life-routines-chặng-13",
@@ -1324,7 +1548,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-12"
-    }
+    },
+    "icon": "🚿",
+    "color": "#06b6d4"
   },
   {
     "id": "daily-life-routines-chặng-14",
@@ -1334,7 +1560,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-13"
-    }
+    },
+    "icon": "💳",
+    "color": "#ec4899"
   },
   {
     "id": "daily-life-routines-chặng-15",
@@ -1344,7 +1572,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-14"
-    }
+    },
+    "icon": "🍳",
+    "color": "#06b6d4"
   },
   {
     "id": "daily-life-routines-chặng-16",
@@ -1354,7 +1584,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-15"
-    }
+    },
+    "icon": "⏳",
+    "color": "#8b5cf6"
   },
   {
     "id": "daily-life-routines-chặng-17",
@@ -1364,7 +1596,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-16"
-    }
+    },
+    "icon": "🌙",
+    "color": "#3b82f6"
   },
   {
     "id": "daily-life-routines-chặng-18",
@@ -1374,7 +1608,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-17"
-    }
+    },
+    "icon": "☕",
+    "color": "#f97316"
   },
   {
     "id": "daily-life-routines-chặng-19",
@@ -1384,7 +1620,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-18"
-    }
+    },
+    "icon": "💊",
+    "color": "#14b8a6"
   },
   {
     "id": "daily-life-routines-chặng-20",
@@ -1394,7 +1632,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-19"
-    }
+    },
+    "icon": "🤝",
+    "color": "#3b82f6"
   },
   {
     "id": "daily-life-routines-chặng-21",
@@ -1404,7 +1644,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-20"
-    }
+    },
+    "icon": "⌚",
+    "color": "#f59e0b"
   },
   {
     "id": "daily-life-routines-chặng-22",
@@ -1414,7 +1656,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-21"
-    }
+    },
+    "icon": "🗓️",
+    "color": "#6366f1"
   },
   {
     "id": "daily-life-routines-chặng-23",
@@ -1424,7 +1668,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-22"
-    }
+    },
+    "icon": "📦",
+    "color": "#10b981"
   },
   {
     "id": "daily-life-routines-chặng-24",
@@ -1434,7 +1680,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-23"
-    }
+    },
+    "icon": "🐾",
+    "color": "#f97316"
   },
   {
     "id": "daily-life-routines-chặng-25",
@@ -1444,7 +1692,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-24"
-    }
+    },
+    "icon": "🌅",
+    "color": "#06b6d4"
   },
   {
     "id": "daily-life-routines-chặng-26",
@@ -1454,7 +1704,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-25"
-    }
+    },
+    "icon": "📝",
+    "color": "#ec4899"
   },
   {
     "id": "daily-life-routines-chặng-27",
@@ -1464,7 +1716,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-26"
-    }
+    },
+    "icon": "📚",
+    "color": "#3b82f6"
   },
   {
     "id": "daily-life-routines-chặng-28",
@@ -1474,7 +1728,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-27"
-    }
+    },
+    "icon": "⏳",
+    "color": "#f97316"
   },
   {
     "id": "daily-life-routines-chặng-29",
@@ -1484,7 +1740,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-28"
-    }
+    },
+    "icon": "🌙",
+    "color": "#14b8a6"
   },
   {
     "id": "daily-life-routines-chặng-30",
@@ -1494,13 +1752,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "daily-life-routines-chặng-29"
-    }
+    },
+    "icon": "☕",
+    "color": "#84cc16"
   },
   {
     "id": "people-relationships-chặng-1",
     "name": "1. Thành viên gia đình & Bậc phụ huynh",
     "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về thành viên gia đình & bậc phụ huynh."
+    "description": "Gồm 10 từ vựng trọng tâm về thành viên gia đình & bậc phụ huynh.",
+    "icon": "👨‍👩‍👧‍👦",
+    "color": "#ec4899"
   },
   {
     "id": "people-relationships-chặng-2",
@@ -1510,7 +1772,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "people-relationships-chặng-1"
-    }
+    },
+    "icon": "⏰",
+    "color": "#6366f1"
   },
   {
     "id": "people-relationships-chặng-3",
@@ -1520,7 +1784,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "people-relationships-chặng-2"
-    }
+    },
+    "icon": "👨‍👩‍👧‍👦",
+    "color": "#ec4899"
   },
   {
     "id": "people-relationships-chặng-4",
@@ -1530,7 +1796,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "people-relationships-chặng-3"
-    }
+    },
+    "icon": "⏳",
+    "color": "#ec4899"
   },
   {
     "id": "people-relationships-chặng-5",
@@ -1540,7 +1808,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "people-relationships-chặng-4"
-    }
+    },
+    "icon": "💍",
+    "color": "#ec4899"
   },
   {
     "id": "people-relationships-chặng-6",
@@ -1550,7 +1820,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "people-relationships-chặng-5"
-    }
+    },
+    "icon": "🤝",
+    "color": "#3b82f6"
   },
   {
     "id": "people-relationships-chặng-7",
@@ -1560,7 +1832,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "people-relationships-chặng-6"
-    }
+    },
+    "icon": "🤝",
+    "color": "#3b82f6"
   },
   {
     "id": "people-relationships-chặng-8",
@@ -1570,7 +1844,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "people-relationships-chặng-7"
-    }
+    },
+    "icon": "🚿",
+    "color": "#f97316"
   },
   {
     "id": "people-relationships-chặng-9",
@@ -1580,7 +1856,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "people-relationships-chặng-8"
-    }
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
   },
   {
     "id": "people-relationships-chặng-10",
@@ -1590,7 +1868,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "people-relationships-chặng-9"
-    }
+    },
+    "icon": "🗓️",
+    "color": "#84cc16"
   },
   {
     "id": "people-relationships-chặng-11",
@@ -1600,7 +1880,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "people-relationships-chặng-10"
-    }
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
   },
   {
     "id": "people-relationships-chặng-12",
@@ -1610,7 +1892,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "people-relationships-chặng-11"
-    }
+    },
+    "icon": "🍳",
+    "color": "#6366f1"
   },
   {
     "id": "people-relationships-chặng-13",
@@ -1620,7 +1904,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "people-relationships-chặng-12"
-    }
+    },
+    "icon": "🌅",
+    "color": "#10b981"
   },
   {
     "id": "people-relationships-chặng-14",
@@ -1630,7 +1916,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "people-relationships-chặng-13"
-    }
+    },
+    "icon": "⏰",
+    "color": "#ec4899"
   },
   {
     "id": "people-relationships-chặng-15",
@@ -1640,13 +1928,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "people-relationships-chặng-14"
-    }
+    },
+    "icon": "📰",
+    "color": "#06b6d4"
   },
   {
     "id": "communication-feelings-chặng-1",
     "name": "1. Chào hỏi, Làm quen & Bắt đầu câu chuyện",
     "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về chào hỏi, làm quen & bắt đầu câu chuyện."
+    "description": "Gồm 10 từ vựng trọng tâm về chào hỏi, làm quen & bắt đầu câu chuyện.",
+    "icon": "🌅",
+    "color": "#f59e0b"
   },
   {
     "id": "communication-feelings-chặng-2",
@@ -1656,7 +1948,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "communication-feelings-chặng-1"
-    }
+    },
+    "icon": "⏰",
+    "color": "#6366f1"
   },
   {
     "id": "communication-feelings-chặng-3",
@@ -1666,7 +1960,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "communication-feelings-chặng-2"
-    }
+    },
+    "icon": "📅",
+    "color": "#10b981"
   },
   {
     "id": "communication-feelings-chặng-4",
@@ -1676,7 +1972,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "communication-feelings-chặng-3"
-    }
+    },
+    "icon": "⏳",
+    "color": "#ec4899"
   },
   {
     "id": "communication-feelings-chặng-5",
@@ -1686,7 +1984,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "communication-feelings-chặng-4"
-    }
+    },
+    "icon": "☕",
+    "color": "#d97706"
   },
   {
     "id": "communication-feelings-chặng-6",
@@ -1696,7 +1996,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "communication-feelings-chặng-5"
-    }
+    },
+    "icon": "☕",
+    "color": "#8b5cf6"
   },
   {
     "id": "communication-feelings-chặng-7",
@@ -1706,7 +2008,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "communication-feelings-chặng-6"
-    }
+    },
+    "icon": "🧹",
+    "color": "#3b82f6"
   },
   {
     "id": "communication-feelings-chặng-8",
@@ -1716,7 +2020,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "communication-feelings-chặng-7"
-    }
+    },
+    "icon": "🚿",
+    "color": "#f97316"
   },
   {
     "id": "communication-feelings-chặng-9",
@@ -1726,7 +2032,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "communication-feelings-chặng-8"
-    }
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
   },
   {
     "id": "communication-feelings-chặng-10",
@@ -1736,7 +2044,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "communication-feelings-chặng-9"
-    }
+    },
+    "icon": "🗓️",
+    "color": "#84cc16"
   },
   {
     "id": "communication-feelings-chặng-11",
@@ -1746,7 +2056,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "communication-feelings-chặng-10"
-    }
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
   },
   {
     "id": "communication-feelings-chặng-12",
@@ -1756,7 +2068,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "communication-feelings-chặng-11"
-    }
+    },
+    "icon": "🍳",
+    "color": "#6366f1"
   },
   {
     "id": "communication-feelings-chặng-13",
@@ -1766,7 +2080,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "communication-feelings-chặng-12"
-    }
+    },
+    "icon": "🌅",
+    "color": "#10b981"
   },
   {
     "id": "communication-feelings-chặng-14",
@@ -1776,7 +2092,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "communication-feelings-chặng-13"
-    }
+    },
+    "icon": "⏰",
+    "color": "#ec4899"
   },
   {
     "id": "communication-feelings-chặng-15",
@@ -1786,13 +2104,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "communication-feelings-chặng-14"
-    }
+    },
+    "icon": "💪",
+    "color": "#06b6d4"
   },
   {
     "id": "food-drink-chặng-1",
     "name": "1. Các loại thịt, Gia cầm & Thủy hải sản",
     "parentId": "food-drink",
-    "description": "Gồm 10 từ vựng trọng tâm về các loại thịt, gia cầm & thủy hải sản."
+    "description": "Gồm 10 từ vựng trọng tâm về các loại thịt, gia cầm & thủy hải sản.",
+    "icon": "🥩",
+    "color": "#f43f5e"
   },
   {
     "id": "food-drink-chặng-2",
@@ -1802,7 +2124,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "food-drink-chặng-1"
-    }
+    },
+    "icon": "🥦",
+    "color": "#10b981"
   },
   {
     "id": "food-drink-chặng-3",
@@ -1812,7 +2136,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "food-drink-chặng-2"
-    }
+    },
+    "icon": "🍎",
+    "color": "#ef4444"
   },
   {
     "id": "food-drink-chặng-4",
@@ -1822,7 +2148,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "food-drink-chặng-3"
-    }
+    },
+    "icon": "⏳",
+    "color": "#ec4899"
   },
   {
     "id": "food-drink-chặng-5",
@@ -1832,7 +2160,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "food-drink-chặng-4"
-    }
+    },
+    "icon": "🥩",
+    "color": "#06b6d4"
   },
   {
     "id": "food-drink-chặng-6",
@@ -1842,7 +2172,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "food-drink-chặng-5"
-    }
+    },
+    "icon": "☕",
+    "color": "#d97706"
   },
   {
     "id": "food-drink-chặng-7",
@@ -1852,7 +2184,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "food-drink-chặng-6"
-    }
+    },
+    "icon": "☕",
+    "color": "#d97706"
   },
   {
     "id": "food-drink-chặng-8",
@@ -1862,7 +2196,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "food-drink-chặng-7"
-    }
+    },
+    "icon": "🍰",
+    "color": "#f59e0b"
   },
   {
     "id": "food-drink-chặng-9",
@@ -1872,7 +2208,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "food-drink-chặng-8"
-    }
+    },
+    "icon": "🍳",
+    "color": "#f97316"
   },
   {
     "id": "food-drink-chặng-10",
@@ -1882,7 +2220,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "food-drink-chặng-9"
-    }
+    },
+    "icon": "🥗",
+    "color": "#84cc16"
   },
   {
     "id": "food-drink-chặng-11",
@@ -1892,7 +2232,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "food-drink-chặng-10"
-    }
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
   },
   {
     "id": "food-drink-chặng-12",
@@ -1902,7 +2244,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "food-drink-chặng-11"
-    }
+    },
+    "icon": "🍳",
+    "color": "#f97316"
   },
   {
     "id": "food-drink-chặng-13",
@@ -1912,7 +2256,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "food-drink-chặng-12"
-    }
+    },
+    "icon": "🌅",
+    "color": "#10b981"
   },
   {
     "id": "food-drink-chặng-14",
@@ -1922,7 +2268,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "food-drink-chặng-13"
-    }
+    },
+    "icon": "⏰",
+    "color": "#ec4899"
   },
   {
     "id": "food-drink-chặng-15",
@@ -1932,13 +2280,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "food-drink-chặng-14"
-    }
+    },
+    "icon": "🔒",
+    "color": "#10b981"
   },
   {
     "id": "home-living-chặng-1",
     "name": "1. Các loại hình nhà ở & Kiến trúc dân cư",
     "parentId": "home-living",
-    "description": "Gồm 10 từ vựng trọng tâm về các loại hình nhà ở & kiến trúc dân cư."
+    "description": "Gồm 10 từ vựng trọng tâm về các loại hình nhà ở & kiến trúc dân cư.",
+    "icon": "🌅",
+    "color": "#f59e0b"
   },
   {
     "id": "home-living-chặng-2",
@@ -1948,7 +2300,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "home-living-chặng-1"
-    }
+    },
+    "icon": "⏰",
+    "color": "#6366f1"
   },
   {
     "id": "home-living-chặng-3",
@@ -1958,7 +2312,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "home-living-chặng-2"
-    }
+    },
+    "icon": "📅",
+    "color": "#10b981"
   },
   {
     "id": "home-living-chặng-4",
@@ -1968,7 +2324,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "home-living-chặng-3"
-    }
+    },
+    "icon": "⏳",
+    "color": "#ec4899"
   },
   {
     "id": "home-living-chặng-5",
@@ -1978,7 +2336,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "home-living-chặng-4"
-    }
+    },
+    "icon": "🌙",
+    "color": "#6366f1"
   },
   {
     "id": "home-living-chặng-6",
@@ -1988,7 +2348,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "home-living-chặng-5"
-    }
+    },
+    "icon": "🚿",
+    "color": "#06b6d4"
   },
   {
     "id": "home-living-chặng-7",
@@ -1998,7 +2360,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "home-living-chặng-6"
-    }
+    },
+    "icon": "🧹",
+    "color": "#3b82f6"
   },
   {
     "id": "home-living-chặng-8",
@@ -2008,7 +2372,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "home-living-chặng-7"
-    }
+    },
+    "icon": "🚿",
+    "color": "#f97316"
   },
   {
     "id": "home-living-chặng-9",
@@ -2018,7 +2384,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "home-living-chặng-8"
-    }
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
   },
   {
     "id": "home-living-chặng-10",
@@ -2028,7 +2396,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "home-living-chặng-9"
-    }
+    },
+    "icon": "🗓️",
+    "color": "#84cc16"
   },
   {
     "id": "home-living-chặng-11",
@@ -2038,7 +2408,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "home-living-chặng-10"
-    }
+    },
+    "icon": "👨‍👩‍👧‍👦",
+    "color": "#ec4899"
   },
   {
     "id": "home-living-chặng-12",
@@ -2048,7 +2420,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "home-living-chặng-11"
-    }
+    },
+    "icon": "🌅",
+    "color": "#f59e0b"
   },
   {
     "id": "home-living-chặng-13",
@@ -2058,13 +2432,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "home-living-chặng-12"
-    }
+    },
+    "icon": "👨‍👩‍👧‍👦",
+    "color": "#ec4899"
   },
   {
     "id": "health-body-chặng-1",
     "name": "1. Bộ phận cơ thể: Đầu, Mặt & Cổ",
     "parentId": "health-body",
-    "description": "Gồm 10 từ vựng trọng tâm về bộ phận cơ thể: đầu, mặt & cổ."
+    "description": "Gồm 10 từ vựng trọng tâm về bộ phận cơ thể: đầu, mặt & cổ.",
+    "icon": "💪",
+    "color": "#f59e0b"
   },
   {
     "id": "health-body-chặng-2",
@@ -2074,7 +2452,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "health-body-chặng-1"
-    }
+    },
+    "icon": "🫀",
+    "color": "#6366f1"
   },
   {
     "id": "health-body-chặng-3",
@@ -2084,7 +2464,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "health-body-chặng-2"
-    }
+    },
+    "icon": "🩺",
+    "color": "#10b981"
   },
   {
     "id": "health-body-chặng-4",
@@ -2094,7 +2476,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "health-body-chặng-3"
-    }
+    },
+    "icon": "🏥",
+    "color": "#ec4899"
   },
   {
     "id": "health-body-chặng-5",
@@ -2104,7 +2488,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "health-body-chặng-4"
-    }
+    },
+    "icon": "🌙",
+    "color": "#06b6d4"
   },
   {
     "id": "health-body-chặng-6",
@@ -2114,7 +2500,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "health-body-chặng-5"
-    }
+    },
+    "icon": "🏃",
+    "color": "#8b5cf6"
   },
   {
     "id": "health-body-chặng-7",
@@ -2124,7 +2512,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "health-body-chặng-6"
-    }
+    },
+    "icon": "🤖",
+    "color": "#8b5cf6"
   },
   {
     "id": "health-body-chặng-8",
@@ -2134,7 +2524,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "health-body-chặng-7"
-    }
+    },
+    "icon": "🧘",
+    "color": "#f97316"
   },
   {
     "id": "health-body-chặng-9",
@@ -2144,7 +2536,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "health-body-chặng-8"
-    }
+    },
+    "icon": "🌿",
+    "color": "#10b981"
   },
   {
     "id": "health-body-chặng-10",
@@ -2154,7 +2548,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "health-body-chặng-9"
-    }
+    },
+    "icon": "🌿",
+    "color": "#10b981"
   },
   {
     "id": "health-body-chặng-11",
@@ -2164,7 +2560,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "health-body-chặng-10"
-    }
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
   },
   {
     "id": "health-body-chặng-12",
@@ -2174,7 +2572,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "health-body-chặng-11"
-    }
+    },
+    "icon": "🍳",
+    "color": "#6366f1"
   },
   {
     "id": "health-body-chặng-13",
@@ -2184,7 +2584,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "health-body-chặng-12"
-    }
+    },
+    "icon": "🧬",
+    "color": "#10b981"
   },
   {
     "id": "health-body-chặng-14",
@@ -2194,13 +2596,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "health-body-chặng-13"
-    }
+    },
+    "icon": "⏰",
+    "color": "#ec4899"
   },
   {
     "id": "shopping-money-chặng-1",
     "name": "1. Địa điểm mua sắm & Trung tâm thương mại",
     "parentId": "shopping-money",
-    "description": "Gồm 10 từ vựng trọng tâm về địa điểm mua sắm & trung tâm thương mại."
+    "description": "Gồm 10 từ vựng trọng tâm về địa điểm mua sắm & trung tâm thương mại.",
+    "icon": "🛍️",
+    "color": "#f59e0b"
   },
   {
     "id": "shopping-money-chặng-2",
@@ -2210,7 +2616,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "shopping-money-chặng-1"
-    }
+    },
+    "icon": "💳",
+    "color": "#6366f1"
   },
   {
     "id": "shopping-money-chặng-3",
@@ -2220,7 +2628,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "shopping-money-chặng-2"
-    }
+    },
+    "icon": "📅",
+    "color": "#10b981"
   },
   {
     "id": "shopping-money-chặng-4",
@@ -2230,7 +2640,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "shopping-money-chặng-3"
-    }
+    },
+    "icon": "⏳",
+    "color": "#ec4899"
   },
   {
     "id": "shopping-money-chặng-5",
@@ -2240,7 +2652,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "shopping-money-chặng-4"
-    }
+    },
+    "icon": "🌙",
+    "color": "#06b6d4"
   },
   {
     "id": "shopping-money-chặng-6",
@@ -2250,7 +2664,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "shopping-money-chặng-5"
-    }
+    },
+    "icon": "🧾",
+    "color": "#8b5cf6"
   },
   {
     "id": "shopping-money-chặng-7",
@@ -2260,7 +2676,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "shopping-money-chặng-6"
-    }
+    },
+    "icon": "📈",
+    "color": "#3b82f6"
   },
   {
     "id": "shopping-money-chặng-8",
@@ -2270,7 +2688,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "shopping-money-chặng-7"
-    }
+    },
+    "icon": "🚿",
+    "color": "#f97316"
   },
   {
     "id": "shopping-money-chặng-9",
@@ -2280,7 +2700,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "shopping-money-chặng-8"
-    }
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
   },
   {
     "id": "shopping-money-chặng-10",
@@ -2290,7 +2712,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "shopping-money-chặng-9"
-    }
+    },
+    "icon": "🤖",
+    "color": "#8b5cf6"
   },
   {
     "id": "shopping-money-chặng-11",
@@ -2300,7 +2724,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "shopping-money-chặng-10"
-    }
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
   },
   {
     "id": "shopping-money-chặng-12",
@@ -2310,7 +2736,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "shopping-money-chặng-11"
-    }
+    },
+    "icon": "🎁",
+    "color": "#6366f1"
   },
   {
     "id": "shopping-money-chặng-13",
@@ -2320,7 +2748,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "shopping-money-chặng-12"
-    }
+    },
+    "icon": "📚",
+    "color": "#3b82f6"
   },
   {
     "id": "shopping-money-chặng-14",
@@ -2330,7 +2760,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "shopping-money-chặng-13"
-    }
+    },
+    "icon": "💳",
+    "color": "#ec4899"
   },
   {
     "id": "shopping-money-chặng-15",
@@ -2340,13 +2772,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "shopping-money-chặng-14"
-    }
+    },
+    "icon": "🤝",
+    "color": "#06b6d4"
   },
   {
     "id": "transport-directions-chặng-1",
     "name": "1. Phương tiện giao thông cá nhân: Xe máy, Ô tô & Xe đạp",
     "parentId": "transport-directions",
-    "description": "Gồm 10 từ vựng trọng tâm về phương tiện giao thông cá nhân: xe máy, ô tô & xe đạp."
+    "description": "Gồm 10 từ vựng trọng tâm về phương tiện giao thông cá nhân: xe máy, ô tô & xe đạp.",
+    "icon": "🚗",
+    "color": "#3b82f6"
   },
   {
     "id": "transport-directions-chặng-2",
@@ -2356,7 +2792,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "transport-directions-chặng-1"
-    }
+    },
+    "icon": "🚌",
+    "color": "#f59e0b"
   },
   {
     "id": "transport-directions-chặng-3",
@@ -2366,7 +2804,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "transport-directions-chặng-2"
-    }
+    },
+    "icon": "✈️",
+    "color": "#06b6d4"
   },
   {
     "id": "transport-directions-chặng-4",
@@ -2376,7 +2816,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "transport-directions-chặng-3"
-    }
+    },
+    "icon": "✈️",
+    "color": "#ec4899"
   },
   {
     "id": "transport-directions-chặng-5",
@@ -2386,7 +2828,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "transport-directions-chặng-4"
-    }
+    },
+    "icon": "🚢",
+    "color": "#06b6d4"
   },
   {
     "id": "transport-directions-chặng-6",
@@ -2396,7 +2840,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "transport-directions-chặng-5"
-    }
+    },
+    "icon": "🏖️",
+    "color": "#0ea5e9"
   },
   {
     "id": "transport-directions-chặng-7",
@@ -2406,7 +2852,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "transport-directions-chặng-6"
-    }
+    },
+    "icon": "🔒",
+    "color": "#10b981"
   },
   {
     "id": "transport-directions-chặng-8",
@@ -2416,7 +2864,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "transport-directions-chặng-7"
-    }
+    },
+    "icon": "🤖",
+    "color": "#8b5cf6"
   },
   {
     "id": "transport-directions-chặng-9",
@@ -2426,7 +2876,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "transport-directions-chặng-8"
-    }
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
   },
   {
     "id": "transport-directions-chặng-10",
@@ -2436,7 +2888,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "transport-directions-chặng-9"
-    }
+    },
+    "icon": "🗓️",
+    "color": "#84cc16"
   },
   {
     "id": "transport-directions-chặng-11",
@@ -2446,7 +2900,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "transport-directions-chặng-10"
-    }
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
   },
   {
     "id": "transport-directions-chặng-12",
@@ -2456,7 +2912,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "transport-directions-chặng-11"
-    }
+    },
+    "icon": "🍳",
+    "color": "#6366f1"
   },
   {
     "id": "transport-directions-chặng-13",
@@ -2466,7 +2924,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "transport-directions-chặng-12"
-    }
+    },
+    "icon": "🌅",
+    "color": "#10b981"
   },
   {
     "id": "transport-directions-chặng-14",
@@ -2476,7 +2936,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "transport-directions-chặng-13"
-    }
+    },
+    "icon": "⏰",
+    "color": "#ec4899"
   },
   {
     "id": "transport-directions-chặng-15",
@@ -2486,13 +2948,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "transport-directions-chặng-14"
-    }
+    },
+    "icon": "📅",
+    "color": "#06b6d4"
   },
   {
     "id": "work-jobs-chặng-1",
     "name": "1. Nghề nghiệp kinh doanh, Tài chính & Quản lý",
     "parentId": "work-jobs",
-    "description": "Gồm 10 từ vựng trọng tâm về nghề nghiệp kinh doanh, tài chính & quản lý."
+    "description": "Gồm 10 từ vựng trọng tâm về nghề nghiệp kinh doanh, tài chính & quản lý.",
+    "icon": "💼",
+    "color": "#f59e0b"
   },
   {
     "id": "work-jobs-chặng-2",
@@ -2502,7 +2968,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "work-jobs-chặng-1"
-    }
+    },
+    "icon": "🌿",
+    "color": "#10b981"
   },
   {
     "id": "work-jobs-chặng-3",
@@ -2512,7 +2980,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "work-jobs-chặng-2"
-    }
+    },
+    "icon": "👥",
+    "color": "#10b981"
   },
   {
     "id": "work-jobs-chặng-4",
@@ -2522,7 +2992,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "work-jobs-chặng-3"
-    }
+    },
+    "icon": "🌅",
+    "color": "#f59e0b"
   },
   {
     "id": "work-jobs-chặng-5",
@@ -2532,7 +3004,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "work-jobs-chặng-4"
-    }
+    },
+    "icon": "🌙",
+    "color": "#06b6d4"
   },
   {
     "id": "work-jobs-chặng-6",
@@ -2542,7 +3016,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "work-jobs-chặng-5"
-    }
+    },
+    "icon": "🌿",
+    "color": "#8b5cf6"
   },
   {
     "id": "work-jobs-chặng-7",
@@ -2552,7 +3028,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "work-jobs-chặng-6"
-    }
+    },
+    "icon": "🧹",
+    "color": "#3b82f6"
   },
   {
     "id": "work-jobs-chặng-8",
@@ -2562,7 +3040,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "work-jobs-chặng-7"
-    }
+    },
+    "icon": "💼",
+    "color": "#f97316"
   },
   {
     "id": "work-jobs-chặng-9",
@@ -2572,7 +3052,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "work-jobs-chặng-8"
-    }
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
   },
   {
     "id": "work-jobs-chặng-10",
@@ -2582,7 +3064,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "work-jobs-chặng-9"
-    }
+    },
+    "icon": "🤝",
+    "color": "#84cc16"
   },
   {
     "id": "work-jobs-chặng-11",
@@ -2592,7 +3076,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "work-jobs-chặng-10"
-    }
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
   },
   {
     "id": "work-jobs-chặng-12",
@@ -2602,7 +3088,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "work-jobs-chặng-11"
-    }
+    },
+    "icon": "🖊️",
+    "color": "#6366f1"
   },
   {
     "id": "work-jobs-chặng-13",
@@ -2612,7 +3100,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "work-jobs-chặng-12"
-    }
+    },
+    "icon": "💼",
+    "color": "#10b981"
   },
   {
     "id": "work-jobs-chặng-14",
@@ -2622,13 +3112,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "work-jobs-chặng-13"
-    }
+    },
+    "icon": "⏰",
+    "color": "#ec4899"
   },
   {
     "id": "education-learning-chặng-1",
     "name": "1. Hệ thống trường học & Các cấp bậc giáo dục",
     "parentId": "education-learning",
-    "description": "Gồm 10 từ vựng trọng tâm về hệ thống trường học & các cấp bậc giáo dục."
+    "description": "Gồm 10 từ vựng trọng tâm về hệ thống trường học & các cấp bậc giáo dục.",
+    "icon": "🏫",
+    "color": "#f59e0b"
   },
   {
     "id": "education-learning-chặng-2",
@@ -2638,7 +3132,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "education-learning-chặng-1"
-    }
+    },
+    "icon": "⏰",
+    "color": "#6366f1"
   },
   {
     "id": "education-learning-chặng-3",
@@ -2648,7 +3144,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "education-learning-chặng-2"
-    }
+    },
+    "icon": "🏫",
+    "color": "#f59e0b"
   },
   {
     "id": "education-learning-chặng-4",
@@ -2658,7 +3156,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "education-learning-chặng-3"
-    }
+    },
+    "icon": "🌿",
+    "color": "#10b981"
   },
   {
     "id": "education-learning-chặng-5",
@@ -2668,7 +3168,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "education-learning-chặng-4"
-    }
+    },
+    "icon": "📰",
+    "color": "#06b6d4"
   },
   {
     "id": "education-learning-chặng-6",
@@ -2678,7 +3180,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "education-learning-chặng-5"
-    }
+    },
+    "icon": "🌿",
+    "color": "#10b981"
   },
   {
     "id": "education-learning-chặng-7",
@@ -2688,7 +3192,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "education-learning-chặng-6"
-    }
+    },
+    "icon": "🧹",
+    "color": "#3b82f6"
   },
   {
     "id": "education-learning-chặng-8",
@@ -2698,7 +3204,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "education-learning-chặng-7"
-    }
+    },
+    "icon": "🚿",
+    "color": "#f97316"
   },
   {
     "id": "education-learning-chặng-9",
@@ -2708,7 +3216,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "education-learning-chặng-8"
-    }
+    },
+    "icon": "📝",
+    "color": "#ec4899"
   },
   {
     "id": "education-learning-chặng-10",
@@ -2718,7 +3228,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "education-learning-chặng-9"
-    }
+    },
+    "icon": "💡",
+    "color": "#84cc16"
   },
   {
     "id": "education-learning-chặng-11",
@@ -2728,7 +3240,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "education-learning-chặng-10"
-    }
+    },
+    "icon": "🎓",
+    "color": "#6366f1"
   },
   {
     "id": "education-learning-chặng-12",
@@ -2738,7 +3252,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "education-learning-chặng-11"
-    }
+    },
+    "icon": "🌿",
+    "color": "#10b981"
   },
   {
     "id": "education-learning-chặng-13",
@@ -2748,7 +3264,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "education-learning-chặng-12"
-    }
+    },
+    "icon": "🌅",
+    "color": "#10b981"
   },
   {
     "id": "education-learning-chặng-14",
@@ -2758,13 +3276,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "education-learning-chặng-13"
-    }
+    },
+    "icon": "🎓",
+    "color": "#ec4899"
   },
   {
     "id": "travel-places-chặng-1",
     "name": "1. Lên kế hoạch du lịch, Lộ trình & Ngân sách",
     "parentId": "travel-places",
-    "description": "Gồm 10 từ vựng trọng tâm về lên kế hoạch du lịch, lộ trình & ngân sách."
+    "description": "Gồm 10 từ vựng trọng tâm về lên kế hoạch du lịch, lộ trình & ngân sách.",
+    "icon": "📚",
+    "color": "#3b82f6"
   },
   {
     "id": "travel-places-chặng-2",
@@ -2774,7 +3296,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "travel-places-chặng-1"
-    }
+    },
+    "icon": "✈️",
+    "color": "#06b6d4"
   },
   {
     "id": "travel-places-chặng-3",
@@ -2784,7 +3308,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "travel-places-chặng-2"
-    }
+    },
+    "icon": "🏨",
+    "color": "#06b6d4"
   },
   {
     "id": "travel-places-chặng-4",
@@ -2794,7 +3320,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "travel-places-chặng-3"
-    }
+    },
+    "icon": "🏨",
+    "color": "#06b6d4"
   },
   {
     "id": "travel-places-chặng-5",
@@ -2804,7 +3332,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "travel-places-chặng-4"
-    }
+    },
+    "icon": "🌙",
+    "color": "#06b6d4"
   },
   {
     "id": "travel-places-chặng-6",
@@ -2814,7 +3344,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "travel-places-chặng-5"
-    }
+    },
+    "icon": "🛂",
+    "color": "#8b5cf6"
   },
   {
     "id": "travel-places-chặng-7",
@@ -2824,7 +3356,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "travel-places-chặng-6"
-    }
+    },
+    "icon": "🏖️",
+    "color": "#0ea5e9"
   },
   {
     "id": "travel-places-chặng-8",
@@ -2834,7 +3368,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "travel-places-chặng-7"
-    }
+    },
+    "icon": "🗼",
+    "color": "#f97316"
   },
   {
     "id": "travel-places-chặng-9",
@@ -2844,7 +3380,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "travel-places-chặng-8"
-    }
+    },
+    "icon": "🍜",
+    "color": "#14b8a6"
   },
   {
     "id": "travel-places-chặng-10",
@@ -2854,7 +3392,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "travel-places-chặng-9"
-    }
+    },
+    "icon": "🗓️",
+    "color": "#84cc16"
   },
   {
     "id": "travel-places-chặng-11",
@@ -2864,7 +3404,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "travel-places-chặng-10"
-    }
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
   },
   {
     "id": "travel-places-chặng-12",
@@ -2874,7 +3416,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "travel-places-chặng-11"
-    }
+    },
+    "icon": "🍳",
+    "color": "#6366f1"
   },
   {
     "id": "travel-places-chặng-13",
@@ -2884,7 +3428,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "travel-places-chặng-12"
-    }
+    },
+    "icon": "📸",
+    "color": "#10b981"
   },
   {
     "id": "travel-places-chặng-14",
@@ -2894,13 +3440,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "travel-places-chặng-13"
-    }
+    },
+    "icon": "🔒",
+    "color": "#10b981"
   },
   {
     "id": "entertainment-hobbies-chặng-1",
     "name": "1. Điện ảnh, Phim ảnh & Rạp chiếu phim",
     "parentId": "entertainment-hobbies",
-    "description": "Gồm 10 từ vựng trọng tâm về điện ảnh, phim ảnh & rạp chiếu phim."
+    "description": "Gồm 10 từ vựng trọng tâm về điện ảnh, phim ảnh & rạp chiếu phim.",
+    "icon": "🎬",
+    "color": "#8b5cf6"
   },
   {
     "id": "entertainment-hobbies-chặng-2",
@@ -2910,7 +3460,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "entertainment-hobbies-chặng-1"
-    }
+    },
+    "icon": "🎵",
+    "color": "#ec4899"
   },
   {
     "id": "entertainment-hobbies-chặng-3",
@@ -2920,7 +3472,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "entertainment-hobbies-chặng-2"
-    }
+    },
+    "icon": "🎵",
+    "color": "#ec4899"
   },
   {
     "id": "entertainment-hobbies-chặng-4",
@@ -2930,7 +3484,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "entertainment-hobbies-chặng-3"
-    }
+    },
+    "icon": "📚",
+    "color": "#3b82f6"
   },
   {
     "id": "entertainment-hobbies-chặng-5",
@@ -2940,7 +3496,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "entertainment-hobbies-chặng-4"
-    }
+    },
+    "icon": "🎨",
+    "color": "#f59e0b"
   },
   {
     "id": "entertainment-hobbies-chặng-6",
@@ -2950,7 +3508,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "entertainment-hobbies-chặng-5"
-    }
+    },
+    "icon": "🎬",
+    "color": "#8b5cf6"
   },
   {
     "id": "entertainment-hobbies-chặng-7",
@@ -2960,7 +3520,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "entertainment-hobbies-chặng-6"
-    }
+    },
+    "icon": "⚽",
+    "color": "#10b981"
   },
   {
     "id": "entertainment-hobbies-chặng-8",
@@ -2970,7 +3532,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "entertainment-hobbies-chặng-7"
-    }
+    },
+    "icon": "🚿",
+    "color": "#f97316"
   },
   {
     "id": "entertainment-hobbies-chặng-9",
@@ -2980,7 +3544,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "entertainment-hobbies-chặng-8"
-    }
+    },
+    "icon": "🎸",
+    "color": "#14b8a6"
   },
   {
     "id": "entertainment-hobbies-chặng-10",
@@ -2990,7 +3556,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "entertainment-hobbies-chặng-9"
-    }
+    },
+    "icon": "🍳",
+    "color": "#f97316"
   },
   {
     "id": "entertainment-hobbies-chặng-11",
@@ -3000,7 +3568,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "entertainment-hobbies-chặng-10"
-    }
+    },
+    "icon": "🌿",
+    "color": "#10b981"
   },
   {
     "id": "entertainment-hobbies-chặng-12",
@@ -3010,7 +3580,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "entertainment-hobbies-chặng-11"
-    }
+    },
+    "icon": "⚽",
+    "color": "#10b981"
   },
   {
     "id": "entertainment-hobbies-chặng-13",
@@ -3020,7 +3592,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "entertainment-hobbies-chặng-12"
-    }
+    },
+    "icon": "🌅",
+    "color": "#10b981"
   },
   {
     "id": "entertainment-hobbies-chặng-14",
@@ -3030,7 +3604,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "entertainment-hobbies-chặng-13"
-    }
+    },
+    "icon": "🏖️",
+    "color": "#ec4899"
   },
   {
     "id": "entertainment-hobbies-chặng-15",
@@ -3040,13 +3616,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "entertainment-hobbies-chặng-14"
-    }
+    },
+    "icon": "📅",
+    "color": "#06b6d4"
   },
   {
     "id": "technology-internet-chặng-1",
     "name": "1. Máy tính, Laptop & Thiết bị phần cứng cơ bản",
     "parentId": "technology-internet",
-    "description": "Gồm 10 từ vựng trọng tâm về máy tính, laptop & thiết bị phần cứng cơ bản."
+    "description": "Gồm 10 từ vựng trọng tâm về máy tính, laptop & thiết bị phần cứng cơ bản.",
+    "icon": "💻",
+    "color": "#6366f1"
   },
   {
     "id": "technology-internet-chặng-2",
@@ -3056,7 +3636,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "technology-internet-chặng-1"
-    }
+    },
+    "icon": "💻",
+    "color": "#6366f1"
   },
   {
     "id": "technology-internet-chặng-3",
@@ -3066,7 +3648,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "technology-internet-chặng-2"
-    }
+    },
+    "icon": "📅",
+    "color": "#10b981"
   },
   {
     "id": "technology-internet-chặng-4",
@@ -3076,7 +3660,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "technology-internet-chặng-3"
-    }
+    },
+    "icon": "💻",
+    "color": "#6366f1"
   },
   {
     "id": "technology-internet-chặng-5",
@@ -3086,7 +3672,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "technology-internet-chặng-4"
-    }
+    },
+    "icon": "🌐",
+    "color": "#06b6d4"
   },
   {
     "id": "technology-internet-chặng-6",
@@ -3096,7 +3684,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "technology-internet-chặng-5"
-    }
+    },
+    "icon": "🌐",
+    "color": "#06b6d4"
   },
   {
     "id": "technology-internet-chặng-7",
@@ -3106,7 +3696,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "technology-internet-chặng-6"
-    }
+    },
+    "icon": "🤖",
+    "color": "#8b5cf6"
   },
   {
     "id": "technology-internet-chặng-8",
@@ -3116,7 +3708,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "technology-internet-chặng-7"
-    }
+    },
+    "icon": "🌅",
+    "color": "#f59e0b"
   },
   {
     "id": "technology-internet-chặng-9",
@@ -3126,7 +3720,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "technology-internet-chặng-8"
-    }
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
   },
   {
     "id": "technology-internet-chặng-10",
@@ -3136,7 +3732,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "technology-internet-chặng-9"
-    }
+    },
+    "icon": "🌐",
+    "color": "#06b6d4"
   },
   {
     "id": "technology-internet-chặng-11",
@@ -3146,7 +3744,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "technology-internet-chặng-10"
-    }
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
   },
   {
     "id": "technology-internet-chặng-12",
@@ -3156,7 +3756,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "technology-internet-chặng-11"
-    }
+    },
+    "icon": "🍳",
+    "color": "#6366f1"
   },
   {
     "id": "technology-internet-chặng-13",
@@ -3166,7 +3768,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "technology-internet-chặng-12"
-    }
+    },
+    "icon": "🤖",
+    "color": "#8b5cf6"
   },
   {
     "id": "technology-internet-chặng-14",
@@ -3176,7 +3780,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "technology-internet-chặng-13"
-    }
+    },
+    "icon": "🔒",
+    "color": "#ec4899"
   },
   {
     "id": "technology-internet-chặng-15",
@@ -3186,13 +3792,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "technology-internet-chặng-14"
-    }
+    },
+    "icon": "🤖",
+    "color": "#8b5cf6"
   },
   {
     "id": "nature-weather-chặng-1",
     "name": "1. Thời tiết hàng ngày: Nắng, Mưa & Nhiệt độ",
     "parentId": "nature-weather",
-    "description": "Gồm 10 từ vựng trọng tâm về thời tiết hàng ngày: nắng, mưa & nhiệt độ."
+    "description": "Gồm 10 từ vựng trọng tâm về thời tiết hàng ngày: nắng, mưa & nhiệt độ.",
+    "icon": "⛅",
+    "color": "#38bdf8"
   },
   {
     "id": "nature-weather-chặng-2",
@@ -3202,7 +3812,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "nature-weather-chặng-1"
-    }
+    },
+    "icon": "⏰",
+    "color": "#6366f1"
   },
   {
     "id": "nature-weather-chặng-3",
@@ -3212,7 +3824,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "nature-weather-chặng-2"
-    }
+    },
+    "icon": "📅",
+    "color": "#10b981"
   },
   {
     "id": "nature-weather-chặng-4",
@@ -3222,7 +3836,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "nature-weather-chặng-3"
-    }
+    },
+    "icon": "🐾",
+    "color": "#f97316"
   },
   {
     "id": "nature-weather-chặng-5",
@@ -3232,7 +3848,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "nature-weather-chặng-4"
-    }
+    },
+    "icon": "🌙",
+    "color": "#06b6d4"
   },
   {
     "id": "nature-weather-chặng-6",
@@ -3242,7 +3860,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "nature-weather-chặng-5"
-    }
+    },
+    "icon": "🏖️",
+    "color": "#0ea5e9"
   },
   {
     "id": "nature-weather-chặng-7",
@@ -3252,7 +3872,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "nature-weather-chặng-6"
-    }
+    },
+    "icon": "🌿",
+    "color": "#10b981"
   },
   {
     "id": "nature-weather-chặng-8",
@@ -3262,7 +3884,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "nature-weather-chặng-7"
-    }
+    },
+    "icon": "🌿",
+    "color": "#10b981"
   },
   {
     "id": "nature-weather-chặng-9",
@@ -3272,7 +3896,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "nature-weather-chặng-8"
-    }
+    },
+    "icon": "🏖️",
+    "color": "#0ea5e9"
   },
   {
     "id": "nature-weather-chặng-10",
@@ -3282,13 +3908,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "nature-weather-chặng-9"
-    }
+    },
+    "icon": "🌈",
+    "color": "#84cc16"
   },
   {
     "id": "society-world-chặng-1",
     "name": "1. Quốc gia, Châu lục & Ngôn ngữ thế giới",
     "parentId": "society-world",
-    "description": "Gồm 10 từ vựng trọng tâm về quốc gia, châu lục & ngôn ngữ thế giới."
+    "description": "Gồm 10 từ vựng trọng tâm về quốc gia, châu lục & ngôn ngữ thế giới.",
+    "icon": "🌐",
+    "color": "#f59e0b"
   },
   {
     "id": "society-world-chặng-2",
@@ -3298,7 +3928,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "society-world-chặng-1"
-    }
+    },
+    "icon": "⏰",
+    "color": "#6366f1"
   },
   {
     "id": "society-world-chặng-3",
@@ -3308,7 +3940,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "society-world-chặng-2"
-    }
+    },
+    "icon": "📅",
+    "color": "#10b981"
   },
   {
     "id": "society-world-chặng-4",
@@ -3318,7 +3952,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "society-world-chặng-3"
-    }
+    },
+    "icon": "⏳",
+    "color": "#ec4899"
   },
   {
     "id": "society-world-chặng-5",
@@ -3328,7 +3964,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "society-world-chặng-4"
-    }
+    },
+    "icon": "🌙",
+    "color": "#06b6d4"
   },
   {
     "id": "society-world-chặng-6",
@@ -3338,7 +3976,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "society-world-chặng-5"
-    }
+    },
+    "icon": "☕",
+    "color": "#8b5cf6"
   },
   {
     "id": "society-world-chặng-7",
@@ -3348,7 +3988,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "society-world-chặng-6"
-    }
+    },
+    "icon": "🧹",
+    "color": "#3b82f6"
   },
   {
     "id": "society-world-chặng-8",
@@ -3358,7 +4000,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "society-world-chặng-7"
-    }
+    },
+    "icon": "🗳️",
+    "color": "#f97316"
   },
   {
     "id": "society-world-chặng-9",
@@ -3368,7 +4012,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "society-world-chặng-8"
-    }
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
   },
   {
     "id": "society-world-chặng-10",
@@ -3378,13 +4024,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "society-world-chặng-9"
-    }
+    },
+    "icon": "🤖",
+    "color": "#8b5cf6"
   },
   {
     "id": "toeic-b1-chặng-1",
     "name": "1. Thiết bị văn phòng, Tủ hồ sơ & Vật tư",
     "parentId": "toeic-b1",
-    "description": "Gồm 10 từ vựng trọng tâm về thiết bị văn phòng, tủ hồ sơ & vật tư."
+    "description": "Gồm 10 từ vựng trọng tâm về thiết bị văn phòng, tủ hồ sơ & vật tư.",
+    "icon": "🌅",
+    "color": "#f59e0b"
   },
   {
     "id": "toeic-b1-chặng-2",
@@ -3394,7 +4044,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-1"
-    }
+    },
+    "icon": "🏢",
+    "color": "#6366f1"
   },
   {
     "id": "toeic-b1-chặng-3",
@@ -3404,7 +4056,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-2"
-    }
+    },
+    "icon": "📅",
+    "color": "#10b981"
   },
   {
     "id": "toeic-b1-chặng-4",
@@ -3414,7 +4068,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-3"
-    }
+    },
+    "icon": "📚",
+    "color": "#3b82f6"
   },
   {
     "id": "toeic-b1-chặng-5",
@@ -3424,7 +4080,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-4"
-    }
+    },
+    "icon": "🌙",
+    "color": "#06b6d4"
   },
   {
     "id": "toeic-b1-chặng-6",
@@ -3434,7 +4092,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-5"
-    }
+    },
+    "icon": "☕",
+    "color": "#8b5cf6"
   },
   {
     "id": "toeic-b1-chặng-7",
@@ -3444,7 +4104,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-6"
-    }
+    },
+    "icon": "🧹",
+    "color": "#3b82f6"
   },
   {
     "id": "toeic-b1-chặng-8",
@@ -3454,7 +4116,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-7"
-    }
+    },
+    "icon": "🚿",
+    "color": "#f97316"
   },
   {
     "id": "toeic-b1-chặng-9",
@@ -3464,7 +4128,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-8"
-    }
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
   },
   {
     "id": "toeic-b1-chặng-10",
@@ -3474,7 +4140,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-9"
-    }
+    },
+    "icon": "🤝",
+    "color": "#84cc16"
   },
   {
     "id": "toeic-b1-chặng-11",
@@ -3484,7 +4152,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-10"
-    }
+    },
+    "icon": "🖥️",
+    "color": "#f59e0b"
   },
   {
     "id": "toeic-b1-chặng-12",
@@ -3494,7 +4164,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-11"
-    }
+    },
+    "icon": "🍳",
+    "color": "#6366f1"
   },
   {
     "id": "toeic-b1-chặng-13",
@@ -3504,7 +4176,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-12"
-    }
+    },
+    "icon": "🌅",
+    "color": "#10b981"
   },
   {
     "id": "toeic-b1-chặng-14",
@@ -3514,7 +4188,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-13"
-    }
+    },
+    "icon": "📈",
+    "color": "#ec4899"
   },
   {
     "id": "toeic-b1-chặng-15",
@@ -3524,7 +4200,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-14"
-    }
+    },
+    "icon": "📅",
+    "color": "#06b6d4"
   },
   {
     "id": "toeic-b1-chặng-16",
@@ -3534,7 +4212,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-15"
-    }
+    },
+    "icon": "⏳",
+    "color": "#8b5cf6"
   },
   {
     "id": "toeic-b1-chặng-17",
@@ -3544,7 +4224,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-16"
-    }
+    },
+    "icon": "🌙",
+    "color": "#3b82f6"
   },
   {
     "id": "toeic-b1-chặng-18",
@@ -3554,7 +4236,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-17"
-    }
+    },
+    "icon": "🔒",
+    "color": "#10b981"
   },
   {
     "id": "toeic-b1-chặng-19",
@@ -3564,7 +4248,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-18"
-    }
+    },
+    "icon": "🧹",
+    "color": "#14b8a6"
   },
   {
     "id": "toeic-b1-chặng-20",
@@ -3574,7 +4260,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-19"
-    }
+    },
+    "icon": "🚿",
+    "color": "#84cc16"
   },
   {
     "id": "toeic-b1-chặng-21",
@@ -3584,13 +4272,17 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "toeic-b1-chặng-20"
-    }
+    },
+    "icon": "⌚",
+    "color": "#f59e0b"
   },
   {
     "id": "finance-banking-chặng-1",
     "name": "1. Thu nhập cá nhân, Tiền lương & Ngân sách chi tiêu",
     "parentId": "finance-banking",
-    "description": "Gồm 10 từ vựng trọng tâm về thu nhập cá nhân, tiền lương & ngân sách chi tiêu."
+    "description": "Gồm 10 từ vựng trọng tâm về thu nhập cá nhân, tiền lương & ngân sách chi tiêu.",
+    "icon": "📚",
+    "color": "#3b82f6"
   },
   {
     "id": "finance-banking-chặng-2",
@@ -3600,7 +4292,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-1"
-    }
+    },
+    "icon": "🏦",
+    "color": "#6366f1"
   },
   {
     "id": "finance-banking-chặng-3",
@@ -3610,7 +4304,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-2"
-    }
+    },
+    "icon": "💵",
+    "color": "#10b981"
   },
   {
     "id": "finance-banking-chặng-4",
@@ -3620,7 +4316,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-3"
-    }
+    },
+    "icon": "⏳",
+    "color": "#ec4899"
   },
   {
     "id": "finance-banking-chặng-5",
@@ -3630,7 +4328,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-4"
-    }
+    },
+    "icon": "🤝",
+    "color": "#06b6d4"
   },
   {
     "id": "finance-banking-chặng-6",
@@ -3640,7 +4340,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-5"
-    }
+    },
+    "icon": "☕",
+    "color": "#8b5cf6"
   },
   {
     "id": "finance-banking-chặng-7",
@@ -3650,7 +4352,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-6"
-    }
+    },
+    "icon": "🧹",
+    "color": "#3b82f6"
   },
   {
     "id": "finance-banking-chặng-8",
@@ -3660,7 +4364,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-7"
-    }
+    },
+    "icon": "🧾",
+    "color": "#f97316"
   },
   {
     "id": "finance-banking-chặng-9",
@@ -3670,7 +4376,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-8"
-    }
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
   },
   {
     "id": "finance-banking-chặng-10",
@@ -3680,7 +4388,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-9"
-    }
+    },
+    "icon": "🗓️",
+    "color": "#84cc16"
   },
   {
     "id": "finance-banking-chặng-11",
@@ -3690,7 +4400,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-10"
-    }
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
   },
   {
     "id": "finance-banking-chặng-12",
@@ -3700,7 +4412,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-11"
-    }
+    },
+    "icon": "🍳",
+    "color": "#6366f1"
   },
   {
     "id": "finance-banking-chặng-13",
@@ -3710,7 +4424,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-12"
-    }
+    },
+    "icon": "🌅",
+    "color": "#10b981"
   },
   {
     "id": "finance-banking-chặng-14",
@@ -3720,7 +4436,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-13"
-    }
+    },
+    "icon": "⏰",
+    "color": "#ec4899"
   },
   {
     "id": "finance-banking-chặng-15",
@@ -3730,7 +4448,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-14"
-    }
+    },
+    "icon": "📅",
+    "color": "#06b6d4"
   },
   {
     "id": "finance-banking-chặng-16",
@@ -3740,7 +4460,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-15"
-    }
+    },
+    "icon": "📊",
+    "color": "#8b5cf6"
   },
   {
     "id": "finance-banking-chặng-17",
@@ -3750,7 +4472,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-16"
-    }
+    },
+    "icon": "🛡️",
+    "color": "#3b82f6"
   },
   {
     "id": "finance-banking-chặng-18",
@@ -3760,7 +4484,9 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-17"
-    }
+    },
+    "icon": "🤖",
+    "color": "#8b5cf6"
   },
   {
     "id": "finance-banking-chặng-19",
@@ -3770,15 +4496,10 @@ export const TOPICS = [
     "unlockRule": {
       "type": "completeSubtopic",
       "subtopicId": "finance-banking-chặng-18"
-    }
+    },
+    "icon": "💰",
+    "color": "#14b8a6"
   }
 ];
 
-export const TOPICS_MAP = new Map();
-for (const topic of TOPICS) {
-  TOPICS_MAP.set(topic.id, topic);
-}
-
-export function getTopicById(id) {
-  return TOPICS_MAP.get(id) || null;
-}
+export const TOPICS_MAP = new Map(TOPICS.map(t => [t.id, t]));

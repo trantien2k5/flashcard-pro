@@ -33,7 +33,7 @@ import {
 import { setupSearch, setupSyncController, openSyncModal, showToast, showConfirm, mountGlobalModals } from './views/components.js';
 
 // Export constants & enums for full compatibility
-export { DECK_ENGLISH_NAMES, SUBTOPIC_ICONS, getSubtopicIcon, Rating, State, STABILITY_TIERS } from './config.js';
+export { DECK_ENGLISH_NAMES, SUBTOPIC_ICONS, getSubtopicIcon, getSubtopicColor, Rating, State, STABILITY_TIERS } from './config.js';
 
 export class FlashcardApp {
   constructor() {

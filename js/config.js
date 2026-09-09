@@ -87,166 +87,148 @@ export const DECK_ENGLISH_NAMES = {
   'advanced-academic-ielts': 'Advanced Academic & IELTS'
 };
 
+const THEME_POOLS = {
+  action: ['⚡', '🏃', '🎯', '🚀', '💡', '🧗', '🏹', '🏋️', '🏄', '🚴', '🥊', '⚽', '🏆', '🧭', '🛠️', '🔍', '🎨', '🌟', '✨', '💥', '🕹️', '🔮', '🧩', '🎲', '🔑'],
+  comm: ['💬', '🗣️', '😊', '❤️', '💡', '🎭', '🤝', '📢', '💌', '🧠', '🥳', '👂', '👁️', '🎙️', '✨'],
+  health: ['💪', '🫀', '🩺', '🏥', '💊', '🏃', '🥗', '🧘', '🩹', '🦷', '👁️', '🫁', '🧬', '🩸'],
+  routine: ['🌅', '⏰', '📅', '⏳', '🌙', '☕', '🧹', '🚿', '⌚', '🗓️', '🧘', '🍳'],
+  food: ['🍳', '🍲', '🍎', '🥦', '🥩', '☕', '🍰', '🍕', '🍜', '🥗', '🍔', '🥐', '🍇', '🥑'],
+  money: ['🛍️', '💳', '💰', '💵', '🏷️', '🧾', '📈', '🛒', '💎', '🏪', '🪙', '🎁'],
+  transport: ['🚗', '🚌', '🚆', '✈️', '🚢', '🚲', '🛵', '🚦', '🧭', '🗺️', '🚇', '🚏'],
+  home: ['🏡', '🛋️', '🛏️', '🚿', '🔌', '🔑', '🪴', '🚪', '🪟', '🕯️', '📦', '🧹'],
+  work: ['💼', '🏢', '👥', '📋', '💻', '📊', '📈', '📁', '👔', '🤝', '🎯', '🖊️'],
+  education: ['🏫', '✏️', '📚', '🎓', '📝', '🔬', '🎒', '📐', '🧠', '💡'],
+  travel: ['🧳', '🏨', '📸', '🏖️', '🗺️', '🛂', '🗽', '🗼', '🚢', '🏕️'],
+  entertainment: ['🎬', '🎵', '📖', '⚽', '🎨', '⛺', '🎮', '🎧', '🎸', '🎲'],
+  tech: ['💻', '📱', '🌐', '🔒', '🤖', '🔋', '📡', '🖥️', '⌨️', '🖱️'],
+  nature: ['⛅', '🍂', '🌪️', '🌲', '🐾', '🌿', '🌊', '🌸', '⛰️', '🌈'],
+  society: ['🌐', '⚖️', '🏙️', '🏮', '📰', '🌏', '🏛️', '🗳️', '🤝', '👥'],
+  toeic: ['🖥️', '✉️', '📝', '👔', '📈', '🚚', '📊', '💼', '🎯', '🤝'],
+  finance: ['💳', '🏦', '💵', '📈', '🤝', '📊', '🛡️', '🧾', '💰', '📉']
+};
+
+export const ACCENT_PALETTE = [
+  '#f59e0b', '#6366f1', '#10b981', '#ec4899', '#06b6d4', 
+  '#8b5cf6', '#3b82f6', '#f97316', '#14b8a6', '#84cc16'
+];
+
 export const SUBTOPIC_ICONS = new Proxy({}, {
   get: (target, prop) => getSubtopicIcon(prop)
 });
 
-export function getSubtopicIcon(subtopic, fallbackIcon = '📖') {
+export function getSubtopicColor(subtopic, fallbackColor = '#6366f1', index = 0) {
+  if (!subtopic) return fallbackColor;
+  if (typeof subtopic === 'object') {
+    if (subtopic.color) return subtopic.color;
+    subtopic = subtopic.name || subtopic.title || '';
+  }
+  const name = String(subtopic);
+  const numMatch = name.match(/#(\d+)/) || name.match(/^(\d+)\./);
+  const num = numMatch ? parseInt(numMatch[1], 10) - 1 : index;
+  return ACCENT_PALETTE[Math.abs(num) % ACCENT_PALETTE.length] || fallbackColor;
+}
+
+export function getSubtopicIcon(subtopic, fallbackIcon = '📖', index = 0) {
   if (!subtopic) return fallbackIcon;
   if (typeof subtopic === 'object') {
     if (subtopic.icon) return subtopic.icon;
     subtopic = subtopic.name || subtopic.title || '';
   }
   
-  const lower = String(subtopic).toLowerCase();
+  const rawStr = String(subtopic);
+  const lower = rawStr.toLowerCase();
 
-  // 1. Finance & Banking
-  if (lower.includes('thẻ') || lower.includes('card') || lower.includes('atm')) return '💳';
-  if (lower.includes('ngân hàng') || lower.includes('bank') || lower.includes('giao dịch')) return '🏦';
-  if (lower.includes('thu nhập') || lower.includes('lương') || lower.includes('tài chính cá nhân') || lower.includes('income')) return '💵';
-  if (lower.includes('tiết kiệm') || lower.includes('lãi suất') || lower.includes('lạm phát') || lower.includes('saving')) return '📈';
-  if (lower.includes('vay') || lower.includes('tín dụng') || lower.includes('credit') || lower.includes('loan')) return '🤝';
-  if (lower.includes('đầu tư') || lower.includes('chứng khoán') || lower.includes('cổ phiếu') || lower.includes('invest') || lower.includes('stock')) return '📊';
-  if (lower.includes('bảo hiểm') || lower.includes('rủi ro') || lower.includes('insurance') || lower.includes('risk')) return '🛡️';
-  if (lower.includes('thuế') || lower.includes('kế toán') || lower.includes('hóa đơn') || lower.includes('tax') || lower.includes('accounting')) return '🧾';
-  if (lower.includes('tiền') || lower.includes('money') || lower.includes('giá cả') || lower.includes('price')) return '💰';
-
-  // 2. Daily Life & Routines
-  if (lower.includes('sáng') || lower.includes('morning')) return '🌅';
-  if (lower.includes('tối') || lower.includes('đêm') || lower.includes('ngủ') || lower.includes('sleep')) return '🌙';
+  // 1. Specific Keyword Exact/High-Priority Matches
+  if (lower.includes('thức dậy') || lower.includes('buổi sáng') || lower.includes('morning')) return '🌅';
+  if (lower.includes('buổi tối') || lower.includes('đêm') || lower.includes('ngủ') || lower.includes('sleep')) return '🌙';
   if (lower.includes('việc nhà') || lower.includes('dọn dẹp') || lower.includes('clean') || lower.includes('chores')) return '🧹';
+  if (lower.includes('vệ sinh') || lower.includes('tắm') || lower.includes('bathroom') || lower.includes('shower')) return '🚿';
   if (lower.includes('lịch trình') || lower.includes('thời gian') || lower.includes('schedule')) return '📅';
-  if (lower.includes('thường nhật') || lower.includes('routine')) return '⏰';
-  if (lower.includes('thông dụng') || lower.includes('cụm từ')) return '💬';
-
-  // 3. Society & World (Check before general drink/home)
-  if (lower.includes('đất nước') || lower.includes('quốc gia') || lower.includes('quốc tịch') || lower.includes('ngôn ngữ') || lower.includes('country')) return '🌐';
-  if (lower.includes('chính phủ') || lower.includes('pháp luật') || lower.includes('nhà nước') || lower.includes('luật') || lower.includes('law')) return '⚖️';
-  if (lower.includes('cộng đồng') || lower.includes('đô thị') || lower.includes('nông thôn') || lower.includes('society')) return '🏙️';
-  if (lower.includes('văn hóa') || lower.includes('truyền thống') || lower.includes('lễ hội') || lower.includes('culture')) return '🏮';
-  if (lower.includes('tin tức') || lower.includes('truyền thông') || lower.includes('báo chí') || lower.includes('news')) return '📰';
-  if (lower.includes('thế giới') || lower.includes('nhân loại') || lower.includes('toàn cầu') || lower.includes('world')) return '🌏';
-
-  // 4. Food & Drink
-  if (lower.includes('nguyên liệu') || lower.includes('thực phẩm tươi') || lower.includes('rau') || lower.includes('củ')) return '🥦';
+  if (lower.includes('thường nhật') || lower.includes('routine') || lower.includes('đồng hồ')) return '⏰';
+  if (lower.includes('cà phê') || lower.includes('trà') || lower.includes('đồ uống') || lower.includes('drink') || lower.includes('coffee')) return '☕';
   if (lower.includes('trái cây') || lower.includes('hoa quả') || lower.includes('fruit')) return '🍎';
-  if (lower.includes('thịt') || lower.includes('hải sản') || lower.includes('thủy sản') || lower.includes('gia cầm') || lower.includes('meat') || lower.includes('fish')) return '🥩';
-  if (lower.includes('món ăn') || lower.includes('bữa ăn') || lower.includes('nấu') || lower.includes('chế biến') || lower.includes('food') || lower.includes('cook')) return '🍳';
-  if (lower.includes('đồ uống') || lower.includes('thức uống') || lower.includes('uống') || lower.includes('cà phê') || lower.includes('trà') || lower.includes('drink') || lower.includes('coffee')) return '☕';
-  if (lower.includes('nhà hàng') || lower.includes('gọi món') || lower.includes('quán ăn') || lower.includes('restaurant') || lower.includes('menu')) return '🍽️';
+  if (lower.includes('rau') || lower.includes('củ') || lower.includes('vegetable')) return '🥦';
+  if (lower.includes('thịt') || lower.includes('hải sản') || lower.includes('thủy sản') || lower.includes('meat') || lower.includes('fish')) return '🥩';
   if (lower.includes('bánh') || lower.includes('tráng miệng') || lower.includes('dessert') || lower.includes('cake')) return '🍰';
-  if (lower.includes('hương vị') || lower.includes('cảm nhận') || lower.includes('taste') || lower.includes('flavor')) return '😋';
-  if (lower.includes('dinh dưỡng') || lower.includes('nutrition')) return '🥗';
-
-  // 4. People & Relationships
-  if (lower.includes('gia đình') || lower.includes('thành viên') || lower.includes('family')) return '👨‍👩‍👧‍👦';
-  if (lower.includes('họ hàng') || lower.includes('hôn nhân') || lower.includes('kết hôn') || lower.includes('marriage')) return '💍';
-  if (lower.includes('bạn bè') || lower.includes('bằng hữu') || lower.includes('friend')) return '🤝';
-  if (lower.includes('tính cách') || lower.includes('ứng xử') || lower.includes('personality')) return '🎭';
-  if (lower.includes('ngoại hình') || lower.includes('vóc dáng') || lower.includes('appearance')) return '✨';
-  if (lower.includes('cảm xúc') || lower.includes('tâm trạng') || lower.includes('feeling') || lower.includes('emotion')) return '😊';
-  if (lower.includes('đối thoại') || lower.includes('trò chuyện') || lower.includes('giao tiếp')) return '💬';
-  if (lower.includes('thảo luận') || lower.includes('tranh luận') || lower.includes('diễn đạt')) return '🗣️';
-
-  // 5. Home & Living
-  if (lower.includes('phòng khách') || lower.includes('tiếp khách') || lower.includes('living room')) return '🛋️';
-  if (lower.includes('phòng ngủ') || lower.includes('bedroom')) return '🛏️';
-  if (lower.includes('bếp') || lower.includes('nấu ăn') || lower.includes('kitchen')) return '🍳';
-  if (lower.includes('phòng tắm') || lower.includes('vệ sinh') || lower.includes('bathroom')) return '🚿';
-  if (lower.includes('gia dụng') || lower.includes('thiết bị') || lower.includes('appliance')) return '🔌';
-  if (lower.includes('khu phố') || lower.includes('môi trường sống') || lower.includes('neighborhood')) return '🏘️';
-  if (lower.includes('sửa chữa') || lower.includes('bảo trì') || lower.includes('repair')) return '🔧';
-  if (lower.includes('nhà') || lower.includes('phòng') || lower.includes('home') || lower.includes('living')) return '🏡';
-
-  // 6. Health & Body
-  if (lower.includes('bộ phận cơ thể') || lower.includes('bên ngoài') || lower.includes('body')) return '💪';
-  if (lower.includes('nội tạng') || lower.includes('tuần hoàn') || lower.includes('tim') || lower.includes('organ')) return '🫀';
-  if (lower.includes('triệu chứng') || lower.includes('bệnh thông thường') || lower.includes('symptom') || lower.includes('illness')) return '🤒';
-  if (lower.includes('khám bệnh') || lower.includes('bệnh viện') || lower.includes('bác sĩ') || lower.includes('hospital')) return '🏥';
-  if (lower.includes('thuốc') || lower.includes('dược phẩm') || lower.includes('medicine')) return '💊';
-  if (lower.includes('sơ cứu') || lower.includes('cấp cứu') || lower.includes('first aid')) return '🚑';
-  if (lower.includes('thể lực') || lower.includes('tập luyện') || lower.includes('gym') || lower.includes('fitness')) return '🏃';
-  if (lower.includes('tinh thần') || lower.includes('thiền') || lower.includes('mental')) return '🧘';
-  if (lower.includes('vệ sinh cá nhân') || lower.includes('health') || lower.includes('sức khỏe')) return '❤️';
-
-  // 7. Shopping & Money
-  if (lower.includes('siêu thị') || lower.includes('cửa hàng') || lower.includes('shop') || lower.includes('mall')) return '🛍️';
-  if (lower.includes('quần áo') || lower.includes('thời trang') || lower.includes('clothes') || lower.includes('fashion')) return '👗';
-  if (lower.includes('khuyến mãi') || lower.includes('giảm giá') || lower.includes('discount')) return '🏷️';
-  if (lower.includes('dịch vụ khách hàng') || lower.includes('chăm sóc')) return '🛎️';
-
-  // 8. Transport & Directions
-  if (lower.includes('đường bộ') || lower.includes('xe hơi') || lower.includes('ô tô') || lower.includes('xe máy') || lower.includes('car')) return '🚗';
-  if (lower.includes('công cộng') || lower.includes('xe buýt') || lower.includes('bus')) return '🚌';
+  if (lower.includes('nấu ăn') || lower.includes('bữa ăn') || lower.includes('món ăn') || lower.includes('food') || lower.includes('cook')) return '🍳';
+  if (lower.includes('gia đình') || lower.includes('phụ huynh') || lower.includes('family')) return '👨‍👩‍👧‍👦';
+  if (lower.includes('bạn bè') || lower.includes('đồng nghiệp') || lower.includes('friend')) return '🤝';
+  if (lower.includes('hẹn hò') || lower.includes('tình yêu') || lower.includes('kết hôn') || lower.includes('marriage')) return '💍';
+  if (lower.includes('xe máy') || lower.includes('ô tô') || lower.includes('xe hơi') || lower.includes('car')) return '🚗';
+  if (lower.includes('xe buýt') || lower.includes('công cộng') || lower.includes('bus')) return '🚌';
+  if (lower.includes('máy bay') || lower.includes('sân bay') || lower.includes('flight') || lower.includes('airport')) return '✈️';
   if (lower.includes('tàu hỏa') || lower.includes('tàu điện') || lower.includes('metro') || lower.includes('train')) return '🚆';
-  if (lower.includes('máy bay') || lower.includes('sân bay') || lower.includes('hàng không') || lower.includes('flight') || lower.includes('airport')) return '✈️';
-  if (lower.includes('tàu thuyền') || lower.includes('đường thủy') || lower.includes('cảng') || lower.includes('ship')) return '🚢';
-  if (lower.includes('chỉ đường') || lower.includes('hỏi đường') || lower.includes('phương hướng') || lower.includes('direction')) return '🧭';
-  if (lower.includes('biển báo') || lower.includes('giao thông') || lower.includes('đèn tín hiệu') || lower.includes('traffic')) return '🚦';
-  if (lower.includes('tai nạn') || lower.includes('sự cố') || lower.includes('hỏng xe')) return '⚠️';
-
-  // 9. Work & Careers
-  if (lower.includes('ngành nghề') || lower.includes('vị trí') || lower.includes('nghề') || lower.includes('job') || lower.includes('career')) return '💼';
-  if (lower.includes('văn phòng') || lower.includes('nơi làm việc') || lower.includes('công sở') || lower.includes('office')) return '🏢';
-  if (lower.includes('tìm việc') || lower.includes('hồ sơ') || lower.includes('phỏng vấn') || lower.includes('cv') || lower.includes('interview')) return '📋';
-  if (lower.includes('họp') || lower.includes('thảo luận') || lower.includes('meeting')) return '👥';
-  if (lower.includes('kỹ năng') || lower.includes('trách nhiệm') || lower.includes('nhiệm vụ') || lower.includes('skill')) return '⭐';
-  if (lower.includes('thăng tiến') || lower.includes('đãi ngộ') || lower.includes('promotion')) return '📈';
-
-  // 10. Education & Learning
-  if (lower.includes('trường học') || lower.includes('bậc học') || lower.includes('school')) return '🏫';
-  if (lower.includes('lớp học') || lower.includes('dụng cụ') || lower.includes('đồ dùng học tập') || lower.includes('classroom')) return '✏️';
-  if (lower.includes('môn học') || lower.includes('khoa học') || lower.includes('ngành học') || lower.includes('subject')) return '📚';
-  if (lower.includes('thi cử') || lower.includes('đánh giá') || lower.includes('kiểm tra') || lower.includes('exam')) return '📝';
-  if (lower.includes('đại học') || lower.includes('nghiên cứu') || lower.includes('học bổng') || lower.includes('university')) return '🎓';
-  if (lower.includes('phương pháp học') || lower.includes('tự học') || lower.includes('study')) return '🧠';
-
-  // 11. Travel & Places
-  if (lower.includes('hành lý') || lower.includes('chuẩn bị chuyến đi') || lower.includes('luggage')) return '🧳';
-  if (lower.includes('khách sạn') || lower.includes('nơi lưu trú') || lower.includes('resort') || lower.includes('hotel')) return '🏨';
-  if (lower.includes('tham quan') || lower.includes('thắng cảnh') || lower.includes('khám phá') || lower.includes('sightseeing')) return '📸';
-  if (lower.includes('bãi biển') || lower.includes('kỳ nghỉ') || lower.includes('nghỉ dưỡng') || lower.includes('beach') || lower.includes('vacation')) return '🏖️';
-  if (lower.includes('địa danh') || lower.includes('bản đồ') || lower.includes('map') || lower.includes('travel') || lower.includes('tour')) return '🗺️';
-  if (lower.includes('thủ tục') || lower.includes('xuất nhập cảnh') || lower.includes('visa') || lower.includes('hộ chiếu') || lower.includes('passport')) return '🛂';
-
-  // 12. Entertainment & Hobbies
-  if (lower.includes('điện ảnh') || lower.includes('phim ảnh') || lower.includes('rạp') || lower.includes('movie') || lower.includes('cinema')) return '🎬';
-  if (lower.includes('âm nhạc') || lower.includes('nhạc cụ') || lower.includes('hát') || lower.includes('music')) return '🎵';
-  if (lower.includes('sách') || lower.includes('văn học') || lower.includes('đọc') || lower.includes('book')) return '📖';
-  if (lower.includes('thể thao') || lower.includes('trò chơi') || lower.includes('bóng đá') || lower.includes('sport') || lower.includes('game')) return '⚽';
-  if (lower.includes('nghệ thuật') || lower.includes('sáng tạo') || lower.includes('hội họa') || lower.includes('art')) return '🎨';
-  if (lower.includes('ngoài trời') || lower.includes('dã ngoại') || lower.includes('cắm trại') || lower.includes('camp')) return '⛺';
-
-  // 13. Technology & Internet
-  if (lower.includes('máy tính') || lower.includes('phần cứng') || lower.includes('hardware') || lower.includes('computer')) return '💻';
-  if (lower.includes('phần mềm') || lower.includes('ứng dụng') || lower.includes('software') || lower.includes('app')) return '📱';
-  if (lower.includes('internet') || lower.includes('mạng') || lower.includes('kết nối') || lower.includes('web') || lower.includes('network')) return '🌐';
-  if (lower.includes('bảo mật') || lower.includes('an toàn') || lower.includes('mật khẩu') || lower.includes('security')) return '🔒';
-  if (lower.includes('ai') || lower.includes('trí tuệ nhân tạo') || lower.includes('cloud') || lower.includes('công nghệ mới') || lower.includes('tech')) return '🤖';
-
-  // 14. Nature & Weather
   if (lower.includes('thời tiết') || lower.includes('nhiệt độ') || lower.includes('weather')) return '⛅';
-  if (lower.includes('bốn mùa') || lower.includes('mùa') || lower.includes('season')) return '🍂';
-  if (lower.includes('thiên tai') || lower.includes('cực đoan') || lower.includes('bão') || lower.includes('disaster')) return '🌪️';
-  if (lower.includes('cảnh quan') || lower.includes('thiên nhiên') || lower.includes('rừng') || lower.includes('nature')) return '🌲';
   if (lower.includes('động vật') || lower.includes('thú cưng') || lower.includes('animal') || lower.includes('pet')) return '🐾';
   if (lower.includes('thực vật') || lower.includes('cây cối') || lower.includes('hoa') || lower.includes('plant')) return '🌿';
+  if (lower.includes('máy tính') || lower.includes('laptop') || lower.includes('hardware') || lower.includes('computer')) return '💻';
+  if (lower.includes('điện thoại') || lower.includes('smartphone') || lower.includes('app')) return '📱';
+  if (lower.includes('internet') || lower.includes('mạng') || lower.includes('website') || lower.includes('web')) return '🌐';
+  if (lower.includes('bảo mật') || lower.includes('an toàn') || lower.includes('mật khẩu') || lower.includes('security')) return '🔒';
+  if (lower.includes('ai') || lower.includes('trí tuệ nhân tạo') || lower.includes('tech')) return '🤖';
+  if (lower.includes('trường học') || lower.includes('học sinh') || lower.includes('school')) return '🏫';
+  if (lower.includes('đại học') || lower.includes('học bổng') || lower.includes('bằng cấp') || lower.includes('university')) return '🎓';
+  if (lower.includes('sách') || lower.includes('văn học') || lower.includes('đọc') || lower.includes('book')) return '📚';
+  if (lower.includes('thi cử') || lower.includes('đánh giá') || lower.includes('kiểm tra') || lower.includes('exam')) return '📝';
+  if (lower.includes('khách sạn') || lower.includes('nơi lưu trú') || lower.includes('resort') || lower.includes('hotel')) return '🏨';
+  if (lower.includes('bãi biển') || lower.includes('kỳ nghỉ') || lower.includes('nghỉ dưỡng') || lower.includes('beach')) return '🏖️';
+  if (lower.includes('điện ảnh') || lower.includes('phim') || lower.includes('rạp') || lower.includes('movie') || lower.includes('cinema')) return '🎬';
+  if (lower.includes('âm nhạc') || lower.includes('nhạc cụ') || lower.includes('hát') || lower.includes('music')) return '🎵';
+  if (lower.includes('thể thao') || lower.includes('trò chơi') || lower.includes('bóng đá') || lower.includes('sport')) return '⚽';
+  if (lower.includes('hội họa') || lower.includes('nghệ thuật') || lower.includes('sáng tạo') || lower.includes('art')) return '🎨';
+  if (lower.includes('thẻ') || lower.includes('card') || lower.includes('atm')) return '💳';
+  if (lower.includes('ngân hàng') || lower.includes('bank')) return '🏦';
+  if (lower.includes('tiền') || lower.includes('money') || lower.includes('lương') || lower.includes('thu nhập')) return '💵';
+  if (lower.includes('đầu tư') || lower.includes('chứng khoán') || lower.includes('cổ phiếu') || lower.includes('invest')) return '📊';
+  if (lower.includes('bảo hiểm') || lower.includes('rủi ro') || lower.includes('insurance')) return '🛡️';
+  if (lower.includes('thuế') || lower.includes('kế toán') || lower.includes('hóa đơn') || lower.includes('tax') || lower.includes('bill')) return '🧾';
+  if (lower.includes('siêu thị') || lower.includes('cửa hàng') || lower.includes('shop') || lower.includes('mall')) return '🛍️';
+  if (lower.includes('quần áo') || lower.includes('thời trang') || lower.includes('clothes') || lower.includes('fashion')) return '👗';
 
-  // 15. Society & World
-  if (lower.includes('quốc gia') || lower.includes('quốc tịch') || lower.includes('ngôn ngữ') || lower.includes('country')) return '🌐';
-  if (lower.includes('chính phủ') || lower.includes('pháp luật') || lower.includes('nhà nước') || lower.includes('luật') || lower.includes('law')) return '⚖️';
-  if (lower.includes('cộng đồng') || lower.includes('đô thị') || lower.includes('nông thôn') || lower.includes('society')) return '🏙️';
-  if (lower.includes('văn hóa') || lower.includes('truyền thống') || lower.includes('lễ hội') || lower.includes('culture')) return '🏮';
-  if (lower.includes('tin tức') || lower.includes('truyền thông') || lower.includes('báo chí') || lower.includes('news')) return '📰';
-  if (lower.includes('thế giới') || lower.includes('nhân loại') || lower.includes('toàn cầu') || lower.includes('world')) return '🌏';
+  // 2. Multi-Stage Chunk / Topic Pool Matching with Deterministic Number Cycling
+  const numMatch = rawStr.match(/#(\d+)/) || rawStr.match(/^(\d+)\./);
+  const num = numMatch ? parseInt(numMatch[1], 10) - 1 : index;
 
-  // 16. TOEIC & Workplace
-  if (lower.includes('môi trường') || lower.includes('thiết bị văn phòng')) return '🖥️';
-  if (lower.includes('email') || lower.includes('thư tín')) return '✉️';
-  if (lower.includes('hợp đồng') || lower.includes('đàm phán') || lower.includes('contract')) return '📝';
-  if (lower.includes('nhân sự') || lower.includes('tuyển dụng') || lower.includes('hr')) return '👔';
-  if (lower.includes('tiếp thị') || lower.includes('bán hàng') || lower.includes('marketing') || lower.includes('sales')) return '📈';
-  if (lower.includes('vận chuyển') || lower.includes('hậu cần') || lower.includes('giao hàng') || lower.includes('logistics')) return '🚚';
+  let pool = THEME_POOLS.routine;
+  if (lower.includes('hành động') || lower.includes('động từ') || lower.includes('action') || lower.includes('verb')) {
+    pool = THEME_POOLS.action;
+  } else if (lower.includes('giao tiếp') || lower.includes('cảm xúc') || lower.includes('nhu cầu') || lower.includes('tâm trạng')) {
+    pool = THEME_POOLS.comm;
+  } else if (lower.includes('sức khỏe') || lower.includes('cơ thể') || lower.includes('sinh tồn') || lower.includes('bệnh')) {
+    pool = THEME_POOLS.health;
+  } else if (lower.includes('thói quen') || lower.includes('thời gian') || lower.includes('sinh hoạt')) {
+    pool = THEME_POOLS.routine;
+  } else if (lower.includes('ăn uống') || lower.includes('ẩm thực') || lower.includes('thực phẩm')) {
+    pool = THEME_POOLS.food;
+  } else if (lower.includes('mua sắm') || lower.includes('tiền bạc') || lower.includes('giá cả')) {
+    pool = THEME_POOLS.money;
+  } else if (lower.includes('đi lại') || lower.includes('giao thông') || lower.includes('chỉ đường')) {
+    pool = THEME_POOLS.transport;
+  } else if (lower.includes('nhà cửa') || lower.includes('đồ dùng') || lower.includes('thiết yếu')) {
+    pool = THEME_POOLS.home;
+  } else if (lower.includes('công việc') || lower.includes('sự nghiệp') || lower.includes('nghề nghiệp')) {
+    pool = THEME_POOLS.work;
+  } else if (lower.includes('giáo dục') || lower.includes('học tập')) {
+    pool = THEME_POOLS.education;
+  } else if (lower.includes('du lịch') || lower.includes('khám phá')) {
+    pool = THEME_POOLS.travel;
+  } else if (lower.includes('giải trí') || lower.includes('sở thích')) {
+    pool = THEME_POOLS.entertainment;
+  } else if (lower.includes('công nghệ') || lower.includes('internet')) {
+    pool = THEME_POOLS.tech;
+  } else if (lower.includes('thiên nhiên') || lower.includes('môi trường')) {
+    pool = THEME_POOLS.nature;
+  } else if (lower.includes('xã hội') || lower.includes('thế giới')) {
+    pool = THEME_POOLS.society;
+  } else if (lower.includes('toeic') || lower.includes('hợp đồng') || lower.includes('tiếp thị')) {
+    pool = THEME_POOLS.toeic;
+  } else if (lower.includes('tài chính') || lower.includes('ngân hàng')) {
+    pool = THEME_POOLS.finance;
+  }
+
+  if (pool && pool.length > 0) {
+    return pool[Math.abs(num) % pool.length];
+  }
 
   return fallbackIcon || '📖';
 }
