@@ -1,9 +1,10 @@
 /**
- * Service Worker - Quản lý Caching & Tự động cập nhật phiên bản (Auto Live Reload)
- * Chiến lược Network-First: Luôn tải file mới nhất từ server, tự động bypass cache khi sửa code.
+ * Service Worker - Quản lý Caching & Tự động cập nhật phiên bản (Auto Live Reload & Offline PWA)
+ * Chiến lược Network-First: Luôn tải file mới nhất từ server, tự động bypass cache khi có mạng,
+ * và tự động fallback sang Cache khi thiết bị Offline.
  */
 
-const CACHE_NAME = 'flashcard-pro-v2.6.0';
+const CACHE_NAME = 'flashcard-pro-v2.7.0';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -12,7 +13,7 @@ const PRECACHE_ASSETS = [
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
   './assets/icons/icon.svg',
-  './css/style.css?v=2.6.0',
+  './css/style.css',
   './css/main.css',
   './css/components.css',
   './css/flashcard.css',
@@ -20,7 +21,7 @@ const PRECACHE_ASSETS = [
   './css/views/decks.css',
   './css/views/stats.css',
   './css/views/settings.css',
-  './js/app.js?v=2.6.0',
+  './js/app.js',
   './js/config.js',
   './js/utils.js',
   './js/core/fsrs.js',
@@ -43,22 +44,25 @@ const PRECACHE_ASSETS = [
   './data/words.js'
 ];
 
+// 1. Install: Precache toàn bộ ứng dụng và skipWaiting để kích hoạt ngay
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(PRECACHE_ASSETS).catch((err) => {
-        console.warn('Pre-cache partial fallback:', err);
+        console.warn('[SW] Pre-cache partial fallback:', err);
       });
     }).then(() => self.skipWaiting())
   );
 });
 
+// 2. Activate: Xóa bỏ các phiên bản cache cũ và claim clients ngay lập tức
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== CACHE_NAME) {
+            console.log('[SW] Xóa cache cũ:', cacheName);
             return caches.delete(cacheName);
           }
         })
@@ -67,24 +71,42 @@ self.addEventListener('activate', (event) => {
   );
 });
 
+// 3. Fetch: Network-First cho tài nguyên ứng dụng (Ưu tiên mạng -> Lưu cache mới -> Fallback cache khi offline)
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
-  // Luôn ưu tiên lấy bản mới nhất từ server (no-cache)
+  const url = new URL(event.request.url);
+
+  // Bỏ qua các scheme đặc biệt như chrome-extension, v.v.
+  if (!url.protocol.startsWith('http')) return;
+
   event.respondWith(
     fetch(event.request, { cache: 'no-cache' })
-      .then((response) => {
-        if (response && response.status === 200) {
-          const responseClone = response.clone();
+      .then((networkResponse) => {
+        // Nếu lấy thành công từ mạng, cập nhật ngay vào Cache
+        if (networkResponse && networkResponse.status === 200) {
+          const responseClone = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, responseClone);
           });
         }
-        return response;
+        return networkResponse;
       })
-      .catch(() => {
-        // Nếu offline, dùng bản cache
-        return caches.match(event.request);
+      .catch(async () => {
+        // Khi Offline: Thử tìm trong Cache (bỏ qua query string nếu có)
+        const cachedResponse = await caches.match(event.request, { ignoreSearch: true });
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+        // Nếu là HTML navigation request và không có cache chính xác, fallback về index.html
+        if (event.request.mode === 'navigate') {
+          return caches.match('./index.html') || caches.match('./');
+        }
+        return new Response('Offline: Resource not available in cache', {
+          status: 503,
+          statusText: 'Service Unavailable',
+          headers: new Headers({ 'Content-Type': 'text/plain; charset=utf-8' })
+        });
       })
   );
 });

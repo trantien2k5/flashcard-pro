@@ -115,8 +115,41 @@ export class FlashcardApp {
 
   registerServiceWorker() {
     if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
-      navigator.serviceWorker.register('./sw.js').catch(err => {
+      navigator.serviceWorker.register('./sw.js').then((registration) => {
+        // Tự động kiểm tra bản cập nhật mới định kỳ và khi quay lại tab
+        registration.update().catch(() => {});
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'visible') {
+            registration.update().catch(() => {});
+          }
+        });
+
+        // Lắng nghe khi phát hiện Service Worker mới
+        registration.onupdatefound = () => {
+          const installingWorker = registration.installing;
+          if (installingWorker) {
+            installingWorker.onstatechange = () => {
+              if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                console.log('[PWA] Phiên bản mới đã sẵn sàng.');
+              }
+            };
+          }
+        };
+      }).catch(err => {
         console.warn('Service worker registration failed:', err);
+      });
+
+      // Lắng nghe khi SW mới kích hoạt (clients.claim) để cập nhật view nếu cần
+      let isReloading = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (!isReloading) {
+          isReloading = true;
+          // Chỉ reload tự động nếu không đang trong phiên học thẻ dở dang
+          if (!this.studySession || !this.studySession.isActive) {
+            window.location.reload();
+          }
+        }
       });
     }
   }
