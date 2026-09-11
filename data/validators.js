@@ -104,6 +104,11 @@ export function validateWord(word, ctx = {}) {
     }
   }
 
+  // 8. Image URL (optional string)
+  if (word.img !== undefined && word.img !== null && typeof word.img !== 'string') {
+    errors.push(`Word "${word.id || 'unknown'}": "img" must be a string if provided`);
+  }
+
   return {
     valid: errors.length === 0,
     errors,
