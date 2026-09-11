@@ -224,6 +224,179 @@ export class StatsManager {
 
     return forecast;
   }
+
+  /**
+   * Lấy dữ liệu nhật ký ô vuông theo tháng phong cách Trader (P&L Calendar)
+   * @param {number} year - Năm (vd: 2026)
+   * @param {number} month - Tháng (1-12)
+   */
+  static getMonthJournalData(year, month) {
+    const logs = StorageManager.getStudyLogs() || [];
+    
+    // Ngày đầu tiên và số ngày trong tháng
+    const daysInMonth = new Date(year, month, 0).getDate();
+    // getDay(): 0=CN, 1=T2, ..., 6=T7. Chuyển sang chuẩn T2=0, ..., CN=6
+    const firstDayOfWeek = (new Date(year, month - 1, 1).getDay() + 6) % 7;
+    
+    const today = new Date();
+    const isCurrentMonth = today.getFullYear() === year && (today.getMonth() + 1) === month;
+    const currentDay = today.getDate();
+
+    // Map ngày (YYYY-MM-DD) -> thống kê
+    const dailyMap = Object.create(null);
+    for (let d = 1; d <= daysInMonth; d++) {
+      const dateKey = `${year}-${String(month).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+      dailyMap[dateKey] = {
+        dateKey,
+        day: d,
+        wordsLearned: new Set(),
+        wordsReviewed: new Set(),
+        memorizedWords: new Set(),
+        goodReviews: 0,
+        totalReviews: 0,
+        studySeconds: 0,
+        isToday: isCurrentMonth && d === currentDay,
+        isFuture: isCurrentMonth ? d > currentDay : (new Date(year, month - 1, d) > today)
+      };
+    }
+
+    // Nạp thời gian học theo ngày
+    try {
+      const timeLogs = JSON.parse(localStorage.getItem('fc_pro_study_time_logs') || '{}');
+      for (const dateKey in timeLogs) {
+        if (dailyMap[dateKey]) {
+          dailyMap[dateKey].studySeconds = timeLogs[dateKey] || 0;
+        }
+      }
+    } catch (e) {}
+
+    // Quét studyLogs
+    for (let i = 0; i < logs.length; i++) {
+      const log = logs[i];
+      if (!log || !log.timestamp) continue;
+      const key = getLocalDateKey(log.timestamp);
+      if (dailyMap[key]) {
+        const item = dailyMap[key];
+        item.totalReviews++;
+        const cardId = log.cardId || log.word;
+        if (cardId) {
+          if (log.state === State.New || log.state === 0 || log.isNew) {
+            item.wordsLearned.add(cardId);
+          } else {
+            item.wordsReviewed.add(cardId);
+          }
+          if (log.rating === Rating.Good || log.rating === Rating.Easy) {
+            item.memorizedWords.add(cardId);
+            item.goodReviews++;
+          } else if (log.rating === Rating.Hard) {
+            item.goodReviews += 0.5;
+          }
+        }
+      }
+    }
+
+    // Tổng hợp danh sách ngày trong tháng
+    const days = [];
+    let monthTotalWords = 0;
+    let activeDaysCount = 0;
+    let monthTotalSeconds = 0;
+    let monthTotalReviews = 0;
+    let monthGoodReviews = 0;
+
+    let currentStreak = 0;
+    let maxStreakInMonth = 0;
+
+    for (let d = 1; d <= daysInMonth; d++) {
+      const dateKey = `${year}-${String(month).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+      const item = dailyMap[dateKey];
+      
+      const uniqueWords = new Set([...item.wordsLearned, ...item.wordsReviewed]);
+      const totalCount = uniqueWords.size || item.memorizedWords.size;
+      const count = totalCount;
+      const retention = item.totalReviews > 0 ? Math.round((item.goodReviews / item.totalReviews) * 100) : (count > 0 ? 100 : 0);
+      
+      monthTotalWords += count;
+      monthTotalSeconds += item.studySeconds;
+      monthTotalReviews += item.totalReviews;
+      monthGoodReviews += item.goodReviews;
+
+      let heatLevel = 0;
+      if (count > 0) {
+        activeDaysCount++;
+        currentStreak++;
+        if (currentStreak > maxStreakInMonth) maxStreakInMonth = currentStreak;
+
+        if (count >= 30) heatLevel = 4;
+        else if (count >= 15) heatLevel = 3;
+        else if (count >= 6) heatLevel = 2;
+        else heatLevel = 1;
+      } else {
+        if (!item.isFuture) {
+          currentStreak = 0;
+        }
+      }
+
+      days.push({
+        day: d,
+        dateKey,
+        count,
+        newCount: item.wordsLearned.size,
+        reviewCount: item.wordsReviewed.size,
+        memorizedCount: item.memorizedWords.size,
+        totalReviews: item.totalReviews,
+        retention,
+        minutes: Math.round(item.studySeconds / 60),
+        heatLevel,
+        isToday: item.isToday,
+        isFuture: item.isFuture
+      });
+    }
+
+    const elapsedDays = isCurrentMonth ? currentDay : daysInMonth;
+    const winRate = elapsedDays > 0 ? Math.round((activeDaysCount / elapsedDays) * 100) : 0;
+    const avgRetention = monthTotalReviews > 0 ? Math.round((monthGoodReviews / monthTotalReviews) * 100) : 100;
+
+    return {
+      year,
+      month,
+      daysInMonth,
+      firstDayOfWeek, // Số ô trống cần pad trước ngày 1 (0..6)
+      days,
+      monthTotalWords,
+      activeDaysCount,
+      elapsedDays,
+      winRate,
+      maxStreakInMonth,
+      monthTotalMinutes: Math.round(monthTotalSeconds / 60),
+      avgRetention
+    };
+  }
+
+  /**
+   * Lấy dữ liệu 12 tháng trong năm (Year Overview)
+   */
+  static getYearlyJournalData(year) {
+    const months = [];
+    let yearTotalWords = 0;
+    let yearActiveDays = 0;
+    let yearTotalMinutes = 0;
+
+    for (let m = 1; m <= 12; m++) {
+      const data = this.getMonthJournalData(year, m);
+      yearTotalWords += data.monthTotalWords;
+      yearActiveDays += data.activeDaysCount;
+      yearTotalMinutes += data.monthTotalMinutes;
+      months.push(data);
+    }
+
+    return {
+      year,
+      months,
+      yearTotalWords,
+      yearActiveDays,
+      yearTotalMinutes
+    };
+  }
 }
 
 export class StudyTimeTracker {
