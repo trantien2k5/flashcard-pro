@@ -26,7 +26,9 @@ simple-flashcard/
 ├── manifest.json                 # Cấu hình PWA Web App Manifest
 ├── jsconfig.json                 # Cấu hình JS Language Server & Path Aliases (@core, @views, @services...)
 ├── assets/
-│   └── icons/                    # App Icons (favicon.svg, favicon.ico)
+│   ├── icons/                    # App Icons (favicon.svg, favicon.ico, icon-192, icon-512)
+│   └── images/
+│       └── words/                # 2.552 hình ảnh WebP từ vựng cục bộ (100% Offline)
 │
 ├── css/                          # Hệ thống CSS module hóa gọn gàng
 │   ├── style.css                 # Master CSS nạp toàn bộ bundle stylesheets
