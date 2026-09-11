@@ -45,44 +45,42 @@ export function renderStudyOverlayShell() {
       <div class="study-body-wrapper">
         <div class="flashcard-stage">
           <div id="flashcard-element" class="flashcard-3d-wrapper">
-            <!-- Front Face -->
+            <!-- MẶT TRƯỚC -->
             <div class="flashcard-face face-front">
-              <div class="card-center-content">
-                <h2 class="card-word-title" id="card-front-word">...</h2>
-                <div class="card-phonetic-box">
-                  <span id="card-front-phonetic">/.../</span>
-                </div>
-                <div class="card-audio-single-wrap">
-                  <button type="button" class="btn-card-audio-single" id="btn-audio-speaker" title="Phát âm từ vựng (R)" aria-label="Phát âm từ vựng">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
-                    </svg>
-                  </button>
-                </div>
+              <div class="card-image-container" id="card-front-img-container" style="display: none;">
+                <img id="card-front-img" class="fc-image" alt="Visual" />
               </div>
-              <div class="card-tap-hint">
-                <span class="hint-touch">Chạm thẻ để xem nghĩa</span>
+              <div class="card-word-info">
+                <h2 class="card-word-title fc-title" id="card-front-word">...</h2>
+                <p class="card-word-phonetic fc-phonetic" id="card-front-phonetic">/ ... /</p>
+                <button class="card-sound-btn fc-sound-btn" id="btn-audio-speaker" type="button" title="Phát âm từ vựng (R)" aria-label="Phát âm từ vựng">
+                  🔊 Phát âm
+                </button>
+              </div>
+              <div class="card-hint-flip">
+                <span class="hint-touch">👆 Chạm để lật mặt sau</span>
                 <span class="hint-mouse">Click hoặc nhấn Space để xem nghĩa</span>
               </div>
             </div>
 
-            <!-- Back Face -->
+            <!-- MẶT SAU -->
             <div class="flashcard-face face-back">
-              <div class="card-center-content">
-                <div class="card-badges-row">
+              <div class="card-back-content">
+                <div class="card-back-tag-row">
+                  <span class="card-back-tag" id="card-back-tag">NGHĨA TIẾNG VIỆT</span>
                   <span class="card-pos-tag" id="card-pos-badge-back">WORD</span>
                   <span class="card-cefr-tag" id="card-cefr-badge-back">A1</span>
                 </div>
-                <div class="card-meaning-vi" id="card-back-meaning">...</div>
-                <div class="card-example-box">
+                <div class="card-back-meaning fc-meaning" id="card-back-meaning">...</div>
+                <div class="card-divider"></div>
+                <div class="card-back-def fc-def" id="card-back-def" style="display: none;">...</div>
+                <div class="card-back-example fc-example" id="card-back-example-box">
                   <div class="card-example-en" id="card-back-example">...</div>
                   <div class="card-example-vi" id="card-back-example-vi">...</div>
                 </div>
               </div>
-              <div class="card-tap-hint">
-                <span class="hint-touch">Chạm thẻ để lật lại</span>
+              <div class="card-hint-flip">
+                <span class="hint-touch">👆 Chạm thẻ để lật lại</span>
                 <span class="hint-mouse">Click hoặc nhấn Space để lật lại</span>
               </div>
             </div>
@@ -149,7 +147,7 @@ export function setupStudyControls(app) {
     };
 
     flashcardEl.addEventListener('click', (e) => {
-      if (e.target.closest('.btn-card-audio-single') || e.target.closest('.btn-tts-audio')) {
+      if (e.target.closest('.card-sound-btn') || e.target.closest('#btn-audio-speaker') || e.target.closest('.btn-card-audio-single')) {
         return;
       }
       triggerFlip();
@@ -353,21 +351,48 @@ export function handleCardChange(app, card, progress) {
       progressBar.style.width = `${percent}%`;
     }
 
+    // Xử lý hình ảnh minh họa trực quan (nếu từ vựng có trường img hoặc image)
+    const imgContainer = document.getElementById('card-front-img-container');
+    const imgEl = document.getElementById('card-front-img');
+    const imgSrc = card.img || card.image || '';
+    if (imgContainer && imgEl) {
+      if (imgSrc) {
+        imgEl.src = imgSrc;
+        imgContainer.style.display = 'flex';
+      } else {
+        imgEl.src = '';
+        imgContainer.style.display = 'none';
+      }
+    }
+
     const posBack = document.getElementById('card-pos-badge-back');
     if (posBack) posBack.textContent = (card.pos || 'word').toUpperCase();
     
-    const cefrText = card.cefr || card.level || 'A2';
+    const cefrText = card.cefr || card.level || 'A1';
     const cefrBadgeBack = document.getElementById('card-cefr-badge-back');
     if (cefrBadgeBack) cefrBadgeBack.textContent = cefrText.toUpperCase();
 
     const wordFront = document.getElementById('card-front-word');
     const phoneticFront = document.getElementById('card-front-phonetic');
     const meaningBack = document.getElementById('card-back-meaning');
+    const defBack = document.getElementById('card-back-def');
     const exBack = document.getElementById('card-back-example');
 
     if (wordFront) wordFront.textContent = card.word || '';
-    if (phoneticFront) phoneticFront.textContent = card.phonetic || '';
+    if (phoneticFront) phoneticFront.textContent = card.phonetic || card.ipa || '';
     if (meaningBack) meaningBack.textContent = card.meaning || '';
+
+    // Hiển thị định nghĩa tiếng Anh nếu có
+    if (defBack) {
+      const defText = card.definition || card.def || '';
+      if (defText) {
+        defBack.textContent = defText;
+        defBack.style.display = 'block';
+      } else {
+        defBack.textContent = '';
+        defBack.style.display = 'none';
+      }
+    }
 
     // Highlight từ vựng trong câu ví dụ tiếng Anh nếu có
     if (exBack) {
