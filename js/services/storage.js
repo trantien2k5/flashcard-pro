@@ -40,6 +40,14 @@ let _userProgressCache = null;
 let _dbPromise = null;
 let _stateRevision = 1;
 
+// Map ngược để tra cứu 2 chiều Canonical ID ⇋ Legacy ID
+const REVERSE_ID_MAP = {};
+if (typeof LEGACY_ID_MAP === 'object' && LEGACY_ID_MAP !== null) {
+  for (const [legId, canId] of Object.entries(LEGACY_ID_MAP)) {
+    REVERSE_ID_MAP[canId] = legId;
+  }
+}
+
 /**
  * Tự động di chuyển tiến độ học của các ID cũ sang Canonical ID chuẩn sau khi deduplicate
  */
@@ -271,8 +279,15 @@ export class StorageManager {
   static getCardState(cardId) {
     if (!cardId) return null;
     const cards = this.getAllCardStates();
-    const canonicalId = (LEGACY_ID_MAP && LEGACY_ID_MAP[cardId]) || cardId;
-    return cards[canonicalId] || cards[cardId] || null;
+    // 1. Khớp trực tiếp ID
+    if (cards[cardId]) return cards[cardId];
+    // 2. Tra theo Canonical ID nếu cardId là Legacy ID
+    const canonicalId = (LEGACY_ID_MAP && LEGACY_ID_MAP[cardId]) || null;
+    if (canonicalId && cards[canonicalId]) return cards[canonicalId];
+    // 3. Tra theo Legacy ID nếu cardId là Canonical ID
+    const legacyId = REVERSE_ID_MAP[cardId] || null;
+    if (legacyId && cards[legacyId]) return cards[legacyId];
+    return null;
   }
 
   static saveCardState(cardState) {
@@ -613,46 +628,100 @@ export class StorageManager {
     };
   }
 
+  static _normalizeCardState(raw) {
+    if (!raw || typeof raw !== 'object') return null;
+    let due = raw.due || raw.du || null;
+    if (due && typeof due === 'number') {
+      due = new Date(due).toISOString();
+    }
+    const id = raw.id;
+    if (!id) return null;
+    const canonicalId = (LEGACY_ID_MAP && LEGACY_ID_MAP[id]) || id;
+
+    return {
+      id: canonicalId,
+      state: raw.state ?? raw.s ?? 0,
+      reps: raw.reps ?? raw.r ?? 0,
+      lapses: raw.lapses ?? raw.l ?? 0,
+      stability: raw.stability ?? raw.st ?? 0,
+      difficulty: raw.difficulty ?? raw.d ?? 0,
+      due: due,
+      last_review: raw.last_review ?? raw.lr ?? null,
+      elapsed_days: raw.elapsed_days ?? 0,
+      scheduled_days: raw.scheduled_days ?? 0
+    };
+  }
+
   static async importBackup(backupData) {
     try {
-      if (!backupData || typeof backupData !== 'object') {
+      let data = backupData;
+      if (typeof data === 'string') {
+        data = JSON.parse(data);
+      }
+      if (!data || typeof data !== 'object') {
         return { success: false, error: 'Dữ liệu file không hợp lệ (Không phải định dạng JSON)' };
       }
 
-      // 1. Cài đặt người dùng (Settings)
-      if (backupData.settings && typeof backupData.settings === 'object') {
-        this.saveSettings(backupData.settings);
+      // 1. Chuẩn hóa danh sách thẻ cards (Hỗ trợ cả Object {} và Array [])
+      const rawCards = data.cards || data.c || {};
+      const normalizedCards = {};
+      if (Array.isArray(rawCards)) {
+        rawCards.forEach(c => {
+          if (c && c.id) {
+            const norm = this._normalizeCardState(c);
+            if (norm) normalizedCards[norm.id] = norm;
+          }
+        });
+      } else if (typeof rawCards === 'object') {
+        for (const [id, c] of Object.entries(rawCards)) {
+          if (c) {
+            const norm = this._normalizeCardState({ id, ...c });
+            if (norm) normalizedCards[norm.id] = norm;
+          }
+        }
       }
 
-      // 2. Thẻ FSRS (Cards)
-      if (backupData.cards && typeof backupData.cards === 'object') {
-        _cardsCache = { ...backupData.cards };
+      if (Object.keys(normalizedCards).length > 0) {
+        _cardsCache = { ...(this.getAllCardStates() || {}), ...normalizedCards };
         if (typeof localStorage !== 'undefined') {
-          localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(backupData.cards));
+          localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(_cardsCache));
+        }
+      }
+
+      // 2. Cài đặt người dùng (Settings)
+      const rawSettings = data.settings || data.s;
+      if (rawSettings && typeof rawSettings === 'object') {
+        _settingsCache = { ...(this.getSettings() || {}), ...rawSettings };
+        if (typeof localStorage !== 'undefined') {
+          localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(_settingsCache));
         }
       }
 
       // 3. Lịch sử ôn tập (Logs)
-      if (Array.isArray(backupData.logs)) {
-        _logsCache = [...backupData.logs];
+      const rawLogs = data.logs || data.study_logs;
+      if (Array.isArray(rawLogs)) {
+        const existingLogs = this.getStudyLogs() || [];
+        _logsCache = [...existingLogs, ...rawLogs];
         if (typeof localStorage !== 'undefined') {
-          localStorage.setItem(STORAGE_KEYS.STUDY_LOGS, JSON.stringify(backupData.logs));
+          localStorage.setItem(STORAGE_KEYS.STUDY_LOGS, JSON.stringify(_logsCache));
         }
       }
 
       // 4. Bộ đề tùy chỉnh (Custom Decks)
-      if (Array.isArray(backupData.customDecks)) {
-        _customDecksCache = [...backupData.customDecks];
+      const rawCustom = data.customDecks || data.custom_decks;
+      if (Array.isArray(rawCustom)) {
+        _customDecksCache = [...rawCustom];
         if (typeof localStorage !== 'undefined') {
-          localStorage.setItem(STORAGE_KEYS.CUSTOM_DECKS, JSON.stringify(backupData.customDecks));
+          localStorage.setItem(STORAGE_KEYS.CUSTOM_DECKS, JSON.stringify(_customDecksCache));
         }
       }
 
       // 5. Thời gian học (Study Time)
-      if (backupData.studyTime && typeof backupData.studyTime === 'object') {
-        _timeMapCache = { ...backupData.studyTime };
+      const rawTime = data.studyTime || data.study_time;
+      if (rawTime && typeof rawTime === 'object') {
+        _timeMapCache = { ...(this.getStudyTimeMap() || {}), ...rawTime };
         if (typeof localStorage !== 'undefined') {
-          localStorage.setItem(STORAGE_KEYS.STUDY_TIME, JSON.stringify(backupData.studyTime));
+          localStorage.setItem(STORAGE_KEYS.STUDY_TIME, JSON.stringify(_timeMapCache));
         }
       }
 
@@ -660,13 +729,11 @@ export class StorageManager {
       if (_dbPromise) {
         const db = await _dbPromise;
         if (db) {
-          // Ghi đè Cards
-          if (backupData.cards && typeof backupData.cards === 'object') {
+          if (_cardsCache) {
             try {
               const tx = db.transaction(STORES.CARDS, 'readwrite');
               const store = tx.objectStore(STORES.CARDS);
-              store.clear();
-              for (const card of Object.values(backupData.cards)) {
+              for (const card of Object.values(_cardsCache)) {
                 if (card && card.id) store.put(card);
               }
             } catch (e) {
@@ -674,13 +741,11 @@ export class StorageManager {
             }
           }
 
-          // Ghi đè Logs
-          if (Array.isArray(backupData.logs)) {
+          if (_logsCache && _logsCache.length > 0) {
             try {
               const tx = db.transaction(STORES.STUDY_LOGS, 'readwrite');
               const store = tx.objectStore(STORES.STUDY_LOGS);
-              store.clear();
-              for (const log of backupData.logs) {
+              for (const log of _logsCache) {
                 store.put(log);
               }
             } catch (e) {
@@ -688,13 +753,11 @@ export class StorageManager {
             }
           }
 
-          // Ghi đè Custom Decks
-          if (Array.isArray(backupData.customDecks)) {
+          if (_customDecksCache && _customDecksCache.length > 0) {
             try {
               const tx = db.transaction(STORES.CUSTOM_DECKS, 'readwrite');
               const store = tx.objectStore(STORES.CUSTOM_DECKS);
-              store.clear();
-              for (const deck of backupData.customDecks) {
+              for (const deck of _customDecksCache) {
                 if (deck && deck.id) store.put(deck);
               }
             } catch (e) {
@@ -702,13 +765,11 @@ export class StorageManager {
             }
           }
 
-          // Ghi đè Study Time
-          if (backupData.studyTime && typeof backupData.studyTime === 'object') {
+          if (_timeMapCache) {
             try {
               const tx = db.transaction(STORES.STUDY_TIME, 'readwrite');
               const store = tx.objectStore(STORES.STUDY_TIME);
-              store.clear();
-              for (const [date, seconds] of Object.entries(backupData.studyTime)) {
+              for (const [date, seconds] of Object.entries(_timeMapCache)) {
                 store.put({ date, seconds });
               }
             } catch (e) {
@@ -718,7 +779,8 @@ export class StorageManager {
         }
       }
 
-      return { success: true };
+      this.bumpStateRevision();
+      return { success: true, count: Object.keys(normalizedCards).length };
     } catch (e) {
       console.error('Error importing backup:', e);
       return { success: false, error: e.message };

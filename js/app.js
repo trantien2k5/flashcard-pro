@@ -77,6 +77,10 @@ export class FlashcardApp {
 
       // 4. Khởi tạo danh mục Decks từ data/
       await this.deckManager.init();
+      if (typeof window !== 'undefined') {
+        window.deckManager = this.deckManager;
+        window.app = this;
+      }
 
       // 5. Khởi tạo giao diện các tab và thành phần
       this.setupNavigation();
@@ -251,6 +255,11 @@ export class FlashcardApp {
 
       scrollToTop();
 
+      if (this.deckManager) {
+        this.deckManager.invalidateStatsCache();
+      }
+      this.updateHeaderBadges();
+
       if (tabId === 'tab-review' || tabId === 'tab-home') this.renderReviewTab();
       else if (tabId === 'tab-decks') this.renderDecksTab();
       else if (tabId === 'tab-stats') this.renderStatsTab();
@@ -266,6 +275,9 @@ export class FlashcardApp {
   }
 
   refreshAllViews() {
+    if (this.deckManager) {
+      this.deckManager.invalidateStatsCache();
+    }
     if (this.activeTab === 'tab-review' || this.activeTab === 'tab-home') {
       this.renderReviewTab();
     } else if (this.activeTab === 'tab-decks') {

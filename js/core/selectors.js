@@ -231,6 +231,49 @@ export class DeckManager {
   }
 
   /**
+   * Làm mới cache thống kê khi có thay đổi trạng thái hoặc chuyển tab
+   */
+  invalidateStatsCache() {
+    this._statsCache.clear();
+    this._statsRevision = StorageManager.getStateRevision();
+  }
+
+  /**
+   * Lấy danh sách thẻ tới hạn cần ôn tập
+   */
+  getDueCards(deckId = null) {
+    const allDeckCards = deckId ? (this.deckCardsMap.get(deckId) || []) : this.allCards;
+    const nowTimestamp = Date.now();
+    const todayKey = getLocalDateKey(new Date());
+    const dueCards = [];
+
+    for (const card of allDeckCards) {
+      const state = StorageManager.getCardState(card.id);
+      if (!state || state.state === State.New || state.reps === 0) {
+        continue;
+      }
+      if (state.due) {
+        let isDue = false;
+        if (typeof state.due === 'number') {
+          isDue = state.due <= nowTimestamp;
+        } else if (typeof state.due === 'string') {
+          const dueDate = new Date(state.due);
+          if (!isNaN(dueDate.getTime())) {
+            isDue = dueDate.getTime() <= nowTimestamp || getLocalDateKey(dueDate) <= todayKey;
+          }
+        }
+        if (isDue) {
+          dueCards.push({
+            ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
+            fsrsState: state
+          });
+        }
+      }
+    }
+    return dueCards;
+  }
+
+  /**
    * Tính toán thống kê tiến độ học của một bộ thẻ (New, Learning, Review, Mastered)
    */
   getDeckStats(deckId) {
