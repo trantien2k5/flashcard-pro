@@ -226,7 +226,7 @@ export function mountGlobalModals() {
             </div>
             <div class="sync-modal-title-text">
               <h3 class="sync-modal-title">Đồng bộ Thông Minh 2 Chiều</h3>
-              <p class="sync-modal-subtitle">1 máy mở QR — 1 máy quét ➔ Cả 2 cùng lên bản mới nhất</p>
+              <p class="sync-modal-subtitle">1 máy mở QR — 1 máy quét (hoặc nhập PIN) ➔ Cả 2 cùng lên bản mới nhất</p>
             </div>
           </div>
           <button class="btn-icon-close" id="btn-close-sync-modal" title="Đóng">✕</button>
@@ -242,8 +242,15 @@ export function mountGlobalModals() {
 
             <button type="button" id="btn-start-camera" class="btn-sync-action primary" style="width: 100%; padding: 13px; font-size: 0.95rem;">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
-              <span>Quét mã QR trên thiết bị khác</span>
+              <span>Quét mã QR trên máy kia</span>
             </button>
+          </div>
+
+          <div class="sync-divider"><span>HOẶC NHẬP MÃ PIN TỪ MÁY KIA</span></div>
+
+          <div class="sync-input-field-wrapper">
+            <input type="text" id="input-sync-pin" class="sync-input-field" placeholder="Nhập 6 số PIN (VD: 849201)..." maxlength="10" inputmode="numeric" autocomplete="off" />
+            <button type="button" id="btn-submit-pin" class="btn-paste-inside">Kết nối</button>
           </div>
 
           <div class="sync-divider"><span>HOẶC ĐỂ MÁY KIA QUÉT MÃ NÀY</span></div>
@@ -251,17 +258,26 @@ export function mountGlobalModals() {
           <div class="sync-receive-card">
             <div class="sync-radar-status" id="sync-host-status">
               <span class="radar-dot"></span>
-              <span>Sẵn sàng kết nối 2 chiều...</span>
+              <span id="sync-host-status-text">Đang tạo trạm kết nối...</span>
             </div>
 
             <div class="sync-qr-frame" id="sync-qr-code-container">
               <div class="sync-loading">Đang tạo mã QR...</div>
             </div>
 
+            <div class="sync-pin-banner" id="sync-pin-banner" style="display: none;">
+              <span class="sync-pin-title">MÃ PIN KẾT NỐI:</span>
+              <span class="sync-pin-number" id="sync-pin-number">------</span>
+            </div>
+
             <div class="sync-actions-row">
               <button type="button" class="btn-sync-action" id="btn-create-host-session">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
                 <span>Đổi mã mới</span>
+              </button>
+              <button type="button" class="btn-sync-action" id="btn-copy-sync-link" style="display: none;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Sao chép link</span>
               </button>
             </div>
           </div>
@@ -846,6 +862,49 @@ export function setupSyncController(app) {
       await createHostSession(app);
     };
   }
+
+  const btnSubmitPin = document.getElementById('btn-submit-pin');
+  const inputPin = document.getElementById('input-sync-pin');
+  if (btnSubmitPin && inputPin) {
+    const handlePinConnect = async () => {
+      const pinVal = inputPin.value.trim();
+      if (!pinVal || pinVal.length < 5) {
+        showToast('Vui lòng nhập đủ 6 chữ số mã PIN', 'warning');
+        inputPin.focus();
+        return;
+      }
+      btnSubmitPin.disabled = true;
+      btnSubmitPin.textContent = 'Đang gửi...';
+      showToast('Đang truyền dữ liệu đồng bộ qua mã PIN...', 'info', 4000);
+
+      try {
+        const res = await SyncManager.executeClientHandshake(pinVal);
+        if (res.success) {
+          app.settings = StorageManager.getSettings();
+          app.applyTheme(app.settings.theme || 'light');
+          app.refreshAllViews();
+          showToast(`🎉 Đồng bộ 2 chiều thành công! Đã cập nhật ${res.stats?.total || 0} thẻ`, 'success', 5000);
+          inputPin.value = '';
+          closeSyncModal();
+        } else {
+          showToast(res.error || 'Không thể kết nối. Hãy kiểm tra lại mã PIN.', 'error');
+        }
+      } catch (err) {
+        showToast('Lỗi khi kết nối: ' + (err.message || 'Thất bại'), 'error');
+      } finally {
+        btnSubmitPin.disabled = false;
+        btnSubmitPin.textContent = 'Kết nối';
+      }
+    };
+
+    btnSubmitPin.onclick = handlePinConnect;
+    inputPin.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handlePinConnect();
+      }
+    });
+  }
 }
 
 export function openSyncModal(app) {
@@ -863,45 +922,74 @@ export function closeSyncModal() {
   modal.classList.remove('active');
   document.body.style.overflow = '';
   stopCameraScanner();
-  if (_currentHostSession && typeof _currentHostSession.close === 'function') {
-    _currentHostSession.close();
+  if (_currentHostSession && typeof _currentHostSession.stop === 'function') {
+    _currentHostSession.stop();
     _currentHostSession = null;
   }
 }
 
 async function createHostSession(app) {
   const container = document.getElementById('sync-qr-code-container');
-  const statusEl = document.getElementById('sync-host-status');
+  const statusTextEl = document.getElementById('sync-host-status-text');
+  const pinBanner = document.getElementById('sync-pin-banner');
+  const pinNumberEl = document.getElementById('sync-pin-number');
+  const btnCopyLink = document.getElementById('btn-copy-sync-link');
+
   if (!container) return;
 
-  container.innerHTML = '<div class="sync-loading">Đang tạo mã kết nối...</div>';
-  if (statusEl) statusEl.textContent = 'Đang khởi tạo phiên đồng bộ...';
+  if (_currentHostSession && typeof _currentHostSession.stop === 'function') {
+    _currentHostSession.stop();
+    _currentHostSession = null;
+  }
+
+  container.innerHTML = '<div class="sync-loading">Đang mở trạm kết nối...</div>';
+  if (statusTextEl) statusTextEl.textContent = 'Đang khởi tạo phiên đồng bộ...';
+  if (pinBanner) pinBanner.style.display = 'none';
 
   try {
-    const backupData = StorageManager.exportBackup();
-    const sessionId = `fc_sync_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
-    const syncPayload = {
-      type: 'FC_SYNC_V1',
-      sessionId,
-      url: window.location.origin + window.location.pathname + '#sync=' + encodeURIComponent(JSON.stringify({ sessionId, time: Date.now() })),
-      cardsCount: Object.keys(backupData.cards || {}).length,
-      logsCount: (backupData.studyLogs || []).length
-    };
+    _currentHostSession = SyncManager.startUniversalHostSession({
+      onConnected: ({ pin, pairUrl }) => {
+        container.innerHTML = '';
+        SimpleQRCode.render(container, pairUrl, { width: 220, height: 220 });
 
-    container.innerHTML = '';
-    const qrDiv = document.createElement('div');
-    qrDiv.className = 'qrcode-box';
-    container.appendChild(qrDiv);
-
-    if (typeof SimpleQRCode !== 'undefined') {
-      SimpleQRCode.render(qrDiv, syncPayload.url, { width: 220, height: 220 });
-    } else {
-      qrDiv.innerHTML = `<a href="${escapeHTML(syncPayload.url)}" target="_blank" class="btn-sync-link">Mở liên kết đồng bộ</a>`;
-    }
-
-    if (statusEl) {
-      statusEl.innerHTML = `Sẵn sàng ghép đôi · <strong>${syncPayload.cardsCount}</strong> từ đã học`;
-    }
+        if (statusTextEl) {
+          statusTextEl.textContent = 'Sẵn sàng · Đang chờ máy kia quét...';
+        }
+        if (pinBanner && pinNumberEl) {
+          pinBanner.style.display = 'flex';
+          pinNumberEl.textContent = `${pin.slice(0, 3)} ${pin.slice(3)}`;
+        }
+        if (btnCopyLink) {
+          btnCopyLink.style.display = 'inline-flex';
+          btnCopyLink.onclick = () => {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(pairUrl);
+              showToast('Đã sao chép link đồng bộ vào bộ nhớ tạm!', 'success');
+            } else {
+              showToast(`Mã PIN của bạn: ${pin}`, 'info');
+            }
+          };
+        }
+      },
+      onSyncCompleted: async ({ pin, stats, data }) => {
+        if (statusTextEl) {
+          statusTextEl.textContent = '🎉 Đã nhận dữ liệu và hợp nhất thành công!';
+        }
+        app.settings = StorageManager.getSettings();
+        app.applyTheme(app.settings.theme || 'light');
+        app.refreshAllViews();
+        showToast(`🎉 Đồng bộ 2 chiều thành công! Đã cập nhật ${stats.updated + stats.added} thẻ`, 'success', 5000);
+        setTimeout(() => {
+          closeSyncModal();
+        }, 1500);
+      },
+      onError: (err) => {
+        console.warn('Lỗi Host Session:', err);
+        if (statusTextEl) {
+          statusTextEl.textContent = 'Mất kết nối mạng. Hãy bấm "Đổi mã mới".';
+        }
+      }
+    });
   } catch (err) {
     console.error('Lỗi khi tạo host session:', err);
     if (container) container.innerHTML = '<div class="sync-error">Không thể tạo mã QR. Hãy thử lại.</div>';
@@ -996,18 +1084,23 @@ async function scanVideoFrame(app, video) {
   }
 }
 
-function handleScannedCode(app, rawData) {
+async function handleScannedCode(app, rawData) {
   stopCameraScanner();
-  showToast('Đã quét thành công mã QR!', 'success');
+  showToast('Đang kết nối và truyền dữ liệu sang máy kia...', 'info', 4000);
+
   try {
-    if (rawData && rawData.includes('#sync=')) {
-      const hashPart = rawData.split('#sync=')[1];
-      const decoded = JSON.parse(decodeURIComponent(hashPart));
-      if (decoded && decoded.sessionId) {
-        showToast(`Đã nhận diện phiên đồng bộ: ${decoded.sessionId}`, 'info');
-      }
+    const res = await SyncManager.executeClientHandshake(rawData);
+    if (res.success) {
+      app.settings = StorageManager.getSettings();
+      app.applyTheme(app.settings.theme || 'light');
+      app.refreshAllViews();
+      showToast(`🎉 Đồng bộ 2 chiều thành công! Đã cập nhật ${res.stats?.total || 0} thẻ`, 'success', 5000);
+      closeSyncModal();
+    } else {
+      showToast(res.error || 'Đồng bộ thất bại. Vui lòng thử lại.', 'error', 4000);
     }
   } catch (err) {
     console.error('Lỗi phân tích mã QR:', err);
+    showToast('Lỗi phân tích mã QR: ' + (err.message || 'Thất bại'), 'error');
   }
 }

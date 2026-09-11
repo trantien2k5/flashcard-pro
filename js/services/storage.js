@@ -27,7 +27,8 @@ const STORAGE_KEYS = {
   CUSTOM_DECKS: 'fsrs_custom_decks_v1',
   STUDY_LOGS: 'fsrs_study_logs_v1',
   STUDY_TIME: 'fsrs_study_time_v1',
-  USER_PROGRESS: 'fsrs_user_progress_v1'
+  USER_PROGRESS: 'fsrs_user_progress_v1',
+  SAFETY_SNAPSHOT: 'fsrs_safety_snapshot_v1'
 };
 
 let _cardsCache = null;
@@ -559,6 +560,45 @@ export class StorageManager {
     } catch (e) {
       console.error('Error deleting custom deck:', e);
     }
+  }
+
+  /**
+   * Tự động chụp bản sao lưu bảo hiểm an toàn (Safety Snapshot) trước khi thao tác dữ liệu
+   */
+  static createSafetySnapshot() {
+    try {
+      const backup = this.exportBackup();
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem(STORAGE_KEYS.SAFETY_SNAPSHOT, JSON.stringify({
+          timestamp: Date.now(),
+          date: new Date().toISOString(),
+          data: backup
+        }));
+      }
+      return true;
+    } catch (e) {
+      console.warn('[StorageManager] Failed to create safety snapshot:', e);
+      return false;
+    }
+  }
+
+  /**
+   * Khôi phục bản sao lưu bảo hiểm gần nhất
+   */
+  static async restoreSafetySnapshot() {
+    try {
+      if (typeof localStorage === 'undefined') return false;
+      const raw = localStorage.getItem(STORAGE_KEYS.SAFETY_SNAPSHOT);
+      if (!raw) return false;
+      const snapshot = JSON.parse(raw);
+      if (snapshot && snapshot.data) {
+        await this.importBackup(snapshot.data);
+        return true;
+      }
+    } catch (e) {
+      console.error('[StorageManager] Failed to restore safety snapshot:', e);
+    }
+    return false;
   }
 
   static exportBackup() {

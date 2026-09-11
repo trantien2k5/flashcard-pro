@@ -157,11 +157,13 @@ export class SyncManager {
     const reqTopic = `${PAIR_REQ_PREFIX}${pin}`;
     const respTopic = `${PAIR_RESP_PREFIX}${pin}`;
 
-    let origin = 'http://192.168.1.43:3000';
-    if (typeof window !== 'undefined' && window.location && window.location.origin) {
-      origin = window.location.origin;
+    let origin = '';
+    let pathname = '/';
+    if (typeof window !== 'undefined' && window.location) {
+      origin = window.location.origin || '';
+      pathname = window.location.pathname || '/';
     }
-    const pairUrl = `${origin}/?pair=${pin}`;
+    const pairUrl = origin ? `${origin}${pathname}?pair=${pin}` : `?pair=${pin}`;
 
     let eventSource = null;
     let isClosed = false;
@@ -182,6 +184,9 @@ export class SyncManager {
             const clientUnpacked = this.unpackageSyncData(clientPayload);
 
             if (clientUnpacked) {
+              // 0. Tự động chụp Snapshot bảo hiểm
+              StorageManager.createSafetySnapshot();
+
               // 1. Host thực hiện Smart Merge
               const mergeResult = this.mergeProgress(clientUnpacked);
               await StorageManager.importBackup(mergeResult.data);
@@ -282,7 +287,8 @@ export class SyncManager {
                 const hostUnpacked = this.unpackageSyncData(hostPayload);
 
                 if (hostUnpacked) {
-                  // Client import bản merged chuẩn từ Host
+                  // Client import bản merged chuẩn từ Host (kèm snapshot an toàn)
+                  StorageManager.createSafetySnapshot();
                   const clientMerge = this.mergeProgress(hostUnpacked);
                   await StorageManager.importBackup(clientMerge.data);
 
