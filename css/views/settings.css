@@ -154,20 +154,13 @@
   color: var(--text-secondary);
 }
 
-/* 4. Achievement 3-Column Metrics */
+/* 4. Achievement 3-Column Metrics inside Inset Grouped Card */
 .profile-achieve-grid {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 16px 14px;
+  background: transparent;
+  padding: 18px 14px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-
-[data-theme="light"] .profile-achieve-grid {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
 }
 
 .achieve-col {
@@ -178,7 +171,7 @@
 }
 
 .achieve-val {
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   font-weight: 800;
   font-family: var(--font-mono);
   color: var(--text-primary);
@@ -201,23 +194,24 @@
   background: #e2e8f0;
 }
 
-/* 5. Knowledge Base 3-Column Metrics */
+/* 5. Knowledge Base 3-Column Metrics inside Inset Grouped Card */
 .profile-stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 10px;
+  padding: 14px;
 }
 
 .profile-stat-box {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 14px 8px;
+  border-radius: var(--radius-md);
+  padding: 12px 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 5px;
   text-align: center;
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
@@ -467,100 +461,83 @@
   }
 }
 
-/* 3. Settings Card Container */
-.settings-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  padding: 22px 24px;
+/* ==========================================================================
+   iOS Inset Grouped List & Modern Section Styling Architecture
+   ========================================================================== */
+
+.settings-group,
+.profile-group {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  gap: 8px;
+  width: 100%;
 }
 
-[data-theme="light"] .settings-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
-}
-
-.settings-card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--border);
-}
-
-[data-theme="light"] .settings-card-header {
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.settings-card-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  flex-shrink: 0;
-}
-
-.settings-card-icon.fsrs {
-  background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
-}
-
-.settings-card-icon.audio {
-  background: rgba(14, 165, 233, 0.12);
-  color: #0ea5e9;
-}
-
-.settings-card-title-group {
+.section-group-header {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  padding: 0 4px 2px 6px;
 }
 
-.settings-card-title {
-  font-size: 1.02rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.settings-card-subtitle {
+.section-group-title {
   font-size: 0.76rem;
-  color: var(--text-secondary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-/* 4. Setting Item Rows */
-.setting-row {
+[data-theme="light"] .section-group-title {
+  color: #64748b;
+}
+
+.section-group-hint {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+/* Inset Grouped Card Container */
+.inset-grouped-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .inset-grouped-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+}
+
+/* Setting Rows inside Inset Card with subtle divider */
+.inset-grouped-card .setting-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 14px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
   gap: 16px;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition: background 0.15s ease;
 }
 
-[data-theme="light"] .setting-row {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+[data-theme="light"] .inset-grouped-card .setting-row {
+  border-bottom: 1px solid #f1f5f9;
 }
 
-.setting-row:hover {
-  background: var(--bg-tertiary);
-  border-color: rgba(99, 102, 241, 0.25);
+.inset-grouped-card .setting-row:last-child {
+  border-bottom: none;
 }
 
-[data-theme="light"] .setting-row:hover {
-  background: #f1f5f9;
+.inset-grouped-card .setting-row:hover {
+  background: rgba(99, 102, 241, 0.03);
 }
 
 .setting-info {
@@ -572,7 +549,7 @@
 }
 
 .setting-title {
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.3;
@@ -584,12 +561,12 @@
   line-height: 1.35;
 }
 
-/* 5. Modern Select Dropdown */
+/* Modern Select Dropdown */
 .setting-select {
   padding: 8px 12px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
-  background: var(--bg-card);
+  background: var(--bg-tertiary);
   color: var(--text-primary);
   font-family: var(--font-sans);
   font-size: 0.82rem;

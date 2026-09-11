@@ -12,12 +12,18 @@
 .review-bento-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
   width: 100%;
   max-width: 520px;
   margin: 0 auto;
   box-sizing: border-box;
   padding-bottom: 24px;
+}
+
+.bento-section-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 /* ==========================================================================

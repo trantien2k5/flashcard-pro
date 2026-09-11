@@ -29,126 +29,138 @@ export function renderReviewShell(container) {
         </div>
 
         <!-- 2. Bento Hero Card: Tiến Độ Mục Tiêu & 4 Khối Chỉ Số -->
-        <div class="bento-card bento-hero-card">
-          <!-- Thanh tiến độ mục tiêu ngày -->
-          <div class="hero-bar-track" title="Tiến độ mục tiêu hôm nay">
-            <div class="hero-bar-fill" id="home-goal-bar-fill" style="width: 0%;"></div>
-          </div>
-
-          <!-- 4 Khối chỉ số 2 Cột (2x2 Quad Grid) - Không trùng lặp -->
-          <div class="hero-quad-grid">
-            <!-- Card 1: Cần ôn ngay -->
-            <div class="quad-tile tile-due" id="box-home-due">
-              <div class="quad-tile-top">
-                <span class="quad-icon-badge">⏰</span>
-                <span class="quad-label">CẦN ÔN TẬP</span>
-              </div>
-              <div class="quad-num-wrap">
-                <span class="quad-number" id="home-due-val">0</span>
-                <span class="quad-unit">từ</span>
-              </div>
-              <span class="quad-sub-hint">Ưu tiên ôn trước</span>
+        <div class="bento-section-group">
+          <div class="bento-card bento-hero-card">
+            <!-- Thanh tiến độ mục tiêu ngày -->
+            <div class="hero-bar-track" title="Tiến độ mục tiêu hôm nay">
+              <div class="hero-bar-fill" id="home-goal-bar-fill" style="width: 0%;"></div>
             </div>
 
-            <!-- Card 2: Đã học hôm nay -->
-            <div class="quad-tile tile-new" id="box-home-new">
-              <div class="quad-tile-top">
-                <span class="quad-icon-badge">✨</span>
-                <span class="quad-label">ĐÃ HỌC HÔM NAY</span>
+            <!-- 4 Khối chỉ số 2 Cột (2x2 Quad Grid) - Không trùng lặp -->
+            <div class="hero-quad-grid">
+              <!-- Card 1: Cần ôn ngay -->
+              <div class="quad-tile tile-due" id="box-home-due">
+                <div class="quad-tile-top">
+                  <span class="quad-icon-badge">⏰</span>
+                  <span class="quad-label">CẦN ÔN TẬP</span>
+                </div>
+                <div class="quad-num-wrap">
+                  <span class="quad-number" id="home-due-val">0</span>
+                  <span class="quad-unit">từ</span>
+                </div>
+                <span class="quad-sub-hint">Ưu tiên ôn trước</span>
               </div>
-              <div class="quad-num-wrap">
-                <span class="quad-number" id="home-new-today-val">0/10</span>
-                <span class="quad-unit">từ</span>
+
+              <!-- Card 2: Đã học hôm nay -->
+              <div class="quad-tile tile-new" id="box-home-new">
+                <div class="quad-tile-top">
+                  <span class="quad-icon-badge">✨</span>
+                  <span class="quad-label">ĐÃ HỌC HÔM NAY</span>
+                </div>
+                <div class="quad-num-wrap">
+                  <span class="quad-number" id="home-new-today-val">0/10</span>
+                  <span class="quad-unit">từ</span>
+                </div>
+                <span class="quad-sub-hint" id="home-goal-hint">Mục tiêu: 10 từ</span>
               </div>
-              <span class="quad-sub-hint" id="home-goal-hint">Mục tiêu: 10 từ</span>
+
+              <!-- Card 3: Thời gian học -->
+              <div class="quad-tile tile-time" id="box-home-time">
+                <div class="quad-tile-top">
+                  <span class="quad-icon-badge">⏱️</span>
+                  <span class="quad-label">THỜI GIAN HỌC</span>
+                </div>
+                <div class="quad-num-wrap">
+                  <span class="quad-number" id="home-study-timer">0p</span>
+                </div>
+                <span class="quad-sub-hint">Tập trung hôm nay</span>
+              </div>
+
+              <!-- Card 4: Tỉ lệ ghi nhớ -->
+              <div class="quad-tile tile-retention" id="box-home-retention">
+                <div class="quad-tile-top">
+                  <span class="quad-icon-badge">🎯</span>
+                  <span class="quad-label">TỈ LỆ GHI NHỚ</span>
+                </div>
+                <div class="quad-num-wrap">
+                  <span class="quad-number" id="home-retention-rate">100%</span>
+                </div>
+                <span class="quad-sub-hint">Độ bền trí nhớ</span>
+              </div>
             </div>
 
-            <!-- Card 3: Thời gian học -->
-            <div class="quad-tile tile-time" id="box-home-time">
-              <div class="quad-tile-top">
-                <span class="quad-icon-badge">⏱️</span>
-                <span class="quad-label">THỜI GIAN HỌC</span>
-              </div>
-              <div class="quad-num-wrap">
-                <span class="quad-number" id="home-study-timer">0p</span>
-              </div>
-              <span class="quad-sub-hint">Tập trung hôm nay</span>
+            <!-- Nút Hành Động Chính (Hero CTA) -->
+            <button class="btn-hero-action" id="btn-home-hero-cta">
+              <svg class="action-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+              <span id="home-hero-cta-text">Ôn 0 từ ngay</span>
+            </button>
+
+            <!-- Dòng thông tin ước tính & chuỗi -->
+            <div class="hero-meta-hint">
+              <span id="home-estimated-time">⏱️ Khoảng 0 phút</span>
+              <span class="hint-sep">•</span>
+              <span id="home-streak-hint">Học hôm nay để giữ chuỗi 🔥</span>
             </div>
-
-            <!-- Card 4: Tỉ lệ ghi nhớ -->
-            <div class="quad-tile tile-retention" id="box-home-retention">
-              <div class="quad-tile-top">
-                <span class="quad-icon-badge">🎯</span>
-                <span class="quad-label">TỈ LỆ GHI NHỚ</span>
-              </div>
-              <div class="quad-num-wrap">
-                <span class="quad-number" id="home-retention-rate">100%</span>
-              </div>
-              <span class="quad-sub-hint">Độ bền trí nhớ</span>
-            </div>
-          </div>
-
-          <!-- Nút Hành Động Chính (Hero CTA) -->
-          <button class="btn-hero-action" id="btn-home-hero-cta">
-            <svg class="action-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="5 3 19 12 5 21 5 3"/>
-            </svg>
-            <span id="home-hero-cta-text">Ôn 0 từ ngay</span>
-          </button>
-
-          <!-- Dòng thông tin ước tính & chuỗi -->
-          <div class="hero-meta-hint">
-            <span id="home-estimated-time">⏱️ Khoảng 0 phút</span>
-            <span class="hint-sep">•</span>
-            <span id="home-streak-hint">Học hôm nay để giữ chuỗi 🔥</span>
           </div>
         </div>
 
-        <!-- 3. Lịch Ôn Tập 7 Ngày (Minimalist Weekly Timeline) -->
-        <div class="bento-card bento-forecast-card">
-          <div class="bento-card-header">
-            <span class="bento-card-title">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-                <line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
-              </svg>
-              Lịch ôn tập 7 ngày tới
-            </span>
-            <span class="bento-badge-forecast" id="home-forecast-total">0 từ / 7 ngày</span>
+        <!-- 3. Lịch Ôn Tập 7 Ngày (Section Header ngoài trần + Inset Card) -->
+        <div class="bento-section-group">
+          <div class="section-group-header">
+            <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+              <span class="section-group-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                  <line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
+                </svg>
+                LỊCH ÔN TẬP 7 NGÀY TỚI
+              </span>
+              <span class="bento-badge-forecast" id="home-forecast-total">0 từ / 7 ngày</span>
+            </div>
+            <span class="section-group-hint">Số lượng thẻ đến hạn ôn theo từng ngày</span>
           </div>
-          <div class="forecast-capsules-grid" id="home-review-forecast"></div>
+          <div class="bento-card bento-forecast-card">
+            <div class="forecast-capsules-grid" id="home-review-forecast"></div>
+          </div>
         </div>
 
         <!-- 4. Bento Trend Card: Biểu Đồ Tiến Bộ 7 Ngày & Tiếp Tục Học -->
-        <div class="bento-card bento-trend-card">
-          <div class="bento-card-header">
-            <span class="bento-card-title">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
-              </svg>
-              Tiến bộ 7 ngày qua
-            </span>
-            <span class="trend-delta-pill" id="home-trend-delta">↑ 0 từ nhớ tốt</span>
+        <div class="bento-section-group">
+          <div class="section-group-header">
+            <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+              <span class="section-group-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+                </svg>
+                TIẾN BỘ 7 NGÀY QUA
+              </span>
+              <span class="trend-delta-pill" id="home-trend-delta">↑ 0 từ nhớ tốt</span>
+            </div>
+            <span class="section-group-hint">Số từ ôn tập thành công và chủ đề gần nhất</span>
           </div>
 
-          <!-- Dynamic SVG Area Sparkline Chart -->
-          <div class="trend-chart-wrapper" id="home-trend-chart-box"></div>
+          <div class="bento-card bento-trend-card">
+            <!-- Dynamic SVG Area Sparkline Chart -->
+            <div class="trend-chart-wrapper" id="home-trend-chart-box"></div>
 
-          <!-- Sub Row: Thống kê nhịp độ & Lối tắt học tiếp -->
-          <div class="trend-sub-row">
-            <div class="trend-stat-meta">
-              <span class="meta-item">⚡ TB: <strong id="trend-avg-val">0</strong> từ/ngày</span>
-              <span class="meta-sep">•</span>
-              <span class="meta-item">Tổng: <strong id="trend-total-val">0</strong> từ</span>
-            </div>
+            <!-- Sub Row: Thống kê nhịp độ & Lối tắt học tiếp -->
+            <div class="trend-sub-row">
+              <div class="trend-stat-meta">
+                <span class="meta-item">⚡ TB: <strong id="trend-avg-val">0</strong> từ/ngày</span>
+                <span class="meta-sep">•</span>
+                <span class="meta-item">Tổng: <strong id="trend-total-val">0</strong> từ</span>
+              </div>
 
-            <div class="trend-deck-resume" id="home-resume-deck-bar">
-              <span class="deck-tag">Chủ đề:</span>
-              <span class="deck-name" id="home-recent-deck-name">Top 1000 từ cốt lõi</span>
-              <button class="btn-deck-resume" id="btn-home-resume-deck" title="Học tiếp chủ đề này">
-                <span>Học tiếp</span>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </button>
+              <div class="trend-deck-resume" id="home-resume-deck-bar">
+                <span class="deck-tag">Chủ đề:</span>
+                <span class="deck-name" id="home-recent-deck-name">Top 1000 từ cốt lõi</span>
+                <button class="btn-deck-resume" id="btn-home-resume-deck" title="Học tiếp chủ đề này">
+                  <span>Học tiếp</span>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -21,7 +21,7 @@ export function renderStatsTabShell(container) {
             </svg>
           </div>
           <div class="stats-hero-text">
-            <h2 class="stats-hero-title">Thống kê học tập</h2>
+            <h2 class="stats-hero-title">Thống Kê Học Tập</h2>
             <p class="stats-hero-subtitle">Hiệu suất ghi nhớ và chu kỳ lặp lại ngắt quãng FSRS</p>
           </div>
         </div>
@@ -30,85 +30,96 @@ export function renderStatsTabShell(container) {
         </div>
       </div>
 
-      <!-- 2. Overview 3-Box Row -->
-      <div class="stats-overview-grid">
-        <div class="stats-overview-box">
-          <div class="stats-box-icon" style="background: rgba(99, 102, 241, 0.12); color: #6366f1;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
-            </svg>
-          </div>
-          <div class="stats-box-content">
-            <span class="stats-overview-label">Đã học</span>
-            <span class="stats-overview-val" id="stat-overview-learned">0</span>
-            <span class="stats-overview-sub">Tổng từ vựng</span>
-          </div>
+      <!-- 2. Overview Group (iOS Inset Grouped Style) -->
+      <div class="stats-section-group">
+        <div class="section-group-header">
+          <span class="section-group-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+            TỔNG QUAN HIỆU SUẤT
+          </span>
+          <span class="section-group-hint">Chỉ số tích lũy & tỷ lệ ghi nhớ trung bình</span>
         </div>
 
-        <div class="stats-overview-box">
-          <div class="stats-box-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
-              <path d="m9 12 2 2 4-4"/>
-            </svg>
-          </div>
-          <div class="stats-box-content">
-            <span class="stats-overview-label">Nhớ tốt</span>
-            <span class="stats-overview-val" id="stat-overview-good">0</span>
-            <span class="stats-overview-sub">Độ bền ≥ 21 ngày</span>
-          </div>
-        </div>
+        <div class="inset-grouped-card">
+          <div class="stats-overview-grid">
+            <div class="stats-overview-box">
+              <div class="stats-box-icon" style="background: rgba(99, 102, 241, 0.12); color: #6366f1;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                </svg>
+              </div>
+              <div class="stats-box-content">
+                <span class="stats-overview-label">Đã học</span>
+                <span class="stats-overview-val" id="stat-overview-learned">0</span>
+                <span class="stats-overview-sub">Tổng từ vựng</span>
+              </div>
+            </div>
 
-        <div class="stats-overview-box">
-          <div class="stats-box-icon" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <circle cx="12" cy="12" r="6"/>
-              <circle cx="12" cy="12" r="2"/>
-            </svg>
-          </div>
-          <div class="stats-box-content">
-            <span class="stats-overview-label">Tỷ lệ nhớ</span>
-            <span class="stats-overview-val" id="stat-overview-retention">100%</span>
-            <span class="stats-overview-sub" id="stat-overview-retention-sub">Mục tiêu 90%</span>
+            <div class="stats-overview-box">
+              <div class="stats-box-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
+              </div>
+              <div class="stats-box-content">
+                <span class="stats-overview-label">Nhớ tốt</span>
+                <span class="stats-overview-val" id="stat-overview-good">0</span>
+                <span class="stats-overview-sub">Độ bền ≥ 21 ngày</span>
+              </div>
+            </div>
+
+            <div class="stats-overview-box">
+              <div class="stats-box-icon" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+              </div>
+              <div class="stats-box-content">
+                <span class="stats-overview-label">Tỷ lệ nhớ</span>
+                <span class="stats-overview-val" id="stat-overview-retention">100%</span>
+                <span class="stats-overview-sub" id="stat-overview-retention-sub">Mục tiêu 90%</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 3. Mid Grid & Symmetrical Cards -->
+      <!-- 3. Symmetrical Inset Grouped Cards -->
       <div class="stats-card-group">
-        <!-- Zone 2: Weekly Progress Chart -->
-        <div class="stats-card">
-          <div class="stats-card-title">
-            <div class="stats-card-title-left">
-              <span>Tiến độ 7 ngày qua</span>
-            </div>
-            <span class="stats-card-badge">7 ngày gần nhất</span>
+        <!-- Zone 2: Weekly Progress Group -->
+        <div class="stats-section-group">
+          <div class="section-group-header">
+            <span class="section-group-title">TIẾN ĐỘ 7 NGÀY QUA</span>
+            <span class="section-group-hint">Số từ vựng đã ôn tập thành công mỗi ngày</span>
           </div>
-          <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 8px;">Số từ vựng đã ôn tập thành công mỗi ngày</p>
-          <div class="activity-bar-chart" id="weekly-chart"></div>
+          <div class="inset-grouped-card" style="padding: 16px 18px;">
+            <div class="activity-bar-chart" id="weekly-chart"></div>
+          </div>
         </div>
 
-        <!-- Zone 3: Memory Durability (Stability Tiers) -->
-        <div class="stats-card">
-          <div class="stats-card-title">
-            <div class="stats-card-title-left">
-              <span>Phân bố độ bền trí nhớ</span>
-            </div>
-            <span class="stats-card-badge" id="durability-total-badge">0 từ</span>
+        <!-- Zone 3: Memory Durability Group -->
+        <div class="stats-section-group">
+          <div class="section-group-header">
+            <span class="section-group-title">PHÂN BỐ ĐỘ BỀN TRÍ NHỚ</span>
+            <span class="section-group-hint">Phân loại 5 cấp độ trí nhớ FSRS</span>
           </div>
-          <div class="matrix-row" id="stability-matrix"></div>
+          <div class="inset-grouped-card" style="padding: 16px 18px;">
+            <div class="matrix-row" id="stability-matrix"></div>
+          </div>
         </div>
 
-        <!-- Zone 4: 7-Day Forecast Chart -->
-        <div class="stats-card stats-card-full">
-          <div class="stats-card-title">
-            <div class="stats-card-title-left">
-              <span>Dự báo lịch ôn tập 7 ngày tới</span>
-            </div>
-            <span class="stats-card-badge">Lặp lại ngắt quãng</span>
+        <!-- Zone 4: 7-Day Forecast Group -->
+        <div class="stats-section-group stats-card-full">
+          <div class="section-group-header">
+            <span class="section-group-title">DỰ BÁO LỊCH ÔN TẬP 7 NGÀY TỚI</span>
+            <span class="section-group-hint">Số lượng thẻ đến hạn lặp lại theo thuật toán</span>
           </div>
-          <div class="forecast-grid" id="forecast-chart"></div>
+          <div class="inset-grouped-card" style="padding: 16px 18px;">
+            <div class="forecast-grid" id="forecast-chart"></div>
+          </div>
         </div>
       </div>
     `;
