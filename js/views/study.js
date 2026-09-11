@@ -357,12 +357,30 @@ export function handleCardChange(app, card, progress) {
     const imgSrc = card.img || card.image || '';
     if (imgContainer && imgEl) {
       if (imgSrc) {
-        imgEl.src = imgSrc;
+        imgEl.decoding = 'async';
+        imgEl.loading = 'eager';
+        if (imgEl.src !== imgSrc) {
+          imgEl.src = imgSrc;
+        }
         imgContainer.style.display = 'flex';
       } else {
         imgEl.src = '';
         imgContainer.style.display = 'none';
       }
+    }
+
+    // Tải trước ảnh của 2 thẻ kế tiếp ngay lập tức
+    if (app.studySession?.queue && app.studySession.currentIndex !== undefined) {
+      const nextIdx = app.studySession.currentIndex + 1;
+      const nextBatch = app.studySession.queue.slice(nextIdx, nextIdx + 2);
+      nextBatch.forEach(nc => {
+        const nSrc = nc?.img || nc?.image;
+        if (nSrc && typeof nSrc === 'string') {
+          const preImg = new Image();
+          preImg.decoding = 'async';
+          preImg.src = nSrc;
+        }
+      });
     }
 
     const posBack = document.getElementById('card-pos-badge-back');

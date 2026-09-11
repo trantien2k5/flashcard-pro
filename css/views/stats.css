@@ -7,12 +7,12 @@
   background: transparent;
   border: none;
   border-radius: 0;
-  padding: 4px 4px 12px 4px;
+  padding: 4px 2px 10px 2px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   box-shadow: none;
 }
 
@@ -25,31 +25,31 @@
 .stats-hero-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .stats-hero-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 11px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   background: linear-gradient(135deg, #10b981, #06b6d4);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: #ffffff;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 }
 
 .stats-hero-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
 }
 
 .stats-hero-title {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.02em;
@@ -59,49 +59,49 @@
 
 .stats-hero-subtitle {
   color: var(--text-secondary);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 400;
   margin: 0;
-  line-height: 1.35;
+  line-height: 1.3;
 }
 
 .stats-hero-badges {
   display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .stats-pill-badge {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: var(--radius-full);
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
 
-/* 2. Navigation & View Mode Switcher Toolbar */
+/* 2. Navigation & View Mode Switcher Toolbar (1-Row Balanced) */
 .journal-nav-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 14px;
-  padding: 0 2px;
-  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 0;
+  flex-wrap: nowrap;
 }
 
 .journal-month-nav {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
+  flex-shrink: 0;
 }
 
 .btn-journal-nav {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-primary);
@@ -112,6 +112,7 @@
   transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   padding: 0;
   touch-action: manipulation;
+  flex-shrink: 0;
 }
 
 [data-theme="light"] .btn-journal-nav {
@@ -131,29 +132,42 @@
 }
 
 .journal-month-title-wrap {
-  padding: 0 4px;
-  min-width: 120px;
+  padding: 0 2px;
+  min-width: 95px;
   text-align: center;
 }
 
 .journal-month-title {
-  font-size: 0.96rem;
+  font-size: 0.9rem;
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.journal-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
 }
 
 .btn-journal-today {
-  padding: 5px 10px;
+  padding: 0 9px;
+  height: 28px;
   border-radius: var(--radius-full);
   background: rgba(99, 102, 241, 0.12);
   border: 1px solid rgba(99, 102, 241, 0.25);
   color: var(--primary);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
   touch-action: manipulation;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .btn-journal-today:hover {
@@ -169,6 +183,8 @@
   border-radius: var(--radius-full);
   padding: 2px;
   gap: 2px;
+  height: 28px;
+  box-sizing: border-box;
 }
 
 [data-theme="light"] .journal-view-toggle {
@@ -177,22 +193,27 @@
 }
 
 .btn-toggle-mode {
-  padding: 4px 12px;
+  padding: 0 8px;
+  height: 22px;
   border-radius: var(--radius-full);
   background: transparent;
   border: none;
-  font-size: 0.74rem;
+  font-size: 0.7rem;
   font-weight: 700;
   color: var(--text-muted);
   cursor: pointer;
   transition: all 0.2s ease;
   touch-action: manipulation;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .btn-toggle-mode.active {
   background: var(--bg-card);
   color: var(--text-primary);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
 [data-theme="light"] .btn-toggle-mode.active {
@@ -200,51 +221,57 @@
   color: #0f172a;
 }
 
-/* 3. Trader PnL 4-Box Metric Grid */
+/* 3. Monthly 4-Box Performance Metric Grid */
 .journal-pnl-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 8px;
 }
 
 @media (min-width: 640px) {
   .journal-pnl-grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
   }
 }
 
 .pnl-stat-box {
-  background: var(--bg-secondary);
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 10px 12px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  justify-content: space-between;
+  min-height: 86px;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 [data-theme="light"] .pnl-stat-box {
-  background: #f8fafc;
+  background: #ffffff;
   border-color: #e2e8f0;
 }
 
 .pnl-stat-box:hover {
   transform: translateY(-2px);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .pnl-box-header {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .pnl-box-icon {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  line-height: 1;
 }
 
 .pnl-box-label {
-  font-size: 0.66rem;
+  font-size: 0.65rem;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -253,11 +280,22 @@
 }
 
 .pnl-box-val {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   font-weight: 800;
   font-family: var(--font-mono);
   color: var(--text-primary);
   line-height: 1.15;
+  margin: 3px 0 1px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.pnl-unit {
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
 }
 
 .pnl-profit .pnl-box-val {
@@ -275,6 +313,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.2;
 }
 
 /* 4. Legend & Calendar Wrapper */
@@ -505,55 +544,102 @@
   font-weight: 800;
 }
 
-/* 7. Day Inspector Detail Grid */
-.inspector-detail-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-
-@media (min-width: 640px) {
-  .inspector-detail-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.inspector-tile {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+/* 7. Micro Day Popover Tooltip (Floating Quick Inspector on Hover/Touch) */
+.day-popover-tooltip {
+  position: fixed;
+  z-index: 10000;
+  min-width: 210px;
+  max-width: 270px;
   padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px) scale(0.95);
+  transition: opacity 0.18s cubic-bezier(0.4, 0, 0.2, 1), transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
+  font-family: inherit;
 }
 
-[data-theme="light"] .inspector-tile {
-  background: #f8fafc;
-  border-color: #e2e8f0;
+.day-popover-tooltip.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
-.tile-lbl {
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+[data-theme="light"] .day-popover-tooltip {
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.18);
 }
 
-.tile-val {
-  font-size: 1.15rem;
+.popover-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .popover-header {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.popover-date {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--primary);
+}
+
+[data-theme="light"] .popover-date {
+  color: #4f46e5;
+}
+
+.popover-badge-total {
+  font-size: 0.72rem;
   font-weight: 800;
   font-family: var(--font-mono);
-  color: var(--text-primary);
-}
-
-.tile-val.profit-val {
+  padding: 1px 7px;
+  border-radius: 6px;
+  background: rgba(16, 185, 129, 0.2);
   color: #10b981;
 }
 
-[data-theme="light"] .tile-val.profit-val {
-  color: #059669;
+.popover-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.popover-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .popover-item {
+  color: #64748b;
+}
+
+.popover-item strong {
+  font-weight: 700;
+  color: #ffffff;
+  font-family: var(--font-mono);
+}
+
+[data-theme="light"] .popover-item strong {
+  color: #0f172a;
 }
 
 /* 8. Year Matrix Grid */

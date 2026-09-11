@@ -85,24 +85,26 @@ export function renderDecksTabShell(tabPane) {
         </div>
 
         <div class="decks-sub-toolbar">
-          <span class="decks-count-summary" id="decks-count-summary">Hiển thị 0 chủ đề</span>
+          <div class="decks-toolbar-header">
+            <span class="decks-count-summary" id="decks-count-summary">Hiển thị 0 chủ đề</span>
+          </div>
           <div class="decks-filter-dropdowns">
             <div class="decks-select-wrap">
               <select id="decks-category-select" aria-label="Lọc theo danh mục">
-                <option value="all">📁 Danh mục: Tất cả</option>
-                <option value="daily">🏠 Đời sống hàng ngày</option>
-                <option value="career">💼 Công việc & Sự nghiệp</option>
+                <option value="all">📁 Tất cả danh mục</option>
+                <option value="daily">🏠 Đời sống</option>
+                <option value="career">💼 Công sở & Sự nghiệp</option>
                 <option value="explore">🌍 Du lịch & Khám phá</option>
-                <option value="toeic">🎯 Luyện thi (TOEIC/IELTS)</option>
+                <option value="toeic">🎯 Luyện thi (TOEIC)</option>
               </select>
             </div>
             <div class="decks-select-wrap">
               <select id="decks-sort-select" aria-label="Sắp xếp danh sách">
-                <option value="default">⚡ Sắp xếp: Vừa học (Mặc định)</option>
+                <option value="default">⚡ Sắp xếp: Mặc định</option>
                 <option value="recent">🕒 Vừa học gần đây</option>
-                <option value="progress">📈 Tiến độ cao nhất</option>
-                <option value="due">⚠️ Cần ôn nhiều nhất</option>
-                <option value="words">📝 Số từ nhiều nhất</option>
+                <option value="progress">📈 Tiến độ cao</option>
+                <option value="due">⚠️ Cần ôn nhiều</option>
+                <option value="words">📝 Số từ nhiều</option>
                 <option value="az">🔤 Tên A → Z</option>
               </select>
             </div>

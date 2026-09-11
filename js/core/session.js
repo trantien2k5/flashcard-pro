@@ -85,15 +85,16 @@ export class StudySession {
       return false;
     }
 
-    // Tải trước toàn bộ âm thanh trong phiên học để bấm phát tức thì 0ms delay
+    // Tải trước toàn bộ âm thanh và hình ảnh trong phiên học để phát và chuyển thẻ tức thì 0ms delay
     this.preloadSessionAudio(this.queue);
+    this.preloadSessionImages(this.queue);
 
     this.loadCurrentCard();
     return true;
   }
 
   /**
-   * Tải trước toàn bộ 10 từ của phiên học (Cả giọng US & UK):
+   * Tải trước toàn bộ âm thanh trong phiên học (Cả giọng US & UK):
    * - Nạp ngay 3 từ đầu tiên tức thì để phát 0ms không chờ đợi.
    * - Tự động tải ngầm toàn bộ các từ còn lại trong phiên học (10 từ) để sẵn sàng 100%.
    */
@@ -124,6 +125,42 @@ export class StudySession {
           }, idx * 40);
         });
       }, 100);
+    }
+  }
+
+  /**
+   * Tải trước toàn bộ hình ảnh trong phiên học vào RAM/Browser Cache
+   * Giúp chuyển sang thẻ tiếp theo hiển thị ảnh tức thì 0ms, không bị chớp hay trễ mạng
+   */
+  preloadSessionImages(cards) {
+    if (!cards || !Array.isArray(cards) || typeof Image === 'undefined') return;
+
+    // 1. Tải ngay ảnh của 3 từ đầu tiên
+    const immediateBatch = cards.slice(0, 3);
+    immediateBatch.forEach(card => {
+      const src = card?.img || card?.image;
+      if (src && typeof src === 'string') {
+        const img = new Image();
+        img.decoding = 'async';
+        img.src = src;
+      }
+    });
+
+    // 2. Tải ngầm ảnh của toàn bộ các thẻ còn lại trong hàng đợi
+    if (cards.length > 3) {
+      const remainingBatch = cards.slice(3);
+      setTimeout(() => {
+        remainingBatch.forEach((card, idx) => {
+          setTimeout(() => {
+            const src = card?.img || card?.image;
+            if (src && typeof src === 'string') {
+              const img = new Image();
+              img.decoding = 'async';
+              img.src = src;
+            }
+          }, idx * 50);
+        });
+      }, 80);
     }
   }
 

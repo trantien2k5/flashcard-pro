@@ -14,17 +14,23 @@ export function renderReviewShell(container) {
     container.innerHTML = `
       <div class="review-bento-container">
         
-        <!-- 1. Header: Trạng thái hôm nay -->
-        <div class="bento-header-row">
-          <div class="bento-greeting-wrap">
-            <div class="bento-status-pill" id="home-status-badge">
-              <span class="status-dot"></span>
-              <span class="status-label">HÔM NAY</span>
+        <!-- 1. Top Unboxed Hero Header -->
+        <div class="review-hero-banner">
+          <div class="review-hero-left">
+            <div class="review-hero-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="6"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
             </div>
-            <h2 class="bento-greeting-title" id="home-today-status">Còn 0 từ để hoàn thành hôm nay</h2>
+            <div class="review-hero-text">
+              <h2 class="review-hero-title">Nhiệm Vụ Hôm Nay</h2>
+              <p class="review-hero-subtitle" id="home-today-status">Kế hoạch ôn tập & tích lũy từ vựng</p>
+            </div>
           </div>
-          <div class="bento-header-pills">
-            <span class="bento-pill pill-today-pct" id="home-goal-pct">0%</span>
+          <div class="review-hero-badges">
+            <span class="pill-today-pct" id="home-goal-pct">0%</span>
           </div>
         </div>
 
@@ -126,7 +132,7 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 4. Bento Trend Card: Biểu Đồ Tiến Bộ 7 Ngày & Tiếp Tục Học -->
+        <!-- 4. Bento Trend Card: Biểu Đồ Tiến Bộ 7 Ngày -->
         <div class="bento-section-group">
           <div class="section-group-header">
             <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
@@ -138,31 +144,23 @@ export function renderReviewShell(container) {
               </span>
               <span class="trend-delta-pill" id="home-trend-delta">↑ 0 từ nhớ tốt</span>
             </div>
-            <span class="section-group-hint">Số từ ôn tập thành công và chủ đề gần nhất</span>
+            <span class="section-group-hint">Số từ vựng ôn tập và ghi nhớ thành công</span>
           </div>
 
           <div class="bento-card bento-trend-card">
             <!-- Dynamic SVG Area Sparkline Chart -->
             <div class="trend-chart-wrapper" id="home-trend-chart-box"></div>
 
-            <!-- Sub Row: Thống kê nhịp độ & Lối tắt học tiếp -->
+            <!-- Sub Row: Thống kê nhịp độ tinh gọn -->
             <div class="trend-sub-row">
               <div class="trend-stat-meta">
-                <span class="meta-item">⚡ TB: <strong id="trend-avg-val">0</strong> từ/ngày</span>
+                <span class="meta-item">⚡ Trung bình: <strong id="trend-avg-val">0</strong> từ/ngày</span>
                 <span class="meta-sep">•</span>
-                <span class="meta-item">Tổng: <strong id="trend-total-val">0</strong> từ</span>
-              </div>
-
-              <div class="trend-deck-resume" id="home-resume-deck-bar">
-                <span class="deck-tag">Chủ đề:</span>
-                <span class="deck-name" id="home-recent-deck-name">Top 1000 từ cốt lõi</span>
-                <button class="btn-deck-resume" id="btn-home-resume-deck" title="Học tiếp chủ đề này">
-                  <span>Học tiếp</span>
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </button>
+                <span class="meta-item">Tổng cộng: <strong id="trend-total-val">0</strong> từ</span>
               </div>
             </div>
           </div>
+        </div>
         </div>
 
       </div>
@@ -257,11 +255,9 @@ export function renderReviewTab(app) {
     const elStatusBadge = document.getElementById('home-status-badge');
     if (elTodayStatus) {
       if (todayLearned >= dailyGoal) {
-        elTodayStatus.textContent = '✓ Đã hoàn thành mục tiêu hôm nay';
-        if (elStatusBadge) elStatusBadge.className = 'bento-status-badge badge-success';
+        elTodayStatus.textContent = 'Đã hoàn thành mục tiêu hôm nay ✓';
       } else {
-        elTodayStatus.textContent = `Còn ${remainingGoal} từ để hoàn thành hôm nay`;
-        if (elStatusBadge) elStatusBadge.className = 'bento-status-badge';
+        elTodayStatus.textContent = `Còn ${remainingGoal} từ để đạt mục tiêu hôm nay`;
       }
     }
 

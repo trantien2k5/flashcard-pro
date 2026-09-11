@@ -27,75 +27,73 @@
 }
 
 /* ==========================================================================
-   1. Header: Trạng Thái Hôm Nay
+   1. Top Hero Header (Clean Unboxed iOS Style)
    ========================================================================== */
-.bento-header-row {
+.review-hero-banner {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 4px 2px 10px 2px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  padding: 2px 2px 0 2px;
+  gap: 12px;
+  margin-bottom: 4px;
+  box-shadow: none;
 }
 
-.bento-greeting-wrap {
+[data-theme="light"] .review-hero-banner {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.review-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-hero-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+
+.review-hero-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  min-width: 0;
+  gap: 1px;
 }
 
-.bento-status-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  align-self: flex-start;
-}
-
-.bento-status-pill .status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--primary);
-  box-shadow: 0 0 8px var(--primary);
-}
-
-.bento-status-pill.badge-success .status-dot {
-  background: #10b981;
-  box-shadow: 0 0 8px #10b981;
-}
-
-.bento-status-pill .status-label {
-  font-size: 0.65rem;
+.review-hero-title {
+  font-size: 1.2rem;
   font-weight: 800;
-  letter-spacing: 0.6px;
-  color: var(--primary);
-  text-transform: uppercase;
-}
-
-.bento-status-pill.badge-success .status-label {
-  color: #059669;
-}
-
-[data-theme="dark"] .bento-status-pill.badge-success .status-label {
-  color: #34d399;
-}
-
-.bento-greeting-title {
-  font-size: 1.02rem;
-  font-weight: 800;
-  letter-spacing: -0.015em;
-  margin: 0;
   color: var(--text-primary);
-  line-height: 1.25;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.2;
 }
 
-.bento-header-pills {
+.review-hero-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.76rem;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.review-hero-badges {
   display: flex;
   align-items: center;
-  gap: 5px;
   flex-shrink: 0;
 }
 
@@ -117,17 +115,18 @@
 }
 
 /* ==========================================================================
+/* ==========================================================================
    Base Bento Card Structure
    ========================================================================== */
 .bento-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 11px 13px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+  padding: 12px 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 10px;
   box-sizing: border-box;
   transition: all 0.2s ease;
 }
@@ -135,7 +134,7 @@
 [data-theme="light"] .bento-card {
   background: #ffffff;
   border-color: #e2e8f0;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03), 0 1px 2px rgba(15, 23, 42, 0.02);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
 }
 
 .bento-card-header {
@@ -160,21 +159,21 @@
 .bento-hero-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 12px 13px;
-  gap: 9px;
+  border-radius: 16px;
+  padding: 12px 14px;
+  gap: 10px;
   position: relative;
 }
 
 [data-theme="light"] .bento-hero-card {
-  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
-  border-color: #e0e7ff;
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
 }
 
 [data-theme="dark"] .bento-hero-card {
-  background: linear-gradient(180deg, rgba(30, 27, 75, 0.35) 0%, rgba(15, 23, 42, 0.6) 100%);
-  border-color: rgba(99, 102, 241, 0.25);
+  background: var(--bg-card);
+  border-color: var(--border);
 }
 
 .hero-bar-track {
@@ -193,12 +192,12 @@
   height: 100%;
   border-radius: 99px;
   background: linear-gradient(90deg, #6366f1, #10b981);
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
   transition: width 0.4s ease;
 }
 
 /* ==========================================================================
-   4 Bento Cards in 2 Columns (2x2 Quad Grid)
+   4 Bento Metric Cards (Synchronized with Stats Tab .pnl-stat-box)
    ========================================================================== */
 .hero-quad-grid {
   display: grid;
@@ -207,139 +206,108 @@
 }
 
 .quad-tile {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 8px 10px;
-  border-radius: 13px;
-  border: 1px solid var(--border);
-  min-height: 68px;
+  min-height: 86px;
   box-sizing: border-box;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-theme="light"] .quad-tile {
+  background: #ffffff;
+  border-color: #e2e8f0;
 }
 
 .quad-tile:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .quad-tile-top {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .quad-icon-badge {
-  font-size: 1.05rem;
+  font-size: 0.88rem;
   line-height: 1;
 }
 
 .quad-label {
-  font-size: 0.60rem;
-  font-weight: 800;
-  letter-spacing: 0.4px;
-  color: var(--text-secondary);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
   text-transform: uppercase;
+  letter-spacing: 0.04em;
   white-space: nowrap;
 }
 
 .quad-num-wrap {
   display: flex;
   align-items: baseline;
-  gap: 3px;
+  gap: 2px;
   margin: 3px 0 1px 0;
 }
 
 .quad-number {
-  font-size: 1.28rem;
-  font-weight: 900;
+  font-size: 1.35rem;
+  font-weight: 800;
   font-family: var(--font-mono);
-  line-height: 1.05;
+  color: var(--text-primary);
+  line-height: 1.15;
 }
 
 .quad-unit {
-  font-size: 0.70rem;
-  font-weight: 700;
-  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
 }
 
 .quad-sub-hint {
-  font-size: 0.58rem;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.2;
 }
 
-/* Card Themes: Due, New, Time, Retention */
-/* 1. Cần ôn tập (Amber/Orange) */
-.tile-due {
-  border-color: rgba(245, 158, 11, 0.35);
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(234, 88, 12, 0.03) 100%);
+/* Card States: Synchronized with App Palette */
+.tile-due .quad-number {
+  color: var(--text-primary);
 }
 
-[data-theme="light"] .tile-due {
-  background: linear-gradient(135deg, #fffdfa 0%, #fff7ed 100%);
-  border-color: #fed7aa;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.06);
+.tile-new .quad-number {
+  color: var(--text-primary);
 }
 
-.tile-due .quad-number { color: #d97706; }
-[data-theme="dark"] .tile-due .quad-number { color: #fbbf24; }
-
-/* 2. Đã học hôm nay (Indigo/Purple) */
-.tile-new {
-  border-color: rgba(99, 102, 241, 0.3);
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.03) 100%);
+.tile-time .quad-number {
+  color: var(--text-primary);
 }
 
-[data-theme="light"] .tile-new {
-  background: linear-gradient(135deg, #f8faff 0%, #f5f3ff 100%);
-  border-color: #ddd6fe;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.06);
+.tile-retention .quad-number {
+  color: var(--text-primary);
 }
 
-.tile-new .quad-number { color: #6366f1; }
-
-/* 3. Thời gian học (Emerald/Teal) */
-.tile-time {
-  border-color: rgba(16, 185, 129, 0.3);
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(6, 182, 212, 0.03) 100%);
-}
-
-[data-theme="light"] .tile-time {
-  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
-  border-color: #bbf7d0;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.06);
-}
-
-.tile-time .quad-number { color: #059669; }
-[data-theme="dark"] .tile-time .quad-number { color: #34d399; }
-
-/* 4. Tỉ lệ ghi nhớ (Sky/Blue) */
-.tile-retention {
-  border-color: rgba(2, 132, 199, 0.3);
-  background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(99, 102, 241, 0.03) 100%);
-}
-
-[data-theme="light"] .tile-retention {
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-  border-color: #bae6fd;
-  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.06);
-}
-
-.tile-retention .quad-number { color: #0284c7; }
-[data-theme="dark"] .tile-retention .quad-number { color: #38bdf8; }
-
-/* Hero Action CTA Button */
+/* Hero Action CTA Button (Simple, Modern, Brand-Aligned) */
 .btn-hero-action {
   width: 100%;
-  min-height: 48px;
-  padding: 11px 18px;
+  height: 46px;
+  min-height: 46px;
+  padding: 0 18px;
   border-radius: 13px;
   border: none;
-  font-weight: 800;
-  font-size: 1.00rem;
+  font-weight: 700;
+  font-size: 0.96rem;
   letter-spacing: -0.01em;
   display: flex;
   align-items: center;
@@ -350,40 +318,33 @@
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   color: #ffffff;
+  background: var(--primary);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
 }
 
-.cta-priority-due {
-  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 45%, #ea580c 100%);
-  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.cta-priority-due:hover {
-  transform: translateY(-1.5px);
-  box-shadow: 0 6px 22px rgba(99, 102, 241, 0.45);
-}
-
-.cta-priority-learn {
-  background: linear-gradient(135deg, #4f46e5, #4338ca);
-  box-shadow: 0 4px 18px rgba(79, 70, 229, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.cta-priority-learn:hover {
-  transform: translateY(-1.5px);
-  box-shadow: 0 6px 22px rgba(79, 70, 229, 0.45);
-}
-
-.cta-priority-extra {
-  background: linear-gradient(135deg, #059669, #10b981);
-  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.cta-priority-extra:hover {
-  transform: translateY(-1.5px);
-  box-shadow: 0 6px 22px rgba(16, 185, 129, 0.45);
+.btn-hero-action:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.35);
+  filter: brightness(1.06);
 }
 
 .btn-hero-action:active {
   transform: scale(0.98);
+}
+
+.cta-priority-due,
+.cta-priority-learn {
+  background: var(--primary);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
+}
+
+.cta-priority-extra {
+  background: #10b981;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+}
+
+.cta-priority-extra:hover {
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35);
 }
 
 .hero-meta-hint {
@@ -446,29 +407,29 @@
 }
 
 [data-theme="light"] .forecast-capsule {
-  background: #f8fafc;
+  background: #ffffff;
   border-color: #e2e8f0;
 }
 
 /* Today active state */
 .forecast-capsule.is-today {
-  border-color: rgba(99, 102, 241, 0.5);
-  background: linear-gradient(180deg, rgba(99, 102, 241, 0.12) 0%, rgba(99, 102, 241, 0.03) 100%);
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.08);
   box-shadow: 0 0 10px rgba(99, 102, 241, 0.15);
 }
 
 [data-theme="light"] .forecast-capsule.is-today {
-  background: linear-gradient(180deg, #f5f7ff 0%, #edf2fe 100%);
-  border-color: #c7d2fe;
+  background: #f5f7ff;
+  border-color: #818cf8;
 }
 
 .forecast-capsule.has-due {
-  border-color: rgba(245, 158, 11, 0.35);
+  border-color: rgba(245, 158, 11, 0.4);
 }
 
 [data-theme="light"] .forecast-capsule.has-due {
-  background: #fffdf5;
-  border-color: #fde68a;
+  background: #ffffff;
+  border-color: #fcd34d;
 }
 
 .capsule-top-row {
@@ -534,7 +495,7 @@
 }
 
 .forecast-capsule.is-today .capsule-bar-fill.fill-active {
-  background: linear-gradient(180deg, #6366f1 0%, #4f46e5 100%);
+  background: var(--primary);
   box-shadow: 0 0 6px rgba(99, 102, 241, 0.5);
 }
 
@@ -586,7 +547,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  background: var(--bg-secondary);
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 8px 6px 4px 6px;
@@ -594,7 +555,7 @@
 }
 
 [data-theme="light"] .trend-chart-wrapper {
-  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  background: #ffffff;
   border-color: #e2e8f0;
 }
 
@@ -663,75 +624,32 @@
   font-weight: 800;
 }
 
-/* Sub row */
+/* Sub row: Clean Centered Summary */
 .trend-sub-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 8px;
-  padding: 0 2px;
+  padding: 4px 2px 2px 2px;
 }
 
 .trend-stat-meta {
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 0.68rem;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.72rem;
   color: var(--text-secondary);
 }
 
 .trend-stat-meta strong {
   color: var(--text-primary);
   font-family: var(--font-mono);
-  font-size: 0.76rem;
+  font-size: 0.78rem;
 }
 
 .meta-sep {
-  color: var(--text-muted);
-}
-
-.trend-deck-resume {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  min-width: 0;
-}
-
-.trend-deck-resume .deck-tag {
-  font-size: 0.62rem;
-  font-weight: 700;
-  color: var(--text-muted);
-}
-
-.trend-deck-resume .deck-name {
-  font-size: 0.70rem;
-  font-weight: 800;
-  color: var(--primary);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 110px;
-}
-
-.btn-deck-resume {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  background: rgba(99, 102, 241, 0.1);
-  color: var(--primary);
-  border: 1px solid rgba(99, 102, 241, 0.22);
-  font-size: 0.68rem;
-  font-weight: 700;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.15s ease;
-}
-
-.btn-deck-resume:hover {
-  background: var(--primary);
-  color: #ffffff;
+  color: var(--border);
 }
 
 /* ==========================================================================

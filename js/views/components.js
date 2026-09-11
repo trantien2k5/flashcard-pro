@@ -517,7 +517,10 @@ export function setupSearch(app) {
       searchInput.value = '';
       if (btnClearInput) btnClearInput.style.display = 'none';
       if (emptyStateContainer) emptyStateContainer.style.display = 'none';
-      if (resultsContainer) resultsContainer.innerHTML = '';
+      if (resultsContainer) {
+        resultsContainer.innerHTML = '';
+        resultsContainer.style.display = 'none';
+      }
       if (resultCountLabel) resultCountLabel.textContent = '';
       selectedIndex = -1;
     };
@@ -542,12 +545,46 @@ export function setupSearch(app) {
         openSearchModal();
       } else if (e.key === 'Escape' && searchModal.classList.contains('active')) {
         closeSearchModal();
+      } else if (searchModal.classList.contains('active') && currentResults.length > 0) {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          selectedIndex = (selectedIndex + 1) % currentResults.length;
+          updateSelectedResult();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          selectedIndex = (selectedIndex - 1 + currentResults.length) % currentResults.length;
+          updateSelectedResult();
+        } else if (e.key === 'Enter' && selectedIndex >= 0 && selectedIndex < currentResults.length) {
+          e.preventDefault();
+          const target = currentResults[selectedIndex];
+          if (target && target.card) {
+            addQueryToHistory(searchInput.value || target.card.word);
+            closeSearchModal();
+            app.startStudySession(target.card.deckId || null, null, [target.card]);
+          }
+        }
       }
     });
 
+    const updateSelectedResult = () => {
+      if (!resultsContainer) return;
+      const rows = resultsContainer.querySelectorAll('.search-result-row');
+      rows.forEach((r, idx) => {
+        if (idx === selectedIndex) {
+          r.classList.add('selected');
+          r.scrollIntoView({ block: 'nearest' });
+        } else {
+          r.classList.remove('selected');
+        }
+      });
+    };
+
     const renderSearchSuggestions = () => {
       if (!emptyStateContainer) return;
-      if (resultsContainer) resultsContainer.innerHTML = '';
+      if (resultsContainer) {
+        resultsContainer.innerHTML = '';
+        resultsContainer.style.display = 'none';
+      }
       if (resultCountLabel) resultCountLabel.textContent = '';
       emptyStateContainer.style.display = 'block';
 
@@ -619,7 +656,7 @@ export function setupSearch(app) {
         if (!btn) return;
         filterTagsContainer.querySelectorAll('.search-filter-tag').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        currentFilter = btn.dataset.filter || 'all';
+        currentFilter = btn.dataset.searchFilter || btn.dataset.filter || 'all';
         if (searchInput.value.trim()) {
           performSearch(searchInput.value.trim());
         }
@@ -659,6 +696,7 @@ export function setupSearch(app) {
 
       if (emptyStateContainer) emptyStateContainer.style.display = 'none';
       if (!resultsContainer) return;
+      resultsContainer.style.display = 'flex';
 
       const allCards = app.deckManager.getAllCards();
       const cardStates = StorageManager.getAllCardStates();
@@ -669,7 +707,8 @@ export function setupSearch(app) {
         const word = (card.word || '').toLowerCase();
         const meaning = (card.meaning || '').toLowerCase();
         const pos = (card.pos || '').toLowerCase();
-        const cefr = (card.cefr || '').toLowerCase();
+        const cefr = (card.level || card.cefr || '').toLowerCase();
+        const ipa = (card.ipa || card.phonetic || '').toLowerCase();
         const example = (card.example || '').toLowerCase();
         const exampleVi = (card.exampleVi || '').toLowerCase();
         const subtopic = (card.subtopic || '').toLowerCase();
@@ -695,7 +734,7 @@ export function setupSearch(app) {
         } else if (pos === q) {
           isMatch = true;
           score += 15;
-        } else if (example.includes(q) || exampleVi.includes(q) || subtopic.includes(q)) {
+        } else if (ipa.includes(q) || example.includes(q) || exampleVi.includes(q) || subtopic.includes(q)) {
           isMatch = true;
           score += 10;
         }
@@ -705,6 +744,16 @@ export function setupSearch(app) {
           const isLearned = state && state.state !== State.New && state.state !== 0;
           const isMastered = isLearned && state.stability >= 21;
 
+          if (currentFilter === 'pos:noun' && pos !== 'noun') continue;
+          if (currentFilter === 'pos:verb' && pos !== 'verb') continue;
+          if (currentFilter === 'pos:adj' && pos !== 'adjective' && pos !== 'adj') continue;
+          if (currentFilter === 'cefr:b1' && cefr !== 'b1' && cefr !== 'b2') continue;
+          if (currentFilter === 'cefr:c1' && cefr !== 'c1' && cefr !== 'c2') continue;
+          if (currentFilter === 'state:due') {
+            const isDue = state && state.state !== State.New && state.due && new Date(state.due) <= new Date();
+            if (!isDue) continue;
+          }
+          if (currentFilter === 'state:new' && isLearned) continue;
           if (currentFilter === 'learned' && !isLearned) continue;
           if (currentFilter === 'new' && isLearned) continue;
           if (currentFilter === 'mastered' && !isMastered) continue;
@@ -727,6 +776,7 @@ export function setupSearch(app) {
     const renderSearchResults = (items, query) => {
       if (!resultsContainer) return;
       resultsContainer.innerHTML = '';
+      resultsContainer.style.display = 'flex';
 
       if (items.length === 0) {
         resultsContainer.innerHTML = `
@@ -743,8 +793,10 @@ export function setupSearch(app) {
 
       items.forEach((item, index) => {
         const { card, state, isLearned, isMastered } = item;
-        const deck = app.deckManager.getDeckById(card.deckId);
+        const deck = app.deckManager.getDeckById(card.deckId || (card.topicIds && card.topicIds[0]));
         const deckName = deck ? (deck.titleEn || deck.title || deck.name) : 'Chủ đề từ vựng';
+        const cardIpa = card.ipa || card.phonetic || '';
+        const cardCefr = card.level || card.cefr || '';
 
         let statusBadge = '<span class="badge-status-new">Mới</span>';
         if (isMastered) {
@@ -761,9 +813,9 @@ export function setupSearch(app) {
           <div class="search-row-main">
             <div class="search-word-header">
               <span class="search-word-text">${highlightKeyword(card.word, query)}</span>
-              ${card.phonetic ? `<span class="search-word-phonetic">${highlightKeyword(card.phonetic, query)}</span>` : ''}
+              ${cardIpa ? `<span class="search-word-phonetic">${highlightKeyword(cardIpa, query)}</span>` : ''}
               ${card.pos ? `<span class="search-word-pos">${card.pos}</span>` : ''}
-              ${card.cefr ? `<span class="search-word-cefr ${card.cefr.toLowerCase()}">${card.cefr}</span>` : ''}
+              ${cardCefr ? `<span class="search-word-cefr ${cardCefr.toLowerCase()}">${cardCefr}</span>` : ''}
               ${statusBadge}
             </div>
             <div class="search-word-meaning">${highlightKeyword(card.meaning, query)}</div>
@@ -774,7 +826,7 @@ export function setupSearch(app) {
             </div>
           </div>
           <div class="search-row-actions">
-            <button class="btn-search-audio" title="Phát âm" data-word="${escapeHTML(card.word)}">
+            <button class="btn-search-audio" title="Phát âm" data-word="${escapeHTML(card.word)}" type="button">
               🔊
             </button>
           </div>
