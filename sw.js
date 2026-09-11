@@ -4,7 +4,7 @@
  * và tự động fallback sang Cache khi thiết bị Offline.
  */
 
-const CACHE_NAME = 'flashcard-pro-v2.9.0';
+const CACHE_NAME = 'flashcard-pro-v2.9.1';
 const PRECACHE_ASSETS = [
   './',
   './index.html',

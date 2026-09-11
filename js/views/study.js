@@ -48,33 +48,18 @@ export function renderStudyOverlayShell() {
             <!-- Front Face -->
             <div class="flashcard-face face-front">
               <div class="card-center-content">
-                <div class="card-audio-dual-row" id="card-audio-dual-row">
-                  <button type="button" class="btn-audio-accent-pill btn-audio-us" id="btn-audio-us" title="Phát âm tiếng Anh - Mỹ (US)" aria-label="Phát âm US">
-                    <span class="audio-accent-label">US</span>
-                    <span class="audio-speaker-symbol">
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                    </span>
-                    <span class="audio-eq-bars">
-                      <span class="eq-bar bar-1"></span>
-                      <span class="eq-bar bar-2"></span>
-                      <span class="eq-bar bar-3"></span>
-                    </span>
-                  </button>
-                  <button type="button" class="btn-audio-accent-pill btn-audio-uk" id="btn-audio-uk" title="Phát âm tiếng Anh - Anh (UK)" aria-label="Phát âm UK">
-                    <span class="audio-accent-label">UK</span>
-                    <span class="audio-speaker-symbol">
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                    </span>
-                    <span class="audio-eq-bars">
-                      <span class="eq-bar bar-1"></span>
-                      <span class="eq-bar bar-2"></span>
-                      <span class="eq-bar bar-3"></span>
-                    </span>
-                  </button>
-                </div>
                 <h2 class="card-word-title" id="card-front-word">...</h2>
                 <div class="card-phonetic-box">
                   <span id="card-front-phonetic">/.../</span>
+                </div>
+                <div class="card-audio-single-wrap">
+                  <button type="button" class="btn-card-audio-single" id="btn-audio-speaker" title="Phát âm từ vựng (R)" aria-label="Phát âm từ vựng">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                    </svg>
+                  </button>
                 </div>
               </div>
               <div class="card-tap-hint">
@@ -139,19 +124,14 @@ export function setupStudyControls(app) {
     const flashcardEl = document.getElementById('flashcard-element');
     const fsrsButtonsContainer = document.getElementById('fsrs-buttons-container');
     const btnClose = document.getElementById('btn-study-close');
-    const btnAudioUs = document.getElementById('btn-audio-us');
-    const btnAudioUk = document.getElementById('btn-audio-uk');
+    const btnAudioSpeaker = document.getElementById('btn-audio-speaker');
 
     if (!overlay || !flashcardEl) return;
 
-    // Lắng nghe trạng thái phát âm thanh để bật hiệu ứng Equalizer động
-    onAudioPlayStateChange((isPlaying, accent) => {
-      const isUk = accent === 'uk';
-      if (btnAudioUs) {
-        btnAudioUs.classList.toggle('playing', isPlaying && !isUk);
-      }
-      if (btnAudioUk) {
-        btnAudioUk.classList.toggle('playing', isPlaying && isUk);
+    // Lắng nghe trạng thái phát âm thanh để bật hiệu ứng phát sáng
+    onAudioPlayStateChange((isPlaying) => {
+      if (btnAudioSpeaker) {
+        btnAudioSpeaker.classList.toggle('playing', isPlaying);
       }
     });
 
@@ -169,7 +149,7 @@ export function setupStudyControls(app) {
     };
 
     flashcardEl.addEventListener('click', (e) => {
-      if (e.target.closest('.btn-audio-accent-pill') || e.target.closest('.btn-tts-audio')) {
+      if (e.target.closest('.btn-card-audio-single') || e.target.closest('.btn-tts-audio')) {
         return;
       }
       triggerFlip();
@@ -218,34 +198,18 @@ export function setupStudyControls(app) {
       }
     }, { passive: true });
 
-    // Nút phát âm Giọng Mỹ (US)
-    if (btnAudioUs) {
-      btnAudioUs.addEventListener('click', (e) => {
+    // Nút phát âm đơn giản dưới phiên âm
+    if (btnAudioSpeaker) {
+      btnAudioSpeaker.addEventListener('click', (e) => {
         try {
           e.stopPropagation();
           globalStudyTimer.recordActivity();
           if (app.studySession.currentCard) {
             const word = app.studySession.currentCard.word;
-            speak(word, { accent: 'us', cardObj: app.studySession.currentCard });
+            speak(word, { cardObj: app.studySession.currentCard });
           }
         } catch (err) {
-          console.error('Lỗi phát âm US:', err);
-        }
-      });
-    }
-
-    // Nút phát âm Giọng Anh (UK)
-    if (btnAudioUk) {
-      btnAudioUk.addEventListener('click', (e) => {
-        try {
-          e.stopPropagation();
-          globalStudyTimer.recordActivity();
-          if (app.studySession.currentCard) {
-            const word = app.studySession.currentCard.word;
-            speak(word, { accent: 'uk', cardObj: app.studySession.currentCard });
-          }
-        } catch (err) {
-          console.error('Lỗi phát âm UK:', err);
+          console.error('Lỗi phát âm:', err);
         }
       });
     }
