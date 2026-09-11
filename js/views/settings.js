@@ -171,17 +171,6 @@ export function renderSettingsTabShell(container) {
               </div>
             </div>
           </div>
-        </div>
-
-      </div>
-    `;
-  }
-}1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
-                <span>Đặt lại dữ liệu</span>
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     `;
   }
