@@ -1,5 +1,6 @@
 /**
  * Library View Controller - Comprehensive Vocabulary Directory & FSRS Manager
+ * Clean 1-Row-Per-Word Layout & Interactive Rich Detail Modal
  */
 
 import { StorageManager } from '../services/storage.js';
@@ -18,13 +19,11 @@ let _libState = {
   currentPage: 1
 };
 
-let _playingButtonId = null;
-
 // Listen to audio play state to animate the active sound button
 if (typeof window !== 'undefined') {
   onAudioPlayStateChange((isPlaying, accent, word) => {
     if (!isPlaying) {
-      document.querySelectorAll('.btn-card-sound.playing').forEach(btn => btn.classList.remove('playing'));
+      document.querySelectorAll('.btn-row-sound.playing, .btn-modal-sound.playing').forEach(btn => btn.classList.remove('playing'));
     }
   });
 }
@@ -36,50 +35,119 @@ function formatFSRSDueText(state, now = new Date()) {
   if (!state || state.state === State.New || state.state === 0 || !state.due) {
     return {
       statusClass: 'status-new',
-      statusLabel: '✨ Chưa học',
-      dueText: 'Chưa có lịch ôn'
+      statusLabel: 'Chưa học',
+      statusIcon: '✨',
+      shortDueText: 'Mới',
+      tierLabel: 'Chưa học',
+      tierLevel: 0,
+      dueFullText: 'Chưa có lịch ôn',
+      stability: 0,
+      difficulty: 0,
+      reps: 0,
+      lapses: 0,
+      interval: 0,
+      dueDateFormatted: '—'
     };
   }
 
   const dueDate = new Date(state.due);
   const isDue = isCardDue(state, now);
   const s = Number(state.stability) || 0;
+  const d = Number(state.difficulty) || 0;
+  const reps = Number(state.reps) || 0;
+  const lapses = Number(state.lapses) || 0;
+  const interval = Number(state.scheduled_days) || 0;
+
+  // Tính tier
+  let tierLabel = 'Mức 1 (Mới học)';
+  let tierLevel = 1;
+  if (s >= 30) {
+    tierLabel = 'Mức 5 (Ghi nhớ sâu)';
+    tierLevel = 5;
+  } else if (s >= 14) {
+    tierLabel = 'Mức 4 (Bền vững)';
+    tierLevel = 4;
+  } else if (s >= 7) {
+    tierLabel = 'Mức 3 (Trung hạn)';
+    tierLevel = 3;
+  } else if (s >= 3) {
+    tierLabel = 'Mức 2 (Ngắn hạn)';
+    tierLevel = 2;
+  }
+
+  const dueDay = dueDate.getDate().toString().padStart(2, '0');
+  const dueMonth = (dueDate.getMonth() + 1).toString().padStart(2, '0');
+  const dueYear = dueDate.getFullYear();
+  const dueDateFormatted = `${dueDay}/${dueMonth}/${dueYear}`;
 
   if (isDue) {
     return {
       statusClass: 'status-due',
-      statusLabel: '⏰ Cần ôn ngay',
-      dueText: `Đã đến hạn ôn hôm nay · S: ${s.toFixed(1)}d`
+      statusLabel: 'Cần ôn ngay',
+      statusIcon: '⏰',
+      shortDueText: 'Đến hạn',
+      tierLabel,
+      tierLevel,
+      dueFullText: `Đã đến hạn ôn hôm nay (${dueDateFormatted})`,
+      stability: s,
+      difficulty: d,
+      reps,
+      lapses,
+      interval,
+      dueDateFormatted
     };
   }
 
-  const todayKey = getLocalDateKey(now);
-  const dueKey = getLocalDateKey(dueDate);
   const diffDays = Math.ceil((dueDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+  let shortDueText = '';
+  let dueFullText = '';
 
-  let timeText = '';
   if (diffDays <= 1) {
-    timeText = 'Ngày mai';
+    shortDueText = 'Ngày mai';
+    dueFullText = `Ngày mai (${dueDateFormatted})`;
   } else if (diffDays < 30) {
-    timeText = `sau ${diffDays} ngày (${dueDate.getDate()}/${dueDate.getMonth() + 1})`;
+    shortDueText = `${diffDays} ngày nữa`;
+    dueFullText = `Sau ${diffDays} ngày (${dueDateFormatted})`;
   } else if (diffDays < 365) {
-    timeText = `sau ${(diffDays / 30).toFixed(1)} tháng (${dueDate.getDate()}/${dueDate.getMonth() + 1}/${dueDate.getFullYear()})`;
+    shortDueText = `${(diffDays / 30).toFixed(0)} tháng nữa`;
+    dueFullText = `Sau ${(diffDays / 30).toFixed(1)} tháng (${dueDateFormatted})`;
   } else {
-    timeText = `${dueDate.getDate()}/${dueDate.getMonth() + 1}/${dueDate.getFullYear()}`;
+    shortDueText = dueDateFormatted;
+    dueFullText = dueDateFormatted;
   }
 
   if (s >= 21) {
     return {
       statusClass: 'status-mastered',
-      statusLabel: '🏆 Thuần thục',
-      dueText: `Hạn ôn: ${timeText} · S: ${s.toFixed(1)}d`
+      statusLabel: 'Thuần thục',
+      statusIcon: '🏆',
+      shortDueText,
+      tierLabel,
+      tierLevel,
+      dueFullText,
+      stability: s,
+      difficulty: d,
+      reps,
+      lapses,
+      interval,
+      dueDateFormatted
     };
   }
 
   return {
     statusClass: 'status-learning',
-    statusLabel: '🌱 Đang nhớ',
-    dueText: `Hạn ôn: ${timeText} · S: ${s.toFixed(1)}d`
+    statusLabel: 'Đang nhớ',
+    statusIcon: '🌱',
+    shortDueText,
+    tierLabel,
+    tierLevel,
+    dueFullText,
+    stability: s,
+    difficulty: d,
+    reps,
+    lapses,
+    interval,
+    dueDateFormatted
   };
 }
 
@@ -99,15 +167,24 @@ export function renderLibraryTab(app) {
       <!-- 1. Hero Header Banner -->
       <div class="library-hero-banner">
         <div class="library-hero-left">
-          <div class="library-hero-icon">📚</div>
-          <div class="library-hero-text">
-            <h2 class="library-hero-title">Thư Viện Từ Vựng</h2>
-            <p class="library-hero-subtitle" id="lib-total-count-text">Khám phá và tra cứu toàn bộ kho từ vựng</p>
+          <div class="library-hero-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              <path d="M8 7h8"/>
+              <path d="M8 11h6"/>
+            </svg>
+          </div>
+          <div>
+            <h1 class="library-hero-title">Thư Viện Từ Vựng</h1>
+            <p class="library-hero-subtitle" id="lib-total-count-text">
+              Tổng hợp toàn bộ ${allCards.length.toLocaleString('vi-VN')} từ vựng với thuật toán FSRS-6
+            </p>
           </div>
         </div>
         <div class="library-hero-actions">
-          <button class="btn-library-study" id="btn-lib-study-filtered" title="Bắt đầu học danh sách từ đang lọc">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <button class="btn-library-study" id="btn-lib-study-filtered" title="Học ngay danh sách đang lọc">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="5 3 19 12 5 21 5 3"/>
             </svg>
             <span id="btn-lib-study-label">Học danh sách này</span>
@@ -115,86 +192,110 @@ export function renderLibraryTab(app) {
         </div>
       </div>
 
-      <!-- 2. Controls Panel: Search & Multi-Filters -->
+      <!-- 2. Control Bar: Search & Multi-Filters Panel -->
       <div class="library-controls-panel">
-        <!-- Search Input -->
+        <!-- Search Bar -->
         <div class="library-search-wrapper">
           <span class="library-search-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="11" cy="11" r="8"/>
-              <path d="m21 21-4.35-4.35"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
             </svg>
           </span>
           <input 
             type="text" 
             id="lib-search-input" 
             class="library-search-input" 
-            placeholder="Tìm kiếm từ tiếng Anh, phiên âm, hoặc nghĩa tiếng Việt..." 
+            placeholder="Tìm kiếm theo từ tiếng Anh, phiên âm, hoặc nghĩa tiếng Việt..." 
             value="${escapeHTML(_libState.searchQuery)}"
             autocomplete="off"
             spellcheck="false"
           />
-          <button id="lib-search-clear" class="library-search-clear ${Boolean(_libState.searchQuery) ? 'visible' : ''}">✕</button>
+          ${_libState.searchQuery ? `
+            <button class="btn-clear-search" id="btn-clear-search" title="Xóa tìm kiếm">✕</button>
+          ` : ''}
         </div>
 
-        <!-- CEFR Filter Row -->
-        <div class="library-filter-row">
-          <span class="filter-row-label">Trình độ:</span>
-          <div class="library-chip-group" id="lib-cefr-chips">
-            <button class="chip-btn ${_libState.selectedCefr === 'all' ? 'active' : ''}" data-cefr="all">Tất cả</button>
-            <button class="chip-btn ${_libState.selectedCefr === 'a1' ? 'active' : ''}" data-cefr="a1">A1 (Cơ bản)</button>
-            <button class="chip-btn ${_libState.selectedCefr === 'a2' ? 'active' : ''}" data-cefr="a2">A2 (Sơ cấp)</button>
-            <button class="chip-btn ${_libState.selectedCefr === 'b1' ? 'active' : ''}" data-cefr="b1">B1 (Trung cấp)</button>
-            <button class="chip-btn ${_libState.selectedCefr === 'b2' ? 'active' : ''}" data-cefr="b2">B2 (Trung cao)</button>
-            <button class="chip-btn ${_libState.selectedCefr === 'c1' ? 'active' : ''}" data-cefr="c1">C1 (Cao cấp)</button>
-            <button class="chip-btn ${_libState.selectedCefr === 'c2' ? 'active' : ''}" data-cefr="c2">C2 (Thành thạo)</button>
+        <!-- Filter Row 1: CEFR Level Chips -->
+        <div class="library-filter-group">
+          <span class="filter-group-label">Trình độ:</span>
+          <div class="filter-chips-scroll" id="lib-cefr-chips">
+            <button class="chip-filter ${!_libState.selectedCefr || _libState.selectedCefr === 'all' ? 'active' : ''}" data-cefr="all">
+              Tất cả
+            </button>
+            <button class="chip-filter ${_libState.selectedCefr === 'a1' ? 'active' : ''}" data-cefr="a1">
+              A1 <span class="chip-sub">Cơ bản</span>
+            </button>
+            <button class="chip-filter ${_libState.selectedCefr === 'a2' ? 'active' : ''}" data-cefr="a2">
+              A2 <span class="chip-sub">Sơ cấp</span>
+            </button>
+            <button class="chip-filter ${_libState.selectedCefr === 'b1' ? 'active' : ''}" data-cefr="b1">
+              B1 <span class="chip-sub">Trung cấp</span>
+            </button>
+            <button class="chip-filter ${_libState.selectedCefr === 'b2' ? 'active' : ''}" data-cefr="b2">
+              B2 <span class="chip-sub">Trung cao</span>
+            </button>
+            <button class="chip-filter ${_libState.selectedCefr === 'c1' ? 'active' : ''}" data-cefr="c1">
+              C1 <span class="chip-sub">Cao cấp</span>
+            </button>
+            <button class="chip-filter ${_libState.selectedCefr === 'c2' ? 'active' : ''}" data-cefr="c2">
+              C2 <span class="chip-sub">Thành thạo</span>
+            </button>
           </div>
         </div>
 
-        <!-- FSRS Status Filter Row -->
-        <div class="library-filter-row">
-          <span class="filter-row-label">Trạng thái FSRS:</span>
-          <div class="library-chip-group" id="lib-status-chips">
-            <button class="chip-btn ${_libState.selectedStatus === 'all' ? 'active' : ''}" data-status="all">Tất cả</button>
-            <button class="chip-btn ${_libState.selectedStatus === 'due' ? 'active' : ''}" data-status="due">⏰ Cần ôn tập</button>
-            <button class="chip-btn ${_libState.selectedStatus === 'new' ? 'active' : ''}" data-status="new">✨ Chưa học</button>
-            <button class="chip-btn ${_libState.selectedStatus === 'learning' ? 'active' : ''}" data-status="learning">🌱 Đang nhớ</button>
-            <button class="chip-btn ${_libState.selectedStatus === 'mastered' ? 'active' : ''}" data-status="mastered">🏆 Thuần thục</button>
+        <!-- Filter Row 2: FSRS Status Chips -->
+        <div class="library-filter-group">
+          <span class="filter-group-label">Trạng thái:</span>
+          <div class="filter-chips-scroll" id="lib-status-chips">
+            <button class="chip-filter ${!_libState.selectedStatus || _libState.selectedStatus === 'all' ? 'active' : ''}" data-status="all">
+              Tất cả trạng thái
+            </button>
+            <button class="chip-filter ${_libState.selectedStatus === 'due' ? 'active' : ''}" data-status="due">
+              ⏰ Cần ôn ngay
+            </button>
+            <button class="chip-filter ${_libState.selectedStatus === 'learning' ? 'active' : ''}" data-status="learning">
+              🌱 Đang học
+            </button>
+            <button class="chip-filter ${_libState.selectedStatus === 'new' ? 'active' : ''}" data-status="new">
+              ✨ Thẻ mới
+            </button>
+            <button class="chip-filter ${_libState.selectedStatus === 'mastered' ? 'active' : ''}" data-status="mastered">
+              🏆 Thuần thục
+            </button>
           </div>
         </div>
 
-        <!-- Secondary Dropdowns Row: Topic, Sort, PageSize -->
-        <div class="library-dropdowns-row">
-          <!-- Topic Selector -->
-          <div class="library-select-wrap">
-            <span>Chủ đề:</span>
-            <select id="lib-select-deck" class="library-select">
-              <option value="all">Tất cả chủ đề (${allCards.length} từ)</option>
-              ${decks.map(d => {
-                const count = (d.wordIds ? d.wordIds.length : (d.cards ? d.cards.length : 0));
-                return `<option value="${d.id}" ${_libState.selectedDeck === d.id ? 'selected' : ''}>${d.icon || '📖'} ${escapeHTML(d.title || d.name)} (${count})</option>`;
-              }).join('')}
+        <!-- Filter Row 3: Deck Selector & Sorting & Page Size -->
+        <div class="library-selectors-bar">
+          <div class="selector-field">
+            <label for="lib-deck-select">Chủ đề:</label>
+            <select id="lib-deck-select" class="library-select">
+              <option value="all">Toàn bộ chủ đề (${decks.length})</option>
+              ${decks.map(d => `
+                <option value="${escapeHTML(d.id)}" ${_libState.selectedDeck === d.id ? 'selected' : ''}>
+                  ${escapeHTML(d.name || d.id)}
+                </option>
+              `).join('')}
             </select>
           </div>
 
-          <!-- Sort Order Selector -->
-          <div class="library-select-wrap">
-            <span>Sắp xếp:</span>
-            <select id="lib-select-sort" class="library-select">
-              <option value="due_asc" ${_libState.sortBy === 'due_asc' ? 'selected' : ''}>⏰ Hạn ôn gần nhất</option>
-              <option value="cefr_asc" ${_libState.sortBy === 'cefr_asc' ? 'selected' : ''}>📊 Trình độ: A1 ➔ C2</option>
-              <option value="cefr_desc" ${_libState.sortBy === 'cefr_desc' ? 'selected' : ''}>📊 Trình độ: C2 ➔ A1</option>
-              <option value="stability_desc" ${_libState.sortBy === 'stability_desc' ? 'selected' : ''}>🧠 Độ bền FSRS (Cao ➔ Thấp)</option>
-              <option value="stability_asc" ${_libState.sortBy === 'stability_asc' ? 'selected' : ''}>🌱 Độ bền FSRS (Thấp ➔ Cao)</option>
-              <option value="alpha_asc" ${_libState.sortBy === 'alpha_asc' ? 'selected' : ''}>🔤 Từ A ➔ Z</option>
-              <option value="alpha_desc" ${_libState.sortBy === 'alpha_desc' ? 'selected' : ''}>🔤 Từ Z ➔ A</option>
+          <div class="selector-field">
+            <label for="lib-sort-select">Sắp xếp:</label>
+            <select id="lib-sort-select" class="library-select">
+              <option value="due_asc" ${_libState.sortBy === 'due_asc' ? 'selected' : ''}>Hạn ôn tập (Gần nhất trước)</option>
+              <option value="alpha_asc" ${_libState.sortBy === 'alpha_asc' ? 'selected' : ''}>Từ A đến Z</option>
+              <option value="alpha_desc" ${_libState.sortBy === 'alpha_desc' ? 'selected' : ''}>Từ Z đến A</option>
+              <option value="cefr_asc" ${_libState.sortBy === 'cefr_asc' ? 'selected' : ''}>Cấp độ (A1 ➔ C2)</option>
+              <option value="cefr_desc" ${_libState.sortBy === 'cefr_desc' ? 'selected' : ''}>Cấp độ (C2 ➔ A1)</option>
+              <option value="stability_desc" ${_libState.sortBy === 'stability_desc' ? 'selected' : ''}>Độ nhớ cao nhất</option>
+              <option value="stability_asc" ${_libState.sortBy === 'stability_asc' ? 'selected' : ''}>Độ nhớ thấp nhất</option>
             </select>
           </div>
 
-          <!-- Page Size Selector -->
-          <div class="library-select-wrap">
-            <span>Hiển thị:</span>
-            <select id="lib-select-pagesize" class="library-select">
+          <div class="selector-field">
+            <label for="lib-pagesize-select">Hiển thị:</label>
+            <select id="lib-pagesize-select" class="library-select">
               <option value="10" ${_libState.pageSize === 10 ? 'selected' : ''}>10 từ / trang</option>
               <option value="20" ${_libState.pageSize === 20 ? 'selected' : ''}>20 từ / trang</option>
               <option value="50" ${_libState.pageSize === 50 ? 'selected' : ''}>50 từ / trang</option>
@@ -203,90 +304,87 @@ export function renderLibraryTab(app) {
         </div>
       </div>
 
-      <!-- 3. Results Meta Header -->
-      <div class="library-results-meta">
-        <span id="lib-results-summary">Đang tải danh sách từ vựng...</span>
-        <span id="lib-pagination-info">Trang 1 / 1</span>
+      <!-- 3. Meta & Counter Bar -->
+      <div class="library-meta-bar">
+        <div class="library-results-summary" id="lib-results-summary">
+          Đang tải dữ liệu từ vựng...
+        </div>
+        <div class="library-pagination-info" id="lib-pagination-info"></div>
       </div>
 
-      <!-- 4. Word Cards Grid Container -->
-      <div class="library-words-grid" id="lib-words-grid"></div>
+      <!-- 4. Vocabulary Words Rows List Container (1 Row Per Word) -->
+      <div class="library-words-list" id="lib-words-list">
+        <!-- Rendered dynamically -->
+      </div>
 
-      <!-- 5. Pagination Bar -->
-      <div class="library-pagination-bar" id="lib-pagination-bar"></div>
+      <!-- 5. Bottom Pagination Bar -->
+      <div class="library-pagination-bar" id="lib-pagination-bar">
+        <!-- Rendered dynamically -->
+      </div>
     </div>
   `;
 
-  // Gắn sự kiện điều khiển
-  attachLibraryEvents(app);
+  // 2. Gắn Event Listeners
+  setupLibraryEventListeners(app);
 
-  // Render danh sách từ
+  // 3. Render danh sách từ vựng
   renderLibraryWords(app);
 }
 
 /**
- * Gắn các sự kiện Filter, Search, Sort & Pagination
+ * Gắn các sự kiện tương tác cho View Thư viện
  */
-function attachLibraryEvents(app) {
+function setupLibraryEventListeners(app) {
   const searchInput = document.getElementById('lib-search-input');
-  const searchClear = document.getElementById('lib-search-clear');
   const cefrChips = document.getElementById('lib-cefr-chips');
   const statusChips = document.getElementById('lib-status-chips');
-  const selectDeck = document.getElementById('lib-select-deck');
-  const selectSort = document.getElementById('lib-select-sort');
-  const selectPageSize = document.getElementById('lib-select-pagesize');
+  const selectDeck = document.getElementById('lib-deck-select');
+  const selectSort = document.getElementById('lib-sort-select');
+  const selectPageSize = document.getElementById('lib-pagesize-select');
   const btnStudyFiltered = document.getElementById('btn-lib-study-filtered');
 
-  // Search input với debounce mượt mà
-  let searchTimer = null;
+  // Search input với debounce
+  let searchTimeout = null;
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
-      clearTimeout(searchTimer);
-      searchTimer = setTimeout(() => {
-        _libState.searchQuery = (e.target.value || '').trim();
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        _libState.searchQuery = e.target.value.trim();
         _libState.currentPage = 1;
-        if (searchClear) {
-          searchClear.classList.toggle('visible', Boolean(_libState.searchQuery));
-        }
         renderLibraryWords(app);
-      }, 150);
+      }, 250);
     });
   }
 
-  if (searchClear) {
-    searchClear.addEventListener('click', () => {
-      if (searchInput) searchInput.value = '';
-      _libState.searchQuery = '';
-      _libState.currentPage = 1;
-      searchClear.classList.remove('visible');
-      renderLibraryWords(app);
-      if (searchInput) searchInput.focus();
-    });
-  }
-
-  // CEFR chips filter
+  // CEFR chips
   if (cefrChips) {
     cefrChips.addEventListener('click', (e) => {
-      const btn = e.target.closest('.chip-btn');
-      if (!btn) return;
-      cefrChips.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      _libState.selectedCefr = btn.getAttribute('data-cefr') || 'all';
-      _libState.currentPage = 1;
-      renderLibraryWords(app);
+      const chip = e.target.closest('.chip-filter');
+      if (!chip) return;
+      const cefr = chip.getAttribute('data-cefr');
+      if (cefr) {
+        _libState.selectedCefr = cefr;
+        _libState.currentPage = 1;
+        cefrChips.querySelectorAll('.chip-filter').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        renderLibraryWords(app);
+      }
     });
   }
 
-  // FSRS status chips filter
+  // Status chips
   if (statusChips) {
     statusChips.addEventListener('click', (e) => {
-      const btn = e.target.closest('.chip-btn');
-      if (!btn) return;
-      statusChips.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      _libState.selectedStatus = btn.getAttribute('data-status') || 'all';
-      _libState.currentPage = 1;
-      renderLibraryWords(app);
+      const chip = e.target.closest('.chip-filter');
+      if (!chip) return;
+      const status = chip.getAttribute('data-status');
+      if (status) {
+        _libState.selectedStatus = status;
+        _libState.currentPage = 1;
+        statusChips.querySelectorAll('.chip-filter').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        renderLibraryWords(app);
+      }
     });
   }
 
@@ -423,21 +521,21 @@ function getFilteredAndSortedCards(app) {
 }
 
 /**
- * Render danh sách từ vựng kèm phân trang
+ * Render danh sách từ vựng dạng 1 dòng/từ kèm phân trang
  */
 function renderLibraryWords(app) {
-  const gridContainer = document.getElementById('lib-words-grid');
+  const listContainer = document.getElementById('lib-words-list');
   const paginationBar = document.getElementById('lib-pagination-bar');
   const resultsSummary = document.getElementById('lib-results-summary');
   const paginationInfo = document.getElementById('lib-pagination-info');
   const totalCountText = document.getElementById('lib-total-count-text');
   const btnStudyLabel = document.getElementById('btn-lib-study-label');
 
-  if (!gridContainer) return;
+  if (!listContainer) return;
 
   const totalAllCards = app.deckManager ? app.deckManager.getAllCards().length : 0;
   if (totalCountText) {
-    totalCountText.textContent = `Tổng cộng ${totalAllCards.toLocaleString('vi-VN')} từ vựng trong toàn bộ ứng dụng`;
+    totalCountText.textContent = `Tổng hợp toàn bộ ${totalAllCards.toLocaleString('vi-VN')} từ vựng với thuật toán FSRS-6`;
   }
 
   const filteredCards = getFilteredAndSortedCards(app);
@@ -467,96 +565,73 @@ function renderLibraryWords(app) {
 
   // Trường hợp không có kết quả
   if (pageCards.length === 0) {
-    gridContainer.innerHTML = `
+    listContainer.innerHTML = `
       <div class="library-empty-state">
         <span class="library-empty-icon">🔍</span>
         <h3 class="library-empty-title">Không tìm thấy từ vựng nào</h3>
-        <p class="library-empty-desc">Hãy thử thay đổi từ khóa tìm kiếm hoặc bỏ bớt các bộ lọc để xem thêm từ vựng.</p>
+        <p class="library-empty-desc">Hãy thử thay đổi từ khóa tìm kiếm hoặc chọn lại các bộ lọc bên trên.</p>
       </div>
     `;
     if (paginationBar) paginationBar.innerHTML = '';
     return;
   }
 
-  // Render danh sách các Word Card
+  // Render danh sách các Word Row (1 dòng/từ)
   const now = new Date();
   const frag = document.createDocumentFragment();
 
   pageCards.forEach(card => {
-    const cardEl = document.createElement('div');
-    cardEl.className = 'library-word-card';
+    const rowEl = document.createElement('div');
+    rowEl.className = 'library-word-row';
+    rowEl.setAttribute('role', 'button');
+    rowEl.setAttribute('tabindex', '0');
 
     const state = StorageManager.getCardState(card.id);
     const fsrsInfo = formatFSRSDueText(state, now);
     const cefr = (card.cefr || card.level || 'A1').toLowerCase();
     const pos = (card.pos || 'word').toUpperCase();
-    const imgSrc = card.img || card.image || '';
+    const phonetic = card.phonetic || card.ipa || '';
 
-    cardEl.innerHTML = `
-      <!-- 1. Thumbnail Image -->
-      <div class="library-word-thumbnail-wrap" title="${imgSrc ? 'Nhấn để phóng to ảnh' : 'Từ vựng'}">
-        ${imgSrc 
-          ? `<img src="${escapeHTML(imgSrc)}" class="library-word-thumbnail" alt="${escapeHTML(card.word)}" loading="lazy" decoding="async" />`
-          : `<span class="thumbnail-placeholder">📖</span>`
-        }
+    rowEl.innerHTML = `
+      <!-- 1. Sound Button -->
+      <button class="btn-row-sound" data-word="${escapeHTML(card.word || '')}" title="Phát âm từ vựng" aria-label="Phát âm">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+        </svg>
+      </button>
+
+      <!-- 2. Main Word & Info Group -->
+      <div class="library-row-main">
+        <div class="library-row-header-group">
+          <span class="library-row-word">${escapeHTML(card.word || '')}</span>
+          ${phonetic ? `<span class="library-row-ipa">${escapeHTML(phonetic)}</span>` : ''}
+          <span class="badge-cefr" data-cefr="${cefr}">${cefr.toUpperCase()}</span>
+          <span class="badge-pos">${escapeHTML(pos)}</span>
+        </div>
+        <div class="library-row-meaning">${escapeHTML(card.meaning || '')}</div>
       </div>
 
-      <!-- 2. Main Content Body -->
-      <div class="library-word-body">
-        <div class="library-word-header">
-          <div class="library-word-title-group">
-            <h3 class="library-word-text">${escapeHTML(card.word || '')}</h3>
-            ${card.phonetic || card.ipa ? `<span class="library-word-ipa">${escapeHTML(card.phonetic || card.ipa)}</span>` : ''}
-            <div class="library-badges-wrap">
-              <span class="badge-pos">${escapeHTML(pos)}</span>
-              <span class="badge-cefr" data-cefr="${cefr}">${cefr.toUpperCase()}</span>
-            </div>
-          </div>
+      <!-- 3. FSRS Status & Short Due Pill -->
+      <div class="library-row-status-wrap">
+        <span class="fsrs-status-tag ${fsrsInfo.statusClass}" title="${fsrsInfo.dueFullText}">
+          <span class="fsrs-status-icon">${fsrsInfo.statusIcon}</span>
+          <span class="fsrs-status-text">${fsrsInfo.statusLabel}</span>
+        </span>
+        <span class="fsrs-due-time">${fsrsInfo.shortDueText}</span>
+      </div>
 
-          <div class="library-card-actions">
-            <button class="btn-card-sound" data-word="${escapeHTML(card.word || '')}" title="Phát âm từ vựng" aria-label="Phát âm">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
-              </svg>
-            </button>
-            <button class="btn-card-single-study" data-card-id="${escapeHTML(card.id)}" title="Học riêng từ này">
-              Ôn thẻ
-            </button>
-          </div>
-        </div>
-
-        <!-- Meaning -->
-        <p class="library-word-meaning">${escapeHTML(card.meaning || '')}</p>
-
-        <!-- Definition in English -->
-        ${card.definition || card.def ? `<p class="library-word-def">${escapeHTML(card.definition || card.def)}</p>` : ''}
-
-        <!-- Example Sentences -->
-        ${card.example ? `
-          <div class="library-word-example">
-            <span>"${escapeHTML(card.example)}"</span>
-            ${card.exampleVi ? `<div class="library-word-example-vi">${escapeHTML(card.exampleVi)}</div>` : ''}
-          </div>
-        ` : ''}
-
-        <!-- FSRS Footer Meta -->
-        <div class="library-word-fsrs-meta">
-          <span class="fsrs-status-tag ${fsrsInfo.statusClass}">${fsrsInfo.statusLabel}</span>
-          <span class="fsrs-due-info">${fsrsInfo.dueText}</span>
-        </div>
+      <!-- 4. Chevron Indicator -->
+      <div class="library-row-chevron" title="Xem chi tiết từ vựng">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
       </div>
     `;
 
-    // Click xem ảnh phóng to
-    const imgWrap = cardEl.querySelector('.library-word-thumbnail-wrap');
-    if (imgWrap && imgSrc) {
-      imgWrap.onclick = () => openImageLightbox(imgSrc, card.word);
-    }
-
-    // Click phát âm
-    const soundBtn = cardEl.querySelector('.btn-card-sound');
+    // Click Sound Button: Phát âm mà không mở popup
+    const soundBtn = rowEl.querySelector('.btn-row-sound');
     if (soundBtn) {
       soundBtn.onclick = (e) => {
         e.stopPropagation();
@@ -565,20 +640,24 @@ function renderLibraryWords(app) {
       };
     }
 
-    // Click ôn riêng từ này
-    const studyBtn = cardEl.querySelector('.btn-card-single-study');
-    if (studyBtn) {
-      studyBtn.onclick = (e) => {
-        e.stopPropagation();
-        app.startStudySession(card.deckId || null, null, [card]);
-      };
-    }
+    // Click cả hàng để mở Word Detail Modal
+    rowEl.onclick = (e) => {
+      if (e.target.closest('.btn-row-sound')) return;
+      openWordDetailModal(card, app);
+    };
 
-    frag.appendChild(cardEl);
+    rowEl.onkeydown = (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openWordDetailModal(card, app);
+      }
+    };
+
+    frag.appendChild(rowEl);
   });
 
-  gridContainer.innerHTML = '';
-  gridContainer.appendChild(frag);
+  listContainer.innerHTML = '';
+  listContainer.appendChild(frag);
 
   // Render thanh phân trang
   renderPaginationBar(app, totalPages, currentPage);
@@ -675,7 +754,230 @@ function renderPaginationBar(app, totalPages, currentPage) {
 }
 
 /**
- * Mở modal phóng to hình ảnh
+ * Mở Modal Popup Chi Tiết Từ Vựng Đầy Đủ (Word Detail Modal)
+ */
+export function openWordDetailModal(card, app) {
+  if (!card) return;
+
+  let modal = document.getElementById('word-detail-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'word-detail-modal';
+    modal.className = 'word-detail-modal-overlay';
+    document.body.appendChild(modal);
+  }
+
+  const now = new Date();
+  const state = StorageManager.getCardState(card.id);
+  const fsrsInfo = formatFSRSDueText(state, now);
+  const cefr = (card.cefr || card.level || 'A1').toLowerCase();
+  const pos = (card.pos || 'word').toUpperCase();
+  const imgSrc = card.img || card.image || '';
+  const phonetic = card.phonetic || card.ipa || '';
+
+  // Render Modal HTML
+  modal.innerHTML = `
+    <div class="word-detail-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-word-title">
+      <!-- Modal Header -->
+      <div class="word-detail-header">
+        <div class="word-detail-header-tags">
+          <span class="badge-cefr" data-cefr="${cefr}">${cefr.toUpperCase()}</span>
+          <span class="badge-pos">${escapeHTML(pos)}</span>
+        </div>
+        <button class="btn-detail-close" id="btn-close-word-modal" title="Đóng (Esc)" aria-label="Đóng">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Modal Body (Scrollable) -->
+      <div class="word-detail-body">
+        <!-- 1. Hero Area: Image & Word Head -->
+        <div class="word-detail-hero">
+          ${imgSrc ? `
+            <div class="word-detail-image-wrap" id="detail-img-wrap" title="Nhấn để phóng to ảnh">
+              <img src="${escapeHTML(imgSrc)}" class="word-detail-img" alt="${escapeHTML(card.word)}" loading="eager" />
+              <span class="img-zoom-hint">🔍 Phóng to</span>
+            </div>
+          ` : ''}
+
+          <div class="word-detail-headline">
+            <h2 class="word-detail-title" id="modal-word-title">${escapeHTML(card.word || '')}</h2>
+            ${phonetic ? `<div class="word-detail-ipa">${escapeHTML(phonetic)}</div>` : ''}
+
+            <!-- Dual Audio Pronunciation Buttons -->
+            <div class="word-detail-audio-row">
+              <button class="btn-modal-sound btn-sound-us" id="btn-sound-us" title="Phát âm chuẩn Mỹ (US)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                </svg>
+                <span>US (Mỹ)</span>
+              </button>
+              <button class="btn-modal-sound btn-sound-uk" id="btn-sound-uk" title="Phát âm chuẩn Anh (UK)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                </svg>
+                <span>UK (Anh)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Meaning & Definition Box -->
+        <div class="word-detail-section meaning-box">
+          <div class="section-label">Nghĩa tiếng Việt:</div>
+          <div class="word-detail-meaning-text">${escapeHTML(card.meaning || '')}</div>
+          
+          ${card.definition || card.def ? `
+            <div class="section-label def-label">Định nghĩa tiếng Anh:</div>
+            <div class="word-detail-def-text">${escapeHTML(card.definition || card.def)}</div>
+          ` : ''}
+        </div>
+
+        <!-- 3. Example Sentences -->
+        ${card.example ? `
+          <div class="word-detail-section example-box">
+            <div class="section-label">Ví dụ câu thực tế:</div>
+            <div class="word-detail-example-en">"${escapeHTML(card.example)}"</div>
+            ${card.exampleVi ? `<div class="word-detail-example-vi">${escapeHTML(card.exampleVi)}</div>` : ''}
+          </div>
+        ` : ''}
+
+        <!-- 4. FSRS Spaced Repetition Analytics Box -->
+        <div class="word-detail-section fsrs-stats-box">
+          <div class="fsrs-box-header">
+            <div class="fsrs-box-title">
+              <span class="fsrs-icon">🧠</span> Tiến trình Trí nhớ FSRS-6
+            </div>
+            <span class="fsrs-tier-pill tier-${fsrsInfo.tierLevel}">
+              ${fsrsInfo.tierLabel}
+            </span>
+          </div>
+
+          <div class="fsrs-stats-grid">
+            <div class="fsrs-stat-item">
+              <div class="fsrs-stat-label">Trạng thái</div>
+              <div class="fsrs-stat-value">
+                <span class="fsrs-status-tag ${fsrsInfo.statusClass}">
+                  ${fsrsInfo.statusIcon} ${fsrsInfo.statusLabel}
+                </span>
+              </div>
+            </div>
+
+            <div class="fsrs-stat-item">
+              <div class="fsrs-stat-label">Hạn ôn tập tiếp theo</div>
+              <div class="fsrs-stat-value highlight">${escapeHTML(fsrsInfo.dueFullText)}</div>
+            </div>
+
+            <div class="fsrs-stat-item">
+              <div class="fsrs-stat-label">Độ bền (Stability S)</div>
+              <div class="fsrs-stat-value">${fsrsInfo.stability > 0 ? `${fsrsInfo.stability.toFixed(1)} ngày` : 'Chưa học'}</div>
+            </div>
+
+            <div class="fsrs-stat-item">
+              <div class="fsrs-stat-label">Độ khó (Difficulty D)</div>
+              <div class="fsrs-stat-value">${fsrsInfo.difficulty > 0 ? `${fsrsInfo.difficulty.toFixed(1)} / 10` : 'Chưa học'}</div>
+            </div>
+
+            <div class="fsrs-stat-item">
+              <div class="fsrs-stat-label">Số lần đã ôn</div>
+              <div class="fsrs-stat-value">${fsrsInfo.reps} lần</div>
+            </div>
+
+            <div class="fsrs-stat-item">
+              <div class="fsrs-stat-label">Số lần quên (Lapses)</div>
+              <div class="fsrs-stat-value">${fsrsInfo.lapses} lần</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Action Footer -->
+      <div class="word-detail-footer">
+        <button class="btn-detail-secondary" id="btn-close-modal-bottom">
+          Đóng
+        </button>
+        <button class="btn-detail-primary" id="btn-study-this-card">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          Ôn tập thẻ này ngay
+        </button>
+      </div>
+    </div>
+  `;
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  // Sự kiện nút đóng
+  const closeModal = () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  const btnClose = modal.querySelector('#btn-close-word-modal');
+  const btnCloseBottom = modal.querySelector('#btn-close-modal-bottom');
+  if (btnClose) btnClose.onclick = closeModal;
+  if (btnCloseBottom) btnCloseBottom.onclick = closeModal;
+
+  // Click outside dialog to close
+  modal.onclick = (e) => {
+    if (e.target === modal) closeModal();
+  };
+
+  // Esc key to close
+  const onKeyDown = (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+      window.removeEventListener('keydown', onKeyDown);
+    }
+  };
+  window.addEventListener('keydown', onKeyDown);
+
+  // Phóng to ảnh trong modal
+  const detailImgWrap = modal.querySelector('#detail-img-wrap');
+  if (detailImgWrap && imgSrc) {
+    detailImgWrap.onclick = () => openImageLightbox(imgSrc, card.word);
+  }
+
+  // Audio US / UK
+  const btnUs = modal.querySelector('#btn-sound-us');
+  const btnUk = modal.querySelector('#btn-sound-uk');
+
+  if (btnUs) {
+    btnUs.onclick = () => {
+      btnUs.classList.add('playing');
+      speak(card.word, { accent: 'us', cardObj: card });
+    };
+  }
+
+  if (btnUk) {
+    btnUk.onclick = () => {
+      btnUk.classList.add('playing');
+      speak(card.word, { accent: 'uk', cardObj: card });
+    };
+  }
+
+  // Học riêng từ này
+  const btnStudy = modal.querySelector('#btn-study-this-card');
+  if (btnStudy) {
+    btnStudy.onclick = () => {
+      closeModal();
+      if (app && app.startStudySession) {
+        app.startStudySession(card.deckId || null, null, [card]);
+      }
+    };
+  }
+}
+
+/**
+ * Mở modal phóng to hình ảnh (Lightbox)
  */
 function openImageLightbox(src, altText = '') {
   let modal = document.getElementById('image-lightbox-modal');
@@ -687,11 +989,16 @@ function openImageLightbox(src, altText = '') {
   }
 
   modal.innerHTML = `
-    <img src="${escapeHTML(src)}" class="image-lightbox-content" alt="${escapeHTML(altText)}" />
+    <div class="image-lightbox-container">
+      <img src="${escapeHTML(src)}" class="image-lightbox-content" alt="${escapeHTML(altText)}" />
+      <button class="image-lightbox-close" title="Đóng">✕</button>
+    </div>
   `;
   modal.style.display = 'flex';
 
-  modal.onclick = () => {
-    modal.style.display = 'none';
+  modal.onclick = (e) => {
+    if (e.target === modal || e.target.classList.contains('image-lightbox-close')) {
+      modal.style.display = 'none';
+    }
   };
 }
