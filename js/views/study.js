@@ -51,11 +51,11 @@ export function renderStudyOverlayShell() {
                 <img id="card-front-img" class="fc-image" alt="Visual" />
               </div>
               <div class="card-word-info">
-                <h2 class="card-word-title fc-title" id="card-front-word">...</h2>
-                <p class="card-word-phonetic fc-phonetic" id="card-front-phonetic">/ ... /</p>
                 <button class="card-sound-btn fc-sound-btn" id="btn-audio-speaker" type="button" title="Phát âm từ vựng (R)" aria-label="Phát âm từ vựng">
                   🔊 Phát âm
                 </button>
+                <h2 class="card-word-title fc-title" id="card-front-word">...</h2>
+                <p class="card-word-phonetic fc-phonetic" id="card-front-phonetic">/ ... /</p>
               </div>
               <div class="card-hint-flip">
                 <span class="hint-touch">👆 Chạm để lật mặt sau</span>
