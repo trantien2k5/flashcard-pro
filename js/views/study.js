@@ -327,12 +327,33 @@ export function handleCardChange(app, card, progress) {
   try {
     const flashcardEl = document.getElementById('flashcard-element');
     const fsrsButtonsContainer = document.getElementById('fsrs-buttons-container');
+    const flashcardStage = document.querySelector('.flashcard-stage');
 
     if (!flashcardEl || !fsrsButtonsContainer) return;
 
-    // Reset về mặt trước và tắt trạng thái phát âm thanh
+    // 1. Tắt transition và đưa thẻ về mặt trước (0deg) ngay lập tức (0ms)
+    // Ngăn chặn hoàn toàn hiện tượng lộ nghĩa tiếng Việt của từ mới khi chuyển thẻ
+    flashcardEl.classList.add('no-transition');
     flashcardEl.classList.remove('flipped');
     fsrsButtonsContainer.classList.remove('visible');
+
+    // Buộc trình duyệt reflow ngay góc quay 0deg trước khi cập nhật nội dung
+    void flashcardEl.offsetHeight;
+
+    // Kích hoạt hiệu ứng xuất hiện thẻ mới mượt mà
+    if (flashcardStage) {
+      flashcardStage.classList.remove('card-enter-anim');
+      void flashcardStage.offsetWidth;
+      flashcardStage.classList.add('card-enter-anim');
+    }
+
+    // Khôi phục lại hiệu ứng lật mượt sau khi đã ở mặt trước an toàn
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        flashcardEl.classList.remove('no-transition');
+      });
+    });
+
     document.getElementById('btn-audio-us')?.classList.remove('playing');
     document.getElementById('btn-audio-uk')?.classList.remove('playing');
 

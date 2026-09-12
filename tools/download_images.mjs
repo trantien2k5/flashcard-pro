@@ -96,6 +96,66 @@ export function buildSmartQueries(wordObj) {
     queries.push('penalty payment', 'loan payment document', 'bank invoice document');
   } else if (id.includes('ebitda') || id.includes('earnings-before')) {
     queries.push('financial chart report', 'company profit graph', 'accounting statement spreadsheet');
+  } else if (id === 'dog') {
+    queries.push('friendly pet dog golden retriever sitting', 'cute pet dog happy');
+  } else if (id === 'cat') {
+    queries.push('cute fluffy pet cat sitting', 'domestic cat looking');
+  } else if (id === 'puppy') {
+    queries.push('adorable puppy dog playing grass', 'cute puppy golden retriever');
+  } else if (id === 'kitten') {
+    queries.push('cute fluffy kitten cat playing', 'small baby kitten');
+  } else if (id === 'rabbit') {
+    queries.push('cute fluffy pet rabbit sitting grass', 'pet rabbit bunny carrot');
+  } else if (id === 'hamster') {
+    queries.push('cute pet hamster furry cheeks', 'small pet hamster');
+  } else if (id === 'parrot') {
+    queries.push('colorful tropical parrot bird perched', 'green parrot bird');
+  } else if (id === 'goldfish') {
+    queries.push('orange goldfish swimming glass aquarium', 'goldfish swimming water');
+  } else if (id === 'turtle') {
+    queries.push('pet turtle crawling pond rocks', 'small pet turtle');
+  } else if (id === 'collar') {
+    queries.push('dog leather collar with tag', 'pet cat dog collar bell');
+  } else if (id === 'chicken') {
+    queries.push('domestic farm chicken hen grazing', 'farm chicken free range');
+  } else if (id === 'duck') {
+    queries.push('domestic farm duck swimming pond', 'yellow white duck bird');
+  } else if (id === 'pig') {
+    queries.push('cute pink farm pig in barn', 'domestic farm pig');
+  } else if (id === 'cow') {
+    queries.push('holstein dairy cow grazing pasture', 'farm cow cattle green grass');
+  } else if (id === 'horse') {
+    queries.push('majestic brown horse galloping field', 'horse pasture portrait');
+  } else if (id === 'sheep') {
+    queries.push('fluffy white sheep grazing green meadow', 'sheep wool farm');
+  } else if (id === 'goat') {
+    queries.push('farm goat with horns standing hill', 'domestic farm goat');
+  } else if (id === 'rooster') {
+    queries.push('proud colorful rooster crowing farm', 'rooster chicken crest');
+  } else if (id === 'goose') {
+    queries.push('white farm goose water bird', 'flock of white geese');
+  } else if (id === 'buffalo') {
+    queries.push('water buffalo farm field asia', 'domestic water buffalo');
+  } else if (id === 'bee') {
+    queries.push('honeybee collecting nectar on flower', 'bumblebee yellow flower');
+  } else if (id === 'ant') {
+    queries.push('worker ant crawling macro insect', 'ant on green leaf');
+  } else if (id === 'butterfly') {
+    queries.push('monarch butterfly perched on garden flower', 'colorful butterfly flower');
+  } else if (id === 'spider') {
+    queries.push('garden spider on silk web macro', 'spider web garden');
+  } else if (id === 'mosquito') {
+    queries.push('mosquito insect macro close up', 'mosquito bug');
+  } else if (id === 'frog') {
+    queries.push('bright green tree frog lotus leaf pond', 'little green frog');
+  } else if (id === 'lizard') {
+    queries.push('small gecko lizard wall reptile', 'green lizard reptile');
+  } else if (id === 'snail') {
+    queries.push('garden snail creeping on green leaf', 'snail with shell');
+  } else if (id === 'fly-insect') {
+    queries.push('house fly insect macro close up', 'common housefly');
+  } else if (id === 'mouse-animal') {
+    queries.push('cute little field mouse in grass', 'brown mouse rodent mammal');
   } else if (id === 'laundry') {
     queries.push('laundry basket clothes washing', 'folded clean laundry clothes', 'laundry hamper');
   } else if (id === 'mop') {

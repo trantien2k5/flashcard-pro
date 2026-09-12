@@ -4499,6 +4499,49 @@ export const TOPICS = [
     },
     "icon": "💰",
     "color": "#14b8a6"
+  },
+  {
+    "id": "pets-animals",
+    "name": "Thú Cưng & Động Vật Gần Gũi",
+    "parentId": null,
+    "description": "Kho từ vựng thiết yếu về các loài thú cưng trong nhà, vật nuôi nông trại và côn trùng quen thuộc hằng ngày.",
+    "icon": "🐾",
+    "category": "daily",
+    "color": "#f97316",
+    "titleEn": "Pets & Familiar Animals",
+    "order": 18
+  },
+  {
+    "id": "pets-animals-chặng-1",
+    "name": "1. Thú cưng trong nhà & Gia đình",
+    "parentId": "pets-animals",
+    "description": "Gồm 10 từ vựng gần gũi về các loài thú cưng nuôi trong nhà và gia đình.",
+    "icon": "🐕",
+    "color": "#f97316"
+  },
+  {
+    "id": "pets-animals-chặng-2",
+    "name": "2. Vật nuôi & Gia súc Nông trại",
+    "parentId": "pets-animals",
+    "description": "Gồm 10 từ vựng phổ biến về gia súc, gia cầm và vật nuôi đồng quê.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "pets-animals-chặng-1"
+    },
+    "icon": "🐄",
+    "color": "#10b981"
+  },
+  {
+    "id": "pets-animals-chặng-3",
+    "name": "3. Côn trùng & Sinh vật Quen thuộc",
+    "parentId": "pets-animals",
+    "description": "Gồm 10 từ vựng thông dụng về các loài côn trùng và sinh vật nhỏ xung quanh ta.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "pets-animals-chặng-2"
+    },
+    "icon": "🐝",
+    "color": "#eab308"
   }
 ];
 

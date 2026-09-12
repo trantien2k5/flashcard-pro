@@ -293,6 +293,28 @@
   transform: rotateY(180deg);
 }
 
+/* Tắt chuyển động lật tức thì khi đổi thẻ để không bị lộ mặt sau của từ mới */
+.flashcard-3d-wrapper.no-transition {
+  transition: none !important;
+  -webkit-transition: none !important;
+}
+
+/* Hiệu ứng chuyển thẻ mới mượt mà, tự nhiên */
+@keyframes cardEnterSubtle {
+  0% {
+    opacity: 0.8;
+    transform: translateY(6px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.flashcard-stage.card-enter-anim {
+  animation: cardEnterSubtle 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 .flashcard-face {
   position: absolute;
   top: 0;
