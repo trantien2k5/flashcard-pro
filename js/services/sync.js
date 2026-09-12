@@ -11,7 +11,7 @@ const PAIR_RESP_PREFIX = 'fc_fsrs_resp_';
 
 const RELAY_SERVERS = [
   'https://ntfy.envs.net',
-  'https://ntfy.ca'
+  'https://ntfy.projectsegfau.lt'
 ];
 
 /**
