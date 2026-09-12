@@ -281,7 +281,7 @@
   border-radius: clamp(18px, 3vh, 24px);
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
-  transition: transform 0.52s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
   cursor: pointer;
   will-change: transform;
   -webkit-user-select: none;
@@ -708,7 +708,7 @@
   visibility: hidden;
   transform: translateY(6px);
   pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  transition: opacity 0.18s cubic-bezier(0.22, 1, 0.36, 1), transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.18s;
 }
 
 .fsrs-buttons-grid.visible {
