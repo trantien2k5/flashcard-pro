@@ -369,7 +369,7 @@ export class FlashcardApp {
     try { renderProfileTab(this); } catch (err) { console.error('Lỗi renderProfileTab:', err); }
   }
 
-  async startStudySession(deckId = null, subtopic = null, customCards = null) {
+  async startStudySession(deckId = null, subtopic = null, customCards = null, options = {}) {
     try {
       let queue = [];
       if (Array.isArray(customCards) && customCards.length > 0) {
@@ -378,12 +378,16 @@ export class FlashcardApp {
         if (deckId && this.deckManager && this.deckManager.ensureTopicLoaded) {
           await this.deckManager.ensureTopicLoaded(deckId);
         }
-        const studyData = this.deckManager.getStudyQueue(deckId, this.settings, subtopic);
+        const studyData = this.deckManager.getStudyQueue(deckId, this.settings, subtopic, options);
         queue = studyData.queue || [];
       }
 
       if (!queue || queue.length === 0) {
-        this.showToast('Tuyệt vời! Hiện chưa có từ nào đến hạn cần ôn trong mục này.', 'info');
+        if (options && options.mode === 'due_only') {
+          this.showToast('Tuyệt vời! Hiện chưa có từ nào đến hạn cần ôn trong mục này.', 'info');
+        } else {
+          this.showToast('Không có từ vựng nào để học trong mục này.', 'info');
+        }
         return;
       }
       startStudyView(this, queue);

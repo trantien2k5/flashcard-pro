@@ -279,7 +279,7 @@ export function renderDecksTab(app) {
       if (studyBtn) {
         studyBtn.onclick = (e) => {
           e.stopPropagation();
-          app.startStudySession(deck.id, null);
+          app.startStudySession(deck.id, null, null, { mode: stats.dueCount > 0 ? 'due_only' : 'new_only' });
         };
       }
 
@@ -449,7 +449,7 @@ export function renderSubtopicsPage(app, deckId) {
       const btnHeroStudy = heroContainer.querySelector('#btn-hero-study-deck');
       if (btnHeroStudy) {
         btnHeroStudy.onclick = () => {
-          app.startStudySession(deck.id, null);
+          app.startStudySession(deck.id, null, null, { mode: deckStats.dueCount > 0 ? 'due_only' : 'new_only' });
         };
       }
     }
@@ -632,8 +632,10 @@ export async function renderSubtopicDetailPage(app, deckId, subtopicName) {
       btnStudyModal.onclick = () => {
         const modal = document.getElementById('subtopic-detail-modal');
         if (modal) modal.classList.remove('active');
-        if (dueSubCount > 0 || learnedSubCount < subCards.length) {
-          app.startStudySession(deckId, subtopicName);
+        if (dueSubCount > 0) {
+          app.startStudySession(deckId, subtopicName, null, { mode: 'due_only' });
+        } else if (learnedSubCount < subCards.length) {
+          app.startStudySession(deckId, subtopicName, null, { mode: 'new_only' });
         } else {
           openSubtopicWordsPage(app, deckId, subtopicName);
         }

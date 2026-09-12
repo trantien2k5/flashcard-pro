@@ -117,22 +117,53 @@ async function runTestSuite() {
   assert(retrievedState.scheduled_days >= 4, 'Retrieved state scheduled_days >= 4');
   assert(!isCardDue(retrievedState, now), 'Retrieved state is NOT due today');
 
-  // Test Queue Selection
+  // Test Queue Selection with mixed set (1 due card, 1 future card, 1 new card)
+  const dueCardId = 'apple-due-card';
+  const newCardId = 'orange-new-card';
+  
+  // Set apple as due today
+  const dueState = {
+    id: dueCardId,
+    state: State.Review,
+    stability: 2.0,
+    difficulty: 5.0,
+    scheduled_days: 1,
+    reps: 2,
+    lapses: 0,
+    due: new Date(now.getTime() - 2 * 60 * 60 * 1000).toISOString() // 2 hours ago
+  };
+  StorageManager.saveCardState(dueState);
+
   const deckManager = new DeckManager();
   deckManager.wordsMap.set(mockCardId, { id: mockCardId, word: 'Banana', meaning: 'Quả chuối' });
-  deckManager.allCards = [{ id: mockCardId, word: 'Banana', meaning: 'Quả chuối' }];
+  deckManager.wordsMap.set(dueCardId, { id: dueCardId, word: 'Apple', meaning: 'Quả táo' });
+  deckManager.wordsMap.set(newCardId, { id: newCardId, word: 'Orange', meaning: 'Quả cam' });
+  deckManager.allCards = [
+    { id: mockCardId, word: 'Banana', meaning: 'Quả chuối' },
+    { id: dueCardId, word: 'Apple', meaning: 'Quả táo' },
+    { id: newCardId, word: 'Orange', meaning: 'Quả cam' }
+  ];
 
-  const queueResult = deckManager.getStudyQueue(null, { dailyNewLimit: 10, dailyReviewLimit: 50 });
-  
-  const inDue = queueResult.dueCards.some(c => c.id === mockCardId);
-  const inNew = queueResult.newCards.some(c => c.id === mockCardId);
-  const inQueue = queueResult.queue.some(c => c.id === mockCardId);
+  // Test mode: due_only
+  const dueOnlyResult = deckManager.getStudyQueue(null, { dailyNewLimit: 10, dailyReviewLimit: 50 }, null, { mode: 'due_only' });
+  assert(dueOnlyResult.queue.length === 1, `mode: due_only contains exactly 1 card (actual: ${dueOnlyResult.queue.length})`);
+  assert(dueOnlyResult.queue[0].id === dueCardId, 'mode: due_only contains ONLY the due card');
+  assert(!dueOnlyResult.queue.some(c => c.id === mockCardId), 'Future card is NOT in due_only queue');
+  assert(!dueOnlyResult.queue.some(c => c.id === newCardId), 'New card is NOT mixed into due_only queue');
 
-  assert(!inDue, 'Easy-rated card is NOT in dueCards today');
-  assert(!inNew, 'Easy-rated card is NOT in newCards today');
-  assert(!inQueue, 'Easy-rated card is NOT in study queue today (Leak prevented!)');
+  // Test mode: new_only
+  const newOnlyResult = deckManager.getStudyQueue(null, { dailyNewLimit: 10, dailyReviewLimit: 50 }, null, { mode: 'new_only' });
+  assert(newOnlyResult.queue.length === 1, `mode: new_only contains exactly 1 card (actual: ${newOnlyResult.queue.length})`);
+  assert(newOnlyResult.queue[0].id === newCardId, 'mode: new_only contains ONLY the new card');
+  assert(!newOnlyResult.queue.some(c => c.id === dueCardId), 'Due card is NOT in new_only queue');
+  assert(!newOnlyResult.queue.some(c => c.id === mockCardId), 'Future card is NOT in new_only queue');
 
-  // Test when 4 days pass
+  // Test default/auto mode when due cards exist -> auto isolates due cards
+  const autoResult = deckManager.getStudyQueue(null, { dailyNewLimit: 10, dailyReviewLimit: 50 });
+  assert(autoResult.queue.length === 1, 'Auto mode isolates due cards when due cards exist');
+  assert(autoResult.queue[0].id === dueCardId, 'Auto mode prioritized due card');
+
+  // Test when 5 days pass
   const futureNow = new Date(now.getTime() + 5 * 24 * 60 * 60 * 1000);
   assert(isCardDue(retrievedState, futureNow), 'Card correctly becomes DUE 5 days later');
 

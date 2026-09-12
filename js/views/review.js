@@ -318,7 +318,7 @@ export function renderReviewTab(app) {
 
         btnHeroCta.onclick = () => {
           try {
-            app.startStudySession(null, null);
+            app.startStudySession(null, null, null, { mode: 'due_only' });
           } catch (err) {
             console.error('Lỗi phiên ôn tập:', err);
             showToast('Lỗi: ' + err.message, 'error');

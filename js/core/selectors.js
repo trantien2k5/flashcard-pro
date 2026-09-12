@@ -328,9 +328,21 @@ export class DeckManager {
   }
 
   /**
-   * Lấy danh sách thẻ ưu tiên thông minh theo thuật toán FSRS (Chuẩn Anki)
+   * Lấy danh sách thẻ ưu tiên thông minh theo thuật toán FSRS
+   * @param {string|null} deckId
+   * @param {object} userSettings
+   * @param {string|null} subtopic
+   * @param {object} options - { mode: 'due_only' | 'new_only' | 'auto' | 'mixed' }
    */
-  getStudyQueue(deckId = null, settings = {}, subtopic = null) {
+  getStudyQueue(deckId = null, userSettings = {}, subtopic = null, options = {}) {
+    const settings = {
+      dailyNewLimit: 10,
+      dailyReviewLimit: 50,
+      ...userSettings
+    };
+
+    const mode = options?.mode || (options?.onlyDue ? 'due_only' : 'auto');
+
     let targetCards = [];
 
     if (deckId && subtopic) {
@@ -358,6 +370,7 @@ export class DeckManager {
         targetCards = this.getCardsByDeckId(deckId);
       }
     } else {
+      // Toàn bộ ứng dụng
       targetCards = this.allCards;
     }
 
@@ -410,11 +423,29 @@ export class DeckManager {
     const selectedDue = dueCards.slice(0, maxReview);
     const selectedNew = newCards.slice(0, maxNew);
 
+    let queueCards = [];
+    if (mode === 'due_only') {
+      // Chỉ ôn tập các thẻ ĐÃ ĐẾN HẠN
+      queueCards = selectedDue;
+    } else if (mode === 'new_only') {
+      // Chỉ học các thẻ MỚI CHƯA TỪNG HỌC
+      queueCards = selectedNew;
+    } else if (mode === 'auto') {
+      // Tự động: Nếu có từ đến hạn -> Chỉ ôn từ đến hạn; Nếu không có từ đến hạn -> Học từ mới
+      if (selectedDue.length > 0) {
+        queueCards = selectedDue;
+      } else {
+        queueCards = selectedNew;
+      }
+    } else {
+      // mixed: Cả hai
+      queueCards = [...selectedDue, ...selectedNew];
+    }
+
     const queue = [];
     const seenQueueIds = new Set();
 
-    // Hàng đợi chuẩn: Ưu tiên thẻ đến hạn ôn (Due) trước, sau đó là thẻ mới (New)
-    for (const card of [...selectedDue, ...selectedNew]) {
+    for (const card of queueCards) {
       if (card && card.id && !seenQueueIds.has(card.id)) {
         seenQueueIds.add(card.id);
         queue.push({
