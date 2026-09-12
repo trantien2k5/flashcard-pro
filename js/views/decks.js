@@ -470,7 +470,7 @@ export function renderSubtopicsPage(app, deckId) {
         let learnedSubCount = 0;
 
         for (let j = 0; j < subCards.length; j++) {
-          const s = cardStates[subCards[j].id];
+          const s = StorageManager.getCardState(subCards[j].id);
           if (s && s.state !== State.New && s.state !== 0) {
             learnedSubCount++;
             if (isCardDue(s, new Date())) dueSubCount++;
@@ -752,7 +752,7 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
     const now = new Date();
 
     const getCardStatus = (card) => {
-      const state = cardStates[card.id];
+      const state = StorageManager.getCardState(card.id);
       if (!state || state.state === 0 || state.state === State.New) return 'new';
       if (isCardDue(state, now)) return 'due';
       if (state.stability >= 21) return 'done';
@@ -818,7 +818,7 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
         const frag = document.createDocumentFragment();
         pageItems.forEach((card, index) => {
           const status = getCardStatus(card);
-          const state = cardStates[card.id];
+          const state = StorageManager.getCardState(card.id);
           const row = document.createElement('div');
           row.className = `word-item-card status-${status}`;
 

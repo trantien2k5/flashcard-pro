@@ -43,7 +43,7 @@ export class StatsManager {
     let goodMemoryCount = 0; // Đang nhớ tốt (độ bền >= 3 ngày)
 
     for (const card of allCards) {
-      const state = cardStates[card.id];
+      const state = StorageManager.getCardState(card.id);
       if (!state || state.state === State.New || state.state === 0) {
         newCardsCount++;
       } else {

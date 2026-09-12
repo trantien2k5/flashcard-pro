@@ -419,7 +419,7 @@ export class DeckManager {
         seenQueueIds.add(card.id);
         queue.push({
           ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
-          fsrsState: cardStates[card.id] || FSRS.createEmptyCard(card.id)
+          fsrsState: card.fsrsState || StorageManager.getCardState(card.id) || FSRS.createEmptyCard(card.id)
         });
       }
     }

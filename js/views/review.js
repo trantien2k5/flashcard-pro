@@ -188,7 +188,7 @@ export function renderReviewTab(app) {
     let dueCount = 0;
 
     for (const card of allCards) {
-      const state = cardStates[card.id];
+      const state = StorageManager.getCardState(card.id);
       if (!state || state.state === State.New || state.state === 0) {
         newCount++;
       } else {
@@ -368,7 +368,7 @@ export function renderReviewTab(app) {
       const forecastCounts = [0, 0, 0, 0, 0, 0, 0];
 
       for (const card of allCards) {
-        const state = cardStates[card.id];
+        const state = StorageManager.getCardState(card.id);
         if (state && state.due && state.state !== State.New && state.state !== 0) {
           const dueMs = new Date(state.due).getTime();
           const diffMs = dueMs - startOfTodayMs;
