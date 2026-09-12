@@ -526,7 +526,7 @@ export function renderProfileTabShell(container) {
               </div>
               <div class="profile-stat-box">
                 <span class="profile-stat-num" id="tax-subtopics-count">149</span>
-                <span class="profile-stat-lbl">Chặng học con</span>
+                <span class="profile-stat-lbl">Phần học con</span>
               </div>
               <div class="profile-stat-box">
                 <span class="profile-stat-num" id="tax-words-count">2,400</span>

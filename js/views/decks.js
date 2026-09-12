@@ -244,7 +244,7 @@ export function renderDecksTab(app) {
         </div>
         <div class="deck-card-footer">
           <div class="deck-meta-strip">
-            <span>📁 ${subtopicsCount} chặng</span>
+            <span>📁 ${subtopicsCount} phần</span>
             <span>•</span>
             <span>📝 ${stats.total} từ</span>
           </div>
@@ -348,15 +348,15 @@ export function renderSubtopicsPageShell(tabPane) {
         </button>
         <div class="yt-subpage-title-wrap">
           <h2 class="yt-header-title" id="subpage-top-title">Chủ đề</h2>
-          <span class="yt-header-subtitle" id="subpage-top-subtitle">0 chặng • 0 từ vựng</span>
+          <span class="yt-header-subtitle" id="subpage-top-subtitle">0 phần • 0 từ vựng</span>
         </div>
       </div>
 
       <div class="subpage-content-body">
         <div id="subpage-hero-container"></div>
         <div class="subtopics-section-header">
-          <h3 class="subtopics-section-title">Danh sách chặng học</h3>
-          <span class="subtopics-section-meta" id="subtopics-list-count">0 chủ đề</span>
+          <h3 class="subtopics-section-title">Danh sách phần học</h3>
+          <span class="subtopics-section-meta" id="subtopics-list-count">0 phần</span>
         </div>
         <div class="subtopics-list-container" id="subpage-subtopics-list"></div>
       </div>
@@ -396,10 +396,10 @@ export function renderSubtopicsPage(app, deckId) {
     const topTitleEl = document.getElementById('subpage-top-title');
     const topSubtitleEl = document.getElementById('subpage-top-subtitle');
     if (topTitleEl) topTitleEl.textContent = englishTitle;
-    if (topSubtitleEl) topSubtitleEl.textContent = `${rawSubtopics.length} chặng • ${deckStats.total} từ vựng`;
+    if (topSubtitleEl) topSubtitleEl.textContent = `${rawSubtopics.length} phần • ${deckStats.total} từ vựng`;
 
     const headingCount = document.getElementById('subtopics-list-count');
-    if (headingCount) headingCount.textContent = `${rawSubtopics.length} chủ đề`;
+    if (headingCount) headingCount.textContent = `${rawSubtopics.length} phần`;
 
     const cardStates = StorageManager.getAllCardStates();
     const userProgress = StorageManager.getUserProgress();
@@ -419,7 +419,7 @@ export function renderSubtopicsPage(app, deckId) {
               <h2 class="subpage-deck-title">${escapeHTML(englishTitle)}</h2>
               <p class="subpage-vi-title">${escapeHTML(vietnameseTitle)}</p>
               <div class="subpage-deck-meta">
-                <span>${rawSubtopics.length} chặng</span>
+                <span>${rawSubtopics.length} phần</span>
                 <span>•</span>
                 <span>${deckStats.total} từ vựng</span>
                 ${deckStats.dueCount > 0 ? `<span>•</span><span style="color: #ef4444; font-weight: 700;">${deckStats.dueCount} cần ôn</span>` : ''}
@@ -466,6 +466,10 @@ export function renderSubtopicsPage(app, deckId) {
         const subId = typeof subObj === 'object' ? (subObj.id || `${deck.id}-${i}`) : `${deck.id}-${i}`;
         const subCards = app.deckManager.getSubtopicCards(deck.id, subObj);
 
+        // Chuẩn hóa tên hiển thị: "Phần X: [Tên chủ đề]"
+        const cleanTitle = subName.replace(/^\d+[\.:\s-]+/, '').trim();
+        const displayTitle = `Phần ${i + 1}: ${cleanTitle || subName}`;
+
         let dueSubCount = 0;
         let learnedSubCount = 0;
 
@@ -494,7 +498,7 @@ export function renderSubtopicsPage(app, deckId) {
         card.className = `subtopic-card-btn ${!isUnlocked ? 'locked' : ''} ${isSubDone ? 'completed' : ''}`;
         card.dataset.subtopicId = subId;
 
-        let badgeHtml = `<span class="subtopic-badge">Chặng ${i + 1}</span>`;
+        let badgeHtml = `<span class="subtopic-badge">Phần ${i + 1}</span>`;
         if (!isUnlocked) {
           badgeHtml = `<span class="subtopic-badge badge-locked">🔒 Đang khóa</span>`;
         } else if (isSubDone) {
@@ -511,7 +515,7 @@ export function renderSubtopicsPage(app, deckId) {
               <span>${icon}</span>
             </div>
             <div class="subtopic-card-info">
-              <h4 class="subtopic-card-title">${escapeHTML(subName)}</h4>
+              <h4 class="subtopic-card-title">${escapeHTML(displayTitle)}</h4>
               <div class="subtopic-card-meta">
                 <span class="subtopic-count-text">${subCards.length} từ vựng</span>
                 <span class="subtopic-meta-dot">•</span>
@@ -537,7 +541,7 @@ export function renderSubtopicsPage(app, deckId) {
           if (!isUnlocked) {
             card.classList.add('shake');
             setTimeout(() => card.classList.remove('shake'), 400);
-            showToast('Chặng này đang bị khóa, hãy hoàn thành chặng trước đó!', 'warning');
+            showToast('Phần này đang bị khóa, hãy hoàn thành phần trước đó!', 'warning');
             return;
           }
           openSubtopicDetailPage(app, deck.id, subName);
@@ -610,8 +614,13 @@ export async function renderSubtopicDetailPage(app, deckId, subtopicName) {
     const countDueEl = document.getElementById('subtopic-stat-due') || document.getElementById('subtopic-detail-count-due');
     const countTotalEl = document.getElementById('subtopic-stat-total') || document.getElementById('subtopic-detail-count-total');
 
+    // Chuẩn hóa tên tiêu đề chi tiết: "Phần X: [Tên]"
+    const subIndex = rawSubtopics.findIndex(s => (typeof s === 'object' ? (s.name === subtopicName || s.id === subtopicName) : s === subtopicName));
+    const cleanDetailTitle = subtopicName.replace(/^\d+[\.:\s-]+/, '').trim();
+    const displayDetailTitle = subIndex >= 0 ? `Phần ${subIndex + 1}: ${cleanDetailTitle || subtopicName}` : subtopicName;
+
     if (iconEl) iconEl.textContent = subIcon;
-    if (titleEl) titleEl.textContent = subtopicName;
+    if (titleEl) titleEl.textContent = displayDetailTitle;
     if (metaEl) metaEl.textContent = `${subCards.length} từ vựng • ${DECK_ENGLISH_NAMES[deck.id] || deck.titleEn || deck.title}`;
     if (progressEl) progressEl.style.width = `${subProgress}%`;
     if (progressTextEl) progressTextEl.textContent = `Tiến độ: ${learnedSubCount}/${subCards.length} từ (${subProgress}%)`;
@@ -626,7 +635,7 @@ export async function renderSubtopicDetailPage(app, deckId, subtopicName) {
       } else if (learnedSubCount < subCards.length) {
         btnStudyModal.textContent = `🚀 Học ${subCards.length - learnedSubCount} từ mới`;
       } else {
-        btnStudyModal.textContent = `✓ Đã hoàn thành chặng này`;
+        btnStudyModal.textContent = `✓ Đã hoàn thành phần này`;
       }
 
       btnStudyModal.onclick = () => {
