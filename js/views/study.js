@@ -5,7 +5,7 @@
 import { Rating } from '../core/fsrs.js';
 import { showConfirm } from './components.js';
 import { globalStudyTimer } from '../core/stats.js';
-import { unlockAudioContext } from '../core/session.js';
+import { unlockAudioContext, preloadCardImage } from '../core/session.js';
 import { escapeHTML, formatCleanInterval, scrollToTop } from '../utils.js';
 import { onAudioPlayStateChange, speak } from '../services/audio.js';
 
@@ -381,7 +381,8 @@ export function handleCardChange(app, card, progress) {
         imgEl.onerror = () => {
           imgContainer.style.display = 'none';
         };
-        imgEl.decoding = 'async';
+        // Sử dụng sync decoding khi ảnh đã được giải mã sẵn trong RAM cache để render cùng lúc 0ms với từ vựng
+        imgEl.decoding = 'sync';
         imgEl.loading = 'eager';
         imgEl.src = imgSrc;
         imgContainer.style.display = 'flex';
@@ -391,16 +392,14 @@ export function handleCardChange(app, card, progress) {
       }
     }
 
-    // Tải trước ảnh của 2 thẻ kế tiếp ngay lập tức
+    // Tải và giải mã trước ảnh của 3 thẻ kế tiếp ngay lập tức
     if (app.studySession?.queue && app.studySession.currentIndex !== undefined) {
       const nextIdx = app.studySession.currentIndex + 1;
-      const nextBatch = app.studySession.queue.slice(nextIdx, nextIdx + 2);
+      const nextBatch = app.studySession.queue.slice(nextIdx, nextIdx + 3);
       nextBatch.forEach(nc => {
         const nSrc = nc?.img || nc?.image;
         if (nSrc && typeof nSrc === 'string') {
-          const preImg = new Image();
-          preImg.decoding = 'async';
-          preImg.src = nSrc;
+          preloadCardImage(nSrc);
         }
       });
     }

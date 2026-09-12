@@ -14,6 +14,32 @@ import {
 
 export { unlockAudioContext };
 
+// Bộ nhớ đệm RAM lưu giữ tham chiếu hình ảnh đã giải mã (Decoded Image Cache)
+const sessionImageCache = new Map();
+
+/**
+ * Tải trước và giải mã hình ảnh vào GPU/Browser RAM cache
+ * Đảm bảo khi hiển thị lên thẻ không có độ trễ decode và xuất hiện đồng thời cùng từ vựng
+ */
+export function preloadCardImage(src) {
+  if (!src || typeof src !== 'string' || typeof Image === 'undefined') {
+    return Promise.resolve(null);
+  }
+  if (sessionImageCache.has(src)) {
+    return sessionImageCache.get(src);
+  }
+
+  const img = new Image();
+  img.src = src;
+  const promise = (img.decode ? img.decode() : new Promise((resolve) => {
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+  })).then(() => img).catch(() => null);
+
+  sessionImageCache.set(src, promise);
+  return promise;
+}
+
 function getCurrentSettings(baseSettings = null) {
   if (typeof window !== 'undefined' && window.app?.settings) {
     return window.app.settings;
@@ -129,39 +155,19 @@ export class StudySession {
   }
 
   /**
-   * Tải trước toàn bộ hình ảnh trong phiên học vào RAM/Browser Cache
+   * Tải trước toàn bộ hình ảnh trong phiên học vào RAM/Browser Cache và giải mã trước
    * Giúp chuyển sang thẻ tiếp theo hiển thị ảnh tức thì 0ms, không bị chớp hay trễ mạng
    */
   preloadSessionImages(cards) {
     if (!cards || !Array.isArray(cards) || typeof Image === 'undefined') return;
 
-    // 1. Tải ngay ảnh của 3 từ đầu tiên
-    const immediateBatch = cards.slice(0, 3);
-    immediateBatch.forEach(card => {
+    // Tải và giải mã ngay lập tức toàn bộ ảnh của các từ trong phiên học
+    cards.forEach(card => {
       const src = card?.img || card?.image;
       if (src && typeof src === 'string') {
-        const img = new Image();
-        img.decoding = 'async';
-        img.src = src;
+        preloadCardImage(src);
       }
     });
-
-    // 2. Tải ngầm ảnh của toàn bộ các thẻ còn lại trong hàng đợi
-    if (cards.length > 3) {
-      const remainingBatch = cards.slice(3);
-      setTimeout(() => {
-        remainingBatch.forEach((card, idx) => {
-          setTimeout(() => {
-            const src = card?.img || card?.image;
-            if (src && typeof src === 'string') {
-              const img = new Image();
-              img.decoding = 'async';
-              img.src = src;
-            }
-          }, idx * 50);
-        });
-      }, 80);
-    }
   }
 
   loadCurrentCard() {
@@ -210,13 +216,19 @@ export class StudySession {
       }, 120);
     }
 
-    // Tải trước trượt 2 từ tiếp theo trong hàng đợi (Sliding Window JIT)
-    for (let offset = 1; offset <= 2; offset++) {
+    // Tải trước trượt 3 từ tiếp theo trong hàng đợi (Sliding Window JIT) cả âm thanh và hình ảnh
+    for (let offset = 1; offset <= 3; offset++) {
       const nextCard = this.queue[this.currentIndex + offset];
-      if (nextCard && nextCard.word) {
-        const cleanWord = nextCard.word.trim();
-        preloadWordAudio(cleanWord, 'us', nextCard);
-        preloadWordAudio(cleanWord, 'uk', nextCard);
+      if (nextCard) {
+        if (nextCard.word) {
+          const cleanWord = nextCard.word.trim();
+          preloadWordAudio(cleanWord, 'us', nextCard);
+          preloadWordAudio(cleanWord, 'uk', nextCard);
+        }
+        const nextImg = nextCard.img || nextCard.image;
+        if (nextImg && typeof nextImg === 'string') {
+          preloadCardImage(nextImg);
+        }
       }
     }
 
