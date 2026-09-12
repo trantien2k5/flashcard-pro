@@ -7,6 +7,7 @@ import { State, isCardDue } from '../core/fsrs.js';
 import { StatsManager } from '../core/stats.js';
 import { getLocalDateKey, escapeHTML } from '../utils.js';
 import { showToast } from './components.js';
+import { speak } from '../services/audio.js';
 
 export function renderReviewShell(container) {
   if (!container) return;
@@ -115,7 +116,7 @@ export function renderReviewShell(container) {
         <!-- 3. Lịch Ôn Tập 7 Ngày (Section Header ngoài trần + Inset Card) -->
         <div class="bento-section-group">
           <div class="section-group-header">
-            <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+            <div style="display:flex; align-items:center; justify-content:space-between; width:100%; gap:8px;">
               <span class="section-group-title">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                   <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
@@ -123,9 +124,20 @@ export function renderReviewShell(container) {
                 </svg>
                 LỊCH ÔN TẬP 7 NGÀY TỚI
               </span>
-              <span class="bento-badge-forecast" id="home-forecast-total">0 từ / 7 ngày</span>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <span class="bento-badge-forecast" id="home-forecast-total">0 từ / 7 ngày</span>
+                <button type="button" class="btn-open-calendar-modal" id="btn-open-calendar-modal" title="Xem lịch tháng chi tiết" aria-label="Mở lịch tháng">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <span>Lịch tháng ↗</span>
+                </button>
+              </div>
             </div>
-            <span class="section-group-hint">Số lượng thẻ đến hạn ôn theo từng ngày</span>
+            <span class="section-group-hint">Số lượng thẻ đến hạn ôn theo từng ngày (Chạm để xem chi tiết)</span>
           </div>
           <div class="bento-card bento-forecast-card">
             <div class="forecast-capsules-grid" id="home-review-forecast"></div>
@@ -399,7 +411,8 @@ export function renderReviewTab(app) {
 
         const itemEl = document.createElement('div');
         itemEl.className = `forecast-capsule ${i === 0 ? 'is-today' : ''} ${count > 0 ? 'has-due' : 'is-empty'}`;
-        itemEl.title = `${label} (Ngày ${d.getDate()}/${d.getMonth() + 1}): ${count} từ cần ôn`;
+        itemEl.title = `${label} (Ngày ${d.getDate()}/${d.getMonth() + 1}): ${count} từ cần ôn. Chạm để mở lịch tháng!`;
+        itemEl.style.cursor = 'pointer';
 
         itemEl.innerHTML = `
           <div class="capsule-top-row">
@@ -411,11 +424,23 @@ export function renderReviewTab(app) {
           </div>
           <span class="capsule-count ${count > 0 ? 'has-count' : ''}">${count}</span>
         `;
+
+        itemEl.onclick = () => {
+          openCalendarForecastModal(app, d);
+        };
+
         forecastContainer.appendChild(itemEl);
       }
 
       if (forecastTotalBadge) {
         forecastTotalBadge.textContent = `${totalWeekDue} từ / 7 ngày`;
+      }
+
+      const btnOpenCal = document.getElementById('btn-open-calendar-modal');
+      if (btnOpenCal) {
+        btnOpenCal.onclick = () => {
+          openCalendarForecastModal(app, new Date());
+        };
       }
     }
 
@@ -547,4 +572,366 @@ export function renderReviewTab(app) {
   } catch (err) {
     console.error('Lỗi khi render Review Tab:', err);
   }
+}
+
+let _calSelectedDate = new Date();
+let _calViewingYear = _calSelectedDate.getFullYear();
+let _calViewingMonth = _calSelectedDate.getMonth();
+
+/**
+ * Mở Modal Lịch Tháng Dự Báo Ôn Tập FSRS-6 Toàn Diện
+ */
+export function openCalendarForecastModal(app, targetDate = new Date()) {
+  let modal = document.getElementById('calendar-forecast-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'calendar-forecast-modal';
+    modal.className = 'calendar-forecast-modal-overlay';
+    document.body.appendChild(modal);
+  }
+
+  _calSelectedDate = targetDate instanceof Date ? targetDate : new Date(targetDate);
+  _calViewingYear = _calSelectedDate.getFullYear();
+  _calViewingMonth = _calSelectedDate.getMonth();
+
+  const renderModalContent = () => {
+    const allCards = app.deckManager ? app.deckManager.getAllCards() : [];
+    
+    // Thu thập danh sách thẻ đến hạn cho từng ngày
+    // key: "YYYY-MM-DD" -> Array of { card, state }
+    const monthDueMap = new Map();
+    const todayObj = new Date();
+    const todayKey = getLocalDateKey(todayObj);
+
+    for (const card of allCards) {
+      const state = StorageManager.getCardState(card.id);
+      if (state && state.state !== State.New && state.state !== 0 && state.due) {
+        const dueDate = new Date(state.due);
+        if (!isNaN(dueDate.getTime())) {
+          let cardDueKey = '';
+          if (state.scheduled_days >= 1) {
+            cardDueKey = `${dueDate.getFullYear()}-${String(dueDate.getMonth() + 1).padStart(2, '0')}-${String(dueDate.getDate()).padStart(2, '0')}`;
+          } else {
+            // Intraday step (< 1 ngày)
+            cardDueKey = todayKey;
+          }
+
+          // Thẻ quá hạn từ các ngày trước được gom vào hôm nay
+          if (cardDueKey < todayKey && isCardDue(state, todayObj)) {
+            cardDueKey = todayKey;
+          }
+
+          if (!monthDueMap.has(cardDueKey)) {
+            monthDueMap.set(cardDueKey, []);
+          }
+          monthDueMap.get(cardDueKey).push({ card, state });
+        }
+      }
+    }
+
+    // Tính toán thống kê tháng
+    let monthTotalDue = 0;
+    let daysWithReviews = 0;
+    let maxDueInSingleDay = 0;
+
+    const daysInMonth = new Date(_calViewingYear, _calViewingMonth + 1, 0).getDate();
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dateKey = `${_calViewingYear}-${String(_calViewingMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+      const count = (monthDueMap.get(dateKey) || []).length;
+      if (count > 0) {
+        monthTotalDue += count;
+        daysWithReviews++;
+        if (count > maxDueInSingleDay) maxDueInSingleDay = count;
+      }
+    }
+
+    // Tính offset các ngày đầu tuần (Thứ 2 đến Chủ nhật)
+    const firstDayIndex = new Date(_calViewingYear, _calViewingMonth, 1).getDay(); // 0 = CN, 1 = T2 ...
+    const startDayOffset = (firstDayIndex + 6) % 7; // 0 = T2, 6 = CN
+    const prevMonthDays = new Date(_calViewingYear, _calViewingMonth, 0).getDate();
+
+    const selectedDateKey = `${_calSelectedDate.getFullYear()}-${String(_calSelectedDate.getMonth() + 1).padStart(2, '0')}-${String(_calSelectedDate.getDate()).padStart(2, '0')}`;
+
+    // Render Khung Modal
+    modal.innerHTML = `
+      <div class="calendar-forecast-dialog" role="dialog" aria-modal="true" aria-labelledby="cal-modal-title">
+        <!-- 1. Modal Header -->
+        <div class="cal-modal-header">
+          <div class="cal-header-title-group">
+            <span class="cal-icon-badge">📅</span>
+            <div>
+              <h3 class="cal-modal-title" id="cal-modal-title">Lịch Ôn Tập Chi Tiết</h3>
+              <p class="cal-modal-subtitle">Thống kê & Dự báo phân bổ trí nhớ FSRS-6</p>
+            </div>
+          </div>
+          <button class="btn-cal-close" id="btn-close-cal-modal" title="Đóng (Esc)" aria-label="Đóng">✕</button>
+        </div>
+
+        <!-- 2. Month Navigation Toolbar -->
+        <div class="cal-month-nav-bar">
+          <div class="cal-nav-controls">
+            <button class="btn-cal-arrow" id="btn-cal-prev-month" title="Tháng trước">◀</button>
+            <span class="cal-current-month-text">Tháng ${_calViewingMonth + 1}, ${_calViewingYear}</span>
+            <button class="btn-cal-arrow" id="btn-cal-next-month" title="Tháng sau">▶</button>
+          </div>
+          <button class="btn-cal-today-jump" id="btn-cal-today-jump">Về hôm nay</button>
+        </div>
+
+        <!-- 3. Monthly Summary Meta Bar -->
+        <div class="cal-summary-strip">
+          <div class="cal-summary-pill">
+            <span class="cal-sum-label">Tổng lượt ôn:</span>
+            <strong class="cal-sum-val">${monthTotalDue} từ</strong>
+          </div>
+          <div class="cal-summary-pill">
+            <span class="cal-sum-label">Ngày có bài:</span>
+            <strong class="cal-sum-val">${daysWithReviews} / ${daysInMonth} ngày</strong>
+          </div>
+          <div class="cal-summary-pill">
+            <span class="cal-sum-label">Cao điểm nhất:</span>
+            <strong class="cal-sum-val">${maxDueInSingleDay} từ/ngày</strong>
+          </div>
+        </div>
+
+        <!-- 4. Calendar Month Grid Table -->
+        <div class="cal-grid-container">
+          <div class="cal-weekdays-header">
+            <span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>CN</span>
+          </div>
+
+          <div class="cal-days-grid" id="cal-days-grid">
+            <!-- Grid cells generated dynamically -->
+          </div>
+        </div>
+
+        <!-- 5. Selected Day Detail Drawer / Inspector -->
+        <div class="cal-day-inspector" id="cal-day-inspector">
+          <!-- Inspector content generated dynamically -->
+        </div>
+      </div>
+    `;
+
+    // Render các ô ngày vào Grid
+    const daysGrid = modal.querySelector('#cal-days-grid');
+    if (daysGrid) {
+      const frag = document.createDocumentFragment();
+
+      // A. Ngày mờ của tháng trước
+      for (let i = startDayOffset - 1; i >= 0; i--) {
+        const prevDayNum = prevMonthDays - i;
+        const cell = document.createElement('div');
+        cell.className = 'cal-day-cell is-other-month';
+        cell.innerHTML = `<span class="cal-day-num">${prevDayNum}</span>`;
+        frag.appendChild(cell);
+      }
+
+      // B. Toàn bộ 28 - 31 ngày của tháng hiện tại
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dateKey = `${_calViewingYear}-${String(_calViewingMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const isToday = dateKey === todayKey;
+        const isSelected = dateKey === selectedDateKey;
+        const dayCards = monthDueMap.get(dateKey) || [];
+        const count = dayCards.length;
+
+        let loadClass = 'load-zero';
+        if (count > 0 && count <= 3) loadClass = 'load-low';
+        else if (count > 3 && count <= 8) loadClass = 'load-medium';
+        else if (count > 8) loadClass = 'load-high';
+
+        const cell = document.createElement('div');
+        cell.className = `cal-day-cell ${isToday ? 'is-today' : ''} ${isSelected ? 'is-selected' : ''} ${loadClass}`;
+        cell.setAttribute('data-date-key', dateKey);
+        cell.setAttribute('role', 'button');
+        cell.setAttribute('tabindex', '0');
+
+        cell.innerHTML = `
+          <div class="cal-day-cell-top">
+            <span class="cal-day-num">${day}</span>
+            ${isToday ? '<span class="cal-today-badge" title="Hôm nay">Nay</span>' : ''}
+          </div>
+          <div class="cal-day-cell-bottom">
+            ${count > 0 ? `<span class="cal-count-badge">${count}</span>` : '<span class="cal-empty-dot">·</span>'}
+          </div>
+        `;
+
+        cell.onclick = () => {
+          _calSelectedDate = new Date(_calViewingYear, _calViewingMonth, day);
+          renderModalContent();
+        };
+
+        frag.appendChild(cell);
+      }
+
+      // C. Ngày mờ của tháng sau để hoàn thành hàng lưới 35 hoặc 42 ô
+      const totalRendered = startDayOffset + daysInMonth;
+      const targetTotal = totalRendered <= 35 ? 35 : 42;
+      const remainingCells = targetTotal - totalRendered;
+      for (let nextDay = 1; nextDay <= remainingCells; nextDay++) {
+        const cell = document.createElement('div');
+        cell.className = 'cal-day-cell is-other-month';
+        cell.innerHTML = `<span class="cal-day-num">${nextDay}</span>`;
+        frag.appendChild(cell);
+      }
+
+      daysGrid.appendChild(frag);
+    }
+
+    // Render Khung Chi Tiết Ngày Đang Chọn
+    const inspector = modal.querySelector('#cal-day-inspector');
+    if (inspector) {
+      const selDay = _calSelectedDate.getDate();
+      const selMonth = _calSelectedDate.getMonth() + 1;
+      const selYear = _calSelectedDate.getFullYear();
+      const selDateFormatted = `${String(selDay).padStart(2, '0')}/${String(selMonth).padStart(2, '0')}/${selYear}`;
+      const dayCards = monthDueMap.get(selectedDateKey) || [];
+      const isSelectedToday = selectedDateKey === todayKey;
+
+      let inspectorHtml = `
+        <div class="inspector-header">
+          <div class="inspector-header-left">
+            <div class="inspector-date-title">Ngày ${selDateFormatted}</div>
+            <div class="inspector-tags-row">
+              ${isSelectedToday ? '<span class="inspector-today-tag">Hôm nay</span>' : ''}
+              <span class="inspector-count-tag">${dayCards.length} từ đến hạn ôn</span>
+            </div>
+          </div>
+          ${dayCards.length > 0 ? `
+            <button class="btn-inspector-study" id="btn-inspector-study-day">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span>Ôn ${dayCards.length} từ này</span>
+            </button>
+          ` : ''}
+        </div>
+      `;
+
+      if (dayCards.length === 0) {
+        inspectorHtml += `
+          <div class="inspector-empty">
+            <span class="inspector-empty-icon">✨</span>
+            <p class="inspector-empty-text">Không có từ vựng nào đến hạn ôn trong ngày này.</p>
+          </div>
+        `;
+      } else {
+        inspectorHtml += `<div class="inspector-words-list">`;
+        dayCards.forEach(({ card, state }) => {
+          const cefr = (card.cefr || card.level || 'A1').toLowerCase();
+          const s = state?.stability ? Number(state.stability).toFixed(1) : '0';
+          const phonetic = card.phonetic || card.ipa || '';
+
+          inspectorHtml += `
+            <div class="inspector-word-item" data-word="${escapeHTML(card.word || '')}">
+              <button class="btn-inspector-sound" data-word="${escapeHTML(card.word || '')}" title="Phát âm" aria-label="Phát âm">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                </svg>
+              </button>
+              <div class="inspector-word-info">
+                <div class="inspector-word-top">
+                  <strong class="inspector-word-text">${escapeHTML(card.word || '')}</strong>
+                  ${phonetic ? `<span class="inspector-word-ipa">${escapeHTML(phonetic)}</span>` : ''}
+                  <span class="badge-cefr" data-cefr="${cefr}">${cefr.toUpperCase()}</span>
+                </div>
+                <div class="inspector-word-meaning">${escapeHTML(card.meaning || '')}</div>
+              </div>
+              <div class="inspector-word-stability" title="Độ bền trí nhớ FSRS (Stability)">
+                <span>S: ${s}d</span>
+              </div>
+            </div>
+          `;
+        });
+        inspectorHtml += `</div>`;
+      }
+
+      inspector.innerHTML = inspectorHtml;
+
+      // Event: Phát âm từ vựng trong inspector
+      inspector.querySelectorAll('.btn-inspector-sound').forEach(btn => {
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          const w = btn.getAttribute('data-word');
+          if (w) {
+            btn.classList.add('playing');
+            speak(w);
+            setTimeout(() => btn.classList.remove('playing'), 1200);
+          }
+        };
+      });
+
+      // Event: Ôn tập danh sách từ của ngày này
+      const btnStudyDay = inspector.querySelector('#btn-inspector-study-day');
+      if (btnStudyDay && dayCards.length > 0) {
+        btnStudyDay.onclick = () => {
+          closeModal();
+          app.startStudySession(null, null, dayCards.map(d => d.card));
+        };
+      }
+    }
+
+    // Điều hướng Tháng trước / Tháng sau / Hôm nay
+    const btnPrev = modal.querySelector('#btn-cal-prev-month');
+    const btnNext = modal.querySelector('#btn-cal-next-month');
+    const btnToday = modal.querySelector('#btn-cal-today-jump');
+
+    if (btnPrev) {
+      btnPrev.onclick = () => {
+        if (_calViewingMonth === 0) {
+          _calViewingMonth = 11;
+          _calViewingYear--;
+        } else {
+          _calViewingMonth--;
+        }
+        _calSelectedDate = new Date(_calViewingYear, _calViewingMonth, 1);
+        renderModalContent();
+      };
+    }
+
+    if (btnNext) {
+      btnNext.onclick = () => {
+        if (_calViewingMonth === 11) {
+          _calViewingMonth = 0;
+          _calViewingYear++;
+        } else {
+          _calViewingMonth++;
+        }
+        _calSelectedDate = new Date(_calViewingYear, _calViewingMonth, 1);
+        renderModalContent();
+      };
+    }
+
+    if (btnToday) {
+      btnToday.onclick = () => {
+        const now = new Date();
+        _calSelectedDate = now;
+        _calViewingYear = now.getFullYear();
+        _calViewingMonth = now.getMonth();
+        renderModalContent();
+      };
+    }
+
+    const btnClose = modal.querySelector('#btn-close-cal-modal');
+    if (btnClose) btnClose.onclick = closeModal;
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  modal.onclick = (e) => {
+    if (e.target === modal) closeModal();
+  };
+
+  const onKeyDown = (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+      window.removeEventListener('keydown', onKeyDown);
+    }
+  };
+  window.addEventListener('keydown', onKeyDown);
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  renderModalContent();
 }
