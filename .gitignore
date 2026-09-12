@@ -1,22 +1,39 @@
-# OS Files
+# ==============================================================================
+# Flashcard English Pro - Git Ignore Rules
+# ==============================================================================
+
+# OS & System Files
 .DS_Store
 Thumbs.db
 desktop.ini
+$RECYCLE.BIN/
 
-# IDE & Editors
+# IDE & Editor Settings
 .vscode/
 .idea/
 *.swp
 *.swo
+*.sublime-workspace
 
-# Node & Logs
+# Node & Package Managers
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 *.log
 
-# Temporary & Scratch
+# Internal Developer Tools & Scripts (Giữ cục bộ trên máy dev)
+tools/
+
+# Local Image Browser Folder (Tránh nhân đôi 500MB trên GitHub)
+assets/images/by_topic/
+
+# Temporary, Cache & Scratch Files
 scratch/
 .temp/
 .tmp/
+*.tmp
+*.bak
+*.backup
+.cache/
