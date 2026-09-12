@@ -624,7 +624,8 @@ export class StorageManager {
       cards: this.getAllCardStates(),
       logs: this.getStudyLogs(),
       customDecks: this.getCustomDecks(),
-      studyTime: this.getStudyTimeMap()
+      studyTime: this.getStudyTimeMap(),
+      userProgress: this.getUserProgress()
     };
   }
 
@@ -796,6 +797,38 @@ export class StorageManager {
         }
       }
 
+      // 6. Tiến độ người dùng & Ghim chủ đề (User Progress & Pinned Topics)
+      const rawProgress = data.userProgress || data.user_progress;
+      if (rawProgress && typeof rawProgress === 'object') {
+        const curProgress = this.getUserProgress() || { completedSubtopics: [], pinnedTopics: [] };
+        const incCompleted = Array.isArray(rawProgress.completedSubtopics) ? rawProgress.completedSubtopics : [];
+        const incPinned = Array.isArray(rawProgress.pinnedTopics) ? rawProgress.pinnedTopics : [];
+        
+        const mergedCompleted = Array.from(new Set([
+          ...(Array.isArray(curProgress.completedSubtopics) ? curProgress.completedSubtopics : []),
+          ...incCompleted
+        ]));
+        
+        const mergedPinned = Array.from(new Set([
+          ...(Array.isArray(curProgress.pinnedTopics) ? curProgress.pinnedTopics : []),
+          ...incPinned
+        ]));
+
+        _userProgressCache = {
+          id: 'global_progress',
+          completedSubtopics: mergedCompleted,
+          pinnedTopics: mergedPinned
+        };
+        if (typeof localStorage !== 'undefined') {
+          localStorage.setItem(STORAGE_KEYS.USER_PROGRESS, JSON.stringify(_userProgressCache));
+        }
+        if (_dbPromise) {
+          _dbPromise.then(db => {
+            if (db) this._putToStore(db, STORES.USER_PROGRESS, _userProgressCache);
+          }).catch(() => {});
+        }
+      }
+
       this.bumpStateRevision();
       return { success: true, count: Object.keys(normalizedCards).length };
     } catch (e) {
@@ -811,6 +844,7 @@ export class StorageManager {
       _logsCache = [];
       _customDecksCache = [];
       _timeMapCache = {};
+      _userProgressCache = { id: 'global_progress', completedSubtopics: [], pinnedTopics: [] };
       _settingsCache = { ...DEFAULT_SETTINGS };
 
       if (typeof localStorage !== 'undefined') {
@@ -818,6 +852,7 @@ export class StorageManager {
         localStorage.removeItem(STORAGE_KEYS.STUDY_LOGS);
         localStorage.removeItem(STORAGE_KEYS.CUSTOM_DECKS);
         localStorage.removeItem(STORAGE_KEYS.STUDY_TIME);
+        localStorage.removeItem(STORAGE_KEYS.USER_PROGRESS);
         localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(DEFAULT_SETTINGS));
       }
 

@@ -93,7 +93,8 @@ export class SyncManager {
       settings: rawData.settings || {},
       logs: rawData.logs || [],
       customDecks: rawData.customDecks || [],
-      studyTime: rawData.studyTime || {}
+      studyTime: rawData.studyTime || {},
+      userProgress: rawData.userProgress || {}
     };
   }
 
@@ -129,7 +130,8 @@ export class SyncManager {
       settings: payload.settings || payload.s || {},
       logs: payload.logs || payload.study_logs || [],
       customDecks: payload.customDecks || payload.custom_decks || [],
-      studyTime: payload.studyTime || payload.study_time || {}
+      studyTime: payload.studyTime || payload.study_time || {},
+      userProgress: payload.userProgress || payload.user_progress || {}
     };
   }
 
@@ -210,6 +212,23 @@ export class SyncManager {
     });
     const mergedCustomDecks = Array.from(deckMap.values());
 
+    // 4. Hợp nhất Tiến độ người dùng & Ghim chủ đề (User Progress & Pinned Topics)
+    const curProgress = currentData.userProgress || {};
+    const incProgress = incomingData.userProgress || {};
+    const mergedCompletedSubtopics = Array.from(new Set([
+      ...(Array.isArray(curProgress.completedSubtopics) ? curProgress.completedSubtopics : []),
+      ...(Array.isArray(incProgress.completedSubtopics) ? incProgress.completedSubtopics : [])
+    ]));
+    const mergedPinnedTopics = Array.from(new Set([
+      ...(Array.isArray(curProgress.pinnedTopics) ? curProgress.pinnedTopics : []),
+      ...(Array.isArray(incProgress.pinnedTopics) ? incProgress.pinnedTopics : [])
+    ]));
+    const mergedUserProgress = {
+      id: 'global_progress',
+      completedSubtopics: mergedCompletedSubtopics,
+      pinnedTopics: mergedPinnedTopics
+    };
+
     return {
       data: {
         version: '2.0',
@@ -218,7 +237,8 @@ export class SyncManager {
         settings: { ...(currentData.settings || {}), ...(incomingData.settings || {}) },
         logs: mergedLogs,
         studyTime: mergedStudyTime,
-        customDecks: mergedCustomDecks
+        customDecks: mergedCustomDecks,
+        userProgress: mergedUserProgress
       },
       stats: {
         added: addedCount,

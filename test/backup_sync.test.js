@@ -34,6 +34,7 @@ async function runBackupSyncTests() {
   assert(typeof backup.cards === 'object', 'Backup includes cards');
   assert(Array.isArray(backup.logs), 'Backup includes logs array');
   assert(typeof backup.studyTime === 'object', 'Backup includes studyTime');
+  assert(typeof backup.userProgress === 'object', 'Backup includes userProgress');
 
   // TEST 2: Import Backup with normalization
   console.log('\n--- TEST GROUP 2: Import Backup Normalization ---');
@@ -52,6 +53,10 @@ async function runBackupSyncTests() {
     ],
     studyTime: {
       '2026-09-12': 180
+    },
+    userProgress: {
+      completedSubtopics: ['topic_1_sub_1'],
+      pinnedTopics: ['daily-life-routines']
     }
   };
 
@@ -67,6 +72,10 @@ async function runBackupSyncTests() {
   const testLogs = logs.filter(l => l.cardId === 'test_card_1');
   assert(testLogs.length === 1, 'Duplicate study logs were successfully deduplicated');
 
+  const progress = StorageManager.getUserProgress();
+  assert(progress.completedSubtopics.includes('topic_1_sub_1'), 'Completed subtopics restored correctly');
+  assert(progress.pinnedTopics.includes('daily-life-routines'), 'Pinned topics restored correctly');
+
   // TEST 3: Smart Merge in SyncManager
   console.log('\n--- TEST GROUP 3: SyncManager Smart Merge ---');
   const incomingSync = {
@@ -79,6 +88,10 @@ async function runBackupSyncTests() {
     ],
     studyTime: {
       '2026-09-12': 300
+    },
+    userProgress: {
+      completedSubtopics: ['topic_2_sub_1'],
+      pinnedTopics: ['work-jobs']
     }
   };
 
@@ -87,6 +100,8 @@ async function runBackupSyncTests() {
   assert(mergeResult.data.cards['test_card_1'].stability === 25.0, 'Newer card state replaced older state in merge');
   assert(mergeResult.data.cards['test_card_3'] !== undefined, 'New card from remote was added');
   assert(mergeResult.data.studyTime['2026-09-12'] === 300, 'Study time took max value (300s)');
+  assert(mergeResult.data.userProgress.pinnedTopics.includes('daily-life-routines') && mergeResult.data.userProgress.pinnedTopics.includes('work-jobs'), 'Pinned topics from both devices merged successfully');
+  assert(mergeResult.data.userProgress.completedSubtopics.includes('topic_1_sub_1') && mergeResult.data.userProgress.completedSubtopics.includes('topic_2_sub_1'), 'Completed subtopics from both devices merged successfully');
 
   console.log('\n======================================================');
   console.log(`🏁 TEST RESULTS: ${passed}/${passed + failed} PASSED (${failed} FAILED)`);
