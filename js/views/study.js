@@ -310,6 +310,41 @@ export function setupStudyControls(app) {
   }
 }
 
+// Bộ đệm tham chiếu DOM trong phiên học để truy xuất O(1), loại bỏ hoàn toàn DOM query liên tục
+let _dom = null;
+
+function getStudyDom() {
+  if (_dom && _dom.flashcardEl && document.body.contains(_dom.flashcardEl)) {
+    return _dom;
+  }
+  _dom = {
+    overlay: document.getElementById('study-overlay'),
+    flashcardEl: document.getElementById('flashcard-element'),
+    fsrsButtonsContainer: document.getElementById('fsrs-buttons-container'),
+    flashcardStage: document.querySelector('.flashcard-stage'),
+    progressText: document.getElementById('study-progress-text'),
+    progressBar: document.getElementById('study-progress-bar-fill'),
+    imgContainer: document.getElementById('card-front-img-container'),
+    imgEl: document.getElementById('card-front-img'),
+    posBack: document.getElementById('card-pos-badge-back'),
+    cefrBadgeBack: document.getElementById('card-cefr-badge-back'),
+    wordFront: document.getElementById('card-front-word'),
+    phoneticFront: document.getElementById('card-front-phonetic'),
+    meaningBack: document.getElementById('card-back-meaning'),
+    defBack: document.getElementById('card-back-def'),
+    exBack: document.getElementById('card-back-example'),
+    exViBack: document.getElementById('card-back-example-vi'),
+    iAgain: document.getElementById('interval-again'),
+    iHard: document.getElementById('interval-hard'),
+    iGood: document.getElementById('interval-good'),
+    iEasy: document.getElementById('interval-easy'),
+    btnAudioSpeaker: document.getElementById('btn-audio-speaker'),
+    btnAudioUs: document.getElementById('btn-audio-us'),
+    btnAudioUk: document.getElementById('btn-audio-uk')
+  };
+  return _dom;
+}
+
 export function startStudySession(app, queue) {
   try {
     unlockAudioContext();
@@ -317,6 +352,7 @@ export function startStudySession(app, queue) {
     if (!overlay) return;
     overlay.classList.add('active');
     globalStudyTimer.startSession();
+    _dom = null; // Làm mới cache DOM khi bắt đầu phiên
     app.studySession.start(queue);
   } catch (err) {
     console.error('Lỗi khi bắt đầu startStudySession:', err);
@@ -325,70 +361,55 @@ export function startStudySession(app, queue) {
 
 export function handleCardChange(app, card, progress) {
   try {
-    const flashcardEl = document.getElementById('flashcard-element');
-    const fsrsButtonsContainer = document.getElementById('fsrs-buttons-container');
-    const flashcardStage = document.querySelector('.flashcard-stage');
-
-    if (!flashcardEl || !fsrsButtonsContainer) return;
+    const dom = getStudyDom();
+    if (!dom.flashcardEl || !dom.fsrsButtonsContainer) return;
 
     // 1. Tắt transition và đưa thẻ về mặt trước (0deg) ngay lập tức (0ms)
     // Ngăn chặn hoàn toàn hiện tượng lộ nghĩa tiếng Việt của từ mới khi chuyển thẻ
-    flashcardEl.classList.add('no-transition');
-    flashcardEl.classList.remove('flipped');
-    fsrsButtonsContainer.classList.remove('visible');
+    dom.flashcardEl.classList.add('no-transition');
+    dom.flashcardEl.classList.remove('flipped');
+    dom.fsrsButtonsContainer.classList.remove('visible');
 
-    // Buộc trình duyệt reflow ngay góc quay 0deg trước khi cập nhật nội dung
-    void flashcardEl.offsetHeight;
-
-    // Kích hoạt hiệu ứng xuất hiện thẻ mới mượt mà
-    if (flashcardStage) {
-      flashcardStage.classList.remove('card-enter-anim');
-      void flashcardStage.offsetWidth;
-      flashcardStage.classList.add('card-enter-anim');
+    // Kích hoạt hiệu ứng xuất hiện thẻ mượt mà không dùng layout reflow cưỡng bức
+    if (dom.flashcardStage) {
+      dom.flashcardStage.classList.remove('card-enter-anim');
+      requestAnimationFrame(() => {
+        dom.flashcardStage?.classList.add('card-enter-anim');
+        dom.flashcardEl?.classList.remove('no-transition');
+      });
     }
 
-    // Khôi phục lại hiệu ứng lật mượt sau khi đã ở mặt trước an toàn
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        flashcardEl.classList.remove('no-transition');
-      });
-    });
-
-    document.getElementById('btn-audio-us')?.classList.remove('playing');
-    document.getElementById('btn-audio-uk')?.classList.remove('playing');
+    if (dom.btnAudioUs) dom.btnAudioUs.classList.remove('playing');
+    if (dom.btnAudioUk) dom.btnAudioUk.classList.remove('playing');
 
     // Cập nhật nội dung thẻ và thanh tiến độ
     const completedNum = progress.completed !== undefined ? progress.completed : 0;
     const totalNum = progress.total || 1;
     const percent = Math.min(100, Math.max(completedNum === 0 ? 0 : 5, Math.round((completedNum / totalNum) * 100)));
     
-    const progressText = document.getElementById('study-progress-text');
-    if (progressText) {
-      progressText.innerHTML = `<span class="counter-num">${completedNum}</span><span class="counter-sep">/</span><span class="counter-total">${totalNum}</span>`;
+    if (dom.progressText) {
+      dom.progressText.innerHTML = `<span class="counter-num">${completedNum}</span><span class="counter-sep">/</span><span class="counter-total">${totalNum}</span>`;
     }
 
-    const progressBar = document.getElementById('study-progress-bar-fill');
-    if (progressBar) {
-      progressBar.style.width = `${percent}%`;
+    if (dom.progressBar) {
+      dom.progressBar.style.width = `${percent}%`;
     }
 
     // Xử lý hình ảnh minh họa trực quan (nếu từ vựng có trường img hoặc image)
-    const imgContainer = document.getElementById('card-front-img-container');
-    const imgEl = document.getElementById('card-front-img');
     const imgSrc = card.img || card.image || '';
-    if (imgContainer && imgEl) {
+    if (dom.imgContainer && dom.imgEl) {
       if (imgSrc) {
-        imgEl.onerror = () => {
-          imgContainer.style.display = 'none';
+        dom.imgEl.onerror = () => {
+          if (dom.imgContainer) dom.imgContainer.style.display = 'none';
         };
         // Sử dụng sync decoding khi ảnh đã được giải mã sẵn trong RAM cache để render cùng lúc 0ms với từ vựng
-        imgEl.decoding = 'sync';
-        imgEl.loading = 'eager';
-        imgEl.src = imgSrc;
-        imgContainer.style.display = 'flex';
+        dom.imgEl.decoding = 'sync';
+        dom.imgEl.loading = 'eager';
+        dom.imgEl.src = imgSrc;
+        dom.imgContainer.style.display = 'flex';
       } else {
-        imgEl.removeAttribute('src');
-        imgContainer.style.display = 'none';
+        dom.imgEl.removeAttribute('src');
+        dom.imgContainer.style.display = 'none';
       }
     }
 
@@ -404,74 +425,60 @@ export function handleCardChange(app, card, progress) {
       });
     }
 
-    const posBack = document.getElementById('card-pos-badge-back');
-    if (posBack) posBack.textContent = (card.pos || 'word').toUpperCase();
+    if (dom.posBack) dom.posBack.textContent = (card.pos || 'word').toUpperCase();
     
     const cefrText = card.cefr || card.level || 'A1';
-    const cefrBadgeBack = document.getElementById('card-cefr-badge-back');
-    if (cefrBadgeBack) cefrBadgeBack.textContent = cefrText.toUpperCase();
+    if (dom.cefrBadgeBack) dom.cefrBadgeBack.textContent = cefrText.toUpperCase();
 
-    const wordFront = document.getElementById('card-front-word');
-    const phoneticFront = document.getElementById('card-front-phonetic');
-    const meaningBack = document.getElementById('card-back-meaning');
-    const defBack = document.getElementById('card-back-def');
-    const exBack = document.getElementById('card-back-example');
-
-    if (wordFront) wordFront.textContent = card.word || '';
-    if (phoneticFront) phoneticFront.textContent = card.phonetic || card.ipa || '';
-    if (meaningBack) meaningBack.textContent = card.meaning || '';
+    if (dom.wordFront) dom.wordFront.textContent = card.word || '';
+    if (dom.phoneticFront) dom.phoneticFront.textContent = card.phonetic || card.ipa || '';
+    if (dom.meaningBack) dom.meaningBack.textContent = card.meaning || '';
 
     // Hiển thị định nghĩa tiếng Anh nếu có
-    if (defBack) {
+    if (dom.defBack) {
       const defText = card.definition || card.def || '';
       if (defText) {
-        defBack.textContent = defText;
-        defBack.style.display = 'block';
+        dom.defBack.textContent = defText;
+        dom.defBack.style.display = 'block';
       } else {
-        defBack.textContent = '';
-        defBack.style.display = 'none';
+        dom.defBack.textContent = '';
+        dom.defBack.style.display = 'none';
       }
     }
 
     // Highlight từ vựng trong câu ví dụ tiếng Anh nếu có
-    if (exBack) {
+    if (dom.exBack) {
       if (card.example && card.word) {
         try {
           const safeExample = escapeHTML(card.example);
           const escapedWord = escapeHTML(card.word.trim()).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
           const regex = new RegExp(`(${escapedWord})`, 'gi');
-          exBack.innerHTML = safeExample.replace(regex, '<span class="example-highlight">$1</span>');
+          dom.exBack.innerHTML = safeExample.replace(regex, '<span class="example-highlight">$1</span>');
         } catch (e) {
-          exBack.textContent = card.example;
+          dom.exBack.textContent = card.example;
         }
       } else {
-        exBack.textContent = card.example || '';
+        dom.exBack.textContent = card.example || '';
       }
     }
 
     // Hiển thị câu dịch tiếng Việt nếu có
-    const exViBack = document.getElementById('card-back-example-vi');
-    if (exViBack) {
+    if (dom.exViBack) {
       if (card.exampleVi) {
-        exViBack.textContent = card.exampleVi;
-        exViBack.style.display = 'block';
+        dom.exViBack.textContent = card.exampleVi;
+        dom.exViBack.style.display = 'block';
       } else {
-        exViBack.textContent = '';
-        exViBack.style.display = 'none';
+        dom.exViBack.textContent = '';
+        dom.exViBack.style.display = 'none';
       }
     }
 
     // Cập nhật FSRS Dynamic Intervals trên 4 nút
     if (card.previews) {
-      const iAgain = document.getElementById('interval-again');
-      const iHard = document.getElementById('interval-hard');
-      const iGood = document.getElementById('interval-good');
-      const iEasy = document.getElementById('interval-easy');
-
-      if (iAgain) iAgain.textContent = formatCleanInterval(card.previews[Rating.Again]?.intervalText, '1m');
-      if (iHard) iHard.textContent = formatCleanInterval(card.previews[Rating.Hard]?.intervalText, '10m');
-      if (iGood) iGood.textContent = formatCleanInterval(card.previews[Rating.Good]?.intervalText, '1d');
-      if (iEasy) iEasy.textContent = formatCleanInterval(card.previews[Rating.Easy]?.intervalText, '4d');
+      if (dom.iAgain) dom.iAgain.textContent = formatCleanInterval(card.previews[Rating.Again]?.intervalText, '1m');
+      if (dom.iHard) dom.iHard.textContent = formatCleanInterval(card.previews[Rating.Hard]?.intervalText, '10m');
+      if (dom.iGood) dom.iGood.textContent = formatCleanInterval(card.previews[Rating.Good]?.intervalText, '1d');
+      if (dom.iEasy) dom.iEasy.textContent = formatCleanInterval(card.previews[Rating.Easy]?.intervalText, '4d');
     }
   } catch (err) {
     console.error('Lỗi trong handleCardChange:', err);

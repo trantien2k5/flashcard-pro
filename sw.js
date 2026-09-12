@@ -71,37 +71,57 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// 3. Fetch: Network-First cho tài nguyên ứng dụng (Ưu tiên mạng -> Lưu cache mới -> Fallback cache khi offline)
+// 3. Fetch: Network-First cho tài nguyên nội bộ ứng dụng (Bypass SSE & External Relays)
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   const url = new URL(event.request.url);
 
-  // Bỏ qua các scheme đặc biệt như chrome-extension, v.v.
+  // Bỏ qua các scheme đặc biệt
   if (!url.protocol.startsWith('http')) return;
 
+  // Bỏ qua toàn bộ Server-Sent Events (SSE), WebSocket & Relay URLs
+  if (
+    url.pathname.endsWith('/sse') ||
+    url.pathname.includes('/fc_fsrs_') ||
+    url.searchParams.has('poll') ||
+    url.hostname.includes('ntfy') ||
+    event.request.headers.get('Accept')?.includes('text/event-stream')
+  ) {
+    return;
+  }
+
+  // Đối với tài nguyên ngoài domain (CDN audio, Google, Youdao...): Fetch trực tiếp, không can thiệp cache SW
+  if (url.origin !== self.location.origin) {
+    return;
+  }
+
   event.respondWith(
-    fetch(event.request, { cache: 'no-cache' })
+    fetch(event.request)
       .then((networkResponse) => {
-        // Nếu lấy thành công từ mạng, cập nhật ngay vào Cache
-        if (networkResponse && networkResponse.status === 200) {
+        // Chỉ lưu cache khi phản hồi HTTP 200 hợp lệ (tránh lỗi với 206 Partial Content, 304 hoặc Opaque)
+        if (networkResponse && networkResponse.status === 200 && (networkResponse.type === 'basic' || networkResponse.type === 'cors')) {
           const responseClone = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseClone);
-          });
+            cache.put(event.request, responseClone).catch(() => {});
+          }).catch(() => {});
         }
         return networkResponse;
       })
       .catch(async () => {
         // Khi Offline: Thử tìm trong Cache (bỏ qua query string nếu có)
-        const cachedResponse = await caches.match(event.request, { ignoreSearch: true });
-        if (cachedResponse) {
-          return cachedResponse;
-        }
+        try {
+          const cachedResponse = await caches.match(event.request, { ignoreSearch: true });
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+        } catch (e) {}
+
         // Nếu là HTML navigation request và không có cache chính xác, fallback về index.html
         if (event.request.mode === 'navigate') {
-          return caches.match('./index.html') || caches.match('./');
+          return (await caches.match('./index.html')) || (await caches.match('./'));
         }
+
         return new Response('Offline: Resource not available in cache', {
           status: 503,
           statusText: 'Service Unavailable',

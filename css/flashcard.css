@@ -266,12 +266,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  perspective: 1000px;
+  perspective: 1200px;
+  -webkit-perspective: 1200px;
   width: 100%;
   flex: 0 1 auto;
   height: clamp(330px, 55vh, 470px);
   max-height: calc(100dvh - 210px);
   box-sizing: border-box;
+  contain: layout style;
 }
 
 .flashcard-3d-wrapper {
@@ -287,10 +289,12 @@
   -webkit-user-select: none;
   user-select: none;
   box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.5), 0 0 24px var(--primary-glow, rgba(99, 102, 241, 0.28));
+  contain: layout style;
+  transform: translate3d(0, 0, 0);
 }
 
 .flashcard-3d-wrapper.flipped {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translate3d(0, 0, 0);
 }
 
 /* Tắt chuyển động lật tức thì khi đổi thẻ để không bị lộ mặt sau của từ mới */
@@ -302,8 +306,8 @@
 /* Hiệu ứng chuyển thẻ mới mượt mà, tự nhiên */
 @keyframes cardEnterSubtle {
   0% {
-    opacity: 0.8;
-    transform: translateY(6px) scale(0.985);
+    opacity: 0.85;
+    transform: translateY(4px) scale(0.99);
   }
   100% {
     opacity: 1;
@@ -312,7 +316,7 @@
 }
 
 .flashcard-stage.card-enter-anim {
-  animation: cardEnterSubtle 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cardEnterSubtle 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .flashcard-face {
@@ -332,11 +336,14 @@
   background: var(--card-bg, #161b22);
   border: 1.5px solid var(--border, rgba(99, 102, 241, 0.28));
   box-sizing: border-box;
-  transform-style: flat;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
 }
 
 .flashcard-face.face-front {
-  transform: rotateY(0deg) translateZ(1px);
+  transform: rotateY(0deg) translate3d(0, 0, 1px);
   align-items: center;
 }
 
@@ -347,7 +354,7 @@
 }
 
 .flashcard-face.face-back {
-  transform: rotateY(180deg) translateZ(1px);
+  transform: rotateY(180deg) translate3d(0, 0, 1px);
   background: linear-gradient(180deg, #1c2331 0%, #161b22 100%);
   border-color: rgba(99, 102, 241, 0.32);
   text-align: center;

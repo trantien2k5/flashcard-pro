@@ -168,10 +168,16 @@ async function runTestSuite() {
 
     // Review due cards
     dueOnDay.forEach(c => {
-      // 90% chance Good, 10% chance Again
-      const rating = Math.random() < 0.1 ? Rating.Again : Rating.Good;
+      // Deterministic simulation: every 10th review is an Again (lapse), which is then reviewed as Good
+      const rating = (totalReviews % 10 === 0 && totalReviews > 0) ? Rating.Again : Rating.Good;
       c.state = fsrs.calculateNextState(c.state, rating, simulatedDate);
       totalReviews++;
+
+      if (rating === Rating.Again) {
+        // Relearned with Good on same day
+        c.state = fsrs.calculateNextState(c.state, Rating.Good, new Date(simulatedDate.getTime() + 10 * 60 * 1000));
+        totalReviews++;
+      }
     });
 
     // Advance 1 day
