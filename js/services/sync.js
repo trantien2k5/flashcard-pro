@@ -175,7 +175,9 @@ export class SyncManager {
     const logMap = new Map();
     [...curLogs, ...incLogs].forEach(l => {
       if (l) {
-        const key = l.id || `${l.card_id}_${l.review || l.timestamp || ''}`;
+        const cardKey = l.cardId || l.card_id || l.word || 'item';
+        const timeKey = l.timestamp || l.review || '';
+        const key = l.id ? String(l.id) : `${cardKey}_${timeKey}`;
         logMap.set(key, l);
       }
     });
