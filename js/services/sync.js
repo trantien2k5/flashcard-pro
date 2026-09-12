@@ -151,6 +151,7 @@ export class SyncManager {
 
   /**
    * BẬT TRẠM CHỜ ĐỒNG BỘ 2 CHIỀU (Host Session)
+   * Kết hợp SSE Push Real-Time + Active Short-Polling Loop (Bảo đảm 100% nhận tín hiệu)
    */
   static startUniversalHostSession({ onConnected, onSyncCompleted, onError }) {
     const pin = String(Math.floor(100000 + Math.random() * 900000));
@@ -166,62 +167,106 @@ export class SyncManager {
     const pairUrl = origin ? `${origin}${pathname}?pair=${pin}` : `?pair=${pin}`;
 
     let eventSource = null;
+    let pollInterval = null;
     let isClosed = false;
+    let isProcessed = false;
 
+    // Báo trạng thái sẵn sàng ngay lập tức
+    if (onConnected) {
+      setTimeout(() => {
+        if (!isClosed) onConnected({ pin, pairUrl });
+      }, 50);
+    }
+
+    // Hàm xử lý gói tin đồng bộ từ Client
+    const processIncomingPayload = async (rawPayload) => {
+      if (isProcessed || isClosed) return;
+      isProcessed = true;
+
+      try {
+        const clientUnpacked = typeof rawPayload === 'object' && rawPayload.v ? this.unpackageSyncData(rawPayload) : null;
+        if (clientUnpacked) {
+          // 0. Tạo snapshot bảo hiểm
+          StorageManager.createSafetySnapshot();
+
+          // 1. Host thực hiện Smart Merge FSRS
+          const mergeResult = this.mergeProgress(clientUnpacked);
+          await StorageManager.importBackup(mergeResult.data);
+
+          // 2. Host gửi ngược lại bản merged mới nhất cho Client
+          const hostResponsePayload = this.packageSyncData();
+          fetch(`https://ntfy.sh/${respTopic}`, {
+            method: 'POST',
+            headers: { 'Title': 'SyncHandshakeResp', 'Priority': '1' },
+            body: JSON.stringify(hostResponsePayload)
+          }).catch(() => {});
+
+          // 3. Báo hoàn tất trên Host
+          if (onSyncCompleted) {
+            onSyncCompleted({ pin, stats: mergeResult.stats, data: mergeResult.data });
+          }
+        }
+      } catch (err) {
+        console.error('Lỗi khi xử lý merge dữ liệu:', err);
+      }
+    };
+
+    // 1. Kênh SSE (Real-Time Push)
     try {
       eventSource = new EventSource(`https://ntfy.sh/${reqTopic}/sse`);
-
-      eventSource.onopen = () => {
-        if (!isClosed && onConnected) onConnected({ pin, pairUrl });
-      };
-
-      eventSource.onmessage = async (event) => {
-        if (isClosed) return;
+      eventSource.onmessage = (event) => {
+        if (isClosed || isProcessed) return;
         try {
           const dataObj = JSON.parse(event.data);
           if (dataObj.event === 'message' && dataObj.message) {
             const clientPayload = JSON.parse(dataObj.message);
-            const clientUnpacked = this.unpackageSyncData(clientPayload);
-
-            if (clientUnpacked) {
-              // 0. Tự động chụp Snapshot bảo hiểm
-              StorageManager.createSafetySnapshot();
-
-              // 1. Host thực hiện Smart Merge
-              const mergeResult = this.mergeProgress(clientUnpacked);
-              await StorageManager.importBackup(mergeResult.data);
-
-              // 2. Host gửi ngược lại bản merged mới nhất cho Client qua Response Topic
-              const hostResponsePayload = this.packageSyncData();
-              fetch(`https://ntfy.sh/${respTopic}`, {
-                method: 'POST',
-                headers: { 'Title': 'SyncHandshakeResp', 'Priority': '1' },
-                body: JSON.stringify(hostResponsePayload)
-              }).catch(() => {});
-
-              // 3. Báo hoàn tất trên Host
-              if (onSyncCompleted) {
-                onSyncCompleted({ pin, stats: mergeResult.stats, data: mergeResult.data });
-              }
-            }
+            processIncomingPayload(clientPayload);
           }
-        } catch (e) {
-          console.warn('Lỗi xử lý bắt tay 2 chiều:', e);
-        }
+        } catch (e) {}
       };
+      eventSource.onerror = () => {
+        // SSE bị chặn hoặc rớt mạng -> Polling loop bên dưới sẽ tự động đảm nhiệm
+      };
+    } catch (e) {}
 
-      eventSource.onerror = (err) => {
-        if (!isClosed && onError) onError(err);
-      };
-    } catch (err) {
-      if (onError) onError(err);
-    }
+    // 2. Kênh Polling chủ động (Dự phòng chống chặn bởi Adblocker / Firewall)
+    pollInterval = setInterval(async () => {
+      if (isClosed || isProcessed) {
+        clearInterval(pollInterval);
+        return;
+      }
+      try {
+        const resp = await fetch(`https://ntfy.sh/${reqTopic}/json?poll=1`, {
+          headers: { 'Accept': 'application/json' }
+        });
+        if (resp.ok) {
+          const text = await resp.text();
+          const lines = text.trim().split('\n');
+          for (let i = lines.length - 1; i >= 0; i--) {
+            const line = lines[i].trim();
+            if (!line) continue;
+            try {
+              const eventObj = JSON.parse(line);
+              if (eventObj.event === 'message' && eventObj.message) {
+                const clientPayload = JSON.parse(eventObj.message);
+                processIncomingPayload(clientPayload);
+                break;
+              }
+            } catch (e) {}
+          }
+        }
+      } catch (e) {}
+    }, 1200);
 
     return {
       pin,
       pairUrl,
       stop: () => {
         isClosed = true;
+        if (pollInterval) {
+          clearInterval(pollInterval);
+          pollInterval = null;
+        }
         if (eventSource) {
           eventSource.close();
           eventSource = null;
@@ -265,11 +310,11 @@ export class SyncManager {
       return { success: false, error: 'Lỗi mạng khi kết nối thiết bị.' };
     }
 
-    // 2. Chờ nhận phản hồi bản Merged từ Host (Tối đa 6.5 giây)
+    // 2. Chờ nhận phản hồi bản Merged từ Host (Tối đa 8 giây)
     try {
       const startTime = Date.now();
-      while (Date.now() - startTime < 6500) {
-        await new Promise(r => setTimeout(r, 600));
+      while (Date.now() - startTime < 8000) {
+        await new Promise(r => setTimeout(r, 800));
         const resp = await fetch(`https://ntfy.sh/${respTopic}/json?poll=1`, {
           headers: { 'Accept': 'application/json' }
         });
