@@ -10,8 +10,7 @@ const PAIR_REQ_PREFIX = 'fc_fsrs_pair_';
 const PAIR_RESP_PREFIX = 'fc_fsrs_resp_';
 
 const RELAY_SERVERS = [
-  'https://ntfy.envs.net',
-  'https://ntfy.projectsegfau.lt'
+  'https://ntfy.envs.net'
 ];
 
 /**
@@ -46,7 +45,7 @@ async function broadcastToRelays(topic, payload, headers = {}) {
   const requests = RELAY_SERVERS.map(async (baseUrl) => {
     try {
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 4500);
+      const timeout = setTimeout(() => controller.abort(), 6000);
       const res = await fetch(`${baseUrl}/${topic}`, {
         method: 'POST',
         headers: { 'Title': 'SyncHandshake', 'Priority': '1', ...headers },
@@ -83,71 +82,59 @@ export class SimpleQRCode {
 
 export class SyncManager {
   /**
-   * Đóng gói dữ liệu tiến trình học tập tối ưu dung lượng
+   * Đóng gói toàn bộ dữ liệu tiến trình học tập FSRS, logs, studyTime, customDecks
    */
   static packageSyncData() {
     const rawData = StorageManager.exportBackup();
-    const compactCards = {};
+    return {
+      v: 2,
+      ts: Date.now(),
+      cards: rawData.cards || {},
+      settings: rawData.settings || {},
+      logs: rawData.logs || [],
+      customDecks: rawData.customDecks || [],
+      studyTime: rawData.studyTime || {}
+    };
+  }
+
+  /**
+   * Giải nén dữ liệu từ gói backup sang CardState chuẩn FSRS
+   */
+  static unpackageSyncData(payload) {
+    if (!payload) return null;
+    const cardsPayload = payload.cards || payload.c || {};
     
-    if (rawData.cards) {
-      for (const [id, state] of Object.entries(rawData.cards)) {
-        if (state && (state.reps > 0 || state.state > 0 || state.stability > 0)) {
-          compactCards[id] = {
-            s: state.state || 0,
-            r: state.reps || 0,
-            l: state.lapses || 0,
-            st: state.stability ? Math.round(state.stability * 100) / 100 : 0,
-            d: state.difficulty ? Math.round(state.difficulty * 100) / 100 : 0,
-            du: state.due || null,
-            lr: state.last_review || null
-          };
-        }
+    const unpackedCards = {};
+    for (const [id, c] of Object.entries(cardsPayload)) {
+      if (c) {
+        unpackedCards[id] = {
+          id: id,
+          state: c.state ?? c.s ?? 0,
+          reps: c.reps ?? c.r ?? 0,
+          lapses: c.lapses ?? c.l ?? 0,
+          stability: c.stability ?? c.st ?? 0,
+          difficulty: c.difficulty ?? c.d ?? 0,
+          due: c.due ?? c.du ?? null,
+          last_review: c.last_review ?? c.lr ?? null,
+          elapsed_days: c.elapsed_days ?? 0,
+          scheduled_days: c.scheduled_days ?? 0
+        };
       }
     }
 
     return {
-      v: 2,
-      ts: Date.now(),
-      c: compactCards,
-      s: rawData.settings || {},
-      logs: (rawData.logs || []).slice(-50)
-    };
-  }
-
-  /**
-   * Giải nén dữ liệu từ gói compact sang CardState chuẩn FSRS
-   */
-  static unpackageSyncData(payload) {
-    if (!payload) return null;
-    const cardsPayload = payload.c || payload.cards || {};
-    
-    const cards = {};
-    for (const [id, c] of Object.entries(cardsPayload)) {
-      cards[id] = {
-        id: id,
-        state: c.s ?? c.state ?? 0,
-        reps: c.r ?? c.reps ?? 0,
-        lapses: c.l ?? c.lapses ?? 0,
-        stability: c.st ?? c.stability ?? 0,
-        difficulty: c.d ?? c.difficulty ?? 0,
-        due: c.du ?? c.due ?? null,
-        last_review: c.lr ?? c.last_review ?? null,
-        elapsed_days: 0,
-        scheduled_days: 0
-      };
-    }
-
-    return {
-      version: payload.v || 2,
+      version: '2.0',
       exportDate: new Date(payload.ts || Date.now()).toISOString(),
-      cards: cards,
-      settings: payload.s || payload.settings || {},
-      logs: payload.logs || []
+      cards: unpackedCards,
+      settings: payload.settings || payload.s || {},
+      logs: payload.logs || payload.study_logs || [],
+      customDecks: payload.customDecks || payload.custom_decks || [],
+      studyTime: payload.studyTime || payload.study_time || {}
     };
   }
 
   /**
-   * Thuật toán Smart Merge FSRS: Hợp nhất thông minh 2 tập dữ liệu
+   * Thuật toán Smart Merge FSRS: Hợp nhất thông minh & chính xác 100% giữa 2 thiết bị
    */
   static mergeProgress(incomingData) {
     const currentData = StorageManager.exportBackup();
@@ -167,40 +154,75 @@ export class SyncManager {
         const curTime = cur.last_review ? new Date(cur.last_review).getTime() : 0;
         const incTime = inc.last_review ? new Date(inc.last_review).getTime() : 0;
 
-        if (incTime > curTime || (inc.reps || 0) > (cur.reps || 0)) {
-          mergedCards[id] = {
-            ...cur,
-            ...inc,
-            stability: Math.max(cur.stability || 0, inc.stability || 0),
-            reps: Math.max(cur.reps || 0, inc.reps || 0)
-          };
+        if (incTime > curTime) {
+          // Gói tin từ thiết bị kia mới hơn: Nhận trọn vẹn trạng thái FSRS mới nhất
+          mergedCards[id] = { ...cur, ...inc };
           updatedCount++;
+        } else if (incTime === curTime) {
+          // Cùng thời điểm: Lấy bản ghi có số lần ôn (reps) cao hơn
+          if ((inc.reps || 0) > (cur.reps || 0)) {
+            mergedCards[id] = { ...cur, ...inc };
+            updatedCount++;
+          }
         }
+        // Nếu curTime > incTime -> Giữ nguyên dữ liệu hiện tại vì máy này mới hơn
       }
     }
 
+    // 1. Hợp nhất Lịch sử ôn tập (Logs) - Deduplicate theo ID & Timestamp, sắp xếp theo thời gian
     const curLogs = currentData.logs || [];
     const incLogs = incomingData.logs || [];
-    const logIds = new Set(curLogs.map(l => l.id || `${l.card_id}_${l.review}`));
-    const mergedLogs = [...curLogs];
-    
-    for (const l of incLogs) {
-      const key = l.id || `${l.card_id}_${l.review}`;
-      if (!logIds.has(key)) {
-        logIds.add(key);
-        mergedLogs.push(l);
+    const logMap = new Map();
+    [...curLogs, ...incLogs].forEach(l => {
+      if (l) {
+        const key = l.id || `${l.card_id}_${l.review || l.timestamp || ''}`;
+        logMap.set(key, l);
       }
+    });
+    const mergedLogs = Array.from(logMap.values()).sort((a, b) => {
+      const ta = a.timestamp || a.review ? new Date(a.timestamp || a.review).getTime() : 0;
+      const tb = b.timestamp || b.review ? new Date(b.timestamp || b.review).getTime() : 0;
+      return ta - tb;
+    });
+
+    // 2. Hợp nhất Thời gian học (Study Time theo từng ngày)
+    const curTimeMap = currentData.studyTime || {};
+    const incTimeMap = incomingData.studyTime || {};
+    const mergedStudyTime = { ...curTimeMap };
+    for (const [dateKey, seconds] of Object.entries(incTimeMap)) {
+      mergedStudyTime[dateKey] = Math.max(mergedStudyTime[dateKey] || 0, seconds || 0);
     }
+
+    // 3. Hợp nhất Bộ đề tùy chỉnh (Custom Decks)
+    const curDecks = currentData.customDecks || [];
+    const incDecks = incomingData.customDecks || [];
+    const deckMap = new Map();
+    curDecks.forEach(d => { if (d && d.id) deckMap.set(d.id, d); });
+    incDecks.forEach(d => {
+      if (d && d.id) {
+        const existing = deckMap.get(d.id);
+        if (!existing || (d.updatedAt || 0) > (existing.updatedAt || 0)) {
+          deckMap.set(d.id, d);
+        }
+      }
+    });
+    const mergedCustomDecks = Array.from(deckMap.values());
 
     return {
       data: {
-        version: 2,
+        version: '2.0',
         exportDate: new Date().toISOString(),
         cards: mergedCards,
         settings: { ...(currentData.settings || {}), ...(incomingData.settings || {}) },
-        logs: mergedLogs
+        logs: mergedLogs,
+        studyTime: mergedStudyTime,
+        customDecks: mergedCustomDecks
       },
-      stats: { added: addedCount, updated: updatedCount, total: Object.keys(mergedCards).length }
+      stats: {
+        added: addedCount,
+        updated: updatedCount,
+        total: Object.keys(mergedCards).length
+      }
     };
   }
 

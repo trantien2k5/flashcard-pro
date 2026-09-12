@@ -697,11 +697,22 @@ export class StorageManager {
         }
       }
 
-      // 3. Lịch sử ôn tập (Logs)
+      // 3. Lịch sử ôn tập (Logs) - Tự động Deduplicate
       const rawLogs = data.logs || data.study_logs;
       if (Array.isArray(rawLogs)) {
         const existingLogs = this.getStudyLogs() || [];
-        _logsCache = [...existingLogs, ...rawLogs];
+        const logMap = new Map();
+        [...existingLogs, ...rawLogs].forEach(l => {
+          if (l) {
+            const key = l.id || `${l.card_id}_${l.review || l.timestamp || ''}`;
+            logMap.set(key, l);
+          }
+        });
+        _logsCache = Array.from(logMap.values()).sort((a, b) => {
+          const ta = a.timestamp || a.review ? new Date(a.timestamp || a.review).getTime() : 0;
+          const tb = b.timestamp || b.review ? new Date(b.timestamp || b.review).getTime() : 0;
+          return ta - tb;
+        });
         if (typeof localStorage !== 'undefined') {
           localStorage.setItem(STORAGE_KEYS.STUDY_LOGS, JSON.stringify(_logsCache));
         }
@@ -710,7 +721,11 @@ export class StorageManager {
       // 4. Bộ đề tùy chỉnh (Custom Decks)
       const rawCustom = data.customDecks || data.custom_decks;
       if (Array.isArray(rawCustom)) {
-        _customDecksCache = [...rawCustom];
+        const existingDecks = this.getCustomDecks() || [];
+        const deckMap = new Map();
+        existingDecks.forEach(d => { if (d && d.id) deckMap.set(d.id, d); });
+        rawCustom.forEach(d => { if (d && d.id) deckMap.set(d.id, d); });
+        _customDecksCache = Array.from(deckMap.values());
         if (typeof localStorage !== 'undefined') {
           localStorage.setItem(STORAGE_KEYS.CUSTOM_DECKS, JSON.stringify(_customDecksCache));
         }
