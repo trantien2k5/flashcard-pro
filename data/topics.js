@@ -2,6 +2,7 @@
  * TOPICS TAXONOMY - Flashcard English Pro
  * Định nghĩa cấu trúc phân cấp chủ đề (Cha -> Con qua parentId)
  * Single Source of Truth cho phân loại chủ đề (Chuẩn hóa 10 từ/chặng học)
+ * Sắp xếp theo thứ tự sư phạm: Phổ biến -> Dùng nhiều -> Gần gũi -> Cần thiết
  */
 
 export const TOPICS = [
@@ -1224,183 +1225,6 @@ export const TOPICS = [
     "order": 1
   },
   {
-    "id": "people-relationships",
-    "name": "Con người & Mối quan hệ",
-    "parentId": null,
-    "description": "Từ vựng toàn diện về gia đình, họ hàng, tình bạn, diện mạo và tính cách con người.",
-    "icon": "👥",
-    "category": "daily",
-    "color": "#6366f1",
-    "titleEn": "People & Relationships",
-    "order": 2
-  },
-  {
-    "id": "communication-feelings",
-    "name": "Giao tiếp & Cảm xúc",
-    "parentId": null,
-    "description": "Trò chuyện, đối thoại, tranh luận, các cung bậc cảm xúc và ngôn ngữ cơ thể.",
-    "icon": "💬",
-    "category": "daily",
-    "color": "#8b5cf6",
-    "titleEn": "Communication & Feelings",
-    "order": 3
-  },
-  {
-    "id": "food-drink",
-    "name": "Ăn uống & Ẩm thực",
-    "parentId": null,
-    "description": "Nguyên liệu, phương pháp nấu nướng, hương vị, dụng cụ bếp và văn hóa nhà hàng ẩm thực.",
-    "icon": "🍽️",
-    "category": "daily",
-    "color": "#f59e0b",
-    "titleEn": "Food & Drink",
-    "order": 4
-  },
-  {
-    "id": "home-living",
-    "name": "Nhà cửa & Đời sống",
-    "parentId": null,
-    "description": "Nội thất, phòng ốc, thiết bị điện gia dụng, dọn dẹp nhà cửa và thuê nhà.",
-    "icon": "🏡",
-    "category": "daily",
-    "color": "#10b981",
-    "titleEn": "Home & Living",
-    "order": 5
-  },
-  {
-    "id": "health-body",
-    "name": "Sức khỏe & Cơ thể",
-    "parentId": null,
-    "description": "Các bộ phận cơ thể, triệu chứng bệnh tật, bệnh viện, thuốc men và lối sống lành mạnh.",
-    "icon": "🩺",
-    "category": "daily",
-    "color": "#ef4444",
-    "titleEn": "Health & Body",
-    "order": 6
-  },
-  {
-    "id": "shopping-money",
-    "name": "Mua sắm & Tiền bạc",
-    "parentId": null,
-    "description": "Mua sắm trực tiếp & online, giá cả, thẻ ngân hàng, tiền tệ, quản lý ngân sách và tài chính.",
-    "icon": "🛍️",
-    "category": "daily",
-    "color": "#ec4899",
-    "titleEn": "Shopping & Money",
-    "order": 7
-  },
-  {
-    "id": "transport-directions",
-    "name": "Giao thông & Chỉ đường",
-    "parentId": null,
-    "description": "Phương tiện giao thông, giao thông công cộng, tàu hỏa, hàng không, luật lái xe, bản đồ và chỉ đường.",
-    "icon": "🚗",
-    "category": "daily",
-    "color": "#f97316",
-    "titleEn": "Transport & Directions",
-    "order": 8
-  },
-  {
-    "id": "work-jobs",
-    "name": "Công việc & Nghề nghiệp",
-    "parentId": null,
-    "description": "Các ngành nghề, môi trường văn phòng, tuyển dụng, phỏng vấn, lương thưởng, dự án và thăng tiến.",
-    "icon": "💼",
-    "category": "career",
-    "color": "#6366f1",
-    "titleEn": "Work & Careers",
-    "order": 11
-  },
-  {
-    "id": "education-learning",
-    "name": "Giáo dục & Học tập",
-    "parentId": null,
-    "description": "Trường học, bậc học, môn học, thi cử, bằng cấp, học bổng, phương pháp tự học và du học.",
-    "icon": "🎓",
-    "category": "career",
-    "color": "#3b82f6",
-    "titleEn": "Education & Learning",
-    "order": 10
-  },
-  {
-    "id": "travel-places",
-    "name": "Du lịch & Địa điểm",
-    "parentId": null,
-    "description": "Kế hoạch du lịch, khách sạn, thắng cảnh, bãi biển, leo núi, ẩm thực địa phương, kỳ quan và an toàn.",
-    "icon": "✈️",
-    "category": "explore",
-    "color": "#06b6d4",
-    "titleEn": "Travel & Places",
-    "order": 9
-  },
-  {
-    "id": "entertainment-hobbies",
-    "name": "Giải trí & Sở thích",
-    "parentId": null,
-    "description": "Phim ảnh, âm nhạc, sách truyện, trò chơi điện tử, thể thao, nhiếp ảnh, hội họa, kịch nghệ và dã ngoại.",
-    "icon": "🎨",
-    "category": "explore",
-    "color": "#a855f7",
-    "titleEn": "Entertainment & Hobbies",
-    "order": 13
-  },
-  {
-    "id": "technology-internet",
-    "name": "Công nghệ & Internet",
-    "parentId": null,
-    "description": "Máy tính, phần mềm, internet, smartphone, mạng xã hội, an ninh mạng, đám mây, AI và lập trình.",
-    "icon": "💻",
-    "category": "career",
-    "color": "#14b8a6",
-    "titleEn": "Technology & Internet",
-    "order": 12
-  },
-  {
-    "id": "nature-weather",
-    "name": "Thiên nhiên & Thời tiết",
-    "parentId": null,
-    "description": "Thời tiết, 4 mùa, thiên tai, động vật, chim muông, cây cối, sông hồ, địa hình, vũ trụ và môi trường.",
-    "icon": "🌿",
-    "category": "explore",
-    "color": "#84cc16",
-    "titleEn": "Nature & Weather",
-    "order": 14
-  },
-  {
-    "id": "society-world",
-    "name": "Xã hội & Thế giới",
-    "parentId": null,
-    "description": "Quốc gia, chính phủ, luật pháp, cộng đồng, truyền thông, kinh tế, hòa bình, nhân quyền và từ thiện.",
-    "icon": "🌍",
-    "category": "explore",
-    "color": "#d946ef",
-    "titleEn": "Society & World",
-    "order": 15
-  },
-  {
-    "id": "toeic-b1",
-    "name": "TOEIC B1 - Tiếng Anh Công Sở",
-    "parentId": null,
-    "description": "Lộ trình 20 chặng từ vựng chuẩn TOEIC 500-750+: Văn phòng, nhân sự, tiếp thị, hợp đồng, tài chính và logistics.",
-    "icon": "🎯",
-    "category": "toeic",
-    "color": "#0284c7",
-    "titleEn": "TOEIC B1 Business Pathway",
-    "order": 16,
-    "isProgressive": true
-  },
-  {
-    "id": "finance-banking",
-    "name": "Tài chính & Ngân hàng",
-    "titleEn": "Finance & Banking Mastery",
-    "parentId": null,
-    "description": "Bộ từ vựng toàn diện về ngân hàng, tài chính cá nhân, đầu tư chứng khoán, tín dụng và kế toán doanh nghiệp.",
-    "icon": "🏦",
-    "color": "#10b981",
-    "category": "finance",
-    "order": 17
-  },
-  {
     "id": "daily-life-routines-chặng-1",
     "name": "1. Thức dậy & Vệ sinh buổi sáng",
     "parentId": "daily-life-routines",
@@ -1757,356 +1581,15 @@ export const TOPICS = [
     "color": "#84cc16"
   },
   {
-    "id": "people-relationships-chặng-1",
-    "name": "1. Thành viên gia đình & Bậc phụ huynh",
-    "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về thành viên gia đình & bậc phụ huynh.",
-    "icon": "👨‍👩‍👧‍👦",
-    "color": "#ec4899"
-  },
-  {
-    "id": "people-relationships-chặng-2",
-    "name": "2. Anh chị em & Bậc con cháu",
-    "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về anh chị em & bậc con cháu.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "people-relationships-chặng-1"
-    },
-    "icon": "⏰",
-    "color": "#6366f1"
-  },
-  {
-    "id": "people-relationships-chặng-3",
-    "name": "3. Quan hệ họ hàng & Gia đình mở rộng",
-    "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về quan hệ họ hàng & gia đình mở rộng.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "people-relationships-chặng-2"
-    },
-    "icon": "👨‍👩‍👧‍👦",
-    "color": "#ec4899"
-  },
-  {
-    "id": "people-relationships-chặng-4",
-    "name": "4. Hôn nhân, Vợ chồng & Đám cưới",
-    "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về hôn nhân, vợ chồng & đám cưới.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "people-relationships-chặng-3"
-    },
-    "icon": "⏳",
-    "color": "#ec4899"
-  },
-  {
-    "id": "people-relationships-chặng-5",
-    "name": "5. Tình yêu, Hẹn hò & Tình cảm đôi lứa",
-    "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về tình yêu, hẹn hò & tình cảm đôi lứa.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "people-relationships-chặng-4"
-    },
-    "icon": "💍",
-    "color": "#ec4899"
-  },
-  {
-    "id": "people-relationships-chặng-6",
-    "name": "6. Bạn bè thân thiết & Tình bằng hữu",
-    "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về bạn bè thân thiết & tình bằng hữu.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "people-relationships-chặng-5"
-    },
-    "icon": "🤝",
-    "color": "#3b82f6"
-  },
-  {
-    "id": "people-relationships-chặng-7",
-    "name": "7. Đồng nghiệp & Quan hệ công sở",
-    "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về đồng nghiệp & quan hệ công sở.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "people-relationships-chặng-6"
-    },
-    "icon": "🤝",
-    "color": "#3b82f6"
-  },
-  {
-    "id": "people-relationships-chặng-8",
-    "name": "8. Hàng xóm & Cộng đồng xung quanh",
-    "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về hàng xóm & cộng đồng xung quanh.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "people-relationships-chặng-7"
-    },
-    "icon": "🚿",
-    "color": "#f97316"
-  },
-  {
-    "id": "people-relationships-chặng-9",
-    "name": "9. Ngoại hình, Chiều cao & Vóc dáng",
-    "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về ngoại hình, chiều cao & vóc dáng.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "people-relationships-chặng-8"
-    },
-    "icon": "⌚",
-    "color": "#14b8a6"
-  },
-  {
-    "id": "people-relationships-chặng-10",
-    "name": "10. Khuôn mặt, Mái tóc & Nụ cười",
-    "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về khuôn mặt, mái tóc & nụ cười.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "people-relationships-chặng-9"
-    },
-    "icon": "🗓️",
-    "color": "#84cc16"
-  },
-  {
-    "id": "people-relationships-chặng-11",
-    "name": "11. Tính cách tích cực & Lạc quan",
-    "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về tính cách tích cực & lạc quan.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "people-relationships-chặng-10"
-    },
-    "icon": "🧘",
-    "color": "#f59e0b"
-  },
-  {
-    "id": "people-relationships-chặng-12",
-    "name": "12. Tính cách chu đáo, Hòa đồng & Thật thà",
-    "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về tính cách chu đáo, hòa đồng & thật thà.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "people-relationships-chặng-11"
-    },
-    "icon": "🍳",
-    "color": "#6366f1"
-  },
-  {
-    "id": "people-relationships-chặng-13",
-    "name": "13. Tính cách khép kín & Hướng nội",
-    "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về tính cách khép kín & hướng nội.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "people-relationships-chặng-12"
-    },
-    "icon": "🌅",
-    "color": "#10b981"
-  },
-  {
-    "id": "people-relationships-chặng-14",
-    "name": "14. Tính cách phức tạp & Thách thức",
-    "parentId": "people-relationships",
-    "description": "Gồm 10 từ vựng trọng tâm về tính cách phức tạp & thách thức.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "people-relationships-chặng-13"
-    },
-    "icon": "⏰",
-    "color": "#ec4899"
-  },
-  {
-    "id": "people-relationships-chặng-15",
-    "name": "15. Ứng xử xã hội & Kỹ năng giao thiệp",
-    "parentId": "people-relationships",
-    "description": "Gồm 9 từ vựng trọng tâm về ứng xử xã hội & kỹ năng giao thiệp.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "people-relationships-chặng-14"
-    },
-    "icon": "📰",
-    "color": "#06b6d4"
-  },
-  {
-    "id": "communication-feelings-chặng-1",
-    "name": "1. Chào hỏi, Làm quen & Bắt đầu câu chuyện",
-    "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về chào hỏi, làm quen & bắt đầu câu chuyện.",
-    "icon": "🌅",
-    "color": "#f59e0b"
-  },
-  {
-    "id": "communication-feelings-chặng-2",
-    "name": "2. Diễn đạt ý kiến & Thảo luận",
-    "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về diễn đạt ý kiến & thảo luận.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "communication-feelings-chặng-1"
-    },
-    "icon": "⏰",
-    "color": "#6366f1"
-  },
-  {
-    "id": "communication-feelings-chặng-3",
-    "name": "3. Lắng nghe, Phản hồi & Đồng thuận",
-    "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về lắng nghe, phản hồi & đồng thuận.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "communication-feelings-chặng-2"
-    },
-    "icon": "📅",
-    "color": "#10b981"
-  },
-  {
-    "id": "communication-feelings-chặng-4",
-    "name": "4. Từ chối, Phản bác & Đàm phán",
-    "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về từ chối, phản bác & đàm phán.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "communication-feelings-chặng-3"
-    },
-    "icon": "⏳",
-    "color": "#ec4899"
-  },
-  {
-    "id": "communication-feelings-chặng-5",
-    "name": "5. Cảm xúc vui vẻ & Hạnh phúc ngập tràn",
-    "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về cảm xúc vui vẻ & hạnh phúc ngập tràn.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "communication-feelings-chặng-4"
-    },
-    "icon": "☕",
-    "color": "#d97706"
-  },
-  {
-    "id": "communication-feelings-chặng-6",
-    "name": "6. Nhiệt huyết, Phấn khởi & Tự hào",
-    "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về nhiệt huyết, phấn khởi & tự hào.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "communication-feelings-chặng-5"
-    },
-    "icon": "☕",
-    "color": "#8b5cf6"
-  },
-  {
-    "id": "communication-feelings-chặng-7",
-    "name": "7. Bình yên, Nhẹ nhõm & Thư thái",
-    "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về bình yên, nhẹ nhõm & thư thái.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "communication-feelings-chặng-6"
-    },
-    "icon": "🧹",
-    "color": "#3b82f6"
-  },
-  {
-    "id": "communication-feelings-chặng-8",
-    "name": "8. Cảm giác buồn bã, Buồn rầu & Cô đơn",
-    "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về cảm giác buồn bã, buồn rầu & cô đơn.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "communication-feelings-chặng-7"
-    },
-    "icon": "🚿",
-    "color": "#f97316"
-  },
-  {
-    "id": "communication-feelings-chặng-9",
-    "name": "9. Tức giận, Bực bội & Cáu kỉnh",
-    "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về tức giận, bực bội & cáu kỉnh.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "communication-feelings-chặng-8"
-    },
-    "icon": "⌚",
-    "color": "#14b8a6"
-  },
-  {
-    "id": "communication-feelings-chặng-10",
-    "name": "10. Lo lắng, Bồn chồn & Căng thẳng",
-    "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về lo lắng, bồn chồn & căng thẳng.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "communication-feelings-chặng-9"
-    },
-    "icon": "🗓️",
-    "color": "#84cc16"
-  },
-  {
-    "id": "communication-feelings-chặng-11",
-    "name": "11. Sợ hãi, Hoảng hốt & Bất an",
-    "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về sợ hãi, hoảng hốt & bất an.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "communication-feelings-chặng-10"
-    },
-    "icon": "🧘",
-    "color": "#f59e0b"
-  },
-  {
-    "id": "communication-feelings-chặng-12",
-    "name": "12. Ngạc nhiên, Kinh ngạc & Bàng hoàng",
-    "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về ngạc nhiên, kinh ngạc & bàng hoàng.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "communication-feelings-chặng-11"
-    },
-    "icon": "🍳",
-    "color": "#6366f1"
-  },
-  {
-    "id": "communication-feelings-chặng-13",
-    "name": "13. Thất vọng, Bối rối & Hối tiếc",
-    "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về thất vọng, bối rối & hối tiếc.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "communication-feelings-chặng-12"
-    },
-    "icon": "🌅",
-    "color": "#10b981"
-  },
-  {
-    "id": "communication-feelings-chặng-14",
-    "name": "14. Đồng cảm & Thấu hiểu sẻ chia",
-    "parentId": "communication-feelings",
-    "description": "Gồm 10 từ vựng trọng tâm về đồng cảm & thấu hiểu sẻ chia.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "communication-feelings-chặng-13"
-    },
-    "icon": "⏰",
-    "color": "#ec4899"
-  },
-  {
-    "id": "communication-feelings-chặng-15",
-    "name": "15. Ngôn ngữ cơ thể & Biểu cảm phi ngôn ngữ",
-    "parentId": "communication-feelings",
-    "description": "Gồm 2 từ vựng trọng tâm về ngôn ngữ cơ thể & biểu cảm phi ngôn ngữ.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "communication-feelings-chặng-14"
-    },
-    "icon": "💪",
-    "color": "#06b6d4"
+    "id": "food-drink",
+    "name": "Ăn uống & Ẩm thực",
+    "parentId": null,
+    "description": "Nguyên liệu, phương pháp nấu nướng, hương vị, dụng cụ bếp và văn hóa nhà hàng ẩm thực.",
+    "icon": "🍽️",
+    "category": "daily",
+    "color": "#f59e0b",
+    "titleEn": "Food & Drink",
+    "order": 2
   },
   {
     "id": "food-drink-chặng-1",
@@ -2285,6 +1768,17 @@ export const TOPICS = [
     "color": "#10b981"
   },
   {
+    "id": "home-living",
+    "name": "Nhà cửa & Đời sống",
+    "parentId": null,
+    "description": "Nội thất, phòng ốc, thiết bị điện gia dụng, dọn dẹp nhà cửa và thuê nhà.",
+    "icon": "🏡",
+    "category": "daily",
+    "color": "#10b981",
+    "titleEn": "Home & Living",
+    "order": 3
+  },
+  {
     "id": "home-living-chặng-1",
     "name": "1. Các loại hình nhà ở & Kiến trúc dân cư",
     "parentId": "home-living",
@@ -2435,6 +1929,247 @@ export const TOPICS = [
     },
     "icon": "👨‍👩‍👧‍👦",
     "color": "#ec4899"
+  },
+  {
+    "id": "people-relationships",
+    "name": "Con người & Mối quan hệ",
+    "parentId": null,
+    "description": "Từ vựng toàn diện về gia đình, họ hàng, tình bạn, diện mạo và tính cách con người.",
+    "icon": "👥",
+    "category": "daily",
+    "color": "#6366f1",
+    "titleEn": "People & Relationships",
+    "order": 4
+  },
+  {
+    "id": "people-relationships-chặng-1",
+    "name": "1. Thành viên gia đình & Bậc phụ huynh",
+    "parentId": "people-relationships",
+    "description": "Gồm 10 từ vựng trọng tâm về thành viên gia đình & bậc phụ huynh.",
+    "icon": "👨‍👩‍👧‍👦",
+    "color": "#ec4899"
+  },
+  {
+    "id": "people-relationships-chặng-2",
+    "name": "2. Anh chị em & Bậc con cháu",
+    "parentId": "people-relationships",
+    "description": "Gồm 10 từ vựng trọng tâm về anh chị em & bậc con cháu.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "people-relationships-chặng-1"
+    },
+    "icon": "⏰",
+    "color": "#6366f1"
+  },
+  {
+    "id": "people-relationships-chặng-3",
+    "name": "3. Quan hệ họ hàng & Gia đình mở rộng",
+    "parentId": "people-relationships",
+    "description": "Gồm 10 từ vựng trọng tâm về quan hệ họ hàng & gia đình mở rộng.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "people-relationships-chặng-2"
+    },
+    "icon": "👨‍👩‍👧‍👦",
+    "color": "#ec4899"
+  },
+  {
+    "id": "people-relationships-chặng-4",
+    "name": "4. Hôn nhân, Vợ chồng & Đám cưới",
+    "parentId": "people-relationships",
+    "description": "Gồm 10 từ vựng trọng tâm về hôn nhân, vợ chồng & đám cưới.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "people-relationships-chặng-3"
+    },
+    "icon": "⏳",
+    "color": "#ec4899"
+  },
+  {
+    "id": "people-relationships-chặng-5",
+    "name": "5. Tình yêu, Hẹn hò & Tình cảm đôi lứa",
+    "parentId": "people-relationships",
+    "description": "Gồm 10 từ vựng trọng tâm về tình yêu, hẹn hò & tình cảm đôi lứa.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "people-relationships-chặng-4"
+    },
+    "icon": "💍",
+    "color": "#ec4899"
+  },
+  {
+    "id": "people-relationships-chặng-6",
+    "name": "6. Bạn bè thân thiết & Tình bằng hữu",
+    "parentId": "people-relationships",
+    "description": "Gồm 10 từ vựng trọng tâm về bạn bè thân thiết & tình bằng hữu.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "people-relationships-chặng-5"
+    },
+    "icon": "🤝",
+    "color": "#3b82f6"
+  },
+  {
+    "id": "people-relationships-chặng-7",
+    "name": "7. Đồng nghiệp & Quan hệ công sở",
+    "parentId": "people-relationships",
+    "description": "Gồm 10 từ vựng trọng tâm về đồng nghiệp & quan hệ công sở.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "people-relationships-chặng-6"
+    },
+    "icon": "🤝",
+    "color": "#3b82f6"
+  },
+  {
+    "id": "people-relationships-chặng-8",
+    "name": "8. Hàng xóm & Cộng đồng xung quanh",
+    "parentId": "people-relationships",
+    "description": "Gồm 10 từ vựng trọng tâm về hàng xóm & cộng đồng xung quanh.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "people-relationships-chặng-7"
+    },
+    "icon": "🚿",
+    "color": "#f97316"
+  },
+  {
+    "id": "people-relationships-chặng-9",
+    "name": "9. Ngoại hình, Chiều cao & Vóc dáng",
+    "parentId": "people-relationships",
+    "description": "Gồm 10 từ vựng trọng tâm về ngoại hình, chiều cao & vóc dáng.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "people-relationships-chặng-8"
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
+  },
+  {
+    "id": "people-relationships-chặng-10",
+    "name": "10. Khuôn mặt, Mái tóc & Nụ cười",
+    "parentId": "people-relationships",
+    "description": "Gồm 10 từ vựng trọng tâm về khuôn mặt, mái tóc & nụ cười.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "people-relationships-chặng-9"
+    },
+    "icon": "🗓️",
+    "color": "#84cc16"
+  },
+  {
+    "id": "people-relationships-chặng-11",
+    "name": "11. Tính cách tích cực & Lạc quan",
+    "parentId": "people-relationships",
+    "description": "Gồm 10 từ vựng trọng tâm về tính cách tích cực & lạc quan.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "people-relationships-chặng-10"
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
+  },
+  {
+    "id": "people-relationships-chặng-12",
+    "name": "12. Tính cách chu đáo, Hòa đồng & Thật thà",
+    "parentId": "people-relationships",
+    "description": "Gồm 10 từ vựng trọng tâm về tính cách chu đáo, hòa đồng & thật thà.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "people-relationships-chặng-11"
+    },
+    "icon": "🍳",
+    "color": "#6366f1"
+  },
+  {
+    "id": "people-relationships-chặng-13",
+    "name": "13. Tính cách khép kín & Hướng nội",
+    "parentId": "people-relationships",
+    "description": "Gồm 10 từ vựng trọng tâm về tính cách khép kín & hướng nội.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "people-relationships-chặng-12"
+    },
+    "icon": "🌅",
+    "color": "#10b981"
+  },
+  {
+    "id": "people-relationships-chặng-14",
+    "name": "14. Tính cách phức tạp & Thách thức",
+    "parentId": "people-relationships",
+    "description": "Gồm 10 từ vựng trọng tâm về tính cách phức tạp & thách thức.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "people-relationships-chặng-13"
+    },
+    "icon": "⏰",
+    "color": "#ec4899"
+  },
+  {
+    "id": "people-relationships-chặng-15",
+    "name": "15. Ứng xử xã hội & Kỹ năng giao thiệp",
+    "parentId": "people-relationships",
+    "description": "Gồm 9 từ vựng trọng tâm về ứng xử xã hội & kỹ năng giao thiệp.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "people-relationships-chặng-14"
+    },
+    "icon": "📰",
+    "color": "#06b6d4"
+  },
+  {
+    "id": "pets-animals",
+    "name": "Thú Cưng & Động Vật Gần Gũi",
+    "parentId": null,
+    "description": "Kho từ vựng thiết yếu về các loài thú cưng trong nhà, vật nuôi nông trại và côn trùng quen thuộc hằng ngày.",
+    "icon": "🐾",
+    "category": "daily",
+    "color": "#f97316",
+    "titleEn": "Pets & Familiar Animals",
+    "order": 5
+  },
+  {
+    "id": "pets-animals-chặng-1",
+    "name": "1. Thú cưng trong nhà & Gia đình",
+    "parentId": "pets-animals",
+    "description": "Gồm 10 từ vựng gần gũi về các loài thú cưng nuôi trong nhà và gia đình.",
+    "icon": "🐕",
+    "color": "#f97316"
+  },
+  {
+    "id": "pets-animals-chặng-2",
+    "name": "2. Vật nuôi & Gia súc Nông trại",
+    "parentId": "pets-animals",
+    "description": "Gồm 10 từ vựng phổ biến về gia súc, gia cầm và vật nuôi đồng quê.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "pets-animals-chặng-1"
+    },
+    "icon": "🐄",
+    "color": "#10b981"
+  },
+  {
+    "id": "pets-animals-chặng-3",
+    "name": "3. Côn trùng & Sinh vật Quen thuộc",
+    "parentId": "pets-animals",
+    "description": "Gồm 10 từ vựng thông dụng về các loài côn trùng và sinh vật nhỏ xung quanh ta.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "pets-animals-chặng-2"
+    },
+    "icon": "🐝",
+    "color": "#eab308"
+  },
+  {
+    "id": "health-body",
+    "name": "Sức khỏe & Cơ thể",
+    "parentId": null,
+    "description": "Các bộ phận cơ thể, triệu chứng bệnh tật, bệnh viện, thuốc men và lối sống lành mạnh.",
+    "icon": "🩺",
+    "category": "daily",
+    "color": "#ef4444",
+    "titleEn": "Health & Body",
+    "order": 6
   },
   {
     "id": "health-body-chặng-1",
@@ -2599,6 +2334,204 @@ export const TOPICS = [
     },
     "icon": "⏰",
     "color": "#ec4899"
+  },
+  {
+    "id": "communication-feelings",
+    "name": "Giao tiếp & Cảm xúc",
+    "parentId": null,
+    "description": "Trò chuyện, đối thoại, tranh luận, các cung bậc cảm xúc và ngôn ngữ cơ thể.",
+    "icon": "💬",
+    "category": "daily",
+    "color": "#8b5cf6",
+    "titleEn": "Communication & Feelings",
+    "order": 7
+  },
+  {
+    "id": "communication-feelings-chặng-1",
+    "name": "1. Chào hỏi, Làm quen & Bắt đầu câu chuyện",
+    "parentId": "communication-feelings",
+    "description": "Gồm 10 từ vựng trọng tâm về chào hỏi, làm quen & bắt đầu câu chuyện.",
+    "icon": "🌅",
+    "color": "#f59e0b"
+  },
+  {
+    "id": "communication-feelings-chặng-2",
+    "name": "2. Diễn đạt ý kiến & Thảo luận",
+    "parentId": "communication-feelings",
+    "description": "Gồm 10 từ vựng trọng tâm về diễn đạt ý kiến & thảo luận.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "communication-feelings-chặng-1"
+    },
+    "icon": "⏰",
+    "color": "#6366f1"
+  },
+  {
+    "id": "communication-feelings-chặng-3",
+    "name": "3. Lắng nghe, Phản hồi & Đồng thuận",
+    "parentId": "communication-feelings",
+    "description": "Gồm 10 từ vựng trọng tâm về lắng nghe, phản hồi & đồng thuận.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "communication-feelings-chặng-2"
+    },
+    "icon": "📅",
+    "color": "#10b981"
+  },
+  {
+    "id": "communication-feelings-chặng-4",
+    "name": "4. Từ chối, Phản bác & Đàm phán",
+    "parentId": "communication-feelings",
+    "description": "Gồm 10 từ vựng trọng tâm về từ chối, phản bác & đàm phán.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "communication-feelings-chặng-3"
+    },
+    "icon": "⏳",
+    "color": "#ec4899"
+  },
+  {
+    "id": "communication-feelings-chặng-5",
+    "name": "5. Cảm xúc vui vẻ & Hạnh phúc ngập tràn",
+    "parentId": "communication-feelings",
+    "description": "Gồm 10 từ vựng trọng tâm về cảm xúc vui vẻ & hạnh phúc ngập tràn.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "communication-feelings-chặng-4"
+    },
+    "icon": "☕",
+    "color": "#d97706"
+  },
+  {
+    "id": "communication-feelings-chặng-6",
+    "name": "6. Nhiệt huyết, Phấn khởi & Tự hào",
+    "parentId": "communication-feelings",
+    "description": "Gồm 10 từ vựng trọng tâm về nhiệt huyết, phấn khởi & tự hào.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "communication-feelings-chặng-5"
+    },
+    "icon": "☕",
+    "color": "#8b5cf6"
+  },
+  {
+    "id": "communication-feelings-chặng-7",
+    "name": "7. Bình yên, Nhẹ nhõm & Thư thái",
+    "parentId": "communication-feelings",
+    "description": "Gồm 10 từ vựng trọng tâm về bình yên, nhẹ nhõm & thư thái.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "communication-feelings-chặng-6"
+    },
+    "icon": "🧹",
+    "color": "#3b82f6"
+  },
+  {
+    "id": "communication-feelings-chặng-8",
+    "name": "8. Cảm giác buồn bã, Buồn rầu & Cô đơn",
+    "parentId": "communication-feelings",
+    "description": "Gồm 10 từ vựng trọng tâm về cảm giác buồn bã, buồn rầu & cô đơn.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "communication-feelings-chặng-7"
+    },
+    "icon": "🚿",
+    "color": "#f97316"
+  },
+  {
+    "id": "communication-feelings-chặng-9",
+    "name": "9. Tức giận, Bực bội & Cáu kỉnh",
+    "parentId": "communication-feelings",
+    "description": "Gồm 10 từ vựng trọng tâm về tức giận, bực bội & cáu kỉnh.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "communication-feelings-chặng-8"
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
+  },
+  {
+    "id": "communication-feelings-chặng-10",
+    "name": "10. Lo lắng, Bồn chồn & Căng thẳng",
+    "parentId": "communication-feelings",
+    "description": "Gồm 10 từ vựng trọng tâm về lo lắng, bồn chồn & căng thẳng.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "communication-feelings-chặng-9"
+    },
+    "icon": "🗓️",
+    "color": "#84cc16"
+  },
+  {
+    "id": "communication-feelings-chặng-11",
+    "name": "11. Sợ hãi, Hoảng hốt & Bất an",
+    "parentId": "communication-feelings",
+    "description": "Gồm 10 từ vựng trọng tâm về sợ hãi, hoảng hốt & bất an.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "communication-feelings-chặng-10"
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
+  },
+  {
+    "id": "communication-feelings-chặng-12",
+    "name": "12. Ngạc nhiên, Kinh ngạc & Bàng hoàng",
+    "parentId": "communication-feelings",
+    "description": "Gồm 10 từ vựng trọng tâm về ngạc nhiên, kinh ngạc & bàng hoàng.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "communication-feelings-chặng-11"
+    },
+    "icon": "🍳",
+    "color": "#6366f1"
+  },
+  {
+    "id": "communication-feelings-chặng-13",
+    "name": "13. Thất vọng, Bối rối & Hối tiếc",
+    "parentId": "communication-feelings",
+    "description": "Gồm 10 từ vựng trọng tâm về thất vọng, bối rối & hối tiếc.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "communication-feelings-chặng-12"
+    },
+    "icon": "🌅",
+    "color": "#10b981"
+  },
+  {
+    "id": "communication-feelings-chặng-14",
+    "name": "14. Đồng cảm & Thấu hiểu sẻ chia",
+    "parentId": "communication-feelings",
+    "description": "Gồm 10 từ vựng trọng tâm về đồng cảm & thấu hiểu sẻ chia.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "communication-feelings-chặng-13"
+    },
+    "icon": "⏰",
+    "color": "#ec4899"
+  },
+  {
+    "id": "communication-feelings-chặng-15",
+    "name": "15. Ngôn ngữ cơ thể & Biểu cảm phi ngôn ngữ",
+    "parentId": "communication-feelings",
+    "description": "Gồm 2 từ vựng trọng tâm về ngôn ngữ cơ thể & biểu cảm phi ngôn ngữ.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "communication-feelings-chặng-14"
+    },
+    "icon": "💪",
+    "color": "#06b6d4"
+  },
+  {
+    "id": "shopping-money",
+    "name": "Mua sắm & Tiền bạc",
+    "parentId": null,
+    "description": "Mua sắm trực tiếp & online, giá cả, thẻ ngân hàng, tiền tệ, quản lý ngân sách và tài chính.",
+    "icon": "🛍️",
+    "category": "daily",
+    "color": "#ec4899",
+    "titleEn": "Shopping & Money",
+    "order": 8
   },
   {
     "id": "shopping-money-chặng-1",
@@ -2777,6 +2710,17 @@ export const TOPICS = [
     "color": "#06b6d4"
   },
   {
+    "id": "transport-directions",
+    "name": "Giao thông & Chỉ đường",
+    "parentId": null,
+    "description": "Phương tiện giao thông, giao thông công cộng, tàu hỏa, hàng không, luật lái xe, bản đồ và chỉ đường.",
+    "icon": "🚗",
+    "category": "daily",
+    "color": "#f97316",
+    "titleEn": "Transport & Directions",
+    "order": 9
+  },
+  {
     "id": "transport-directions-chặng-1",
     "name": "1. Phương tiện giao thông cá nhân: Xe máy, Ô tô & Xe đạp",
     "parentId": "transport-directions",
@@ -2953,496 +2897,15 @@ export const TOPICS = [
     "color": "#06b6d4"
   },
   {
-    "id": "work-jobs-chặng-1",
-    "name": "1. Nghề nghiệp kinh doanh, Tài chính & Quản lý",
-    "parentId": "work-jobs",
-    "description": "Gồm 10 từ vựng trọng tâm về nghề nghiệp kinh doanh, tài chính & quản lý.",
-    "icon": "💼",
-    "color": "#f59e0b"
-  },
-  {
-    "id": "work-jobs-chặng-2",
-    "name": "2. Nghề nghiệp công nghệ, Kỹ thuật & Khoa học",
-    "parentId": "work-jobs",
-    "description": "Gồm 10 từ vựng trọng tâm về nghề nghiệp công nghệ, kỹ thuật & khoa học.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "work-jobs-chặng-1"
-    },
-    "icon": "🌿",
-    "color": "#10b981"
-  },
-  {
-    "id": "work-jobs-chặng-3",
-    "name": "3. Nghề nghiệp y tế, Giáo dục & Dịch vụ công",
-    "parentId": "work-jobs",
-    "description": "Gồm 10 từ vựng trọng tâm về nghề nghiệp y tế, giáo dục & dịch vụ công.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "work-jobs-chặng-2"
-    },
-    "icon": "👥",
-    "color": "#10b981"
-  },
-  {
-    "id": "work-jobs-chặng-4",
-    "name": "4. Nghề nghiệp nghệ thuật, Truyền thông & Sáng tạo",
-    "parentId": "work-jobs",
-    "description": "Gồm 10 từ vựng trọng tâm về nghề nghiệp nghệ thuật, truyền thông & sáng tạo.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "work-jobs-chặng-3"
-    },
-    "icon": "🌅",
-    "color": "#f59e0b"
-  },
-  {
-    "id": "work-jobs-chặng-5",
-    "name": "5. Nghề thủ công, Lao động tay chân & Kỹ thuật viên",
-    "parentId": "work-jobs",
-    "description": "Gồm 10 từ vựng trọng tâm về nghề thủ công, lao động tay chân & kỹ thuật viên.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "work-jobs-chặng-4"
-    },
-    "icon": "🌙",
-    "color": "#06b6d4"
-  },
-  {
-    "id": "work-jobs-chặng-6",
-    "name": "6. Môi trường công sở, Văn phòng & Bàn làm việc",
-    "parentId": "work-jobs",
-    "description": "Gồm 10 từ vựng trọng tâm về môi trường công sở, văn phòng & bàn làm việc.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "work-jobs-chặng-5"
-    },
-    "icon": "🌿",
-    "color": "#8b5cf6"
-  },
-  {
-    "id": "work-jobs-chặng-7",
-    "name": "7. Tuyển dụng, Hồ sơ xin việc (CV) & Phỏng vấn",
-    "parentId": "work-jobs",
-    "description": "Gồm 10 từ vựng trọng tâm về tuyển dụng, hồ sơ xin việc (cv) & phỏng vấn.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "work-jobs-chặng-6"
-    },
-    "icon": "🧹",
-    "color": "#3b82f6"
-  },
-  {
-    "id": "work-jobs-chặng-8",
-    "name": "8. Hợp đồng lao động, Thử việc & Tiếp nhận vị trí",
-    "parentId": "work-jobs",
-    "description": "Gồm 10 từ vựng trọng tâm về hợp đồng lao động, thử việc & tiếp nhận vị trí.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "work-jobs-chặng-7"
-    },
-    "icon": "💼",
-    "color": "#f97316"
-  },
-  {
-    "id": "work-jobs-chặng-9",
-    "name": "9. Lương bổng, Phụ cấp, Thưởng & Phúc lợi",
-    "parentId": "work-jobs",
-    "description": "Gồm 10 từ vựng trọng tâm về lương bổng, phụ cấp, thưởng & phúc lợi.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "work-jobs-chặng-8"
-    },
-    "icon": "⌚",
-    "color": "#14b8a6"
-  },
-  {
-    "id": "work-jobs-chặng-10",
-    "name": "10. Nhiệm vụ công việc, Trách nhiệm & Báo cáo",
-    "parentId": "work-jobs",
-    "description": "Gồm 10 từ vựng trọng tâm về nhiệm vụ công việc, trách nhiệm & báo cáo.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "work-jobs-chặng-9"
-    },
-    "icon": "🤝",
-    "color": "#84cc16"
-  },
-  {
-    "id": "work-jobs-chặng-11",
-    "name": "11. Họp hành, Thuyết trình & Làm việc nhóm",
-    "parentId": "work-jobs",
-    "description": "Gồm 10 từ vựng trọng tâm về họp hành, thuyết trình & làm việc nhóm.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "work-jobs-chặng-10"
-    },
-    "icon": "🧘",
-    "color": "#f59e0b"
-  },
-  {
-    "id": "work-jobs-chặng-12",
-    "name": "12. Kỹ năng nghề nghiệp, Đào tạo & Nâng cao năng lực",
-    "parentId": "work-jobs",
-    "description": "Gồm 10 từ vựng trọng tâm về kỹ năng nghề nghiệp, đào tạo & nâng cao năng lực.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "work-jobs-chặng-11"
-    },
-    "icon": "🖊️",
-    "color": "#6366f1"
-  },
-  {
-    "id": "work-jobs-chặng-13",
-    "name": "13. Áp lực công việc, Tăng ca & Cân bằng cuộc sống",
-    "parentId": "work-jobs",
-    "description": "Gồm 10 từ vựng trọng tâm về áp lực công việc, tăng ca & cân bằng cuộc sống.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "work-jobs-chặng-12"
-    },
-    "icon": "💼",
-    "color": "#10b981"
-  },
-  {
-    "id": "work-jobs-chặng-14",
-    "name": "14. Thăng tiến, Nghỉ phép & Chuyển đổi công tác",
-    "parentId": "work-jobs",
-    "description": "Gồm 6 từ vựng trọng tâm về thăng tiến, nghỉ phép & chuyển đổi công tác.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "work-jobs-chặng-13"
-    },
-    "icon": "⏰",
-    "color": "#ec4899"
-  },
-  {
-    "id": "education-learning-chặng-1",
-    "name": "1. Hệ thống trường học & Các cấp bậc giáo dục",
-    "parentId": "education-learning",
-    "description": "Gồm 10 từ vựng trọng tâm về hệ thống trường học & các cấp bậc giáo dục.",
-    "icon": "🏫",
-    "color": "#f59e0b"
-  },
-  {
-    "id": "education-learning-chặng-2",
-    "name": "2. Khuôn viên trường, Lớp học & Cơ sở vật chất",
-    "parentId": "education-learning",
-    "description": "Gồm 10 từ vựng trọng tâm về khuôn viên trường, lớp học & cơ sở vật chất.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "education-learning-chặng-1"
-    },
-    "icon": "⏰",
-    "color": "#6366f1"
-  },
-  {
-    "id": "education-learning-chặng-3",
-    "name": "3. Thầy cô giáo, Giảng viên & Học sinh sinh viên",
-    "parentId": "education-learning",
-    "description": "Gồm 10 từ vựng trọng tâm về thầy cô giáo, giảng viên & học sinh sinh viên.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "education-learning-chặng-2"
-    },
-    "icon": "🏫",
-    "color": "#f59e0b"
-  },
-  {
-    "id": "education-learning-chặng-4",
-    "name": "4. Môn học khoa học tự nhiên & Công nghệ",
-    "parentId": "education-learning",
-    "description": "Gồm 10 từ vựng trọng tâm về môn học khoa học tự nhiên & công nghệ.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "education-learning-chặng-3"
-    },
-    "icon": "🌿",
-    "color": "#10b981"
-  },
-  {
-    "id": "education-learning-chặng-5",
-    "name": "5. Môn học xã hội, Nhân văn & Ngôn ngữ",
-    "parentId": "education-learning",
-    "description": "Gồm 10 từ vựng trọng tâm về môn học xã hội, nhân văn & ngôn ngữ.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "education-learning-chặng-4"
-    },
-    "icon": "📰",
-    "color": "#06b6d4"
-  },
-  {
-    "id": "education-learning-chặng-6",
-    "name": "6. Sách giáo khoa, Giáo trình & Dụng cụ học tập",
-    "parentId": "education-learning",
-    "description": "Gồm 10 từ vựng trọng tâm về sách giáo khoa, giáo trình & dụng cụ học tập.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "education-learning-chặng-5"
-    },
-    "icon": "🌿",
-    "color": "#10b981"
-  },
-  {
-    "id": "education-learning-chặng-7",
-    "name": "7. Bài giảng, Tiết học & Phương pháp tiếp thu",
-    "parentId": "education-learning",
-    "description": "Gồm 10 từ vựng trọng tâm về bài giảng, tiết học & phương pháp tiếp thu.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "education-learning-chặng-6"
-    },
-    "icon": "🧹",
-    "color": "#3b82f6"
-  },
-  {
-    "id": "education-learning-chặng-8",
-    "name": "8. Bài tập về nhà, Dự án & Thuyết trình học đường",
-    "parentId": "education-learning",
-    "description": "Gồm 10 từ vựng trọng tâm về bài tập về nhà, dự án & thuyết trình học đường.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "education-learning-chặng-7"
-    },
-    "icon": "🚿",
-    "color": "#f97316"
-  },
-  {
-    "id": "education-learning-chặng-9",
-    "name": "9. Kỳ thi, Kiểm tra & Đánh giá năng lực",
-    "parentId": "education-learning",
-    "description": "Gồm 10 từ vựng trọng tâm về kỳ thi, kiểm tra & đánh giá năng lực.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "education-learning-chặng-8"
-    },
-    "icon": "📝",
-    "color": "#ec4899"
-  },
-  {
-    "id": "education-learning-chặng-10",
-    "name": "10. Điểm số, Học bổng & Thành tích học tập",
-    "parentId": "education-learning",
-    "description": "Gồm 10 từ vựng trọng tâm về điểm số, học bổng & thành tích học tập.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "education-learning-chặng-9"
-    },
-    "icon": "💡",
-    "color": "#84cc16"
-  },
-  {
-    "id": "education-learning-chặng-11",
-    "name": "11. Tốt nghiệp, Bằng cấp & Chứng chỉ quốc tế",
-    "parentId": "education-learning",
-    "description": "Gồm 10 từ vựng trọng tâm về tốt nghiệp, bằng cấp & chứng chỉ quốc tế.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "education-learning-chặng-10"
-    },
-    "icon": "🎓",
-    "color": "#6366f1"
-  },
-  {
-    "id": "education-learning-chặng-12",
-    "name": "12. Đại học, Cao học & Nghiên cứu khoa học",
-    "parentId": "education-learning",
-    "description": "Gồm 10 từ vựng trọng tâm về đại học, cao học & nghiên cứu khoa học.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "education-learning-chặng-11"
-    },
-    "icon": "🌿",
-    "color": "#10b981"
-  },
-  {
-    "id": "education-learning-chặng-13",
-    "name": "13. Tự học, Đọc tài liệu & Kỹ năng ghi nhớ",
-    "parentId": "education-learning",
-    "description": "Gồm 10 từ vựng trọng tâm về tự học, đọc tài liệu & kỹ năng ghi nhớ.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "education-learning-chặng-12"
-    },
-    "icon": "🌅",
-    "color": "#10b981"
-  },
-  {
-    "id": "education-learning-chặng-14",
-    "name": "14. Học trực tuyến & Công nghệ trong giáo dục",
-    "parentId": "education-learning",
-    "description": "Gồm 8 từ vựng trọng tâm về học trực tuyến & công nghệ trong giáo dục.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "education-learning-chặng-13"
-    },
-    "icon": "🎓",
-    "color": "#ec4899"
-  },
-  {
-    "id": "travel-places-chặng-1",
-    "name": "1. Lên kế hoạch du lịch, Lộ trình & Ngân sách",
-    "parentId": "travel-places",
-    "description": "Gồm 10 từ vựng trọng tâm về lên kế hoạch du lịch, lộ trình & ngân sách.",
-    "icon": "📚",
-    "color": "#3b82f6"
-  },
-  {
-    "id": "travel-places-chặng-2",
-    "name": "2. Thủ tục hộ chiếu, Visa & Vé máy bay",
-    "parentId": "travel-places",
-    "description": "Gồm 10 từ vựng trọng tâm về thủ tục hộ chiếu, visa & vé máy bay.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "travel-places-chặng-1"
-    },
-    "icon": "✈️",
-    "color": "#06b6d4"
-  },
-  {
-    "id": "travel-places-chặng-3",
-    "name": "3. Khách sạn, Resort & Đặt phòng nghỉ dưỡng",
-    "parentId": "travel-places",
-    "description": "Gồm 10 từ vựng trọng tâm về khách sạn, resort & đặt phòng nghỉ dưỡng.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "travel-places-chặng-2"
-    },
-    "icon": "🏨",
-    "color": "#06b6d4"
-  },
-  {
-    "id": "travel-places-chặng-4",
-    "name": "4. Nhận phòng, Tiện nghi phòng & Dịch vụ khách sạn",
-    "parentId": "travel-places",
-    "description": "Gồm 10 từ vựng trọng tâm về nhận phòng, tiện nghi phòng & dịch vụ khách sạn.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "travel-places-chặng-3"
-    },
-    "icon": "🏨",
-    "color": "#06b6d4"
-  },
-  {
-    "id": "travel-places-chặng-5",
-    "name": "5. Hành lý, Đồ đạc cá nhân & Chuẩn bị lên đường",
-    "parentId": "travel-places",
-    "description": "Gồm 10 từ vựng trọng tâm về hành lý, đồ đạc cá nhân & chuẩn bị lên đường.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "travel-places-chặng-4"
-    },
-    "icon": "🌙",
-    "color": "#06b6d4"
-  },
-  {
-    "id": "travel-places-chặng-6",
-    "name": "6. Tham quan danh lam thắng cảnh & Điểm du lịch",
-    "parentId": "travel-places",
-    "description": "Gồm 10 từ vựng trọng tâm về tham quan danh lam thắng cảnh & điểm du lịch.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "travel-places-chặng-5"
-    },
-    "icon": "🛂",
-    "color": "#8b5cf6"
-  },
-  {
-    "id": "travel-places-chặng-7",
-    "name": "7. Khám phá thiên nhiên, Bãi biển & Vùng núi",
-    "parentId": "travel-places",
-    "description": "Gồm 10 từ vựng trọng tâm về khám phá thiên nhiên, bãi biển & vùng núi.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "travel-places-chặng-6"
-    },
-    "icon": "🏖️",
-    "color": "#0ea5e9"
-  },
-  {
-    "id": "travel-places-chặng-8",
-    "name": "8. Du lịch văn hóa, Di tích lịch sử & Bảo tàng",
-    "parentId": "travel-places",
-    "description": "Gồm 10 từ vựng trọng tâm về du lịch văn hóa, di tích lịch sử & bảo tàng.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "travel-places-chặng-7"
-    },
-    "icon": "🗼",
-    "color": "#f97316"
-  },
-  {
-    "id": "travel-places-chặng-9",
-    "name": "9. Trải nghiệm ẩm thực đường phố & Nhà hàng địa phương",
-    "parentId": "travel-places",
-    "description": "Gồm 10 từ vựng trọng tâm về trải nghiệm ẩm thực đường phố & nhà hàng địa phương.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "travel-places-chặng-8"
-    },
-    "icon": "🍜",
-    "color": "#14b8a6"
-  },
-  {
-    "id": "travel-places-chặng-10",
-    "name": "10. Mua quà lưu niệm & Đặc sản vùng miền",
-    "parentId": "travel-places",
-    "description": "Gồm 10 từ vựng trọng tâm về mua quà lưu niệm & đặc sản vùng miền.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "travel-places-chặng-9"
-    },
-    "icon": "🗓️",
-    "color": "#84cc16"
-  },
-  {
-    "id": "travel-places-chặng-11",
-    "name": "11. Chụp ảnh lưu niệm & Ghi lại khoảnh khắc",
-    "parentId": "travel-places",
-    "description": "Gồm 10 từ vựng trọng tâm về chụp ảnh lưu niệm & ghi lại khoảnh khắc.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "travel-places-chặng-10"
-    },
-    "icon": "🧘",
-    "color": "#f59e0b"
-  },
-  {
-    "id": "travel-places-chặng-12",
-    "name": "12. Giao lưu với người bản địa & Văn hóa địa phương",
-    "parentId": "travel-places",
-    "description": "Gồm 10 từ vựng trọng tâm về giao lưu với người bản địa & văn hóa địa phương.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "travel-places-chặng-11"
-    },
-    "icon": "🍳",
-    "color": "#6366f1"
-  },
-  {
-    "id": "travel-places-chặng-13",
-    "name": "13. Phương tiện di chuyển du lịch & Thuê xe",
-    "parentId": "travel-places",
-    "description": "Gồm 10 từ vựng trọng tâm về phương tiện di chuyển du lịch & thuê xe.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "travel-places-chặng-12"
-    },
-    "icon": "📸",
-    "color": "#10b981"
-  },
-  {
-    "id": "travel-places-chặng-14",
-    "name": "14. Tình huống khẩn cấp, An toàn & Kết thúc chuyến đi",
-    "parentId": "travel-places",
-    "description": "Gồm 6 từ vựng trọng tâm về tình huống khẩn cấp, an toàn & kết thúc chuyến đi.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "travel-places-chặng-13"
-    },
-    "icon": "🔒",
-    "color": "#10b981"
+    "id": "entertainment-hobbies",
+    "name": "Giải trí & Sở thích",
+    "parentId": null,
+    "description": "Phim ảnh, âm nhạc, sách truyện, trò chơi điện tử, thể thao, nhiếp ảnh, hội họa, kịch nghệ và dã ngoại.",
+    "icon": "🎨",
+    "category": "explore",
+    "color": "#a855f7",
+    "titleEn": "Entertainment & Hobbies",
+    "order": 10
   },
   {
     "id": "entertainment-hobbies-chặng-1",
@@ -3621,6 +3084,669 @@ export const TOPICS = [
     "color": "#06b6d4"
   },
   {
+    "id": "travel-places",
+    "name": "Du lịch & Địa điểm",
+    "parentId": null,
+    "description": "Kế hoạch du lịch, khách sạn, thắng cảnh, bãi biển, leo núi, ẩm thực địa phương, kỳ quan và an toàn.",
+    "icon": "✈️",
+    "category": "explore",
+    "color": "#06b6d4",
+    "titleEn": "Travel & Places",
+    "order": 11
+  },
+  {
+    "id": "travel-places-chặng-1",
+    "name": "1. Lên kế hoạch du lịch, Lộ trình & Ngân sách",
+    "parentId": "travel-places",
+    "description": "Gồm 10 từ vựng trọng tâm về lên kế hoạch du lịch, lộ trình & ngân sách.",
+    "icon": "📚",
+    "color": "#3b82f6"
+  },
+  {
+    "id": "travel-places-chặng-2",
+    "name": "2. Thủ tục hộ chiếu, Visa & Vé máy bay",
+    "parentId": "travel-places",
+    "description": "Gồm 10 từ vựng trọng tâm về thủ tục hộ chiếu, visa & vé máy bay.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "travel-places-chặng-1"
+    },
+    "icon": "✈️",
+    "color": "#06b6d4"
+  },
+  {
+    "id": "travel-places-chặng-3",
+    "name": "3. Khách sạn, Resort & Đặt phòng nghỉ dưỡng",
+    "parentId": "travel-places",
+    "description": "Gồm 10 từ vựng trọng tâm về khách sạn, resort & đặt phòng nghỉ dưỡng.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "travel-places-chặng-2"
+    },
+    "icon": "🏨",
+    "color": "#06b6d4"
+  },
+  {
+    "id": "travel-places-chặng-4",
+    "name": "4. Nhận phòng, Tiện nghi phòng & Dịch vụ khách sạn",
+    "parentId": "travel-places",
+    "description": "Gồm 10 từ vựng trọng tâm về nhận phòng, tiện nghi phòng & dịch vụ khách sạn.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "travel-places-chặng-3"
+    },
+    "icon": "🏨",
+    "color": "#06b6d4"
+  },
+  {
+    "id": "travel-places-chặng-5",
+    "name": "5. Hành lý, Đồ đạc cá nhân & Chuẩn bị lên đường",
+    "parentId": "travel-places",
+    "description": "Gồm 10 từ vựng trọng tâm về hành lý, đồ đạc cá nhân & chuẩn bị lên đường.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "travel-places-chặng-4"
+    },
+    "icon": "🌙",
+    "color": "#06b6d4"
+  },
+  {
+    "id": "travel-places-chặng-6",
+    "name": "6. Tham quan danh lam thắng cảnh & Điểm du lịch",
+    "parentId": "travel-places",
+    "description": "Gồm 10 từ vựng trọng tâm về tham quan danh lam thắng cảnh & điểm du lịch.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "travel-places-chặng-5"
+    },
+    "icon": "🛂",
+    "color": "#8b5cf6"
+  },
+  {
+    "id": "travel-places-chặng-7",
+    "name": "7. Khám phá thiên nhiên, Bãi biển & Vùng núi",
+    "parentId": "travel-places",
+    "description": "Gồm 10 từ vựng trọng tâm về khám phá thiên nhiên, bãi biển & vùng núi.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "travel-places-chặng-6"
+    },
+    "icon": "🏖️",
+    "color": "#0ea5e9"
+  },
+  {
+    "id": "travel-places-chặng-8",
+    "name": "8. Du lịch văn hóa, Di tích lịch sử & Bảo tàng",
+    "parentId": "travel-places",
+    "description": "Gồm 10 từ vựng trọng tâm về du lịch văn hóa, di tích lịch sử & bảo tàng.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "travel-places-chặng-7"
+    },
+    "icon": "🗼",
+    "color": "#f97316"
+  },
+  {
+    "id": "travel-places-chặng-9",
+    "name": "9. Trải nghiệm ẩm thực đường phố & Nhà hàng địa phương",
+    "parentId": "travel-places",
+    "description": "Gồm 10 từ vựng trọng tâm về trải nghiệm ẩm thực đường phố & nhà hàng địa phương.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "travel-places-chặng-8"
+    },
+    "icon": "🍜",
+    "color": "#14b8a6"
+  },
+  {
+    "id": "travel-places-chặng-10",
+    "name": "10. Mua quà lưu niệm & Đặc sản vùng miền",
+    "parentId": "travel-places",
+    "description": "Gồm 10 từ vựng trọng tâm về mua quà lưu niệm & đặc sản vùng miền.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "travel-places-chặng-9"
+    },
+    "icon": "🗓️",
+    "color": "#84cc16"
+  },
+  {
+    "id": "travel-places-chặng-11",
+    "name": "11. Chụp ảnh lưu niệm & Ghi lại khoảnh khắc",
+    "parentId": "travel-places",
+    "description": "Gồm 10 từ vựng trọng tâm về chụp ảnh lưu niệm & ghi lại khoảnh khắc.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "travel-places-chặng-10"
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
+  },
+  {
+    "id": "travel-places-chặng-12",
+    "name": "12. Giao lưu với người bản địa & Văn hóa địa phương",
+    "parentId": "travel-places",
+    "description": "Gồm 10 từ vựng trọng tâm về giao lưu với người bản địa & văn hóa địa phương.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "travel-places-chặng-11"
+    },
+    "icon": "🍳",
+    "color": "#6366f1"
+  },
+  {
+    "id": "travel-places-chặng-13",
+    "name": "13. Phương tiện di chuyển du lịch & Thuê xe",
+    "parentId": "travel-places",
+    "description": "Gồm 10 từ vựng trọng tâm về phương tiện di chuyển du lịch & thuê xe.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "travel-places-chặng-12"
+    },
+    "icon": "📸",
+    "color": "#10b981"
+  },
+  {
+    "id": "travel-places-chặng-14",
+    "name": "14. Tình huống khẩn cấp, An toàn & Kết thúc chuyến đi",
+    "parentId": "travel-places",
+    "description": "Gồm 6 từ vựng trọng tâm về tình huống khẩn cấp, an toàn & kết thúc chuyến đi.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "travel-places-chặng-13"
+    },
+    "icon": "🔒",
+    "color": "#10b981"
+  },
+  {
+    "id": "nature-weather",
+    "name": "Thiên nhiên & Thời tiết",
+    "parentId": null,
+    "description": "Thời tiết, 4 mùa, thiên tai, động vật, chim muông, cây cối, sông hồ, địa hình, vũ trụ và môi trường.",
+    "icon": "🌿",
+    "category": "explore",
+    "color": "#84cc16",
+    "titleEn": "Nature & Weather",
+    "order": 12
+  },
+  {
+    "id": "nature-weather-chặng-1",
+    "name": "1. Thời tiết hàng ngày: Nắng, Mưa & Nhiệt độ",
+    "parentId": "nature-weather",
+    "description": "Gồm 10 từ vựng trọng tâm về thời tiết hàng ngày: nắng, mưa & nhiệt độ.",
+    "icon": "⛅",
+    "color": "#38bdf8"
+  },
+  {
+    "id": "nature-weather-chặng-2",
+    "name": "2. Gió, Bão, Sương mù & Mây trời",
+    "parentId": "nature-weather",
+    "description": "Gồm 10 từ vựng trọng tâm về gió, bão, sương mù & mây trời.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "nature-weather-chặng-1"
+    },
+    "icon": "⏰",
+    "color": "#6366f1"
+  },
+  {
+    "id": "nature-weather-chặng-3",
+    "name": "3. Bốn mùa trong năm: Xuân, Hạ, Thu, Đông",
+    "parentId": "nature-weather",
+    "description": "Gồm 10 từ vựng trọng tâm về bốn mùa trong năm: xuân, hạ, thu, đông.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "nature-weather-chặng-2"
+    },
+    "icon": "📅",
+    "color": "#10b981"
+  },
+  {
+    "id": "nature-weather-chặng-4",
+    "name": "4. Động vật trên cạn: Thú hoang dã & Thú cưng",
+    "parentId": "nature-weather",
+    "description": "Gồm 10 từ vựng trọng tâm về động vật trên cạn: thú hoang dã & thú cưng.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "nature-weather-chặng-3"
+    },
+    "icon": "🐾",
+    "color": "#f97316"
+  },
+  {
+    "id": "nature-weather-chặng-5",
+    "name": "5. Chim muông, Côn trùng & Sinh vật nhỏ",
+    "parentId": "nature-weather",
+    "description": "Gồm 10 từ vựng trọng tâm về chim muông, côn trùng & sinh vật nhỏ.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "nature-weather-chặng-4"
+    },
+    "icon": "🌙",
+    "color": "#06b6d4"
+  },
+  {
+    "id": "nature-weather-chặng-6",
+    "name": "6. Thế giới đại dương, Cá & Sinh vật biển",
+    "parentId": "nature-weather",
+    "description": "Gồm 10 từ vựng trọng tâm về thế giới đại dương, cá & sinh vật biển.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "nature-weather-chặng-5"
+    },
+    "icon": "🏖️",
+    "color": "#0ea5e9"
+  },
+  {
+    "id": "nature-weather-chặng-7",
+    "name": "7. Cây xanh, Rừng rậm & Thực vật thiên nhiên",
+    "parentId": "nature-weather",
+    "description": "Gồm 10 từ vựng trọng tâm về cây xanh, rừng rậm & thực vật thiên nhiên.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "nature-weather-chặng-6"
+    },
+    "icon": "🌿",
+    "color": "#10b981"
+  },
+  {
+    "id": "nature-weather-chặng-8",
+    "name": "8. Hoa lá, Cỏ cây & Thảm thực vật",
+    "parentId": "nature-weather",
+    "description": "Gồm 10 từ vựng trọng tâm về hoa lá, cỏ cây & thảm thực vật.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "nature-weather-chặng-7"
+    },
+    "icon": "🌿",
+    "color": "#10b981"
+  },
+  {
+    "id": "nature-weather-chặng-9",
+    "name": "9. Cảnh quan Trái Đất: Núi non, Sông hồ & Biển cả",
+    "parentId": "nature-weather",
+    "description": "Gồm 10 từ vựng trọng tâm về cảnh quan trái đất: núi non, sông hồ & biển cả.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "nature-weather-chặng-8"
+    },
+    "icon": "🏖️",
+    "color": "#0ea5e9"
+  },
+  {
+    "id": "nature-weather-chặng-10",
+    "name": "10. Bầu trời, Vũ trụ & Môi trường sinh thái",
+    "parentId": "nature-weather",
+    "description": "Gồm 6 từ vựng trọng tâm về bầu trời, vũ trụ & môi trường sinh thái.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "nature-weather-chặng-9"
+    },
+    "icon": "🌈",
+    "color": "#84cc16"
+  },
+  {
+    "id": "education-learning",
+    "name": "Giáo dục & Học tập",
+    "parentId": null,
+    "description": "Trường học, bậc học, môn học, thi cử, bằng cấp, học bổng, phương pháp tự học và du học.",
+    "icon": "🎓",
+    "category": "career",
+    "color": "#3b82f6",
+    "titleEn": "Education & Learning",
+    "order": 13
+  },
+  {
+    "id": "education-learning-chặng-1",
+    "name": "1. Hệ thống trường học & Các cấp bậc giáo dục",
+    "parentId": "education-learning",
+    "description": "Gồm 10 từ vựng trọng tâm về hệ thống trường học & các cấp bậc giáo dục.",
+    "icon": "🏫",
+    "color": "#f59e0b"
+  },
+  {
+    "id": "education-learning-chặng-2",
+    "name": "2. Khuôn viên trường, Lớp học & Cơ sở vật chất",
+    "parentId": "education-learning",
+    "description": "Gồm 10 từ vựng trọng tâm về khuôn viên trường, lớp học & cơ sở vật chất.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "education-learning-chặng-1"
+    },
+    "icon": "⏰",
+    "color": "#6366f1"
+  },
+  {
+    "id": "education-learning-chặng-3",
+    "name": "3. Thầy cô giáo, Giảng viên & Học sinh sinh viên",
+    "parentId": "education-learning",
+    "description": "Gồm 10 từ vựng trọng tâm về thầy cô giáo, giảng viên & học sinh sinh viên.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "education-learning-chặng-2"
+    },
+    "icon": "🏫",
+    "color": "#f59e0b"
+  },
+  {
+    "id": "education-learning-chặng-4",
+    "name": "4. Môn học khoa học tự nhiên & Công nghệ",
+    "parentId": "education-learning",
+    "description": "Gồm 10 từ vựng trọng tâm về môn học khoa học tự nhiên & công nghệ.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "education-learning-chặng-3"
+    },
+    "icon": "🌿",
+    "color": "#10b981"
+  },
+  {
+    "id": "education-learning-chặng-5",
+    "name": "5. Môn học xã hội, Nhân văn & Ngôn ngữ",
+    "parentId": "education-learning",
+    "description": "Gồm 10 từ vựng trọng tâm về môn học xã hội, nhân văn & ngôn ngữ.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "education-learning-chặng-4"
+    },
+    "icon": "📰",
+    "color": "#06b6d4"
+  },
+  {
+    "id": "education-learning-chặng-6",
+    "name": "6. Sách giáo khoa, Giáo trình & Dụng cụ học tập",
+    "parentId": "education-learning",
+    "description": "Gồm 10 từ vựng trọng tâm về sách giáo khoa, giáo trình & dụng cụ học tập.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "education-learning-chặng-5"
+    },
+    "icon": "🌿",
+    "color": "#10b981"
+  },
+  {
+    "id": "education-learning-chặng-7",
+    "name": "7. Bài giảng, Tiết học & Phương pháp tiếp thu",
+    "parentId": "education-learning",
+    "description": "Gồm 10 từ vựng trọng tâm về bài giảng, tiết học & phương pháp tiếp thu.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "education-learning-chặng-6"
+    },
+    "icon": "🧹",
+    "color": "#3b82f6"
+  },
+  {
+    "id": "education-learning-chặng-8",
+    "name": "8. Bài tập về nhà, Dự án & Thuyết trình học đường",
+    "parentId": "education-learning",
+    "description": "Gồm 10 từ vựng trọng tâm về bài tập về nhà, dự án & thuyết trình học đường.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "education-learning-chặng-7"
+    },
+    "icon": "🚿",
+    "color": "#f97316"
+  },
+  {
+    "id": "education-learning-chặng-9",
+    "name": "9. Kỳ thi, Kiểm tra & Đánh giá năng lực",
+    "parentId": "education-learning",
+    "description": "Gồm 10 từ vựng trọng tâm về kỳ thi, kiểm tra & đánh giá năng lực.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "education-learning-chặng-8"
+    },
+    "icon": "📝",
+    "color": "#ec4899"
+  },
+  {
+    "id": "education-learning-chặng-10",
+    "name": "10. Điểm số, Học bổng & Thành tích học tập",
+    "parentId": "education-learning",
+    "description": "Gồm 10 từ vựng trọng tâm về điểm số, học bổng & thành tích học tập.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "education-learning-chặng-9"
+    },
+    "icon": "💡",
+    "color": "#84cc16"
+  },
+  {
+    "id": "education-learning-chặng-11",
+    "name": "11. Tốt nghiệp, Bằng cấp & Chứng chỉ quốc tế",
+    "parentId": "education-learning",
+    "description": "Gồm 10 từ vựng trọng tâm về tốt nghiệp, bằng cấp & chứng chỉ quốc tế.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "education-learning-chặng-10"
+    },
+    "icon": "🎓",
+    "color": "#6366f1"
+  },
+  {
+    "id": "education-learning-chặng-12",
+    "name": "12. Đại học, Cao học & Nghiên cứu khoa học",
+    "parentId": "education-learning",
+    "description": "Gồm 10 từ vựng trọng tâm về đại học, cao học & nghiên cứu khoa học.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "education-learning-chặng-11"
+    },
+    "icon": "🌿",
+    "color": "#10b981"
+  },
+  {
+    "id": "education-learning-chặng-13",
+    "name": "13. Tự học, Đọc tài liệu & Kỹ năng ghi nhớ",
+    "parentId": "education-learning",
+    "description": "Gồm 10 từ vựng trọng tâm về tự học, đọc tài liệu & kỹ năng ghi nhớ.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "education-learning-chặng-12"
+    },
+    "icon": "🌅",
+    "color": "#10b981"
+  },
+  {
+    "id": "education-learning-chặng-14",
+    "name": "14. Học trực tuyến & Công nghệ trong giáo dục",
+    "parentId": "education-learning",
+    "description": "Gồm 8 từ vựng trọng tâm về học trực tuyến & công nghệ trong giáo dục.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "education-learning-chặng-13"
+    },
+    "icon": "🎓",
+    "color": "#ec4899"
+  },
+  {
+    "id": "work-jobs",
+    "name": "Công việc & Nghề nghiệp",
+    "parentId": null,
+    "description": "Các ngành nghề, môi trường văn phòng, tuyển dụng, phỏng vấn, lương thưởng, dự án và thăng tiến.",
+    "icon": "💼",
+    "category": "career",
+    "color": "#6366f1",
+    "titleEn": "Work & Careers",
+    "order": 14
+  },
+  {
+    "id": "work-jobs-chặng-1",
+    "name": "1. Nghề nghiệp kinh doanh, Tài chính & Quản lý",
+    "parentId": "work-jobs",
+    "description": "Gồm 10 từ vựng trọng tâm về nghề nghiệp kinh doanh, tài chính & quản lý.",
+    "icon": "💼",
+    "color": "#f59e0b"
+  },
+  {
+    "id": "work-jobs-chặng-2",
+    "name": "2. Nghề nghiệp công nghệ, Kỹ thuật & Khoa học",
+    "parentId": "work-jobs",
+    "description": "Gồm 10 từ vựng trọng tâm về nghề nghiệp công nghệ, kỹ thuật & khoa học.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "work-jobs-chặng-1"
+    },
+    "icon": "🌿",
+    "color": "#10b981"
+  },
+  {
+    "id": "work-jobs-chặng-3",
+    "name": "3. Nghề nghiệp y tế, Giáo dục & Dịch vụ công",
+    "parentId": "work-jobs",
+    "description": "Gồm 10 từ vựng trọng tâm về nghề nghiệp y tế, giáo dục & dịch vụ công.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "work-jobs-chặng-2"
+    },
+    "icon": "👥",
+    "color": "#10b981"
+  },
+  {
+    "id": "work-jobs-chặng-4",
+    "name": "4. Nghề nghiệp nghệ thuật, Truyền thông & Sáng tạo",
+    "parentId": "work-jobs",
+    "description": "Gồm 10 từ vựng trọng tâm về nghề nghiệp nghệ thuật, truyền thông & sáng tạo.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "work-jobs-chặng-3"
+    },
+    "icon": "🌅",
+    "color": "#f59e0b"
+  },
+  {
+    "id": "work-jobs-chặng-5",
+    "name": "5. Nghề thủ công, Lao động tay chân & Kỹ thuật viên",
+    "parentId": "work-jobs",
+    "description": "Gồm 10 từ vựng trọng tâm về nghề thủ công, lao động tay chân & kỹ thuật viên.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "work-jobs-chặng-4"
+    },
+    "icon": "🌙",
+    "color": "#06b6d4"
+  },
+  {
+    "id": "work-jobs-chặng-6",
+    "name": "6. Môi trường công sở, Văn phòng & Bàn làm việc",
+    "parentId": "work-jobs",
+    "description": "Gồm 10 từ vựng trọng tâm về môi trường công sở, văn phòng & bàn làm việc.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "work-jobs-chặng-5"
+    },
+    "icon": "🌿",
+    "color": "#8b5cf6"
+  },
+  {
+    "id": "work-jobs-chặng-7",
+    "name": "7. Tuyển dụng, Hồ sơ xin việc (CV) & Phỏng vấn",
+    "parentId": "work-jobs",
+    "description": "Gồm 10 từ vựng trọng tâm về tuyển dụng, hồ sơ xin việc (cv) & phỏng vấn.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "work-jobs-chặng-6"
+    },
+    "icon": "🧹",
+    "color": "#3b82f6"
+  },
+  {
+    "id": "work-jobs-chặng-8",
+    "name": "8. Hợp đồng lao động, Thử việc & Tiếp nhận vị trí",
+    "parentId": "work-jobs",
+    "description": "Gồm 10 từ vựng trọng tâm về hợp đồng lao động, thử việc & tiếp nhận vị trí.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "work-jobs-chặng-7"
+    },
+    "icon": "💼",
+    "color": "#f97316"
+  },
+  {
+    "id": "work-jobs-chặng-9",
+    "name": "9. Lương bổng, Phụ cấp, Thưởng & Phúc lợi",
+    "parentId": "work-jobs",
+    "description": "Gồm 10 từ vựng trọng tâm về lương bổng, phụ cấp, thưởng & phúc lợi.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "work-jobs-chặng-8"
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
+  },
+  {
+    "id": "work-jobs-chặng-10",
+    "name": "10. Nhiệm vụ công việc, Trách nhiệm & Báo cáo",
+    "parentId": "work-jobs",
+    "description": "Gồm 10 từ vựng trọng tâm về nhiệm vụ công việc, trách nhiệm & báo cáo.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "work-jobs-chặng-9"
+    },
+    "icon": "🤝",
+    "color": "#84cc16"
+  },
+  {
+    "id": "work-jobs-chặng-11",
+    "name": "11. Họp hành, Thuyết trình & Làm việc nhóm",
+    "parentId": "work-jobs",
+    "description": "Gồm 10 từ vựng trọng tâm về họp hành, thuyết trình & làm việc nhóm.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "work-jobs-chặng-10"
+    },
+    "icon": "🧘",
+    "color": "#f59e0b"
+  },
+  {
+    "id": "work-jobs-chặng-12",
+    "name": "12. Kỹ năng nghề nghiệp, Đào tạo & Nâng cao năng lực",
+    "parentId": "work-jobs",
+    "description": "Gồm 10 từ vựng trọng tâm về kỹ năng nghề nghiệp, đào tạo & nâng cao năng lực.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "work-jobs-chặng-11"
+    },
+    "icon": "🖊️",
+    "color": "#6366f1"
+  },
+  {
+    "id": "work-jobs-chặng-13",
+    "name": "13. Áp lực công việc, Tăng ca & Cân bằng cuộc sống",
+    "parentId": "work-jobs",
+    "description": "Gồm 10 từ vựng trọng tâm về áp lực công việc, tăng ca & cân bằng cuộc sống.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "work-jobs-chặng-12"
+    },
+    "icon": "💼",
+    "color": "#10b981"
+  },
+  {
+    "id": "work-jobs-chặng-14",
+    "name": "14. Thăng tiến, Nghỉ phép & Chuyển đổi công tác",
+    "parentId": "work-jobs",
+    "description": "Gồm 6 từ vựng trọng tâm về thăng tiến, nghỉ phép & chuyển đổi công tác.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "work-jobs-chặng-13"
+    },
+    "icon": "⏰",
+    "color": "#ec4899"
+  },
+  {
+    "id": "technology-internet",
+    "name": "Công nghệ & Internet",
+    "parentId": null,
+    "description": "Máy tính, phần mềm, internet, smartphone, mạng xã hội, an ninh mạng, đám mây, AI và lập trình.",
+    "icon": "💻",
+    "category": "career",
+    "color": "#14b8a6",
+    "titleEn": "Technology & Internet",
+    "order": 15
+  },
+  {
     "id": "technology-internet-chặng-1",
     "name": "1. Máy tính, Laptop & Thiết bị phần cứng cơ bản",
     "parentId": "technology-internet",
@@ -3797,236 +3923,16 @@ export const TOPICS = [
     "color": "#8b5cf6"
   },
   {
-    "id": "nature-weather-chặng-1",
-    "name": "1. Thời tiết hàng ngày: Nắng, Mưa & Nhiệt độ",
-    "parentId": "nature-weather",
-    "description": "Gồm 10 từ vựng trọng tâm về thời tiết hàng ngày: nắng, mưa & nhiệt độ.",
-    "icon": "⛅",
-    "color": "#38bdf8"
-  },
-  {
-    "id": "nature-weather-chặng-2",
-    "name": "2. Gió, Bão, Sương mù & Mây trời",
-    "parentId": "nature-weather",
-    "description": "Gồm 10 từ vựng trọng tâm về gió, bão, sương mù & mây trời.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "nature-weather-chặng-1"
-    },
-    "icon": "⏰",
-    "color": "#6366f1"
-  },
-  {
-    "id": "nature-weather-chặng-3",
-    "name": "3. Bốn mùa trong năm: Xuân, Hạ, Thu, Đông",
-    "parentId": "nature-weather",
-    "description": "Gồm 10 từ vựng trọng tâm về bốn mùa trong năm: xuân, hạ, thu, đông.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "nature-weather-chặng-2"
-    },
-    "icon": "📅",
-    "color": "#10b981"
-  },
-  {
-    "id": "nature-weather-chặng-4",
-    "name": "4. Động vật trên cạn: Thú hoang dã & Thú cưng",
-    "parentId": "nature-weather",
-    "description": "Gồm 10 từ vựng trọng tâm về động vật trên cạn: thú hoang dã & thú cưng.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "nature-weather-chặng-3"
-    },
-    "icon": "🐾",
-    "color": "#f97316"
-  },
-  {
-    "id": "nature-weather-chặng-5",
-    "name": "5. Chim muông, Côn trùng & Sinh vật nhỏ",
-    "parentId": "nature-weather",
-    "description": "Gồm 10 từ vựng trọng tâm về chim muông, côn trùng & sinh vật nhỏ.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "nature-weather-chặng-4"
-    },
-    "icon": "🌙",
-    "color": "#06b6d4"
-  },
-  {
-    "id": "nature-weather-chặng-6",
-    "name": "6. Thế giới đại dương, Cá & Sinh vật biển",
-    "parentId": "nature-weather",
-    "description": "Gồm 10 từ vựng trọng tâm về thế giới đại dương, cá & sinh vật biển.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "nature-weather-chặng-5"
-    },
-    "icon": "🏖️",
-    "color": "#0ea5e9"
-  },
-  {
-    "id": "nature-weather-chặng-7",
-    "name": "7. Cây xanh, Rừng rậm & Thực vật thiên nhiên",
-    "parentId": "nature-weather",
-    "description": "Gồm 10 từ vựng trọng tâm về cây xanh, rừng rậm & thực vật thiên nhiên.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "nature-weather-chặng-6"
-    },
-    "icon": "🌿",
-    "color": "#10b981"
-  },
-  {
-    "id": "nature-weather-chặng-8",
-    "name": "8. Hoa lá, Cỏ cây & Thảm thực vật",
-    "parentId": "nature-weather",
-    "description": "Gồm 10 từ vựng trọng tâm về hoa lá, cỏ cây & thảm thực vật.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "nature-weather-chặng-7"
-    },
-    "icon": "🌿",
-    "color": "#10b981"
-  },
-  {
-    "id": "nature-weather-chặng-9",
-    "name": "9. Cảnh quan Trái Đất: Núi non, Sông hồ & Biển cả",
-    "parentId": "nature-weather",
-    "description": "Gồm 10 từ vựng trọng tâm về cảnh quan trái đất: núi non, sông hồ & biển cả.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "nature-weather-chặng-8"
-    },
-    "icon": "🏖️",
-    "color": "#0ea5e9"
-  },
-  {
-    "id": "nature-weather-chặng-10",
-    "name": "10. Bầu trời, Vũ trụ & Môi trường sinh thái",
-    "parentId": "nature-weather",
-    "description": "Gồm 6 từ vựng trọng tâm về bầu trời, vũ trụ & môi trường sinh thái.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "nature-weather-chặng-9"
-    },
-    "icon": "🌈",
-    "color": "#84cc16"
-  },
-  {
-    "id": "society-world-chặng-1",
-    "name": "1. Quốc gia, Châu lục & Ngôn ngữ thế giới",
-    "parentId": "society-world",
-    "description": "Gồm 10 từ vựng trọng tâm về quốc gia, châu lục & ngôn ngữ thế giới.",
-    "icon": "🌐",
-    "color": "#f59e0b"
-  },
-  {
-    "id": "society-world-chặng-2",
-    "name": "2. Chính phủ, Nhà nước & Thể chế chính trị",
-    "parentId": "society-world",
-    "description": "Gồm 10 từ vựng trọng tâm về chính phủ, nhà nước & thể chế chính trị.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "society-world-chặng-1"
-    },
-    "icon": "⏰",
-    "color": "#6366f1"
-  },
-  {
-    "id": "society-world-chặng-3",
-    "name": "3. Pháp luật, Tòa án & Quyền công dân",
-    "parentId": "society-world",
-    "description": "Gồm 10 từ vựng trọng tâm về pháp luật, tòa án & quyền công dân.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "society-world-chặng-2"
-    },
-    "icon": "📅",
-    "color": "#10b981"
-  },
-  {
-    "id": "society-world-chặng-4",
-    "name": "4. Cộng đồng, Đô thị & Nông thôn",
-    "parentId": "society-world",
-    "description": "Gồm 10 từ vựng trọng tâm về cộng đồng, đô thị & nông thôn.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "society-world-chặng-3"
-    },
-    "icon": "⏳",
-    "color": "#ec4899"
-  },
-  {
-    "id": "society-world-chặng-5",
-    "name": "5. Tin tức, Báo chí & Truyền thông đại chúng",
-    "parentId": "society-world",
-    "description": "Gồm 10 từ vựng trọng tâm về tin tức, báo chí & truyền thông đại chúng.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "society-world-chặng-4"
-    },
-    "icon": "🌙",
-    "color": "#06b6d4"
-  },
-  {
-    "id": "society-world-chặng-6",
-    "name": "6. Kinh tế toàn cầu & Thương mại quốc tế",
-    "parentId": "society-world",
-    "description": "Gồm 10 từ vựng trọng tâm về kinh tế toàn cầu & thương mại quốc tế.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "society-world-chặng-5"
-    },
-    "icon": "☕",
-    "color": "#8b5cf6"
-  },
-  {
-    "id": "society-world-chặng-7",
-    "name": "7. Hòa bình, Xung đột & Quan hệ ngoại giao",
-    "parentId": "society-world",
-    "description": "Gồm 10 từ vựng trọng tâm về hòa bình, xung đột & quan hệ ngoại giao.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "society-world-chặng-6"
-    },
-    "icon": "🧹",
-    "color": "#3b82f6"
-  },
-  {
-    "id": "society-world-chặng-8",
-    "name": "8. Quyền con người, Bình đẳng & Công lý xã hội",
-    "parentId": "society-world",
-    "description": "Gồm 10 từ vựng trọng tâm về quyền con người, bình đẳng & công lý xã hội.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "society-world-chặng-7"
-    },
-    "icon": "🗳️",
-    "color": "#f97316"
-  },
-  {
-    "id": "society-world-chặng-9",
-    "name": "9. Tôn giáo, Tín ngưỡng & Văn hóa nhân loại",
-    "parentId": "society-world",
-    "description": "Gồm 10 từ vựng trọng tâm về tôn giáo, tín ngưỡng & văn hóa nhân loại.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "society-world-chặng-8"
-    },
-    "icon": "⌚",
-    "color": "#14b8a6"
-  },
-  {
-    "id": "society-world-chặng-10",
-    "name": "10. Từ thiện, Hoạt động xã hội & Tương lai nhân loại",
-    "parentId": "society-world",
-    "description": "Gồm 1 từ vựng trọng tâm về từ thiện, hoạt động xã hội & tương lai nhân loại.",
-    "unlockRule": {
-      "type": "completeSubtopic",
-      "subtopicId": "society-world-chặng-9"
-    },
-    "icon": "🤖",
-    "color": "#8b5cf6"
+    "id": "toeic-b1",
+    "name": "TOEIC B1 - Tiếng Anh Công Sở",
+    "parentId": null,
+    "description": "Lộ trình 20 chặng từ vựng chuẩn TOEIC 500-750+: Văn phòng, nhân sự, tiếp thị, hợp đồng, tài chính và logistics.",
+    "icon": "🎯",
+    "category": "toeic",
+    "color": "#0284c7",
+    "titleEn": "TOEIC B1 Business Pathway",
+    "order": 16,
+    "isProgressive": true
   },
   {
     "id": "toeic-b1-chặng-1",
@@ -4277,6 +4183,17 @@ export const TOPICS = [
     "color": "#f59e0b"
   },
   {
+    "id": "finance-banking",
+    "name": "Tài chính & Ngân hàng",
+    "titleEn": "Finance & Banking Mastery",
+    "parentId": null,
+    "description": "Bộ từ vựng toàn diện về ngân hàng, tài chính cá nhân, đầu tư chứng khoán, tín dụng và kế toán doanh nghiệp.",
+    "icon": "🏦",
+    "color": "#10b981",
+    "category": "finance",
+    "order": 17
+  },
+  {
     "id": "finance-banking-chặng-1",
     "name": "1. Thu nhập cá nhân, Tiền lương & Ngân sách chi tiêu",
     "parentId": "finance-banking",
@@ -4501,47 +4418,131 @@ export const TOPICS = [
     "color": "#14b8a6"
   },
   {
-    "id": "pets-animals",
-    "name": "Thú Cưng & Động Vật Gần Gũi",
+    "id": "society-world",
+    "name": "Xã hội & Thế giới",
     "parentId": null,
-    "description": "Kho từ vựng thiết yếu về các loài thú cưng trong nhà, vật nuôi nông trại và côn trùng quen thuộc hằng ngày.",
-    "icon": "🐾",
-    "category": "daily",
-    "color": "#f97316",
-    "titleEn": "Pets & Familiar Animals",
+    "description": "Quốc gia, chính phủ, luật pháp, cộng đồng, truyền thông, kinh tế, hòa bình, nhân quyền và từ thiện.",
+    "icon": "🌍",
+    "category": "explore",
+    "color": "#d946ef",
+    "titleEn": "Society & World",
     "order": 18
   },
   {
-    "id": "pets-animals-chặng-1",
-    "name": "1. Thú cưng trong nhà & Gia đình",
-    "parentId": "pets-animals",
-    "description": "Gồm 10 từ vựng gần gũi về các loài thú cưng nuôi trong nhà và gia đình.",
-    "icon": "🐕",
-    "color": "#f97316"
+    "id": "society-world-chặng-1",
+    "name": "1. Quốc gia, Châu lục & Ngôn ngữ thế giới",
+    "parentId": "society-world",
+    "description": "Gồm 10 từ vựng trọng tâm về quốc gia, châu lục & ngôn ngữ thế giới.",
+    "icon": "🌐",
+    "color": "#f59e0b"
   },
   {
-    "id": "pets-animals-chặng-2",
-    "name": "2. Vật nuôi & Gia súc Nông trại",
-    "parentId": "pets-animals",
-    "description": "Gồm 10 từ vựng phổ biến về gia súc, gia cầm và vật nuôi đồng quê.",
+    "id": "society-world-chặng-2",
+    "name": "2. Chính phủ, Nhà nước & Thể chế chính trị",
+    "parentId": "society-world",
+    "description": "Gồm 10 từ vựng trọng tâm về chính phủ, nhà nước & thể chế chính trị.",
     "unlockRule": {
       "type": "completeSubtopic",
-      "subtopicId": "pets-animals-chặng-1"
+      "subtopicId": "society-world-chặng-1"
     },
-    "icon": "🐄",
+    "icon": "⏰",
+    "color": "#6366f1"
+  },
+  {
+    "id": "society-world-chặng-3",
+    "name": "3. Pháp luật, Tòa án & Quyền công dân",
+    "parentId": "society-world",
+    "description": "Gồm 10 từ vựng trọng tâm về pháp luật, tòa án & quyền công dân.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "society-world-chặng-2"
+    },
+    "icon": "📅",
     "color": "#10b981"
   },
   {
-    "id": "pets-animals-chặng-3",
-    "name": "3. Côn trùng & Sinh vật Quen thuộc",
-    "parentId": "pets-animals",
-    "description": "Gồm 10 từ vựng thông dụng về các loài côn trùng và sinh vật nhỏ xung quanh ta.",
+    "id": "society-world-chặng-4",
+    "name": "4. Cộng đồng, Đô thị & Nông thôn",
+    "parentId": "society-world",
+    "description": "Gồm 10 từ vựng trọng tâm về cộng đồng, đô thị & nông thôn.",
     "unlockRule": {
       "type": "completeSubtopic",
-      "subtopicId": "pets-animals-chặng-2"
+      "subtopicId": "society-world-chặng-3"
     },
-    "icon": "🐝",
-    "color": "#eab308"
+    "icon": "⏳",
+    "color": "#ec4899"
+  },
+  {
+    "id": "society-world-chặng-5",
+    "name": "5. Tin tức, Báo chí & Truyền thông đại chúng",
+    "parentId": "society-world",
+    "description": "Gồm 10 từ vựng trọng tâm về tin tức, báo chí & truyền thông đại chúng.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "society-world-chặng-4"
+    },
+    "icon": "🌙",
+    "color": "#06b6d4"
+  },
+  {
+    "id": "society-world-chặng-6",
+    "name": "6. Kinh tế toàn cầu & Thương mại quốc tế",
+    "parentId": "society-world",
+    "description": "Gồm 10 từ vựng trọng tâm về kinh tế toàn cầu & thương mại quốc tế.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "society-world-chặng-5"
+    },
+    "icon": "☕",
+    "color": "#8b5cf6"
+  },
+  {
+    "id": "society-world-chặng-7",
+    "name": "7. Hòa bình, Xung đột & Quan hệ ngoại giao",
+    "parentId": "society-world",
+    "description": "Gồm 10 từ vựng trọng tâm về hòa bình, xung đột & quan hệ ngoại giao.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "society-world-chặng-6"
+    },
+    "icon": "🧹",
+    "color": "#3b82f6"
+  },
+  {
+    "id": "society-world-chặng-8",
+    "name": "8. Quyền con người, Bình đẳng & Công lý xã hội",
+    "parentId": "society-world",
+    "description": "Gồm 10 từ vựng trọng tâm về quyền con người, bình đẳng & công lý xã hội.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "society-world-chặng-7"
+    },
+    "icon": "🗳️",
+    "color": "#f97316"
+  },
+  {
+    "id": "society-world-chặng-9",
+    "name": "9. Tôn giáo, Tín ngưỡng & Văn hóa nhân loại",
+    "parentId": "society-world",
+    "description": "Gồm 10 từ vựng trọng tâm về tôn giáo, tín ngưỡng & văn hóa nhân loại.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "society-world-chặng-8"
+    },
+    "icon": "⌚",
+    "color": "#14b8a6"
+  },
+  {
+    "id": "society-world-chặng-10",
+    "name": "10. Từ thiện, Hoạt động xã hội & Tương lai nhân loại",
+    "parentId": "society-world",
+    "description": "Gồm 1 từ vựng trọng tâm về từ thiện, hoạt động xã hội & tương lai nhân loại.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "society-world-chặng-9"
+    },
+    "icon": "🤖",
+    "color": "#8b5cf6"
   }
 ];
 

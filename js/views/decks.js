@@ -196,18 +196,11 @@ export function renderDecksTab(app) {
         const timeA = a.stats.lastStudiedTime || 0;
         const timeB = b.stats.lastStudiedTime || 0;
         if (timeA !== timeB) return timeB - timeA;
-        return (a.deck.order || 99) - (b.deck.order || 99);
+        return (a.deck.order ?? 999) - (b.deck.order ?? 999);
       }
 
-      // 3. Mặc định ('default'): Chủ đề vừa học gần đây nhất sẽ tự động được đưa lên đầu!
-      const timeA = a.stats.lastStudiedTime || 0;
-      const timeB = b.stats.lastStudiedTime || 0;
-      if (timeA > 0 || timeB > 0) {
-        if (timeA > 0 && timeB > 0) return timeB - timeA;
-        return timeB > 0 ? 1 : -1;
-      }
-
-      return (a.deck.order || 99) - (b.deck.order || 99);
+      // 3. Mặc định ('default'): Tuân thủ chuẩn xác lộ trình sư phạm (Phổ biến -> Gần gũi -> Thiết yếu)
+      return (a.deck.order ?? 999) - (b.deck.order ?? 999);
     });
 
     // Cập nhật summary label

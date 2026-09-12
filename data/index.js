@@ -47,6 +47,8 @@ for (const topic of TOPICS) {
   }
 }
 
+const CEFR_WEIGHT_MAP = { 'A1': 1, 'A2': 2, 'B1': 3, 'B2': 4, 'C1': 5, 'C2': 6 };
+
 for (const word of WORDS) {
   if (Array.isArray(word.topicIds)) {
     for (const tid of word.topicIds) {
@@ -57,6 +59,15 @@ for (const word of WORDS) {
       if (directList) directList.push(word);
     }
   }
+}
+
+// Đảm bảo thứ tự trong từng nhóm 10 từ luôn tuân thủ chuẩn sư phạm: A1 (Cốt lõi) -> A2 -> B1 -> B2
+for (const list of _wordsByDirectTopicId.values()) {
+  list.sort((a, b) => {
+    const wA = CEFR_WEIGHT_MAP[(a.level || 'A1').toUpperCase()] || 1;
+    const wB = CEFR_WEIGHT_MAP[(b.level || 'A1').toUpperCase()] || 1;
+    return wA - wB;
+  });
 }
 
 // ==========================================
