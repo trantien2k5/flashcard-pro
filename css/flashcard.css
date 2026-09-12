@@ -262,9 +262,13 @@
   will-change: transform;
   -webkit-user-select: none;
   user-select: none;
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.5), 0 0 24px var(--primary-glow, rgba(99, 102, 241, 0.28));
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.35);
   contain: layout style;
   transform: translate3d(0, 0, 0);
+}
+
+[data-theme="light"] .flashcard-3d-wrapper {
+  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
 }
 
 .flashcard-3d-wrapper.flipped {
@@ -308,7 +312,7 @@
   flex-direction: column;
   justify-content: space-between;
   background: var(--card-bg, #161b22);
-  border: 1.5px solid var(--border, rgba(99, 102, 241, 0.28));
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
   box-sizing: border-box;
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
@@ -323,14 +327,13 @@
 
 [data-theme="light"] .flashcard-face {
   background: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.04);
+  border: 1px solid #e2e8f0;
 }
 
 .flashcard-face.face-back {
   transform: rotateY(180deg) translate3d(0, 0, 1px);
   background: linear-gradient(180deg, #1c2331 0%, #161b22 100%);
-  border-color: rgba(99, 102, 241, 0.32);
+  border-color: rgba(99, 102, 241, 0.25);
   text-align: center;
 }
 
