@@ -143,11 +143,18 @@ export class FSRS {
   }
 
   /**
-   * Tính khoảng thời gian ôn tập tiếp theo (theo ngày) dựa trên Stability và Target Retention
+   * Tính khoảng thời gian chính xác (dạng số thực) dựa trên Stability và Target Retention
+   */
+  rawInterval(stability, requestRetention = this.requestRetention) {
+    const interval = (stability / this.factor) * (Math.pow(requestRetention, -1 / this.decay) - 1);
+    return Math.min(Math.max(0.1, interval), this.maximumInterval);
+  }
+
+  /**
+   * Tính khoảng thời gian ôn tập tiếp theo (theo ngày nguyên) dựa trên Stability và Target Retention
    */
   nextInterval(stability, requestRetention = this.requestRetention) {
-    const interval = (stability / this.factor) * (Math.pow(requestRetention, -1 / this.decay) - 1);
-    let days = Math.round(interval);
+    let days = Math.round(this.rawInterval(stability, requestRetention));
     days = Math.max(1, days);
     return Math.min(days, this.maximumInterval);
   }
@@ -162,7 +169,7 @@ export class FSRS {
       const nextCard = this.calculateNextState(card, grade, now);
       scheduleItems[grade] = {
         card: nextCard,
-        intervalText: this.formatInterval(nextCard.scheduled_days, nextCard.state, grade),
+        intervalText: this.formatInterval(nextCard.scheduled_days, nextCard.state, grade, nextCard.raw_days),
         rating: grade,
         name: key
       };
@@ -198,42 +205,50 @@ export class FSRS {
         next.state = State.Learning;
         next.stability = this.initStability(Rating.Again);
         next.scheduled_days = 0; // < 1m
+        next.raw_days = 0;
         next.due = new Date(nowDate.getTime() + 1 * 60 * 1000).toISOString();
       } else if (rating === Rating.Hard) {
         next.state = State.Learning;
         next.stability = this.initStability(Rating.Hard);
         next.scheduled_days = 0; // 10m
+        next.raw_days = 0;
         next.due = new Date(nowDate.getTime() + 10 * 60 * 1000).toISOString();
       } else if (rating === Rating.Good) {
         next.state = State.Review;
         next.stability = this.initStability(Rating.Good);
         next.scheduled_days = 1; // 1d
+        next.raw_days = 1.0;
         next.due = new Date(nowDate.getTime() + 1 * 24 * 60 * 60 * 1000).toISOString();
       } else if (rating === Rating.Easy) {
         next.state = State.Review;
         next.stability = this.initStability(Rating.Easy);
         next.scheduled_days = 4; // 4d
+        next.raw_days = 4.0;
         next.due = new Date(nowDate.getTime() + 4 * 24 * 60 * 60 * 1000).toISOString();
       }
     } else if (card.state === State.Learning || card.state === State.Relearning) {
       if (rating === Rating.Again) {
         next.scheduled_days = 0; // < 1m
+        next.raw_days = 0;
         next.due = new Date(nowDate.getTime() + 1 * 60 * 1000).toISOString();
       } else if (rating === Rating.Hard) {
         next.scheduled_days = 0; // 10m
+        next.raw_days = 0;
         next.due = new Date(nowDate.getTime() + 10 * 60 * 1000).toISOString();
       } else if (rating === Rating.Good) {
         next.state = State.Review;
         next.stability = Math.max(3.2, currentS * 1.2);
-        const days = Math.max(1, this.nextInterval(next.stability));
-        next.scheduled_days = days;
-        next.due = new Date(nowDate.getTime() + days * 24 * 60 * 60 * 1000).toISOString();
+        const raw = this.rawInterval(next.stability);
+        next.raw_days = Math.max(1, raw);
+        next.scheduled_days = Math.max(1, Math.round(raw));
+        next.due = new Date(nowDate.getTime() + next.scheduled_days * 24 * 60 * 60 * 1000).toISOString();
       } else if (rating === Rating.Easy) {
         next.state = State.Review;
         next.stability = Math.max(4.0, currentS * 1.5);
-        const days = Math.max(3, this.nextInterval(next.stability));
-        next.scheduled_days = days;
-        next.due = new Date(nowDate.getTime() + days * 24 * 60 * 60 * 1000).toISOString();
+        const raw = this.rawInterval(next.stability);
+        next.raw_days = Math.max(3, raw);
+        next.scheduled_days = Math.max(3, Math.round(raw));
+        next.due = new Date(nowDate.getTime() + next.scheduled_days * 24 * 60 * 60 * 1000).toISOString();
       }
     } else { // State.Review
       next.difficulty = this.nextDifficulty(currentD, rating);
@@ -242,25 +257,30 @@ export class FSRS {
         next.lapses = (card.lapses || 0) + 1;
         next.stability = this.nextForgetStability(currentD, currentS, retrievability);
         next.scheduled_days = 0; // < 1m
+        next.raw_days = 0;
         next.due = new Date(nowDate.getTime() + 1 * 60 * 1000).toISOString();
       } else if (rating === Rating.Hard) {
         next.state = State.Review;
         next.stability = this.nextRecallStability(currentD, currentS, retrievability, Rating.Hard);
-        const days = Math.max(1, Math.round(this.nextInterval(next.stability) * 0.8));
-        next.scheduled_days = days;
-        next.due = new Date(nowDate.getTime() + days * 24 * 60 * 60 * 1000).toISOString();
+        const raw = this.rawInterval(next.stability) * 0.8;
+        next.raw_days = Math.max(1, raw);
+        next.scheduled_days = Math.max(1, Math.round(raw));
+        next.due = new Date(nowDate.getTime() + next.scheduled_days * 24 * 60 * 60 * 1000).toISOString();
       } else if (rating === Rating.Good) {
         next.state = State.Review;
         next.stability = this.nextRecallStability(currentD, currentS, retrievability, Rating.Good);
-        const days = Math.max(2, this.nextInterval(next.stability));
-        next.scheduled_days = days;
-        next.due = new Date(nowDate.getTime() + days * 24 * 60 * 60 * 1000).toISOString();
+        const raw = this.rawInterval(next.stability);
+        next.raw_days = Math.max(2, raw);
+        next.scheduled_days = Math.max(2, Math.round(raw));
+        next.due = new Date(nowDate.getTime() + next.scheduled_days * 24 * 60 * 60 * 1000).toISOString();
       } else if (rating === Rating.Easy) {
         next.state = State.Review;
-        next.stability = this.nextRecallStability(currentD, currentS, retrievability, Rating.Easy);
-        const days = Math.max(4, this.nextInterval(next.stability));
-        next.scheduled_days = days;
-        next.due = new Date(nowDate.getTime() + days * 24 * 60 * 60 * 1000).toISOString();
+        const easyCalculatedS = this.nextRecallStability(currentD, currentS, retrievability, Rating.Easy);
+        next.stability = Math.max(currentS * (this.w[16] || 1.3), easyCalculatedS);
+        const raw = this.rawInterval(next.stability);
+        next.raw_days = Math.max(4, raw);
+        next.scheduled_days = Math.max(4, Math.round(raw));
+        next.due = new Date(nowDate.getTime() + next.scheduled_days * 24 * 60 * 60 * 1000).toISOString();
       }
     }
 
@@ -278,21 +298,24 @@ export class FSRS {
   }
 
   /**
-   * Định dạng interval thành chuỗi thân thiện cho giao diện người dùng
+   * Định dạng interval thành chuỗi thân thiện cho giao diện người dùng kèm độ chính xác 1 chữ số thập phân
    */
-  formatInterval(days, state, rating) {
+  formatInterval(days, state, rating, rawDays = null) {
     if (days === 0) {
       if (rating === Rating.Again) return '1m';
       if (rating === Rating.Hard) return '10m';
       return '15m';
     }
-    if (days === 1) return '1d';
-    if (days < 30) return `${days}d`;
-    if (days < 365) {
-      const months = (days / 30).toFixed(1).replace('.0', '');
+    const d = (rawDays !== null && rawDays !== undefined && rawDays > 0) ? rawDays : days;
+    if (d < 30) {
+      const num = Number(d.toFixed(1));
+      return `${num}d`;
+    }
+    if (d < 365) {
+      const months = (d / 30).toFixed(1).replace(/\.0$/, '');
       return `${months}mo`;
     }
-    const years = (days / 365).toFixed(1).replace('.0', '');
+    const years = (d / 365).toFixed(1).replace(/\.0$/, '');
     return `${years}y`;
   }
 }
