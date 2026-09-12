@@ -106,8 +106,10 @@ export class StudySession {
       total: this.totalCards
     };
 
+    this.isActive = true;
     if (this.queue.length === 0) {
       this.currentCard = null;
+      this.isActive = false;
       return false;
     }
 
@@ -174,6 +176,7 @@ export class StudySession {
     this.updateSettings();
     if (this.currentIndex >= this.queue.length) {
       this.currentCard = null;
+      this.isActive = false;
       this.onFinish(this.sessionStats);
       return null;
     }

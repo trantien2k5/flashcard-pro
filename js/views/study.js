@@ -300,6 +300,11 @@ export function setupStudyControls(app) {
           document.getElementById('study-overlay')?.classList.remove('active');
           scrollToTop();
           app.refreshAllViews();
+          if (app._pendingUpdateReload) {
+            app._pendingUpdateReload = false;
+            app.showToast('🚀 Đang áp dụng phiên bản mới nhất...', 'success', 2000);
+            setTimeout(() => window.location.reload(), 1000);
+          }
         } catch (err) {
           console.error('Lỗi đóng summary modal:', err);
         }

@@ -118,44 +118,98 @@ export class FlashcardApp {
   }
 
   registerServiceWorker() {
-    if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
-      navigator.serviceWorker.register('./sw.js').then((registration) => {
-        // Tự động kiểm tra bản cập nhật mới định kỳ và khi quay lại tab
-        registration.update().catch(() => {});
+    if (typeof navigator === 'undefined' || !('serviceWorker' in navigator) || !window.location.protocol.startsWith('http')) {
+      return;
+    }
 
-        document.addEventListener('visibilitychange', () => {
-          if (document.visibilityState === 'visible') {
-            registration.update().catch(() => {});
-          }
-        });
+    let swRegistration = null;
+    let isReloading = false;
 
-        // Lắng nghe khi phát hiện Service Worker mới
-        registration.onupdatefound = () => {
-          const installingWorker = registration.installing;
-          if (installingWorker) {
-            installingWorker.onstatechange = () => {
-              if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                console.log('[PWA] Phiên bản mới đã sẵn sàng.');
-              }
-            };
-          }
-        };
-      }).catch(err => {
-        console.warn('Service worker registration failed:', err);
-      });
+    const performReload = (message = '🚀 Ứng dụng đã tự động cập nhật phiên bản mới nhất!') => {
+      if (isReloading) return;
+      isReloading = true;
+      this.showToast(message, 'success', 2000);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1200);
+    };
 
-      // Lắng nghe khi SW mới kích hoạt (clients.claim) để cập nhật view nếu cần
-      let isReloading = false;
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (!isReloading) {
-          isReloading = true;
-          // Chỉ reload tự động nếu không đang trong phiên học thẻ dở dang
-          if (!this.studySession || !this.studySession.isActive) {
-            window.location.reload();
-          }
+    const handleUpdateDetected = () => {
+      // Nếu đang trong phiên học 3D flashcard, hoãn reload cho đến khi kết thúc phiên để không làm gián đoạn
+      if (this.studySession && this.studySession.isActive) {
+        this._pendingUpdateReload = true;
+        this.showToast('✨ Có bản cập nhật mới — sẽ tự động áp dụng sau phiên học này.', 'info', 4000);
+      } else {
+        performReload();
+      }
+    };
+
+    navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).then((registration) => {
+      swRegistration = registration;
+
+      // 1. Kiểm tra cập nhật ngay lập tức khi mở ứng dụng
+      registration.update().catch(() => {});
+
+      // 2. Tự động kiểm tra cập nhật định kỳ mỗi 3 phút khi online
+      setInterval(() => {
+        if (navigator.onLine && registration) {
+          registration.update().catch(() => {});
+        }
+      }, 3 * 60 * 1000);
+
+      // 3. Kiểm tra cập nhật khi người dùng chuyển lại tab (focus / visibility)
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible' && navigator.onLine && registration) {
+          registration.update().catch(() => {});
         }
       });
-    }
+      window.addEventListener('focus', () => {
+        if (navigator.onLine && registration) {
+          registration.update().catch(() => {});
+        }
+      });
+
+      // 4. Lắng nghe khi có SW mới đang cài đặt
+      registration.onupdatefound = () => {
+        const installingWorker = registration.installing;
+        if (installingWorker) {
+          installingWorker.onstatechange = () => {
+            if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              console.log('[PWA] Phiên bản mới đã tải xong trong background.');
+              // Gửi tin nhắn ép kích hoạt nếu cần
+              installingWorker.postMessage({ action: 'skipWaiting' });
+            }
+          };
+        }
+      };
+    }).catch(err => {
+      console.warn('[PWA] Service worker registration error:', err);
+    });
+
+    // 5. Lắng nghe controllerchange khi Service Worker mới chính thức tiếp quản
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      handleUpdateDetected();
+    });
+
+    // 6. Lắng nghe tin nhắn kích hoạt từ SW
+    navigator.serviceWorker.addEventListener('message', (event) => {
+      if (event.data && event.data.type === 'SW_ACTIVATED') {
+        console.log('[PWA] SW_ACTIVATED version:', event.data.version);
+        handleUpdateDetected();
+      }
+    });
+
+    // 7. Lắng nghe trạng thái Online / Offline
+    window.addEventListener('offline', () => {
+      this.showToast('📡 Đang ở chế độ Offline (Học 100% không cần mạng)', 'info', 3500);
+    });
+
+    window.addEventListener('online', () => {
+      this.showToast('⚡ Đã kết nối Internet — Đang kiểm tra cập nhật...', 'success', 2500);
+      if (swRegistration) {
+        swRegistration.update().catch(() => {});
+      }
+    });
   }
 
   scrollToTop() {
