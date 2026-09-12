@@ -204,7 +204,9 @@ export class StatsManager {
       if (card && card.due && card.state !== State.New && card.state !== 0) {
         const dueMs = new Date(card.due).getTime();
         const diffMs = dueMs - startOfTodayMs;
-        if (diffMs >= 0 && diffMs < sevenDaysMs) {
+        if (diffMs < 0) {
+          counts[0]++;
+        } else if (diffMs < sevenDaysMs) {
           const dayIndex = Math.floor(diffMs / oneDayMs);
           if (dayIndex >= 0 && dayIndex < 7) {
             counts[dayIndex]++;

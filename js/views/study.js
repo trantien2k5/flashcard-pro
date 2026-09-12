@@ -357,14 +357,15 @@ export function handleCardChange(app, card, progress) {
     const imgSrc = card.img || card.image || '';
     if (imgContainer && imgEl) {
       if (imgSrc) {
+        imgEl.onerror = () => {
+          imgContainer.style.display = 'none';
+        };
         imgEl.decoding = 'async';
         imgEl.loading = 'eager';
-        if (imgEl.src !== imgSrc) {
-          imgEl.src = imgSrc;
-        }
+        imgEl.src = imgSrc;
         imgContainer.style.display = 'flex';
       } else {
-        imgEl.src = '';
+        imgEl.removeAttribute('src');
         imgContainer.style.display = 'none';
       }
     }

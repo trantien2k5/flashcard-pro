@@ -3,7 +3,7 @@
  */
 
 import { StorageManager } from '../services/storage.js';
-import { FSRS, State } from './fsrs.js';
+import { FSRS, State, isCardDue } from './fsrs.js';
 import { getLocalDateKey } from '../utils.js';
 import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords } from '../../data/index.js';
 
@@ -243,31 +243,16 @@ export class DeckManager {
    */
   getDueCards(deckId = null) {
     const allDeckCards = deckId ? (this.deckCardsMap.get(deckId) || []) : this.allCards;
-    const nowTimestamp = Date.now();
-    const todayKey = getLocalDateKey(new Date());
+    const now = new Date();
     const dueCards = [];
 
     for (const card of allDeckCards) {
       const state = StorageManager.getCardState(card.id);
-      if (!state || state.state === State.New || state.reps === 0) {
-        continue;
-      }
-      if (state.due) {
-        let isDue = false;
-        if (typeof state.due === 'number') {
-          isDue = state.due <= nowTimestamp;
-        } else if (typeof state.due === 'string') {
-          const dueDate = new Date(state.due);
-          if (!isNaN(dueDate.getTime())) {
-            isDue = dueDate.getTime() <= nowTimestamp || getLocalDateKey(dueDate) <= todayKey;
-          }
-        }
-        if (isDue) {
-          dueCards.push({
-            ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
-            fsrsState: state
-          });
-        }
+      if (isCardDue(state, now)) {
+        dueCards.push({
+          ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
+          fsrsState: state
+        });
       }
     }
     return dueCards;
@@ -295,7 +280,7 @@ export class DeckManager {
 
     const cards = this.getCardsByDeckId(deckId);
     const cardStates = StorageManager.getAllCardStates();
-    const nowMs = Date.now();
+    const now = new Date();
 
     let newCount = 0;
     let learningCount = 0;
@@ -316,13 +301,13 @@ export class DeckManager {
         }
         if (state.state === State.Learning || state.state === State.Relearning) {
           learningCount++;
-          if (state.due && Date.parse(state.due) <= nowMs) dueCount++;
+          if (isCardDue(state, now)) dueCount++;
         } else if (state.state === State.Review) {
           reviewCount++;
           if (state.stability >= 21) {
             masteredCount++;
           }
-          if (state.due && Date.parse(state.due) <= nowMs) dueCount++;
+          if (isCardDue(state, now)) dueCount++;
         }
       }
     }
@@ -343,7 +328,7 @@ export class DeckManager {
   }
 
   /**
-   * Lấy danh sách thẻ ưu tiên thông minh theo thuật toán FSRS
+   * Lấy danh sách thẻ ưu tiên thông minh theo thuật toán FSRS (Chuẩn Anki)
    */
   getStudyQueue(deckId = null, settings = {}, subtopic = null) {
     const cardStates = StorageManager.getAllCardStates();
@@ -392,7 +377,6 @@ export class DeckManager {
     const dueCards = [];
     const newCards = [];
     const learningCards = [];
-    const masteredCards = [];
 
     for (const card of targetCards) {
       const hydratedCard = this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card;
@@ -400,19 +384,14 @@ export class DeckManager {
 
       if (!state || state.state === State.New || state.state === 0) {
         newCards.push({ ...hydratedCard, fsrsState: state || FSRS.createEmptyCard(card.id) });
-      } else {
-        const dueDate = new Date(state.due);
-        if (dueDate <= now) {
-          dueCards.push({ ...hydratedCard, fsrsState: state });
-        } else if (state.stability >= 21) {
-          masteredCards.push({ ...hydratedCard, fsrsState: state });
-        } else {
-          learningCards.push({ ...hydratedCard, fsrsState: state });
-        }
+      } else if (isCardDue(state, now)) {
+        dueCards.push({ ...hydratedCard, fsrsState: state });
+      } else if (state.state === State.Learning || state.state === State.Relearning) {
+        learningCards.push({ ...hydratedCard, fsrsState: state });
       }
     }
 
-    // 1. Sắp xếp thẻ đến hạn
+    // 1. Sắp xếp thẻ đến hạn theo thời gian đến hạn tăng dần
     dueCards.sort((a, b) => new Date(a.fsrsState.due) - new Date(b.fsrsState.due));
 
     // 2. Tính hạn mức từ mới
@@ -432,31 +411,18 @@ export class DeckManager {
     const selectedDue = dueCards.slice(0, maxReview);
     const selectedNew = newCards.slice(0, maxNew);
 
-    let queue = [];
-    if (subtopic) {
-      // Khi học theo chặng/chủ đề con cụ thể (10 từ): Ưu tiên thẻ đến hạn trước, sau đó là thẻ mới, rồi đến thẻ đang học/thuần thục
-      const seenIds = new Set();
-      queue = [];
-      for (const card of [...selectedDue, ...selectedNew, ...learningCards, ...targetCards]) {
-        if (card && card.id && !seenIds.has(card.id)) {
-          seenIds.add(card.id);
-          queue.push({
-            ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
-            fsrsState: cardStates[card.id] || FSRS.createEmptyCard(card.id)
-          });
-        }
+    const queue = [];
+    const seenQueueIds = new Set();
+
+    // Hàng đợi chuẩn: Ưu tiên thẻ đến hạn ôn (Due) trước, sau đó là thẻ mới (New)
+    for (const card of [...selectedDue, ...selectedNew]) {
+      if (card && card.id && !seenQueueIds.has(card.id)) {
+        seenQueueIds.add(card.id);
+        queue.push({
+          ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
+          fsrsState: cardStates[card.id] || FSRS.createEmptyCard(card.id)
+        });
       }
-    } else if (selectedDue.length > 0) {
-      queue = selectedDue;
-    } else if (selectedNew.length > 0) {
-      queue = selectedNew;
-    } else if (learningCards.length > 0) {
-      queue = learningCards.slice(0, 10);
-    } else if (targetCards.length > 0) {
-      queue = targetCards.map(c => ({
-        ...(this.wordsMap.get(`${c.deckId || deckId}:${c.id}`) || this.wordsMap.get(c.id) || c),
-        fsrsState: cardStates[c.id] || FSRS.createEmptyCard(c.id)
-      })).slice(0, 10);
     }
 
     return {

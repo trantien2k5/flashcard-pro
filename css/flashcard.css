@@ -243,23 +243,23 @@
   color: #ef4444;
 }
 
-/* Study Body: Tối ưu Flex lấp đầy chiều cao màn hình, không bị thừa khoảng trắng */
+/* Study Body: Tối ưu Cân Bằng Công Thái Học (Ergonomic Thumb Zone) cho Mobile màn hình dài */
 .study-body-wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Căn giữa hài hòa, không đẩy cụm nút xuống sát mép đáy */
   width: 100%;
-  max-width: 460px;
+  max-width: 440px;
   margin: 0 auto;
-  padding: clamp(8px, 1.5vh, 14px) 16px clamp(12px, 2vh, 18px) 16px;
-  gap: clamp(8px, 1.5vh, 14px);
+  padding: clamp(6px, 1.5vh, 12px) 16px clamp(28px, 5.5vh, 56px) 16px; /* Nâng cao cụm nút lên vừa tầm ngón cái */
+  gap: clamp(12px, 2.2vh, 20px);
   box-sizing: border-box;
   min-height: 0;
 }
 
-/* Khối 1: Khung Flashcard Tự Động Co Giãn Đầy Đặn */
+/* Khối 1: Khung Flashcard Tự Động Co Giãn Cân Đối */
 .flashcard-stage {
   padding: 0;
   display: flex;
@@ -268,9 +268,9 @@
   justify-content: center;
   perspective: 1000px;
   width: 100%;
-  flex: 1;
-  min-height: 380px;
-  max-height: calc(100vh - 160px);
+  flex: 0 1 auto;
+  height: clamp(330px, 55vh, 470px);
+  max-height: calc(100dvh - 210px);
   box-sizing: border-box;
 }
 
@@ -339,9 +339,9 @@
 /* Container Ảnh Minh Họa Trực Quan - Chiếm Tỉ Lệ Lớn & Sắc Nét */
 .card-image-container {
   width: 100%;
-  flex: 1;
-  min-height: 180px;
-  max-height: 56%;
+  flex: 1 1 auto;
+  min-height: 140px;
+  max-height: 52%;
   border-radius: clamp(12px, 2vh, 16px);
   overflow: hidden;
   background: #090d13;
@@ -351,7 +351,7 @@
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
   flex-shrink: 0;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -669,8 +669,8 @@
   background: transparent;
   border-top: none;
   width: 100%;
-  height: 80px;
-  min-height: 80px;
+  height: auto;
+  min-height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -680,7 +680,7 @@
 .fsrs-buttons-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: clamp(6px, 1.8vw, 10px);
   width: 100%;
   opacity: 0;
   visibility: hidden;
@@ -701,9 +701,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  min-height: 58px;
-  padding: 10px 6px;
+  gap: 3px;
+  min-height: clamp(58px, 8vh, 66px);
+  padding: 8px 4px;
   border-radius: 16px;
   border: 1.5px solid transparent;
   cursor: pointer;
@@ -711,18 +711,19 @@
   user-select: none;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .btn-fsrs-rating .fsrs-rating-title {
-  font-size: 0.98rem;
+  font-size: clamp(0.88rem, 2vh, 0.98rem);
   font-weight: 800;
 }
 
 .btn-fsrs-rating .fsrs-badge-interval {
-  font-size: 0.82rem;
+  font-size: clamp(0.74rem, 1.6vh, 0.82rem);
   font-family: var(--font-mono);
   font-weight: 700;
-  padding: 3px 9px;
+  padding: 2px 8px;
   border-radius: var(--radius-full);
 }
 

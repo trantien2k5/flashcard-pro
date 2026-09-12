@@ -372,17 +372,11 @@ export class FlashcardApp {
           await this.deckManager.ensureTopicLoaded(deckId);
         }
         const studyData = this.deckManager.getStudyQueue(deckId, this.settings, subtopic);
-        queue = studyData.queue;
-        if ((!queue || queue.length === 0) && studyData.learningCards?.length > 0) {
-          queue = studyData.learningCards;
-        }
-        if ((!queue || queue.length === 0) && deckId) {
-          queue = this.deckManager.getCardsByDeckId(deckId).slice(0, 10);
-        }
+        queue = studyData.queue || [];
       }
 
       if (!queue || queue.length === 0) {
-        this.showToast('Không có thẻ nào cần học trong danh mục này!', 'info');
+        this.showToast('Tuyệt vời! Hiện chưa có từ nào đến hạn cần ôn trong mục này.', 'info');
         return;
       }
       startStudyView(this, queue);

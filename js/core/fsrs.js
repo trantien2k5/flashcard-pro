@@ -20,9 +20,24 @@ export function isCardLearned(cardState) {
 export function isCardDue(cardState, now = new Date()) {
   if (!cardState || cardState.state === State.New || cardState.state === 0) return false;
   if (!cardState.due) return false;
-  const dueTime = new Date(cardState.due).getTime();
-  const nowTime = now instanceof Date ? now.getTime() : new Date(now).getTime();
-  return dueTime <= nowTime;
+  
+  const dueDate = new Date(cardState.due);
+  if (isNaN(dueDate.getTime())) return false;
+  
+  const nowDate = now instanceof Date ? now : new Date(now);
+  const nowTime = nowDate.getTime();
+  const dueTime = dueDate.getTime();
+  
+  if (dueTime <= nowTime) return true;
+
+  // Nếu là thẻ ôn tập theo ngày (scheduled_days >= 1), kiểm tra theo ngày lịch địa phương
+  if (cardState.scheduled_days >= 1) {
+    const todayKey = `${nowDate.getFullYear()}-${String(nowDate.getMonth() + 1).padStart(2, '0')}-${String(nowDate.getDate()).padStart(2, '0')}`;
+    const dueKey = `${dueDate.getFullYear()}-${String(dueDate.getMonth() + 1).padStart(2, '0')}-${String(dueDate.getDate()).padStart(2, '0')}`;
+    return dueKey <= todayKey;
+  }
+
+  return false;
 }
 
 export class FSRS {

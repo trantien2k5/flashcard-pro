@@ -3,7 +3,7 @@
  */
 
 import { StorageManager } from '../services/storage.js';
-import { State } from '../core/fsrs.js';
+import { State, isCardDue } from '../core/fsrs.js';
 import { StatsManager } from '../core/stats.js';
 import { getLocalDateKey, escapeHTML } from '../utils.js';
 import { showToast } from './components.js';
@@ -176,7 +176,7 @@ export function renderReviewTab(app) {
 
     const allCards = app.deckManager.getAllCards();
     const cardStates = StorageManager.getAllCardStates();
-    const nowMs = Date.now();
+    const now = new Date();
     const totalCards = allCards.length;
 
     // 1. Phân loại từ vựng & 3 Cấp độ thành tựu FSRS
@@ -193,7 +193,7 @@ export function renderReviewTab(app) {
         newCount++;
       } else {
         learnedCount++;
-        if (state.due && Date.parse(state.due) <= nowMs) {
+        if (isCardDue(state, now)) {
           dueCount++;
         }
         const s = state.stability || 0;
@@ -246,15 +246,15 @@ export function renderReviewTab(app) {
       l.timestamp && getLocalDateKey(l.timestamp) === getLocalDateKey()
     );
     const todayLearned = todayLogs.length;
-    const todayNewLearned = todayLogs.filter(l => !l.lastState || l.lastState === State.New || l.lastState === 0).length;
     const remainingGoal = Math.max(0, dailyGoal - todayLearned);
     const goalPct = Math.min(100, Math.round((todayLearned / dailyGoal) * 100));
 
     // A. Trạng thái hôm nay
     const elTodayStatus = document.getElementById('home-today-status');
-    const elStatusBadge = document.getElementById('home-status-badge');
     if (elTodayStatus) {
-      if (todayLearned >= dailyGoal) {
+      if (queueDue > 0) {
+        elTodayStatus.textContent = `Có ${queueDue} từ cần ôn tập hôm nay`;
+      } else if (todayLearned >= dailyGoal) {
         elTodayStatus.textContent = 'Đã hoàn thành mục tiêu hôm nay ✓';
       } else {
         elTodayStatus.textContent = `Còn ${remainingGoal} từ để đạt mục tiêu hôm nay`;
@@ -303,14 +303,14 @@ export function renderReviewTab(app) {
       }
     }
 
-    // E. CTA Duy Nhất, Thật Nổi & Thời Gian Ước Tính
+    // E. CTA Nổi Bật: Ưu tiên ôn từ đến hạn; nếu hết từ cần ôn -> chuyển sang tab Chủ đề để học từ mới
     const btnHeroCta = document.getElementById('btn-home-hero-cta');
     const elCtaText = document.getElementById('home-hero-cta-text');
     const elEstTime = document.getElementById('home-estimated-time');
 
     if (btnHeroCta) {
       if (queueDue > 0) {
-        // Ưu tiên 1: Ôn từ đến hạn
+        // Ưu tiên 1: Có từ đến hạn -> Ôn ngay
         if (elCtaText) elCtaText.textContent = `Ôn ${queueDue} từ ngay`;
         const estMin = Math.max(1, Math.ceil(queueDue * 0.5));
         if (elEstTime) elEstTime.textContent = `⏱️ Khoảng ${estMin} phút`;
@@ -325,40 +325,29 @@ export function renderReviewTab(app) {
           }
         };
       } else if (todayLearned < dailyGoal) {
-        // Ưu tiên 2: Học tiếp cho đủ mục tiêu ngày
-        if (elCtaText) elCtaText.textContent = `Học tiếp — còn ${remainingGoal} từ`;
-        const estMin = Math.max(1, Math.ceil(remainingGoal * 0.5));
-        if (elEstTime) elEstTime.textContent = `⏱️ Khoảng ${estMin} phút`;
+        // Ưu tiên 2: Hết từ cần ôn, chưa đủ mục tiêu ngày -> Điều hướng sang tab Chủ đề để chọn bài học từ mới
+        if (elCtaText) elCtaText.textContent = `📚 Chọn chủ đề học từ mới`;
+        if (elEstTime) elEstTime.textContent = `💡 Không có từ cần ôn • Còn ${remainingGoal} từ mục tiêu`;
         btnHeroCta.className = 'btn-hero-action cta-priority-learn';
 
         btnHeroCta.onclick = () => {
           try {
-            const newCards = allCards.filter(c => !cardStates[c.id] || cardStates[c.id].state === State.New || cardStates[c.id].state === 0);
-            const batch = newCards.slice(0, remainingGoal);
-            app.startStudySession(null, null, batch.length > 0 ? batch : null);
+            app.switchTab('tab-decks');
           } catch (err) {
-            console.error('Lỗi phiên học tiếp:', err);
-            showToast('Lỗi: ' + err.message, 'error');
+            console.error('Lỗi chuyển tab chủ đề:', err);
           }
         };
       } else {
-        // Ưu tiên 3: Đã hoàn thành mục tiêu hôm nay -> Học thêm
-        if (elCtaText) elCtaText.textContent = '+ Học thêm 10 từ mới';
-        if (elEstTime) elEstTime.textContent = '⏱️ Khoảng 5 phút';
+        // Ưu tiên 3: Đã hoàn thành mục tiêu ngày và không có từ cần ôn -> Điều hướng sang tab Chủ đề
+        if (elCtaText) elCtaText.textContent = `✨ Khám phá thêm chủ đề mới`;
+        if (elEstTime) elEstTime.textContent = `🎉 Đã hoàn thành mục tiêu ngày!`;
         btnHeroCta.className = 'btn-hero-action cta-priority-extra';
 
         btnHeroCta.onclick = () => {
           try {
-            const newCards = allCards.filter(c => !cardStates[c.id] || cardStates[c.id].state === State.New || cardStates[c.id].state === 0);
-            if (newCards.length === 0) {
-              showToast('Bạn đã học hết toàn bộ từ trong kho!', 'info');
-              return;
-            }
-            const batch = newCards.slice(0, 10);
-            app.startStudySession(null, null, batch);
+            app.switchTab('tab-decks');
           } catch (err) {
-            console.error('Lỗi học thêm:', err);
-            showToast('Lỗi: ' + err.message, 'error');
+            console.error('Lỗi chuyển tab chủ đề:', err);
           }
         };
       }

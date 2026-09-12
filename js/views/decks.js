@@ -5,7 +5,7 @@
 
 import { DECK_ENGLISH_NAMES, getSubtopicIcon, getSubtopicColor } from '../config.js';
 import { StorageManager } from '../services/storage.js';
-import { State } from '../core/fsrs.js';
+import { State, isCardDue } from '../core/fsrs.js';
 import { TopicRepository } from '../../data/index.js';
 import { escapeHTML, safeColor, scrollToTop } from '../utils.js';
 import { showToast } from './components.js';
@@ -473,7 +473,7 @@ export function renderSubtopicsPage(app, deckId) {
           const s = cardStates[subCards[j].id];
           if (s && s.state !== State.New && s.state !== 0) {
             learnedSubCount++;
-            if (s.due && Date.parse(s.due) <= nowMs) dueSubCount++;
+            if (isCardDue(s, new Date())) dueSubCount++;
           }
         }
 
@@ -591,7 +591,7 @@ export async function renderSubtopicDetailPage(app, deckId, subtopicName) {
 
     const dueSubCount = subCards.filter(c => {
       const s = StorageManager.getCardState(c.id);
-      return s && s.state !== State.New && s.state !== 0 && s.due && new Date(s.due) <= new Date();
+      return isCardDue(s, new Date());
     }).length;
 
     const learnedSubCount = subCards.filter(c => {
@@ -621,11 +621,22 @@ export async function renderSubtopicDetailPage(app, deckId, subtopicName) {
 
     const btnStudyModal = document.getElementById('btn-start-subtopic-study') || document.getElementById('btn-modal-study-subtopic');
     if (btnStudyModal) {
-      btnStudyModal.textContent = dueSubCount > 0 ? `⚡ Ôn tập ${dueSubCount} từ` : '🚀 Bắt đầu học';
+      if (dueSubCount > 0) {
+        btnStudyModal.textContent = `⚡ Ôn tập ${dueSubCount} từ`;
+      } else if (learnedSubCount < subCards.length) {
+        btnStudyModal.textContent = `🚀 Học ${subCards.length - learnedSubCount} từ mới`;
+      } else {
+        btnStudyModal.textContent = `✓ Đã hoàn thành chặng này`;
+      }
+
       btnStudyModal.onclick = () => {
         const modal = document.getElementById('subtopic-detail-modal');
         if (modal) modal.classList.remove('active');
-        app.startStudySession(deckId, subtopicName);
+        if (dueSubCount > 0 || learnedSubCount < subCards.length) {
+          app.startStudySession(deckId, subtopicName);
+        } else {
+          openSubtopicWordsPage(app, deckId, subtopicName);
+        }
       };
     }
 
@@ -742,8 +753,8 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
 
     const getCardStatus = (card) => {
       const state = cardStates[card.id];
-      if (!state || state.state === 0) return 'new';
-      if (state.due && new Date(state.due) <= now) return 'due';
+      if (!state || state.state === 0 || state.state === State.New) return 'new';
+      if (isCardDue(state, now)) return 'due';
       if (state.stability >= 21) return 'done';
       return 'learning';
     };
