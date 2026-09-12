@@ -161,117 +161,75 @@ export function renderLibraryTab(app) {
   const allCards = app.deckManager ? app.deckManager.getAllCards() : [];
   const decks = app.deckManager ? app.deckManager.decks : [];
 
-  // 1. Khung cấu trúc tĩnh
+  // Khung cấu trúc tinh gọn & tối ưu không gian hiển thị
   container.innerHTML = `
     <div class="library-container">
-      <!-- 1. Hero Header Banner -->
-      <div class="library-hero-banner">
-        <div class="library-hero-left">
-          <div class="library-hero-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-              <path d="M8 7h8"/>
-              <path d="M8 11h6"/>
-            </svg>
+      <!-- 1. Compact Control & Filter Bar -->
+      <div class="library-controls-panel">
+        <!-- Row 1: Search Input & Action Button -->
+        <div class="library-search-action-row">
+          <div class="library-search-wrapper">
+            <span class="library-search-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </span>
+            <input 
+              type="text" 
+              id="lib-search-input" 
+              class="library-search-input" 
+              placeholder="Tìm kiếm từ vựng, phiên âm, nghĩa tiếng Việt..." 
+              value="${escapeHTML(_libState.searchQuery)}"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            ${_libState.searchQuery ? `
+              <button class="btn-clear-search" id="btn-clear-search" title="Xóa tìm kiếm">✕</button>
+            ` : ''}
           </div>
-          <div>
-            <h1 class="library-hero-title">Thư Viện Từ Vựng</h1>
-            <p class="library-hero-subtitle" id="lib-total-count-text">
-              Tổng hợp toàn bộ ${allCards.length.toLocaleString('vi-VN')} từ vựng với thuật toán FSRS-6
-            </p>
-          </div>
-        </div>
-        <div class="library-hero-actions">
-          <button class="btn-library-study" id="btn-lib-study-filtered" title="Học ngay danh sách đang lọc">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          
+          <button class="btn-library-study-compact" id="btn-lib-study-filtered" title="Học danh sách từ đang lọc">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="5 3 19 12 5 21 5 3"/>
             </svg>
-            <span id="btn-lib-study-label">Học danh sách này</span>
+            <span id="btn-lib-study-label">Học (${Math.min(50, allCards.length)})</span>
           </button>
         </div>
-      </div>
 
-      <!-- 2. Control Bar: Search & Multi-Filters Panel -->
-      <div class="library-controls-panel">
-        <!-- Search Bar -->
-        <div class="library-search-wrapper">
-          <span class="library-search-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"/>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-          </span>
-          <input 
-            type="text" 
-            id="lib-search-input" 
-            class="library-search-input" 
-            placeholder="Tìm kiếm theo từ tiếng Anh, phiên âm, hoặc nghĩa tiếng Việt..." 
-            value="${escapeHTML(_libState.searchQuery)}"
-            autocomplete="off"
-            spellcheck="false"
-          />
-          ${_libState.searchQuery ? `
-            <button class="btn-clear-search" id="btn-clear-search" title="Xóa tìm kiếm">✕</button>
-          ` : ''}
-        </div>
-
-        <!-- Filter Row 1: CEFR Level Chips -->
-        <div class="library-filter-group">
-          <span class="filter-group-label">Trình độ:</span>
-          <div class="filter-chips-scroll" id="lib-cefr-chips">
-            <button class="chip-filter ${!_libState.selectedCefr || _libState.selectedCefr === 'all' ? 'active' : ''}" data-cefr="all">
-              Tất cả
-            </button>
-            <button class="chip-filter ${_libState.selectedCefr === 'a1' ? 'active' : ''}" data-cefr="a1">
-              A1 <span class="chip-sub">Cơ bản</span>
-            </button>
-            <button class="chip-filter ${_libState.selectedCefr === 'a2' ? 'active' : ''}" data-cefr="a2">
-              A2 <span class="chip-sub">Sơ cấp</span>
-            </button>
-            <button class="chip-filter ${_libState.selectedCefr === 'b1' ? 'active' : ''}" data-cefr="b1">
-              B1 <span class="chip-sub">Trung cấp</span>
-            </button>
-            <button class="chip-filter ${_libState.selectedCefr === 'b2' ? 'active' : ''}" data-cefr="b2">
-              B2 <span class="chip-sub">Trung cao</span>
-            </button>
-            <button class="chip-filter ${_libState.selectedCefr === 'c1' ? 'active' : ''}" data-cefr="c1">
-              C1 <span class="chip-sub">Cao cấp</span>
-            </button>
-            <button class="chip-filter ${_libState.selectedCefr === 'c2' ? 'active' : ''}" data-cefr="c2">
-              C2 <span class="chip-sub">Thành thạo</span>
-            </button>
+        <!-- Row 2: 4 Compact Filter Selects Grid -->
+        <div class="library-compact-filter-grid">
+          <!-- Trình độ CEFR -->
+          <div class="compact-select-wrapper">
+            <span class="compact-select-icon">🎓</span>
+            <select id="lib-cefr-select" class="compact-select" aria-label="Lọc theo trình độ">
+              <option value="all" ${!_libState.selectedCefr || _libState.selectedCefr === 'all' ? 'selected' : ''}>Mọi trình độ (A1-C2)</option>
+              <option value="a1" ${_libState.selectedCefr === 'a1' ? 'selected' : ''}>A1 - Cơ bản</option>
+              <option value="a2" ${_libState.selectedCefr === 'a2' ? 'selected' : ''}>A2 - Sơ cấp</option>
+              <option value="b1" ${_libState.selectedCefr === 'b1' ? 'selected' : ''}>B1 - Trung cấp</option>
+              <option value="b2" ${_libState.selectedCefr === 'b2' ? 'selected' : ''}>B2 - Trung cao</option>
+              <option value="c1" ${_libState.selectedCefr === 'c1' ? 'selected' : ''}>C1 - Cao cấp</option>
+              <option value="c2" ${_libState.selectedCefr === 'c2' ? 'selected' : ''}>C2 - Thành thạo</option>
+            </select>
           </div>
-        </div>
 
-        <!-- Filter Row 2: FSRS Status Chips -->
-        <div class="library-filter-group">
-          <span class="filter-group-label">Trạng thái:</span>
-          <div class="filter-chips-scroll" id="lib-status-chips">
-            <button class="chip-filter ${!_libState.selectedStatus || _libState.selectedStatus === 'all' ? 'active' : ''}" data-status="all">
-              Tất cả trạng thái
-            </button>
-            <button class="chip-filter ${_libState.selectedStatus === 'due' ? 'active' : ''}" data-status="due">
-              ⏰ Cần ôn ngay
-            </button>
-            <button class="chip-filter ${_libState.selectedStatus === 'learning' ? 'active' : ''}" data-status="learning">
-              🌱 Đang học
-            </button>
-            <button class="chip-filter ${_libState.selectedStatus === 'new' ? 'active' : ''}" data-status="new">
-              ✨ Thẻ mới
-            </button>
-            <button class="chip-filter ${_libState.selectedStatus === 'mastered' ? 'active' : ''}" data-status="mastered">
-              🏆 Thuần thục
-            </button>
+          <!-- Trạng thái FSRS -->
+          <div class="compact-select-wrapper">
+            <span class="compact-select-icon">⚡</span>
+            <select id="lib-status-select" class="compact-select" aria-label="Lọc theo trạng thái">
+              <option value="all" ${!_libState.selectedStatus || _libState.selectedStatus === 'all' ? 'selected' : ''}>Mọi trạng thái</option>
+              <option value="due" ${_libState.selectedStatus === 'due' ? 'selected' : ''}>⏰ Cần ôn ngay</option>
+              <option value="learning" ${_libState.selectedStatus === 'learning' ? 'selected' : ''}>🌱 Đang học</option>
+              <option value="new" ${_libState.selectedStatus === 'new' ? 'selected' : ''}>✨ Thẻ mới</option>
+              <option value="mastered" ${_libState.selectedStatus === 'mastered' ? 'selected' : ''}>🏆 Thuần thục</option>
+            </select>
           </div>
-        </div>
 
-        <!-- Filter Row 3: Deck Selector & Sorting & Page Size -->
-        <div class="library-selectors-bar">
-          <div class="selector-field">
-            <label for="lib-deck-select">Chủ đề:</label>
-            <select id="lib-deck-select" class="library-select">
-              <option value="all">Toàn bộ chủ đề (${decks.length})</option>
+          <!-- Chủ đề -->
+          <div class="compact-select-wrapper">
+            <span class="compact-select-icon">📚</span>
+            <select id="lib-deck-select" class="compact-select" aria-label="Lọc theo chủ đề">
+              <option value="all" ${_libState.selectedDeck === 'all' ? 'selected' : ''}>Tất cả chủ đề (${decks.length})</option>
               ${decks.map(d => `
                 <option value="${escapeHTML(d.id)}" ${_libState.selectedDeck === d.id ? 'selected' : ''}>
                   ${escapeHTML(d.name || d.id)}
@@ -280,54 +238,53 @@ export function renderLibraryTab(app) {
             </select>
           </div>
 
-          <div class="selector-field">
-            <label for="lib-sort-select">Sắp xếp:</label>
-            <select id="lib-sort-select" class="library-select">
-              <option value="due_asc" ${_libState.sortBy === 'due_asc' ? 'selected' : ''}>Hạn ôn tập (Gần nhất trước)</option>
-              <option value="alpha_asc" ${_libState.sortBy === 'alpha_asc' ? 'selected' : ''}>Từ A đến Z</option>
-              <option value="alpha_desc" ${_libState.sortBy === 'alpha_desc' ? 'selected' : ''}>Từ Z đến A</option>
+          <!-- Sắp xếp -->
+          <div class="compact-select-wrapper">
+            <span class="compact-select-icon">⇅</span>
+            <select id="lib-sort-select" class="compact-select" aria-label="Sắp xếp danh sách">
+              <option value="due_asc" ${_libState.sortBy === 'due_asc' ? 'selected' : ''}>Hạn ôn (Gần nhất)</option>
+              <option value="alpha_asc" ${_libState.sortBy === 'alpha_asc' ? 'selected' : ''}>Từ A ➔ Z</option>
+              <option value="alpha_desc" ${_libState.sortBy === 'alpha_desc' ? 'selected' : ''}>Từ Z ➔ A</option>
               <option value="cefr_asc" ${_libState.sortBy === 'cefr_asc' ? 'selected' : ''}>Cấp độ (A1 ➔ C2)</option>
               <option value="cefr_desc" ${_libState.sortBy === 'cefr_desc' ? 'selected' : ''}>Cấp độ (C2 ➔ A1)</option>
               <option value="stability_desc" ${_libState.sortBy === 'stability_desc' ? 'selected' : ''}>Độ nhớ cao nhất</option>
               <option value="stability_asc" ${_libState.sortBy === 'stability_asc' ? 'selected' : ''}>Độ nhớ thấp nhất</option>
             </select>
           </div>
-
-          <div class="selector-field">
-            <label for="lib-pagesize-select">Hiển thị:</label>
-            <select id="lib-pagesize-select" class="library-select">
-              <option value="10" ${_libState.pageSize === 10 ? 'selected' : ''}>10 từ / trang</option>
-              <option value="20" ${_libState.pageSize === 20 ? 'selected' : ''}>20 từ / trang</option>
-              <option value="50" ${_libState.pageSize === 50 ? 'selected' : ''}>50 từ / trang</option>
-            </select>
-          </div>
         </div>
       </div>
 
-      <!-- 3. Meta & Counter Bar -->
+      <!-- 2. Meta & Counter Bar -->
       <div class="library-meta-bar">
         <div class="library-results-summary" id="lib-results-summary">
           Đang tải dữ liệu từ vựng...
         </div>
-        <div class="library-pagination-info" id="lib-pagination-info"></div>
+        <div class="library-meta-right">
+          <select id="lib-pagesize-select" class="compact-pagesize-select" aria-label="Số lượng từ mỗi trang">
+            <option value="10" ${_libState.pageSize === 10 ? 'selected' : ''}>10 từ / trang</option>
+            <option value="20" ${_libState.pageSize === 20 ? 'selected' : ''}>20 từ / trang</option>
+            <option value="50" ${_libState.pageSize === 50 ? 'selected' : ''}>50 từ / trang</option>
+          </select>
+          <div class="library-pagination-info" id="lib-pagination-info"></div>
+        </div>
       </div>
 
-      <!-- 4. Vocabulary Words Rows List Container (1 Row Per Word) -->
+      <!-- 3. Vocabulary Words Rows List Container (1 Row Per Word) -->
       <div class="library-words-list" id="lib-words-list">
         <!-- Rendered dynamically -->
       </div>
 
-      <!-- 5. Bottom Pagination Bar -->
+      <!-- 4. Bottom Pagination Bar -->
       <div class="library-pagination-bar" id="lib-pagination-bar">
         <!-- Rendered dynamically -->
       </div>
     </div>
   `;
 
-  // 2. Gắn Event Listeners
+  // Gắn Event Listeners
   setupLibraryEventListeners(app);
 
-  // 3. Render danh sách từ vựng
+  // Render danh sách từ vựng
   renderLibraryWords(app);
 }
 
@@ -336,8 +293,9 @@ export function renderLibraryTab(app) {
  */
 function setupLibraryEventListeners(app) {
   const searchInput = document.getElementById('lib-search-input');
-  const cefrChips = document.getElementById('lib-cefr-chips');
-  const statusChips = document.getElementById('lib-status-chips');
+  const btnClearSearch = document.getElementById('btn-clear-search');
+  const selectCefr = document.getElementById('lib-cefr-select');
+  const selectStatus = document.getElementById('lib-status-select');
   const selectDeck = document.getElementById('lib-deck-select');
   const selectSort = document.getElementById('lib-sort-select');
   const selectPageSize = document.getElementById('lib-pagesize-select');
@@ -352,39 +310,42 @@ function setupLibraryEventListeners(app) {
         _libState.searchQuery = e.target.value.trim();
         _libState.currentPage = 1;
         renderLibraryWords(app);
+        
+        if (btnClearSearch) {
+          btnClearSearch.style.display = _libState.searchQuery ? 'block' : 'none';
+        }
       }, 250);
     });
   }
 
-  // CEFR chips
-  if (cefrChips) {
-    cefrChips.addEventListener('click', (e) => {
-      const chip = e.target.closest('.chip-filter');
-      if (!chip) return;
-      const cefr = chip.getAttribute('data-cefr');
-      if (cefr) {
-        _libState.selectedCefr = cefr;
+  // Nút xóa tìm kiếm
+  if (btnClearSearch) {
+    btnClearSearch.addEventListener('click', () => {
+      if (searchInput) {
+        searchInput.value = '';
+        _libState.searchQuery = '';
         _libState.currentPage = 1;
-        cefrChips.querySelectorAll('.chip-filter').forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
+        btnClearSearch.style.display = 'none';
         renderLibraryWords(app);
       }
     });
   }
 
-  // Status chips
-  if (statusChips) {
-    statusChips.addEventListener('click', (e) => {
-      const chip = e.target.closest('.chip-filter');
-      if (!chip) return;
-      const status = chip.getAttribute('data-status');
-      if (status) {
-        _libState.selectedStatus = status;
-        _libState.currentPage = 1;
-        statusChips.querySelectorAll('.chip-filter').forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-        renderLibraryWords(app);
-      }
+  // CEFR select
+  if (selectCefr) {
+    selectCefr.addEventListener('change', (e) => {
+      _libState.selectedCefr = e.target.value || 'all';
+      _libState.currentPage = 1;
+      renderLibraryWords(app);
+    });
+  }
+
+  // Status select
+  if (selectStatus) {
+    selectStatus.addEventListener('change', (e) => {
+      _libState.selectedStatus = e.target.value || 'all';
+      _libState.currentPage = 1;
+      renderLibraryWords(app);
     });
   }
 
