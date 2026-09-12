@@ -9,6 +9,37 @@ import { StorageManager } from './storage.js';
 const PAIR_REQ_PREFIX = 'fc_fsrs_pair_';
 const PAIR_RESP_PREFIX = 'fc_fsrs_resp_';
 
+const RELAY_SERVERS = [
+  'https://ntfy.envs.net',
+  'https://ntfy.sh'
+];
+
+/**
+ * Gửi dữ liệu đa kênh song song đến danh sách máy chủ Relay
+ */
+async function broadcastToRelays(topic, payload, headers = {}) {
+  const bodyStr = typeof payload === 'string' ? payload : JSON.stringify(payload);
+  const requests = RELAY_SERVERS.map(async (baseUrl) => {
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 4500);
+      const res = await fetch(`${baseUrl}/${topic}`, {
+        method: 'POST',
+        headers: { 'Title': 'SyncHandshake', 'Priority': '1', ...headers },
+        body: bodyStr,
+        signal: controller.signal
+      });
+      clearTimeout(timeout);
+      return res.ok;
+    } catch (e) {
+      return false;
+    }
+  });
+
+  const results = await Promise.allSettled(requests);
+  return results.some(r => r.status === 'fulfilled' && r.value === true);
+}
+
 export class SimpleQRCode {
   static generateURL(text, size = 260) {
     const encoded = encodeURIComponent(text);
@@ -151,7 +182,7 @@ export class SyncManager {
 
   /**
    * BẬT TRẠM CHỜ ĐỒNG BỘ 2 CHIỀU (Host Session)
-   * Kết hợp SSE Push Real-Time + Active Short-Polling Loop (Bảo đảm 100% nhận tín hiệu)
+   * Kết nối Real-Time Push SSE đa kênh song song (Multi-Relay)
    */
   static startUniversalHostSession({ onConnected, onSyncCompleted, onError }) {
     const pin = String(Math.floor(100000 + Math.random() * 900000));
@@ -166,8 +197,7 @@ export class SyncManager {
     }
     const pairUrl = origin ? `${origin}${pathname}?pair=${pin}` : `?pair=${pin}`;
 
-    let eventSource = null;
-    let pollInterval = null;
+    const eventSources = [];
     let isClosed = false;
     let isProcessed = false;
 
@@ -193,13 +223,9 @@ export class SyncManager {
           const mergeResult = this.mergeProgress(clientUnpacked);
           await StorageManager.importBackup(mergeResult.data);
 
-          // 2. Host gửi ngược lại bản merged mới nhất cho Client
+          // 2. Host gửi ngược lại bản merged mới nhất cho Client qua tất cả Relay
           const hostResponsePayload = this.packageSyncData();
-          fetch(`https://ntfy.sh/${respTopic}`, {
-            method: 'POST',
-            headers: { 'Title': 'SyncHandshakeResp', 'Priority': '1' },
-            body: JSON.stringify(hostResponsePayload)
-          }).catch(() => {});
+          broadcastToRelays(respTopic, hostResponsePayload, { Title: 'SyncHandshakeResp' });
 
           // 3. Báo hoàn tất trên Host
           if (onSyncCompleted) {
@@ -211,80 +237,36 @@ export class SyncManager {
       }
     };
 
-    // 1. Kênh SSE (Real-Time Push - Không giới hạn Rate Limit, phản hồi 0ms)
-    try {
-      eventSource = new EventSource(`https://ntfy.sh/${reqTopic}/sse`);
-      eventSource.onmessage = (event) => {
-        if (isClosed || isProcessed) return;
-        try {
-          const dataObj = JSON.parse(event.data);
-          if (dataObj.event === 'message' && dataObj.message) {
-            const clientPayload = JSON.parse(dataObj.message);
-            processIncomingPayload(clientPayload);
-          }
-        } catch (e) {}
-      };
-      eventSource.onerror = () => {
-        // SSE tự động reconnect ngầm
-      };
-    } catch (e) {}
-
-    // 2. Kênh Polling dự phòng giãn cách (Chỉ chạy khi SSE bị ngắt hoặc đóng)
-    let isPollingBusy = false;
-    let pollCooldownUntil = 0;
-    pollInterval = setInterval(async () => {
-      if (isClosed || isProcessed) {
-        clearInterval(pollInterval);
-        return;
-      }
-      // Bỏ qua nếu SSE đang hoạt động tốt hoặc đang trong thời gian chờ cooldown 429
-      if (Date.now() < pollCooldownUntil || isPollingBusy) return;
-      if (eventSource && eventSource.readyState === EventSource.OPEN) return;
-
-      isPollingBusy = true;
+    // 1. Kênh SSE Real-Time Đa Relay song song (Tự động chuyển tiếp nếu 1 máy chủ nghẽn)
+    RELAY_SERVERS.forEach((baseUrl) => {
       try {
-        const resp = await fetch(`https://ntfy.sh/${reqTopic}/json?poll=1`, {
-          headers: { 'Accept': 'application/json' }
-        });
-        if (resp.status === 429) {
-          // Gặp 429: Chờ 10 giây trước khi thử lại để tránh nghẽn
-          pollCooldownUntil = Date.now() + 10000;
-          return;
-        }
-        if (resp.ok) {
-          const text = await resp.text();
-          const lines = text.trim().split('\n');
-          for (let i = lines.length - 1; i >= 0; i--) {
-            const line = lines[i].trim();
-            if (!line) continue;
-            try {
-              const eventObj = JSON.parse(line);
-              if (eventObj.event === 'message' && eventObj.message) {
-                const clientPayload = JSON.parse(eventObj.message);
-                processIncomingPayload(clientPayload);
-                break;
-              }
-            } catch (e) {}
-          }
-        }
-      } catch (e) {} finally {
-        isPollingBusy = false;
-      }
-    }, 5000);
+        const es = new EventSource(`${baseUrl}/${reqTopic}/sse`);
+        es.onmessage = (event) => {
+          if (isClosed || isProcessed) return;
+          try {
+            const dataObj = JSON.parse(event.data);
+            if (dataObj.event === 'message' && dataObj.message) {
+              const clientPayload = JSON.parse(dataObj.message);
+              processIncomingPayload(clientPayload);
+            }
+          } catch (e) {}
+        };
+        es.onerror = () => {
+          // SSE tự động reconnect
+        };
+        eventSources.push(es);
+      } catch (e) {}
+    });
 
     return {
       pin,
       pairUrl,
       stop: () => {
         isClosed = true;
-        if (pollInterval) {
-          clearInterval(pollInterval);
-          pollInterval = null;
-        }
-        if (eventSource) {
-          eventSource.close();
-          eventSource = null;
-        }
+        eventSources.forEach((es) => {
+          try { es.close(); } catch (e) {}
+        });
+        eventSources.length = 0;
       }
     };
   }
@@ -306,36 +288,21 @@ export class SyncManager {
     const reqTopic = `${PAIR_REQ_PREFIX}${pin}`;
     const respTopic = `${PAIR_RESP_PREFIX}${pin}`;
 
-    // 1. Đóng gói dữ liệu của Client và gửi lên Host
+    // 1. Đóng gói dữ liệu của Client và gửi lên Host qua Multi-Relay
     const clientPayload = this.packageSyncData();
-    const jsonStr = JSON.stringify(clientPayload);
 
-    try {
-      const sendRes = await fetch(`https://ntfy.sh/${reqTopic}`, {
-        method: 'POST',
-        headers: { 'Title': 'SyncHandshakeReq', 'Priority': '1' },
-        body: jsonStr
-      });
-
-      if (!sendRes.ok) {
-        return { success: false, error: 'Không thể kết nối đến máy chủ Relay.' };
-      }
-    } catch (err) {
-      return { success: false, error: 'Lỗi mạng khi kết nối thiết bị.' };
-    }
-
-    // 2. Chờ nhận phản hồi bản Merged từ Host qua EventSource (Real-time 0ms, không tốn request)
+    // 2. Chờ nhận phản hồi bản Merged từ Host qua SSE Đa kênh (Real-time 0ms, không tốn request)
     return new Promise((resolve) => {
       let isDone = false;
-      let respSSE = null;
+      const respSSEs = [];
 
       const finish = (result) => {
         if (isDone) return;
         isDone = true;
-        if (respSSE) {
-          respSSE.close();
-          respSSE = null;
-        }
+        respSSEs.forEach((es) => {
+          try { es.close(); } catch (e) {}
+        });
+        respSSEs.length = 0;
         resolve(result);
       };
 
@@ -345,34 +312,46 @@ export class SyncManager {
           success: true,
           pin,
           stats: { total: Object.keys(clientPayload.c || {}).length },
-          warning: 'Đã gửi dữ liệu sang máy kia thành công.'
+          warning: 'Đã gửi dữ liệu sang máy tính thành công.'
         });
       }, 10000);
 
-      try {
-        respSSE = new EventSource(`https://ntfy.sh/${respTopic}/sse`);
-        respSSE.onmessage = async (event) => {
-          try {
-            const dataObj = JSON.parse(event.data);
-            if (dataObj.event === 'message' && dataObj.message) {
-              const hostPayload = JSON.parse(dataObj.message);
-              const hostUnpacked = this.unpackageSyncData(hostPayload);
-              if (hostUnpacked) {
-                clearTimeout(timer);
-                StorageManager.createSafetySnapshot();
-                const clientMerge = this.mergeProgress(hostUnpacked);
-                await StorageManager.importBackup(clientMerge.data);
-                finish({
-                  success: true,
-                  pin,
-                  stats: clientMerge.stats,
-                  data: clientMerge.data
-                });
+      // Lắng nghe SSE trên tất cả Relays
+      RELAY_SERVERS.forEach((baseUrl) => {
+        try {
+          const es = new EventSource(`${baseUrl}/${respTopic}/sse`);
+          es.onmessage = async (event) => {
+            try {
+              const dataObj = JSON.parse(event.data);
+              if (dataObj.event === 'message' && dataObj.message) {
+                const hostPayload = JSON.parse(dataObj.message);
+                const hostUnpacked = this.unpackageSyncData(hostPayload);
+                if (hostUnpacked) {
+                  clearTimeout(timer);
+                  StorageManager.createSafetySnapshot();
+                  const clientMerge = this.mergeProgress(hostUnpacked);
+                  await StorageManager.importBackup(clientMerge.data);
+                  finish({
+                    success: true,
+                    pin,
+                    stats: clientMerge.stats,
+                    data: clientMerge.data
+                  });
+                }
               }
-            }
-          } catch (e) {}
-        };
-      } catch (e) {}
+            } catch (e) {}
+          };
+          respSSEs.push(es);
+        } catch (e) {}
+      });
+
+      // Phát sóng gói tin Client lên tất cả relays
+      broadcastToRelays(reqTopic, clientPayload, { Title: 'SyncHandshakeReq' }).then((ok) => {
+        if (!ok && respSSEs.length === 0) {
+          clearTimeout(timer);
+          finish({ success: false, error: 'Không thể kết nối đến máy chủ trung gian.' });
+        }
+      }).catch(() => {});
     });
   }
 
@@ -396,28 +375,30 @@ export class SyncManager {
     }
 
     const topicsToTry = [`${PAIR_RESP_PREFIX}${cleaned}`, `${PAIR_REQ_PREFIX}${cleaned}`, `fc_fsrs_sync_${cleaned}`];
-    for (const topic of topicsToTry) {
-      try {
-        const response = await fetch(`https://ntfy.sh/${topic}/json?poll=1`, {
-          headers: { 'Accept': 'application/json' }
-        });
+    for (const baseUrl of RELAY_SERVERS) {
+      for (const topic of topicsToTry) {
+        try {
+          const response = await fetch(`${baseUrl}/${topic}/json?poll=1`, {
+            headers: { 'Accept': 'application/json' }
+          });
 
-        if (response.ok) {
-          const text = await response.text();
-          const lines = text.trim().split('\n');
-          for (let i = lines.length - 1; i >= 0; i--) {
-            const line = lines[i].trim();
-            if (!line) continue;
-            try {
-              const eventObj = JSON.parse(line);
-              if (eventObj.event === 'message' && eventObj.message) {
-                const payload = JSON.parse(eventObj.message);
-                return { success: true, payload: payload };
-              }
-            } catch (pe) {}
+          if (response.ok) {
+            const text = await response.text();
+            const lines = text.trim().split('\n');
+            for (let i = lines.length - 1; i >= 0; i--) {
+              const line = lines[i].trim();
+              if (!line) continue;
+              try {
+                const eventObj = JSON.parse(line);
+                if (eventObj.event === 'message' && eventObj.message) {
+                  const payload = JSON.parse(eventObj.message);
+                  return { success: true, payload: payload };
+                }
+              } catch (pe) {}
+            }
           }
-        }
-      } catch (err) {}
+        } catch (err) {}
+      }
     }
 
     return {
