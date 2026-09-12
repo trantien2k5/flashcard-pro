@@ -12,8 +12,7 @@ import { scrollToTop } from './utils.js';
 
 // Feature Views & Shared Components
 import { renderReviewTab } from './views/review.js';
-import { 
-  renderDecksTab, 
+import { renderDecksTab, 
   openSubtopicsPage, 
   renderSubtopicsPage, 
   openSubtopicDetailPage, 
@@ -21,6 +20,7 @@ import {
   openSubtopicWordsPage, 
   renderSubtopicWordsPage 
 } from './views/decks.js';
+import { renderLibraryTab } from './views/library.js';
 import { renderStatsTab } from './views/stats.js';
 import { setupSettingsUI, renderProfileTab } from './views/settings.js';
 import { 
@@ -261,6 +261,7 @@ export class FlashcardApp {
       this.updateHeaderBadges();
 
       if (tabId === 'tab-review' || tabId === 'tab-home') this.renderReviewTab();
+      else if (tabId === 'tab-library') this.renderLibraryTab();
       else if (tabId === 'tab-decks') this.renderDecksTab();
       else if (tabId === 'tab-stats') this.renderStatsTab();
       else if (tabId === 'tab-profile') this.renderProfileTab();
@@ -280,6 +281,8 @@ export class FlashcardApp {
     }
     if (this.activeTab === 'tab-review' || this.activeTab === 'tab-home') {
       this.renderReviewTab();
+    } else if (this.activeTab === 'tab-library') {
+      this.renderLibraryTab();
     } else if (this.activeTab === 'tab-decks') {
       this.renderDecksTab();
     } else if (this.activeTab === 'tab-stats') {
@@ -324,6 +327,10 @@ export class FlashcardApp {
   // Delegated View Methods
   renderReviewTab() {
     try { renderReviewTab(this); } catch (err) { console.error('Lỗi renderReviewTab:', err); }
+  }
+
+  renderLibraryTab() {
+    try { renderLibraryTab(this); } catch (err) { console.error('Lỗi renderLibraryTab:', err); }
   }
 
   renderDecksTab() {

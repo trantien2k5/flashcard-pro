@@ -4,7 +4,7 @@
  * và tự động fallback sang Cache khi thiết bị Offline.
  */
 
-const CACHE_NAME = 'flashcard-pro-v3.0.5';
+const CACHE_NAME = 'flashcard-pro-v3.1.0';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -18,6 +18,7 @@ const PRECACHE_ASSETS = [
   './css/components.css',
   './css/flashcard.css',
   './css/views/review.css',
+  './css/views/library.css',
   './css/views/decks.css',
   './css/views/stats.css',
   './css/views/settings.css',
@@ -33,6 +34,7 @@ const PRECACHE_ASSETS = [
   './js/services/sync.js',
   './js/views/components.js',
   './js/views/review.js',
+  './js/views/library.js',
   './js/views/decks.js',
   './js/views/stats.js',
   './js/views/settings.js',
