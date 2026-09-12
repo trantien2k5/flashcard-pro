@@ -28,7 +28,7 @@ simple-flashcard/
 ├── assets/
 │   ├── icons/                    # App Icons (favicon.svg, favicon.ico, icon-192, icon-512)
 │   └── images/
-│       └── words/                # 2.552 hình ảnh WebP từ vựng cục bộ (100% Offline)
+│       └── words/                # 2.582 hình ảnh WebP phân đoạn theo thư mục a-z (100% Offline)
 │
 ├── css/                          # Hệ thống CSS module hóa gọn gàng
 │   ├── style.css                 # Master CSS nạp toàn bộ bundle stylesheets

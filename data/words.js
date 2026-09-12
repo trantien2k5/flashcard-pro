@@ -1,7 +1,6 @@
 /**
- * WORDS DICTIONARY (SSOT) - Flashcard English Pro
- * Cơ sở dữ liệu từ vựng chuẩn hóa tập trung (Word-Centric SSOT)
- * Mỗi từ có duy nhất một bản ghi định danh (Canonical Slug ID) và ánh xạ nhiều Topic qua topicIds
+ * WORDS DATABASE - Flashcard English Pro (Single Source of Truth)
+ * Auto-generated & normalized with A-Z image bucketing
  */
 
 export const WORDS = [
@@ -15,7 +14,7 @@ export const WORDS = [
     "exampleVi": "Tôi thường thức giấc lúc 6:30 sáng vào các ngày trong tuần.",
     "level": "A1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/wake-up.webp",
+    "img": "assets/images/words/w/wake-up.webp",
     "topicIds": [
       "daily-life-routines-chặng-1",
       "top-1000-core-chặng-1"
@@ -32,7 +31,7 @@ export const WORDS = [
     "exampleVi": "Tôi tỉnh giấc lúc 6:00, nhưng đến 6:15 mới dậy.",
     "level": "A1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/get-up.webp",
+    "img": "assets/images/words/g/get-up.webp",
     "topicIds": [
       "daily-life-routines-chặng-1",
       "top-1000-core-chặng-3"
@@ -49,7 +48,7 @@ export const WORDS = [
     "exampleVi": "Đồng hồ báo thức của tôi reo lúc 6 giờ sáng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/alarm-clock.webp",
+    "img": "assets/images/words/a/alarm-clock.webp",
     "topicIds": [
       "daily-life-routines-chặng-1",
       "top-1000-core-chặng-52"
@@ -66,7 +65,7 @@ export const WORDS = [
     "exampleVi": "Tôi bấm hoãn báo thức hai lần trước khi thực sự dậy.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/snooze.webp",
+    "img": "assets/images/words/s/snooze.webp",
     "topicIds": [
       "daily-life-routines-chặng-1",
       "top-1000-core-chặng-8"
@@ -83,7 +82,7 @@ export const WORDS = [
     "exampleVi": "Tôi thích vươn vai trước khi bước ra khỏi giường.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/stretch.webp",
+    "img": "assets/images/words/s/stretch.webp",
     "topicIds": [
       "daily-life-routines-chặng-1",
       "top-1000-core-chặng-8"
@@ -100,7 +99,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy ngáp ngái ngủ khi bước vào bếp.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/yawn.webp",
+    "img": "assets/images/words/y/yawn.webp",
     "topicIds": [
       "daily-life-routines-chặng-1",
       "top-1000-core-chặng-8"
@@ -117,7 +116,7 @@ export const WORDS = [
     "exampleVi": "Hãy nhớ đánh răng hai lần mỗi ngày.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/brush.webp",
+    "img": "assets/images/words/b/brush.webp",
     "topicIds": [
       "daily-life-routines-chặng-1",
       "top-1000-core-chặng-3"
@@ -134,7 +133,7 @@ export const WORDS = [
     "exampleVi": "Thay bàn chải đánh răng 3 tháng một lần.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/toothbrush.webp",
+    "img": "assets/images/words/t/toothbrush.webp",
     "topicIds": [
       "daily-life-routines-chặng-1",
       "top-1000-core-chặng-53"
@@ -151,7 +150,7 @@ export const WORDS = [
     "exampleVi": "Bóp một chút kem đánh răng lên bàn chải.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/toothpaste.webp",
+    "img": "assets/images/words/t/toothpaste.webp",
     "topicIds": [
       "daily-life-routines-chặng-1",
       "top-1000-core-chặng-53"
@@ -168,7 +167,7 @@ export const WORDS = [
     "exampleVi": "Tôi rửa mặt bằng nước lạnh cho tỉnh táo.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/wash.webp",
+    "img": "assets/images/words/w/wash.webp",
     "topicIds": [
       "daily-life-routines-chặng-1",
       "top-1000-core-chặng-3"
@@ -185,7 +184,7 @@ export const WORDS = [
     "exampleVi": "Tắm vòi sen nước ấm rất dễ chịu vào buổi sáng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/shower.webp",
+    "img": "assets/images/words/s/shower.webp",
     "topicIds": [
       "daily-life-routines-chặng-2",
       "top-1000-core-chặng-53"
@@ -202,7 +201,7 @@ export const WORDS = [
     "exampleVi": "Lau khô tay bằng chiếc khăn sạch này nhé.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/towel.webp",
+    "img": "assets/images/words/t/towel.webp",
     "topicIds": [
       "daily-life-routines-chặng-2",
       "top-1000-core-chặng-53"
@@ -219,7 +218,7 @@ export const WORDS = [
     "exampleVi": "Rửa tay bằng xà phòng trước khi ăn.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/soap.webp",
+    "img": "assets/images/words/s/soap.webp",
     "topicIds": [
       "daily-life-routines-chặng-2",
       "top-1000-core-chặng-53"
@@ -236,7 +235,7 @@ export const WORDS = [
     "exampleVi": "Dầu gội này giúp tóc tôi mềm và bóng mượt.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/shampoo.webp",
+    "img": "assets/images/words/s/shampoo.webp",
     "topicIds": [
       "daily-life-routines-chặng-2",
       "top-1000-core-chặng-53"
@@ -253,7 +252,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy chải tóc trước khi ra ngoài.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/comb.webp",
+    "img": "assets/images/words/c/comb.webp",
     "topicIds": [
       "daily-life-routines-chặng-2",
       "top-1000-core-chặng-3"
@@ -270,7 +269,7 @@ export const WORDS = [
     "exampleVi": "Dùng máy sấy ở mức nhiệt thấp để bảo vệ tóc.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/hairdryer.webp",
+    "img": "assets/images/words/h/hairdryer.webp",
     "topicIds": [
       "daily-life-routines-chặng-2",
       "top-1000-core-chặng-58"
@@ -287,7 +286,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy cạo râu mỗi sáng.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/shave.webp",
+    "img": "assets/images/words/s/shave.webp",
     "topicIds": [
       "daily-life-routines-chặng-2",
       "top-1000-core-chặng-8"
@@ -304,7 +303,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã mua một chiếc dao cạo mới hôm qua.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/razor.webp",
+    "img": "assets/images/words/r/razor.webp",
     "topicIds": [
       "daily-life-routines-chặng-2",
       "top-1000-core-chặng-58"
@@ -321,7 +320,7 @@ export const WORDS = [
     "exampleVi": "Quy trình dưỡng da buổi sáng của cô ấy mất 10 phút.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/skincare.webp",
+    "img": "assets/images/words/s/skincare.webp",
     "topicIds": [
       "daily-life-routines-chặng-2",
       "top-1000-core-chặng-58"
@@ -338,7 +337,7 @@ export const WORDS = [
     "exampleVi": "Thoa kem chống nắng trước khi đi ra ngoài.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/sunscreen.webp",
+    "img": "assets/images/words/s/sunscreen.webp",
     "topicIds": [
       "daily-life-routines-chặng-2",
       "top-1000-core-chặng-58"
@@ -355,7 +354,7 @@ export const WORDS = [
     "exampleVi": "Da tôi bị khô nên tôi cần thoa chút kem dưỡng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/lotion.webp",
+    "img": "assets/images/words/l/lotion.webp",
     "topicIds": [
       "daily-life-routines-chặng-3",
       "top-1000-core-chặng-58"
@@ -372,7 +371,7 @@ export const WORDS = [
     "exampleVi": "Mặc đồ nhanh lên nào, chúng ta sắp muộn rồi đấy!",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/get-dressed.webp",
+    "img": "assets/images/words/g/get-dressed.webp",
     "topicIds": [
       "daily-life-routines-chặng-3",
       "top-1000-core-chặng-51"
@@ -389,7 +388,7 @@ export const WORDS = [
     "exampleVi": "Mặc áo khoác vào đi; ngoài trời lạnh lắm.",
     "level": "A1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/put-on.webp",
+    "img": "assets/images/words/p/put-on.webp",
     "topicIds": [
       "daily-life-routines-chặng-3",
       "top-1000-core-chặng-3"
@@ -406,7 +405,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy chọn một bộ đồ thoải mái để đi học.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/outfit.webp",
+    "img": "assets/images/words/o/outfit.webp",
     "topicIds": [
       "daily-life-routines-chặng-3",
       "top-1000-core-chặng-58"
@@ -423,7 +422,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy kiểm tra cổ áo trong gương.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/mirror.webp",
+    "img": "assets/images/words/m/mirror.webp",
     "topicIds": [
       "daily-life-routines-chặng-3",
       "top-1000-core-chặng-53"
@@ -440,7 +439,7 @@ export const WORDS = [
     "exampleVi": "Tôi dọn giường ngay sau khi thức dậy.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/make-the-bed.webp",
+    "img": "assets/images/words/m/make-the-bed.webp",
     "topicIds": [
       "daily-life-routines-chặng-3",
       "top-1000-core-chặng-48"
@@ -457,7 +456,7 @@ export const WORDS = [
     "exampleVi": "Bạn thường ăn gì vào bữa sáng?",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/breakfast.webp",
+    "img": "assets/images/words/b/breakfast.webp",
     "topicIds": [
       "daily-life-routines-chặng-3",
       "top-1000-core-chặng-53"
@@ -474,7 +473,7 @@ export const WORDS = [
     "exampleVi": "Tôi pha cà phê tươi mới mỗi sáng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/brew.webp",
+    "img": "assets/images/words/b/brew.webp",
     "topicIds": [
       "daily-life-routines-chặng-3",
       "top-1000-core-chặng-17"
@@ -491,7 +490,7 @@ export const WORDS = [
     "exampleVi": "Đun sôi nước trước khi cho lá trà vào.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/boil.webp",
+    "img": "assets/images/words/b/boil.webp",
     "topicIds": [
       "daily-life-routines-chặng-3",
       "top-1000-core-chặng-3"
@@ -508,7 +507,7 @@ export const WORDS = [
     "exampleVi": "Ấm đun điện đun sôi nước rất nhanh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/kettle.webp",
+    "img": "assets/images/words/k/kettle.webp",
     "topicIds": [
       "daily-life-routines-chặng-3",
       "top-1000-core-chặng-58"
@@ -525,7 +524,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy nhanh chóng gom chìa khóa, ví và điện thoại trước khi bước ra ngoài.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/gather.webp",
+    "img": "assets/images/words/g/gather.webp",
     "topicIds": [
       "daily-life-routines-chặng-4",
       "top-1000-core-chặng-17"
@@ -542,7 +541,7 @@ export const WORDS = [
     "exampleVi": "Cầm lấy chìa khóa rồi đi thôi nào.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/grab.webp",
+    "img": "assets/images/words/g/grab.webp",
     "topicIds": [
       "daily-life-routines-chặng-4",
       "top-1000-core-chặng-8"
@@ -559,7 +558,7 @@ export const WORDS = [
     "exampleVi": "Tôi để quên chìa khóa nhà trên quầy bếp.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/keys.webp",
+    "img": "assets/images/words/k/keys.webp",
     "topicIds": [
       "daily-life-routines-chặng-4",
       "top-1000-core-chặng-53"
@@ -576,7 +575,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy thoa lăn khử mùi trước khi mặc đồ đi làm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/deodorant.webp",
+    "img": "assets/images/words/d/deodorant.webp",
     "topicIds": [
       "daily-life-routines-chặng-4"
     ],
@@ -592,7 +591,7 @@ export const WORDS = [
     "exampleVi": "Tôi thường rời nhà lúc khoảng 7:30 sáng.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/head-out.webp",
+    "img": "assets/images/words/h/head-out.webp",
     "topicIds": [
       "daily-life-routines-chặng-4",
       "top-1000-core-chặng-8"
@@ -609,7 +608,7 @@ export const WORDS = [
     "exampleVi": "Luôn thắt dây an toàn ngay khi bạn bước vào xe.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/fasten.webp",
+    "img": "assets/images/words/f/fasten.webp",
     "topicIds": [
       "daily-life-routines-chặng-4",
       "top-1000-core-chặng-17"
@@ -626,7 +625,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi thường ăn trưa lúc 12:30 trưa.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/eat.webp",
+    "img": "assets/images/words/e/eat.webp",
     "topicIds": [
       "daily-life-routines-chặng-4",
       "top-1000-core-chặng-1"
@@ -643,7 +642,7 @@ export const WORDS = [
     "exampleVi": "Hãy uống nhiều nước trong suốt cả ngày.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/drink.webp",
+    "img": "assets/images/words/d/drink.webp",
     "topicIds": [
       "daily-life-routines-chặng-4",
       "top-1000-core-chặng-1"
@@ -660,7 +659,7 @@ export const WORDS = [
     "exampleVi": "Tôi đi bộ ra trạm xe buýt mỗi sáng.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/walk.webp",
+    "img": "assets/images/words/w/walk.webp",
     "topicIds": [
       "daily-life-routines-chặng-4",
       "top-1000-core-chặng-3"
@@ -677,7 +676,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy chạy bộ trong công viên 3 lần mỗi tuần.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/run.webp",
+    "img": "assets/images/words/r/run.webp",
     "topicIds": [
       "daily-life-routines-chặng-4",
       "top-1000-core-chặng-3"
@@ -694,7 +693,7 @@ export const WORDS = [
     "exampleVi": "Tôi đi làm bằng xe buýt.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/go.webp",
+    "img": "assets/images/words/g/go.webp",
     "topicIds": [
       "daily-life-routines-chặng-5",
       "top-1000-core-chặng-1"
@@ -711,7 +710,7 @@ export const WORDS = [
     "exampleVi": "Tối nay qua nhà tôi chơi nhé.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/come.webp",
+    "img": "assets/images/words/c/come.webp",
     "topicIds": [
       "daily-life-routines-chặng-5",
       "top-1000-core-chặng-1"
@@ -728,7 +727,7 @@ export const WORDS = [
     "exampleVi": "Bạn tan sở lúc mấy giờ?",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/leave-verb.webp",
+    "img": "assets/images/words/l/leave-verb.webp",
     "topicIds": [
       "daily-life-routines-chặng-5",
       "top-1000-core-chặng-4"
@@ -745,7 +744,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi khởi hành từ sáng sớm để tránh kẹt xe.",
     "level": "B1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/set-off.webp",
+    "img": "assets/images/words/s/set-off.webp",
     "topicIds": [
       "daily-life-routines-chặng-5",
       "top-1000-core-chặng-17"
@@ -762,7 +761,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng gõ cửa trước khi bước vào phòng.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/enter.webp",
+    "img": "assets/images/words/e/enter.webp",
     "topicIds": [
       "daily-life-routines-chặng-5",
       "top-1000-core-chặng-8"
@@ -779,7 +778,7 @@ export const WORDS = [
     "exampleVi": "Tôi sẽ về nhà sau khi hoàn thành báo cáo này.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/return.webp",
+    "img": "assets/images/words/r/return.webp",
     "topicIds": [
       "daily-life-routines-chặng-5",
       "top-1000-core-chặng-8"
@@ -796,7 +795,7 @@ export const WORDS = [
     "exampleVi": "Tôi thích ở nhà vào những ngày mưa.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/stay.webp",
+    "img": "assets/images/words/s/stay.webp",
     "topicIds": [
       "daily-life-routines-chặng-5",
       "top-1000-core-chặng-4"
@@ -813,7 +812,7 @@ export const WORDS = [
     "exampleVi": "Tôi đã phải đợi thang máy mười phút.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/wait.webp",
+    "img": "assets/images/words/w/wait.webp",
     "topicIds": [
       "daily-life-routines-chặng-5",
       "top-1000-core-chặng-4"
@@ -830,7 +829,7 @@ export const WORDS = [
     "exampleVi": "Chúng ta hãy gặp nhau ăn trưa lúc 1 giờ nhé.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/meet.webp",
+    "img": "assets/images/words/m/meet.webp",
     "topicIds": [
       "daily-life-routines-chặng-5",
       "top-1000-core-chặng-4"
@@ -847,7 +846,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã trò chuyện về kế hoạch cuối tuần.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/talk.webp",
+    "img": "assets/images/words/t/talk.webp",
     "topicIds": [
       "daily-life-routines-chặng-5",
       "top-1000-core-chặng-1"
@@ -864,7 +863,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy nói tiếng Anh rất lưu loát.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/speak.webp",
+    "img": "assets/images/words/s/speak.webp",
     "topicIds": [
       "daily-life-routines-chặng-6",
       "top-1000-core-chặng-1"
@@ -881,7 +880,7 @@ export const WORDS = [
     "exampleVi": "Tôi nghe podcast trong lúc nấu ăn.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/listen.webp",
+    "img": "assets/images/words/l/listen.webp",
     "topicIds": [
       "daily-life-routines-chặng-6",
       "top-1000-core-chặng-1"
@@ -898,7 +897,7 @@ export const WORDS = [
     "exampleVi": "Tối qua chúng tôi đã cùng nhau xem phim.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/watch.webp",
+    "img": "assets/images/words/w/watch.webp",
     "topicIds": [
       "daily-life-routines-chặng-6",
       "top-1000-core-chặng-4"
@@ -915,7 +914,7 @@ export const WORDS = [
     "exampleVi": "Tôi đọc 10 trang sách mỗi tối.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/read.webp",
+    "img": "assets/images/words/r/read.webp",
     "topicIds": [
       "daily-life-routines-chặng-6",
       "top-1000-core-chặng-4"
@@ -932,7 +931,7 @@ export const WORDS = [
     "exampleVi": "Viết danh sách việc cần làm hằng ngày vào sổ.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/write.webp",
+    "img": "assets/images/words/w/write.webp",
     "topicIds": [
       "daily-life-routines-chặng-6",
       "top-1000-core-chặng-4"
@@ -949,7 +948,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đắm chìm vào thói quen đọc sách hàng ngày của mình.",
     "level": "B2",
     "pos": "verb",
-    "img": "assets/images/words/immerse.webp",
+    "img": "assets/images/words/i/immerse.webp",
     "topicIds": [
       "daily-life-routines-chặng-6",
       "top-1000-core-chặng-30"
@@ -966,7 +965,7 @@ export const WORDS = [
     "exampleVi": "Không bao giờ là quá muộn để học một kỹ năng mới.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/learn.webp",
+    "img": "assets/images/words/l/learn.webp",
     "topicIds": [
       "daily-life-routines-chặng-6",
       "top-1000-core-chặng-1"
@@ -983,7 +982,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy làm việc từ 9:00 sáng đến 5:30 chiều.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/work.webp",
+    "img": "assets/images/words/w/work.webp",
     "topicIds": [
       "daily-life-routines-chặng-6",
       "top-1000-core-chặng-1"
@@ -1000,7 +999,7 @@ export const WORDS = [
     "exampleVi": "Nếu bạn kiên trì ôn tập mỗi ngày, vốn từ vựng của bạn sẽ mở rộng.",
     "level": "B2",
     "pos": "verb",
-    "img": "assets/images/words/persevere.webp",
+    "img": "assets/images/words/p/persevere.webp",
     "topicIds": [
       "daily-life-routines-chặng-6",
       "top-1000-core-chặng-31"
@@ -1017,7 +1016,7 @@ export const WORDS = [
     "exampleVi": "Tôi đã gửi cho bạn một email sáng nay.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/send.webp",
+    "img": "assets/images/words/s/send.webp",
     "topicIds": [
       "daily-life-routines-chặng-6",
       "top-1000-core-chặng-4"
@@ -1034,7 +1033,7 @@ export const WORDS = [
     "exampleVi": "Bạn đã nhận được tin nhắn của tôi chưa?",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/receive.webp",
+    "img": "assets/images/words/r/receive.webp",
     "topicIds": [
       "daily-life-routines-chặng-7",
       "top-1000-core-chặng-8"
@@ -1051,7 +1050,7 @@ export const WORDS = [
     "exampleVi": "Tôi sẽ gọi lại cho bạn sau 5 phút nữa.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/call.webp",
+    "img": "assets/images/words/c/call.webp",
     "topicIds": [
       "daily-life-routines-chặng-7",
       "top-1000-core-chặng-2"
@@ -1068,7 +1067,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng trả lời tin nhắn khi bạn có thời gian.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/reply.webp",
+    "img": "assets/images/words/r/reply.webp",
     "topicIds": [
       "daily-life-routines-chặng-7",
       "top-1000-core-chặng-9"
@@ -1085,7 +1084,7 @@ export const WORDS = [
     "exampleVi": "Đừng dành hàng giờ lướt mạng xã hội.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/scroll.webp",
+    "img": "assets/images/words/s/scroll.webp",
     "topicIds": [
       "daily-life-routines-chặng-7",
       "top-1000-core-chặng-9"
@@ -1102,7 +1101,7 @@ export const WORDS = [
     "exampleVi": "Tôi tìm kiếm siêu thị gần nhất trên mạng.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/search.webp",
+    "img": "assets/images/words/s/search.webp",
     "topicIds": [
       "daily-life-routines-chặng-7",
       "top-1000-core-chặng-9"
@@ -1119,7 +1118,7 @@ export const WORDS = [
     "exampleVi": "Cuối cùng tôi cũng tìm thấy chiếc kính râm bị để quên.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/find.webp",
+    "img": "assets/images/words/f/find.webp",
     "topicIds": [
       "daily-life-routines-chặng-7",
       "top-1000-core-chặng-2"
@@ -1136,7 +1135,7 @@ export const WORDS = [
     "exampleVi": "Tôi luôn mang theo một bình nước tái sử dụng.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/carry.webp",
+    "img": "assets/images/words/c/carry.webp",
     "topicIds": [
       "daily-life-routines-chặng-7",
       "top-1000-core-chặng-9"
@@ -1153,7 +1152,7 @@ export const WORDS = [
     "exampleVi": "Bạn cầm giúp tôi chiếc túi này một lát được không?",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/hold.webp",
+    "img": "assets/images/words/h/hold.webp",
     "topicIds": [
       "daily-life-routines-chặng-7",
       "top-1000-core-chặng-4"
@@ -1170,7 +1169,7 @@ export const WORDS = [
     "exampleVi": "Làm ơn mở cửa sổ để đón không khí trong lành.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/open.webp",
+    "img": "assets/images/words/o/open.webp",
     "topicIds": [
       "daily-life-routines-chặng-7",
       "top-1000-core-chặng-2"
@@ -1187,7 +1186,7 @@ export const WORDS = [
     "exampleVi": "Hãy đóng cửa nhẹ nhàng khi bạn rời đi nhé.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/close.webp",
+    "img": "assets/images/words/c/close.webp",
     "topicIds": [
       "daily-life-routines-chặng-7",
       "top-1000-core-chặng-2"
@@ -1204,7 +1203,7 @@ export const WORDS = [
     "exampleVi": "Bật đèn lên đi; trời đang tối dần rồi.",
     "level": "A1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/turn-on.webp",
+    "img": "assets/images/words/t/turn-on.webp",
     "topicIds": [
       "daily-life-routines-chặng-8",
       "top-1000-core-chặng-4"
@@ -1221,7 +1220,7 @@ export const WORDS = [
     "exampleVi": "Tắt điều hòa trước khi rời khỏi phòng.",
     "level": "A1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/turn-off.webp",
+    "img": "assets/images/words/t/turn-off.webp",
     "topicIds": [
       "daily-life-routines-chặng-8",
       "top-1000-core-chặng-5"
@@ -1238,7 +1237,7 @@ export const WORDS = [
     "exampleVi": "Đẩy cửa để bước vào cửa hàng.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/push.webp",
+    "img": "assets/images/words/p/push.webp",
     "topicIds": [
       "daily-life-routines-chặng-8",
       "top-1000-core-chặng-5"
@@ -1255,7 +1254,7 @@ export const WORDS = [
     "exampleVi": "Kéo tay nắm để mở ngăn kéo.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/pull.webp",
+    "img": "assets/images/words/p/pull.webp",
     "topicIds": [
       "daily-life-routines-chặng-8",
       "top-1000-core-chặng-5"
@@ -1272,7 +1271,7 @@ export const WORDS = [
     "exampleVi": "Mời ngồi xuống và tự nhiên như ở nhà nhé.",
     "level": "A1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/sit-down.webp",
+    "img": "assets/images/words/s/sit-down.webp",
     "topicIds": [
       "daily-life-routines-chặng-8",
       "top-1000-core-chặng-5"
@@ -1289,7 +1288,7 @@ export const WORDS = [
     "exampleVi": "Hãy đứng dậy vươn chân sau khi ngồi lâu.",
     "level": "A1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/stand-up.webp",
+    "img": "assets/images/words/s/stand-up.webp",
     "topicIds": [
       "daily-life-routines-chặng-8",
       "top-1000-core-chặng-5"
@@ -1306,7 +1305,7 @@ export const WORDS = [
     "exampleVi": "Tôi thích nấu bữa tối cho gia đình.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/cook.webp",
+    "img": "assets/images/words/c/cook.webp",
     "topicIds": [
       "daily-life-routines-chặng-8",
       "top-1000-core-chặng-5"
@@ -1323,7 +1322,7 @@ export const WORDS = [
     "exampleVi": "Thái nhỏ hành tây và tỏi.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/chop.webp",
+    "img": "assets/images/words/c/chop.webp",
     "topicIds": [
       "daily-life-routines-chặng-8",
       "top-1000-core-chặng-9"
@@ -1340,7 +1339,7 @@ export const WORDS = [
     "exampleVi": "Chiên trứng trong chảo chống dính.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/fry.webp",
+    "img": "assets/images/words/f/fry.webp",
     "topicIds": [
       "daily-life-routines-chặng-8",
       "top-1000-core-chặng-9"
@@ -1357,7 +1356,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy nướng bánh quy rất ngon để tráng miệng.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/bake.webp",
+    "img": "assets/images/words/b/bake.webp",
     "topicIds": [
       "daily-life-routines-chặng-8",
       "top-1000-core-chặng-9"
@@ -1374,7 +1373,7 @@ export const WORDS = [
     "exampleVi": "Tôi sẽ hâm nóng súp thừa cho bữa trưa.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/heat-up.webp",
+    "img": "assets/images/words/h/heat-up.webp",
     "topicIds": [
       "daily-life-routines-chặng-9",
       "top-1000-core-chặng-9"
@@ -1391,7 +1390,7 @@ export const WORDS = [
     "exampleVi": "Tối nay đến lượt ai rửa bát vậy?",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/wash-dishes.webp",
+    "img": "assets/images/words/w/wash-dishes.webp",
     "topicIds": [
       "daily-life-routines-chặng-9",
       "top-1000-core-chặng-51"
@@ -1408,7 +1407,7 @@ export const WORDS = [
     "exampleVi": "Lau khô đĩa rồi cất vào tủ chén nhé.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/dry-dishes.webp",
+    "img": "assets/images/words/d/dry-dishes.webp",
     "topicIds": [
       "daily-life-routines-chặng-9",
       "top-1000-core-chặng-51"
@@ -1425,7 +1424,7 @@ export const WORDS = [
     "exampleVi": "Xếp bát đĩa bẩn vào máy rửa bát đi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/dishwasher.webp",
+    "img": "assets/images/words/d/dishwasher.webp",
     "topicIds": [
       "daily-life-routines-chặng-9",
       "top-1000-core-chặng-58"
@@ -1442,7 +1441,7 @@ export const WORDS = [
     "exampleVi": "Lau bàn ăn sau khi dùng bữa xong.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/wipe.webp",
+    "img": "assets/images/words/w/wipe.webp",
     "topicIds": [
       "daily-life-routines-chặng-9",
       "top-1000-core-chặng-9"
@@ -1459,7 +1458,7 @@ export const WORDS = [
     "exampleVi": "Tôi quét sàn phòng khách mỗi buổi chiều.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/sweep.webp",
+    "img": "assets/images/words/s/sweep.webp",
     "topicIds": [
       "daily-life-routines-chặng-9",
       "top-1000-core-chặng-9"
@@ -1476,7 +1475,7 @@ export const WORDS = [
     "exampleVi": "Dùng chổi quét sạch vụn thức ăn đi nhé.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/broom.webp",
+    "img": "assets/images/words/b/broom.webp",
     "topicIds": [
       "daily-life-routines-chặng-9",
       "top-1000-core-chặng-59"
@@ -1493,7 +1492,7 @@ export const WORDS = [
     "exampleVi": "Tôi lau sàn bếp mỗi tuần một lần.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/mop-verb.webp",
+    "img": "assets/images/words/m/mop-verb.webp",
     "topicIds": [
       "daily-life-routines-chặng-9",
       "top-1000-core-chặng-10"
@@ -1510,7 +1509,7 @@ export const WORDS = [
     "exampleVi": "Hút bụi tấm thảm thật kỹ để sạch bụi bẩn.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/vacuum.webp",
+    "img": "assets/images/words/v/vacuum.webp",
     "topicIds": [
       "daily-life-routines-chặng-9",
       "top-1000-core-chặng-10"
@@ -1527,7 +1526,7 @@ export const WORDS = [
     "exampleVi": "Lau bụi các kệ sách bằng khăn mềm.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/dust.webp",
+    "img": "assets/images/words/d/dust.webp",
     "topicIds": [
       "daily-life-routines-chặng-9",
       "top-1000-core-chặng-10"
@@ -1544,7 +1543,7 @@ export const WORDS = [
     "exampleVi": "Hãy cùng dọn sạch bếp trước khi đi ngủ nhé.",
     "level": "A1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/clean-up.webp",
+    "img": "assets/images/words/c/clean-up.webp",
     "topicIds": [
       "daily-life-routines-chặng-10",
       "top-1000-core-chặng-5"
@@ -1561,7 +1560,7 @@ export const WORDS = [
     "exampleVi": "Dọn dẹp phòng ngủ cho gọn trước khi ra ngoài.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/tidy-up.webp",
+    "img": "assets/images/words/t/tidy-up.webp",
     "topicIds": [
       "daily-life-routines-chặng-10",
       "top-1000-core-chặng-10"
@@ -1578,7 +1577,7 @@ export const WORDS = [
     "exampleVi": "Cuối tuần này tôi cần sắp xếp lại tủ quần áo.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/organize.webp",
+    "img": "assets/images/words/o/organize.webp",
     "topicIds": [
       "daily-life-routines-chặng-10",
       "top-1000-core-chặng-10"
@@ -1595,7 +1594,7 @@ export const WORDS = [
     "exampleVi": "Tôi thường giặt đồ vào sáng thứ Bảy.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/do-laundry.webp",
+    "img": "assets/images/words/d/do-laundry.webp",
     "topicIds": [
       "daily-life-routines-chặng-10",
       "top-1000-core-chặng-49"
@@ -1612,7 +1611,7 @@ export const WORDS = [
     "exampleVi": "Cho quần áo màu vào máy giặt nhé.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/washing-machine.webp",
+    "img": "assets/images/words/w/washing-machine.webp",
     "topicIds": [
       "daily-life-routines-chặng-10",
       "top-1000-core-chặng-53"
@@ -1629,7 +1628,7 @@ export const WORDS = [
     "exampleVi": "Cho một nắp nước giặt vào mẻ giặt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/detergent.webp",
+    "img": "assets/images/words/d/detergent.webp",
     "topicIds": [
       "daily-life-routines-chặng-10"
     ],
@@ -1645,7 +1644,7 @@ export const WORDS = [
     "exampleVi": "Phơi quần áo ướt ngoài ban công.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/hang-clothes.webp",
+    "img": "assets/images/words/h/hang-clothes.webp",
     "topicIds": [
       "daily-life-routines-chặng-10",
       "top-1000-core-chặng-55"
@@ -1662,7 +1661,7 @@ export const WORDS = [
     "exampleVi": "Gấp áo sơ mi sạch rồi cất vào ngăn kéo.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/fold.webp",
+    "img": "assets/images/words/f/fold.webp",
     "topicIds": [
       "daily-life-routines-chặng-10",
       "top-1000-core-chặng-10"
@@ -1679,7 +1678,7 @@ export const WORDS = [
     "exampleVi": "Tôi cần ủi chiếc áo sơ mi này cho cuộc họp ngày mai.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/iron-verb.webp",
+    "img": "assets/images/words/i/iron-verb.webp",
     "topicIds": [
       "daily-life-routines-chặng-10",
       "top-1000-core-chặng-10"
@@ -1696,7 +1695,7 @@ export const WORDS = [
     "exampleVi": "Đừng quên đi đổ rác tối nay nhé.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/take-out-the-trash.webp",
+    "img": "assets/images/words/t/take-out-the-trash.webp",
     "topicIds": [
       "daily-life-routines-chặng-10",
       "top-1000-core-chặng-48"
@@ -1713,7 +1712,7 @@ export const WORDS = [
     "exampleVi": "Vứt vỏ hộp rỗng vào thùng rác đi.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/garbage-bin.webp",
+    "img": "assets/images/words/g/garbage-bin.webp",
     "topicIds": [
       "daily-life-routines-chặng-11",
       "top-1000-core-chặng-54"
@@ -1730,7 +1729,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi phân loại chai nhựa để tái chế.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/recycle.webp",
+    "img": "assets/images/words/r/recycle.webp",
     "topicIds": [
       "daily-life-routines-chặng-11",
       "top-1000-core-chặng-10"
@@ -1747,7 +1746,7 @@ export const WORDS = [
     "exampleVi": "Tưới cây trong nhà hai lần một tuần.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/water-the-plants.webp",
+    "img": "assets/images/words/w/water-the-plants.webp",
     "topicIds": [
       "daily-life-routines-chặng-11",
       "top-1000-core-chặng-48"
@@ -1764,7 +1763,7 @@ export const WORDS = [
     "exampleVi": "Sáng nay đã có ai cho mèo ăn chưa?",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/feed-the-pet.webp",
+    "img": "assets/images/words/f/feed-the-pet.webp",
     "topicIds": [
       "daily-life-routines-chặng-11",
       "top-1000-core-chặng-51"
@@ -1781,7 +1780,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy dắt chó đi dạo quanh khu nhà mỗi tối.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/walk-the-dog.webp",
+    "img": "assets/images/words/w/walk-the-dog.webp",
     "topicIds": [
       "daily-life-routines-chặng-11",
       "top-1000-core-chặng-51"
@@ -1798,7 +1797,7 @@ export const WORDS = [
     "exampleVi": "Bố tôi đã sửa chiếc bồn rửa bát bị rò rỉ.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/fix.webp",
+    "img": "assets/images/words/f/fix.webp",
     "topicIds": [
       "daily-life-routines-chặng-11",
       "top-1000-core-chặng-10"
@@ -1815,7 +1814,7 @@ export const WORDS = [
     "exampleVi": "Người thợ đã sửa xong ổ khóa bị hỏng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/repair.webp",
+    "img": "assets/images/words/r/repair.webp",
     "topicIds": [
       "daily-life-routines-chặng-11",
       "top-1000-core-chặng-17"
@@ -1832,7 +1831,7 @@ export const WORDS = [
     "exampleVi": "Chúng ta cần thay chiếc bóng đèn bị cháy.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/replace.webp",
+    "img": "assets/images/words/r/replace.webp",
     "topicIds": [
       "daily-life-routines-chặng-11",
       "top-1000-core-chặng-10"
@@ -1849,7 +1848,7 @@ export const WORDS = [
     "exampleVi": "Luôn khóa cửa chính khi bạn ra khỏi nhà.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/lock-verb.webp",
+    "img": "assets/images/words/l/lock-verb.webp",
     "topicIds": [
       "daily-life-routines-chặng-11",
       "top-1000-core-chặng-5"
@@ -1866,7 +1865,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy mở khóa cửa và bước vào trong.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/unlock.webp",
+    "img": "assets/images/words/u/unlock.webp",
     "topicIds": [
       "daily-life-routines-chặng-11",
       "top-1000-core-chặng-5"
@@ -1883,7 +1882,7 @@ export const WORDS = [
     "exampleVi": "Bạn ra mở cửa được không? Người giao hàng đến rồi.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/answer-the-door.webp",
+    "img": "assets/images/words/a/answer-the-door.webp",
     "topicIds": [
       "daily-life-routines-chặng-12",
       "top-1000-core-chặng-49"
@@ -1900,7 +1899,7 @@ export const WORDS = [
     "exampleVi": "Mở cửa ban công để phòng được thông thoáng.",
     "level": "B1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/air-out.webp",
+    "img": "assets/images/words/a/air-out.webp",
     "topicIds": [
       "daily-life-routines-chặng-12",
       "top-1000-core-chặng-17"
@@ -1917,7 +1916,7 @@ export const WORDS = [
     "exampleVi": "Dọn đống đồ bừa bộn trên bàn trước khi làm việc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/clutter.webp",
+    "img": "assets/images/words/c/clutter.webp",
     "topicIds": [
       "daily-life-routines-chặng-12"
     ],
@@ -1933,7 +1932,7 @@ export const WORDS = [
     "exampleVi": "Tôi thay ga trải giường vào mỗi Chủ nhật.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bed-sheet.webp",
+    "img": "assets/images/words/b/bed-sheet.webp",
     "topicIds": [
       "daily-life-routines-chặng-12",
       "top-1000-core-chặng-59"
@@ -1950,7 +1949,7 @@ export const WORDS = [
     "exampleVi": "Giặt vỏ gối thường xuyên để giữ da sạch sẽ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/pillowcase.webp",
+    "img": "assets/images/words/p/pillowcase.webp",
     "topicIds": [
       "daily-life-routines-chặng-12",
       "top-1000-core-chặng-59"
@@ -1967,7 +1966,7 @@ export const WORDS = [
     "exampleVi": "Chia sẻ việc nhà giúp cuộc sống gia đình dễ dàng hơn nhiều.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/chores.webp",
+    "img": "assets/images/words/c/chores.webp",
     "topicIds": [
       "daily-life-routines-chặng-12",
       "top-1000-core-chặng-59"
@@ -1984,7 +1983,7 @@ export const WORDS = [
     "exampleVi": "Tôi đã đến văn phòng sớm hai mươi phút.",
     "level": "A1",
     "pos": "adverb",
-    "img": "assets/images/words/early.webp",
+    "img": "assets/images/words/e/early.webp",
     "topicIds": [
       "daily-life-routines-chặng-12",
       "top-1000-core-chặng-5"
@@ -2001,7 +2000,7 @@ export const WORDS = [
     "exampleVi": "Xin lỗi tôi đến muộn; giao thông kẹt quá.",
     "level": "A1",
     "pos": "adverb",
-    "img": "assets/images/words/late.webp",
+    "img": "assets/images/words/l/late.webp",
     "topicIds": [
       "daily-life-routines-chặng-12",
       "top-1000-core-chặng-6"
@@ -2018,7 +2017,7 @@ export const WORDS = [
     "exampleVi": "Cuộc họp đã bắt đầu rất đúng giờ.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/on-time.webp",
+    "img": "assets/images/words/o/on-time.webp",
     "topicIds": [
       "daily-life-routines-chặng-12",
       "top-1000-core-chặng-49"
@@ -2035,7 +2034,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đến ga kịp lúc để bắt chuyến tàu.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/in-time.webp",
+    "img": "assets/images/words/i/in-time.webp",
     "topicIds": [
       "daily-life-routines-chặng-12",
       "top-1000-core-chặng-49"
@@ -2052,7 +2051,7 @@ export const WORDS = [
     "exampleVi": "Tôi thường ăn trưa nhẹ vào khoảng giữa trưa.",
     "level": "A1",
     "pos": "adverb",
-    "img": "assets/images/words/usually.webp",
+    "img": "assets/images/words/u/usually.webp",
     "topicIds": [
       "daily-life-routines-chặng-13",
       "top-1000-core-chặng-6"
@@ -2069,7 +2068,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy luôn luôn uống một ly nước sau khi thức dậy.",
     "level": "A1",
     "pos": "adverb",
-    "img": "assets/images/words/always.webp",
+    "img": "assets/images/words/a/always.webp",
     "topicIds": [
       "daily-life-routines-chặng-13",
       "top-1000-core-chặng-6"
@@ -2086,7 +2085,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi thường nấu bữa tối tại nhà vào các ngày trong tuần.",
     "level": "A1",
     "pos": "adverb",
-    "img": "assets/images/words/often.webp",
+    "img": "assets/images/words/o/often.webp",
     "topicIds": [
       "daily-life-routines-chặng-13",
       "top-1000-core-chặng-6"
@@ -2103,7 +2102,7 @@ export const WORDS = [
     "exampleVi": "Thỉnh thoảng tôi đi cầu thang bộ thay vì thang máy.",
     "level": "A1",
     "pos": "adverb",
-    "img": "assets/images/words/sometimes.webp",
+    "img": "assets/images/words/s/sometimes.webp",
     "topicIds": [
       "daily-life-routines-chặng-13",
       "top-1000-core-chặng-6"
@@ -2120,7 +2119,7 @@ export const WORDS = [
     "exampleVi": "Tôi hiếm khi uống nước ngọt có ga hay đồ uống có đường.",
     "level": "A2",
     "pos": "adverb",
-    "img": "assets/images/words/rarely.webp",
+    "img": "assets/images/words/r/rarely.webp",
     "topicIds": [
       "daily-life-routines-chặng-13",
       "top-1000-core-chặng-11"
@@ -2137,7 +2136,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy không bao giờ bỏ buổi tập thể dục buổi sáng.",
     "level": "A1",
     "pos": "adverb",
-    "img": "assets/images/words/never.webp",
+    "img": "assets/images/words/n/never.webp",
     "topicIds": [
       "daily-life-routines-chặng-13",
       "top-1000-core-chặng-6"
@@ -2154,7 +2153,7 @@ export const WORDS = [
     "exampleVi": "Đôi khi chúng tôi đi ăn ngoài ở một nhà hàng sang trọng.",
     "level": "B1",
     "pos": "adverb",
-    "img": "assets/images/words/occasionally.webp",
+    "img": "assets/images/words/o/occasionally.webp",
     "topicIds": [
       "daily-life-routines-chặng-13",
       "top-1000-core-chặng-17"
@@ -2171,7 +2170,7 @@ export const WORDS = [
     "exampleVi": "Đọc sách là một phần trong thói quen hằng ngày của tôi.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/daily.webp",
+    "img": "assets/images/words/d/daily.webp",
     "topicIds": [
       "daily-life-routines-chặng-13",
       "top-1000-core-chặng-54"
@@ -2188,7 +2187,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi có cuộc họp nhóm hằng tuần vào thứ Hai.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/weekly.webp",
+    "img": "assets/images/words/w/weekly.webp",
     "topicIds": [
       "daily-life-routines-chặng-13",
       "top-1000-core-chặng-54"
@@ -2205,7 +2204,7 @@ export const WORDS = [
     "exampleVi": "Tôi xem lại ngân sách hằng tháng vào cuối mỗi tháng.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/monthly.webp",
+    "img": "assets/images/words/m/monthly.webp",
     "topicIds": [
       "daily-life-routines-chặng-13",
       "top-1000-core-chặng-54"
@@ -2222,7 +2221,7 @@ export const WORDS = [
     "exampleVi": "Chào buổi sáng! Chúc bạn một ngày tuyệt vời phía trước.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/morning.webp",
+    "img": "assets/images/words/m/morning.webp",
     "topicIds": [
       "daily-life-routines-chặng-14",
       "top-1000-core-chặng-54"
@@ -2239,7 +2238,7 @@ export const WORDS = [
     "exampleVi": "Hãy nghỉ giải lao vào lúc 12 giờ trưa nhé.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/noon.webp",
+    "img": "assets/images/words/n/noon.webp",
     "topicIds": [
       "daily-life-routines-chặng-14",
       "top-1000-core-chặng-54"
@@ -2256,7 +2255,7 @@ export const WORDS = [
     "exampleVi": "Tôi cảm thấy hơi buồn ngủ vào giữa buổi chiều.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/afternoon.webp",
+    "img": "assets/images/words/a/afternoon.webp",
     "topicIds": [
       "daily-life-routines-chặng-14",
       "top-1000-core-chặng-54"
@@ -2273,7 +2272,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi tận hưởng những buổi tối yên tĩnh tại nhà.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/evening.webp",
+    "img": "assets/images/words/e/evening.webp",
     "topicIds": [
       "daily-life-routines-chặng-14",
       "top-1000-core-chặng-54"
@@ -2290,7 +2289,7 @@ export const WORDS = [
     "exampleVi": "Đừng thức quá nửa đêm nhé.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/midnight.webp",
+    "img": "assets/images/words/m/midnight.webp",
     "topicIds": [
       "daily-life-routines-chặng-14",
       "top-1000-core-chặng-59"
@@ -2307,7 +2306,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy thức dậy từ lúc rạng đông.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/dawn.webp",
+    "img": "assets/images/words/d/dawn.webp",
     "topicIds": [
       "daily-life-routines-chặng-14"
     ],
@@ -2323,7 +2322,7 @@ export const WORDS = [
     "exampleVi": "Kiểm tra lịch trình của bạn xem ngày mai có rảnh không.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/schedule-noun.webp",
+    "img": "assets/images/words/s/schedule-noun.webp",
     "topicIds": [
       "daily-life-routines-chặng-14",
       "top-1000-core-chặng-59"
@@ -2340,7 +2339,7 @@ export const WORDS = [
     "exampleVi": "Có thói quen sinh hoạt đều đặn giúp cải thiện chất lượng giấc ngủ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/routine.webp",
+    "img": "assets/images/words/r/routine.webp",
     "topicIds": [
       "daily-life-routines-chặng-14",
       "top-1000-core-chặng-59"
@@ -2357,7 +2356,7 @@ export const WORDS = [
     "exampleVi": "Tôi có một cuộc hẹn với nha sĩ lúc 3 giờ chiều.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/appointment.webp",
+    "img": "assets/images/words/a/appointment.webp",
     "topicIds": [
       "daily-life-routines-chặng-14",
       "top-1000-core-chặng-59"
@@ -2374,7 +2373,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã khử trùng mặt bàn bếp sau khi sơ chế thịt sống.",
     "level": "B2",
     "pos": "verb",
-    "img": "assets/images/words/disinfect.webp",
+    "img": "assets/images/words/d/disinfect.webp",
     "topicIds": [
       "daily-life-routines-chặng-14",
       "top-1000-core-chặng-31"
@@ -2391,7 +2390,7 @@ export const WORDS = [
     "exampleVi": "Chuyến bay bị hoãn do mưa lớn.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/delay-verb.webp",
+    "img": "assets/images/words/d/delay-verb.webp",
     "topicIds": [
       "daily-life-routines-chặng-15",
       "top-1000-core-chặng-11"
@@ -2408,7 +2407,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi quyết định hoãn chuyến dã ngoại sang Chủ nhật.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/postpone.webp",
+    "img": "assets/images/words/p/postpone.webp",
     "topicIds": [
       "daily-life-routines-chặng-15",
       "top-1000-core-chặng-17"
@@ -2425,7 +2424,7 @@ export const WORDS = [
     "exampleVi": "Chúng ta có thể dời cuộc gọi sang sáng mai được không?",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/reschedule.webp",
+    "img": "assets/images/words/r/reschedule.webp",
     "topicIds": [
       "daily-life-routines-chặng-15",
       "top-1000-core-chặng-17"
@@ -2442,7 +2441,7 @@ export const WORDS = [
     "exampleVi": "Tôi thích dành thời gian bên gia đình vào cuối tuần.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/spend-time.webp",
+    "img": "assets/images/words/s/spend-time.webp",
     "topicIds": [
       "daily-life-routines-chặng-15",
       "top-1000-core-chặng-48"
@@ -2459,7 +2458,7 @@ export const WORDS = [
     "exampleVi": "Đừng lướt điện thoại nữa và đừng lãng phí thời gian.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/waste-time.webp",
+    "img": "assets/images/words/w/waste-time.webp",
     "topicIds": [
       "daily-life-routines-chặng-15",
       "top-1000-core-chặng-50"
@@ -2476,7 +2475,7 @@ export const WORDS = [
     "exampleVi": "Đi đường cao tốc giúp tiết kiệm rất nhiều thời gian.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/save-time.webp",
+    "img": "assets/images/words/s/save-time.webp",
     "topicIds": [
       "daily-life-routines-chặng-15",
       "top-1000-core-chặng-50"
@@ -2493,7 +2492,7 @@ export const WORDS = [
     "exampleVi": "Bạn thích làm gì vào thời gian rảnh rỗi?",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/free-time.webp",
+    "img": "assets/images/words/f/free-time.webp",
     "topicIds": [
       "daily-life-routines-chặng-15",
       "top-1000-core-chặng-49"
@@ -2510,7 +2509,7 @@ export const WORDS = [
     "exampleVi": "Tôi đang rất bận chuẩn bị cho kỳ thi ngày mai.",
     "level": "A1",
     "pos": "adjective",
-    "img": "assets/images/words/busy.webp",
+    "img": "assets/images/words/b/busy.webp",
     "topicIds": [
       "daily-life-routines-chặng-15",
       "top-1000-core-chặng-51"
@@ -2527,7 +2526,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy luôn đúng giờ cho tất cả các cuộc họp.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/punctual.webp",
+    "img": "assets/images/words/p/punctual.webp",
     "topicIds": [
       "daily-life-routines-chặng-15",
       "top-1000-core-chặng-61"
@@ -2544,7 +2543,7 @@ export const WORDS = [
     "exampleVi": "Xem thời khóa biểu xe buýt trước khi ra trạm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/timetable.webp",
+    "img": "assets/images/words/t/timetable.webp",
     "topicIds": [
       "daily-life-routines-chặng-15",
       "top-1000-core-chặng-59"
@@ -2561,7 +2560,7 @@ export const WORDS = [
     "exampleVi": "Thời gian tập luyện kéo dài 45 phút.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/duration.webp",
+    "img": "assets/images/words/d/duration.webp",
     "topicIds": [
       "daily-life-routines-chặng-16"
     ],
@@ -2577,7 +2576,7 @@ export const WORDS = [
     "exampleVi": "Hôm nay tôi cần mua một ít rau tươi.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/need.webp",
+    "img": "assets/images/words/n/need.webp",
     "topicIds": [
       "daily-life-routines-chặng-16",
       "top-1000-core-chặng-2"
@@ -2594,7 +2593,7 @@ export const WORDS = [
     "exampleVi": "Tôi muốn một tách trà xanh nóng.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/want.webp",
+    "img": "assets/images/words/w/want.webp",
     "topicIds": [
       "daily-life-routines-chặng-16",
       "top-1000-core-chặng-2"
@@ -2611,7 +2610,7 @@ export const WORDS = [
     "exampleVi": "Tôi thích tự nấu ăn ở nhà hơn là gọi đồ ăn mang về.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/prefer.webp",
+    "img": "assets/images/words/p/prefer.webp",
     "topicIds": [
       "daily-life-routines-chặng-16",
       "top-1000-core-chặng-11"
@@ -2628,7 +2627,7 @@ export const WORDS = [
     "exampleVi": "Hãy chọn những quả chín nhất từ trên kệ.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/choose.webp",
+    "img": "assets/images/words/c/choose.webp",
     "topicIds": [
       "daily-life-routines-chặng-16",
       "top-1000-core-chặng-6"
@@ -2645,7 +2644,7 @@ export const WORDS = [
     "exampleVi": "Tôi chưa thể quyết định nên nấu món gì cho bữa tối.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/decide.webp",
+    "img": "assets/images/words/d/decide.webp",
     "topicIds": [
       "daily-life-routines-chặng-16",
       "top-1000-core-chặng-11"
@@ -2662,7 +2661,7 @@ export const WORDS = [
     "exampleVi": "Họ đã quyết định hoãn việc ra quyết định cho đến đợt xem xét tuần tới.",
     "level": "B2",
     "pos": "verb",
-    "img": "assets/images/words/defer.webp",
+    "img": "assets/images/words/d/defer.webp",
     "topicIds": [
       "daily-life-routines-chặng-16",
       "top-1000-core-chặng-31"
@@ -2679,7 +2678,7 @@ export const WORDS = [
     "exampleVi": "Giữ hóa đơn phòng khi bạn cần trả lại món hàng đã mua.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/purchase.webp",
+    "img": "assets/images/words/p/purchase.webp",
     "topicIds": [
       "daily-life-routines-chặng-16",
       "top-1000-core-chặng-18"
@@ -2696,7 +2695,7 @@ export const WORDS = [
     "exampleVi": "Bạn phải ưu tiên những công việc khẩn cấp hàng ngày vào mỗi buổi sáng.",
     "level": "B2",
     "pos": "verb",
-    "img": "assets/images/words/prioritize.webp",
+    "img": "assets/images/words/p/prioritize.webp",
     "topicIds": [
       "daily-life-routines-chặng-16",
       "top-1000-core-chặng-31"
@@ -2713,7 +2712,7 @@ export const WORDS = [
     "exampleVi": "Hãy phân bổ ít nhất 20 phút mỗi ngày để luyện ngôn ngữ.",
     "level": "B2",
     "pos": "verb",
-    "img": "assets/images/words/allocate.webp",
+    "img": "assets/images/words/a/allocate.webp",
     "topicIds": [
       "daily-life-routines-chặng-16",
       "top-1000-core-chặng-31"
@@ -2730,7 +2729,7 @@ export const WORDS = [
     "exampleVi": "Hộp sữa này có giá bao nhiêu?",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/cost.webp",
+    "img": "assets/images/words/c/cost.webp",
     "topicIds": [
       "daily-life-routines-chặng-17",
       "top-1000-core-chặng-2"
@@ -2747,7 +2746,7 @@ export const WORDS = [
     "exampleVi": "Cuộc họp ngắn buổi sáng đã bắt đầu đúng 8:00 sáng.",
     "level": "B2",
     "pos": "adverb",
-    "img": "assets/images/words/promptly.webp",
+    "img": "assets/images/words/p/promptly.webp",
     "topicIds": [
       "daily-life-routines-chặng-17",
       "top-1000-core-chặng-31"
@@ -2764,7 +2763,7 @@ export const WORDS = [
     "exampleVi": "Hôm nay chúng ta cùng gọi đồ ăn trưa nhé.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/order.webp",
+    "img": "assets/images/words/o/order.webp",
     "topicIds": [
       "daily-life-routines-chặng-17",
       "top-1000-core-chặng-11"
@@ -2781,7 +2780,7 @@ export const WORDS = [
     "exampleVi": "Bạn có thể tiện đường mua giúp ít trứng khi về nhà không?",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/pick-up.webp",
+    "img": "assets/images/words/p/pick-up.webp",
     "topicIds": [
       "daily-life-routines-chặng-17",
       "top-1000-core-chặng-11"
@@ -2798,7 +2797,7 @@ export const WORDS = [
     "exampleVi": "Kiện hàng đã được giao chiều nay.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/deliver.webp",
+    "img": "assets/images/words/d/deliver.webp",
     "topicIds": [
       "daily-life-routines-chặng-17",
       "top-1000-core-chặng-11"
@@ -2815,7 +2814,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đi mua thực phẩm hàng tuần vào Chủ nhật.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/grocery.webp",
+    "img": "assets/images/words/g/grocery.webp",
     "topicIds": [
       "daily-life-routines-chặng-17",
       "top-1000-core-chặng-59"
@@ -2832,7 +2831,7 @@ export const WORDS = [
     "exampleVi": "Hóa đơn tiền điện nước này đã quá hạn 3 ngày.",
     "level": "B2",
     "pos": "adjective",
-    "img": "assets/images/words/overdue.webp",
+    "img": "assets/images/words/o/overdue.webp",
     "topicIds": [
       "daily-life-routines-chặng-17"
     ],
@@ -2848,7 +2847,7 @@ export const WORDS = [
     "exampleVi": "Tôi đã mua một chai nước tại cửa hàng tiện lợi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/convenience-store.webp",
+    "img": "assets/images/words/c/convenience-store.webp",
     "topicIds": [
       "daily-life-routines-chặng-17",
       "top-1000-core-chặng-60"
@@ -2865,7 +2864,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy cố gắng nghe podcast và kiểm tra email cùng một lúc.",
     "level": "B2",
     "pos": "adverb",
-    "img": "assets/images/words/simultaneously.webp",
+    "img": "assets/images/words/s/simultaneously.webp",
     "topicIds": [
       "daily-life-routines-chặng-17",
       "top-1000-core-chặng-31"
@@ -2882,7 +2881,7 @@ export const WORDS = [
     "exampleVi": "Tôi đã phải sắp xếp lại lịch hẹn hàng ngày để đi khám bác sĩ.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/rearrange.webp",
+    "img": "assets/images/words/r/rearrange.webp",
     "topicIds": [
       "daily-life-routines-chặng-17",
       "top-1000-core-chặng-18"
@@ -2899,7 +2898,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã duy trì chuỗi ngày học trong 14 ngày liên tiếp.",
     "level": "B2",
     "pos": "adjective",
-    "img": "assets/images/words/consecutive.webp",
+    "img": "assets/images/words/c/consecutive.webp",
     "topicIds": [
       "daily-life-routines-chặng-18"
     ],
@@ -2915,7 +2914,7 @@ export const WORDS = [
     "exampleVi": "Đây là tiền thừa và hóa đơn của quý khách ạ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/change.webp",
+    "img": "assets/images/words/c/change.webp",
     "topicIds": [
       "daily-life-routines-chặng-18",
       "top-1000-core-chặng-60"
@@ -2932,7 +2931,7 @@ export const WORDS = [
     "exampleVi": "Hãy nghỉ giải lao ngắn định kỳ để bảo vệ mắt khỏi mỏi.",
     "level": "B2",
     "pos": "adverb",
-    "img": "assets/images/words/periodically.webp",
+    "img": "assets/images/words/p/periodically.webp",
     "topicIds": [
       "daily-life-routines-chặng-18",
       "top-1000-core-chặng-31"
@@ -2949,7 +2948,7 @@ export const WORDS = [
     "exampleVi": "Những quả táo này đang được giảm giá trong tuần này.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/on-sale.webp",
+    "img": "assets/images/words/o/on-sale.webp",
     "topicIds": [
       "daily-life-routines-chặng-18",
       "top-1000-core-chặng-55"
@@ -2966,7 +2965,7 @@ export const WORDS = [
     "exampleVi": "Một lời nhắc kịp thời đã giúp anh ấy hoàn thành công việc trước 5 giờ chiều.",
     "level": "B2",
     "pos": "adjective",
-    "img": "assets/images/words/timely.webp",
+    "img": "assets/images/words/t/timely.webp",
     "topicIds": [
       "daily-life-routines-chặng-18"
     ],
@@ -2982,7 +2981,7 @@ export const WORDS = [
     "exampleVi": "Kiểm tra hạn dùng đi; hộp sữa chua này hết hạn rồi.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/expired.webp",
+    "img": "assets/images/words/e/expired.webp",
     "topicIds": [
       "daily-life-routines-chặng-18",
       "top-1000-core-chặng-61"
@@ -2999,7 +2998,7 @@ export const WORDS = [
     "exampleVi": "Xin lỗi, mẫu này hiện tại đang hết hàng.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/out-of-stock.webp",
+    "img": "assets/images/words/o/out-of-stock.webp",
     "topicIds": [
       "daily-life-routines-chặng-18",
       "top-1000-core-chặng-56"
@@ -3016,7 +3015,7 @@ export const WORDS = [
     "exampleVi": "Chúng ta đã dùng hết dầu ăn rồi.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/run-out-of.webp",
+    "img": "assets/images/words/r/run-out-of.webp",
     "topicIds": [
       "daily-life-routines-chặng-18",
       "top-1000-core-chặng-11"
@@ -3033,7 +3032,7 @@ export const WORDS = [
     "exampleVi": "Tôi có thể rót đầy lại bình nước ở đây không?",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/refill.webp",
+    "img": "assets/images/words/r/refill.webp",
     "topicIds": [
       "daily-life-routines-chặng-18",
       "top-1000-core-chặng-11"
@@ -3050,7 +3049,7 @@ export const WORDS = [
     "exampleVi": "Chúng ta phải hoàn thành mọi việc nhà buổi sáng trong khung thời gian hai giờ này.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/timeframe.webp",
+    "img": "assets/images/words/t/timeframe.webp",
     "topicIds": [
       "daily-life-routines-chặng-18"
     ],
@@ -3066,7 +3065,7 @@ export const WORDS = [
     "exampleVi": "Tập thể dục hàng ngày giúp đáp ứng các mục tiêu sức khỏe thể chất của bạn.",
     "level": "B2",
     "pos": "verb",
-    "img": "assets/images/words/fulfill.webp",
+    "img": "assets/images/words/f/fulfill.webp",
     "topicIds": [
       "daily-life-routines-chặng-19",
       "top-1000-core-chặng-31"
@@ -3083,7 +3082,7 @@ export const WORDS = [
     "exampleVi": "Nước uống sạch và không khí trong lành là những nhu cầu thiết yếu cơ bản của con người.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/necessity.webp",
+    "img": "assets/images/words/n/necessity.webp",
     "topicIds": [
       "daily-life-routines-chặng-19"
     ],
@@ -3099,7 +3098,7 @@ export const WORDS = [
     "exampleVi": "Bạn có thể đổi trả hàng trong vòng 30 ngày.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/return-item.webp",
+    "img": "assets/images/words/r/return-item.webp",
     "topicIds": [
       "daily-life-routines-chặng-19",
       "top-1000-core-chặng-56"
@@ -3116,7 +3115,7 @@ export const WORDS = [
     "exampleVi": "Tôi viết danh sách mua sắm để không bị quên đồ gì.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/shopping-list.webp",
+    "img": "assets/images/words/s/shopping-list.webp",
     "topicIds": [
       "daily-life-routines-chặng-19",
       "top-1000-core-chặng-54"
@@ -3133,7 +3132,7 @@ export const WORDS = [
     "exampleVi": "Chăm sóc các thành viên trong gia đình là một bổn phận quan trọng hàng ngày.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/obligation.webp",
+    "img": "assets/images/words/o/obligation.webp",
     "topicIds": [
       "daily-life-routines-chặng-19"
     ],
@@ -3149,7 +3148,7 @@ export const WORDS = [
     "exampleVi": "Hãy mang theo túi vải thay vì dùng túi nilon.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/plastic-bag.webp",
+    "img": "assets/images/words/p/plastic-bag.webp",
     "topicIds": [
       "daily-life-routines-chặng-19",
       "top-1000-core-chặng-54"
@@ -3166,7 +3165,7 @@ export const WORDS = [
     "exampleVi": "Tôi về đến nhà lúc khoảng 6:30 tối mỗi ngày.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/come-home.webp",
+    "img": "assets/images/words/c/come-home.webp",
     "topicIds": [
       "daily-life-routines-chặng-19",
       "top-1000-core-chặng-48"
@@ -3183,7 +3182,7 @@ export const WORDS = [
     "exampleVi": "Cởi giày trước khi bước vào phòng khách nhé.",
     "level": "A1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/take-off.webp",
+    "img": "assets/images/words/t/take-off.webp",
     "topicIds": [
       "daily-life-routines-chặng-19",
       "top-1000-core-chặng-2"
@@ -3200,7 +3199,7 @@ export const WORDS = [
     "exampleVi": "Nghe nhạc êm dịu giúp tôi xả hơi sau một ngày dài.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/unwind.webp",
+    "img": "assets/images/words/u/unwind.webp",
     "topicIds": [
       "daily-life-routines-chặng-19",
       "top-1000-core-chặng-18"
@@ -3217,7 +3216,7 @@ export const WORDS = [
     "exampleVi": "Đi dạo công viên vào cuối tuần giúp bạn nạp lại năng lượng tinh thần.",
     "level": "B2",
     "pos": "verb",
-    "img": "assets/images/words/recharge.webp",
+    "img": "assets/images/words/r/recharge.webp",
     "topicIds": [
       "daily-life-routines-chặng-19",
       "top-1000-core-chặng-31"
@@ -3234,7 +3233,7 @@ export const WORDS = [
     "exampleVi": "Trông bạn có vẻ mệt; bạn nên nghỉ ngơi đi.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/rest.webp",
+    "img": "assets/images/words/r/rest.webp",
     "topicIds": [
       "daily-life-routines-chặng-20",
       "top-1000-core-chặng-6"
@@ -3251,7 +3250,7 @@ export const WORDS = [
     "exampleVi": "Tôi cần nằm xuống ghế sofa một vài phút.",
     "level": "A1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/lie-down.webp",
+    "img": "assets/images/words/l/lie-down.webp",
     "topicIds": [
       "daily-life-routines-chặng-20",
       "top-1000-core-chặng-6"
@@ -3268,7 +3267,7 @@ export const WORDS = [
     "exampleVi": "Một giấc ngủ ngắn 20 phút giúp tôi hồi phục năng lượng.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/take-a-nap.webp",
+    "img": "assets/images/words/t/take-a-nap.webp",
     "topicIds": [
       "daily-life-routines-chặng-20",
       "top-1000-core-chặng-50"
@@ -3285,7 +3284,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã ngủ gật ngay trước màn hình tivi.",
     "level": "B1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/doze-off.webp",
+    "img": "assets/images/words/d/doze-off.webp",
     "topicIds": [
       "daily-life-routines-chặng-20",
       "top-1000-core-chặng-18"
@@ -3302,7 +3301,7 @@ export const WORDS = [
     "exampleVi": "Cố gắng đừng thức khuya vào các tối trong tuần.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/stay-up-late.webp",
+    "img": "assets/images/words/s/stay-up-late.webp",
     "topicIds": [
       "daily-life-routines-chặng-20",
       "top-1000-core-chặng-56"
@@ -3319,7 +3318,7 @@ export const WORDS = [
     "exampleVi": "Uống sữa ấm làm tôi cảm thấy buồn ngủ.",
     "level": "A1",
     "pos": "adjective",
-    "img": "assets/images/words/sleepy.webp",
+    "img": "assets/images/words/s/sleepy.webp",
     "topicIds": [
       "daily-life-routines-chặng-20",
       "top-1000-core-chặng-51"
@@ -3336,7 +3335,7 @@ export const WORDS = [
     "exampleVi": "Tôi quá mệt để nấu nướng tối nay; hãy gọi đồ ăn nhé.",
     "level": "A1",
     "pos": "adjective",
-    "img": "assets/images/words/tired.webp",
+    "img": "assets/images/words/t/tired.webp",
     "topicIds": [
       "daily-life-routines-chặng-20",
       "top-1000-core-chặng-48"
@@ -3353,7 +3352,7 @@ export const WORDS = [
     "exampleVi": "Sau chuyến đi bộ dài, mọi người đều kiệt sức.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/exhausted.webp",
+    "img": "assets/images/words/e/exhausted.webp",
     "topicIds": [
       "daily-life-routines-chặng-20",
       "top-1000-core-chặng-61"
@@ -3370,7 +3369,7 @@ export const WORDS = [
     "exampleVi": "Thay bộ đồ ngủ mềm mại trước khi lên giường.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/pajamas.webp",
+    "img": "assets/images/words/p/pajamas.webp",
     "topicIds": [
       "daily-life-routines-chặng-20",
       "top-1000-core-chặng-55"
@@ -3387,7 +3386,7 @@ export const WORDS = [
     "exampleVi": "Tôi cài báo thức lúc 6:00 sáng mỗi tối.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/set-an-alarm.webp",
+    "img": "assets/images/words/s/set-an-alarm.webp",
     "topicIds": [
       "daily-life-routines-chặng-20",
       "top-1000-core-chặng-56"
@@ -3404,7 +3403,7 @@ export const WORDS = [
     "exampleVi": "Hãy tắt hết đèn trước khi bạn đi ngủ nhé.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/turn-off-lights.webp",
+    "img": "assets/images/words/t/turn-off-lights.webp",
     "topicIds": [
       "daily-life-routines-chặng-21",
       "top-1000-core-chặng-52"
@@ -3421,7 +3420,7 @@ export const WORDS = [
     "exampleVi": "Tôi thích cảm giác leo lên giường với ga trải giường mới thơm tho.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/get-into-bed.webp",
+    "img": "assets/images/words/g/get-into-bed.webp",
     "topicIds": [
       "daily-life-routines-chặng-21",
       "top-1000-core-chặng-52"
@@ -3438,7 +3437,7 @@ export const WORDS = [
     "exampleVi": "Trẻ em nên đi ngủ trước 9:30 tối.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/go-to-bed.webp",
+    "img": "assets/images/words/g/go-to-bed.webp",
     "topicIds": [
       "daily-life-routines-chặng-21",
       "top-1000-core-chặng-48"
@@ -3455,7 +3454,7 @@ export const WORDS = [
     "exampleVi": "Tôi đã chìm vào giấc ngủ ngay khi đầu vừa chạm gối.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/fall-asleep.webp",
+    "img": "assets/images/words/f/fall-asleep.webp",
     "topicIds": [
       "daily-life-routines-chặng-21",
       "top-1000-core-chặng-56"
@@ -3472,7 +3471,7 @@ export const WORDS = [
     "exampleVi": "Em bé đang ngủ say sưa trong nôi.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/fast-asleep.webp",
+    "img": "assets/images/words/f/fast-asleep.webp",
     "topicIds": [
       "daily-life-routines-chặng-21",
       "top-1000-core-chặng-50"
@@ -3489,7 +3488,7 @@ export const WORDS = [
     "exampleVi": "Bạn cần ít nhất hai giờ ngủ sâu mỗi đêm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/deep-sleep.webp",
+    "img": "assets/images/words/d/deep-sleep.webp",
     "topicIds": [
       "daily-life-routines-chặng-21",
       "top-1000-core-chặng-52"
@@ -3506,7 +3505,7 @@ export const WORDS = [
     "exampleVi": "Đêm qua tôi đã có một giấc mơ rất kỳ lạ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/dream.webp",
+    "img": "assets/images/words/d/dream.webp",
     "topicIds": [
       "daily-life-routines-chặng-21",
       "top-1000-core-chặng-55"
@@ -3523,7 +3522,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy giật mình tỉnh giấc với nhịp tim đập mạnh sau cơn ác mộng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/nightmare.webp",
+    "img": "assets/images/words/n/nightmare.webp",
     "topicIds": [
       "daily-life-routines-chặng-21",
       "top-1000-core-chặng-60"
@@ -3540,7 +3539,7 @@ export const WORDS = [
     "exampleVi": "Tôi trằn trọc suốt đêm vì trời quá nóng.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/toss-and-turn.webp",
+    "img": "assets/images/words/t/toss-and-turn.webp",
     "topicIds": [
       "daily-life-routines-chặng-21",
       "top-1000-core-chặng-61"
@@ -3557,7 +3556,7 @@ export const WORDS = [
     "exampleVi": "Giảm thời gian nhìn màn hình vào ban đêm giúp chữa chứng mất ngủ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/insomnia.webp",
+    "img": "assets/images/words/i/insomnia.webp",
     "topicIds": [
       "daily-life-routines-chặng-21"
     ],
@@ -3573,7 +3572,7 @@ export const WORDS = [
     "exampleVi": "Bạn cùng phòng của tôi ngáy khá to.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/snore.webp",
+    "img": "assets/images/words/s/snore.webp",
     "topicIds": [
       "daily-life-routines-chặng-22",
       "top-1000-core-chặng-11"
@@ -3590,7 +3589,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy là người ngủ say đến mức sấm sét cũng không làm anh thức giấc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/heavy-sleeper.webp",
+    "img": "assets/images/words/h/heavy-sleeper.webp",
     "topicIds": [
       "daily-life-routines-chặng-22"
     ],
@@ -3606,7 +3605,7 @@ export const WORDS = [
     "exampleVi": "Tôi là người thính ngủ, nên tôi luôn đeo nút tai.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/light-sleeper.webp",
+    "img": "assets/images/words/l/light-sleeper.webp",
     "topicIds": [
       "daily-life-routines-chặng-22"
     ],
@@ -3622,7 +3621,7 @@ export const WORDS = [
     "exampleVi": "Chúc bạn có một đêm nghỉ ngơi thật êm dịu.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/restful.webp",
+    "img": "assets/images/words/r/restful.webp",
     "topicIds": [
       "daily-life-routines-chặng-22",
       "top-1000-core-chặng-61"
@@ -3639,7 +3638,7 @@ export const WORDS = [
     "exampleVi": "Là một con cú đêm, tôi làm các công việc sáng tạo sau nửa đêm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/night-owl.webp",
+    "img": "assets/images/words/n/night-owl.webp",
     "topicIds": [
       "daily-life-routines-chặng-22",
       "top-1000-core-chặng-60"
@@ -3656,7 +3655,7 @@ export const WORDS = [
     "exampleVi": "Người dậy sớm nắm bắt được nhiều cơ hội (thành ngữ).",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/early-bird.webp",
+    "img": "assets/images/words/e/early-bird.webp",
     "topicIds": [
       "daily-life-routines-chặng-22",
       "top-1000-core-chặng-60"
@@ -3673,7 +3672,7 @@ export const WORDS = [
     "exampleVi": "Đã quá giờ đi ngủ rồi; hãy tắt máy tính bảng đi nào.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/bedtime.webp",
+    "img": "assets/images/words/b/bedtime.webp",
     "topicIds": [
       "daily-life-routines-chặng-22",
       "top-1000-core-chặng-55"
@@ -3690,7 +3689,7 @@ export const WORDS = [
     "exampleVi": "Tôi rất thích ngủ nướng đến 9 giờ vào sáng Chủ nhật.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/sleep-in.webp",
+    "img": "assets/images/words/s/sleep-in.webp",
     "topicIds": [
       "daily-life-routines-chặng-22",
       "top-1000-core-chặng-2"
@@ -3707,7 +3706,7 @@ export const WORDS = [
     "exampleVi": "Sáng nay tôi bị ngủ quên và lỡ mất chuyến xe buýt đầu tiên.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/oversleep.webp",
+    "img": "assets/images/words/o/oversleep.webp",
     "topicIds": [
       "daily-life-routines-chặng-22",
       "top-1000-core-chặng-12"
@@ -3724,7 +3723,7 @@ export const WORDS = [
     "exampleVi": "Trà thảo mộc ấm khiến bạn cảm thấy thư giãn và buồn ngủ trước giờ đi ngủ.",
     "level": "B2",
     "pos": "adjective",
-    "img": "assets/images/words/drowsy.webp",
+    "img": "assets/images/words/d/drowsy.webp",
     "topicIds": [
       "daily-life-routines-chặng-22"
     ],
@@ -3740,7 +3739,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã trải qua một đêm trằn trọc bồn chồn trước buổi phỏng vấn.",
     "level": "B2",
     "pos": "adjective",
-    "img": "assets/images/words/restless.webp",
+    "img": "assets/images/words/r/restless.webp",
     "topicIds": [
       "daily-life-routines-chặng-23"
     ],
@@ -3756,7 +3755,7 @@ export const WORDS = [
     "exampleVi": "Nhanh lên, kẻo chúng ta lỡ mất phần mở đầu của bộ phim đấy!",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/hurry-up.webp",
+    "img": "assets/images/words/h/hurry-up.webp",
     "topicIds": [
       "daily-life-routines-chặng-23",
       "top-1000-core-chặng-52"
@@ -3773,7 +3772,7 @@ export const WORDS = [
     "exampleVi": "Cứ từ từ thôi; không có gì phải vội đâu.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/take-your-time.webp",
+    "img": "assets/images/words/t/take-your-time.webp",
     "topicIds": [
       "daily-life-routines-chặng-23",
       "top-1000-core-chặng-50"
@@ -3790,7 +3789,7 @@ export const WORDS = [
     "exampleVi": "Tôi mất 20 phút để chuẩn bị sẵn sàng vào buổi sáng.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/get-ready.webp",
+    "img": "assets/images/words/g/get-ready.webp",
     "topicIds": [
       "daily-life-routines-chặng-23",
       "top-1000-core-chặng-48"
@@ -3807,7 +3806,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy gọi một ly cà phê đen như thường lệ.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/as-usual.webp",
+    "img": "assets/images/words/a/as-usual.webp",
     "topicIds": [
       "daily-life-routines-chặng-23",
       "top-1000-core-chặng-56"
@@ -3824,7 +3823,7 @@ export const WORDS = [
     "exampleVi": "Học từ vựng mới từng bước một mỗi ngày.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/step-by-step.webp",
+    "img": "assets/images/words/s/step-by-step.webp",
     "topicIds": [
       "daily-life-routines-chặng-23",
       "top-1000-core-chặng-56"
@@ -3841,7 +3840,7 @@ export const WORDS = [
     "exampleVi": "Tiếng Anh của bạn sẽ tiến bộ qua từng ngày.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/day-by-day.webp",
+    "img": "assets/images/words/d/day-by-day.webp",
     "topicIds": [
       "daily-life-routines-chặng-23",
       "top-1000-core-chặng-50"
@@ -3858,7 +3857,7 @@ export const WORDS = [
     "exampleVi": "Thỉnh thoảng tôi thích về thăm ông bà.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/from-time-to-time.webp",
+    "img": "assets/images/words/f/from-time-to-time.webp",
     "topicIds": [
       "daily-life-routines-chặng-23",
       "top-1000-core-chặng-50"
@@ -3875,7 +3874,7 @@ export const WORDS = [
     "exampleVi": "Thỉnh thoảng một lần, chúng tôi tự thưởng cho mình một que kem.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/once-in-a-while.webp",
+    "img": "assets/images/words/o/once-in-a-while.webp",
     "topicIds": [
       "daily-life-routines-chặng-23",
       "top-1000-core-chặng-56"
@@ -3892,7 +3891,7 @@ export const WORDS = [
     "exampleVi": "Chúng ta hãy ăn nhanh cái gì đó trước khi phim bắt đầu nhé.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/grab-a-bite.webp",
+    "img": "assets/images/words/g/grab-a-bite.webp",
     "topicIds": [
       "daily-life-routines-chặng-23",
       "top-1000-core-chặng-56"
@@ -3909,7 +3908,7 @@ export const WORDS = [
     "exampleVi": "Bạn đã học suốt hai tiếng rồi; nghỉ giải lao một lát đi!",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/take-a-break.webp",
+    "img": "assets/images/words/t/take-a-break.webp",
     "topicIds": [
       "daily-life-routines-chặng-24",
       "top-1000-core-chặng-48"
@@ -3926,7 +3925,7 @@ export const WORDS = [
     "exampleVi": "Mời bạn vào trong và ngồi xuống nhé.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/have-a-seat.webp",
+    "img": "assets/images/words/h/have-a-seat.webp",
     "topicIds": [
       "daily-life-routines-chặng-24",
       "top-1000-core-chặng-48"
@@ -3943,7 +3942,7 @@ export const WORDS = [
     "exampleVi": "Tôi hoàn toàn kiệt sức rồi; đến lúc đi ngủ thôi.",
     "level": "B1",
     "pos": "idiom",
-    "img": "assets/images/words/hit-the-sack.webp",
+    "img": "assets/images/words/h/hit-the-sack.webp",
     "topicIds": [
       "daily-life-routines-chặng-24"
     ],
@@ -3959,7 +3958,7 @@ export const WORDS = [
     "exampleVi": "Hôm nay chúng ta làm vậy là đủ rồi; kết thúc công việc hôm nay thôi.",
     "level": "B1",
     "pos": "idiom",
-    "img": "assets/images/words/call-it-a-day.webp",
+    "img": "assets/images/words/c/call-it-a-day.webp",
     "topicIds": [
       "daily-life-routines-chặng-24",
       "top-1000-core-chặng-58"
@@ -3976,7 +3975,7 @@ export const WORDS = [
     "exampleVi": "Thật tuyệt khi gặp bạn! Hãy giữ liên lạc nhé.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/keep-in-touch.webp",
+    "img": "assets/images/words/k/keep-in-touch.webp",
     "topicIds": [
       "daily-life-routines-chặng-24",
       "top-1000-core-chặng-56"
@@ -3993,7 +3992,7 @@ export const WORDS = [
     "exampleVi": "Tạm biệt và đi đường cẩn thận giữ gìn sức khỏe nhé!",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/take-care.webp",
+    "img": "assets/images/words/t/take-care.webp",
     "topicIds": [
       "daily-life-routines-chặng-24",
       "top-1000-core-chặng-41"
@@ -4010,7 +4009,7 @@ export const WORDS = [
     "exampleVi": "Tôi đang vội vì xe buýt của tôi sẽ đến trong hai phút nữa.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/in-a-hurry.webp",
+    "img": "assets/images/words/i/in-a-hurry.webp",
     "topicIds": [
       "daily-life-routines-chặng-24",
       "top-1000-core-chặng-57"
@@ -4027,7 +4026,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã hết thời gian trước khi hoàn thành bài thi.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/run-out-of-time.webp",
+    "img": "assets/images/words/r/run-out-of-time.webp",
     "topicIds": [
       "daily-life-routines-chặng-24",
       "top-1000-core-chặng-50"
@@ -4044,7 +4043,7 @@ export const WORDS = [
     "exampleVi": "Tôi nghe nhạc để giết thời gian ở sân bay.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/kill-time.webp",
+    "img": "assets/images/words/k/kill-time.webp",
     "topicIds": [
       "daily-life-routines-chặng-24",
       "top-1000-core-chặng-50"
@@ -4061,7 +4060,7 @@ export const WORDS = [
     "exampleVi": "Hãy luôn dành ra thời gian cho sức khỏe thể chất của bạn.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/make-time.webp",
+    "img": "assets/images/words/m/make-time.webp",
     "topicIds": [
       "daily-life-routines-chặng-24",
       "top-1000-core-chặng-51"
@@ -4078,7 +4077,7 @@ export const WORDS = [
     "exampleVi": "Cứ thoải mái thư giãn cuối tuần này và nghỉ ngơi đi nhé.",
     "level": "A2",
     "pos": "idiom",
-    "img": "assets/images/words/take-it-easy.webp",
+    "img": "assets/images/words/t/take-it-easy.webp",
     "topicIds": [
       "daily-life-routines-chặng-25",
       "top-1000-core-chặng-52"
@@ -4095,7 +4094,7 @@ export const WORDS = [
     "exampleVi": "Tôi rất háo hức mong đợi chuyến đi chơi cuối tuần của chúng ta.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/look-forward-to-phrasal-verb.webp",
+    "img": "assets/images/words/l/look-forward-to-phrasal-verb.webp",
     "topicIds": [
       "daily-life-routines-chặng-25",
       "top-1000-core-chặng-2"
@@ -4112,7 +4111,7 @@ export const WORDS = [
     "exampleVi": "Hãy đi uống cà phê và hàn huyên với nhau nhé.",
     "level": "B1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/catch-up-with.webp",
+    "img": "assets/images/words/c/catch-up-with.webp",
     "topicIds": [
       "daily-life-routines-chặng-25",
       "top-1000-core-chặng-18"
@@ -4129,7 +4128,7 @@ export const WORDS = [
     "exampleVi": "Tôi đang trên đường tới; tôi sẽ có mặt sau 10 phút nữa.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/on-the-way.webp",
+    "img": "assets/images/words/o/on-the-way.webp",
     "topicIds": [
       "daily-life-routines-chặng-25",
       "top-1000-core-chặng-52"
@@ -4146,7 +4145,7 @@ export const WORDS = [
     "exampleVi": "Bạn nên ôn tập thẻ từ vựng trên cơ sở đều đặn hằng ngày.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/daily-basis.webp",
+    "img": "assets/images/words/d/daily-basis.webp",
     "topicIds": [
       "daily-life-routines-chặng-25",
       "top-1000-core-chặng-61"
@@ -4163,7 +4162,7 @@ export const WORDS = [
     "exampleVi": "Uống một ly nước ấm là một thói quen hằng ngày rất tốt.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/daily-habit.webp",
+    "img": "assets/images/words/d/daily-habit.webp",
     "topicIds": [
       "daily-life-routines-chặng-25",
       "top-1000-core-chặng-60"
@@ -4180,7 +4179,7 @@ export const WORDS = [
     "exampleVi": "Gạch bỏ những việc đã làm xong trên danh sách to-do cảm giác rất thỏa mãn.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/to-do-list.webp",
+    "img": "assets/images/words/t/to-do-list.webp",
     "topicIds": [
       "daily-life-routines-chặng-25",
       "top-1000-core-chặng-55"
@@ -4197,7 +4196,7 @@ export const WORDS = [
     "exampleVi": "Đánh dấu tích vào các mục khi bạn hoàn thành chúng.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/check-off.webp",
+    "img": "assets/images/words/c/check-off.webp",
     "topicIds": [
       "daily-life-routines-chặng-25",
       "top-1000-core-chặng-12"
@@ -4214,7 +4213,7 @@ export const WORDS = [
     "exampleVi": "Hãy hoàn tất cuộc họp này trước 5 giờ chiều nhé.",
     "level": "B1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/wrap-up.webp",
+    "img": "assets/images/words/w/wrap-up.webp",
     "topicIds": [
       "daily-life-routines-chặng-25",
       "top-1000-core-chặng-18"
@@ -4231,7 +4230,7 @@ export const WORDS = [
     "exampleVi": "Trời đã mưa không ngớt suốt cả ngày dài.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/all-day-long.webp",
+    "img": "assets/images/words/a/all-day-long.webp",
     "topicIds": [
       "daily-life-routines-chặng-25",
       "top-1000-core-chặng-57"
@@ -4248,7 +4247,7 @@ export const WORDS = [
     "exampleVi": "Tôi luôn sạc điện thoại trước khi đi ngủ.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/charge-phone.webp",
+    "img": "assets/images/words/c/charge-phone.webp",
     "topicIds": [
       "daily-life-routines-chặng-26",
       "top-1000-core-chặng-52"
@@ -4265,7 +4264,7 @@ export const WORDS = [
     "exampleVi": "Điện thoại tôi sắp hết pin; tôi cần cáp sạc.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/battery-low.webp",
+    "img": "assets/images/words/b/battery-low.webp",
     "topicIds": [
       "daily-life-routines-chặng-26",
       "top-1000-core-chặng-52"
@@ -4282,7 +4281,7 @@ export const WORDS = [
     "exampleVi": "Cắm sạc laptop vào ổ cắm trên tường.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/plug-in.webp",
+    "img": "assets/images/words/p/plug-in.webp",
     "topicIds": [
       "daily-life-routines-chặng-26",
       "top-1000-core-chặng-12"
@@ -4299,7 +4298,7 @@ export const WORDS = [
     "exampleVi": "Rút phích cắm bàn ủi ngay khi bạn ủi đồ xong.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/unplug.webp",
+    "img": "assets/images/words/u/unplug.webp",
     "topicIds": [
       "daily-life-routines-chặng-26",
       "top-1000-core-chặng-12"
@@ -4316,7 +4315,7 @@ export const WORDS = [
     "exampleVi": "Tôi tránh kiểm tra thông báo việc đầu tiên vào buổi sáng.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/check-notifications.webp",
+    "img": "assets/images/words/c/check-notifications.webp",
     "topicIds": [
       "daily-life-routines-chặng-26",
       "top-1000-core-chặng-57"
@@ -4333,7 +4332,7 @@ export const WORDS = [
     "exampleVi": "Để tôi vào nhà vệ sinh rửa mặt cho tỉnh táo một chút.",
     "level": "B1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/freshen-up.webp",
+    "img": "assets/images/words/f/freshen-up.webp",
     "topicIds": [
       "daily-life-routines-chặng-26",
       "top-1000-core-chặng-18"
@@ -4350,7 +4349,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy mất mười lăm phút để trang điểm nhẹ nhàng.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/put-on-makeup.webp",
+    "img": "assets/images/words/p/put-on-makeup.webp",
     "topicIds": [
       "daily-life-routines-chặng-26",
       "top-1000-core-chặng-57"
@@ -4367,7 +4366,7 @@ export const WORDS = [
     "exampleVi": "Luôn tẩy trang thật kỹ trước khi đi ngủ.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/take-off-makeup.webp",
+    "img": "assets/images/words/t/take-off-makeup.webp",
     "topicIds": [
       "daily-life-routines-chặng-26",
       "top-1000-core-chặng-50"
@@ -4384,7 +4383,7 @@ export const WORDS = [
     "exampleVi": "Dùng khăn mặt sạch để lau nhẹ mặt.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/washcloth.webp",
+    "img": "assets/images/words/w/washcloth.webp",
     "topicIds": [
       "daily-life-routines-chặng-26",
       "top-1000-core-chặng-60"
@@ -4401,7 +4400,7 @@ export const WORDS = [
     "exampleVi": "Súc họng bằng nước muối ấm nếu bạn bị đau họng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/gargle.webp",
+    "img": "assets/images/words/g/gargle.webp",
     "topicIds": [
       "daily-life-routines-chặng-26",
       "top-1000-core-chặng-18"
@@ -4418,7 +4417,7 @@ export const WORDS = [
     "exampleVi": "Hít một hơi thật sâu và thả lỏng hai vai.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/deep-breath.webp",
+    "img": "assets/images/words/d/deep-breath.webp",
     "topicIds": [
       "daily-life-routines-chặng-27",
       "top-1000-core-chặng-60"
@@ -4435,7 +4434,7 @@ export const WORDS = [
     "exampleVi": "Rót một ly sữa tươi cho bữa sáng.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/pour.webp",
+    "img": "assets/images/words/p/pour.webp",
     "topicIds": [
       "daily-life-routines-chặng-27",
       "top-1000-core-chặng-6"
@@ -4452,7 +4451,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy ngồi bên cửa sổ, nhâm nhi từng ngụm trà nóng.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/sip.webp",
+    "img": "assets/images/words/s/sip.webp",
     "topicIds": [
       "daily-life-routines-chặng-27",
       "top-1000-core-chặng-12"
@@ -4469,7 +4468,7 @@ export const WORDS = [
     "exampleVi": "Cắt lát bánh mì rồi nướng nhẹ lên.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/slice.webp",
+    "img": "assets/images/words/s/slice.webp",
     "topicIds": [
       "daily-life-routines-chặng-27",
       "top-1000-core-chặng-12"
@@ -4486,7 +4485,7 @@ export const WORDS = [
     "exampleVi": "Cẩn thận đừng làm đổ cà phê lên bàn phím.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/spill.webp",
+    "img": "assets/images/words/s/spill.webp",
     "topicIds": [
       "daily-life-routines-chặng-27",
       "top-1000-core-chặng-12"
@@ -4503,7 +4502,7 @@ export const WORDS = [
     "exampleVi": "Lau sạch quầy bếp sau khi nấu ăn xong.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/wipe-down.webp",
+    "img": "assets/images/words/w/wipe-down.webp",
     "topicIds": [
       "daily-life-routines-chặng-27",
       "top-1000-core-chặng-12"
@@ -4520,7 +4519,7 @@ export const WORDS = [
     "exampleVi": "Để bát đĩa đã rửa khô tự nhiên trên giá úp.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/air-dry.webp",
+    "img": "assets/images/words/a/air-dry.webp",
     "topicIds": [
       "daily-life-routines-chặng-27",
       "top-1000-core-chặng-12"
@@ -4537,7 +4536,7 @@ export const WORDS = [
     "exampleVi": "Bỏ tất bẩn thẳng vào giỏ đựng quần áo giặt nhé.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/laundry-basket.webp",
+    "img": "assets/images/words/l/laundry-basket.webp",
     "topicIds": [
       "daily-life-routines-chặng-27",
       "top-1000-core-chặng-55"
@@ -4554,7 +4553,7 @@ export const WORDS = [
     "exampleVi": "Treo áo khoác lên móc treo quần áo.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/clothes-hanger.webp",
+    "img": "assets/images/words/c/clothes-hanger.webp",
     "topicIds": [
       "daily-life-routines-chặng-27",
       "top-1000-core-chặng-55"
@@ -4571,7 +4570,7 @@ export const WORDS = [
     "exampleVi": "Dựng bàn ủi đồ gần ổ cắm điện.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/ironing-board.webp",
+    "img": "assets/images/words/i/ironing-board.webp",
     "topicIds": [
       "daily-life-routines-chặng-27",
       "top-1000-core-chặng-60"
@@ -4588,7 +4587,7 @@ export const WORDS = [
     "exampleVi": "Sáng thứ Bảy này tôi phải chạy vài việc vặt ngoài phố.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/run-errands.webp",
+    "img": "assets/images/words/r/run-errands.webp",
     "topicIds": [
       "daily-life-routines-chặng-28",
       "top-1000-core-chặng-61"
@@ -4605,7 +4604,7 @@ export const WORDS = [
     "exampleVi": "Ghé tạt qua văn phòng tôi nếu bạn có thắc mắc gì nhé.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/drop-by.webp",
+    "img": "assets/images/words/d/drop-by.webp",
     "topicIds": [
       "daily-life-routines-chặng-28",
       "top-1000-core-chặng-12"
@@ -4622,7 +4621,7 @@ export const WORDS = [
     "exampleVi": "Bạn có thể thả tôi xuống gần ga tàu điện ngầm được không?",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/drop-off.webp",
+    "img": "assets/images/words/d/drop-off.webp",
     "topicIds": [
       "daily-life-routines-chặng-28",
       "top-1000-core-chặng-13"
@@ -4639,7 +4638,7 @@ export const WORDS = [
     "exampleVi": "Hãy đảm bảo bạn đã khóa chặt cửa nhà trước khi đi ra ngoài.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/lock-up.webp",
+    "img": "assets/images/words/l/lock-up.webp",
     "topicIds": [
       "daily-life-routines-chặng-28",
       "top-1000-core-chặng-13"
@@ -4656,7 +4655,7 @@ export const WORDS = [
     "exampleVi": "Hãy ghi chép lại trong buổi họp ngắn buổi sáng.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/take-notes.webp",
+    "img": "assets/images/words/t/take-notes.webp",
     "topicIds": [
       "daily-life-routines-chặng-28",
       "top-1000-core-chặng-51"
@@ -4673,7 +4672,7 @@ export const WORDS = [
     "exampleVi": "Tra cứu các từ tiếng Anh mới trong từ điển.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/look-up.webp",
+    "img": "assets/images/words/l/look-up.webp",
     "topicIds": [
       "daily-life-routines-chặng-28",
       "top-1000-core-chặng-3"
@@ -4690,7 +4689,7 @@ export const WORDS = [
     "exampleVi": "Tôi đã phải xếp hàng đợi mười phút ở ngân hàng.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/wait-in-line.webp",
+    "img": "assets/images/words/w/wait-in-line.webp",
     "topicIds": [
       "daily-life-routines-chặng-28",
       "top-1000-core-chặng-57"
@@ -4707,7 +4706,7 @@ export const WORDS = [
     "exampleVi": "Chúng ta hãy lên kế hoạch đi ăn tối cuối tuần này nhé.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/make-plans.webp",
+    "img": "assets/images/words/m/make-plans.webp",
     "topicIds": [
       "daily-life-routines-chặng-28",
       "top-1000-core-chặng-49"
@@ -4724,7 +4723,7 @@ export const WORDS = [
     "exampleVi": "Viết nhật ký giúp tâm trí bạn thảnh thơi trước khi đi ngủ.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/keep-a-diary.webp",
+    "img": "assets/images/words/k/keep-a-diary.webp",
     "topicIds": [
       "daily-life-routines-chặng-28",
       "top-1000-core-chặng-57"
@@ -4741,7 +4740,7 @@ export const WORDS = [
     "exampleVi": "Hẹn giờ 15 phút cho phiên học tập của bạn.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/set-a-timer.webp",
+    "img": "assets/images/words/s/set-a-timer.webp",
     "topicIds": [
       "daily-life-routines-chặng-28",
       "top-1000-core-chặng-57"
@@ -4758,7 +4757,7 @@ export const WORDS = [
     "exampleVi": "Tôi thường cắt móng tay sau khi tắm nước ấm.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/trim-nails.webp",
+    "img": "assets/images/words/t/trim-nails.webp",
     "topicIds": [
       "daily-life-routines-chặng-29",
       "top-1000-core-chặng-57"
@@ -4775,7 +4774,7 @@ export const WORDS = [
     "exampleVi": "Vỗ nước mát lên mặt để đánh thức bản thân tỉnh táo.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/splash-water.webp",
+    "img": "assets/images/words/s/splash-water.webp",
     "topicIds": [
       "daily-life-routines-chặng-29",
       "top-1000-core-chặng-51"
@@ -4792,7 +4791,7 @@ export const WORDS = [
     "exampleVi": "Bước lên thảm chùi chân để sàn nhà luôn khô ráo.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bath-mat.webp",
+    "img": "assets/images/words/b/bath-mat.webp",
     "topicIds": [
       "daily-life-routines-chặng-29",
       "top-1000-core-chặng-60"
@@ -4809,7 +4808,7 @@ export const WORDS = [
     "exampleVi": "Một chiếc đèn ngủ ánh sáng dịu giúp trẻ nhỏ ngủ ngon lành.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/night-light.webp",
+    "img": "assets/images/words/n/night-light.webp",
     "topicIds": [
       "daily-life-routines-chặng-29",
       "top-1000-core-chặng-61"
@@ -4826,7 +4825,7 @@ export const WORDS = [
     "exampleVi": "Tôi thức giấc lúc 3 giờ sáng nhưng dễ dàng ngủ lại ngay.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/fall-back-asleep.webp",
+    "img": "assets/images/words/f/fall-back-asleep.webp",
     "topicIds": [
       "daily-life-routines-chặng-29",
       "top-1000-core-chặng-62"
@@ -4843,7 +4842,7 @@ export const WORDS = [
     "exampleVi": "Tuân theo lịch trình hằng ngày giúp tăng năng suất.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/daily-schedule.webp",
+    "img": "assets/images/words/d/daily-schedule.webp",
     "topicIds": [
       "daily-life-routines-chặng-29",
       "top-1000-core-chặng-61"
@@ -4860,7 +4859,7 @@ export const WORDS = [
     "exampleVi": "Tôi đã có một buổi sáng làm việc rất năng suất.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/productive.webp",
+    "img": "assets/images/words/p/productive.webp",
     "topicIds": [
       "daily-life-routines-chặng-29",
       "top-1000-core-chặng-61"
@@ -4877,7 +4876,7 @@ export const WORDS = [
     "exampleVi": "Buổi sáng sớm thật yên bình và tĩnh lặng.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/peaceful.webp",
+    "img": "assets/images/words/p/peaceful.webp",
     "topicIds": [
       "daily-life-routines-chặng-29",
       "top-1000-core-chặng-55"
@@ -4894,7 +4893,7 @@ export const WORDS = [
     "exampleVi": "Hãy cùng đi dạo quanh xóm sau bữa tối nhé.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/take-a-walk.webp",
+    "img": "assets/images/words/t/take-a-walk.webp",
     "topicIds": [
       "daily-life-routines-chặng-29",
       "top-1000-core-chặng-49"
@@ -4911,7 +4910,7 @@ export const WORDS = [
     "exampleVi": "Hãy tựa lưng thư giãn và thưởng thức một ly cacao ấm.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/sit-back.webp",
+    "img": "assets/images/words/s/sit-back.webp",
     "topicIds": [
       "daily-life-routines-chặng-29",
       "top-1000-core-chặng-13"
@@ -4928,7 +4927,7 @@ export const WORDS = [
     "exampleVi": "Xem dự báo thời tiết xem bạn có cần mang ô không.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/check-the-weather.webp",
+    "img": "assets/images/words/c/check-the-weather.webp",
     "topicIds": [
       "daily-life-routines-chặng-30",
       "top-1000-core-chặng-52"
@@ -4945,7 +4944,7 @@ export const WORDS = [
     "exampleVi": "Bạn thường đi làm về tới nhà lúc mấy giờ?",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/get-home.webp",
+    "img": "assets/images/words/g/get-home.webp",
     "topicIds": [
       "daily-life-routines-chặng-30",
       "top-1000-core-chặng-49"
@@ -4962,7 +4961,7 @@ export const WORDS = [
     "exampleVi": "Tôi phải quay xe trở lại vì quên chìa khóa.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/turn-around.webp",
+    "img": "assets/images/words/t/turn-around.webp",
     "topicIds": [
       "daily-life-routines-chặng-30",
       "top-1000-core-chặng-13"
@@ -4979,7 +4978,7 @@ export const WORDS = [
     "exampleVi": "Tắt màn hình máy tính khi nghỉ giải lao nhé.",
     "level": "A1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/switch-off.webp",
+    "img": "assets/images/words/s/switch-off.webp",
     "topicIds": [
       "daily-life-routines-chặng-30",
       "top-1000-core-chặng-7"
@@ -4996,7 +4995,7 @@ export const WORDS = [
     "exampleVi": "Vắt nước chanh tươi vào tách trà ấm của bạn.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/squeeze.webp",
+    "img": "assets/images/words/s/squeeze.webp",
     "topicIds": [
       "daily-life-routines-chặng-30",
       "top-1000-core-chặng-13"
@@ -5013,7 +5012,7 @@ export const WORDS = [
     "exampleVi": "Súc miệng bằng nước sạch sau khi đánh răng.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/rinse.webp",
+    "img": "assets/images/words/r/rinse.webp",
     "topicIds": [
       "daily-life-routines-chặng-30",
       "top-1000-core-chặng-13"
@@ -5030,7 +5029,7 @@ export const WORDS = [
     "exampleVi": "Cởi chiếc áo khoác ướt ra và treo cạnh cửa nhé.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/take-off-coat.webp",
+    "img": "assets/images/words/t/take-off-coat.webp",
     "topicIds": [
       "daily-life-routines-chặng-30",
       "top-1000-core-chặng-49"
@@ -5047,7 +5046,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã diện đồ thật đẹp cho bữa tối kỷ niệm.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/get-dressed-up.webp",
+    "img": "assets/images/words/g/get-dressed-up.webp",
     "topicIds": [
       "daily-life-routines-chặng-30",
       "top-1000-core-chặng-62"
@@ -5064,7 +5063,7 @@ export const WORDS = [
     "exampleVi": "Tối nay tôi thích ở nhà xem phim hơn là đi ra ngoài.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/stay-in.webp",
+    "img": "assets/images/words/s/stay-in.webp",
     "topicIds": [
       "daily-life-routines-chặng-30",
       "top-1000-core-chặng-13"
@@ -5081,7 +5080,7 @@ export const WORDS = [
     "exampleVi": "Chúc ngủ ngon! Ngủ thật ngon và mơ đẹp nhé.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/good-night.webp",
+    "img": "assets/images/words/g/good-night.webp",
     "topicIds": [
       "daily-life-routines-chặng-30",
       "top-1000-core-chặng-49"
@@ -5098,7 +5097,7 @@ export const WORDS = [
     "exampleVi": "Cha mẹ cô ấy đã ủng hộ quyết định đi du học của cô.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/parent.webp",
+    "img": "assets/images/words/p/parent.webp",
     "topicIds": [
       "people-relationships-chặng-1"
     ],
@@ -5114,7 +5113,7 @@ export const WORDS = [
     "exampleVi": "Tôi có 2 anh chị em đang sống ở Đà Nẵng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/sibling.webp",
+    "img": "assets/images/words/s/sibling.webp",
     "topicIds": [
       "people-relationships-chặng-1"
     ],
@@ -5130,7 +5129,7 @@ export const WORDS = [
     "exampleVi": "Phòng khám cung cấp dịch vụ chăm sóc chuyên biệt cho trẻ sơ sinh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/infant.webp",
+    "img": "assets/images/words/i/infant.webp",
     "topicIds": [
       "people-relationships-chặng-1"
     ],
@@ -5146,7 +5145,7 @@ export const WORDS = [
     "exampleVi": "Sân chơi có khu vực đệm mềm an toàn thiết kế cho trẻ tập đi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/toddler.webp",
+    "img": "assets/images/words/t/toddler.webp",
     "topicIds": [
       "people-relationships-chặng-1"
     ],
@@ -5162,7 +5161,7 @@ export const WORDS = [
     "exampleVi": "Thanh thiếu niên thường trải qua những thay đổi nhanh chóng về thể chất và cảm xúc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/adolescent.webp",
+    "img": "assets/images/words/a/adolescent.webp",
     "topicIds": [
       "people-relationships-chặng-1"
     ],
@@ -5178,7 +5177,7 @@ export const WORDS = [
     "exampleVi": "Cặp song sinh cùng trứng thường có tài năng và sở thích tương tự nhau.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/twin.webp",
+    "img": "assets/images/words/t/twin.webp",
     "topicIds": [
       "people-relationships-chặng-1"
     ],
@@ -5194,7 +5193,7 @@ export const WORDS = [
     "exampleVi": "Ông bà rất thích dành những ngày cuối tuần bên các cháu của mình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/grandchild.webp",
+    "img": "assets/images/words/g/grandchild.webp",
     "topicIds": [
       "people-relationships-chặng-1"
     ],
@@ -5210,7 +5209,7 @@ export const WORDS = [
     "exampleVi": "Người giám hộ hợp pháp phải ký vào giấy ủy quyền điều trị y tế.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/guardian.webp",
+    "img": "assets/images/words/g/guardian.webp",
     "topicIds": [
       "people-relationships-chặng-1"
     ],
@@ -5226,7 +5225,7 @@ export const WORDS = [
     "exampleVi": "Đạo đức làm việc kỷ luật của anh ấy phản ánh sự dạy dỗ nghiêm khắc của gia đình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/upbringing.webp",
+    "img": "assets/images/words/u/upbringing.webp",
     "topicIds": [
       "people-relationships-chặng-1"
     ],
@@ -5242,7 +5241,7 @@ export const WORDS = [
     "exampleVi": "Các hộ gia đình hiện đại thường chia sẻ trách nhiệm việc nhà một cách bình đẳng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/household.webp",
+    "img": "assets/images/words/h/household.webp",
     "topicIds": [
       "people-relationships-chặng-1"
     ],
@@ -5258,7 +5257,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy trở thành trụ cột kinh tế chính sau khi cha cô nghỉ hưu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/breadwinner.webp",
+    "img": "assets/images/words/b/breadwinner.webp",
     "topicIds": [
       "people-relationships-chặng-2"
     ],
@@ -5274,7 +5273,7 @@ export const WORDS = [
     "exampleVi": "Cha mẹ nuôi dưỡng sự sáng tạo của con cái thông qua nghệ thuật và âm nhạc.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/nurture.webp",
+    "img": "assets/images/words/n/nurture.webp",
     "topicIds": [
       "people-relationships-chặng-2",
       "top-1000-core-chặng-32"
@@ -5291,7 +5290,7 @@ export const WORDS = [
     "exampleVi": "Nhiều loài động vật bảo vệ con non của chúng một cách quyết liệt trước kẻ săn mồi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/offspring.webp",
+    "img": "assets/images/words/o/offspring.webp",
     "topicIds": [
       "people-relationships-chặng-2"
     ],
@@ -5307,7 +5306,7 @@ export const WORDS = [
     "exampleVi": "Bố mẹ nuôi nhân từ đã mang lại một mái ấm yêu thương và ấm áp.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/foster.webp",
+    "img": "assets/images/words/f/foster.webp",
     "topicIds": [
       "people-relationships-chặng-2"
     ],
@@ -5323,7 +5322,7 @@ export const WORDS = [
     "exampleVi": "Họ vô cùng tự hào trong việc gìn giữ di sản văn hóa phong phú của dòng họ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/heritage.webp",
+    "img": "assets/images/words/h/heritage.webp",
     "topicIds": [
       "people-relationships-chặng-2"
     ],
@@ -5339,7 +5338,7 @@ export const WORDS = [
     "exampleVi": "Vợ/chồng của nhân viên được mời tham dự lễ kỷ niệm thường niên của công ty.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/spouse.webp",
+    "img": "assets/images/words/s/spouse.webp",
     "topicIds": [
       "people-relationships-chặng-2"
     ],
@@ -5355,7 +5354,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã đến thăm họ hàng xa trong dịp tết truyền thống.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/relative.webp",
+    "img": "assets/images/words/r/relative.webp",
     "topicIds": [
       "people-relationships-chặng-2"
     ],
@@ -5371,7 +5370,7 @@ export const WORDS = [
     "exampleVi": "Tổ tiên của cô ấy đã xây dựng ngôi chùa lịch sử của làng cách đây hai thế kỷ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ancestor.webp",
+    "img": "assets/images/words/a/ancestor.webp",
     "topicIds": [
       "people-relationships-chặng-2"
     ],
@@ -5387,7 +5386,7 @@ export const WORDS = [
     "exampleVi": "Bảo tàng lưu giữ các hiện vật thuộc về hậu duệ của hoàng gia.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/descendant.webp",
+    "img": "assets/images/words/d/descendant.webp",
     "topicIds": [
       "people-relationships-chặng-2"
     ],
@@ -5403,7 +5402,7 @@ export const WORDS = [
     "exampleVi": "Họ đã dành kỳ nghỉ cuối tuần để về thăm nhà thông gia ở Huế.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/in-laws.webp",
+    "img": "assets/images/words/i/in-laws.webp",
     "topicIds": [
       "people-relationships-chặng-2"
     ],
@@ -5419,7 +5418,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã giới thiệu chồng chưa cưới với các đồng nghiệp đại học.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fiance.webp",
+    "img": "assets/images/words/f/fiance.webp",
     "topicIds": [
       "people-relationships-chặng-3"
     ],
@@ -5435,7 +5434,7 @@ export const WORDS = [
     "exampleVi": "Vợ chưa cưới của anh ấy là một kiến trúc sư cảnh quan tài năng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fiancee.webp",
+    "img": "assets/images/words/f/fiancee.webp",
     "topicIds": [
       "people-relationships-chặng-3"
     ],
@@ -5451,7 +5450,7 @@ export const WORDS = [
     "exampleVi": "Đôi uyên ương đã tổ chức hôn lễ trong sự chung vui của gia đình và bạn bè thân thiết.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/nuptials.webp",
+    "img": "assets/images/words/n/nuptials.webp",
     "topicIds": [
       "people-relationships-chặng-3"
     ],
@@ -5467,7 +5466,7 @@ export const WORDS = [
     "exampleVi": "Họ đã bước vào đời sống hôn nhân sau 5 năm hẹn hò.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/matrimony.webp",
+    "img": "assets/images/words/m/matrimony.webp",
     "topicIds": [
       "people-relationships-chặng-3"
     ],
@@ -5483,7 +5482,7 @@ export const WORDS = [
     "exampleVi": "Tình thân máu mủ bền chặt đã gắn kết cả dòng họ lớn trên khắp các châu lục.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/kinship.webp",
+    "img": "assets/images/words/k/kinship.webp",
     "topicIds": [
       "people-relationships-chặng-3"
     ],
@@ -5499,7 +5498,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đến thăm ông bà ngoại vào mỗi dịp hè.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/maternal.webp",
+    "img": "assets/images/words/m/maternal.webp",
     "topicIds": [
       "people-relationships-chặng-3"
     ],
@@ -5515,7 +5514,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy thừa hưởng con mắt nghệ thuật từ người cô bên nội.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/paternal.webp",
+    "img": "assets/images/words/p/paternal.webp",
     "topicIds": [
       "people-relationships-chặng-3"
     ],
@@ -5531,7 +5530,7 @@ export const WORDS = [
     "exampleVi": "Gia đình danh giá này có dòng dõi bắt nguồn từ triều đại cổ xưa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/lineage.webp",
+    "img": "assets/images/words/l/lineage.webp",
     "topicIds": [
       "people-relationships-chặng-3"
     ],
@@ -5547,7 +5546,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã dành nhiều năm nghiên cứu gia phả dòng họ trong các kho lưu trữ lịch sử.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/genealogy.webp",
+    "img": "assets/images/words/g/genealogy.webp",
     "topicIds": [
       "people-relationships-chặng-3"
     ],
@@ -5563,7 +5562,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy được chỉ định là người thừa kế duy nhất cho khối bất động sản của gia đình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/heir.webp",
+    "img": "assets/images/words/h/heir.webp",
     "topicIds": [
       "people-relationships-chặng-3"
     ],
@@ -5579,7 +5578,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy là một người bạn đồng hành tuyệt vời trong chuyến du lịch bụi của chúng tôi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/companion.webp",
+    "img": "assets/images/words/c/companion.webp",
     "topicIds": [
       "people-relationships-chặng-4"
     ],
@@ -5595,7 +5594,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy có mạng lưới người quen chuyên môn rộng lớn trong ngành.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/acquaintance.webp",
+    "img": "assets/images/words/a/acquaintance.webp",
     "topicIds": [
       "people-relationships-chặng-4"
     ],
@@ -5611,7 +5610,7 @@ export const WORDS = [
     "exampleVi": "Những người lính đã rèn giũa nên mối gắn kết không thể phá vỡ như những người đồng chí vào sinh ra tử.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/comrade.webp",
+    "img": "assets/images/words/c/comrade.webp",
     "topicIds": [
       "people-relationships-chặng-4"
     ],
@@ -5627,7 +5626,7 @@ export const WORDS = [
     "exampleVi": "Em gái luôn là người bạn tâm giao thân thiết và đáng tin cậy nhất của cô.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/confidant.webp",
+    "img": "assets/images/words/c/confidant.webp",
     "topicIds": [
       "people-relationships-chặng-4"
     ],
@@ -5643,7 +5642,7 @@ export const WORDS = [
     "exampleVi": "Họ đã thưởng thức một bữa tối thân mật bên nhóm bạn thân lâu năm.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/intimate.webp",
+    "img": "assets/images/words/i/intimate.webp",
     "topicIds": [
       "people-relationships-chặng-4"
     ],
@@ -5659,7 +5658,7 @@ export const WORDS = [
     "exampleVi": "Người dân trong cộng đồng đã thể hiện tinh thần đoàn kết to lớn trong thời kỳ lũ lụt khó khăn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/solidarity.webp",
+    "img": "assets/images/words/s/solidarity.webp",
     "topicIds": [
       "people-relationships-chặng-4"
     ],
@@ -5675,7 +5674,7 @@ export const WORDS = [
     "exampleVi": "Đội thể thao đã xây dựng được tinh thần đồng đội tuyệt vời trong suốt mùa giải vô địch.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/camaraderie.webp",
+    "img": "assets/images/words/c/camaraderie.webp",
     "topicIds": [
       "people-relationships-chặng-4"
     ],
@@ -5691,7 +5690,7 @@ export const WORDS = [
     "exampleVi": "Học sinh thường cảm thấy áp lực phải làm theo mong đợi của bạn bè đồng trang lứa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/peer.webp",
+    "img": "assets/images/words/p/peer.webp",
     "topicIds": [
       "people-relationships-chặng-4"
     ],
@@ -5707,7 +5706,7 @@ export const WORDS = [
     "exampleVi": "Buổi họp lớp cấp ba của chúng tôi sẽ được tổ chức vào tối thứ Bảy tuần tới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/reunion.webp",
+    "img": "assets/images/words/r/reunion.webp",
     "topicIds": [
       "people-relationships-chặng-4"
     ],
@@ -5723,7 +5722,7 @@ export const WORDS = [
     "exampleVi": "Tham gia các câu lạc bộ là cách tuyệt vời để người mới giao lưu kết bạn.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/socialize.webp",
+    "img": "assets/images/words/s/socialize.webp",
     "topicIds": [
       "people-relationships-chặng-4",
       "top-1000-core-chặng-32"
@@ -5740,7 +5739,7 @@ export const WORDS = [
     "exampleVi": "Các chuyến cắm trại cuối tuần mang lại thời gian gắn kết tình cảm tuyệt vời cho cả gia đình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/bonding.webp",
+    "img": "assets/images/words/b/bonding.webp",
     "topicIds": [
       "people-relationships-chặng-5"
     ],
@@ -5756,7 +5755,7 @@ export const WORDS = [
     "exampleVi": "Họ đã tạo nên một tình bạn suốt đời khi gặp nhau ở trường tiểu học.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/lifelong.webp",
+    "img": "assets/images/words/l/lifelong.webp",
     "topicIds": [
       "people-relationships-chặng-5"
     ],
@@ -5772,7 +5771,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi vô cùng xúc động trước lòng hiếu khách nồng hậu của gia đình chủ nhà homestay.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/hospitality.webp",
+    "img": "assets/images/words/h/hospitality.webp",
     "topicIds": [
       "people-relationships-chặng-5"
     ],
@@ -5788,7 +5787,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy là một người bạn đáng tin cậy không bao giờ tiết lộ những tâm sự riêng tư.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/trustworthy.webp",
+    "img": "assets/images/words/t/trustworthy.webp",
     "topicIds": [
       "people-relationships-chặng-5"
     ],
@@ -5804,7 +5803,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy dành tình cảm thương mến sâu sắc cho những người thầy thời thơ ấu của mình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/affection.webp",
+    "img": "assets/images/words/a/affection.webp",
     "topicIds": [
       "people-relationships-chặng-5"
     ],
@@ -5820,7 +5819,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy là một nhân viên tận tâm luôn hoàn thành đúng hạn các dự án.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/conscientious.webp",
+    "img": "assets/images/words/c/conscientious.webp",
     "topicIds": [
       "people-relationships-chặng-5"
     ],
@@ -5836,7 +5835,7 @@ export const WORDS = [
     "exampleVi": "Vận động viên kiên cường đã trở lại mạnh mẽ hơn sau chấn thương đầu gối nghiêm trọng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/resilient.webp",
+    "img": "assets/images/words/r/resilient.webp",
     "topicIds": [
       "people-relationships-chặng-5"
     ],
@@ -5852,7 +5851,7 @@ export const WORDS = [
     "exampleVi": "Các y tá nổi tiếng vì sự tiếp cận giàu lòng nhân ái trong chăm sóc bệnh nhân.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/compassionate.webp",
+    "img": "assets/images/words/c/compassionate.webp",
     "topicIds": [
       "people-relationships-chặng-5"
     ],
@@ -5868,7 +5867,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy luôn duy trì cái nhìn lạc quan ngay cả trong những thời điểm khó khăn.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/optimistic.webp",
+    "img": "assets/images/words/o/optimistic.webp",
     "topicIds": [
       "people-relationships-chặng-5"
     ],
@@ -5884,7 +5883,7 @@ export const WORDS = [
     "exampleVi": "Nhờ sự luyện tập chăm chỉ, anh ấy đã làm chủ được bản nhạc vĩ cầm phức tạp.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/diligent.webp",
+    "img": "assets/images/words/d/diligent.webp",
     "topicIds": [
       "people-relationships-chặng-5"
     ],
@@ -5900,7 +5899,7 @@ export const WORDS = [
     "exampleVi": "Một chuyên viên tư vấn biết đồng cảm sẽ tạo ra không gian an toàn cho thân chủ mở lòng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/empathetic.webp",
+    "img": "assets/images/words/e/empathetic.webp",
     "topicIds": [
       "people-relationships-chặng-6"
     ],
@@ -5916,7 +5915,7 @@ export const WORDS = [
     "exampleVi": "Vị lãnh đạo đầy sức hút đã truyền cảm hứng cho hàng ngàn tình nguyện viên hành động.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/charismatic.webp",
+    "img": "assets/images/words/c/charismatic.webp",
     "topicIds": [
       "people-relationships-chặng-6"
     ],
@@ -5932,7 +5931,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã chứng tỏ mình rất dễ thích nghi khi chuyển đến sống ở một quốc gia mới.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/adaptable.webp",
+    "img": "assets/images/words/a/adaptable.webp",
     "topicIds": [
       "people-relationships-chặng-6"
     ],
@@ -5948,7 +5947,7 @@ export const WORDS = [
     "exampleVi": "Những nhận xét nhạy bén của anh ấy đã giúp cả nhóm sớm nhận diện được các rủi ro tiềm ẩn.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/perceptive.webp",
+    "img": "assets/images/words/p/perceptive.webp",
     "topicIds": [
       "people-relationships-chặng-6"
     ],
@@ -5964,7 +5963,7 @@ export const WORDS = [
     "exampleVi": "Nhà từ thiện đã quyên góp một khoản tiền hào phóng cho bệnh viện địa phương.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/generous.webp",
+    "img": "assets/images/words/g/generous.webp",
     "topicIds": [
       "people-relationships-chặng-6"
     ],
@@ -5980,7 +5979,7 @@ export const WORDS = [
     "exampleVi": "Các nhân viên vô cùng lịch thiệp và chu đáo với những yêu cầu của chúng tôi.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/courteous.webp",
+    "img": "assets/images/words/c/courteous.webp",
     "topicIds": [
       "people-relationships-chặng-6"
     ],
@@ -5996,7 +5995,7 @@ export const WORDS = [
     "exampleVi": "Mặc dù đạt được thành công vang dội, anh ấy vẫn giữ được sự khiêm tốn đáng nể.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/humble.webp",
+    "img": "assets/images/words/h/humble.webp",
     "topicIds": [
       "people-relationships-chặng-6"
     ],
@@ -6012,7 +6011,7 @@ export const WORDS = [
     "exampleVi": "Xin vui lòng nhận lời xin lỗi chân thành của chúng tôi về sự chậm trễ chuyến bay ngoài ý muốn.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/sincere.webp",
+    "img": "assets/images/words/s/sincere.webp",
     "topicIds": [
       "people-relationships-chặng-6"
     ],
@@ -6028,7 +6027,7 @@ export const WORDS = [
     "exampleVi": "Mọi người đánh giá cao những nhà lãnh đạo chân thật và minh bạch trong giao tiếp.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/authentic.webp",
+    "img": "assets/images/words/a/authentic.webp",
     "topicIds": [
       "people-relationships-chặng-6"
     ],
@@ -6044,7 +6043,7 @@ export const WORDS = [
     "exampleVi": "Người học việc trẻ tuổi rất hăng hái học hỏi các kỹ năng kỹ thuật mới.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/enthusiastic.webp",
+    "img": "assets/images/words/e/enthusiastic.webp",
     "topicIds": [
       "people-relationships-chặng-6"
     ],
@@ -6060,7 +6059,7 @@ export const WORDS = [
     "exampleVi": "Những người hướng nội thường nạp lại năng lượng trong không gian yên tĩnh.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/introverted.webp",
+    "img": "assets/images/words/i/introverted.webp",
     "topicIds": [
       "people-relationships-chặng-7"
     ],
@@ -6076,7 +6075,7 @@ export const WORDS = [
     "exampleVi": "Bản tính hướng ngoại khiến cô ấy rất phù hợp với ngành quan hệ công chúng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/extroverted.webp",
+    "img": "assets/images/words/e/extroverted.webp",
     "topicIds": [
       "people-relationships-chặng-7"
     ],
@@ -6092,7 +6091,7 @@ export const WORDS = [
     "exampleVi": "Các nhà quản lý cần phải quyết đoán khi thiết lập các kỳ vọng rõ ràng cho nhóm.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/assertive.webp",
+    "img": "assets/images/words/a/assertive.webp",
     "topicIds": [
       "people-relationships-chặng-7"
     ],
@@ -6108,7 +6107,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã đưa ra một câu trả lời khéo léo để tránh đứng về một phe nào trong cuộc tranh chấp.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/diplomatic.webp",
+    "img": "assets/images/words/d/diplomatic.webp",
     "topicIds": [
       "people-relationships-chặng-7"
     ],
@@ -6124,7 +6123,7 @@ export const WORDS = [
     "exampleVi": "Chúng ta cần một giải pháp thực tế có thể vận hành trong phạm vi ngân sách hiện tại.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/pragmatic.webp",
+    "img": "assets/images/words/p/pragmatic.webp",
     "topicIds": [
       "people-relationships-chặng-7"
     ],
@@ -6140,7 +6139,7 @@ export const WORDS = [
     "exampleVi": "Nhà khoa học đã ghi chép tỉ mỉ từng chi tiết của mỗi thí nghiệm trong phòng thí nghiệm.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/meticulous.webp",
+    "img": "assets/images/words/m/meticulous.webp",
     "topicIds": [
       "people-relationships-chặng-7"
     ],
@@ -6156,7 +6155,7 @@ export const WORDS = [
     "exampleVi": "Hãy tránh đưa ra những quyết định mua sắm bốc đồng khi mua hàng trực tuyến.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/impulsive.webp",
+    "img": "assets/images/words/i/impulsive.webp",
     "topicIds": [
       "people-relationships-chặng-7"
     ],
@@ -6172,7 +6171,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy quá bướng bỉnh không chịu thừa nhận rằng phép tính ban đầu của mình đã bị sai.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/stubborn.webp",
+    "img": "assets/images/words/s/stubborn.webp",
     "topicIds": [
       "people-relationships-chặng-7"
     ],
@@ -6188,7 +6187,7 @@ export const WORDS = [
     "exampleVi": "Nhiều năm làm chính trị đã khiến ông trở nên có phần hoài nghi về những lời hứa trước công chúng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/cynical.webp",
+    "img": "assets/images/words/c/cynical.webp",
     "topicIds": [
       "people-relationships-chặng-7"
     ],
@@ -6204,7 +6203,7 @@ export const WORDS = [
     "exampleVi": "Đừng quá cả tin mà tin vào mọi tin đồn bạn đọc được trên mạng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/gullible.webp",
+    "img": "assets/images/words/g/gullible.webp",
     "topicIds": [
       "people-relationships-chặng-7"
     ],
@@ -6220,7 +6219,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã đưa ra những lời phê bình mang tính xây dựng một cách rất nhẹ nhàng và tế nhị.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/tactful.webp",
+    "img": "assets/images/words/t/tactful.webp",
     "topicIds": [
       "people-relationships-chặng-8"
     ],
@@ -6236,7 +6235,7 @@ export const WORDS = [
     "exampleVi": "Thái độ kiêu ngạo của anh ấy đã làm mất lòng nhiều đồng nghiệp xung quanh.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/arrogant.webp",
+    "img": "assets/images/words/a/arrogant.webp",
     "topicIds": [
       "people-relationships-chặng-8"
     ],
@@ -6252,7 +6251,7 @@ export const WORDS = [
     "exampleVi": "Nhà tài trợ nhân từ đã tài trợ học bổng đại học cho các thanh niên có hoàn cảnh khó khăn.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/benevolent.webp",
+    "img": "assets/images/words/b/benevolent.webp",
     "topicIds": [
       "people-relationships-chặng-8"
     ],
@@ -6268,7 +6267,7 @@ export const WORDS = [
     "exampleVi": "Thẳng thắn mà nói, tôi tin rằng kế hoạch tiếp thị của chúng ta cần một cuộc đại tu toàn diện.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/frank.webp",
+    "img": "assets/images/words/f/frank.webp",
     "topicIds": [
       "people-relationships-chặng-8"
     ],
@@ -6284,7 +6283,7 @@ export const WORDS = [
     "exampleVi": "Phóng sự điều tra kiên trì của cô ấy đã vạch trần vụ bê bối môi trường.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/tenacious.webp",
+    "img": "assets/images/words/t/tenacious.webp",
     "topicIds": [
       "people-relationships-chặng-8"
     ],
@@ -6300,7 +6299,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy có vóc dáng cao ráo, mảnh mai rất phù hợp với việc khiêu vũ chuyên nghiệp.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/slender.webp",
+    "img": "assets/images/words/s/slender.webp",
     "topicIds": [
       "people-relationships-chặng-8"
     ],
@@ -6316,7 +6315,7 @@ export const WORDS = [
     "exampleVi": "Vận động viên rắn rỏi đã thể hiện xuất sắc trong môn cử tạ và các môn thể thao đối kháng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/sturdy.webp",
+    "img": "assets/images/words/s/sturdy.webp",
     "topicIds": [
       "people-relationships-chặng-8"
     ],
@@ -6332,7 +6331,7 @@ export const WORDS = [
     "exampleVi": "Cửa hàng thời trang chuyên về trang phục sành điệu thiết kế cho phụ nữ có vóc dáng nhỏ nhắn.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/petite.webp",
+    "img": "assets/images/words/p/petite.webp",
     "topicIds": [
       "people-relationships-chặng-8"
     ],
@@ -6348,7 +6347,7 @@ export const WORDS = [
     "exampleVi": "Việc tập luyện thể lực thường xuyên đã mang lại cho anh ấy một khung người vạm vỡ, cơ bắp.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/muscular.webp",
+    "img": "assets/images/words/m/muscular.webp",
     "topicIds": [
       "people-relationships-chặng-8"
     ],
@@ -6364,7 +6363,7 @@ export const WORDS = [
     "exampleVi": "Duy trì tư thế tốt giúp ngăn ngừa chứng đau mỏi lưng và cổ mãn tính.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/posture.webp",
+    "img": "assets/images/words/p/posture.webp",
     "topicIds": [
       "people-relationships-chặng-8"
     ],
@@ -6380,7 +6379,7 @@ export const WORDS = [
     "exampleVi": "Mặc dù có tầm vóc khiêm tốn, anh ấy vẫn là một cầu thủ kiến thiết bóng rổ vượt trội.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/stature.webp",
+    "img": "assets/images/words/s/stature.webp",
     "topicIds": [
       "people-relationships-chặng-9"
     ],
@@ -6396,7 +6395,7 @@ export const WORDS = [
     "exampleVi": "Uống nhiều nước giúp mang lại một làn da sáng mịn và rạng rỡ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/complexion.webp",
+    "img": "assets/images/words/c/complexion.webp",
     "topicIds": [
       "people-relationships-chặng-9"
     ],
@@ -6412,7 +6411,7 @@ export const WORDS = [
     "exampleVi": "Các sáng kiến y tế công cộng nhằm ngăn ngừa trẻ em bị béo phì.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/obese.webp",
+    "img": "assets/images/words/o/obese.webp",
     "topicIds": [
       "people-relationships-chặng-9"
     ],
@@ -6428,7 +6427,7 @@ export const WORDS = [
     "exampleVi": "Cậu thiếu niên cao lêu nghêu đã nhanh chóng mặc chật tất cả quần áo đi học.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/lanky.webp",
+    "img": "assets/images/words/l/lanky.webp",
     "topicIds": [
       "people-relationships-chặng-9"
     ],
@@ -6444,7 +6443,7 @@ export const WORDS = [
     "exampleVi": "Cầu thủ bóng bầu dục đậm người rất khó để đối phương có thể cản phá.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/stocky.webp",
+    "img": "assets/images/words/s/stocky.webp",
     "topicIds": [
       "people-relationships-chặng-9"
     ],
@@ -6460,7 +6459,7 @@ export const WORDS = [
     "exampleVi": "Bóng dáng thanh lịch của vũ công được chiếu trên phông nền sân khấu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/silhouette.webp",
+    "img": "assets/images/words/s/silhouette.webp",
     "topicIds": [
       "people-relationships-chặng-9"
     ],
@@ -6476,7 +6475,7 @@ export const WORDS = [
     "exampleVi": "Nhiều năm bơi lội thi đấu đã tạo nên vóc dáng thể thao ấn tượng của anh ấy.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/physique.webp",
+    "img": "assets/images/words/p/physique.webp",
     "topicIds": [
       "people-relationships-chặng-9"
     ],
@@ -6492,7 +6491,7 @@ export const WORDS = [
     "exampleVi": "Nữ diễn viên múa ba lê di chuyển trên sân khấu với những động tác duyên dáng và uyển chuyển.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/graceful.webp",
+    "img": "assets/images/words/g/graceful.webp",
     "topicIds": [
       "people-relationships-chặng-9"
     ],
@@ -6508,7 +6507,7 @@ export const WORDS = [
     "exampleVi": "Em bé có đôi má phúng phính đáng yêu mà ai cũng thích véo.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/chubby.webp",
+    "img": "assets/images/words/c/chubby.webp",
     "topicIds": [
       "people-relationships-chặng-9"
     ],
@@ -6524,7 +6523,7 @@ export const WORDS = [
     "exampleVi": "Các ứng viên nên đảm bảo vẻ ngoài chỉn chu, gọn gàng cho các buổi phỏng vấn xin việc trang trọng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/well-groomed.webp",
+    "img": "assets/images/words/w/well-groomed.webp",
     "topicIds": [
       "people-relationships-chặng-9"
     ],
@@ -6540,7 +6539,7 @@ export const WORDS = [
     "exampleVi": "Cười thường xuyên mang lại những nếp nhăn nhỏ vui vẻ quanh khóe mắt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/wrinkle.webp",
+    "img": "assets/images/words/w/wrinkle.webp",
     "topicIds": [
       "people-relationships-chặng-10"
     ],
@@ -6556,7 +6555,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy có những đốm tàn nhang xinh xắn nằm rải rác trên sống mũi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/freckle.webp",
+    "img": "assets/images/words/f/freckle.webp",
     "topicIds": [
       "people-relationships-chặng-10"
     ],
@@ -6572,7 +6571,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy có đường quai hàm sắc nét, góc cạnh trông rất nổi bật trong các bức ảnh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/jawline.webp",
+    "img": "assets/images/words/j/jawline.webp",
     "topicIds": [
       "people-relationships-chặng-10"
     ],
@@ -6588,7 +6587,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy nhướn mày ngạc nhiên khi nghe thấy thông báo bất ngờ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/eyebrow.webp",
+    "img": "assets/images/words/e/eyebrow.webp",
     "topicIds": [
       "people-relationships-chặng-10"
     ],
@@ -6604,7 +6603,7 @@ export const WORDS = [
     "exampleVi": "Hàng lông mi dài làm nổi bật đôi mắt nâu đầy biểu cảm của cô.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/eyelash.webp",
+    "img": "assets/images/words/e/eyelash.webp",
     "topicIds": [
       "people-relationships-chặng-10"
     ],
@@ -6620,7 +6619,7 @@ export const WORDS = [
     "exampleVi": "Một chiếc lúm đồng tiền duyên dáng xuất hiện bên má trái mỗi khi cô cười.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/dimple.webp",
+    "img": "assets/images/words/d/dimple.webp",
     "topicIds": [
       "people-relationships-chặng-10"
     ],
@@ -6636,7 +6635,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy có một vết sẹo nhỏ trên trán do cú ngã xe đạp thời thơ ấu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/scar.webp",
+    "img": "assets/images/words/s/scar.webp",
     "topicIds": [
       "people-relationships-chặng-10"
     ],
@@ -6652,7 +6651,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã quyết định để một bộ râu rậm trong kỳ nghỉ đông.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/beard.webp",
+    "img": "assets/images/words/b/beard.webp",
     "topicIds": [
       "people-relationships-chặng-10"
     ],
@@ -6668,7 +6667,7 @@ export const WORDS = [
     "exampleVi": "Vị thám tử để một bộ râu mép cổ điển được tỉa tót gọn gàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mustache.webp",
+    "img": "assets/images/words/m/mustache.webp",
     "topicIds": [
       "people-relationships-chặng-10"
     ],
@@ -6684,7 +6683,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy lau mồ hôi trên trán sau khi hoàn thành chặng đua marathon.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/forehead.webp",
+    "img": "assets/images/words/f/forehead.webp",
     "topicIds": [
       "people-relationships-chặng-10"
     ],
@@ -6700,7 +6699,7 @@ export const WORDS = [
     "exampleVi": "Gò má cao mang lại cho khuôn mặt cô ấy vẻ thanh tú, sắc sảo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cheekbone.webp",
+    "img": "assets/images/words/c/cheekbone.webp",
     "topicIds": [
       "people-relationships-chặng-11"
     ],
@@ -6716,7 +6715,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy có một nốt ruồi duyên rất đặc trưng ngay gần khóe môi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mole.webp",
+    "img": "assets/images/words/m/mole.webp",
     "topicIds": [
       "people-relationships-chặng-11"
     ],
@@ -6732,7 +6731,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy bị hói đầu ở độ tuổi ba mươi và đã tự tin với diện mạo cạo trọc của mình.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/bald.webp",
+    "img": "assets/images/words/b/bald.webp",
     "topicIds": [
       "people-relationships-chặng-11"
     ],
@@ -6748,7 +6747,7 @@ export const WORDS = [
     "exampleVi": "Trông cô ấy nhợt nhạt rõ rệt sau khi hồi phục từ cơn cảm cúm theo mùa.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/pale.webp",
+    "img": "assets/images/words/p/pale.webp",
     "topicIds": [
       "people-relationships-chặng-11"
     ],
@@ -6764,7 +6763,7 @@ export const WORDS = [
     "exampleVi": "Cô dâu trông vô cùng rạng rỡ trong ngày cưới của mình.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/radiant.webp",
+    "img": "assets/images/words/r/radiant.webp",
     "topicIds": [
       "people-relationships-chặng-11"
     ],
@@ -6780,7 +6779,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy có những kỷ niệm đẹp về thời thơ ấu vui tươi ở miền quê.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/childhood.webp",
+    "img": "assets/images/words/c/childhood.webp",
     "topicIds": [
       "people-relationships-chặng-11"
     ],
@@ -6796,7 +6795,7 @@ export const WORDS = [
     "exampleVi": "Tuổi vị thành niên là giai đoạn quan trọng để khám phá bản sắc cá nhân.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/adolescence.webp",
+    "img": "assets/images/words/a/adolescence.webp",
     "topicIds": [
       "people-relationships-chặng-11"
     ],
@@ -6812,7 +6811,7 @@ export const WORDS = [
     "exampleVi": "Bước vào tuổi trưởng thành mang lại sự độc lập về tài chính và cá nhân.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/adulthood.webp",
+    "img": "assets/images/words/a/adulthood.webp",
     "topicIds": [
       "people-relationships-chặng-11"
     ],
@@ -6828,7 +6827,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã xử lý cuộc đàm phán khó khăn với sự chín chắn cảm xúc đầy ấn tượng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/maturity-noun.webp",
+    "img": "assets/images/words/m/maturity-noun.webp",
     "topicIds": [
       "people-relationships-chặng-11"
     ],
@@ -6844,7 +6843,7 @@ export const WORDS = [
     "exampleVi": "Họ dự định đi du lịch vòng quanh thế giới trong những năm tháng nghỉ hưu an nhàn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/retirement.webp",
+    "img": "assets/images/words/r/retirement.webp",
     "topicIds": [
       "people-relationships-chặng-11"
     ],
@@ -6860,7 +6859,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã cống hiến tuổi thanh xuân nhiệt huyết của mình cho các hoạt động bảo vệ môi trường.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/youth.webp",
+    "img": "assets/images/words/y/youth.webp",
     "topicIds": [
       "people-relationships-chặng-12"
     ],
@@ -6876,7 +6875,7 @@ export const WORDS = [
     "exampleVi": "Tốt nghiệp trường y là một cột mốc cuộc đời vĩ đại đối với anh ấy.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/milestone.webp",
+    "img": "assets/images/words/m/milestone.webp",
     "topicIds": [
       "people-relationships-chặng-12"
     ],
@@ -6892,7 +6891,7 @@ export const WORDS = [
     "exampleVi": "Trung tâm cộng đồng cung cấp các chương trình xã hội miễn phí cho cư dân cao tuổi.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/elderly.webp",
+    "img": "assets/images/words/e/elderly.webp",
     "topicIds": [
       "people-relationships-chặng-12"
     ],
@@ -6908,7 +6907,7 @@ export const WORDS = [
     "exampleVi": "Cụ bà trăm tuổi cho rằng tuổi thọ của mình là nhờ đi bộ hằng ngày và chế độ ăn thuần thực vật.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/centenarian.webp",
+    "img": "assets/images/words/c/centenarian.webp",
     "topicIds": [
       "people-relationships-chặng-12"
     ],
@@ -6924,7 +6923,7 @@ export const WORDS = [
     "exampleVi": "Những vùng có chế độ ăn Địa Trung Hải cân bằng thường có tuổi thọ con người cao.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/longevity.webp",
+    "img": "assets/images/words/l/longevity.webp",
     "topicIds": [
       "people-relationships-chặng-12"
     ],
@@ -6940,7 +6939,7 @@ export const WORDS = [
     "exampleVi": "Trong nhiều nền văn hóa, học lái xe được xem như một nghi thức trưởng thành.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/rite-of-passage.webp",
+    "img": "assets/images/words/r/rite-of-passage.webp",
     "topicIds": [
       "people-relationships-chặng-12"
     ],
@@ -6956,7 +6955,7 @@ export const WORDS = [
     "exampleVi": "Người giáo viên tận tụy đã để lại một di sản trường tồn về lòng tốt trong trái tim học trò.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/legacy.webp",
+    "img": "assets/images/words/l/legacy.webp",
     "topicIds": [
       "people-relationships-chặng-12"
     ],
@@ -6972,7 +6971,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã quyết định chuyển nghề ở tuổi trung niên và theo đuổi con đường làm phim tài liệu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/midlife.webp",
+    "img": "assets/images/words/m/midlife.webp",
     "topicIds": [
       "people-relationships-chặng-12"
     ],
@@ -6988,7 +6987,7 @@ export const WORDS = [
     "exampleVi": "Cặp vợ chồng đã kỷ niệm bốn thập kỷ hôn nhân hạnh phúc bằng một lễ kỷ niệm đám cưới vàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/decade.webp",
+    "img": "assets/images/words/d/decade.webp",
     "topicIds": [
       "people-relationships-chặng-12"
     ],
@@ -7004,7 +7003,7 @@ export const WORDS = [
     "exampleVi": "Người cao tuổi được hưởng các mức giảm giá trên hệ thống giao thông công cộng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/senior-citizen.webp",
+    "img": "assets/images/words/s/senior-citizen.webp",
     "topicIds": [
       "people-relationships-chặng-12"
     ],
@@ -7020,7 +7019,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã hợp tác cùng các đồng nghiệp để soạn thảo báo cáo nghiên cứu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/colleague.webp",
+    "img": "assets/images/words/c/colleague.webp",
     "topicIds": [
       "people-relationships-chặng-13"
     ],
@@ -7036,7 +7035,7 @@ export const WORDS = [
     "exampleVi": "Một người cố vấn giỏi sẽ dẫn dắt các nhân sự trẻ vượt qua những thách thức trong sự nghiệp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mentor.webp",
+    "img": "assets/images/words/m/mentor.webp",
     "topicIds": [
       "people-relationships-chặng-13"
     ],
@@ -7052,7 +7051,7 @@ export const WORDS = [
     "exampleVi": "Họa sĩ danh tiếng đã dìu dắt người họa sĩ trẻ như một học trò cưng của mình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/protege.webp",
+    "img": "assets/images/words/p/protege.webp",
     "topicIds": [
       "people-relationships-chặng-13"
     ],
@@ -7068,7 +7067,7 @@ export const WORDS = [
     "exampleVi": "Hãy luôn gửi thư từ trang trọng tới cấp trên trực tiếp của bạn một cách chuyên nghiệp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/superior.webp",
+    "img": "assets/images/words/s/superior.webp",
     "topicIds": [
       "people-relationships-chặng-13"
     ],
@@ -7084,7 +7083,7 @@ export const WORDS = [
     "exampleVi": "Những nhà quản lý biết thấu hiểu luôn đối xử với cấp dưới bằng sự tôn trọng và đàng hoàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/subordinate.webp",
+    "img": "assets/images/words/s/subordinate.webp",
     "topicIds": [
       "people-relationships-chặng-13"
     ],
@@ -7100,7 +7099,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã gặp cộng sự kinh doanh của mình để ăn trưa và thảo luận về liên doanh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/associate.webp",
+    "img": "assets/images/words/a/associate.webp",
     "topicIds": [
       "people-relationships-chặng-13"
     ],
@@ -7116,7 +7115,7 @@ export const WORDS = [
     "exampleVi": "Tham dự các hội nghị thương mại là điều cần thiết để mở rộng mạng lưới quan hệ chuyên môn của bạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/network.webp",
+    "img": "assets/images/words/n/network.webp",
     "topicIds": [
       "people-relationships-chặng-13"
     ],
@@ -7132,7 +7131,7 @@ export const WORDS = [
     "exampleVi": "Bộ trưởng ngoại giao đã hội đàm với người đồng cấp Đức tại Berlin.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/counterpart.webp",
+    "img": "assets/images/words/c/counterpart.webp",
     "topicIds": [
       "people-relationships-chặng-13"
     ],
@@ -7148,7 +7147,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đóng vai trò là cầu nối liên lạc then chốt giữa đội ngũ kỹ thuật và ban lãnh đạo điều hành.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/liaison.webp",
+    "img": "assets/images/words/l/liaison.webp",
     "topicIds": [
       "people-relationships-chặng-13"
     ],
@@ -7164,7 +7163,7 @@ export const WORDS = [
     "exampleVi": "Các công ty công nghệ khởi nghiệp hiện đại thường áp dụng cấu trúc phẳng với hệ thống cấp bậc tối giản.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/hierarchy.webp",
+    "img": "assets/images/words/h/hierarchy.webp",
     "topicIds": [
       "people-relationships-chặng-13"
     ],
@@ -7180,7 +7179,7 @@ export const WORDS = [
     "exampleVi": "Đoàn đại biểu thương mại quốc tế đã tham quan các nhà máy sản xuất hiện đại ở Đà Nẵng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/delegation.webp",
+    "img": "assets/images/words/d/delegation.webp",
     "topicIds": [
       "people-relationships-chặng-14"
     ],
@@ -7196,7 +7195,7 @@ export const WORDS = [
     "exampleVi": "Ban quản lý phải cân bằng các nhu cầu khác nhau của các bên liên quan trong doanh nghiệp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/stakeholder.webp",
+    "img": "assets/images/words/s/stakeholder.webp",
     "topicIds": [
       "people-relationships-chặng-14"
     ],
@@ -7212,7 +7211,7 @@ export const WORDS = [
     "exampleVi": "Cô giáo đã nhanh chóng thiết lập được mối quan hệ hòa hợp tuyệt vời với các học sinh mới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/rapport.webp",
+    "img": "assets/images/words/r/rapport.webp",
     "topicIds": [
       "people-relationships-chặng-14"
     ],
@@ -7228,7 +7227,7 @@ export const WORDS = [
     "exampleVi": "Trường đại học duy trì mối liên kết học thuật chính thức với các viện nghiên cứu trên toàn thế giới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/affiliation.webp",
+    "img": "assets/images/words/a/affiliation.webp",
     "topicIds": [
       "people-relationships-chặng-14"
     ],
@@ -7244,7 +7243,7 @@ export const WORDS = [
     "exampleVi": "Vị giám đốc mới đã tiếp nối các sáng kiến cộng đồng thành công được khởi xướng bởi người tiền nhiệm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/predecessor.webp",
+    "img": "assets/images/words/p/predecessor.webp",
     "topicIds": [
       "people-relationships-chặng-14"
     ],
@@ -7260,7 +7259,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy bày tỏ lòng biết ơn chân thành tới tất cả những người đã hỗ trợ cô trong suốt quá trình hồi phục.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/gratitude.webp",
+    "img": "assets/images/words/g/gratitude.webp",
     "topicIds": [
       "people-relationships-chặng-14"
     ],
@@ -7276,7 +7275,7 @@ export const WORDS = [
     "exampleVi": "Thực hành sự đồng cảm giúp giải quyết các hiểu lầm giữa các cá nhân một cách hòa bình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/empathy.webp",
+    "img": "assets/images/words/e/empathy.webp",
     "topicIds": [
       "people-relationships-chặng-14"
     ],
@@ -7292,7 +7291,7 @@ export const WORDS = [
     "exampleVi": "Sự ghen tuông có thể làm tổn hại niềm tin và gây ra rạn nứt trong các mối quan hệ tình cảm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/jealousy.webp",
+    "img": "assets/images/words/j/jealousy.webp",
     "topicIds": [
       "people-relationships-chặng-14"
     ],
@@ -7308,7 +7307,7 @@ export const WORDS = [
     "exampleVi": "Sự tận tụy suốt đời của cô cho nền giáo dục công lập đã truyền cảm hứng cho nhiều thế hệ người học trẻ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/devotion.webp",
+    "img": "assets/images/words/d/devotion.webp",
     "topicIds": [
       "people-relationships-chặng-14"
     ],
@@ -7324,7 +7323,7 @@ export const WORDS = [
     "exampleVi": "Những lá thư chia buồn sâu sắc đã được gửi tới tấp từ các đồng nghiệp trên khắp cả nước.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/sympathy.webp",
+    "img": "assets/images/words/s/sympathy.webp",
     "topicIds": [
       "people-relationships-chặng-14"
     ],
@@ -7340,7 +7339,7 @@ export const WORDS = [
     "exampleVi": "Những bức xúc không được giải quyết tại nơi làm việc có thể tích tụ thành sự oán giận sâu sắc theo thời gian.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/resentment.webp",
+    "img": "assets/images/words/r/resentment.webp",
     "topicIds": [
       "people-relationships-chặng-15"
     ],
@@ -7356,7 +7355,7 @@ export const WORDS = [
     "exampleVi": "Các vận động viên trẻ nhìn lên các nhà vô địch thế giới với sự ngưỡng mộ chân thành.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/admiration.webp",
+    "img": "assets/images/words/a/admiration.webp",
     "topicIds": [
       "people-relationships-chặng-15"
     ],
@@ -7372,7 +7371,7 @@ export const WORDS = [
     "exampleVi": "Các tình nguyện viên đã thể hiện lòng trắc ẩn vô bờ khi phục vụ các bữa ăn tại trại cứu trợ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/compassion.webp",
+    "img": "assets/images/words/c/compassion.webp",
     "topicIds": [
       "people-relationships-chặng-15"
     ],
@@ -7388,7 +7387,7 @@ export const WORDS = [
     "exampleVi": "Nhiều năm gia đình xa cách cuối cùng đã khép lại bằng một buổi đoàn tụ ngày lễ đầy xúc động.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/estrangement.webp",
+    "img": "assets/images/words/e/estrangement.webp",
     "topicIds": [
       "people-relationships-chặng-15"
     ],
@@ -7404,7 +7403,7 @@ export const WORDS = [
     "exampleVi": "Giao tiếp cảm xúc cởi mở giúp nuôi dưỡng sự thân mật thực sự giữa hai người.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/intimacy.webp",
+    "img": "assets/images/words/i/intimacy.webp",
     "topicIds": [
       "people-relationships-chặng-15"
     ],
@@ -7420,7 +7419,7 @@ export const WORDS = [
     "exampleVi": "Các nhà ngoại giao đã thúc đẩy các cuộc đàm phán hòa bình nhằm đạt được sự hòa giải dân tộc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/reconciliation-noun.webp",
+    "img": "assets/images/words/r/reconciliation-noun.webp",
     "topicIds": [
       "people-relationships-chặng-15"
     ],
@@ -7436,7 +7435,7 @@ export const WORDS = [
     "exampleVi": "Tập trung vào sự tiến bộ của bản thân giúp ngăn ngừa cảm giác đố kỵ với người khác.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/envy.webp",
+    "img": "assets/images/words/e/envy.webp",
     "topicIds": [
       "people-relationships-chặng-15"
     ],
@@ -7452,7 +7451,7 @@ export const WORDS = [
     "exampleVi": "Niềm tin lẫn nhau là trụ cột nền tảng của bất kỳ mối quan hệ bền vững và lành mạnh nào.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/trust.webp",
+    "img": "assets/images/words/t/trust.webp",
     "topicIds": [
       "people-relationships-chặng-15"
     ],
@@ -7468,7 +7467,7 @@ export const WORDS = [
     "exampleVi": "Các trường học phải xây dựng một văn hóa chào đón nơi mọi học sinh đều cảm thấy mình thuộc về tập thể.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/belonging.webp",
+    "img": "assets/images/words/b/belonging.webp",
     "topicIds": [
       "people-relationships-chặng-15"
     ],
@@ -7484,7 +7483,7 @@ export const WORDS = [
     "exampleVi": "Họ ngồi bên lò sưởi và trò chuyện thân mật về văn học.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/converse.webp",
+    "img": "assets/images/words/c/converse.webp",
     "topicIds": [
       "communication-feelings-chặng-1",
       "top-1000-core-chặng-18"
@@ -7501,7 +7500,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi trò chuyện phiếm thân mật trong khi chờ hội thảo bắt đầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/chit-chat.webp",
+    "img": "assets/images/words/c/chit-chat.webp",
     "topicIds": [
       "communication-feelings-chặng-1"
     ],
@@ -7517,7 +7516,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy ghé sát lại để thì thầm một bí mật vào tai bạn mình.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/whisper.webp",
+    "img": "assets/images/words/w/whisper.webp",
     "topicIds": [
       "communication-feelings-chặng-1",
       "top-1000-core-chặng-18"
@@ -7534,7 +7533,7 @@ export const WORDS = [
     "exampleVi": "Hãy tránh lan truyền những chuyện ngồi lê đôi mách chưa được xác thực trong văn phòng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/gossip.webp",
+    "img": "assets/images/words/g/gossip.webp",
     "topicIds": [
       "communication-feelings-chặng-1"
     ],
@@ -7550,7 +7549,7 @@ export const WORDS = [
     "exampleVi": "Cuộc đối thoại mang tính xây dựng giữa ban lãnh đạo và công đoàn đã giải quyết được tranh chấp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/dialogue.webp",
+    "img": "assets/images/words/d/dialogue.webp",
     "topicIds": [
       "communication-feelings-chặng-1"
     ],
@@ -7566,7 +7565,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy lắng nghe trong sự im lặng tuyệt đối mà không thốt ra một lời nào.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/utter.webp",
+    "img": "assets/images/words/u/utter.webp",
     "topicIds": [
       "communication-feelings-chặng-1",
       "top-1000-core-chặng-19"
@@ -7583,7 +7582,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã đưa ra lời bảo vệ lưu loát và đầy thuyết phục cho đề xuất nghiên cứu của mình.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/articulate-adjective.webp",
+    "img": "assets/images/words/a/articulate-adjective.webp",
     "topicIds": [
       "communication-feelings-chặng-1",
       "top-1000-core-chặng-35"
@@ -7600,7 +7599,7 @@ export const WORDS = [
     "exampleVi": "Hãy nói rõ ràng vào micro thay vì nói lầm bầm trong miệng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/mumble.webp",
+    "img": "assets/images/words/m/mumble.webp",
     "topicIds": [
       "communication-feelings-chặng-1",
       "top-1000-core-chặng-19"
@@ -7617,7 +7616,7 @@ export const WORDS = [
     "exampleVi": "Vị giám đốc đã kết thúc buổi họp bằng một vài lời phát biểu ngắn gọn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/remark.webp",
+    "img": "assets/images/words/r/remark.webp",
     "topicIds": [
       "communication-feelings-chặng-1"
     ],
@@ -7633,7 +7632,7 @@ export const WORDS = [
     "exampleVi": "Quán cà phê ngập tràn tiếng nói chuyện rôm rả, sống động của những vị khách buổi sáng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/chatter.webp",
+    "img": "assets/images/words/c/chatter.webp",
     "topicIds": [
       "communication-feelings-chặng-1"
     ],
@@ -7649,7 +7648,7 @@ export const WORDS = [
     "exampleVi": "Những lời đối đáp bông đùa vui vẻ giữa hai người dẫn chương trình đã khiến khán giả thích thú.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/banter.webp",
+    "img": "assets/images/words/b/banter.webp",
     "topicIds": [
       "communication-feelings-chặng-2"
     ],
@@ -7665,7 +7664,7 @@ export const WORDS = [
     "exampleVi": "Thị trưởng đã tuyên bố thứ Sáu tuần tới là ngày tình nguyện toàn thành phố.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/proclaim.webp",
+    "img": "assets/images/words/p/proclaim.webp",
     "topicIds": [
       "communication-feelings-chặng-2",
       "top-1000-core-chặng-19"
@@ -7682,7 +7681,7 @@ export const WORDS = [
     "exampleVi": "'Cảnh tượng thật ngoạn mục!' cô ấy thốt lên khi chúng tôi lên đến đỉnh núi.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/exclaim.webp",
+    "img": "assets/images/words/e/exclaim.webp",
     "topicIds": [
       "communication-feelings-chặng-2",
       "top-1000-core-chặng-19"
@@ -7699,7 +7698,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã tuyên bố ý định tranh cử vị trí đại diện lớp.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/declare.webp",
+    "img": "assets/images/words/d/declare.webp",
     "topicIds": [
       "communication-feelings-chặng-2",
       "top-1000-core-chặng-19"
@@ -7716,7 +7715,7 @@ export const WORDS = [
     "exampleVi": "Nam diễn viên đã thể hiện một đoạn độc thoại kịch tính đầy nội lực ở cuối màn hai.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/monologue.webp",
+    "img": "assets/images/words/m/monologue.webp",
     "topicIds": [
       "communication-feelings-chặng-2"
     ],
@@ -7732,7 +7731,7 @@ export const WORDS = [
     "exampleVi": "Trường đại học đã tổ chức một cuộc tranh luận sôi nổi về cải cách kinh tế.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/debate.webp",
+    "img": "assets/images/words/d/debate.webp",
     "topicIds": [
       "communication-feelings-chặng-2"
     ],
@@ -7748,7 +7747,7 @@ export const WORDS = [
     "exampleVi": "Hội đồng hòa giải đã giải quyết xong vụ tranh chấp ranh giới giữa những người hàng xóm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/dispute.webp",
+    "img": "assets/images/words/d/dispute.webp",
     "topicIds": [
       "communication-feelings-chặng-2"
     ],
@@ -7764,7 +7763,7 @@ export const WORDS = [
     "exampleVi": "Bản thiết kế tòa nhà được đề xuất đã gây ra sự tranh cãi rộng rãi trong cộng đồng kiến trúc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/controversy.webp",
+    "img": "assets/images/words/c/controversy.webp",
     "topicIds": [
       "communication-feelings-chặng-2"
     ],
@@ -7780,7 +7779,7 @@ export const WORDS = [
     "exampleVi": "Sau nhiều giờ thảo luận, ủy ban cuối cùng đã đạt được sự đồng thuận rộng rãi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/consensus.webp",
+    "img": "assets/images/words/c/consensus.webp",
     "topicIds": [
       "communication-feelings-chặng-2"
     ],
@@ -7796,7 +7795,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã thuyết phục các đồng nghiệp ủng hộ sáng kiến thân thiện với môi trường mới.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/persuade.webp",
+    "img": "assets/images/words/p/persuade.webp",
     "topicIds": [
       "communication-feelings-chặng-2",
       "top-1000-core-chặng-19"
@@ -7813,7 +7812,7 @@ export const WORDS = [
     "exampleVi": "Bằng chứng khoa học thuyết phục của anh ấy đã làm cho hội đồng chuyên gia hoàn toàn tin tưởng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/convince.webp",
+    "img": "assets/images/words/c/convince.webp",
     "topicIds": [
       "communication-feelings-chặng-3",
       "top-1000-core-chặng-19"
@@ -7830,7 +7829,7 @@ export const WORDS = [
     "exampleVi": "Các chuyên gia y tế đồng tình rằng tập thể dục hằng ngày giúp giảm nguy cơ mắc bệnh tim mạch.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/concur.webp",
+    "img": "assets/images/words/c/concur.webp",
     "topicIds": [
       "communication-feelings-chặng-3",
       "top-1000-core-chặng-19"
@@ -7847,7 +7846,7 @@ export const WORDS = [
     "exampleVi": "Lời khai của nhân chứng đã trực tiếp mâu thuẫn với lời khai ban đầu của nghi phạm.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/contradict.webp",
+    "img": "assets/images/words/c/contradict.webp",
     "topicIds": [
       "communication-feelings-chặng-3",
       "top-1000-core-chặng-19"
@@ -7864,7 +7863,7 @@ export const WORDS = [
     "exampleVi": "Cả hai bên đã phải đưa ra những thỏa hiệp khó khăn để hoàn tất hiệp ước.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/compromise.webp",
+    "img": "assets/images/words/c/compromise.webp",
     "topicIds": [
       "communication-feelings-chặng-3"
     ],
@@ -7880,7 +7879,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã trình bày một lập luận chặt chẽ được củng cố bởi dữ liệu thị trường đáng tin cậy.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/argument.webp",
+    "img": "assets/images/words/a/argument.webp",
     "topicIds": [
       "communication-feelings-chặng-3"
     ],
@@ -7896,7 +7895,7 @@ export const WORDS = [
     "exampleVi": "Sau những cuộc thảo luận cân nhắc kỹ lưỡng kéo dài, bồi thẩm đoàn đã đưa ra phán quyết nhất trí.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/deliberation.webp",
+    "img": "assets/images/words/d/deliberation.webp",
     "topicIds": [
       "communication-feelings-chặng-3"
     ],
@@ -7912,7 +7911,7 @@ export const WORDS = [
     "exampleVi": "Nhà khoa học đã tiến hành các thí nghiệm để bác bỏ lý thuyết sinh học lỗi thời.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/refute.webp",
+    "img": "assets/images/words/r/refute.webp",
     "topicIds": [
       "communication-feelings-chặng-3",
       "top-1000-core-chặng-19"
@@ -7929,7 +7928,7 @@ export const WORDS = [
     "exampleVi": "Một nhà ngoại giao giàu kinh nghiệm đã được chỉ định để hòa giải các cuộc đàm phán biên giới.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/mediate.webp",
+    "img": "assets/images/words/m/mediate.webp",
     "topicIds": [
       "communication-feelings-chặng-3",
       "top-1000-core-chặng-20"
@@ -7946,7 +7945,7 @@ export const WORDS = [
     "exampleVi": "Từ lập trường môi trường, năng lượng mặt trời tái tạo vượt trội hơn rất nhiều.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/standpoint.webp",
+    "img": "assets/images/words/s/standpoint.webp",
     "topicIds": [
       "communication-feelings-chặng-3"
     ],
@@ -7962,7 +7961,7 @@ export const WORDS = [
     "exampleVi": "Ban quản lý đã đưa ra các nhượng bộ về tiền lương để ngăn chặn cuộc đình công có nguy cơ xảy ra.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/concession.webp",
+    "img": "assets/images/words/c/concession.webp",
     "topicIds": [
       "communication-feelings-chặng-3"
     ],
@@ -7978,7 +7977,7 @@ export const WORDS = [
     "exampleVi": "Bạn có thể giải thích chi tiết hơn về giai đoạn hai của chiến lược tiếp thị không?",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/elaborate.webp",
+    "img": "assets/images/words/e/elaborate.webp",
     "topicIds": [
       "communication-feelings-chặng-4",
       "top-1000-core-chặng-20"
@@ -7995,7 +7994,7 @@ export const WORDS = [
     "exampleVi": "Bản tóm tắt điều hành đã tóm lược gọn gàng các phát hiện chính của cuộc kiểm toán.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/summarize.webp",
+    "img": "assets/images/words/s/summarize.webp",
     "topicIds": [
       "communication-feelings-chặng-4",
       "top-1000-core-chặng-20"
@@ -8012,7 +8011,7 @@ export const WORDS = [
     "exampleVi": "Người thuyết trình đã dùng biểu đồ đồ họa thông tin để minh họa sự tăng trưởng người dùng nhanh chóng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/illustrate.webp",
+    "img": "assets/images/words/i/illustrate.webp",
     "topicIds": [
       "communication-feelings-chặng-4",
       "top-1000-core-chặng-20"
@@ -8029,7 +8028,7 @@ export const WORDS = [
     "exampleVi": "Giáo sư đã nhấn mạnh tầm quan trọng của việc kiểm chứng các nguồn khoa học.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/emphasize.webp",
+    "img": "assets/images/words/e/emphasize.webp",
     "topicIds": [
       "communication-feelings-chặng-4",
       "top-1000-core-chặng-20"
@@ -8046,7 +8045,7 @@ export const WORDS = [
     "exampleVi": "Học sinh được yêu cầu diễn giải lại bài thơ phức tạp bằng văn xuôi hiện đại.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/paraphrase.webp",
+    "img": "assets/images/words/p/paraphrase.webp",
     "topicIds": [
       "communication-feelings-chặng-4",
       "top-1000-core-chặng-20"
@@ -8063,7 +8062,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã có thể diễn đạt những ý tưởng mang tầm nhìn của mình với niềm đam mê to lớn.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/articulate-verb.webp",
+    "img": "assets/images/words/a/articulate-verb.webp",
     "topicIds": [
       "communication-feelings-chặng-4",
       "top-1000-core-chặng-20"
@@ -8080,7 +8079,7 @@ export const WORDS = [
     "exampleVi": "Bộ phim tài liệu đã truyền tải thông điệp khẩn cấp về hành động vì khí hậu toàn cầu.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/convey.webp",
+    "img": "assets/images/words/c/convey.webp",
     "topicIds": [
       "communication-feelings-chặng-4",
       "top-1000-core-chặng-20"
@@ -8097,7 +8096,7 @@ export const WORDS = [
     "exampleVi": "Kỹ sư đã thị phạm cách cảm biến năng lượng mặt trời hoạt động trong điều kiện ánh sáng yếu.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/demonstrate.webp",
+    "img": "assets/images/words/d/demonstrate.webp",
     "topicIds": [
       "communication-feelings-chặng-4",
       "top-1000-core-chặng-20"
@@ -8114,7 +8113,7 @@ export const WORDS = [
     "exampleVi": "Tài hùng biện bẩm sinh của ông đã cuốn hút đông đảo khán giả tại hội trường lịch sử.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/eloquence.webp",
+    "img": "assets/images/words/e/eloquence.webp",
     "topicIds": [
       "communication-feelings-chặng-4"
     ],
@@ -8130,7 +8129,7 @@ export const WORDS = [
     "exampleVi": "Hãy giữ cho bản cập nhật tiến độ dự án ngắn gọn và tập trung vào các sản phẩm bàn giao chính.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/succinct.webp",
+    "img": "assets/images/words/s/succinct.webp",
     "topicIds": [
       "communication-feelings-chặng-4",
       "top-1000-core-chặng-35"
@@ -8147,7 +8146,7 @@ export const WORDS = [
     "exampleVi": "Bài luận của cô ấy đã trình bày một lập luận mạch lạc, rất dễ theo dõi.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/coherent.webp",
+    "img": "assets/images/words/c/coherent.webp",
     "topicIds": [
       "communication-feelings-chặng-5",
       "top-1000-core-chặng-35"
@@ -8164,7 +8163,7 @@ export const WORDS = [
     "exampleVi": "Nhà văn đã dùng hình ảnh ẩn dụ con tàu vượt qua giông bão để mô tả những chông gai của cuộc sống.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/metaphor.webp",
+    "img": "assets/images/words/m/metaphor.webp",
     "topicIds": [
       "communication-feelings-chặng-5"
     ],
@@ -8180,7 +8179,7 @@ export const WORDS = [
     "exampleVi": "Giáo viên sinh học đã đưa ra phép so sánh tương tự giữa trái tim con người và một chiếc máy bơm cơ học.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/analogy.webp",
+    "img": "assets/images/words/a/analogy.webp",
     "topicIds": [
       "communication-feelings-chặng-5"
     ],
@@ -8196,7 +8195,7 @@ export const WORDS = [
     "exampleVi": "Các cử tri nhìn xa hơn những lời tu từ chính trị để đánh giá các kết quả chính sách cụ thể.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/rhetoric.webp",
+    "img": "assets/images/words/r/rhetoric.webp",
     "topicIds": [
       "communication-feelings-chặng-5"
     ],
@@ -8212,7 +8211,7 @@ export const WORDS = [
     "exampleVi": "Hãy duy trì một giọng điệu tôn trọng và mang tính xây dựng trong suốt các cuộc thảo luận nhóm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tone.webp",
+    "img": "assets/images/words/t/tone.webp",
     "topicIds": [
       "communication-feelings-chặng-5"
     ],
@@ -8228,7 +8227,7 @@ export const WORDS = [
     "exampleVi": "Phải mất thời gian để lĩnh hội trọn vẹn những sắc thái phức tạp của ngoại ngữ.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/comprehend.webp",
+    "img": "assets/images/words/c/comprehend.webp",
     "topicIds": [
       "communication-feelings-chặng-5",
       "top-1000-core-chặng-20"
@@ -8245,7 +8244,7 @@ export const WORDS = [
     "exampleVi": "Bạn diễn giải các xu hướng thống kê mới nhất về hành vi người tiêu dùng như thế nào?",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/interpret.webp",
+    "img": "assets/images/words/i/interpret.webp",
     "topicIds": [
       "communication-feelings-chặng-5",
       "top-1000-core-chặng-21"
@@ -8262,7 +8261,7 @@ export const WORDS = [
     "exampleVi": "Sự khác biệt văn hóa có thể dễ dàng khiến các đồng nghiệp hiểu lầm những tín hiệu phi ngôn ngữ.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/misunderstand.webp",
+    "img": "assets/images/words/m/misunderstand.webp",
     "topicIds": [
       "communication-feelings-chặng-5",
       "top-1000-core-chặng-21"
@@ -8279,7 +8278,7 @@ export const WORDS = [
     "exampleVi": "Những sinh viên chăm chú đã ghi chép chi tiết trong suốt bài giảng của khách mời.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/attentive.webp",
+    "img": "assets/images/words/a/attentive.webp",
     "topicIds": [
       "communication-feelings-chặng-5",
       "top-1000-core-chặng-36"
@@ -8296,7 +8295,7 @@ export const WORDS = [
     "exampleVi": "Khách hàng nhận thức thương hiệu hữu cơ này là cao cấp và đáng tin cậy.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/perceive.webp",
+    "img": "assets/images/words/p/perceive.webp",
     "topicIds": [
       "communication-feelings-chặng-5",
       "top-1000-core-chặng-21"
@@ -8313,7 +8312,7 @@ export const WORDS = [
     "exampleVi": "Chuyên gia kỳ cựu trong ngành đã mang lại những cái nhìn sâu sắc có giá trị về động lực thị trường.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/insight.webp",
+    "img": "assets/images/words/i/insight.webp",
     "topicIds": [
       "communication-feelings-chặng-6"
     ],
@@ -8329,7 +8328,7 @@ export const WORDS = [
     "exampleVi": "Giám đốc sáng tạo rất cởi mở tiếp thu phản hồi từ các nhà thiết kế trẻ.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/receptive.webp",
+    "img": "assets/images/words/r/receptive.webp",
     "topicIds": [
       "communication-feelings-chặng-6",
       "top-1000-core-chặng-36"
@@ -8346,7 +8345,7 @@ export const WORDS = [
     "exampleVi": "Điều quan trọng là phải ghi nhận sự chăm chỉ và đóng góp của các thành viên trong nhóm.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/acknowledge.webp",
+    "img": "assets/images/words/a/acknowledge.webp",
     "topicIds": [
       "communication-feelings-chặng-6",
       "top-1000-core-chặng-21"
@@ -8363,7 +8362,7 @@ export const WORDS = [
     "exampleVi": "Phản hồi mang tính xây dựng giúp nhân viên hoàn thiện kỹ năng thuyết trình của mình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/feedback.webp",
+    "img": "assets/images/words/f/feedback.webp",
     "topicIds": [
       "communication-feelings-chặng-6"
     ],
@@ -8379,7 +8378,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng yêu cầu giải thích làm rõ nếu có bất kỳ phần nào trong bản tóm tắt dự án chưa rõ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/clarification.webp",
+    "img": "assets/images/words/c/clarification.webp",
     "topicIds": [
       "communication-feelings-chặng-6"
     ],
@@ -8395,7 +8394,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã nhanh chóng nắm bắt được các nguyên lý cơ bản của mạng nơ-ron nhân tạo.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/grasp.webp",
+    "img": "assets/images/words/g/grasp.webp",
     "topicIds": [
       "communication-feelings-chặng-6",
       "top-1000-core-chặng-21"
@@ -8412,7 +8411,7 @@ export const WORDS = [
     "exampleVi": "Những nhà lãnh đạo phải luôn lắng nghe và đồng điệu với nhu cầu luôn biến đổi của lực lượng lao động.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/attune.webp",
+    "img": "assets/images/words/a/attune.webp",
     "topicIds": [
       "communication-feelings-chặng-6",
       "top-1000-core-chặng-21"
@@ -8429,7 +8428,7 @@ export const WORDS = [
     "exampleVi": "Các nhà sử học đã làm việc không mệt mỏi để giải mã những hình khắc bằng đá cổ đại.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/decipher.webp",
+    "img": "assets/images/words/d/decipher.webp",
     "topicIds": [
       "communication-feelings-chặng-6",
       "top-1000-core-chặng-21"
@@ -8446,7 +8445,7 @@ export const WORDS = [
     "exampleVi": "Hãy lưu tâm đến thời gian của người khác bằng cách giữ cho các cuộc họp cập nhật tiến độ đúng giờ.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/mindful.webp",
+    "img": "assets/images/words/m/mindful.webp",
     "topicIds": [
       "communication-feelings-chặng-6",
       "top-1000-core-chặng-36"
@@ -8463,7 +8462,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi vô cùng vui sướng khi nhận được giải thưởng quốc tế danh giá.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/delighted.webp",
+    "img": "assets/images/words/d/delighted.webp",
     "topicIds": [
       "communication-feelings-chặng-6",
       "top-1000-core-chặng-36"
@@ -8480,7 +8479,7 @@ export const WORDS = [
     "exampleVi": "Các cổ động viên bóng đá đã vui mừng ngây ngất khi đội của họ ghi bàn thắng quyết định trong hiệp phụ.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/ecstatic.webp",
+    "img": "assets/images/words/e/ecstatic.webp",
     "topicIds": [
       "communication-feelings-chặng-7",
       "top-1000-core-chặng-36"
@@ -8497,7 +8496,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy cảm thấy hân hoan tột cùng khi nhận được tấm bằng tốt nghiệp đại học.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/elated.webp",
+    "img": "assets/images/words/e/elated.webp",
     "topicIds": [
       "communication-feelings-chặng-7",
       "top-1000-core-chặng-36"
@@ -8514,7 +8513,7 @@ export const WORDS = [
     "exampleVi": "Họ đã dành một tuần hạnh phúc viên mãn để thư giãn trên khu nghỉ dưỡng đảo nhiệt đới.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/blissful.webp",
+    "img": "assets/images/words/b/blissful.webp",
     "topicIds": [
       "communication-feelings-chặng-7",
       "top-1000-core-chặng-36"
@@ -8531,7 +8530,7 @@ export const WORDS = [
     "exampleVi": "Lời chào buổi sáng tươi vui của anh ấy đã làm bừng sáng cả văn phòng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/cheerful.webp",
+    "img": "assets/images/words/c/cheerful.webp",
     "topicIds": [
       "communication-feelings-chặng-7",
       "top-1000-core-chặng-36"
@@ -8548,7 +8547,7 @@ export const WORDS = [
     "exampleVi": "Sống một cuộc đời giản dị và cân bằng đã mang lại cho ông sự mãn nguyện sâu sắc từ nội tâm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/contentment.webp",
+    "img": "assets/images/words/c/contentment.webp",
     "topicIds": [
       "communication-feelings-chặng-7"
     ],
@@ -8564,7 +8563,7 @@ export const WORDS = [
     "exampleVi": "Nữ vận động viên marathon đã trải qua một làn sóng hưng phấn tột đỉnh khi chạm đích.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/euphoria.webp",
+    "img": "assets/images/words/e/euphoria.webp",
     "topicIds": [
       "communication-feelings-chặng-7"
     ],
@@ -8580,7 +8579,7 @@ export const WORDS = [
     "exampleVi": "Đám đông hoan hỉ đã ăn mừng chức vô địch bóng đá quốc gia trên khắp các đường phố.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/jubilant.webp",
+    "img": "assets/images/words/j/jubilant.webp",
     "topicIds": [
       "communication-feelings-chặng-7",
       "top-1000-core-chặng-36"
@@ -8597,7 +8596,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy cảm thấy phấn khích tột cùng sau khi chơi dù lượn qua các vách đá ven biển.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/exhilarated.webp",
+    "img": "assets/images/words/e/exhilarated.webp",
     "topicIds": [
       "communication-feelings-chặng-7",
       "top-1000-core-chặng-36"
@@ -8614,7 +8613,7 @@ export const WORDS = [
     "exampleVi": "Vị kiến trúc sư rất hài lòng khi thấy bản thiết kế tòa nhà của mình trở thành hiện thực.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/gratified.webp",
+    "img": "assets/images/words/g/gratified.webp",
     "topicIds": [
       "communication-feelings-chặng-7",
       "top-1000-core-chặng-37"
@@ -8631,7 +8630,7 @@ export const WORDS = [
     "exampleVi": "Tinh thần lạc quan về kinh tế đã thúc đẩy các khoản đầu tư vào công nghệ năng lượng sạch.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/optimism.webp",
+    "img": "assets/images/words/o/optimism.webp",
     "topicIds": [
       "communication-feelings-chặng-7"
     ],
@@ -8647,7 +8646,7 @@ export const WORDS = [
     "exampleVi": "Các tình nguyện viên đã mang lại nguồn năng lượng và sự nhiệt huyết to lớn cho chiến dịch trồng cây.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/enthusiasm.webp",
+    "img": "assets/images/words/e/enthusiasm.webp",
     "topicIds": [
       "communication-feelings-chặng-8"
     ],
@@ -8663,7 +8662,7 @@ export const WORDS = [
     "exampleVi": "Tu viện trên núi tĩnh lặng đã mang lại một chốn bình yên và thanh thản tuyệt đối.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/serenity.webp",
+    "img": "assets/images/words/s/serenity.webp",
     "topicIds": [
       "communication-feelings-chặng-8"
     ],
@@ -8679,7 +8678,7 @@ export const WORDS = [
     "exampleVi": "Cả đội đã trở về trong niềm hân hoan chiến thắng sau khi giành chức vô địch giải tranh luận khu vực.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/triumphant.webp",
+    "img": "assets/images/words/t/triumphant.webp",
     "topicIds": [
       "communication-feelings-chặng-8",
       "top-1000-core-chặng-37"
@@ -8696,7 +8695,7 @@ export const WORDS = [
     "exampleVi": "Đừng đầu hàng sự tuyệt vọng khi đối mặt với những chướng ngại vật tạm thời.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/despair.webp",
+    "img": "assets/images/words/d/despair.webp",
     "topicIds": [
       "communication-feelings-chặng-8"
     ],
@@ -8712,7 +8711,7 @@ export const WORDS = [
     "exampleVi": "Mưa mùa thu thường mang lại một cảm giác buồn man mác nhẹ nhàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/melancholy.webp",
+    "img": "assets/images/words/m/melancholy.webp",
     "topicIds": [
       "communication-feelings-chặng-8"
     ],
@@ -8728,7 +8727,7 @@ export const WORDS = [
     "exampleVi": "Người sinh viên mới tốt nghiệp giàu lý tưởng đã vỡ mộng trước những toan tính nơi công sở.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/disillusioned.webp",
+    "img": "assets/images/words/d/disillusioned.webp",
     "topicIds": [
       "communication-feelings-chặng-8",
       "top-1000-core-chặng-37"
@@ -8745,7 +8744,7 @@ export const WORDS = [
     "exampleVi": "Các dịch vụ tư vấn tâm lý đã giúp các gia đình vượt qua nỗi đau buồn mất mát to lớn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/grief.webp",
+    "img": "assets/images/words/g/grief.webp",
     "topicIds": [
       "communication-feelings-chặng-8"
     ],
@@ -8761,7 +8760,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy bày tỏ sự sầu muộn chân thành trước sự ra đi đột ngột của người thầy cố vấn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/sorrow.webp",
+    "img": "assets/images/words/s/sorrow.webp",
     "topicIds": [
       "communication-feelings-chặng-8"
     ],
@@ -8777,7 +8776,7 @@ export const WORDS = [
     "exampleVi": "Các nhà dự báo kinh tế đã vẽ nên một viễn cảnh u ám cho quý tài chính sắp tới.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/gloomy.webp",
+    "img": "assets/images/words/g/gloomy.webp",
     "topicIds": [
       "communication-feelings-chặng-8",
       "top-1000-core-chặng-37"
@@ -8794,7 +8793,7 @@ export const WORDS = [
     "exampleVi": "Cộng đồng đã vô cùng đau lòng trước sự mất mát bi thảm của thư viện lịch sử.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/heartbroken.webp",
+    "img": "assets/images/words/h/heartbroken.webp",
     "topicIds": [
       "communication-feelings-chặng-8",
       "top-1000-core-chặng-37"
@@ -8811,7 +8810,7 @@ export const WORDS = [
     "exampleVi": "Cậu bé trông ủ rũ sau khi làm rơi cây kem ốc quế xuống đất.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/downcast.webp",
+    "img": "assets/images/words/d/downcast.webp",
     "topicIds": [
       "communication-feelings-chặng-9",
       "top-1000-core-chặng-37"
@@ -8828,7 +8827,7 @@ export const WORDS = [
     "exampleVi": "Các nông dân đã hoàn toàn sụp đổ khi cơn bão phá hủy toàn bộ vụ mùa của họ.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/devastated.webp",
+    "img": "assets/images/words/d/devastated.webp",
     "topicIds": [
       "communication-feelings-chặng-9",
       "top-1000-core-chặng-37"
@@ -8845,7 +8844,7 @@ export const WORDS = [
     "exampleVi": "Tắc đường kéo dài đã gây ra sự bực bội ngày càng tăng đối với những người đi làm hằng ngày.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/frustration.webp",
+    "img": "assets/images/words/f/frustration.webp",
     "topicIds": [
       "communication-feelings-chặng-9"
     ],
@@ -8861,7 +8860,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy cảm thấy cay đắng vì bị bỏ qua trong đợt thăng chức cấp cao.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/bitter.webp",
+    "img": "assets/images/words/b/bitter.webp",
     "topicIds": [
       "communication-feelings-chặng-9",
       "top-1000-core-chặng-37"
@@ -8878,7 +8877,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy thở dài cam chịu và chấp nhận các điều khoản hợp đồng bất lợi.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/resigned.webp",
+    "img": "assets/images/words/r/resigned.webp",
     "topicIds": [
       "communication-feelings-chặng-9",
       "top-1000-core-chặng-37"
@@ -8895,7 +8894,7 @@ export const WORDS = [
     "exampleVi": "Đừng nản lòng trước những lời từ chối ban đầu; hãy tiếp tục nộp đơn tìm kiếm cơ hội.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/disheartened.webp",
+    "img": "assets/images/words/d/disheartened.webp",
     "topicIds": [
       "communication-feelings-chặng-9",
       "top-1000-core-chặng-37"
@@ -8912,7 +8911,7 @@ export const WORDS = [
     "exampleVi": "Cả quốc gia đã thương tiếc sự ra đi của vị lãnh đạo nhân đạo đáng kính.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/mourn.webp",
+    "img": "assets/images/words/m/mourn.webp",
     "topicIds": [
       "communication-feelings-chặng-9",
       "top-1000-core-chặng-21"
@@ -8929,7 +8928,7 @@ export const WORDS = [
     "exampleVi": "Tìm kiếm sự trị liệu chuyên môn là điều cốt lõi khi cảm thấy bị trầm cảm kéo dài.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/depressed.webp",
+    "img": "assets/images/words/d/depressed.webp",
     "topicIds": [
       "communication-feelings-chặng-9",
       "top-1000-core-chặng-38"
@@ -8946,7 +8945,7 @@ export const WORDS = [
     "exampleVi": "Thiền và các bài tập thở giúp kiểm soát sự lo âu thi cử một cách hiệu quả.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/anxiety.webp",
+    "img": "assets/images/words/a/anxiety.webp",
     "topicIds": [
       "communication-feelings-chặng-9"
     ],
@@ -8962,7 +8961,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy cảm thấy âu lo, e sợ trước khi bước vào buổi phỏng vấn xin việc quan trọng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/apprehensive.webp",
+    "img": "assets/images/words/a/apprehensive.webp",
     "topicIds": [
       "communication-feelings-chặng-9",
       "top-1000-core-chặng-38"
@@ -8979,7 +8978,7 @@ export const WORDS = [
     "exampleVi": "Chuyển đến một thành phố mới có thể là một trải nghiệm thú vị nhưng cũng đầy căng thẳng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/stressful.webp",
+    "img": "assets/images/words/s/stressful.webp",
     "topicIds": [
       "communication-feelings-chặng-10",
       "top-1000-core-chặng-38"
@@ -8996,7 +8995,7 @@ export const WORDS = [
     "exampleVi": "Vị hành khách tỏ ra bồn chồn thấy rõ khi chuyến bay bị hoãn vô thời hạn.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/agitated.webp",
+    "img": "assets/images/words/a/agitated.webp",
     "topicIds": [
       "communication-feelings-chặng-10",
       "top-1000-core-chặng-38"
@@ -9013,7 +9012,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy cảm thấy một nỗi sợ hãi mỗi khi bước vào phòng khám nha sĩ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/dread.webp",
+    "img": "assets/images/words/d/dread.webp",
     "topicIds": [
       "communication-feelings-chặng-10"
     ],
@@ -9029,7 +9028,7 @@ export const WORDS = [
     "exampleVi": "Đám đông hoảng loạn đã lao về phía các cửa thoát hiểm khẩn cấp có đánh dấu.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/panicked.webp",
+    "img": "assets/images/words/p/panicked.webp",
     "topicIds": [
       "communication-feelings-chặng-10",
       "top-1000-core-chặng-38"
@@ -9046,7 +9045,7 @@ export const WORDS = [
     "exampleVi": "Vị quản lý mới cảm thấy quá tải trước núi email chưa đọc.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/overwhelmed.webp",
+    "img": "assets/images/words/o/overwhelmed.webp",
     "topicIds": [
       "communication-feelings-chặng-10",
       "top-1000-core-chặng-38"
@@ -9063,7 +9062,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy có cảm giác bất an rằng một điều gì đó rất quan trọng đã bị bỏ sót.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/uneasy.webp",
+    "img": "assets/images/words/u/uneasy.webp",
     "topicIds": [
       "communication-feelings-chặng-10",
       "top-1000-core-chặng-38"
@@ -9080,7 +9079,7 @@ export const WORDS = [
     "exampleVi": "Cảm thấy hồi hộp là điều tự nhiên trước khi thực hiện bài phát biểu lớn đầu tiên của bạn.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/nervous.webp",
+    "img": "assets/images/words/n/nervous.webp",
     "topicIds": [
       "communication-feelings-chặng-10",
       "top-1000-core-chặng-38"
@@ -9097,7 +9096,7 @@ export const WORDS = [
     "exampleVi": "Sự hài hước đã giúp giải tỏa bầu không khí căng thẳng rõ rệt trong phòng họp ban giám đốc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tension.webp",
+    "img": "assets/images/words/t/tension.webp",
     "topicIds": [
       "communication-feelings-chặng-10"
     ],
@@ -9113,7 +9112,7 @@ export const WORDS = [
     "exampleVi": "Ứng viên hồi hộp bắt đầu bồn chồn luôn tay luôn chân trong khi chờ đợi ở sảnh.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/fidgety.webp",
+    "img": "assets/images/words/f/fidgety.webp",
     "topicIds": [
       "communication-feelings-chặng-10",
       "top-1000-core-chặng-38"
@@ -9130,7 +9129,7 @@ export const WORDS = [
     "exampleVi": "Làm việc trong ngành y tế cấp cứu đòi hỏi phải luôn giữ bình tĩnh trong các ca trực tất bật.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/hectic.webp",
+    "img": "assets/images/words/h/hectic.webp",
     "topicIds": [
       "communication-feelings-chặng-10",
       "top-1000-core-chặng-38"
@@ -9147,7 +9146,7 @@ export const WORDS = [
     "exampleVi": "Các công ty nên khuyến khích cân bằng giữa công việc và cuộc sống để ngăn ngừa tình trạng kiệt sức của nhân viên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/burnout.webp",
+    "img": "assets/images/words/b/burnout.webp",
     "topicIds": [
       "communication-feelings-chặng-11"
     ],
@@ -9163,7 +9162,7 @@ export const WORDS = [
     "exampleVi": "Uống quá nhiều cà phê espresso vào buổi sáng khiến anh ấy cảm thấy run rẩy và mất tập trung.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/jittery.webp",
+    "img": "assets/images/words/j/jittery.webp",
     "topicIds": [
       "communication-feelings-chặng-11",
       "top-1000-core-chặng-39"
@@ -9180,7 +9179,7 @@ export const WORDS = [
     "exampleVi": "Khán giả đã vô cùng kinh ngạc trước màn ảo thuật bất khả thi của nhà ảo thuật.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/astonished.webp",
+    "img": "assets/images/words/a/astonished.webp",
     "topicIds": [
       "communication-feelings-chặng-11",
       "top-1000-core-chặng-39"
@@ -9197,7 +9196,7 @@ export const WORDS = [
     "exampleVi": "Các nhà khoa học rất tò mò và bị thu hút bởi những tín hiệu núi lửa bất thường dưới đáy biển sâu.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/intrigued.webp",
+    "img": "assets/images/words/i/intrigued.webp",
     "topicIds": [
       "communication-feelings-chặng-11",
       "top-1000-core-chặng-39"
@@ -9214,7 +9213,7 @@ export const WORDS = [
     "exampleVi": "Đầu óc ham học hỏi đã dẫn dắt cô theo học ngành thiên văn học và vật lý lượng tử.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/inquisitive.webp",
+    "img": "assets/images/words/i/inquisitive.webp",
     "topicIds": [
       "communication-feelings-chặng-11",
       "top-1000-core-chặng-39"
@@ -9231,7 +9230,7 @@ export const WORDS = [
     "exampleVi": "Trẻ em bị cuốn hút mê mẩn trước các khu trưng bày khủng long tương tác tại bảo tàng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/fascinated.webp",
+    "img": "assets/images/words/f/fascinated.webp",
     "topicIds": [
       "communication-feelings-chặng-11",
       "top-1000-core-chặng-39"
@@ -9248,7 +9247,7 @@ export const WORDS = [
     "exampleVi": "Các du khách trông hoang mang ngơ ngác trước bản đồ giao thông công cộng phức tạp.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/bewildered.webp",
+    "img": "assets/images/words/b/bewildered.webp",
     "topicIds": [
       "communication-feelings-chặng-11",
       "top-1000-core-chặng-39"
@@ -9265,7 +9264,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã sửng sốt há hốc mồm khi các đồng nghiệp tổ chức cho anh một bữa tiệc bất ngờ.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/flabbergasted.webp",
+    "img": "assets/images/words/f/flabbergasted.webp",
     "topicIds": [
       "communication-feelings-chặng-11",
       "top-1000-core-chặng-39"
@@ -9282,7 +9281,7 @@ export const WORDS = [
     "exampleVi": "Các khám phá khoa học được thúc đẩy bởi sự tò mò và lòng khao khát khám phá không ngừng của con người.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/curiosity.webp",
+    "img": "assets/images/words/c/curiosity.webp",
     "topicIds": [
       "communication-feelings-chặng-11"
     ],
@@ -9298,7 +9297,7 @@ export const WORDS = [
     "exampleVi": "Các khán giả ngồi như bị hớp hồn trước màn trình diễn pháo hoa ngoạn mục trên vịnh.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/mesmerized.webp",
+    "img": "assets/images/words/m/mesmerized.webp",
     "topicIds": [
       "communication-feelings-chặng-11",
       "top-1000-core-chặng-39"
@@ -9315,7 +9314,7 @@ export const WORDS = [
     "exampleVi": "Vị thám tử cảm thấy bối rối khó hiểu trước việc không có bất kỳ dấu chân nào tại hiện trường.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/perplexed.webp",
+    "img": "assets/images/words/p/perplexed.webp",
     "topicIds": [
       "communication-feelings-chặng-12",
       "top-1000-core-chặng-39"
@@ -9332,7 +9331,7 @@ export const WORDS = [
     "exampleVi": "Tiếng sấm sét vang trời đã làm giật mình tất cả những người đang ngồi ngoài sân thượng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/startled.webp",
+    "img": "assets/images/words/s/startled.webp",
     "topicIds": [
       "communication-feelings-chặng-12",
       "top-1000-core-chặng-39"
@@ -9349,7 +9348,7 @@ export const WORDS = [
     "exampleVi": "Đám đông đã chết lặng sững sờ trước chiến thắng đầy kịch tính của đội bóng chiếu dưới.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/stunned.webp",
+    "img": "assets/images/words/s/stunned.webp",
     "topicIds": [
       "communication-feelings-chặng-12",
       "top-1000-core-chặng-40"
@@ -9366,7 +9365,7 @@ export const WORDS = [
     "exampleVi": "Đứa trẻ ngắm nhìn bầu trời đêm đầy sao với sự ngạc nhiên và kỳ diệu thuần khiết.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/wonder.webp",
+    "img": "assets/images/words/w/wonder.webp",
     "topicIds": [
       "communication-feelings-chặng-12"
     ],
@@ -9382,7 +9381,7 @@ export const WORDS = [
     "exampleVi": "Đứng trước kim tự tháp cổ đại đã lấp đầy du khách bằng một sự choáng ngợp và kính cẩn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/awe.webp",
+    "img": "assets/images/words/a/awe.webp",
     "topicIds": [
       "communication-feelings-chặng-12"
     ],
@@ -9398,7 +9397,7 @@ export const WORDS = [
     "exampleVi": "Các kỹ sư hoàn toàn không hiểu nổi lỗi hệ thống chập chờn đi ngược lại mọi logic.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/baffled.webp",
+    "img": "assets/images/words/b/baffled.webp",
     "topicIds": [
       "communication-feelings-chặng-12",
       "top-1000-core-chặng-40"
@@ -9415,7 +9414,7 @@ export const WORDS = [
     "exampleVi": "Các điều tra viên vẫn cảm thấy khó hiểu và bí ẩn trước sự biến mất không lời giải của con tàu chở hàng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/mystified.webp",
+    "img": "assets/images/words/m/mystified.webp",
     "topicIds": [
       "communication-feelings-chặng-12",
       "top-1000-core-chặng-40"
@@ -9432,7 +9431,7 @@ export const WORDS = [
     "exampleVi": "Một thái độ tích cực giúp vượt qua những trở ngại bất ngờ tại nơi làm việc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/attitude.webp",
+    "img": "assets/images/words/a/attitude.webp",
     "topicIds": [
       "communication-feelings-chặng-12"
     ],
@@ -9448,7 +9447,7 @@ export const WORDS = [
     "exampleVi": "Dạy dỗ trẻ nhỏ đòi hỏi sự kiên nhẫn dồi dào và sự chăm sóc đầy tình thương.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/patience.webp",
+    "img": "assets/images/words/p/patience.webp",
     "topicIds": [
       "communication-feelings-chặng-12"
     ],
@@ -9464,7 +9463,7 @@ export const WORDS = [
     "exampleVi": "Các trường học thúc đẩy sự khoan dung văn hóa và tôn trọng các quan điểm đa dạng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tolerance.webp",
+    "img": "assets/images/words/t/tolerance.webp",
     "topicIds": [
       "communication-feelings-chặng-12"
     ],
@@ -9480,7 +9479,7 @@ export const WORDS = [
     "exampleVi": "Sự thờ ơ của công chúng đối với ô nhiễm môi trường là một trở ngại lớn cho cải cách.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/indifference.webp",
+    "img": "assets/images/words/i/indifference.webp",
     "topicIds": [
       "communication-feelings-chặng-13"
     ],
@@ -9496,7 +9495,7 @@ export const WORDS = [
     "exampleVi": "Các nhà khoa học vẫn hoài nghi về những tuyên bố y khoa chưa được kiểm chứng cho đến khi các thử nghiệm kết thúc.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/skeptical.webp",
+    "img": "assets/images/words/s/skeptical.webp",
     "topicIds": [
       "communication-feelings-chặng-13",
       "top-1000-core-chặng-40"
@@ -9513,7 +9512,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy ngần ngại cam kết tham gia dự án nếu không có một thỏa thuận hợp đồng rõ ràng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/reluctant.webp",
+    "img": "assets/images/words/r/reluctant.webp",
     "topicIds": [
       "communication-feelings-chặng-13",
       "top-1000-core-chặng-40"
@@ -9530,7 +9529,7 @@ export const WORDS = [
     "exampleVi": "Các thực tập sinh rất háo hức học hỏi các kỹ năng lập trình thực tế từ các cố vấn cấp cao.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/eager.webp",
+    "img": "assets/images/words/e/eager.webp",
     "topicIds": [
       "communication-feelings-chặng-13",
       "top-1000-core-chặng-40"
@@ -9547,7 +9546,7 @@ export const WORDS = [
     "exampleVi": "Đừng quá thủ thế tự ái khi nhận phản hồi đánh giá hiệu suất mang tính xây dựng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/defensive.webp",
+    "img": "assets/images/words/d/defensive.webp",
     "topicIds": [
       "communication-feelings-chặng-13",
       "top-1000-core-chặng-40"
@@ -9564,7 +9563,7 @@ export const WORDS = [
     "exampleVi": "Người lính cứu hỏa dũng cảm đã giải cứu ba đứa trẻ khỏi căn hộ đang bốc cháy.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/courageous.webp",
+    "img": "assets/images/words/c/courageous.webp",
     "topicIds": [
       "communication-feelings-chặng-13",
       "top-1000-core-chặng-40"
@@ -9581,7 +9580,7 @@ export const WORDS = [
     "exampleVi": "Những nỗ lực kiên trì của cô cuối cùng đã thuyết phục được các nhà đầu tư rót vốn cho công ty khởi nghiệp.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/persistent.webp",
+    "img": "assets/images/words/p/persistent.webp",
     "topicIds": [
       "communication-feelings-chặng-13",
       "top-1000-core-chặng-40"
@@ -9598,7 +9597,7 @@ export const WORDS = [
     "exampleVi": "Rất nguy hiểm khi người dân trở nên vô cảm và thờ ơ với các cuộc bầu cử địa phương.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/apathetic.webp",
+    "img": "assets/images/words/a/apathetic.webp",
     "topicIds": [
       "communication-feelings-chặng-13",
       "top-1000-core-chặng-40"
@@ -9615,7 +9614,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã đưa tay làm một cử chỉ chào đón mời các vị khách vào phòng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/gesture.webp",
+    "img": "assets/images/words/g/gesture.webp",
     "topicIds": [
       "communication-feelings-chặng-13"
     ],
@@ -9631,7 +9630,7 @@ export const WORDS = [
     "exampleVi": "Vị giáo sư đã gật đầu đồng ý với quan điểm sâu sắc của sinh viên.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/nod.webp",
+    "img": "assets/images/words/n/nod.webp",
     "topicIds": [
       "communication-feelings-chặng-13",
       "top-1000-core-chặng-21"
@@ -9648,7 +9647,7 @@ export const WORDS = [
     "exampleVi": "Viên thanh tra đã cau mày khi kiểm tra chiếc van động cơ bị hư hỏng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/frown.webp",
+    "img": "assets/images/words/f/frown.webp",
     "topicIds": [
       "communication-feelings-chặng-14",
       "top-1000-core-chặng-21"
@@ -9665,7 +9664,7 @@ export const WORDS = [
     "exampleVi": "Khi được hỏi đường, người qua đường chỉ nhún vai tỏ ý không biết.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/shrug.webp",
+    "img": "assets/images/words/s/shrug.webp",
     "topicIds": [
       "communication-feelings-chặng-14",
       "top-1000-core-chặng-22"
@@ -9682,7 +9681,7 @@ export const WORDS = [
     "exampleVi": "Duy trì giao tiếp bằng ánh mắt tự tin giúp tạo dựng niềm tin ngay lập tức trong các bài thuyết trình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/eye-contact.webp",
+    "img": "assets/images/words/e/eye-contact.webp",
     "topicIds": [
       "communication-feelings-chặng-14"
     ],
@@ -9698,7 +9697,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy nhăn nhó mặt mày vì đau đớn khi y tá sát trùng vết cắt trên cánh tay.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/grimace.webp",
+    "img": "assets/images/words/g/grimace.webp",
     "topicIds": [
       "communication-feelings-chặng-14"
     ],
@@ -9714,7 +9713,7 @@ export const WORDS = [
     "exampleVi": "Ảo thuật gia đã nháy mắt tinh nghịch trước khi rút một chú thỏ ra khỏi chiếc mũ.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/wink.webp",
+    "img": "assets/images/words/w/wink.webp",
     "topicIds": [
       "communication-feelings-chặng-14",
       "top-1000-core-chặng-22"
@@ -9731,7 +9730,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy cố giấu nụ cười tự mãn đắc thắng khi đối thủ của mình mắc lỗi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/smirk.webp",
+    "img": "assets/images/words/s/smirk.webp",
     "topicIds": [
       "communication-feelings-chặng-14"
     ],
@@ -9747,7 +9746,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy ngồi bên cửa sổ ngắm nhìn những hạt mưa tầm tã rơi một cách đăm chiêu.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/gaze.webp",
+    "img": "assets/images/words/g/gaze.webp",
     "topicIds": [
       "communication-feelings-chặng-14",
       "top-1000-core-chặng-22"
@@ -9764,7 +9763,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy liếc nhìn đồng hồ đeo tay để kiểm tra xem còn lại bao nhiêu thời gian.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/glance.webp",
+    "img": "assets/images/words/g/glance.webp",
     "topicIds": [
       "communication-feelings-chặng-14",
       "top-1000-core-chặng-22"
@@ -9781,7 +9780,7 @@ export const WORDS = [
     "exampleVi": "Nhìn chằm chằm vào người lạ trên tàu điện ngầm bị coi là bất lịch sự.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/stare.webp",
+    "img": "assets/images/words/s/stare.webp",
     "topicIds": [
       "communication-feelings-chặng-14",
       "top-1000-core-chặng-22"
@@ -9798,7 +9797,7 @@ export const WORDS = [
     "exampleVi": "Đừng ngồi gù lưng uể oải trên ghế trong các cuộc họp hội đồng quản trị trang trọng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/slouch.webp",
+    "img": "assets/images/words/s/slouch.webp",
     "topicIds": [
       "communication-feelings-chặng-14",
       "top-1000-core-chặng-22"
@@ -9815,7 +9814,7 @@ export const WORDS = [
     "exampleVi": "Vị đạo diễn kịch đầy nhiệt huyết đã khua tay múa chân liên hồi để minh họa cho cảnh diễn.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/gesticulate.webp",
+    "img": "assets/images/words/g/gesticulate.webp",
     "topicIds": [
       "communication-feelings-chặng-15",
       "top-1000-core-chặng-22"
@@ -9832,7 +9831,7 @@ export const WORDS = [
     "exampleVi": "Hãy cố gắng đừng nghịch cây bút trên tay khi đang thuyết trình trước ban điều hành.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/fidget.webp",
+    "img": "assets/images/words/f/fidget.webp",
     "topicIds": [
       "communication-feelings-chặng-15",
       "top-1000-core-chặng-22"
@@ -9849,7 +9848,7 @@ export const WORDS = [
     "exampleVi": "Nguyên liệu tươi ngon của địa phương giúp món súp truyền thống có hương vị chuẩn xác.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ingredient.webp",
+    "img": "assets/images/words/i/ingredient.webp",
     "topicIds": [
       "food-drink-chặng-1"
     ],
@@ -9865,7 +9864,7 @@ export const WORDS = [
     "exampleVi": "Hãy bảo quản bơ, phô mai và các sản phẩm từ sữa khác trong tủ lạnh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/dairy.webp",
+    "img": "assets/images/words/d/dairy.webp",
     "topicIds": [
       "food-drink-chặng-1"
     ],
@@ -9881,7 +9880,7 @@ export const WORDS = [
     "exampleVi": "Ngũ cốc nguyên hạt như yến mạch và gạo lứt rất giàu chất xơ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/grain.webp",
+    "img": "assets/images/words/g/grain.webp",
     "topicIds": [
       "food-drink-chặng-1"
     ],
@@ -9897,7 +9896,7 @@ export const WORDS = [
     "exampleVi": "Hãy nếm thử món hầm trước khi thêm gia vị nêm nếm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/seasoning.webp",
+    "img": "assets/images/words/s/seasoning.webp",
     "topicIds": [
       "food-drink-chặng-1"
     ],
@@ -9913,7 +9912,7 @@ export const WORDS = [
     "exampleVi": "Chợ nông sản bán nông sản tươi hữu cơ được trồng không dùng thuốc trừ sâu tổng hợp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/produce.webp",
+    "img": "assets/images/words/p/produce.webp",
     "topicIds": [
       "food-drink-chặng-1"
     ],
@@ -9929,7 +9928,7 @@ export const WORDS = [
     "exampleVi": "Hãy rây bột mì vào tô trước khi nhào bột làm bánh mì.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/flour.webp",
+    "img": "assets/images/words/f/flour.webp",
     "topicIds": [
       "food-drink-chặng-1"
     ],
@@ -9945,7 +9944,7 @@ export const WORDS = [
     "exampleVi": "Thêm nước ấm và men nở để bột làm bánh pizza nở đều.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/yeast.webp",
+    "img": "assets/images/words/y/yeast.webp",
     "topicIds": [
       "food-drink-chặng-1"
     ],
@@ -9961,7 +9960,7 @@ export const WORDS = [
     "exampleVi": "Mù tạt và tương cà là những loại gia vị chấm phổ biến cho xúc xích nướng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/condiment.webp",
+    "img": "assets/images/words/c/condiment.webp",
     "topicIds": [
       "food-drink-chặng-1"
     ],
@@ -9977,7 +9976,7 @@ export const WORDS = [
     "exampleVi": "Các loại thảo mộc tươi như húng quế và ngò gai làm tăng thêm hương thơm cho các món ăn Đông Nam Á.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/herb.webp",
+    "img": "assets/images/words/h/herb.webp",
     "topicIds": [
       "food-drink-chặng-1"
     ],
@@ -9993,7 +9992,7 @@ export const WORDS = [
     "exampleVi": "Món cà ri Ấn Độ nổi tiếng vì sự pha trộn phong phú của các loại gia vị cay thơm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/spice.webp",
+    "img": "assets/images/words/s/spice.webp",
     "topicIds": [
       "food-drink-chặng-1"
     ],
@@ -10009,7 +10008,7 @@ export const WORDS = [
     "exampleVi": "Món mứt trái cây hoàn toàn tự nhiên này không chứa chất bảo quản hóa học nhân tạo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/preservative.webp",
+    "img": "assets/images/words/p/preservative.webp",
     "topicIds": [
       "food-drink-chặng-2"
     ],
@@ -10025,7 +10024,7 @@ export const WORDS = [
     "exampleVi": "Gạo là lương thực chính thiết yếu cho hơn một nửa dân số thế giới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/staple.webp",
+    "img": "assets/images/words/s/staple.webp",
     "topicIds": [
       "food-drink-chặng-2"
     ],
@@ -10041,7 +10040,7 @@ export const WORDS = [
     "exampleVi": "Người mua sắm sẵn lòng trả giá cao hơn cho các nông sản hữu cơ có chứng nhận.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/organic.webp",
+    "img": "assets/images/words/o/organic.webp",
     "topicIds": [
       "food-drink-chặng-2",
       "top-1000-core-chặng-62"
@@ -10058,7 +10057,7 @@ export const WORDS = [
     "exampleVi": "Thêm một muỗng cà phê chiết xuất vani nguyên chất để làm dậy hương vị bột bánh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/extract-noun.webp",
+    "img": "assets/images/words/e/extract-noun.webp",
     "topicIds": [
       "food-drink-chặng-2"
     ],
@@ -10074,7 +10073,7 @@ export const WORDS = [
     "exampleVi": "Các loại thực phẩm dễ ôi thiu như sữa tươi và thịt sống phải được bảo quản lạnh ngay lập tức.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/perishable.webp",
+    "img": "assets/images/words/p/perishable.webp",
     "topicIds": [
       "food-drink-chặng-2",
       "top-1000-core-chặng-62"
@@ -10091,7 +10090,7 @@ export const WORDS = [
     "exampleVi": "Trái cây họ cam quýt nổi tiếng nhờ hàm lượng vitamin C đặc biệt cao.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/citrus.webp",
+    "img": "assets/images/words/c/citrus.webp",
     "topicIds": [
       "food-drink-chặng-2"
     ],
@@ -10107,7 +10106,7 @@ export const WORDS = [
     "exampleVi": "Việt quất và dâu tây là những loại quả mọng thơm ngon giàu chất chống oxy hóa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/berry.webp",
+    "img": "assets/images/words/b/berry.webp",
     "topicIds": [
       "food-drink-chặng-2"
     ],
@@ -10123,7 +10122,7 @@ export const WORDS = [
     "exampleVi": "Khoai tây, khoai lang và khoai từ là những loại củ ăn được dưới lòng đất.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tuber.webp",
+    "img": "assets/images/words/t/tuber.webp",
     "topicIds": [
       "food-drink-chặng-2"
     ],
@@ -10139,7 +10138,7 @@ export const WORDS = [
     "exampleVi": "Đậu cove, đậu lăng và đậu gà là những loại hạt đậu giàu protein và lành mạnh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/legume.webp",
+    "img": "assets/images/words/l/legume.webp",
     "topicIds": [
       "food-drink-chặng-2"
     ],
@@ -10155,7 +10154,7 @@ export const WORDS = [
     "exampleVi": "Quả bơ nghiền trên bánh mì bột chua nướng tạo nên một bữa sáng bổ dưỡng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/avocado.webp",
+    "img": "assets/images/words/a/avocado.webp",
     "topicIds": [
       "food-drink-chặng-2"
     ],
@@ -10171,7 +10170,7 @@ export const WORDS = [
     "exampleVi": "Lá rau bina tươi chứa nhiều chất sắt và các khoáng chất thiết yếu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/spinach.webp",
+    "img": "assets/images/words/s/spinach.webp",
     "topicIds": [
       "food-drink-chặng-3"
     ],
@@ -10187,7 +10186,7 @@ export const WORDS = [
     "exampleVi": "Bông cải xanh hấp là món ăn kèm màu xanh tươi tắn, giàu chất dinh dưỡng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/broccoli.webp",
+    "img": "assets/images/words/b/broccoli.webp",
     "topicIds": [
       "food-drink-chặng-3"
     ],
@@ -10203,7 +10202,7 @@ export const WORDS = [
     "exampleVi": "Nước ép quả lựu được đánh giá cao nhờ vị chua thanh và khả năng chống oxy hóa mạnh mẽ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pomegranate.webp",
+    "img": "assets/images/words/p/pomegranate.webp",
     "topicIds": [
       "food-drink-chặng-3"
     ],
@@ -10219,7 +10218,7 @@ export const WORDS = [
     "exampleVi": "Tim bông atisô hấp được phục vụ kèm nước sốt bơ tỏi thảo mộc thơm lừng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/artichoke.webp",
+    "img": "assets/images/words/a/artichoke.webp",
     "topicIds": [
       "food-drink-chặng-3"
     ],
@@ -10235,7 +10234,7 @@ export const WORDS = [
     "exampleVi": "Những cọng măng tây nướng được nêm nếm với dầu ô liu và muối biển.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/asparagus.webp",
+    "img": "assets/images/words/a/asparagus.webp",
     "topicIds": [
       "food-drink-chặng-3"
     ],
@@ -10251,7 +10250,7 @@ export const WORDS = [
     "exampleVi": "Cà tím nướng là nguyên liệu ngôi sao của món khai vị babaganoush vùng Địa Trung Hải.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/eggplant.webp",
+    "img": "assets/images/words/e/eggplant.webp",
     "topicIds": [
       "food-drink-chặng-3"
     ],
@@ -10267,7 +10266,7 @@ export const WORDS = [
     "exampleVi": "Những lát bí ngòi xào kết hợp tuyệt vời với món cá trắng nướng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/zucchini.webp",
+    "img": "assets/images/words/z/zucchini.webp",
     "topicIds": [
       "food-drink-chặng-3"
     ],
@@ -10283,7 +10282,7 @@ export const WORDS = [
     "exampleVi": "Những nhánh bông cải trắng nướng là món thay thế cơm ít tinh bột tuyệt hảo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cauliflower.webp",
+    "img": "assets/images/words/c/cauliflower.webp",
     "topicIds": [
       "food-drink-chặng-3"
     ],
@@ -10299,7 +10298,7 @@ export const WORDS = [
     "exampleVi": "Đu đủ nhiệt đới chín mọng được phục vụ ướp lạnh kèm một chút nước cốt chanh tươi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/papaya.webp",
+    "img": "assets/images/words/p/papaya.webp",
     "topicIds": [
       "food-drink-chặng-3"
     ],
@@ -10315,7 +10314,7 @@ export const WORDS = [
     "exampleVi": "Củ dền mang lại sắc đỏ thẫm rực rỡ và vị ngọt thanh tự nhiên cho món salad.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/beetroot.webp",
+    "img": "assets/images/words/b/beetroot.webp",
     "topicIds": [
       "food-drink-chặng-3"
     ],
@@ -10331,7 +10330,7 @@ export const WORDS = [
     "exampleVi": "Thịt gia cầm phải luôn được nấu chín kỹ để đảm bảo an toàn vệ sinh thực phẩm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/poultry.webp",
+    "img": "assets/images/words/p/poultry.webp",
     "topicIds": [
       "food-drink-chặng-4"
     ],
@@ -10347,7 +10346,7 @@ export const WORDS = [
     "exampleVi": "Các thị trấn ven biển nổi tiếng với những đĩa hải sản tươi ngon được đánh bắt trong ngày.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/seafood.webp",
+    "img": "assets/images/words/s/seafood.webp",
     "topicIds": [
       "food-drink-chặng-4"
     ],
@@ -10363,7 +10362,7 @@ export const WORDS = [
     "exampleVi": "Bò bít tết nướng từ bò ăn cỏ rất mềm và bùng nổ hương vị đậm đà.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/beef.webp",
+    "img": "assets/images/words/b/beef.webp",
     "topicIds": [
       "food-drink-chặng-4"
     ],
@@ -10379,7 +10378,7 @@ export const WORDS = [
     "exampleVi": "Thịt ba chỉ kho tàu là món ăn truyền thống được yêu thích của người Việt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pork.webp",
+    "img": "assets/images/words/p/pork.webp",
     "topicIds": [
       "food-drink-chặng-4"
     ],
@@ -10395,7 +10394,7 @@ export const WORDS = [
     "exampleVi": "Cá hồi Đại Tây Dương áp chảo rất giàu axit béo omega-3 lành mạnh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/salmon.webp",
+    "img": "assets/images/words/s/salmon.webp",
     "topicIds": [
       "food-drink-chặng-4"
     ],
@@ -10411,7 +10410,7 @@ export const WORDS = [
     "exampleVi": "Tôm sốt bơ tỏi là món ăn tối nhanh gọn và thơm ngon được nhiều người ưa chuộng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/shrimp.webp",
+    "img": "assets/images/words/s/shrimp.webp",
     "topicIds": [
       "food-drink-chặng-4"
     ],
@@ -10427,7 +10426,7 @@ export const WORDS = [
     "exampleVi": "Thịt cua biển hấp tươi rất ngọt, mọng nước và mềm thơm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/crab.webp",
+    "img": "assets/images/words/c/crab.webp",
     "topicIds": [
       "food-drink-chặng-4"
     ],
@@ -10443,7 +10442,7 @@ export const WORDS = [
     "exampleVi": "Tôm hùm nướng nguyên con với bơ thảo mộc là món cao lương mỹ vị hàng đầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/lobster.webp",
+    "img": "assets/images/words/l/lobster.webp",
     "topicIds": [
       "food-drink-chặng-4"
     ],
@@ -10459,7 +10458,7 @@ export const WORDS = [
     "exampleVi": "Cá ngừ tươi chuẩn sashimi được thái lát mỏng và phục vụ cùng mù tạt wasabi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tuna.webp",
+    "img": "assets/images/words/t/tuna.webp",
     "topicIds": [
       "food-drink-chặng-4"
     ],
@@ -10475,7 +10474,7 @@ export const WORDS = [
     "exampleVi": "Hàu tươi nửa mảnh vỏ được phục vụ trên đá bào cùng những lát chanh vàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/oyster.webp",
+    "img": "assets/images/words/o/oyster.webp",
     "topicIds": [
       "food-drink-chặng-4"
     ],
@@ -10491,7 +10490,7 @@ export const WORDS = [
     "exampleVi": "Nghêu hấp sả ớt trong nước dùng thơm lừng là món ăn đường phố cay nồng hấp dẫn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/clam.webp",
+    "img": "assets/images/words/c/clam.webp",
     "topicIds": [
       "food-drink-chặng-5"
     ],
@@ -10507,7 +10506,7 @@ export const WORDS = [
     "exampleVi": "Thịt thăn bò mềm là món ăn trung tâm của các thực đơn ẩm thực cao cấp tinh tế.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tenderloin.webp",
+    "img": "assets/images/words/t/tenderloin.webp",
     "topicIds": [
       "food-drink-chặng-5"
     ],
@@ -10523,7 +10522,7 @@ export const WORDS = [
     "exampleVi": "Đầu bếp đã ướp miếng cá phi lê trắng với thì là, chanh và tiêu trắng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fillet.webp",
+    "img": "assets/images/words/f/fillet.webp",
     "topicIds": [
       "food-drink-chặng-5"
     ],
@@ -10539,7 +10538,7 @@ export const WORDS = [
     "exampleVi": "Thịt nai nướng sốt mâm xôi đen mang hương vị đậm đà và hoang dã.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/venison.webp",
+    "img": "assets/images/words/v/venison.webp",
     "topicIds": [
       "food-drink-chặng-5"
     ],
@@ -10555,7 +10554,7 @@ export const WORDS = [
     "exampleVi": "Hãy băm nhỏ thịt bò nạc để chuẩn bị sốt mì Ý bolognese.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/mince.webp",
+    "img": "assets/images/words/m/mince.webp",
     "topicIds": [
       "food-drink-chặng-5",
       "top-1000-core-chặng-22"
@@ -10572,7 +10571,7 @@ export const WORDS = [
     "exampleVi": "Đồ uống nóng và lạnh luôn có sẵn tại quầy giải khát của hội nghị.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/beverage.webp",
+    "img": "assets/images/words/b/beverage.webp",
     "topicIds": [
       "food-drink-chặng-5"
     ],
@@ -10588,7 +10587,7 @@ export const WORDS = [
     "exampleVi": "Một ly espresso đôi kiểu Ý mang lại nguồn năng lượng caffeine tỉnh táo nhanh chóng vào buổi sáng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/espresso.webp",
+    "img": "assets/images/words/e/espresso.webp",
     "topicIds": [
       "food-drink-chặng-5"
     ],
@@ -10604,7 +10603,7 @@ export const WORDS = [
     "exampleVi": "Trà thảo mộc hoa cúc giúp làm dịu tâm trí trước một giấc ngủ đêm ngon giấc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/herbal-tea.webp",
+    "img": "assets/images/words/h/herbal-tea.webp",
     "topicIds": [
       "food-drink-chặng-5"
     ],
@@ -10620,7 +10619,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã xay xoài, chuối và sữa chua Hy Lạp thành một ly sinh tố buổi sáng sảng khoái.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/smoothie.webp",
+    "img": "assets/images/words/s/smoothie.webp",
     "topicIds": [
       "food-drink-chặng-5"
     ],
@@ -10636,7 +10635,7 @@ export const WORDS = [
     "exampleVi": "Người pha chế đã tạo ra một ly mocktail dưa hấu sủi bọt trang trí bằng lá bạc hà tươi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mocktail.webp",
+    "img": "assets/images/words/m/mocktail.webp",
     "topicIds": [
       "food-drink-chặng-5"
     ],
@@ -10652,7 +10651,7 @@ export const WORDS = [
     "exampleVi": "Bù đủ nước là điều tối quan trọng trong các buổi tập luyện kéo dài và những ngày hè oi ả.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/hydration.webp",
+    "img": "assets/images/words/h/hydration.webp",
     "topicIds": [
       "food-drink-chặng-6"
     ],
@@ -10668,7 +10667,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã chuyển sang uống cà phê không chứa caffeine để tránh bị mất ngủ vào buổi tối.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/decaffeinated.webp",
+    "img": "assets/images/words/d/decaffeinated.webp",
     "topicIds": [
       "food-drink-chặng-6",
       "top-1000-core-chặng-62"
@@ -10685,7 +10684,7 @@ export const WORDS = [
     "exampleVi": "Nước hãm gừng sả làm dịu cơn đau họng một cách tự nhiên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/infusion.webp",
+    "img": "assets/images/words/i/infusion.webp",
     "topicIds": [
       "food-drink-chặng-6"
     ],
@@ -10701,7 +10700,7 @@ export const WORDS = [
     "exampleVi": "Bạn muốn dùng nước khoáng không ga hay nước khoáng có ga kèm lát chanh?",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/sparkling.webp",
+    "img": "assets/images/words/s/sparkling.webp",
     "topicIds": [
       "food-drink-chặng-6",
       "top-1000-core-chặng-62"
@@ -10718,7 +10717,7 @@ export const WORDS = [
     "exampleVi": "Nước được chưng cất để loại bỏ mọi tạp chất khoáng hòa tan dùng cho phòng thí nghiệm.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/distill.webp",
+    "img": "assets/images/words/d/distill.webp",
     "topicIds": [
       "food-drink-chặng-6",
       "top-1000-core-chặng-22"
@@ -10735,7 +10734,7 @@ export const WORDS = [
     "exampleVi": "Nước ép táo nóng có gia vị quế hồi là thức uống lễ hội ấm cúng vào mùa thu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cider.webp",
+    "img": "assets/images/words/c/cider.webp",
     "topicIds": [
       "food-drink-chặng-6"
     ],
@@ -10751,7 +10750,7 @@ export const WORDS = [
     "exampleVi": "Các món giải khát nhẹ sẽ được phục vụ tại sảnh sau buổi hòa nhạc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/refreshment.webp",
+    "img": "assets/images/words/r/refreshment.webp",
     "topicIds": [
       "food-drink-chặng-6"
     ],
@@ -10767,7 +10766,7 @@ export const WORDS = [
     "exampleVi": "Nước uống thể thao bổ sung các chất điện giải thiết yếu bị mất do đổ nhiều mồ hôi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/electrolyte.webp",
+    "img": "assets/images/words/e/electrolyte.webp",
     "topicIds": [
       "food-drink-chặng-6"
     ],
@@ -10783,7 +10782,7 @@ export const WORDS = [
     "exampleVi": "Nước dừa tươi ướp lạnh là cách tốt nhất để làm đã cơn khát trong cái nóng nhiệt đới.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/quench.webp",
+    "img": "assets/images/words/q/quench.webp",
     "topicIds": [
       "food-drink-chặng-6",
       "top-1000-core-chặng-23"
@@ -10800,7 +10799,7 @@ export const WORDS = [
     "exampleVi": "Hãy để nước dùng bò ninh liu riu nhẹ nhàng trong 4 giờ để chiết xuất hương vị đậm đà.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/simmer.webp",
+    "img": "assets/images/words/s/simmer.webp",
     "topicIds": [
       "food-drink-chặng-6",
       "top-1000-core-chặng-23"
@@ -10817,7 +10816,7 @@ export const WORDS = [
     "exampleVi": "Xào nhanh tỏi băm và nấm cho đến khi vàng thơm.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/saute.webp",
+    "img": "assets/images/words/s/saute.webp",
     "topicIds": [
       "food-drink-chặng-7",
       "top-1000-core-chặng-23"
@@ -10834,7 +10833,7 @@ export const WORDS = [
     "exampleVi": "Họ đã quay một con gà ướp thảo mộc nguyên con cho bữa tối gia đình Chủ Nhật.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/roast.webp",
+    "img": "assets/images/words/r/roast.webp",
     "topicIds": [
       "food-drink-chặng-7",
       "top-1000-core-chặng-23"
@@ -10851,7 +10850,7 @@ export const WORDS = [
     "exampleVi": "Hãy tẩm ướp sườn heo trong sốt tương mật ong qua đêm để thịt mềm và ngấm vị tối đa.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/marinate.webp",
+    "img": "assets/images/words/m/marinate.webp",
     "topicIds": [
       "food-drink-chặng-7",
       "top-1000-core-chặng-23"
@@ -10868,7 +10867,7 @@ export const WORDS = [
     "exampleVi": "Hãy xào hành tây từ từ cho đến khi mềm và chuyển màu nâu ngọt tự nhiên.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/caramelize.webp",
+    "img": "assets/images/words/c/caramelize.webp",
     "topicIds": [
       "food-drink-chặng-7",
       "top-1000-core-chặng-23"
@@ -10885,7 +10884,7 @@ export const WORDS = [
     "exampleVi": "Phục vụ trứng chần trên bánh nướng xốp kiểu Anh kèm sốt hollandaise béo ngậy.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/poach.webp",
+    "img": "assets/images/words/p/poach.webp",
     "topicIds": [
       "food-drink-chặng-7",
       "top-1000-core-chặng-23"
@@ -10902,7 +10901,7 @@ export const WORDS = [
     "exampleVi": "Trần sơ đậu cove trong 90 giây để giữ độ giòn và màu xanh tươi sáng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/blanch.webp",
+    "img": "assets/images/words/b/blanch.webp",
     "topicIds": [
       "food-drink-chặng-7",
       "top-1000-core-chặng-23"
@@ -10919,7 +10918,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi rất thích nướng các xiên hải sản tươi sống trên than hồng ngoài vườn.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/grill.webp",
+    "img": "assets/images/words/g/grill.webp",
     "topicIds": [
       "food-drink-chặng-7",
       "top-1000-core-chặng-23"
@@ -10936,7 +10935,7 @@ export const WORDS = [
     "exampleVi": "Chiên ngập dầu tôm tẩm bột tempura cho đến khi giòn xốp và vàng ươm.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/deep-fry.webp",
+    "img": "assets/images/words/d/deep-fry.webp",
     "topicIds": [
       "food-drink-chặng-7",
       "top-1000-core-chặng-23"
@@ -10953,7 +10952,7 @@ export const WORDS = [
     "exampleVi": "Hấp rau củ giúp giữ lại nhiều vitamin thiết yếu hơn so với việc luộc trong nước.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/steam.webp",
+    "img": "assets/images/words/s/steam.webp",
     "topicIds": [
       "food-drink-chặng-7",
       "top-1000-core-chặng-24"
@@ -10970,7 +10969,7 @@ export const WORDS = [
     "exampleVi": "Nhào bột bánh mì đều tay trong 10 phút cho đến khi khối bột mịn và có độ đàn hồi.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/knead.webp",
+    "img": "assets/images/words/k/knead.webp",
     "topicIds": [
       "food-drink-chặng-7",
       "top-1000-core-chặng-24"
@@ -10987,7 +10986,7 @@ export const WORDS = [
     "exampleVi": "Đánh bông lòng trắng trứng cho đến khi tạo thành những chóp nhọn đứng vững.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/whisk-verb.webp",
+    "img": "assets/images/words/w/whisk-verb.webp",
     "topicIds": [
       "food-drink-chặng-8",
       "top-1000-core-chặng-24"
@@ -11004,7 +11003,7 @@ export const WORDS = [
     "exampleVi": "Trang trí bát súp bí đỏ béo ngậy bằng hạt bí rang và rau mầm tươi.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/garnish.webp",
+    "img": "assets/images/words/g/garnish.webp",
     "topicIds": [
       "food-drink-chặng-8",
       "top-1000-core-chặng-24"
@@ -11021,7 +11020,7 @@ export const WORDS = [
     "exampleVi": "Khử đáy chảo bằng rượu vang đỏ để tạo ra một loại nước sốt sánh mịn tuyệt hảo cho món bít tết.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/deglaze.webp",
+    "img": "assets/images/words/d/deglaze.webp",
     "topicIds": [
       "food-drink-chặng-8",
       "top-1000-core-chặng-24"
@@ -11038,7 +11037,7 @@ export const WORDS = [
     "exampleVi": "Tiệm bánh cung cấp cả bánh ngọt lẫn các loại bánh mặn nhân thịt đậm đà.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/savory.webp",
+    "img": "assets/images/words/s/savory.webp",
     "topicIds": [
       "food-drink-chặng-8",
       "top-1000-core-chặng-62"
@@ -11055,7 +11054,7 @@ export const WORDS = [
     "exampleVi": "Thịt vai heo nướng chậm mọng nước tuyệt vời và mềm tan ngay trong miệng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/succulent.webp",
+    "img": "assets/images/words/s/succulent.webp",
     "topicIds": [
       "food-drink-chặng-8",
       "top-1000-core-chặng-62"
@@ -11072,7 +11071,7 @@ export const WORDS = [
     "exampleVi": "Phở Việt Nam nổi tiếng với nước dùng thơm ngát hòa quyện giữa quế và hoa hồi.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/aromatic.webp",
+    "img": "assets/images/words/a/aromatic.webp",
     "topicIds": [
       "food-drink-chặng-8",
       "top-1000-core-chặng-63"
@@ -11089,7 +11088,7 @@ export const WORDS = [
     "exampleVi": "Những chiếc nem rán có lớp vỏ ngoài màu vàng óng và giòn rụm khó cưỡng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/crispy.webp",
+    "img": "assets/images/words/c/crispy.webp",
     "topicIds": [
       "food-drink-chặng-8",
       "top-1000-core-chặng-63"
@@ -11106,7 +11105,7 @@ export const WORDS = [
     "exampleVi": "Nước sốt salad mang vị chua thanh sảng khoái của giấm cam chanh.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/tangy.webp",
+    "img": "assets/images/words/t/tangy.webp",
     "topicIds": [
       "food-drink-chặng-8",
       "top-1000-core-chặng-63"
@@ -11123,7 +11122,7 @@ export const WORDS = [
     "exampleVi": "Nếu thiếu muối và gia vị, món súp sẽ có vị nhạt nhẽo và vô vị.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/bland.webp",
+    "img": "assets/images/words/b/bland.webp",
     "topicIds": [
       "food-drink-chặng-8",
       "top-1000-core-chặng-63"
@@ -11140,7 +11139,7 @@ export const WORDS = [
     "exampleVi": "Tỏi sống và củ cải ngựa có mùi thơm cay nồng rất đặc trưng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/pungent.webp",
+    "img": "assets/images/words/p/pungent.webp",
     "topicIds": [
       "food-drink-chặng-8",
       "top-1000-core-chặng-63"
@@ -11157,7 +11156,7 @@ export const WORDS = [
     "exampleVi": "Bếp trưởng làm bánh đã tạo ra chiếc bánh mousse sô-cô-la mâm xôi ngon tuyệt hảo.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/delectable.webp",
+    "img": "assets/images/words/d/delectable.webp",
     "topicIds": [
       "food-drink-chặng-9",
       "top-1000-core-chặng-63"
@@ -11174,7 +11173,7 @@ export const WORDS = [
     "exampleVi": "Nước cốt chanh tươi vắt đã mang lại cho món gỏi hải sản ceviche một vị chua cay đầy sảng khoái.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/zesty.webp",
+    "img": "assets/images/words/z/zesty.webp",
     "topicIds": [
       "food-drink-chặng-9",
       "top-1000-core-chặng-63"
@@ -11191,7 +11190,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã thưởng thức một bữa nửa buổi ngon lành với bánh quế Bỉ và dâu tươi.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/scrumptious.webp",
+    "img": "assets/images/words/s/scrumptious.webp",
     "topicIds": [
       "food-drink-chặng-9",
       "top-1000-core-chặng-63"
@@ -11208,7 +11207,7 @@ export const WORDS = [
     "exampleVi": "Hãy tránh ăn các loại thức ăn nhanh nhiều dầu mỡ ngấy trước khi tham gia các hoạt động thể thao nặng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/greasy.webp",
+    "img": "assets/images/words/g/greasy.webp",
     "topicIds": [
       "food-drink-chặng-9",
       "top-1000-core-chặng-63"
@@ -11225,7 +11224,7 @@ export const WORDS = [
     "exampleVi": "Món cơm Ý risotto nấm sánh mịn béo ngậy được phủ phô mai Parmesan bào sợi.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/creamy.webp",
+    "img": "assets/images/words/c/creamy.webp",
     "topicIds": [
       "food-drink-chặng-9",
       "top-1000-core-chặng-63"
@@ -11242,7 +11241,7 @@ export const WORDS = [
     "exampleVi": "Xoài xanh chưa chín có vị chua gắt và độ giòn rất đặc trưng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/sour.webp",
+    "img": "assets/images/words/s/sour.webp",
     "topicIds": [
       "food-drink-chặng-9",
       "top-1000-core-chặng-64"
@@ -11259,7 +11258,7 @@ export const WORDS = [
     "exampleVi": "Màu sắc rực rỡ và hương thơm đậm đà làm cho bàn tiệc trông vô cùng ngon mắt và kích thích vị giác.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/appetizing.webp",
+    "img": "assets/images/words/a/appetizing.webp",
     "topicIds": [
       "food-drink-chặng-9",
       "top-1000-core-chặng-64"
@@ -11276,7 +11275,7 @@ export const WORDS = [
     "exampleVi": "Các thiết bị nhà bếp hiện đại giúp tiết kiệm đáng kể thời gian chuẩn bị bữa ăn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/appliance.webp",
+    "img": "assets/images/words/a/appliance.webp",
     "topicIds": [
       "food-drink-chặng-9"
     ],
@@ -11292,7 +11291,7 @@ export const WORDS = [
     "exampleVi": "Hãy đun nóng chảo gang trên lửa vừa trước khi áp chảo miếng bít tết.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/skillet.webp",
+    "img": "assets/images/words/s/skillet.webp",
     "topicIds": [
       "food-drink-chặng-9"
     ],
@@ -11308,7 +11307,7 @@ export const WORDS = [
     "exampleVi": "Hãy để ráo nước mì ống đã luộc trong rổ inox có lỗ lọc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/colander.webp",
+    "img": "assets/images/words/c/colander.webp",
     "topicIds": [
       "food-drink-chặng-9"
     ],
@@ -11324,7 +11323,7 @@ export const WORDS = [
     "exampleVi": "Bộ dao nĩa bạc sáng bóng được sắp xếp gọn gàng trên bàn tiệc cao cấp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cutlery.webp",
+    "img": "assets/images/words/c/cutlery.webp",
     "topicIds": [
       "food-drink-chặng-10"
     ],
@@ -11340,7 +11339,7 @@ export const WORDS = [
     "exampleVi": "Xay nhuyễn bí đỏ nướng trong máy xay sinh tố tốc độ cao cho đến khi mịn màng như lụa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/blender.webp",
+    "img": "assets/images/words/b/blender.webp",
     "topicIds": [
       "food-drink-chặng-10"
     ],
@@ -11356,7 +11355,7 @@ export const WORDS = [
     "exampleVi": "Hãy sử dụng cây đánh trứng để đánh kem tươi tạo thành các chóp mềm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/whisk-noun.webp",
+    "img": "assets/images/words/w/whisk-noun.webp",
     "topicIds": [
       "food-drink-chặng-10"
     ],
@@ -11372,7 +11371,7 @@ export const WORDS = [
     "exampleVi": "Đầu bếp đã dùng chiếc muôi sâu lòng để múc những bát súp hải sản nóng hổi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ladle.webp",
+    "img": "assets/images/words/l/ladle.webp",
     "topicIds": [
       "food-drink-chặng-10"
     ],
@@ -11388,7 +11387,7 @@ export const WORDS = [
     "exampleVi": "Hãy dùng cây vét bột silicon để vét sạch phần bột bánh trong tô trộn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/spatula.webp",
+    "img": "assets/images/words/s/spatula.webp",
     "topicIds": [
       "food-drink-chặng-10"
     ],
@@ -11404,7 +11403,7 @@ export const WORDS = [
     "exampleVi": "Hãy giã hạt tiêu nguyên hạt và tỏi trong bộ cối chày bằng đá hoa cương.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pestle-and-mortar.webp",
+    "img": "assets/images/words/p/pestle-and-mortar.webp",
     "topicIds": [
       "food-drink-chặng-10"
     ],
@@ -11420,7 +11419,7 @@ export const WORDS = [
     "exampleVi": "Hãy dùng kẹp kim loại để lật những chiếc xúc xích đang xèo xèo trên vỉ nướng một cách an toàn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tongs.webp",
+    "img": "assets/images/words/t/tongs.webp",
     "topicIds": [
       "food-drink-chặng-10"
     ],
@@ -11436,7 +11435,7 @@ export const WORDS = [
     "exampleVi": "Một chiếc dao nạo vỏ sắc bén giúp việc gọt vỏ cà rốt và khoai tây trở nên nhẹ nhàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/peeler.webp",
+    "img": "assets/images/words/p/peeler.webp",
     "topicIds": [
       "food-drink-chặng-10"
     ],
@@ -11452,7 +11451,7 @@ export const WORDS = [
     "exampleVi": "Làm tan chảy bơ và sô-cô-la từ từ trong chiếc nồi nhỏ đáy dày.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/saucepan.webp",
+    "img": "assets/images/words/s/saucepan.webp",
     "topicIds": [
       "food-drink-chặng-10"
     ],
@@ -11468,7 +11467,7 @@ export const WORDS = [
     "exampleVi": "Món gà hầm đút lò thơm ngon sủi bọt với lớp phô mai tan chảy béo ngậy bên trên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/casserole.webp",
+    "img": "assets/images/words/c/casserole.webp",
     "topicIds": [
       "food-drink-chặng-10"
     ],
@@ -11484,7 +11483,7 @@ export const WORDS = [
     "exampleVi": "Bào một chút hạt nhục đậu khấu tươi bằng dụng cụ bào nhuyễn lên ly cocktail trứng sữa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/grater.webp",
+    "img": "assets/images/words/g/grater.webp",
     "topicIds": [
       "food-drink-chặng-11"
     ],
@@ -11500,7 +11499,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy thắt chặt chiếc tạp dề vải lanh trước khi bắt đầu nướng những ổ bánh mì thủ công.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/apron.webp",
+    "img": "assets/images/words/a/apron.webp",
     "topicIds": [
       "food-drink-chặng-11"
     ],
@@ -11516,7 +11515,7 @@ export const WORDS = [
     "exampleVi": "Người phục vụ đã đưa ra thực đơn bữa tối theo mùa gồm các món đặc biệt trong ngày của bếp trưởng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/menu.webp",
+    "img": "assets/images/words/m/menu.webp",
     "topicIds": [
       "food-drink-chặng-11"
     ],
@@ -11532,7 +11531,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã gọi món bánh mì bơ tỏi bruschetta và mực chiên giòn làm món khai vị.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/appetizer.webp",
+    "img": "assets/images/words/a/appetizer.webp",
     "topicIds": [
       "food-drink-chặng-11"
     ],
@@ -11548,7 +11547,7 @@ export const WORDS = [
     "exampleVi": "Cho món chính của mình, tôi đã chọn ức vịt áp chảo ăn kèm sốt anh đào.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/entree.webp",
+    "img": "assets/images/words/e/entree.webp",
     "topicIds": [
       "food-drink-chặng-11"
     ],
@@ -11564,7 +11563,7 @@ export const WORDS = [
     "exampleVi": "Chuyên gia rượu vang đã gợi ý một chai Pinot Noir tuyệt hảo để kết hợp với món cừu của chúng tôi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/sommelier.webp",
+    "img": "assets/images/words/s/sommelier.webp",
     "topicIds": [
       "food-drink-chặng-11"
     ],
@@ -11580,7 +11579,7 @@ export const WORDS = [
     "exampleVi": "Khoản tiền boa 18% đã được tự động tính vào hóa đơn cho các bàn tiệc đông người.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/gratuity.webp",
+    "img": "assets/images/words/g/gratuity.webp",
     "topicIds": [
       "food-drink-chặng-11"
     ],
@@ -11596,7 +11595,7 @@ export const WORDS = [
     "exampleVi": "Pháp và Việt Nam cùng sở hữu những truyền thống ẩm thực đẳng cấp thế giới đáng tự hào.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/culinary.webp",
+    "img": "assets/images/words/c/culinary.webp",
     "topicIds": [
       "food-drink-chặng-11",
       "top-1000-core-chặng-64"
@@ -11613,7 +11612,7 @@ export const WORDS = [
     "exampleVi": "Khu nghỉ dưỡng ven biển phục vụ tiệc buffet hải sản tự chọn thịnh soạn vào mỗi Chủ Nhật.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/buffet.webp",
+    "img": "assets/images/words/b/buffet.webp",
     "topicIds": [
       "food-drink-chặng-11"
     ],
@@ -11629,7 +11628,7 @@ export const WORDS = [
     "exampleVi": "Cửa hàng thực phẩm cao cấp bày bán các loại phô mai thủ công, ô liu nhập khẩu và thịt nguội hảo hạng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/gourmet.webp",
+    "img": "assets/images/words/g/gourmet.webp",
     "topicIds": [
       "food-drink-chặng-11",
       "top-1000-core-chặng-64"
@@ -11646,7 +11645,7 @@ export const WORDS = [
     "exampleVi": "Cô tiếp tân thân thiện đã dẫn đoàn chúng tôi đến chiếc bàn đệm thoải mái cạnh cửa sổ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/hostess.webp",
+    "img": "assets/images/words/h/hostess.webp",
     "topicIds": [
       "food-drink-chặng-12"
     ],
@@ -11662,7 +11661,7 @@ export const WORDS = [
     "exampleVi": "Đĩa thức ăn lớn dùng chung bao gồm các loại thịt nguội thủ công, phô mai và bánh mì giòn rụm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/platter.webp",
+    "img": "assets/images/words/p/platter.webp",
     "topicIds": [
       "food-drink-chặng-12"
     ],
@@ -11678,7 +11677,7 @@ export const WORDS = [
     "exampleVi": "Bạn có thể chọn giữa khoai tây nghiền bơ tỏi hoặc măng tây nướng làm món ăn kèm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/side-dish.webp",
+    "img": "assets/images/words/s/side-dish.webp",
     "topicIds": [
       "food-drink-chặng-12"
     ],
@@ -11694,7 +11693,7 @@ export const WORDS = [
     "exampleVi": "Món bánh xèo giòn rụm của Việt Nam là một đặc sản ẩm thực địa phương nhất định phải thử.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/specialty.webp",
+    "img": "assets/images/words/s/specialty.webp",
     "topicIds": [
       "food-drink-chặng-12"
     ],
@@ -11710,7 +11709,7 @@ export const WORDS = [
     "exampleVi": "Bữa tối kỷ niệm ngày cưới là một bữa tiệc thịnh soạn gồm năm món ăn liên tiếp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/course.webp",
+    "img": "assets/images/words/c/course.webp",
     "topicIds": [
       "food-drink-chặng-12"
     ],
@@ -11726,7 +11725,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã đặt bàn ăn tối trước hai tuần để có được chiếc bàn ngoài trời.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/reservation.webp",
+    "img": "assets/images/words/r/reservation.webp",
     "topicIds": [
       "food-drink-chặng-12"
     ],
@@ -11742,7 +11741,7 @@ export const WORDS = [
     "exampleVi": "Làm ơn cho chúng tôi xin hóa đơn thanh toán khi bạn rảnh tay nhé?",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/bill.webp",
+    "img": "assets/images/words/b/bill.webp",
     "topicIds": [
       "food-drink-chặng-12"
     ],
@@ -11758,7 +11757,7 @@ export const WORDS = [
     "exampleVi": "Các tiệm bánh Pháp nổi tiếng với bánh sừng bò ngàn lớp béo ngậy và bánh ngọt hoa quả tinh tế.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pastry.webp",
+    "img": "assets/images/words/p/pastry.webp",
     "topicIds": [
       "food-drink-chặng-12"
     ],
@@ -11774,7 +11773,7 @@ export const WORDS = [
     "exampleVi": "Cửa hàng kẹo thủ công bán các loại bánh kẹo ngọt cao cấp làm bằng tay.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/confectionery.webp",
+    "img": "assets/images/words/c/confectionery.webp",
     "topicIds": [
       "food-drink-chặng-12"
     ],
@@ -11790,7 +11789,7 @@ export const WORDS = [
     "exampleVi": "Bánh táo nướng nóng hổi ăn kèm sốt kem trứng vani sánh mịn mang lại hương vị thần thánh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/custard.webp",
+    "img": "assets/images/words/c/custard.webp",
     "topicIds": [
       "food-drink-chặng-12"
     ],
@@ -11806,7 +11805,7 @@ export const WORDS = [
     "exampleVi": "Món bánh kem bọt sô-cô-la đen tan chảy mềm mượt tuyệt vời trên đầu lưỡi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mousse.webp",
+    "img": "assets/images/words/m/mousse.webp",
     "topicIds": [
       "food-drink-chặng-13"
     ],
@@ -11822,7 +11821,7 @@ export const WORDS = [
     "exampleVi": "Bánh pudding toffee ăn kèm sốt caramel là món tráng miệng cổ điển ấm lòng của người Anh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pudding.webp",
+    "img": "assets/images/words/p/pudding.webp",
     "topicIds": [
       "food-drink-chặng-13"
     ],
@@ -11838,7 +11837,7 @@ export const WORDS = [
     "exampleVi": "Tiệm bánh trưng bày những chiếc bánh tart kem chanh lộng lẫy phủ lớp kem trứng nướng vàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tart.webp",
+    "img": "assets/images/words/t/tart.webp",
     "topicIds": [
       "food-drink-chặng-13"
     ],
@@ -11854,7 +11853,7 @@ export const WORDS = [
     "exampleVi": "Một viên kem tuyết mâm xôi sảng khoái đã giúp làm sạch vòm miệng giữa các món ăn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/sorbet.webp",
+    "img": "assets/images/words/s/sorbet.webp",
     "topicIds": [
       "food-drink-chặng-13"
     ],
@@ -11870,7 +11869,7 @@ export const WORDS = [
     "exampleVi": "Hãy rưới nước si-rô cây phong nguyên chất hào phóng lên những chiếc bánh kếp vàng nóng hổi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/syrup.webp",
+    "img": "assets/images/words/s/syrup.webp",
     "topicIds": [
       "food-drink-chặng-13"
     ],
@@ -11886,7 +11885,7 @@ export const WORDS = [
     "exampleVi": "Các loại phần phủ sữa chua dẻo phổ biến gồm hạt nghiền, vụn sô-cô-la và quả kiwi tươi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/topping.webp",
+    "img": "assets/images/words/t/topping.webp",
     "topicIds": [
       "food-drink-chặng-13"
     ],
@@ -11902,7 +11901,7 @@ export const WORDS = [
     "exampleVi": "Nấm truffle là món mỹ vị quý hiếm dưới lòng đất được các đầu bếp hàng đầu thế giới trân quý.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/delicacy.webp",
+    "img": "assets/images/words/d/delicacy.webp",
     "topicIds": [
       "food-drink-chặng-13"
     ],
@@ -11918,7 +11917,7 @@ export const WORDS = [
     "exampleVi": "Kem caramen muối biển tạo nên sự cân bằng hoàn hảo giữa vị ngọt và mặn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/caramel.webp",
+    "img": "assets/images/words/c/caramel.webp",
     "topicIds": [
       "food-drink-chặng-13"
     ],
@@ -11934,7 +11933,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi dạo bước dọc quảng trường La Mã và thưởng thức món kem Ý hạt dẻ cười thơm bùi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/gelato.webp",
+    "img": "assets/images/words/g/gelato.webp",
     "topicIds": [
       "food-drink-chặng-13"
     ],
@@ -11950,7 +11949,7 @@ export const WORDS = [
     "exampleVi": "Bánh quế tổ ong kiểu Bỉ có những ô lõm sâu chứa bơ tan chảy và mứt dâu quả mọng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/waffle.webp",
+    "img": "assets/images/words/w/waffle.webp",
     "topicIds": [
       "food-drink-chặng-13"
     ],
@@ -11966,7 +11965,7 @@ export const WORDS = [
     "exampleVi": "Hộp quà bánh macaron Pháp nhiều màu pastel tạo nên một món quà tặng tinh tế.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/macaron.webp",
+    "img": "assets/images/words/m/macaron.webp",
     "topicIds": [
       "food-drink-chặng-14"
     ],
@@ -11982,7 +11981,7 @@ export const WORDS = [
     "exampleVi": "Bếp trưởng làm bánh đã tạo hình các hoa văn trang trí bằng lớp kem đường hoàng gia trắng muốt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/icing.webp",
+    "img": "assets/images/words/i/icing.webp",
     "topicIds": [
       "food-drink-chặng-14"
     ],
@@ -11998,7 +11997,7 @@ export const WORDS = [
     "exampleVi": "Dinh dưỡng hợp lý trong thời thơ ấu hỗ trợ sự phát triển xương và trí não khỏe mạnh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/nutrition.webp",
+    "img": "assets/images/words/n/nutrition.webp",
     "topicIds": [
       "food-drink-chặng-14"
     ],
@@ -12014,7 +12013,7 @@ export const WORDS = [
     "exampleVi": "Nhãn dinh dưỡng ghi rõ lượng calo chính xác trên mỗi khẩu phần của tất cả các mặt hàng đóng gói.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/calorie.webp",
+    "img": "assets/images/words/c/calorie.webp",
     "topicIds": [
       "food-drink-chặng-14"
     ],
@@ -12030,7 +12029,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng thông báo cho người lập kế hoạch sự kiện nếu bạn có những hạn chế ăn kiêng hoặc dị ứng đặc biệt.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/dietary.webp",
+    "img": "assets/images/words/d/dietary.webp",
     "topicIds": [
       "food-drink-chặng-14",
       "top-1000-core-chặng-64"
@@ -12047,7 +12046,7 @@ export const WORDS = [
     "exampleVi": "Tập thể dục tim mạch thường xuyên giúp tăng cường quá trình trao đổi chất lúc nghỉ ngơi và đốt cháy calo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/metabolism.webp",
+    "img": "assets/images/words/m/metabolism.webp",
     "topicIds": [
       "food-drink-chặng-14"
     ],
@@ -12063,7 +12062,7 @@ export const WORDS = [
     "exampleVi": "Các vận động viên nạp nhiều tinh bột phức hợp trước khi chạy các cự ly marathon bền bỉ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/carbohydrate.webp",
+    "img": "assets/images/words/c/carbohydrate.webp",
     "topicIds": [
       "food-drink-chặng-14"
     ],
@@ -12079,7 +12078,7 @@ export const WORDS = [
     "exampleVi": "Trứng, đậu lăng và thịt gia cầm nạc là những nguồn cung cấp chất đạm xây dựng cơ bắp đặc biệt tốt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/protein.webp",
+    "img": "assets/images/words/p/protein.webp",
     "topicIds": [
       "food-drink-chặng-14"
     ],
@@ -12095,7 +12094,7 @@ export const WORDS = [
     "exampleVi": "Trà xanh và các loại quả mọng sẫm màu chứa nhiều chất chống oxy hóa bảo vệ tế bào.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/antioxidant.webp",
+    "img": "assets/images/words/a/antioxidant.webp",
     "topicIds": [
       "food-drink-chặng-14"
     ],
@@ -12111,7 +12110,7 @@ export const WORDS = [
     "exampleVi": "Chế độ ăn giàu chất xơ hòa tan giúp tăng cường sức khỏe đường ruột và giảm cholesterol.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fiber.webp",
+    "img": "assets/images/words/f/fiber.webp",
     "topicIds": [
       "food-drink-chặng-14"
     ],
@@ -12127,7 +12126,7 @@ export const WORDS = [
     "exampleVi": "Sự thiếu hụt chất sắt nghiêm trọng có thể dẫn đến mệt mỏi mãn tính và thiếu máu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/deficiency.webp",
+    "img": "assets/images/words/d/deficiency.webp",
     "topicIds": [
       "food-drink-chặng-15"
     ],
@@ -12143,7 +12142,7 @@ export const WORDS = [
     "exampleVi": "Nhà hàng có một thực đơn riêng dành cho thực khách ăn chay.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/vegetarian.webp",
+    "img": "assets/images/words/v/vegetarian.webp",
     "topicIds": [
       "food-drink-chặng-15"
     ],
@@ -12159,7 +12158,7 @@ export const WORDS = [
     "exampleVi": "Họ nướng bánh mì không chứa gluten bằng bột hạnh nhân và bột năng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/gluten-free.webp",
+    "img": "assets/images/words/g/gluten-free.webp",
     "topicIds": [
       "food-drink-chặng-15",
       "top-1000-core-chặng-64"
@@ -12176,7 +12175,7 @@ export const WORDS = [
     "exampleVi": "Những người không dung nạp đường sữa lactose chọn sữa hạnh nhân và yến mạch có nguồn gốc từ thực vật.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/intolerance.webp",
+    "img": "assets/images/words/i/intolerance.webp",
     "topicIds": [
       "food-drink-chặng-15"
     ],
@@ -12192,7 +12191,7 @@ export const WORDS = [
     "exampleVi": "Chuyến đi bộ đường dài buổi chiều xuyên rừng đã mang lại cho mọi người cảm giác thèm ăn thịnh soạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/appetite.webp",
+    "img": "assets/images/words/a/appetite.webp",
     "topicIds": [
       "food-drink-chặng-15"
     ],
@@ -12208,7 +12207,7 @@ export const WORDS = [
     "exampleVi": "Nhịn ăn gián đoạn đã trở nên phổ biến rộng rãi để quản lý cân nặng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fasting.webp",
+    "img": "assets/images/words/f/fasting.webp",
     "topicIds": [
       "food-drink-chặng-15"
     ],
@@ -12224,7 +12223,7 @@ export const WORDS = [
     "exampleVi": "Thực phẩm bổ sung Vitamin D được khuyến nghị trong những tháng mùa đông âm u ít ánh nắng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/supplement.webp",
+    "img": "assets/images/words/s/supplement.webp",
     "topicIds": [
       "food-drink-chặng-15"
     ],
@@ -12240,7 +12239,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi quây quần ở phòng khách để xem phim.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/living-room.webp",
+    "img": "assets/images/words/l/living-room.webp",
     "topicIds": [
       "home-living-chặng-1",
       "top-1000-core-chặng-81"
@@ -12257,7 +12256,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy ngủ thiếp đi trên ghế sô-pha khi đang đọc sách.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/sofa.webp",
+    "img": "assets/images/words/s/sofa.webp",
     "topicIds": [
       "home-living-chặng-1",
       "top-1000-core-chặng-81"
@@ -12274,7 +12273,7 @@ export const WORDS = [
     "exampleVi": "Hãy đặt cốc của bạn lên bàn trà.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/coffee-table.webp",
+    "img": "assets/images/words/c/coffee-table.webp",
     "topicIds": [
       "home-living-chặng-1"
     ],
@@ -12290,7 +12289,7 @@ export const WORDS = [
     "exampleVi": "Ông tôi thích ngồi trên chiếc ghế bành của mình.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/armchair.webp",
+    "img": "assets/images/words/a/armchair.webp",
     "topicIds": [
       "home-living-chặng-1"
     ],
@@ -12306,7 +12305,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy kéo rèm cửa để đón ánh nắng vào.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/curtain.webp",
+    "img": "assets/images/words/c/curtain.webp",
     "topicIds": [
       "home-living-chặng-1"
     ],
@@ -12322,7 +12321,7 @@ export const WORDS = [
     "exampleVi": "Tấm thảm mềm mại tạo cảm giác rất dễ chịu khi đi chân trần.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/carpet.webp",
+    "img": "assets/images/words/c/carpet.webp",
     "topicIds": [
       "home-living-chặng-1"
     ],
@@ -12338,7 +12337,7 @@ export const WORDS = [
     "exampleVi": "Những chiếc gối tựa trang trí này hợp với màu tường.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cushion.webp",
+    "img": "assets/images/words/c/cushion.webp",
     "topicIds": [
       "home-living-chặng-1"
     ],
@@ -12354,7 +12353,7 @@ export const WORDS = [
     "exampleVi": "Kệ sách chất đầy tiểu thuyết tiếng Anh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bookshelf.webp",
+    "img": "assets/images/words/b/bookshelf.webp",
     "topicIds": [
       "home-living-chặng-1"
     ],
@@ -12370,7 +12369,7 @@ export const WORDS = [
     "exampleVi": "Họ đã mua một chiếc ti vi thông minh mới cho phòng khách.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/television.webp",
+    "img": "assets/images/words/t/television.webp",
     "topicIds": [
       "home-living-chặng-1",
       "top-1000-core-chặng-81"
@@ -12387,7 +12386,7 @@ export const WORDS = [
     "exampleVi": "Hãy bật chiếc đèn cây ở góc phòng lên.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/lamp.webp",
+    "img": "assets/images/words/l/lamp.webp",
     "topicIds": [
       "home-living-chặng-1",
       "top-1000-core-chặng-81"
@@ -12404,7 +12403,7 @@ export const WORDS = [
     "exampleVi": "Những bông hoa hồng tươi được cắm rất đẹp trong bình.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/vase.webp",
+    "img": "assets/images/words/v/vase.webp",
     "topicIds": [
       "home-living-chặng-2"
     ],
@@ -12420,7 +12419,7 @@ export const WORDS = [
     "exampleVi": "Căn hộ có phong cách trang trí tối giản hiện đại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/decoration.webp",
+    "img": "assets/images/words/d/decoration.webp",
     "topicIds": [
       "home-living-chặng-2"
     ],
@@ -12436,7 +12435,7 @@ export const WORDS = [
     "exampleVi": "Phòng khách của họ rất ấm áp và ấm cúng vào mùa đông.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/cozy.webp",
+    "img": "assets/images/words/c/cozy.webp",
     "topicIds": [
       "home-living-chặng-2"
     ],
@@ -12452,7 +12451,7 @@ export const WORDS = [
     "exampleVi": "Căn hộ mới có khu vực phòng khách rất rộng rãi.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/spacious.webp",
+    "img": "assets/images/words/s/spacious.webp",
     "topicIds": [
       "home-living-chặng-2"
     ],
@@ -12468,7 +12467,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi rất thích tiếp đãi bạn bè vào cuối tuần.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/entertain.webp",
+    "img": "assets/images/words/e/entertain.webp",
     "topicIds": [
       "home-living-chặng-2",
       "top-1000-core-chặng-32"
@@ -12485,7 +12484,7 @@ export const WORDS = [
     "exampleVi": "Phòng ngủ chính có một ban công lớn.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/bedroom.webp",
+    "img": "assets/images/words/b/bedroom.webp",
     "topicIds": [
       "home-living-chặng-2",
       "top-1000-core-chặng-81"
@@ -12502,7 +12501,7 @@ export const WORDS = [
     "exampleVi": "Đã đến lúc đi ngủ rồi.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/bed.webp",
+    "img": "assets/images/words/b/bed.webp",
     "topicIds": [
       "home-living-chặng-2",
       "top-1000-core-chặng-82"
@@ -12519,7 +12518,7 @@ export const WORDS = [
     "exampleVi": "Một chiếc đệm êm nâng đỡ giúp tránh đau lưng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/mattress.webp",
+    "img": "assets/images/words/m/mattress.webp",
     "topicIds": [
       "home-living-chặng-2"
     ],
@@ -12535,7 +12534,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy thích ngủ với một chiếc gối cứng cáp.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/pillow.webp",
+    "img": "assets/images/words/p/pillow.webp",
     "topicIds": [
       "home-living-chặng-2"
     ],
@@ -12551,7 +12550,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy kéo chiếc chăn ấm lên tận cổ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/blanket.webp",
+    "img": "assets/images/words/b/blanket.webp",
     "topicIds": [
       "home-living-chặng-2"
     ],
@@ -12567,7 +12566,7 @@ export const WORDS = [
     "exampleVi": "Hãy treo áo khoác mùa đông của bạn vào tủ quần áo.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/wardrobe.webp",
+    "img": "assets/images/words/w/wardrobe.webp",
     "topicIds": [
       "home-living-chặng-3"
     ],
@@ -12583,7 +12582,7 @@ export const WORDS = [
     "exampleVi": "Hãy treo những chiếc áo sơ mi đã là lên móc.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/hanger.webp",
+    "img": "assets/images/words/h/hanger.webp",
     "topicIds": [
       "home-living-chặng-3"
     ],
@@ -12599,7 +12598,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đặt đồng hồ báo thức trên tủ đầu giường.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bedside-table.webp",
+    "img": "assets/images/words/b/bedside-table.webp",
     "topicIds": [
       "home-living-chặng-3"
     ],
@@ -12615,7 +12614,7 @@ export const WORDS = [
     "exampleVi": "Tất của anh ấy được cất trong ngăn kéo trên cùng của tủ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/dresser.webp",
+    "img": "assets/images/words/d/dresser.webp",
     "topicIds": [
       "home-living-chặng-3"
     ],
@@ -12631,7 +12630,7 @@ export const WORDS = [
     "exampleVi": "Em bé đã ngủ say trong nôi.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/asleep.webp",
+    "img": "assets/images/words/a/asleep.webp",
     "topicIds": [
       "home-living-chặng-3",
       "top-1000-core-chặng-82"
@@ -12648,7 +12647,7 @@ export const WORDS = [
     "exampleVi": "Chợp mắt 20 phút giúp tăng cường năng lượng cho bạn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/nap.webp",
+    "img": "assets/images/words/n/nap.webp",
     "topicIds": [
       "home-living-chặng-3"
     ],
@@ -12664,7 +12663,7 @@ export const WORDS = [
     "exampleVi": "Nhà bếp được trang bị các thiết bị hiện đại.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/kitchen.webp",
+    "img": "assets/images/words/k/kitchen.webp",
     "topicIds": [
       "home-living-chặng-3",
       "top-1000-core-chặng-82"
@@ -12681,7 +12680,7 @@ export const WORDS = [
     "exampleVi": "Hãy cất sữa tươi lại vào trong tủ lạnh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/refrigerator.webp",
+    "img": "assets/images/words/r/refrigerator.webp",
     "topicIds": [
       "home-living-chặng-3"
     ],
@@ -12697,7 +12696,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi để kem và thịt đông lạnh trong ngăn đá.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/freezer.webp",
+    "img": "assets/images/words/f/freezer.webp",
     "topicIds": [
       "home-living-chặng-3"
     ],
@@ -12713,7 +12712,7 @@ export const WORDS = [
     "exampleVi": "Hãy tắt bếp ga trước khi rời khỏi bếp.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/stove.webp",
+    "img": "assets/images/words/s/stove.webp",
     "topicIds": [
       "home-living-chặng-3"
     ],
@@ -12729,7 +12728,7 @@ export const WORDS = [
     "exampleVi": "Làm nóng lò nướng trước đến 180 độ trước khi nướng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/oven.webp",
+    "img": "assets/images/words/o/oven.webp",
     "topicIds": [
       "home-living-chặng-4"
     ],
@@ -12745,7 +12744,7 @@ export const WORDS = [
     "exampleVi": "Hãy hâm nóng bát súp trong lò vi sóng khoảng hai phút.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/microwave.webp",
+    "img": "assets/images/words/m/microwave.webp",
     "topicIds": [
       "home-living-chặng-4"
     ],
@@ -12761,7 +12760,7 @@ export const WORDS = [
     "exampleVi": "Đừng để bát đĩa bẩn chất đống trong bồn rửa.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/sink.webp",
+    "img": "assets/images/words/s/sink.webp",
     "topicIds": [
       "home-living-chặng-4"
     ],
@@ -12777,7 +12776,7 @@ export const WORDS = [
     "exampleVi": "Hãy cho hai lát bánh mì vào máy nướng bánh mì.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/toaster.webp",
+    "img": "assets/images/words/t/toaster.webp",
     "topicIds": [
       "home-living-chặng-4"
     ],
@@ -12793,7 +12792,7 @@ export const WORDS = [
     "exampleVi": "Các hộp đựng thực phẩm được cất trong tủ bếp phía trên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cabinet.webp",
+    "img": "assets/images/words/c/cabinet.webp",
     "topicIds": [
       "home-living-chặng-4"
     ],
@@ -12809,7 +12808,7 @@ export const WORDS = [
     "exampleVi": "Hãy lau sạch mặt bàn bếp sau khi nấu nướng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/countertop.webp",
+    "img": "assets/images/words/c/countertop.webp",
     "topicIds": [
       "home-living-chặng-4"
     ],
@@ -12825,7 +12824,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi tích trữ gạo, bột và gia vị trong phòng để đồ ăn khô.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pantry.webp",
+    "img": "assets/images/words/p/pantry.webp",
     "topicIds": [
       "home-living-chặng-4"
     ],
@@ -12841,7 +12840,7 @@ export const WORDS = [
     "exampleVi": "Dụng cụ nấu nướng chống dính giúp việc vệ sinh dễ dàng hơn nhiều.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cookware.webp",
+    "img": "assets/images/words/c/cookware.webp",
     "topicIds": [
       "home-living-chặng-4"
     ],
@@ -12857,7 +12856,7 @@ export const WORDS = [
     "exampleVi": "Phòng khách sạn có phòng tắm riêng khép kín.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/bathroom.webp",
+    "img": "assets/images/words/b/bathroom.webp",
     "topicIds": [
       "home-living-chặng-4",
       "top-1000-core-chặng-82"
@@ -12874,7 +12873,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy thư giãn trong bồn tắm nước nóng đầy bọt.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bathtub.webp",
+    "img": "assets/images/words/b/bathtub.webp",
     "topicIds": [
       "home-living-chặng-4"
     ],
@@ -12890,7 +12889,7 @@ export const WORDS = [
     "exampleVi": "Xin vui lòng xả nước bồn cầu sau khi sử dụng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/toilet.webp",
+    "img": "assets/images/words/t/toilet.webp",
     "topicIds": [
       "home-living-chặng-5",
       "top-1000-core-chặng-82"
@@ -12907,7 +12906,7 @@ export const WORDS = [
     "exampleVi": "Thoa dầu xả vào ngọn tóc để có kết quả tốt nhất.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/conditioner.webp",
+    "img": "assets/images/words/c/conditioner.webp",
     "topicIds": [
       "home-living-chặng-5"
     ],
@@ -12923,7 +12922,7 @@ export const WORDS = [
     "exampleVi": "Vòi nước phòng tắm đang bị rỉ từng giọt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/faucet.webp",
+    "img": "assets/images/words/f/faucet.webp",
     "topicIds": [
       "home-living-chặng-5"
     ],
@@ -12939,7 +12938,7 @@ export const WORDS = [
     "exampleVi": "Hãy dọn tóc khỏi cống thoát nước để tránh tắc nghẽn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/drain.webp",
+    "img": "assets/images/words/d/drain.webp",
     "topicIds": [
       "home-living-chặng-5"
     ],
@@ -12955,7 +12954,7 @@ export const WORDS = [
     "exampleVi": "Vệ sinh cá nhân tốt là điều cốt yếu để có sức khỏe tốt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/hygiene.webp",
+    "img": "assets/images/words/h/hygiene.webp",
     "topicIds": [
       "home-living-chặng-5"
     ],
@@ -12971,7 +12970,7 @@ export const WORDS = [
     "exampleVi": "Họ chia đều việc nhà cho nhau.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/housework.webp",
+    "img": "assets/images/words/h/housework.webp",
     "topicIds": [
       "home-living-chặng-5"
     ],
@@ -12987,7 +12986,7 @@ export const WORDS = [
     "exampleVi": "Máy hút bụi robot tự động lau hút sàn nhà.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/vacuum-cleaner.webp",
+    "img": "assets/images/words/v/vacuum-cleaner.webp",
     "topicIds": [
       "home-living-chặng-5"
     ],
@@ -13003,7 +13002,7 @@ export const WORDS = [
     "exampleVi": "Vắt ráo cây lau nhà trước khi lau sàn gạch.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/mop-noun.webp",
+    "img": "assets/images/words/m/mop-noun.webp",
     "topicIds": [
       "home-living-chặng-5"
     ],
@@ -13019,7 +13018,7 @@ export const WORDS = [
     "exampleVi": "Tôi có một đống quần áo giặt khổng lồ cần làm hôm nay.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/laundry.webp",
+    "img": "assets/images/words/l/laundry.webp",
     "topicIds": [
       "home-living-chặng-5"
     ],
@@ -13035,7 +13034,7 @@ export const WORDS = [
     "exampleVi": "Hãy vứt chai nhựa rỗng vào thùng rác.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/trash-can.webp",
+    "img": "assets/images/words/t/trash-can.webp",
     "topicIds": [
       "home-living-chặng-5"
     ],
@@ -13051,7 +13050,7 @@ export const WORDS = [
     "exampleVi": "Hãy giữ bàn học của bạn sạch sẽ và gọn gàng.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/tidy.webp",
+    "img": "assets/images/words/t/tidy.webp",
     "topicIds": [
       "home-living-chặng-6",
       "top-1000-core-chặng-64"
@@ -13068,7 +13067,7 @@ export const WORDS = [
     "exampleVi": "Hãy chà rửa gạch sàn phòng tắm bằng xà phòng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/scrub.webp",
+    "img": "assets/images/words/s/scrub.webp",
     "topicIds": [
       "home-living-chặng-6",
       "top-1000-core-chặng-32"
@@ -13085,7 +13084,7 @@ export const WORDS = [
     "exampleVi": "Máy sấy quần áo rất hữu ích vào những ngày mưa.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/dryer.webp",
+    "img": "assets/images/words/d/dryer.webp",
     "topicIds": [
       "home-living-chặng-6"
     ],
@@ -13101,7 +13100,7 @@ export const WORDS = [
     "exampleVi": "Hãy chỉnh máy điều hòa ở mức 26 độ C.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/air-conditioner.webp",
+    "img": "assets/images/words/a/air-conditioner.webp",
     "topicIds": [
       "home-living-chặng-6"
     ],
@@ -13117,7 +13116,7 @@ export const WORDS = [
     "exampleVi": "Hãy bật quạt trần để lưu thông không khí.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/fan.webp",
+    "img": "assets/images/words/f/fan.webp",
     "topicIds": [
       "home-living-chặng-6",
       "top-1000-core-chặng-82"
@@ -13134,7 +13133,7 @@ export const WORDS = [
     "exampleVi": "Bật máy sưởi di động khi trời trở nên lạnh buốt.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/heater.webp",
+    "img": "assets/images/words/h/heater.webp",
     "topicIds": [
       "home-living-chặng-6"
     ],
@@ -13150,7 +13149,7 @@ export const WORDS = [
     "exampleVi": "Bàn là hơi nước làm phẳng nếp nhăn áo sơ mi rất nhanh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/iron-noun.webp",
+    "img": "assets/images/words/i/iron-noun.webp",
     "topicIds": [
       "home-living-chặng-6"
     ],
@@ -13166,7 +13165,7 @@ export const WORDS = [
     "exampleVi": "Bật bình nóng lạnh 15 phút trước khi tắm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/water-heater.webp",
+    "img": "assets/images/words/w/water-heater.webp",
     "topicIds": [
       "home-living-chặng-6",
       "top-1000-core-chặng-81"
@@ -13183,7 +13182,7 @@ export const WORDS = [
     "exampleVi": "Cắm chắc phích cắm điện vào ổ cắm tường.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/plug.webp",
+    "img": "assets/images/words/p/plug.webp",
     "topicIds": [
       "home-living-chặng-6"
     ],
@@ -13199,7 +13198,7 @@ export const WORDS = [
     "exampleVi": "Đừng cắm quá tải vào một ổ cắm điện duy nhất.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/socket.webp",
+    "img": "assets/images/words/s/socket.webp",
     "topicIds": [
       "home-living-chặng-6"
     ],
@@ -13215,7 +13214,7 @@ export const WORDS = [
     "exampleVi": "Hãy tắt công tắc đèn khi rời khỏi phòng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/switch.webp",
+    "img": "assets/images/words/s/switch.webp",
     "topicIds": [
       "home-living-chặng-7",
       "top-1000-core-chặng-82"
@@ -13232,7 +13231,7 @@ export const WORDS = [
     "exampleVi": "Dùng dây nối dài để cắm tới ổ điện xa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/extension-cord.webp",
+    "img": "assets/images/words/e/extension-cord.webp",
     "topicIds": [
       "home-living-chặng-7"
     ],
@@ -13248,7 +13247,7 @@ export const WORDS = [
     "exampleVi": "Tắt các bóng đèn không dùng để tiết kiệm điện.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/electricity.webp",
+    "img": "assets/images/words/e/electricity.webp",
     "topicIds": [
       "home-living-chặng-7"
     ],
@@ -13264,7 +13263,7 @@ export const WORDS = [
     "exampleVi": "Giữ đèn pin sẵn phòng khi xảy ra sự cố mất điện.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/power-outage.webp",
+    "img": "assets/images/words/p/power-outage.webp",
     "topicIds": [
       "home-living-chặng-7"
     ],
@@ -13280,7 +13279,7 @@ export const WORDS = [
     "exampleVi": "Mỗi gia đình nên có một hộp dụng cụ cơ bản.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/toolbox.webp",
+    "img": "assets/images/words/t/toolbox.webp",
     "topicIds": [
       "home-living-chặng-7"
     ],
@@ -13296,7 +13295,7 @@ export const WORDS = [
     "exampleVi": "Dùng búa để đóng đinh treo khung ảnh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/hammer.webp",
+    "img": "assets/images/words/h/hammer.webp",
     "topicIds": [
       "home-living-chặng-7"
     ],
@@ -13312,7 +13311,7 @@ export const WORDS = [
     "exampleVi": "Hãy đóng chiếc đinh thẳng vào tường.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/nail.webp",
+    "img": "assets/images/words/n/nail.webp",
     "topicIds": [
       "home-living-chặng-7"
     ],
@@ -13328,7 +13327,7 @@ export const WORDS = [
     "exampleVi": "Vặn chặt tay nắm cửa bị lỏng bằng tua vít.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/screwdriver.webp",
+    "img": "assets/images/words/s/screwdriver.webp",
     "topicIds": [
       "home-living-chặng-7"
     ],
@@ -13344,7 +13343,7 @@ export const WORDS = [
     "exampleVi": "Cố định chiếc kệ chắc chắn bằng bốn con ốc vít.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/screw.webp",
+    "img": "assets/images/words/s/screw.webp",
     "topicIds": [
       "home-living-chặng-7"
     ],
@@ -13360,7 +13359,7 @@ export const WORDS = [
     "exampleVi": "Dùng kìm để uốn cong đoạn dây thép cứng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pliers.webp",
+    "img": "assets/images/words/p/pliers.webp",
     "topicIds": [
       "home-living-chặng-7"
     ],
@@ -13376,7 +13375,7 @@ export const WORDS = [
     "exampleVi": "Đo cửa sổ bằng thước cuộn trước khi đặt rèm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/tape-measure.webp",
+    "img": "assets/images/words/t/tape-measure.webp",
     "topicIds": [
       "home-living-chặng-8"
     ],
@@ -13392,7 +13391,7 @@ export const WORDS = [
     "exampleVi": "Leo thang cẩn thận để thay bóng đèn trần.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/ladder.webp",
+    "img": "assets/images/words/l/ladder.webp",
     "topicIds": [
       "home-living-chặng-8"
     ],
@@ -13408,7 +13407,7 @@ export const WORDS = [
     "exampleVi": "Thay bóng đèn bị cháy bằng một bóng đèn LED.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/light-bulb.webp",
+    "img": "assets/images/words/l/light-bulb.webp",
     "topicIds": [
       "home-living-chặng-8"
     ],
@@ -13424,7 +13423,7 @@ export const WORDS = [
     "exampleVi": "Mái nhà bếp bị dột rò rỉ khi trời mưa to.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/leak.webp",
+    "img": "assets/images/words/l/leak.webp",
     "topicIds": [
       "home-living-chặng-8",
       "top-1000-core-chặng-32"
@@ -13441,7 +13440,7 @@ export const WORDS = [
     "exampleVi": "Hãy gọi thợ sửa ống nước có bằng cấp đến kiểm tra hệ thống thoát nước.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/plumber.webp",
+    "img": "assets/images/words/p/plumber.webp",
     "topicIds": [
       "home-living-chặng-8"
     ],
@@ -13457,7 +13456,7 @@ export const WORDS = [
     "exampleVi": "Thợ điện đã sửa hệ thống dây điện bị lỗi trong nhà chúng tôi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/electrician.webp",
+    "img": "assets/images/words/e/electrician.webp",
     "topicIds": [
       "home-living-chặng-8"
     ],
@@ -13473,7 +13472,7 @@ export const WORDS = [
     "exampleVi": "Bảo trì nhà cửa thường xuyên giúp tránh các khoản sửa chữa tốn kém sau này.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/maintenance.webp",
+    "img": "assets/images/words/m/maintenance.webp",
     "topicIds": [
       "home-living-chặng-8"
     ],
@@ -13489,7 +13488,7 @@ export const WORDS = [
     "exampleVi": "Họ trồng rau hữu cơ trong khu vườn sau nhà.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/garden.webp",
+    "img": "assets/images/words/g/garden.webp",
     "topicIds": [
       "home-living-chặng-8",
       "top-1000-core-chặng-82"
@@ -13506,7 +13505,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi thưởng thức cà phê sáng khi ngồi ngoài ban công.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/balcony.webp",
+    "img": "assets/images/words/b/balcony.webp",
     "topicIds": [
       "home-living-chặng-8"
     ],
@@ -13522,7 +13521,7 @@ export const WORDS = [
     "exampleVi": "Lũ trẻ đang chơi đuổi bắt ở sân trước.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/yard.webp",
+    "img": "assets/images/words/y/yard.webp",
     "topicIds": [
       "home-living-chặng-8"
     ],
@@ -13538,7 +13537,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy cắt bãi cỏ xanh vào mỗi sáng Chủ nhật.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/lawn.webp",
+    "img": "assets/images/words/l/lawn.webp",
     "topicIds": [
       "home-living-chặng-9"
     ],
@@ -13554,7 +13553,7 @@ export const WORDS = [
     "exampleVi": "Một hàng rào gỗ màu trắng bao quanh vườn hoa.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/fence.webp",
+    "img": "assets/images/words/f/fence.webp",
     "topicIds": [
       "home-living-chặng-9"
     ],
@@ -13570,7 +13569,7 @@ export const WORDS = [
     "exampleVi": "Làm ơn khóa cổng sắt phía trước khi rời đi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/gate.webp",
+    "img": "assets/images/words/g/gate.webp",
     "topicIds": [
       "home-living-chặng-9"
     ],
@@ -13586,7 +13585,7 @@ export const WORDS = [
     "exampleVi": "Cây cảnh trong nhà giúp cải thiện chất lượng không khí trong căn hộ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/plant.webp",
+    "img": "assets/images/words/p/plant.webp",
     "topicIds": [
       "home-living-chặng-9",
       "top-1000-core-chặng-82"
@@ -13603,7 +13602,7 @@ export const WORDS = [
     "exampleVi": "Hãy tưới nước cho các chậu hoa vào mỗi buổi sáng.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/water.webp",
+    "img": "assets/images/words/w/water.webp",
     "topicIds": [
       "home-living-chặng-9",
       "top-1000-core-chặng-3"
@@ -13620,7 +13619,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy xếp những chậu hoa rực rỡ dọc lan can ban công.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/flowerpot.webp",
+    "img": "assets/images/words/f/flowerpot.webp",
     "topicIds": [
       "home-living-chặng-9"
     ],
@@ -13636,7 +13635,7 @@ export const WORDS = [
     "exampleVi": "Đất màu mỡ giúp cây cà chua phát triển xanh tốt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/soil.webp",
+    "img": "assets/images/words/s/soil.webp",
     "topicIds": [
       "home-living-chặng-9"
     ],
@@ -13652,7 +13651,7 @@ export const WORDS = [
     "exampleVi": "Gieo hạt giống thảo mộc vào các khay ươm nhỏ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/seed.webp",
+    "img": "assets/images/words/s/seed.webp",
     "topicIds": [
       "home-living-chặng-9"
     ],
@@ -13668,7 +13667,7 @@ export const WORDS = [
     "exampleVi": "Nối ống tưới vườn vào vòi nước ngoài trời.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/hose.webp",
+    "img": "assets/images/words/h/hose.webp",
     "topicIds": [
       "home-living-chặng-9"
     ],
@@ -13684,7 +13683,7 @@ export const WORDS = [
     "exampleVi": "Cắt tỉa các cành chết để giữ cho bụi hồng phát triển khỏe mạnh.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/prune.webp",
+    "img": "assets/images/words/p/prune.webp",
     "topicIds": [
       "home-living-chặng-9",
       "top-1000-core-chặng-32"
@@ -13701,7 +13700,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đặt bếp nướng BBQ ở khoảng sân gạch phía sau.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/patio.webp",
+    "img": "assets/images/words/p/patio.webp",
     "topicIds": [
       "home-living-chặng-10"
     ],
@@ -13717,7 +13716,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã tổ chức một bữa tiệc nướng cuối tuần cùng hàng xóm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/barbecue.webp",
+    "img": "assets/images/words/b/barbecue.webp",
     "topicIds": [
       "home-living-chặng-10"
     ],
@@ -13733,7 +13732,7 @@ export const WORDS = [
     "exampleVi": "Họ thuê một căn hộ hai phòng ngủ gần trung tâm thành phố.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/apartment.webp",
+    "img": "assets/images/words/a/apartment.webp",
     "topicIds": [
       "home-living-chặng-10",
       "top-1000-core-chặng-64"
@@ -13750,7 +13749,7 @@ export const WORDS = [
     "exampleVi": "Chi phí thuê căn hộ studio đầy đủ nội thất này là bao nhiêu?",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/rent.webp",
+    "img": "assets/images/words/r/rent.webp",
     "topicIds": [
       "home-living-chặng-10",
       "top-1000-core-chặng-24"
@@ -13767,7 +13766,7 @@ export const WORDS = [
     "exampleVi": "Chủ nhà đã đồng ý thay chiếc tủ lạnh bị hỏng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/landlord.webp",
+    "img": "assets/images/words/l/landlord.webp",
     "topicIds": [
       "home-living-chặng-10"
     ],
@@ -13783,7 +13782,7 @@ export const WORDS = [
     "exampleVi": "Bà chủ nhà thân thiện của chúng tôi sống ở tầng trệt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/landlady.webp",
+    "img": "assets/images/words/l/landlady.webp",
     "topicIds": [
       "home-living-chặng-10"
     ],
@@ -13799,7 +13798,7 @@ export const WORDS = [
     "exampleVi": "Người thuê nhà đã ký hợp đồng thuê kéo dài một năm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tenant.webp",
+    "img": "assets/images/words/t/tenant.webp",
     "topicIds": [
       "home-living-chặng-10"
     ],
@@ -13815,7 +13814,7 @@ export const WORDS = [
     "exampleVi": "Đọc kỹ các điều khoản hợp đồng thuê trước khi ký.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/lease.webp",
+    "img": "assets/images/words/l/lease.webp",
     "topicIds": [
       "home-living-chặng-10"
     ],
@@ -13831,7 +13830,7 @@ export const WORDS = [
     "exampleVi": "Người thuê nhà phải trả hai tháng tiền nhà làm tiền đặt cọc đảm bảo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/deposit-noun.webp",
+    "img": "assets/images/words/d/deposit-noun.webp",
     "topicIds": [
       "home-living-chặng-10"
     ],
@@ -13847,7 +13846,7 @@ export const WORDS = [
     "exampleVi": "Căn hộ được trang bị đầy đủ nội thất với các thiết bị hiện đại.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/furnished.webp",
+    "img": "assets/images/words/f/furnished.webp",
     "topicIds": [
       "home-living-chặng-10"
     ],
@@ -13863,7 +13862,7 @@ export const WORDS = [
     "exampleVi": "Thuê một căn hộ không có nội thất thường có giá rẻ hơn.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/unfurnished.webp",
+    "img": "assets/images/words/u/unfurnished.webp",
     "topicIds": [
       "home-living-chặng-11"
     ],
@@ -13879,7 +13878,7 @@ export const WORDS = [
     "exampleVi": "Hóa đơn điện nước không bao gồm trong tiền thuê nhà hàng tháng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/utility-bill.webp",
+    "img": "assets/images/words/u/utility-bill.webp",
     "topicIds": [
       "home-living-chặng-11"
     ],
@@ -13895,7 +13894,7 @@ export const WORDS = [
     "exampleVi": "Đầu tư vào bất động sản ngoại ô đang rất phổ biến.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/real-estate.webp",
+    "img": "assets/images/words/r/real-estate.webp",
     "topicIds": [
       "home-living-chặng-11"
     ],
@@ -13911,7 +13910,7 @@ export const WORDS = [
     "exampleVi": "Người môi giới bất động sản đã sắp xếp buổi đi xem cho ba căn hộ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/estate-agent.webp",
+    "img": "assets/images/words/e/estate-agent.webp",
     "topicIds": [
       "home-living-chặng-11"
     ],
@@ -13927,7 +13926,7 @@ export const WORDS = [
     "exampleVi": "Đây là một khu dân cư yên tĩnh, an toàn và thân thiện cho gia đình.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/neighborhood.webp",
+    "img": "assets/images/words/n/neighborhood.webp",
     "topicIds": [
       "home-living-chặng-11"
     ],
@@ -13943,7 +13942,7 @@ export const WORDS = [
     "exampleVi": "Họ quyết định chuyển chỗ ở đến gần nơi làm việc hơn.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/relocate.webp",
+    "img": "assets/images/words/r/relocate.webp",
     "topicIds": [
       "home-living-chặng-11",
       "top-1000-core-chặng-32"
@@ -13960,7 +13959,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi sẽ dọn vào nhà mới vào thứ Bảy tuần tới.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/move-in.webp",
+    "img": "assets/images/words/m/move-in.webp",
     "topicIds": [
       "home-living-chặng-11",
       "top-1000-core-chặng-24"
@@ -13977,7 +13976,7 @@ export const WORDS = [
     "exampleVi": "Hãy bấm chuông cửa khi bạn đến nhà.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/doorbell.webp",
+    "img": "assets/images/words/d/doorbell.webp",
     "topicIds": [
       "home-living-chặng-11"
     ],
@@ -13993,7 +13992,7 @@ export const WORDS = [
     "exampleVi": "Lắp đặt khóa thông minh kỹ thuật số ở cửa trước.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/lock-noun.webp",
+    "img": "assets/images/words/l/lock-noun.webp",
     "topicIds": [
       "home-living-chặng-11"
     ],
@@ -14009,7 +14008,7 @@ export const WORDS = [
     "exampleVi": "Luôn để một chìa khóa nhà dự phòng trong túi xách của bạn.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/key.webp",
+    "img": "assets/images/words/k/key.webp",
     "topicIds": [
       "home-living-chặng-11",
       "top-1000-core-chặng-82"
@@ -14026,7 +14025,7 @@ export const WORDS = [
     "exampleVi": "Bảo vệ kiểm tra tất cả khách vào tại cổng chính.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/security-guard.webp",
+    "img": "assets/images/words/s/security-guard.webp",
     "topicIds": [
       "home-living-chặng-12"
     ],
@@ -14042,7 +14041,7 @@ export const WORDS = [
     "exampleVi": "Đi thang máy lên tầng 12.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/elevator.webp",
+    "img": "assets/images/words/e/elevator.webp",
     "topicIds": [
       "home-living-chặng-12"
     ],
@@ -14058,7 +14057,7 @@ export const WORDS = [
     "exampleVi": "Hãy đi bộ xuống thang bộ thoát hiểm trong trường hợp có hỏa hoạn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/staircase.webp",
+    "img": "assets/images/words/s/staircase.webp",
     "topicIds": [
       "home-living-chặng-12"
     ],
@@ -14074,7 +14073,7 @@ export const WORDS = [
     "exampleVi": "Đèn ngoài hành lang tự động bật sáng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/corridor.webp",
+    "img": "assets/images/words/c/corridor.webp",
     "topicIds": [
       "home-living-chặng-12"
     ],
@@ -14090,7 +14089,7 @@ export const WORDS = [
     "exampleVi": "Gửi xe máy của bạn dưới tầng hầm chung cư.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/basement.webp",
+    "img": "assets/images/words/b/basement.webp",
     "topicIds": [
       "home-living-chặng-12"
     ],
@@ -14106,7 +14105,7 @@ export const WORDS = [
     "exampleVi": "Đỗ xe ô tô gia đình trong nhà để xe riêng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/garage.webp",
+    "img": "assets/images/words/g/garage.webp",
     "topicIds": [
       "home-living-chặng-12"
     ],
@@ -14122,7 +14121,7 @@ export const WORDS = [
     "exampleVi": "Chuông báo cháy đã vang lên trong buổi diễn tập an toàn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fire-alarm.webp",
+    "img": "assets/images/words/f/fire-alarm.webp",
     "topicIds": [
       "home-living-chặng-12"
     ],
@@ -14138,7 +14137,7 @@ export const WORDS = [
     "exampleVi": "Xác định vị trí bình cứu hỏa gần nhất trên tầng của bạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fire-extinguisher.webp",
+    "img": "assets/images/words/f/fire-extinguisher.webp",
     "topicIds": [
       "home-living-chặng-12"
     ],
@@ -14154,7 +14153,7 @@ export const WORDS = [
     "exampleVi": "Camera giám sát hoạt động 24/7 ở các khu vực sảnh công cộng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cctv-camera.webp",
+    "img": "assets/images/words/c/cctv-camera.webp",
     "topicIds": [
       "home-living-chặng-12"
     ],
@@ -14170,7 +14169,7 @@ export const WORDS = [
     "exampleVi": "Bấm đàm thoại nội bộ để hỏi xem ai đang đến thăm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/intercom.webp",
+    "img": "assets/images/words/i/intercom.webp",
     "topicIds": [
       "home-living-chặng-12"
     ],
@@ -14186,7 +14185,7 @@ export const WORDS = [
     "exampleVi": "Cư dân được tận hưởng các tiện ích cao cấp như phòng gym và hồ bơi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/amenity.webp",
+    "img": "assets/images/words/a/amenity.webp",
     "topicIds": [
       "home-living-chặng-13"
     ],
@@ -14202,7 +14201,7 @@ export const WORDS = [
     "exampleVi": "Tất cả cư dân phải tuân thủ quy định về tiếng ồn của tòa nhà.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/resident.webp",
+    "img": "assets/images/words/r/resident.webp",
     "topicIds": [
       "home-living-chặng-13"
     ],
@@ -14218,7 +14217,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy gật đầu đồng ý.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/head.webp",
+    "img": "assets/images/words/h/head.webp",
     "topicIds": [
       "health-body-chặng-1",
       "top-1000-core-chặng-41"
@@ -14235,7 +14234,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy vỗ nhẹ vào vai tôi.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/shoulder.webp",
+    "img": "assets/images/words/s/shoulder.webp",
     "topicIds": [
       "health-body-chặng-1",
       "top-1000-core-chặng-41"
@@ -14252,7 +14251,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy cảm thấy một cơn đau nhói ở ngực.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/chest.webp",
+    "img": "assets/images/words/c/chest.webp",
     "topicIds": [
       "health-body-chặng-1",
       "top-1000-core-chặng-42"
@@ -14269,7 +14268,7 @@ export const WORDS = [
     "exampleVi": "Ngồi cả ngày làm đau phần lưng dưới của tôi.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/back.webp",
+    "img": "assets/images/words/b/back.webp",
     "topicIds": [
       "health-body-chặng-1",
       "top-1000-core-chặng-41"
@@ -14286,7 +14285,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy thắt một chiếc thắt lưng quanh eo.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/waist.webp",
+    "img": "assets/images/words/w/waist.webp",
     "topicIds": [
       "health-body-chặng-1",
       "top-1000-core-chặng-43"
@@ -14303,7 +14302,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy chống hai tay lên hông.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/hip.webp",
+    "img": "assets/images/words/h/hip.webp",
     "topicIds": [
       "health-body-chặng-1",
       "top-1000-core-chặng-43"
@@ -14320,7 +14319,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy khoanh tay lại và lắng nghe.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/arm.webp",
+    "img": "assets/images/words/a/arm.webp",
     "topicIds": [
       "health-body-chặng-1",
       "top-1000-core-chặng-42"
@@ -14337,7 +14336,7 @@ export const WORDS = [
     "exampleVi": "Chống khuỷu tay lên bàn là không trang trọng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/elbow.webp",
+    "img": "assets/images/words/e/elbow.webp",
     "topicIds": [
       "health-body-chặng-1",
       "top-1000-core-chặng-43"
@@ -14354,7 +14353,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đeo một chiếc đồng hồ tập luyện thông minh trên cổ tay.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/wrist.webp",
+    "img": "assets/images/words/w/wrist.webp",
     "topicIds": [
       "health-body-chặng-1",
       "top-1000-core-chặng-43"
@@ -14371,7 +14370,7 @@ export const WORDS = [
     "exampleVi": "Hãy cầm đồng xu trong lòng bàn tay mở của bạn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/palm.webp",
+    "img": "assets/images/words/p/palm.webp",
     "topicIds": [
       "health-body-chặng-1",
       "top-1000-core-chặng-43"
@@ -14388,7 +14387,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy chỉ ngón tay vào tấm bản đồ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/finger.webp",
+    "img": "assets/images/words/f/finger.webp",
     "topicIds": [
       "health-body-chặng-2",
       "top-1000-core-chặng-42"
@@ -14405,7 +14404,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy khuỵu đầu gối trước khi nhấc chiếc hộp lên.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/knee.webp",
+    "img": "assets/images/words/k/knee.webp",
     "topicIds": [
       "health-body-chặng-2",
       "top-1000-core-chặng-42"
@@ -14422,7 +14421,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy bị trật mắt cá chân khi đang chạy bộ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/ankle.webp",
+    "img": "assets/images/words/a/ankle.webp",
     "topicIds": [
       "health-body-chặng-2",
       "top-1000-core-chặng-43"
@@ -14439,7 +14438,7 @@ export const WORDS = [
     "exampleVi": "Đôi giày da mới này cọ xát vào gót chân tôi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/heel.webp",
+    "img": "assets/images/words/h/heel.webp",
     "topicIds": [
       "health-body-chặng-2",
       "top-1000-core-chặng-43"
@@ -14456,7 +14455,7 @@ export const WORDS = [
     "exampleVi": "Bộ não con người xử lý lượng thông tin khổng lồ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/brain.webp",
+    "img": "assets/images/words/b/brain.webp",
     "topicIds": [
       "health-body-chặng-2",
       "top-1000-core-chặng-43"
@@ -14473,7 +14472,7 @@ export const WORDS = [
     "exampleVi": "Chế độ ăn lành mạnh giúp trái tim của bạn khỏe mạnh.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/heart.webp",
+    "img": "assets/images/words/h/heart.webp",
     "topicIds": [
       "health-body-chặng-2",
       "top-1000-core-chặng-42"
@@ -14490,7 +14489,7 @@ export const WORDS = [
     "exampleVi": "Hút thuốc lá gây tổn hại nghiêm trọng đến phổi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/lungs.webp",
+    "img": "assets/images/words/l/lungs.webp",
     "topicIds": [
       "health-body-chặng-2",
       "top-1000-core-chặng-43"
@@ -14507,7 +14506,7 @@ export const WORDS = [
     "exampleVi": "Ăn đồ cay có thể làm khó chịu dạ dày của bạn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/stomach.webp",
+    "img": "assets/images/words/s/stomach.webp",
     "topicIds": [
       "health-body-chặng-2",
       "top-1000-core-chặng-43"
@@ -14524,7 +14523,7 @@ export const WORDS = [
     "exampleVi": "Gan lọc các chất độc ra khỏi dòng máu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/liver.webp",
+    "img": "assets/images/words/l/liver.webp",
     "topicIds": [
       "health-body-chặng-2"
     ],
@@ -14540,7 +14539,7 @@ export const WORDS = [
     "exampleVi": "Hãy uống đủ nước để bảo vệ chức năng thận.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/kidney.webp",
+    "img": "assets/images/words/k/kidney.webp",
     "topicIds": [
       "health-body-chặng-2"
     ],
@@ -14556,7 +14555,7 @@ export const WORDS = [
     "exampleVi": "Xét nghiệm máu định kỳ giúp kiểm tra sức khỏe tổng quát.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/blood.webp",
+    "img": "assets/images/words/b/blood.webp",
     "topicIds": [
       "health-body-chặng-3",
       "top-1000-core-chặng-44"
@@ -14573,7 +14572,7 @@ export const WORDS = [
     "exampleVi": "Canxi là chất thiết yếu cho xương và răng chắc khỏe.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bone.webp",
+    "img": "assets/images/words/b/bone.webp",
     "topicIds": [
       "health-body-chặng-3",
       "top-1000-core-chặng-44"
@@ -14590,7 +14589,7 @@ export const WORDS = [
     "exampleVi": "Tập thể lực thường xuyên giúp xây dựng cơ bắp săn chắc.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/muscle.webp",
+    "img": "assets/images/words/m/muscle.webp",
     "topicIds": [
       "health-body-chặng-3",
       "top-1000-core-chặng-44"
@@ -14607,7 +14606,7 @@ export const WORDS = [
     "exampleVi": "Đau khớp là hiện tượng phổ biến ở người cao tuổi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/joint.webp",
+    "img": "assets/images/words/j/joint.webp",
     "topicIds": [
       "health-body-chặng-3"
     ],
@@ -14623,7 +14622,7 @@ export const WORDS = [
     "exampleVi": "Duy trì tư thế tốt để bảo vệ cột sống của bạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/spine.webp",
+    "img": "assets/images/words/s/spine.webp",
     "topicIds": [
       "health-body-chặng-3"
     ],
@@ -14639,7 +14638,7 @@ export const WORDS = [
     "exampleVi": "Máu chảy ngược về tim qua các tĩnh mạch.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/vein.webp",
+    "img": "assets/images/words/v/vein.webp",
     "topicIds": [
       "health-body-chặng-3"
     ],
@@ -14655,7 +14654,7 @@ export const WORDS = [
     "exampleVi": "Động mạch bị tắc nghẽn có thể dẫn đến bệnh tim mạch.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/artery.webp",
+    "img": "assets/images/words/a/artery.webp",
     "topicIds": [
       "health-body-chặng-3"
     ],
@@ -14671,7 +14670,7 @@ export const WORDS = [
     "exampleVi": "Y tá đã kiểm tra nhịp mạch đập của bệnh nhân.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pulse.webp",
+    "img": "assets/images/words/p/pulse.webp",
     "topicIds": [
       "health-body-chặng-3"
     ],
@@ -14687,7 +14686,7 @@ export const WORDS = [
     "exampleVi": "Vitamin C giúp tăng cường hệ miễn dịch của bạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/immune-system.webp",
+    "img": "assets/images/words/i/immune-system.webp",
     "topicIds": [
       "health-body-chặng-3"
     ],
@@ -14703,7 +14702,7 @@ export const WORDS = [
     "exampleVi": "Sốt và ớn lạnh là những triệu chứng phổ biến của bệnh cúm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/symptom.webp",
+    "img": "assets/images/words/s/symptom.webp",
     "topicIds": [
       "health-body-chặng-3"
     ],
@@ -14719,7 +14718,7 @@ export const WORDS = [
     "exampleVi": "Cậu bé nghỉ học ở nhà vì bị sốt cao.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/fever.webp",
+    "img": "assets/images/words/f/fever.webp",
     "topicIds": [
       "health-body-chặng-4",
       "top-1000-core-chặng-44"
@@ -14736,7 +14735,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy uống si-rô thảo mộc để làm dịu cơn ho khan.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/cough.webp",
+    "img": "assets/images/words/c/cough.webp",
     "topicIds": [
       "health-body-chặng-4",
       "top-1000-core-chặng-44"
@@ -14753,7 +14752,7 @@ export const WORDS = [
     "exampleVi": "Tôi bị đau đầu như búa bổ sau khi làm việc trên màn hình.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/headache.webp",
+    "img": "assets/images/words/h/headache.webp",
     "topicIds": [
       "health-body-chặng-4",
       "top-1000-core-chặng-44"
@@ -14770,7 +14769,7 @@ export const WORDS = [
     "exampleVi": "Uống nước mật ong ấm giúp làm dịu cơn đau rát họng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/sore-throat.webp",
+    "img": "assets/images/words/s/sore-throat.webp",
     "topicIds": [
       "health-body-chặng-4",
       "top-1000-core-chặng-44"
@@ -14787,7 +14786,7 @@ export const WORDS = [
     "exampleVi": "Tiêm vắc-xin hàng năm để tránh bị nhiễm cúm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/flu.webp",
+    "img": "assets/images/words/f/flu.webp",
     "topicIds": [
       "health-body-chặng-4",
       "top-1000-core-chặng-44"
@@ -14804,7 +14803,7 @@ export const WORDS = [
     "exampleVi": "Hãy nghỉ ngơi và uống nhiều nước khi bạn bị cảm lạnh.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/cold.webp",
+    "img": "assets/images/words/c/cold.webp",
     "topicIds": [
       "health-body-chặng-4",
       "top-1000-core-chặng-41"
@@ -14821,7 +14820,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy cảm thấy chóng mặt khi đứng dậy quá nhanh.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/dizzy.webp",
+    "img": "assets/images/words/d/dizzy.webp",
     "topicIds": [
       "health-body-chặng-4",
       "top-1000-core-chặng-47"
@@ -14838,7 +14837,7 @@ export const WORDS = [
     "exampleVi": "Say tàu xe gây ra chóng mặt và buồn nôn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/nausea.webp",
+    "img": "assets/images/words/n/nausea.webp",
     "topicIds": [
       "health-body-chặng-4"
     ],
@@ -14854,7 +14853,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy bị dị ứng đậu phộng rất nặng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/allergy.webp",
+    "img": "assets/images/words/a/allergy.webp",
     "topicIds": [
       "health-body-chặng-4"
     ],
@@ -14870,7 +14869,7 @@ export const WORDS = [
     "exampleVi": "Phản ứng dị ứng đã gây ra vết phát ban ngứa trên da.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/rash.webp",
+    "img": "assets/images/words/r/rash.webp",
     "topicIds": [
       "health-body-chặng-4"
     ],
@@ -14886,7 +14885,7 @@ export const WORDS = [
     "exampleVi": "Hãy rửa sạch vết cắt hở ngay lập tức để tránh nhiễm trùng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/infection.webp",
+    "img": "assets/images/words/i/infection.webp",
     "topicIds": [
       "health-body-chặng-5"
     ],
@@ -14902,7 +14901,7 @@ export const WORDS = [
     "exampleVi": "Chườm túi đá để giảm sưng mắt cá chân.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/swelling.webp",
+    "img": "assets/images/words/s/swelling.webp",
     "topicIds": [
       "health-body-chặng-5"
     ],
@@ -14918,7 +14917,7 @@ export const WORDS = [
     "exampleVi": "Mệt mỏi mạn tính là một triệu chứng của thiếu sắt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fatigue.webp",
+    "img": "assets/images/words/f/fatigue.webp",
     "topicIds": [
       "health-body-chặng-5"
     ],
@@ -14934,7 +14933,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy bị bong gân cổ tay trong buổi tập bóng rổ.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/sprain.webp",
+    "img": "assets/images/words/s/sprain.webp",
     "topicIds": [
       "health-body-chặng-5",
       "top-1000-core-chặng-24"
@@ -14951,7 +14950,7 @@ export const WORDS = [
     "exampleVi": "Xe cứu thương đã vội vã đưa bệnh nhân đến bệnh viện.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/hospital.webp",
+    "img": "assets/images/words/h/hospital.webp",
     "topicIds": [
       "health-body-chặng-5",
       "top-1000-core-chặng-41"
@@ -14968,7 +14967,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã đến một phòng khám nha khoa địa phương để kiểm tra.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/clinic.webp",
+    "img": "assets/images/words/c/clinic.webp",
     "topicIds": [
       "health-body-chặng-5",
       "top-1000-core-chặng-44"
@@ -14985,7 +14984,7 @@ export const WORDS = [
     "exampleVi": "Bác sĩ đã nhẹ nhàng thăm khám cho đứa trẻ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/doctor.webp",
+    "img": "assets/images/words/d/doctor.webp",
     "topicIds": [
       "health-body-chặng-5",
       "top-1000-core-chặng-41"
@@ -15002,7 +15001,7 @@ export const WORDS = [
     "exampleVi": "Y tá đã đo huyết áp và thân nhiệt của tôi.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/nurse.webp",
+    "img": "assets/images/words/n/nurse.webp",
     "topicIds": [
       "health-body-chặng-5",
       "top-1000-core-chặng-42"
@@ -15019,7 +15018,7 @@ export const WORDS = [
     "exampleVi": "Các bác sĩ đã đến thăm các bệnh nhân trong phòng hồi sức.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/patient.webp",
+    "img": "assets/images/words/p/patient.webp",
     "topicIds": [
       "health-body-chặng-5",
       "top-1000-core-chặng-44"
@@ -15036,7 +15035,7 @@ export const WORDS = [
     "exampleVi": "Hãy gọi số cấp cứu ngay lập tức trong tình huống khẩn cấp y tế.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/emergency.webp",
+    "img": "assets/images/words/e/emergency.webp",
     "topicIds": [
       "health-body-chặng-5"
     ],
@@ -15052,7 +15051,7 @@ export const WORDS = [
     "exampleVi": "Còi hú vang lên khi xe cứu thương phóng nhanh qua dòng xe cộ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/ambulance.webp",
+    "img": "assets/images/words/a/ambulance.webp",
     "topicIds": [
       "health-body-chặng-6",
       "top-1000-core-chặng-45"
@@ -15069,7 +15068,7 @@ export const WORDS = [
     "exampleVi": "Bác sĩ chuyên khoa đã khám tai và họng của anh ấy.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/examine.webp",
+    "img": "assets/images/words/e/examine.webp",
     "topicIds": [
       "health-body-chặng-6",
       "top-1000-core-chặng-24"
@@ -15086,7 +15085,7 @@ export const WORDS = [
     "exampleVi": "Bác sĩ đã chẩn đoán tình trạng này là viêm phế quản nhẹ.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/diagnose.webp",
+    "img": "assets/images/words/d/diagnose.webp",
     "topicIds": [
       "health-body-chặng-6",
       "top-1000-core-chặng-24"
@@ -15103,7 +15102,7 @@ export const WORDS = [
     "exampleVi": "Nhận được chẩn đoán chính xác là điều cốt yếu để hồi phục.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/diagnosis.webp",
+    "img": "assets/images/words/d/diagnosis.webp",
     "topicIds": [
       "health-body-chặng-6"
     ],
@@ -15119,7 +15118,7 @@ export const WORDS = [
     "exampleVi": "Bác sĩ đã chụp X-quang chân bị gãy của anh ấy.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/x-ray.webp",
+    "img": "assets/images/words/x/x-ray.webp",
     "topicIds": [
       "health-body-chặng-6",
       "top-1000-core-chặng-45"
@@ -15136,7 +15135,7 @@ export const WORDS = [
     "exampleVi": "Hãy nhịn ăn tám tiếng trước khi làm xét nghiệm máu.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/blood-test.webp",
+    "img": "assets/images/words/b/blood-test.webp",
     "topicIds": [
       "health-body-chặng-6",
       "top-1000-core-chặng-45"
@@ -15153,7 +15152,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã trải qua một ca phẫu thuật đầu gối nhỏ tuần trước.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/surgery.webp",
+    "img": "assets/images/words/s/surgery.webp",
     "topicIds": [
       "health-body-chặng-6"
     ],
@@ -15169,7 +15168,7 @@ export const WORDS = [
     "exampleVi": "Bác sĩ phẫu thuật lành nghề đã thực hiện ca mổ tim.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/surgeon.webp",
+    "img": "assets/images/words/s/surgeon.webp",
     "topicIds": [
       "health-body-chặng-6"
     ],
@@ -15185,7 +15184,7 @@ export const WORDS = [
     "exampleVi": "Hãy uống loại thuốc này ba lần một ngày sau bữa ăn.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/medicine.webp",
+    "img": "assets/images/words/m/medicine.webp",
     "topicIds": [
       "health-body-chặng-6",
       "top-1000-core-chặng-41"
@@ -15202,7 +15201,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã mua kẹo ngậm ho tại hiệu thuốc mở cửa 24 giờ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/pharmacy.webp",
+    "img": "assets/images/words/p/pharmacy.webp",
     "topicIds": [
       "health-body-chặng-6",
       "top-1000-core-chặng-45"
@@ -15219,7 +15218,7 @@ export const WORDS = [
     "exampleVi": "Dược sĩ đã giải thích hướng dẫn về liều lượng dùng thuốc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pharmacist.webp",
+    "img": "assets/images/words/p/pharmacist.webp",
     "topicIds": [
       "health-body-chặng-7"
     ],
@@ -15235,7 +15234,7 @@ export const WORDS = [
     "exampleVi": "Bạn cần có đơn thuốc để mua kháng sinh mạnh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/prescription.webp",
+    "img": "assets/images/words/p/prescription.webp",
     "topicIds": [
       "health-body-chặng-7"
     ],
@@ -15251,7 +15250,7 @@ export const WORDS = [
     "exampleVi": "Hãy nuốt viên thuốc vitamin cùng một ly nước.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/pill.webp",
+    "img": "assets/images/words/p/pill.webp",
     "topicIds": [
       "health-body-chặng-7",
       "top-1000-core-chặng-45"
@@ -15268,7 +15267,7 @@ export const WORDS = [
     "exampleVi": "Uống một viên thuốc nén giảm đau mỗi sáu tiếng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/tablet.webp",
+    "img": "assets/images/words/t/tablet.webp",
     "topicIds": [
       "health-body-chặng-7",
       "top-1000-core-chặng-45"
@@ -15285,7 +15284,7 @@ export const WORDS = [
     "exampleVi": "Paracetamol là một loại thuốc giảm đau được dùng rộng rãi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/painkiller.webp",
+    "img": "assets/images/words/p/painkiller.webp",
     "topicIds": [
       "health-body-chặng-7",
       "top-1000-core-chặng-45"
@@ -15302,7 +15301,7 @@ export const WORDS = [
     "exampleVi": "Hãy uống đủ hết liệu trình kháng sinh được kê đơn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/antibiotic.webp",
+    "img": "assets/images/words/a/antibiotic.webp",
     "topicIds": [
       "health-body-chặng-7"
     ],
@@ -15318,7 +15317,7 @@ export const WORDS = [
     "exampleVi": "Không bao giờ được dùng vượt quá liều lượng khuyến cáo trên nhãn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/dosage.webp",
+    "img": "assets/images/words/d/dosage.webp",
     "topicIds": [
       "health-body-chặng-7"
     ],
@@ -15334,7 +15333,7 @@ export const WORDS = [
     "exampleVi": "Buồn ngủ là một tác dụng phụ phổ biến của thuốc dị ứng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/side-effect.webp",
+    "img": "assets/images/words/s/side-effect.webp",
     "topicIds": [
       "health-body-chặng-7"
     ],
@@ -15350,7 +15349,7 @@ export const WORDS = [
     "exampleVi": "Trẻ em được tiêm vắc-xin sởi trong giai đoạn sơ sinh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/vaccine.webp",
+    "img": "assets/images/words/v/vaccine.webp",
     "topicIds": [
       "health-body-chặng-7"
     ],
@@ -15366,7 +15365,7 @@ export const WORDS = [
     "exampleVi": "Y tá đã tiêm cho anh ấy một mũi cúm không đau.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/injection.webp",
+    "img": "assets/images/words/i/injection.webp",
     "topicIds": [
       "health-body-chặng-7"
     ],
@@ -15382,7 +15381,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy mất hai tuần để hồi phục khỏi vi-rút.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/recover.webp",
+    "img": "assets/images/words/r/recover.webp",
     "topicIds": [
       "health-body-chặng-8",
       "top-1000-core-chặng-13"
@@ -15399,7 +15398,7 @@ export const WORDS = [
     "exampleVi": "Điều trị ung thư sớm đem lại tỷ lệ thành công cao hơn nhiều.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/treatment.webp",
+    "img": "assets/images/words/t/treatment.webp",
     "topicIds": [
       "health-body-chặng-8"
     ],
@@ -15415,7 +15414,7 @@ export const WORDS = [
     "exampleVi": "Vết thương trên da đã lành hoàn toàn không để lại sẹo.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/heal.webp",
+    "img": "assets/images/words/h/heal.webp",
     "topicIds": [
       "health-body-chặng-8",
       "top-1000-core-chặng-25"
@@ -15432,7 +15431,7 @@ export const WORDS = [
     "exampleVi": "Hãy đi khám nha sĩ hai lần một năm để làm sạch răng định kỳ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/dentist.webp",
+    "img": "assets/images/words/d/dentist.webp",
     "topicIds": [
       "health-body-chặng-8",
       "top-1000-core-chặng-42"
@@ -15449,7 +15448,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy bị mẻ một chiếc răng cửa khi bị ngã.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/tooth.webp",
+    "img": "assets/images/words/t/tooth.webp",
     "topicIds": [
       "health-body-chặng-8",
       "top-1000-core-chặng-42"
@@ -15466,7 +15465,7 @@ export const WORDS = [
     "exampleVi": "Hãy đánh răng hai lần mỗi ngày trong vòng hai phút.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/teeth.webp",
+    "img": "assets/images/words/t/teeth.webp",
     "topicIds": [
       "health-body-chặng-8",
       "top-1000-core-chặng-42"
@@ -15483,7 +15482,7 @@ export const WORDS = [
     "exampleVi": "Cơn đau răng dữ dội làm anh ấy mất ngủ cả đêm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/toothache.webp",
+    "img": "assets/images/words/t/toothache.webp",
     "topicIds": [
       "health-body-chặng-8",
       "top-1000-core-chặng-45"
@@ -15500,7 +15499,7 @@ export const WORDS = [
     "exampleVi": "Ăn quá nhiều đường tạo ra các lỗ sâu trong răng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cavity.webp",
+    "img": "assets/images/words/c/cavity.webp",
     "topicIds": [
       "health-body-chặng-8"
     ],
@@ -15516,7 +15515,7 @@ export const WORDS = [
     "exampleVi": "Nha sĩ đã đặt một miếng trám composite vào răng hàm của tôi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/filling.webp",
+    "img": "assets/images/words/f/filling.webp",
     "topicIds": [
       "health-body-chặng-8"
     ],
@@ -15532,7 +15531,7 @@ export const WORDS = [
     "exampleVi": "Nướu răng bị chảy máu có thể là dấu hiệu của viêm nướu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/gums.webp",
+    "img": "assets/images/words/g/gums.webp",
     "topicIds": [
       "health-body-chặng-8"
     ],
@@ -15548,7 +15547,7 @@ export const WORDS = [
     "exampleVi": "Dùng chỉ nha khoa hàng ngày để loại bỏ mảng bám.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/dental-floss.webp",
+    "img": "assets/images/words/d/dental-floss.webp",
     "topicIds": [
       "health-body-chặng-9",
       "top-1000-core-chặng-45"
@@ -15565,7 +15564,7 @@ export const WORDS = [
     "exampleVi": "Súc miệng bằng nước súc miệng giúp làm thơm hơi thở.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/mouthwash.webp",
+    "img": "assets/images/words/m/mouthwash.webp",
     "topicIds": [
       "health-body-chặng-9",
       "top-1000-core-chặng-45"
@@ -15582,7 +15581,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã đeo niềng răng trong suốt hai năm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/braces.webp",
+    "img": "assets/images/words/b/braces.webp",
     "topicIds": [
       "health-body-chặng-9"
     ],
@@ -15598,7 +15597,7 @@ export const WORDS = [
     "exampleVi": "Nha sĩ đã phải nhổ một chiếc răng khôn mọc lệch.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/extract-verb.webp",
+    "img": "assets/images/words/e/extract-verb.webp",
     "topicIds": [
       "health-body-chặng-9",
       "top-1000-core-chặng-25"
@@ -15615,7 +15614,7 @@ export const WORDS = [
     "exampleVi": "Đánh răng thường xuyên giúp ngăn ngừa tích tụ mảng bám.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/plaque.webp",
+    "img": "assets/images/words/p/plaque.webp",
     "topicIds": [
       "health-body-chặng-9"
     ],
@@ -15631,7 +15630,7 @@ export const WORDS = [
     "exampleVi": "Đồ uống có tính axit có thể làm mòn men răng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/enamel.webp",
+    "img": "assets/images/words/e/enamel.webp",
     "topicIds": [
       "health-body-chặng-9"
     ],
@@ -15647,7 +15646,7 @@ export const WORDS = [
     "exampleVi": "Những chiếc răng khôn của tôi bắt đầu mọc khi tôi 20 tuổi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/wisdom-tooth.webp",
+    "img": "assets/images/words/w/wisdom-tooth.webp",
     "topicIds": [
       "health-body-chặng-9"
     ],
@@ -15663,7 +15662,7 @@ export const WORDS = [
     "exampleVi": "Kẹo cao su bạc hà giúp duy trì hơi thở thơm tho.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/breath.webp",
+    "img": "assets/images/words/b/breath.webp",
     "topicIds": [
       "health-body-chặng-9",
       "top-1000-core-chặng-46"
@@ -15680,7 +15679,7 @@ export const WORDS = [
     "exampleVi": "Một chế độ ăn cân bằng bao gồm nhiều hoa quả và rau xanh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/diet.webp",
+    "img": "assets/images/words/d/diet.webp",
     "topicIds": [
       "health-body-chặng-9",
       "top-1000-core-chặng-46"
@@ -15697,7 +15696,7 @@ export const WORDS = [
     "exampleVi": "Cam và chanh rất giàu vitamin C.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/vitamin.webp",
+    "img": "assets/images/words/v/vitamin.webp",
     "topicIds": [
       "health-body-chặng-9",
       "top-1000-core-chặng-46"
@@ -15714,7 +15713,7 @@ export const WORDS = [
     "exampleVi": "Sắt và canxi là những khoáng chất dinh dưỡng quan trọng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mineral.webp",
+    "img": "assets/images/words/m/mineral.webp",
     "topicIds": [
       "health-body-chặng-10"
     ],
@@ -15730,7 +15729,7 @@ export const WORDS = [
     "exampleVi": "Hãy hạn chế lượng nạp thực phẩm siêu chế biến sẵn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/processed-food.webp",
+    "img": "assets/images/words/p/processed-food.webp",
     "topicIds": [
       "health-body-chặng-10",
       "top-1000-core-chặng-41"
@@ -15747,7 +15746,7 @@ export const WORDS = [
     "exampleVi": "Béo phì ở trẻ em là một mối lo ngại sức khỏe toàn cầu ngày càng tăng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/obesity.webp",
+    "img": "assets/images/words/o/obesity.webp",
     "topicIds": [
       "health-body-chặng-10"
     ],
@@ -15763,7 +15762,7 @@ export const WORDS = [
     "exampleVi": "Tôi tập thể dục 45 phút vào mỗi buổi sáng.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/exercise.webp",
+    "img": "assets/images/words/e/exercise.webp",
     "topicIds": [
       "health-body-chặng-10",
       "top-1000-core-chặng-7"
@@ -15780,7 +15779,7 @@ export const WORDS = [
     "exampleVi": "Hôm nay anh ấy đã có một buổi tập thân trên cường độ cao.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/workout.webp",
+    "img": "assets/images/words/w/workout.webp",
     "topicIds": [
       "health-body-chặng-10",
       "top-1000-core-chặng-46"
@@ -15797,7 +15796,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã đăng ký gói thành viên phòng gym một năm.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/gym.webp",
+    "img": "assets/images/words/g/gym.webp",
     "topicIds": [
       "health-body-chặng-10",
       "top-1000-core-chặng-42"
@@ -15814,7 +15813,7 @@ export const WORDS = [
     "exampleVi": "Chạy bộ buổi sáng trong công viên giúp tinh thần sảng khoái.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/jogging.webp",
+    "img": "assets/images/words/j/jogging.webp",
     "topicIds": [
       "health-body-chặng-10",
       "top-1000-core-chặng-46"
@@ -15831,7 +15830,7 @@ export const WORDS = [
     "exampleVi": "Thực hiện các động tác giãn cơ trước và sau khi nâng tạ nặng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/stretching.webp",
+    "img": "assets/images/words/s/stretching.webp",
     "topicIds": [
       "health-body-chặng-10",
       "top-1000-core-chặng-46"
@@ -15848,7 +15847,7 @@ export const WORDS = [
     "exampleVi": "Hãy khởi động đúng cách để tránh bị căng rách cơ.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/warm-up.webp",
+    "img": "assets/images/words/w/warm-up.webp",
     "topicIds": [
       "health-body-chặng-10",
       "top-1000-core-chặng-13"
@@ -15865,7 +15864,7 @@ export const WORDS = [
     "exampleVi": "Chạy bộ và đạp xe là những hình thức cardio tuyệt vời.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cardio.webp",
+    "img": "assets/images/words/c/cardio.webp",
     "topicIds": [
       "health-body-chặng-10"
     ],
@@ -15881,7 +15880,7 @@ export const WORDS = [
     "exampleVi": "Những người chạy cự ly dài có sức bền đáng kinh ngạc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/stamina.webp",
+    "img": "assets/images/words/s/stamina.webp",
     "topicIds": [
       "health-body-chặng-11"
     ],
@@ -15897,7 +15896,7 @@ export const WORDS = [
     "exampleVi": "Nâng tạ tay để phát triển sức mạnh cánh tay và vai.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/dumbbell.webp",
+    "img": "assets/images/words/d/dumbbell.webp",
     "topicIds": [
       "health-body-chặng-11",
       "top-1000-core-chặng-46"
@@ -15914,7 +15913,7 @@ export const WORDS = [
     "exampleVi": "Chạy 5 cây số trên máy chạy bộ trong nhà.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/treadmill.webp",
+    "img": "assets/images/words/t/treadmill.webp",
     "topicIds": [
       "health-body-chặng-11",
       "top-1000-core-chặng-46"
@@ -15931,7 +15930,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy hít đất 30 cái mỗi sáng trước khi tắm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/push-up.webp",
+    "img": "assets/images/words/p/push-up.webp",
     "topicIds": [
       "health-body-chặng-11",
       "top-1000-core-chặng-46"
@@ -15948,7 +15947,7 @@ export const WORDS = [
     "exampleVi": "Động tác squat giúp tăng cường sức mạnh cơ đùi và cơ mông.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/squat.webp",
+    "img": "assets/images/words/s/squat.webp",
     "topicIds": [
       "health-body-chặng-11",
       "top-1000-core-chặng-46"
@@ -15965,7 +15964,7 @@ export const WORDS = [
     "exampleVi": "Huấn luyện viên cá nhân đã thiết kế cho cô ấy một lịch tập riêng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/trainer.webp",
+    "img": "assets/images/words/t/trainer.webp",
     "topicIds": [
       "health-body-chặng-11",
       "top-1000-core-chặng-47"
@@ -15982,7 +15981,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đổ mồ hôi rất nhiều sau lớp đạp xe cường độ cao.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/sweat.webp",
+    "img": "assets/images/words/s/sweat.webp",
     "topicIds": [
       "health-body-chặng-11",
       "top-1000-core-chặng-13"
@@ -15999,7 +15998,7 @@ export const WORDS = [
     "exampleVi": "Bơi lội giúp xây dựng sức chịu đựng cơ bắp toàn thân.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/endurance.webp",
+    "img": "assets/images/words/e/endurance.webp",
     "topicIds": [
       "health-body-chặng-11"
     ],
@@ -16015,7 +16014,7 @@ export const WORDS = [
     "exampleVi": "Sức khỏe tinh thần quan trọng không kém gì sức khỏe thể chất.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mental-health.webp",
+    "img": "assets/images/words/m/mental-health.webp",
     "topicIds": [
       "health-body-chặng-11"
     ],
@@ -16031,7 +16030,7 @@ export const WORDS = [
     "exampleVi": "Căng thẳng kéo dài có thể dẫn đến bệnh tật về thể chất.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/stress.webp",
+    "img": "assets/images/words/s/stress.webp",
     "topicIds": [
       "health-body-chặng-11",
       "top-1000-core-chặng-47"
@@ -16048,7 +16047,7 @@ export const WORDS = [
     "exampleVi": "Trị liệu tâm lý và thuốc giúp điều trị bệnh trầm cảm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/depression.webp",
+    "img": "assets/images/words/d/depression.webp",
     "topicIds": [
       "health-body-chặng-12"
     ],
@@ -16064,7 +16063,7 @@ export const WORDS = [
     "exampleVi": "Thực hành thiền 10 phút mỗi ngày giúp làm dịu tâm trí đang quay cuồng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/meditation.webp",
+    "img": "assets/images/words/m/meditation.webp",
     "topicIds": [
       "health-body-chặng-12"
     ],
@@ -16080,7 +16079,7 @@ export const WORDS = [
     "exampleVi": "Hãy thực hành chánh niệm khi ăn uống hoặc đi dạo trong thiên nhiên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mindfulness.webp",
+    "img": "assets/images/words/m/mindfulness.webp",
     "topicIds": [
       "health-body-chặng-12"
     ],
@@ -16096,7 +16095,7 @@ export const WORDS = [
     "exampleVi": "Hãy nghe nhạc không lời êm dịu để thư giãn.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/relax.webp",
+    "img": "assets/images/words/r/relax.webp",
     "topicIds": [
       "health-body-chặng-12",
       "top-1000-core-chặng-7"
@@ -16113,7 +16112,7 @@ export const WORDS = [
     "exampleVi": "Các trung tâm tư vấn sinh viên cung cấp sự hỗ trợ bảo mật.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/counseling.webp",
+    "img": "assets/images/words/c/counseling.webp",
     "topicIds": [
       "health-body-chặng-12"
     ],
@@ -16129,7 +16128,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy trò chuyện với một chuyên gia trị liệu được cấp phép hai tuần một lần.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/therapist.webp",
+    "img": "assets/images/words/t/therapist.webp",
     "topicIds": [
       "health-body-chặng-12"
     ],
@@ -16145,7 +16144,7 @@ export const WORDS = [
     "exampleVi": "Cân bằng giữa công việc và cuộc sống là điều cốt yếu cho sự an lành về cảm xúc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/well-being.webp",
+    "img": "assets/images/words/w/well-being.webp",
     "topicIds": [
       "health-body-chặng-12"
     ],
@@ -16161,7 +16160,7 @@ export const WORDS = [
     "exampleVi": "Học các cách lành mạnh để bộc lộ những cảm xúc khó khăn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/emotion.webp",
+    "img": "assets/images/words/e/emotion.webp",
     "topicIds": [
       "health-body-chặng-12",
       "top-1000-core-chặng-35"
@@ -16178,7 +16177,7 @@ export const WORDS = [
     "exampleVi": "Tập thể dục giúp anh ấy đối phó với áp lực công việc hàng ngày.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/cope.webp",
+    "img": "assets/images/words/c/cope.webp",
     "topicIds": [
       "health-body-chặng-12",
       "top-1000-core-chặng-25"
@@ -16195,7 +16194,7 @@ export const WORDS = [
     "exampleVi": "Hãy ở bên cạnh những người luôn lan tỏa tinh thần tích cực.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/positivity.webp",
+    "img": "assets/images/words/p/positivity.webp",
     "topicIds": [
       "health-body-chặng-12"
     ],
@@ -16211,7 +16210,7 @@ export const WORDS = [
     "exampleVi": "Học các kỹ thuật sơ cứu cơ bản ở trường học.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/first-aid.webp",
+    "img": "assets/images/words/f/first-aid.webp",
     "topicIds": [
       "health-body-chặng-13",
       "top-1000-core-chặng-47"
@@ -16228,7 +16227,7 @@ export const WORDS = [
     "exampleVi": "Quấn băng gạc co giãn vừa vặn quanh khớp bị bong gân.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bandage.webp",
+    "img": "assets/images/words/b/bandage.webp",
     "topicIds": [
       "health-body-chặng-13",
       "top-1000-core-chặng-47"
@@ -16245,7 +16244,7 @@ export const WORDS = [
     "exampleVi": "Dán một miếng băng dán cá nhân chống nước lên vết đứt tay nhỏ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/band-aid.webp",
+    "img": "assets/images/words/b/band-aid.webp",
     "topicIds": [
       "health-body-chặng-13",
       "top-1000-core-chặng-47"
@@ -16262,7 +16261,7 @@ export const WORDS = [
     "exampleVi": "Thoa thuốc sát trùng trước khi băng bó vết trầy xước.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/antiseptic.webp",
+    "img": "assets/images/words/a/antiseptic.webp",
     "topicIds": [
       "health-body-chặng-13"
     ],
@@ -16278,7 +16277,7 @@ export const WORDS = [
     "exampleVi": "Giữ cho vết thương phẫu thuật luôn sạch sẽ và khô ráo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/wound.webp",
+    "img": "assets/images/words/w/wound.webp",
     "topicIds": [
       "health-body-chặng-13"
     ],
@@ -16294,7 +16293,7 @@ export const WORDS = [
     "exampleVi": "Ấn chặt trực tiếp để cầm vết chảy máu nặng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bleeding.webp",
+    "img": "assets/images/words/b/bleeding.webp",
     "topicIds": [
       "health-body-chặng-13",
       "top-1000-core-chặng-47"
@@ -16311,7 +16310,7 @@ export const WORDS = [
     "exampleVi": "Xả nước mát từ vòi lên vết bỏng nhẹ trong 10 phút.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/burn.webp",
+    "img": "assets/images/words/b/burn.webp",
     "topicIds": [
       "health-body-chặng-13",
       "top-1000-core-chặng-47"
@@ -16328,7 +16327,7 @@ export const WORDS = [
     "exampleVi": "Đôi ủng leo núi mới đã gây ra vết phồng rộp đau rát ở gót chân tôi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/blister.webp",
+    "img": "assets/images/words/b/blister.webp",
     "topicIds": [
       "health-body-chặng-13"
     ],
@@ -16344,7 +16343,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã thực hiện CPR cho đến khi nhân viên y tế đến hiện trường.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cpr.webp",
+    "img": "assets/images/words/c/cpr.webp",
     "topicIds": [
       "health-body-chặng-13"
     ],
@@ -16360,7 +16359,7 @@ export const WORDS = [
     "exampleVi": "Cậu bé bị nghẹn hóc một viên kẹo cứng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/choke.webp",
+    "img": "assets/images/words/c/choke.webp",
     "topicIds": [
       "health-body-chặng-13",
       "top-1000-core-chặng-25"
@@ -16377,7 +16376,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy ngất xỉu vì mất nước và trời nắng gắt mùa hè.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/faint.webp",
+    "img": "assets/images/words/f/faint.webp",
     "topicIds": [
       "health-body-chặng-14",
       "top-1000-core-chặng-25"
@@ -16394,7 +16393,7 @@ export const WORDS = [
     "exampleVi": "Một vết bầm tím màu tím sẫm xuất hiện trên khuỷu tay anh ấy.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bruise.webp",
+    "img": "assets/images/words/b/bruise.webp",
     "topicIds": [
       "health-body-chặng-14",
       "top-1000-core-chặng-47"
@@ -16411,7 +16410,7 @@ export const WORDS = [
     "exampleVi": "Vết cắt sâu trên trán đã phải khâu sáu mũi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/stitch.webp",
+    "img": "assets/images/words/s/stitch.webp",
     "topicIds": [
       "health-body-chặng-14"
     ],
@@ -16427,7 +16426,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy phải bó bột thạch cao cánh tay bị gãy trong sáu tuần.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cast.webp",
+    "img": "assets/images/words/c/cast.webp",
     "topicIds": [
       "health-body-chặng-14"
     ],
@@ -16443,7 +16442,7 @@ export const WORDS = [
     "exampleVi": "Hãy để một bộ dụng cụ y tế khẩn cấp trong xe ô tô gia đình bạn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/safety-kit.webp",
+    "img": "assets/images/words/s/safety-kit.webp",
     "topicIds": [
       "health-body-chặng-14",
       "top-1000-core-chặng-47"
@@ -16460,7 +16459,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi mua đồ ăn cả tuần ở siêu thị.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/supermarket.webp",
+    "img": "assets/images/words/s/supermarket.webp",
     "topicIds": [
       "shopping-money-chặng-1",
       "top-1000-core-chặng-66"
@@ -16477,7 +16476,7 @@ export const WORDS = [
     "exampleVi": "Trung tâm thương mại lớn có cả rạp chiếu phim và khu ẩm thực.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/shopping-mall.webp",
+    "img": "assets/images/words/s/shopping-mall.webp",
     "topicIds": [
       "shopping-money-chặng-1",
       "top-1000-core-chặng-68"
@@ -16494,7 +16493,7 @@ export const WORDS = [
     "exampleVi": "Chất đầy đồ nông sản tươi vào xe đẩy mua hàng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/shopping-cart.webp",
+    "img": "assets/images/words/s/shopping-cart.webp",
     "topicIds": [
       "shopping-money-chặng-1",
       "top-1000-core-chặng-68"
@@ -16511,7 +16510,7 @@ export const WORDS = [
     "exampleVi": "Lấy một chiếc giỏ mua hàng ở ngay lối vào.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/basket.webp",
+    "img": "assets/images/words/b/basket.webp",
     "topicIds": [
       "shopping-money-chặng-1",
       "top-1000-core-chặng-66"
@@ -16528,7 +16527,7 @@ export const WORDS = [
     "exampleVi": "Bạn có thể tìm thấy dầu ăn ở lối đi số 4.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/aisle.webp",
+    "img": "assets/images/words/a/aisle.webp",
     "topicIds": [
       "shopping-money-chặng-1",
       "top-1000-core-chặng-68"
@@ -16545,7 +16544,7 @@ export const WORDS = [
     "exampleVi": "Đồ đóng hộp được trưng bày ở kệ giữa.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/shelf.webp",
+    "img": "assets/images/words/s/shelf.webp",
     "topicIds": [
       "shopping-money-chặng-1",
       "top-1000-core-chặng-67"
@@ -16562,7 +16561,7 @@ export const WORDS = [
     "exampleVi": "Thanh toán các món hàng của bạn tại quầy thu ngân.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/cashier.webp",
+    "img": "assets/images/words/c/cashier.webp",
     "topicIds": [
       "shopping-money-chặng-1",
       "top-1000-core-chặng-68"
@@ -16579,7 +16578,7 @@ export const WORDS = [
     "exampleVi": "Có một hàng dài người xếp hàng ở quầy tính tiền.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/checkout.webp",
+    "img": "assets/images/words/c/checkout.webp",
     "topicIds": [
       "shopping-money-chặng-1",
       "top-1000-core-chặng-68"
@@ -16596,7 +16595,7 @@ export const WORDS = [
     "exampleVi": "Nhân viên bán hàng đã giúp tôi tìm đúng kích cỡ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/store-clerk.webp",
+    "img": "assets/images/words/s/store-clerk.webp",
     "topicIds": [
       "shopping-money-chặng-1",
       "top-1000-core-chặng-68"
@@ -16613,7 +16612,7 @@ export const WORDS = [
     "exampleVi": "Quầy bánh mì thơm ngát mùi bánh sừng bò mới ra lò.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bakery-section.webp",
+    "img": "assets/images/words/b/bakery-section.webp",
     "topicIds": [
       "shopping-money-chặng-1",
       "top-1000-core-chặng-68"
@@ -16630,7 +16629,7 @@ export const WORDS = [
     "exampleVi": "Mẫu tai nghe này hiện đang còn hàng trong kho.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/in-stock.webp",
+    "img": "assets/images/words/i/in-stock.webp",
     "topicIds": [
       "shopping-money-chặng-2"
     ],
@@ -16646,7 +16645,7 @@ export const WORDS = [
     "exampleVi": "Đóng gói quần áo ấm mùa đông cho chuyến đi trượt tuyết.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/clothing.webp",
+    "img": "assets/images/words/c/clothing.webp",
     "topicIds": [
       "shopping-money-chặng-2",
       "top-1000-core-chặng-67"
@@ -16663,7 +16662,7 @@ export const WORDS = [
     "exampleVi": "Hãy mang ba chiếc áo này vào phòng thử đồ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/fitting-room.webp",
+    "img": "assets/images/words/f/fitting-room.webp",
     "topicIds": [
       "shopping-money-chặng-2",
       "top-1000-core-chặng-68"
@@ -16680,7 +16679,7 @@ export const WORDS = [
     "exampleVi": "Tôi có thể thử chiếc áo khoác bò này không?",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/try-on.webp",
+    "img": "assets/images/words/t/try-on.webp",
     "topicIds": [
       "shopping-money-chặng-2",
       "top-1000-core-chặng-14"
@@ -16697,7 +16696,7 @@ export const WORDS = [
     "exampleVi": "Bạn có chiếc váy này ở cỡ vừa (size M) không?",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/size.webp",
+    "img": "assets/images/words/s/size.webp",
     "topicIds": [
       "shopping-money-chặng-2",
       "top-1000-core-chặng-67"
@@ -16714,7 +16713,7 @@ export const WORDS = [
     "exampleVi": "Chiếc quần jean này vừa vặn hoàn hảo quanh eo tôi.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/fit.webp",
+    "img": "assets/images/words/f/fit.webp",
     "topicIds": [
       "shopping-money-chặng-2",
       "top-1000-core-chặng-14"
@@ -16731,7 +16730,7 @@ export const WORDS = [
     "exampleVi": "Chiếc cà vạt xanh này rất hợp với bộ vest màu xanh navy của bạn.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/match-verb.webp",
+    "img": "assets/images/words/m/match-verb.webp",
     "topicIds": [
       "shopping-money-chặng-2",
       "top-1000-core-chặng-14"
@@ -16748,7 +16747,7 @@ export const WORDS = [
     "exampleVi": "Họ bán các thương hiệu thời trang xa xỉ nổi tiếng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/brand.webp",
+    "img": "assets/images/words/b/brand.webp",
     "topicIds": [
       "shopping-money-chặng-2",
       "top-1000-core-chặng-69"
@@ -16765,7 +16764,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã mua một bộ trang phục từ một nhà thiết kế người Ý.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/designer.webp",
+    "img": "assets/images/words/d/designer.webp",
     "topicIds": [
       "shopping-money-chặng-2",
       "top-1000-core-chặng-69"
@@ -16782,7 +16781,7 @@ export const WORDS = [
     "exampleVi": "Áo blazer dáng rộng đang rất thời thượng trong mùa này.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/trendy.webp",
+    "img": "assets/images/words/t/trendy.webp",
     "topicIds": [
       "shopping-money-chặng-2",
       "top-1000-core-chặng-72"
@@ -16799,7 +16798,7 @@ export const WORDS = [
     "exampleVi": "Mặc trang phục thường ngày thoải mái cho chuyến dã ngoại.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/casual.webp",
+    "img": "assets/images/words/c/casual.webp",
     "topicIds": [
       "shopping-money-chặng-3",
       "top-1000-core-chặng-57"
@@ -16816,7 +16815,7 @@ export const WORDS = [
     "exampleVi": "Một bữa tối trang trọng yêu cầu lễ phục lịch sự.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/formal.webp",
+    "img": "assets/images/words/f/formal.webp",
     "topicIds": [
       "shopping-money-chặng-3",
       "top-1000-core-chặng-72"
@@ -16833,7 +16832,7 @@ export const WORDS = [
     "exampleVi": "Thắt lưng da và kính râm là những phụ kiện sành điệu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/accessory.webp",
+    "img": "assets/images/words/a/accessory.webp",
     "topicIds": [
       "shopping-money-chặng-3"
     ],
@@ -16849,7 +16848,7 @@ export const WORDS = [
     "exampleVi": "Cotton tự nhiên là loại vải mềm và thoáng khí.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fabric.webp",
+    "img": "assets/images/words/f/fabric.webp",
     "topicIds": [
       "shopping-money-chặng-3"
     ],
@@ -16865,7 +16864,7 @@ export const WORDS = [
     "exampleVi": "Đôi bốt da này hơi bị chật một chút.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/tight.webp",
+    "img": "assets/images/words/t/tight.webp",
     "topicIds": [
       "shopping-money-chặng-3",
       "top-1000-core-chặng-67"
@@ -16882,7 +16881,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy thích mặc áo sơ mi vải lanh rộng rãi vào mùa hè.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/loose.webp",
+    "img": "assets/images/words/l/loose.webp",
     "topicIds": [
       "shopping-money-chặng-3",
       "top-1000-core-chặng-67"
@@ -16899,7 +16898,7 @@ export const WORDS = [
     "exampleVi": "Tổng giá của ba cuốn sách này là bao nhiêu?",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/price.webp",
+    "img": "assets/images/words/p/price.webp",
     "topicIds": [
       "shopping-money-chặng-3",
       "top-1000-core-chặng-65"
@@ -16916,7 +16915,7 @@ export const WORDS = [
     "exampleVi": "Hãy nhìn thẻ giá trước khi tiến đến quầy thanh toán.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/price-tag.webp",
+    "img": "assets/images/words/p/price-tag.webp",
     "topicIds": [
       "shopping-money-chặng-3",
       "top-1000-core-chặng-66"
@@ -16933,7 +16932,7 @@ export const WORDS = [
     "exampleVi": "Sinh viên được giảm giá 20% khi mua vé xem phim.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/discount.webp",
+    "img": "assets/images/words/d/discount.webp",
     "topicIds": [
       "shopping-money-chặng-3",
       "top-1000-core-chặng-69"
@@ -16950,7 +16949,7 @@ export const WORDS = [
     "exampleVi": "Mọi thứ trong cửa hàng hôm nay đều đang được giảm giá.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/sale.webp",
+    "img": "assets/images/words/s/sale.webp",
     "topicIds": [
       "shopping-money-chặng-3",
       "top-1000-core-chặng-67"
@@ -16967,7 +16966,7 @@ export const WORDS = [
     "exampleVi": "Chỉ với mười đô-la, chiếc áo khoác này thực sự là một món hời.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/bargain-noun.webp",
+    "img": "assets/images/words/b/bargain-noun.webp",
     "topicIds": [
       "shopping-money-chặng-4"
     ],
@@ -16983,7 +16982,7 @@ export const WORDS = [
     "exampleVi": "Họ bán đồ nội thất chất lượng với giá cả phải chăng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/affordable.webp",
+    "img": "assets/images/words/a/affordable.webp",
     "topicIds": [
       "shopping-money-chặng-4",
       "top-1000-core-chặng-65"
@@ -17000,7 +16999,7 @@ export const WORDS = [
     "exampleVi": "Ăn uống tại các nhà hàng 5 sao rất đắt đỏ.",
     "level": "A1",
     "pos": "adjective",
-    "img": "assets/images/words/expensive.webp",
+    "img": "assets/images/words/e/expensive.webp",
     "topicIds": [
       "shopping-money-chặng-4",
       "top-1000-core-chặng-66"
@@ -17017,7 +17016,7 @@ export const WORDS = [
     "exampleVi": "Ẩm thực đường phố ở Việt Nam vừa ngon vừa rẻ.",
     "level": "A1",
     "pos": "adjective",
-    "img": "assets/images/words/cheap.webp",
+    "img": "assets/images/words/c/cheap.webp",
     "topicIds": [
       "shopping-money-chặng-4",
       "top-1000-core-chặng-66"
@@ -17034,7 +17033,7 @@ export const WORDS = [
     "exampleVi": "Lưu phiếu giảm giá kỹ thuật số này để tiết kiệm năm đô-la.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/coupon.webp",
+    "img": "assets/images/words/c/coupon.webp",
     "topicIds": [
       "shopping-money-chặng-4",
       "top-1000-core-chặng-69"
@@ -17051,7 +17050,7 @@ export const WORDS = [
     "exampleVi": "Mua một tặng một là chương trình khuyến mãi mùa hè tốt nhất của họ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/promotion.webp",
+    "img": "assets/images/words/p/promotion.webp",
     "topicIds": [
       "shopping-money-chặng-4"
     ],
@@ -17067,7 +17066,7 @@ export const WORDS = [
     "exampleVi": "Kiểm tra trang web mỗi ngày để săn các ưu đãi giảm giá chớp nhoáng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/deal.webp",
+    "img": "assets/images/words/d/deal.webp",
     "topicIds": [
       "shopping-money-chặng-4",
       "top-1000-core-chặng-64"
@@ -17084,7 +17083,7 @@ export const WORDS = [
     "exampleVi": "Tính 10 đô cho một chai nước hoàn toàn là một sự chặt chém.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/rip-off.webp",
+    "img": "assets/images/words/r/rip-off.webp",
     "topicIds": [
       "shopping-money-chặng-4"
     ],
@@ -17100,7 +17099,7 @@ export const WORDS = [
     "exampleVi": "Cà phê ở các điểm du lịch thường bị bán với giá quá đắt.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/overpriced.webp",
+    "img": "assets/images/words/o/overpriced.webp",
     "topicIds": [
       "shopping-money-chặng-4",
       "top-1000-core-chặng-72"
@@ -17117,7 +17116,7 @@ export const WORDS = [
     "exampleVi": "Mua áo khoác mùa đông trong đợt xả hàng cuối mùa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/clearance.webp",
+    "img": "assets/images/words/c/clearance.webp",
     "topicIds": [
       "shopping-money-chặng-4"
     ],
@@ -17133,7 +17132,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã nhận được một phiếu quà tặng 50 đô nhân dịp sinh nhật.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/voucher.webp",
+    "img": "assets/images/words/v/voucher.webp",
     "topicIds": [
       "shopping-money-chặng-5"
     ],
@@ -17149,7 +17148,7 @@ export const WORDS = [
     "exampleVi": "Bạn muốn thanh toán bằng tiền mặt hay thẻ tín dụng?",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/cash.webp",
+    "img": "assets/images/words/c/cash.webp",
     "topicIds": [
       "shopping-money-chặng-5",
       "top-1000-core-chặng-66"
@@ -17166,7 +17165,7 @@ export const WORDS = [
     "exampleVi": "Quẹt hoặc chạm thẻ tín dụng của bạn tại máy thanh toán.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/credit-card-noun.webp",
+    "img": "assets/images/words/c/credit-card-noun.webp",
     "topicIds": [
       "shopping-money-chặng-5",
       "top-1000-core-chặng-69"
@@ -17183,7 +17182,7 @@ export const WORDS = [
     "exampleVi": "Tiền được trừ trực tiếp ngay khi sử dụng thẻ ghi nợ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/debit-card-noun.webp",
+    "img": "assets/images/words/d/debit-card-noun.webp",
     "topicIds": [
       "shopping-money-chặng-5",
       "top-1000-core-chặng-69"
@@ -17200,7 +17199,7 @@ export const WORDS = [
     "exampleVi": "Hãy giữ lại hóa đơn mua hàng phòng khi bạn cần đổi trả.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/receipt-noun.webp",
+    "img": "assets/images/words/r/receipt-noun.webp",
     "topicIds": [
       "shopping-money-chặng-5",
       "top-1000-core-chặng-69"
@@ -17217,7 +17216,7 @@ export const WORDS = [
     "exampleVi": "Bỏ một đồng xu một đô-la vào máy bán hàng tự động.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/coin.webp",
+    "img": "assets/images/words/c/coin.webp",
     "topicIds": [
       "shopping-money-chặng-5",
       "top-1000-core-chặng-67"
@@ -17234,7 +17233,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đưa cho thu ngân một tờ tiền 20 đô mới cứng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/banknote.webp",
+    "img": "assets/images/words/b/banknote.webp",
     "topicIds": [
       "shopping-money-chặng-5",
       "top-1000-core-chặng-69"
@@ -17251,7 +17250,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy lấy ví tiền ra để thanh toán hóa đơn bữa tối.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/wallet.webp",
+    "img": "assets/images/words/w/wallet.webp",
     "topicIds": [
       "shopping-money-chặng-5",
       "top-1000-core-chặng-67"
@@ -17268,7 +17267,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy tìm chìa khóa trong chiếc ví cầm tay của mình.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/purse.webp",
+    "img": "assets/images/words/p/purse.webp",
     "topicIds": [
       "shopping-money-chặng-5",
       "top-1000-core-chặng-69"
@@ -17285,7 +17284,7 @@ export const WORDS = [
     "exampleVi": "Thanh toán không tiếp xúc rất nhanh chóng và an toàn.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/contactless.webp",
+    "img": "assets/images/words/c/contactless.webp",
     "topicIds": [
       "shopping-money-chặng-5",
       "top-1000-core-chặng-72"
@@ -17302,7 +17301,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã để lại khoản tiền boa hào phóng 15% cho người phục vụ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/tip.webp",
+    "img": "assets/images/words/t/tip.webp",
     "topicIds": [
       "shopping-money-chặng-6",
       "top-1000-core-chặng-69"
@@ -17319,7 +17318,7 @@ export const WORDS = [
     "exampleVi": "Đô-la Mỹ và Euro là những đồng tiền tệ lớn trên toàn cầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/currency.webp",
+    "img": "assets/images/words/c/currency.webp",
     "topicIds": [
       "shopping-money-chặng-6"
     ],
@@ -17335,7 +17334,7 @@ export const WORDS = [
     "exampleVi": "Kiểm tra tỷ giá hối đoái hiện tại trước khi đi du lịch nước ngoài.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/exchange-rate.webp",
+    "img": "assets/images/words/e/exchange-rate.webp",
     "topicIds": [
       "shopping-money-chặng-6"
     ],
@@ -17351,7 +17350,7 @@ export const WORDS = [
     "exampleVi": "Hãy chia đều hóa đơn cho bốn người chúng ta nhé.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/split-the-bill.webp",
+    "img": "assets/images/words/s/split-the-bill.webp",
     "topicIds": [
       "shopping-money-chặng-6"
     ],
@@ -17367,7 +17366,7 @@ export const WORDS = [
     "exampleVi": "Mua sắm trực tuyến giúp tiết kiệm thời gian và mang lại nhiều lựa chọn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/online-shopping.webp",
+    "img": "assets/images/words/o/online-shopping.webp",
     "topicIds": [
       "shopping-money-chặng-6",
       "top-1000-core-chặng-70"
@@ -17384,7 +17383,7 @@ export const WORDS = [
     "exampleVi": "Thêm vào giỏ hàng và tiến hành thanh toán khi đã sẵn sàng.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/add-to-cart.webp",
+    "img": "assets/images/words/a/add-to-cart.webp",
     "topicIds": [
       "shopping-money-chặng-6",
       "top-1000-core-chặng-68"
@@ -17401,7 +17400,7 @@ export const WORDS = [
     "exampleVi": "Giao hàng hỏa tốc sẽ đến trong vòng 24 giờ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/delivery.webp",
+    "img": "assets/images/words/d/delivery.webp",
     "topicIds": [
       "shopping-money-chặng-6",
       "top-1000-core-chặng-70"
@@ -17418,7 +17417,7 @@ export const WORDS = [
     "exampleVi": "Đơn hàng trên 50 đô đủ điều kiện miễn phí vận chuyển.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/shipping-fee.webp",
+    "img": "assets/images/words/s/shipping-fee.webp",
     "topicIds": [
       "shopping-money-chặng-6",
       "top-1000-core-chặng-70"
@@ -17435,7 +17434,7 @@ export const WORDS = [
     "exampleVi": "Người giao hàng đã giao một kiện bưu phẩm bằng bìa cứng nhỏ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/package.webp",
+    "img": "assets/images/words/p/package.webp",
     "topicIds": [
       "shopping-money-chặng-6",
       "top-1000-core-chặng-70"
@@ -17452,7 +17451,7 @@ export const WORDS = [
     "exampleVi": "Người giao hàng sẽ gọi điện cho bạn trước khi đến.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/courier.webp",
+    "img": "assets/images/words/c/courier.webp",
     "topicIds": [
       "shopping-money-chặng-6"
     ],
@@ -17468,7 +17467,7 @@ export const WORDS = [
     "exampleVi": "Nhập mã vận đơn lên mạng để kiểm tra tình trạng đơn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tracking-number.webp",
+    "img": "assets/images/words/t/tracking-number.webp",
     "topicIds": [
       "shopping-money-chặng-7"
     ],
@@ -17484,7 +17483,7 @@ export const WORDS = [
     "exampleVi": "Các sàn thương mại điện tử đã biến đổi ngành bán lẻ hiện đại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/e-commerce.webp",
+    "img": "assets/images/words/e/e-commerce.webp",
     "topicIds": [
       "shopping-money-chặng-7"
     ],
@@ -17500,7 +17499,7 @@ export const WORDS = [
     "exampleVi": "Đọc đánh giá của khách hàng đã mua trước khi quyết định đặt hàng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/customer-review.webp",
+    "img": "assets/images/words/c/customer-review.webp",
     "topicIds": [
       "shopping-money-chặng-7",
       "top-1000-core-chặng-70"
@@ -17517,7 +17516,7 @@ export const WORDS = [
     "exampleVi": "Chiếc loa bluetooth này có điểm đánh giá 4.9 sao.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/rating.webp",
+    "img": "assets/images/words/r/rating.webp",
     "topicIds": [
       "shopping-money-chặng-7",
       "top-1000-core-chặng-70"
@@ -17534,7 +17533,7 @@ export const WORDS = [
     "exampleVi": "Lưu các món hàng đã hết vào danh sách yêu thích của bạn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/wishlist.webp",
+    "img": "assets/images/words/w/wishlist.webp",
     "topicIds": [
       "shopping-money-chặng-7",
       "top-1000-core-chặng-70"
@@ -17551,7 +17550,7 @@ export const WORDS = [
     "exampleVi": "Bạn sẽ nhận được email xác nhận đơn hàng ngay lập tức.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/order-confirmation.webp",
+    "img": "assets/images/words/o/order-confirmation.webp",
     "topicIds": [
       "shopping-money-chặng-7"
     ],
@@ -17567,7 +17566,7 @@ export const WORDS = [
     "exampleVi": "Nhiều người mua sắm thích thanh toán khi nhận hàng (COD) để an tâm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cash-on-delivery.webp",
+    "img": "assets/images/words/c/cash-on-delivery.webp",
     "topicIds": [
       "shopping-money-chặng-7",
       "top-1000-core-chặng-66"
@@ -17584,7 +17583,7 @@ export const WORDS = [
     "exampleVi": "Đơn hàng của bạn sẽ được xuất kho gửi đi vào ngày mai.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/dispatch.webp",
+    "img": "assets/images/words/d/dispatch.webp",
     "topicIds": [
       "shopping-money-chặng-7",
       "top-1000-core-chặng-28"
@@ -17601,7 +17600,7 @@ export const WORDS = [
     "exampleVi": "Đặt hàng trước điện thoại thông minh mới để nhận quà tặng sớm.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/pre-order.webp",
+    "img": "assets/images/words/p/pre-order.webp",
     "topicIds": [
       "shopping-money-chặng-7",
       "top-1000-core-chặng-28"
@@ -17618,7 +17617,7 @@ export const WORDS = [
     "exampleVi": "Nếu bạn không hài lòng, chúng tôi hoàn lại 100% tiền.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/refund.webp",
+    "img": "assets/images/words/r/refund.webp",
     "topicIds": [
       "shopping-money-chặng-7"
     ],
@@ -17634,7 +17633,7 @@ export const WORDS = [
     "exampleVi": "Tôi có thể đổi chiếc áo này lấy một cỡ lớn hơn không?",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/exchange.webp",
+    "img": "assets/images/words/e/exchange.webp",
     "topicIds": [
       "shopping-money-chặng-8",
       "top-1000-core-chặng-14"
@@ -17651,7 +17650,7 @@ export const WORDS = [
     "exampleVi": "Chiếc máy tính xách tay này đi kèm chế độ bảo hành hai năm của nhà sản xuất.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/warranty.webp",
+    "img": "assets/images/words/w/warranty.webp",
     "topicIds": [
       "shopping-money-chặng-8"
     ],
@@ -17667,7 +17666,7 @@ export const WORDS = [
     "exampleVi": "Sản phẩm của chúng tôi có cam kết hoàn tiền trong 30 ngày.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/guarantee.webp",
+    "img": "assets/images/words/g/guarantee.webp",
     "topicIds": [
       "shopping-money-chặng-8"
     ],
@@ -17683,7 +17682,7 @@ export const WORDS = [
     "exampleVi": "Dịch vụ khách hàng thân thiện giúp xây dựng lòng trung thành với thương hiệu.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/customer-service.webp",
+    "img": "assets/images/words/c/customer-service.webp",
     "topicIds": [
       "shopping-money-chặng-8",
       "top-1000-core-chặng-70"
@@ -17700,7 +17699,7 @@ export const WORDS = [
     "exampleVi": "Hãy trả lại bất kỳ hàng hóa nào bị lỗi để được đổi mới miễn phí.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/defective.webp",
+    "img": "assets/images/words/d/defective.webp",
     "topicIds": [
       "shopping-money-chặng-8",
       "top-1000-core-chặng-72"
@@ -17717,7 +17716,7 @@ export const WORDS = [
     "exampleVi": "Kiện hàng đã đến với phần hộp bên ngoài bị móp méo hư hỏng.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/damaged.webp",
+    "img": "assets/images/words/d/damaged.webp",
     "topicIds": [
       "shopping-money-chặng-8",
       "top-1000-core-chặng-67"
@@ -17734,7 +17733,7 @@ export const WORDS = [
     "exampleVi": "Người quản lý đã xử lý các khiếu nại của khách hàng một cách nhanh chóng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/complaint.webp",
+    "img": "assets/images/words/c/complaint.webp",
     "topicIds": [
       "shopping-money-chặng-8"
     ],
@@ -17750,7 +17749,7 @@ export const WORDS = [
     "exampleVi": "Khách hàng đã phàn nàn về thời gian xử lý đơn hàng chậm trễ.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/complain.webp",
+    "img": "assets/images/words/c/complain.webp",
     "topicIds": [
       "shopping-money-chặng-8",
       "top-1000-core-chặng-14"
@@ -17767,7 +17766,7 @@ export const WORDS = [
     "exampleVi": "Hơn 95% người mua được khảo sát hoàn toàn hài lòng.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/satisfied.webp",
+    "img": "assets/images/words/s/satisfied.webp",
     "topicIds": [
       "shopping-money-chặng-8",
       "top-1000-core-chặng-67"
@@ -17784,7 +17783,7 @@ export const WORDS = [
     "exampleVi": "Họ đã tặng mã mua sắm như một khoản bồi thường cho sự chậm trễ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/compensation.webp",
+    "img": "assets/images/words/c/compensation.webp",
     "topicIds": [
       "shopping-money-chặng-8"
     ],
@@ -17800,7 +17799,7 @@ export const WORDS = [
     "exampleVi": "Hãy gọi đường dây nóng hỗ trợ khách hàng 24/7 của chúng tôi để được trợ giúp kỹ thuật.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/helpline.webp",
+    "img": "assets/images/words/h/helpline.webp",
     "topicIds": [
       "shopping-money-chặng-9"
     ],
@@ -17816,7 +17815,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng đọc chính sách đổi trả và hoàn tiền của cửa hàng chúng tôi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/policy.webp",
+    "img": "assets/images/words/p/policy.webp",
     "topicIds": [
       "shopping-money-chặng-9"
     ],
@@ -17832,7 +17831,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã mở một tài khoản vãng lai mới tại ngân hàng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/bank.webp",
+    "img": "assets/images/words/b/bank.webp",
     "topicIds": [
       "shopping-money-chặng-9",
       "top-1000-core-chặng-68"
@@ -17849,7 +17848,7 @@ export const WORDS = [
     "exampleVi": "Hãy chuyển tiền thuê nhà trực tiếp vào tài khoản ngân hàng của tôi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bank-account-noun.webp",
+    "img": "assets/images/words/b/bank-account-noun.webp",
     "topicIds": [
       "shopping-money-chặng-9",
       "top-1000-core-chặng-70"
@@ -17866,7 +17865,7 @@ export const WORDS = [
     "exampleVi": "Rút tiền mặt từ cây ATM 24 giờ gần nhất.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/atm.webp",
+    "img": "assets/images/words/a/atm.webp",
     "topicIds": [
       "shopping-money-chặng-9",
       "top-1000-core-chặng-70"
@@ -17883,7 +17882,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã rút 200 đô từ máy ATM.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/withdraw-verb.webp",
+    "img": "assets/images/words/w/withdraw-verb.webp",
     "topicIds": [
       "shopping-money-chặng-9",
       "top-1000-core-chặng-28"
@@ -17900,7 +17899,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã gửi tấm séc lương hàng tháng vào sáng nay.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/deposit-verb.webp",
+    "img": "assets/images/words/d/deposit-verb.webp",
     "topicIds": [
       "shopping-money-chặng-9",
       "top-1000-core-chặng-28"
@@ -17917,7 +17916,7 @@ export const WORDS = [
     "exampleVi": "Kiểm tra số dư tài khoản của bạn trên ứng dụng ngân hàng di động.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/balance-noun.webp",
+    "img": "assets/images/words/b/balance-noun.webp",
     "topicIds": [
       "shopping-money-chặng-9"
     ],
@@ -17933,7 +17932,7 @@ export const WORDS = [
     "exampleVi": "Chuyển tiền tức thì bằng ngân hàng trực tuyến.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/transfer-verb.webp",
+    "img": "assets/images/words/t/transfer-verb.webp",
     "topicIds": [
       "shopping-money-chặng-9",
       "top-1000-core-chặng-14"
@@ -17950,7 +17949,7 @@ export const WORDS = [
     "exampleVi": "Không bao giờ tiết lộ mã PIN 4 chữ số bí mật của bạn cho ai.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/pin-noun.webp",
+    "img": "assets/images/words/p/pin-noun.webp",
     "topicIds": [
       "shopping-money-chặng-9",
       "top-1000-core-chặng-71"
@@ -17967,7 +17966,7 @@ export const WORDS = [
     "exampleVi": "Xem lại bản sao kê ngân hàng hàng tháng để kiểm tra các khoản phí lạ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/statement.webp",
+    "img": "assets/images/words/s/statement.webp",
     "topicIds": [
       "shopping-money-chặng-10"
     ],
@@ -17983,7 +17982,7 @@ export const WORDS = [
     "exampleVi": "Chi nhánh ngân hàng địa phương đóng cửa lúc 4:30 chiều các ngày trong tuần.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/branch-noun.webp",
+    "img": "assets/images/words/b/branch-noun.webp",
     "topicIds": [
       "shopping-money-chặng-10",
       "top-1000-core-chặng-71"
@@ -18000,7 +17999,7 @@ export const WORDS = [
     "exampleVi": "Giao dịch viên ngân hàng thân thiện đã xử lý lệnh chuyển tiền quốc tế.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/teller-noun.webp",
+    "img": "assets/images/words/t/teller-noun.webp",
     "topicIds": [
       "shopping-money-chặng-10"
     ],
@@ -18016,7 +18015,7 @@ export const WORDS = [
     "exampleVi": "Không có phí duy trì hàng tháng đối với tài khoản sinh viên.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/fee.webp",
+    "img": "assets/images/words/f/fee.webp",
     "topicIds": [
       "shopping-money-chặng-10",
       "top-1000-core-chặng-71"
@@ -18033,7 +18032,7 @@ export const WORDS = [
     "exampleVi": "Ngân hàng số giúp việc thanh toán hóa đơn điện nước trở nên vô cùng thuận tiện.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mobile-banking.webp",
+    "img": "assets/images/words/m/mobile-banking.webp",
     "topicIds": [
       "shopping-money-chặng-10"
     ],
@@ -18049,7 +18048,7 @@ export const WORDS = [
     "exampleVi": "Gửi tiền nhàn rỗi vào một tài khoản tiết kiệm lãi suất cao.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/savings-account-noun.webp",
+    "img": "assets/images/words/s/savings-account-noun.webp",
     "topicIds": [
       "shopping-money-chặng-10",
       "top-1000-core-chặng-71"
@@ -18066,7 +18065,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã viết một tấm séc để trả tiền cho nhà thầu xây dựng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cheque.webp",
+    "img": "assets/images/words/c/cheque.webp",
     "topicIds": [
       "shopping-money-chặng-10"
     ],
@@ -18082,7 +18081,7 @@ export const WORDS = [
     "exampleVi": "Hãy tạo một bảng ngân sách chi tiêu gia đình hàng tháng và tuân thủ nó.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/budget-noun.webp",
+    "img": "assets/images/words/b/budget-noun.webp",
     "topicIds": [
       "shopping-money-chặng-10",
       "top-1000-core-chặng-71"
@@ -18099,7 +18098,7 @@ export const WORDS = [
     "exampleVi": "Hãy tiết kiệm ít nhất 20% thu nhập của bạn mỗi tháng.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/save.webp",
+    "img": "assets/images/words/s/save.webp",
     "topicIds": [
       "shopping-money-chặng-10",
       "top-1000-core-chặng-7"
@@ -18116,7 +18115,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã dùng toàn bộ tiền tiết kiệm cả đời để mua một căn hộ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/savings-noun.webp",
+    "img": "assets/images/words/s/savings-noun.webp",
     "topicIds": [
       "shopping-money-chặng-10",
       "top-1000-core-chặng-71"
@@ -18133,7 +18132,7 @@ export const WORDS = [
     "exampleVi": "Trình độ học vấn cao thường đi đôi với thu nhập trọn đời cao hơn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/income-noun.webp",
+    "img": "assets/images/words/i/income-noun.webp",
     "topicIds": [
       "shopping-money-chặng-11"
     ],
@@ -18149,7 +18148,7 @@ export const WORDS = [
     "exampleVi": "Tiền thuê nhà và thức ăn là hai khoản chi tiêu lớn nhất hàng tháng của họ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/expense-noun.webp",
+    "img": "assets/images/words/e/expense-noun.webp",
     "topicIds": [
       "shopping-money-chặng-11"
     ],
@@ -18165,7 +18164,7 @@ export const WORDS = [
     "exampleVi": "Đừng chi tiêu nhiều hơn số tiền bạn thực sự kiếm được.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/spend.webp",
+    "img": "assets/images/words/s/spend.webp",
     "topicIds": [
       "shopping-money-chặng-11",
       "top-1000-core-chặng-7"
@@ -18182,7 +18181,7 @@ export const WORDS = [
     "exampleVi": "Sống một lối sống tiết kiệm giúp xây dựng sự tự do tài chính.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/frugal-adjective.webp",
+    "img": "assets/images/words/f/frugal-adjective.webp",
     "topicIds": [
       "shopping-money-chặng-11",
       "top-1000-core-chặng-72"
@@ -18199,7 +18198,7 @@ export const WORDS = [
     "exampleVi": "Tránh lãng phí tiền vào những thiết bị bạn hiếm khi sử dụng.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/waste.webp",
+    "img": "assets/images/words/w/waste.webp",
     "topicIds": [
       "shopping-money-chặng-11",
       "top-1000-core-chặng-14"
@@ -18216,7 +18215,7 @@ export const WORDS = [
     "exampleVi": "Các cố vấn tài chính khuyên bạn nên có một quỹ khẩn cấp đủ sống trong 6 tháng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/emergency-fund-noun.webp",
+    "img": "assets/images/words/e/emergency-fund-noun.webp",
     "topicIds": [
       "shopping-money-chặng-11"
     ],
@@ -18232,7 +18231,7 @@ export const WORDS = [
     "exampleVi": "Dùng thẻ tín dụng tùy tiện khiến người ta rất dễ chi tiêu vượt mức.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/overspend.webp",
+    "img": "assets/images/words/o/overspend.webp",
     "topicIds": [
       "shopping-money-chặng-11",
       "top-1000-core-chặng-28"
@@ -18249,7 +18248,7 @@ export const WORDS = [
     "exampleVi": "Trẻ em học thói quen tiết kiệm bằng cách bỏ tiền xu vào heo đất.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/piggy-bank.webp",
+    "img": "assets/images/words/p/piggy-bank.webp",
     "topicIds": [
       "shopping-money-chặng-11",
       "top-1000-core-chặng-71"
@@ -18266,7 +18265,7 @@ export const WORDS = [
     "exampleVi": "Chi phí sinh hoạt ở các đô thị lớn đang tăng vọt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/living-costs.webp",
+    "img": "assets/images/words/l/living-costs.webp",
     "topicIds": [
       "shopping-money-chặng-11"
     ],
@@ -18282,7 +18281,7 @@ export const WORDS = [
     "exampleVi": "Theo dõi chi tiêu hàng ngày bằng một ứng dụng quản lý tài chính.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/track-verb.webp",
+    "img": "assets/images/words/t/track-verb.webp",
     "topicIds": [
       "shopping-money-chặng-11",
       "top-1000-core-chặng-14"
@@ -18299,7 +18298,7 @@ export const WORDS = [
     "exampleVi": "Đầu tư có kỷ luật là con đường dẫn đến tự do tài chính sớm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/financial-freedom.webp",
+    "img": "assets/images/words/f/financial-freedom.webp",
     "topicIds": [
       "shopping-money-chặng-12"
     ],
@@ -18315,7 +18314,7 @@ export const WORDS = [
     "exampleVi": "Cha mẹ cho con trai tiền tiêu vặt hàng tuần để ăn vặt.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/pocket-money.webp",
+    "img": "assets/images/words/p/pocket-money.webp",
     "topicIds": [
       "shopping-money-chặng-12",
       "top-1000-core-chặng-66"
@@ -18332,7 +18331,7 @@ export const WORDS = [
     "exampleVi": "Họ đã vay một khoản tiền ngân hàng để bắt đầu công việc kinh doanh nhỏ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/loan-noun.webp",
+    "img": "assets/images/words/l/loan-noun.webp",
     "topicIds": [
       "shopping-money-chặng-12"
     ],
@@ -18348,7 +18347,7 @@ export const WORDS = [
     "exampleVi": "Tôi có thể mượn bạn 50 đô đến ngày nhận lương thứ Sáu được không?",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/borrow.webp",
+    "img": "assets/images/words/b/borrow.webp",
     "topicIds": [
       "shopping-money-chặng-12",
       "top-1000-core-chặng-14"
@@ -18365,7 +18364,7 @@ export const WORDS = [
     "exampleVi": "Ngân hàng cho vay tiền với mức lãi suất hàng năm theo quy định.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/lend.webp",
+    "img": "assets/images/words/l/lend.webp",
     "topicIds": [
       "shopping-money-chặng-12",
       "top-1000-core-chặng-14"
@@ -18382,7 +18381,7 @@ export const WORDS = [
     "exampleVi": "Trả hết khoản nợ thẻ tín dụng lãi suất cao là ưu tiên hàng đầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/debt-noun.webp",
+    "img": "assets/images/words/d/debt-noun.webp",
     "topicIds": [
       "shopping-money-chặng-12"
     ],
@@ -18398,7 +18397,7 @@ export const WORDS = [
     "exampleVi": "Tài khoản tiết kiệm sinh ra mức lãi suất hàng năm khiêm tốn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/interest.webp",
+    "img": "assets/images/words/i/interest.webp",
     "topicIds": [
       "shopping-money-chặng-12"
     ],
@@ -18414,7 +18413,7 @@ export const WORDS = [
     "exampleVi": "Lãi suất vay mua nhà thế chấp đã giảm xuống mức thấp kỷ lục.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/interest-rate-noun.webp",
+    "img": "assets/images/words/i/interest-rate-noun.webp",
     "topicIds": [
       "shopping-money-chặng-12"
     ],
@@ -18430,7 +18429,7 @@ export const WORDS = [
     "exampleVi": "Họ đã vay thế chấp 25 năm để mua ngôi nhà mơ ước của mình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mortgage-noun.webp",
+    "img": "assets/images/words/m/mortgage-noun.webp",
     "topicIds": [
       "shopping-money-chặng-12"
     ],
@@ -18446,7 +18445,7 @@ export const WORDS = [
     "exampleVi": "Bạn có thể thanh toán cho chiếc tivi 4K này làm mười hai đợt trả góp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/installment-noun.webp",
+    "img": "assets/images/words/i/installment-noun.webp",
     "topicIds": [
       "shopping-money-chặng-12"
     ],
@@ -18462,7 +18461,7 @@ export const WORDS = [
     "exampleVi": "Ngân hàng đã nâng hạn mức tín dụng thẻ cho cô ấy.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/credit-limit-noun.webp",
+    "img": "assets/images/words/c/credit-limit-noun.webp",
     "topicIds": [
       "shopping-money-chặng-13"
     ],
@@ -18478,7 +18477,7 @@ export const WORDS = [
     "exampleVi": "Điểm tín dụng cao đảm bảo mức lãi suất vay thấp hơn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/credit-score-noun.webp",
+    "img": "assets/images/words/c/credit-score-noun.webp",
     "topicIds": [
       "shopping-money-chặng-13"
     ],
@@ -18494,7 +18493,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã làm thêm ca để trả hết sạch các khoản vay sinh viên.",
     "level": "B1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/pay-off.webp",
+    "img": "assets/images/words/p/pay-off.webp",
     "topicIds": [
       "shopping-money-chặng-13",
       "top-1000-core-chặng-7"
@@ -18511,7 +18510,7 @@ export const WORDS = [
     "exampleVi": "Tôi nợ đồng nghiệp mười đô tiền ăn trưa của nhóm.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/owe.webp",
+    "img": "assets/images/words/o/owe.webp",
     "topicIds": [
       "shopping-money-chặng-13",
       "top-1000-core-chặng-15"
@@ -18528,7 +18527,7 @@ export const WORDS = [
     "exampleVi": "Vỡ nợ ngân hàng sẽ hủy hoại điểm xếp hạng tín dụng của bạn.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/default-verb.webp",
+    "img": "assets/images/words/d/default-verb.webp",
     "topicIds": [
       "shopping-money-chặng-13",
       "top-1000-core-chặng-28"
@@ -18545,7 +18544,7 @@ export const WORDS = [
     "exampleVi": "Doanh nghiệp bán lẻ gặp khó khăn đã bị phá sản trong cuộc khủng hoảng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/bankrupt.webp",
+    "img": "assets/images/words/b/bankrupt.webp",
     "topicIds": [
       "shopping-money-chặng-13",
       "top-1000-core-chặng-72"
@@ -18562,7 +18561,7 @@ export const WORDS = [
     "exampleVi": "Bất động sản và quỹ chỉ số là những khoản đầu tư dài hạn đáng tin cậy.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/investment.webp",
+    "img": "assets/images/words/i/investment.webp",
     "topicIds": [
       "shopping-money-chặng-13"
     ],
@@ -18578,7 +18577,7 @@ export const WORDS = [
     "exampleVi": "Hãy đầu tư sớm vào các tài sản đa dạng để lãi kép sinh sôi của cải.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/invest.webp",
+    "img": "assets/images/words/i/invest.webp",
     "topicIds": [
       "shopping-money-chặng-13",
       "top-1000-core-chặng-28"
@@ -18595,7 +18594,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã mua cổ phiếu công nghệ khi thị trường giảm điểm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/stock-noun.webp",
+    "img": "assets/images/words/s/stock-noun.webp",
     "topicIds": [
       "shopping-money-chặng-13"
     ],
@@ -18611,7 +18610,7 @@ export const WORDS = [
     "exampleVi": "Các cổ đông bỏ phiếu cho các quyết định lớn của hội đồng quản trị hàng năm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/shareholder.webp",
+    "img": "assets/images/words/s/shareholder.webp",
     "topicIds": [
       "shopping-money-chặng-13"
     ],
@@ -18627,7 +18626,7 @@ export const WORDS = [
     "exampleVi": "Tập đoàn đã đạt mức lợi nhuận hàng năm kỷ lục.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/profit-noun.webp",
+    "img": "assets/images/words/p/profit-noun.webp",
     "topicIds": [
       "shopping-money-chặng-14",
       "top-1000-core-chặng-71"
@@ -18644,7 +18643,7 @@ export const WORDS = [
     "exampleVi": "Hãng hàng không đã báo cáo những khoản thua lỗ tài chính nặng nề.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/loss.webp",
+    "img": "assets/images/words/l/loss.webp",
     "topicIds": [
       "shopping-money-chặng-14"
     ],
@@ -18660,7 +18659,7 @@ export const WORDS = [
     "exampleVi": "Thị trường chứng khoán toàn cầu phản ứng tích cực trước tin tức thương mại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/stock-market.webp",
+    "img": "assets/images/words/s/stock-market.webp",
     "topicIds": [
       "shopping-money-chặng-14"
     ],
@@ -18676,7 +18675,7 @@ export const WORDS = [
     "exampleVi": "Nhà đất và vàng là những tài sản hữu hình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/asset.webp",
+    "img": "assets/images/words/a/asset.webp",
     "topicIds": [
       "shopping-money-chặng-14"
     ],
@@ -18692,7 +18691,7 @@ export const WORDS = [
     "exampleVi": "Một nhà đầu tư thông minh luôn tối thiểu hóa các khoản nợ phải trả dài hạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/liability-noun.webp",
+    "img": "assets/images/words/l/liability-noun.webp",
     "topicIds": [
       "shopping-money-chặng-14"
     ],
@@ -18708,7 +18707,7 @@ export const WORDS = [
     "exampleVi": "Công ty chi trả mức cổ tức bằng tiền mặt 4% mỗi năm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/dividend-noun.webp",
+    "img": "assets/images/words/d/dividend-noun.webp",
     "topicIds": [
       "shopping-money-chặng-14"
     ],
@@ -18724,7 +18723,7 @@ export const WORDS = [
     "exampleVi": "Lạm phát làm xói mòn sức mua của các khoản tiết kiệm nhàn rỗi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/inflation-noun.webp",
+    "img": "assets/images/words/i/inflation-noun.webp",
     "topicIds": [
       "shopping-money-chặng-14"
     ],
@@ -18740,7 +18739,7 @@ export const WORDS = [
     "exampleVi": "Sự giàu có thực sự là có cả thời gian lẫn sự độc lập tài chính.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/wealth.webp",
+    "img": "assets/images/words/w/wealth.webp",
     "topicIds": [
       "shopping-money-chặng-14"
     ],
@@ -18756,7 +18755,7 @@ export const WORDS = [
     "exampleVi": "Hãy đa dạng hóa danh mục đầu tư của bạn để giảm thiểu rủi ro.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/portfolio-noun.webp",
+    "img": "assets/images/words/p/portfolio-noun.webp",
     "topicIds": [
       "shopping-money-chặng-14"
     ],
@@ -18772,7 +18771,7 @@ export const WORDS = [
     "exampleVi": "Người mới bắt đầu thường đầu tư vào các quỹ tương hỗ chỉ số chi phí thấp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mutual-fund-noun.webp",
+    "img": "assets/images/words/m/mutual-fund-noun.webp",
     "topicIds": [
       "shopping-money-chặng-14"
     ],
@@ -18788,7 +18787,7 @@ export const WORDS = [
     "exampleVi": "Lãi kép nhân rộng của cải theo cấp số nhân qua nhiều thập kỷ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/compound-interest-noun.webp",
+    "img": "assets/images/words/c/compound-interest-noun.webp",
     "topicIds": [
       "shopping-money-chặng-15"
     ],
@@ -18804,7 +18803,7 @@ export const WORDS = [
     "exampleVi": "Phương tiện chạy điện giúp giảm ô nhiễm không khí ở các thành phố.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/vehicle.webp",
+    "img": "assets/images/words/v/vehicle.webp",
     "topicIds": [
       "transport-directions-chặng-1",
       "top-1000-core-chặng-76"
@@ -18821,7 +18820,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy lái xe ô tô đi làm mỗi buổi sáng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/car.webp",
+    "img": "assets/images/words/c/car.webp",
     "topicIds": [
       "transport-directions-chặng-1",
       "top-1000-core-chặng-73"
@@ -18838,7 +18837,7 @@ export const WORDS = [
     "exampleVi": "Xe máy là phương tiện phổ biến nhất ở Việt Nam.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/motorcycle.webp",
+    "img": "assets/images/words/m/motorcycle.webp",
     "topicIds": [
       "transport-directions-chặng-1",
       "top-1000-core-chặng-76"
@@ -18855,7 +18854,7 @@ export const WORDS = [
     "exampleVi": "Đi xe đạp đi làm là một hình thức tập thể dục tuyệt vời.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/bicycle.webp",
+    "img": "assets/images/words/b/bicycle.webp",
     "topicIds": [
       "transport-directions-chặng-1",
       "top-1000-core-chặng-74"
@@ -18872,7 +18871,7 @@ export const WORDS = [
     "exampleVi": "Xe buýt thành phố chạy cứ mỗi 15 phút một chuyến.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/bus.webp",
+    "img": "assets/images/words/b/bus.webp",
     "topicIds": [
       "transport-directions-chặng-1",
       "top-1000-core-chặng-73"
@@ -18889,7 +18888,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi vẫy một chiếc xe tắc-xi bên ngoài nhà ga tàu hỏa.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/taxi.webp",
+    "img": "assets/images/words/t/taxi.webp",
     "topicIds": [
       "transport-directions-chặng-1",
       "top-1000-core-chặng-74"
@@ -18906,7 +18905,7 @@ export const WORDS = [
     "exampleVi": "Chiếc xe tải chuyển nhà đã đến cùng toàn bộ nội thất gia đình.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/truck.webp",
+    "img": "assets/images/words/t/truck.webp",
     "topicIds": [
       "transport-directions-chặng-1",
       "top-1000-core-chặng-76"
@@ -18923,7 +18922,7 @@ export const WORDS = [
     "exampleVi": "Chiếc xe tải nhỏ giao hàng đã trả nhiều kiện hàng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/van.webp",
+    "img": "assets/images/words/v/van.webp",
     "topicIds": [
       "transport-directions-chặng-1",
       "top-1000-core-chặng-76"
@@ -18940,7 +18939,7 @@ export const WORDS = [
     "exampleVi": "Xe trượt scooter điện rất tiện lợi cho các quãng đường ngắn trong thành phố.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/scooter.webp",
+    "img": "assets/images/words/s/scooter.webp",
     "topicIds": [
       "transport-directions-chặng-1",
       "top-1000-core-chặng-76"
@@ -18957,7 +18956,7 @@ export const WORDS = [
     "exampleVi": "Người lái xe phải nhường đường cho người đi bộ tại vạch sang đường.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pedestrian.webp",
+    "img": "assets/images/words/p/pedestrian.webp",
     "topicIds": [
       "transport-directions-chặng-1"
     ],
@@ -18973,7 +18972,7 @@ export const WORDS = [
     "exampleVi": "Xe cứu hỏa hú còi inh ỏi lao nhanh tới hiện trường.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/fire-truck.webp",
+    "img": "assets/images/words/f/fire-truck.webp",
     "topicIds": [
       "transport-directions-chặng-2",
       "top-1000-core-chặng-76"
@@ -18990,7 +18989,7 @@ export const WORDS = [
     "exampleVi": "Đi chung xe giúp giảm chi phí xăng dầu và tắc nghẽn đường cao tốc.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/carpool.webp",
+    "img": "assets/images/words/c/carpool.webp",
     "topicIds": [
       "transport-directions-chặng-2",
       "top-1000-core-chặng-29"
@@ -19007,7 +19006,7 @@ export const WORDS = [
     "exampleVi": "Các ứng dụng gọi xe đã giúp việc di chuyển trong đô thị trở nên dễ dàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ride-hailing.webp",
+    "img": "assets/images/words/r/ride-hailing.webp",
     "topicIds": [
       "transport-directions-chặng-2"
     ],
@@ -19023,7 +19022,7 @@ export const WORDS = [
     "exampleVi": "Một chiếc máy bay trực thăng cứu hộ đã hạ cánh trên sân thượng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/helicopter.webp",
+    "img": "assets/images/words/h/helicopter.webp",
     "topicIds": [
       "transport-directions-chặng-2",
       "top-1000-core-chặng-64"
@@ -19040,7 +19039,7 @@ export const WORDS = [
     "exampleVi": "Sử dụng phương tiện giao thông công cộng giúp giảm lượng khí thải carbon.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/public-transport.webp",
+    "img": "assets/images/words/p/public-transport.webp",
     "topicIds": [
       "transport-directions-chặng-2",
       "top-1000-core-chặng-76"
@@ -19057,7 +19056,7 @@ export const WORDS = [
     "exampleVi": "Hãy đợi tuyến xe buýt số 9 tại trạm dừng xe buýt này.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/bus-stop.webp",
+    "img": "assets/images/words/b/bus-stop.webp",
     "topicIds": [
       "transport-directions-chặng-2",
       "top-1000-core-chặng-73"
@@ -19074,7 +19073,7 @@ export const WORDS = [
     "exampleVi": "Các chuyến xe khách đường dài khởi hành từ bến xe buýt trung tâm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/bus-terminal.webp",
+    "img": "assets/images/words/b/bus-terminal.webp",
     "topicIds": [
       "transport-directions-chặng-2",
       "top-1000-core-chặng-74"
@@ -19091,7 +19090,7 @@ export const WORDS = [
     "exampleVi": "Kiểm tra bản đồ lộ trình tuyến xe buýt để tìm chặng chuyển tiếp nhanh nhất.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bus-route.webp",
+    "img": "assets/images/words/b/bus-route.webp",
     "topicIds": [
       "transport-directions-chặng-2",
       "top-1000-core-chặng-73"
@@ -19108,7 +19107,7 @@ export const WORDS = [
     "exampleVi": "Hãy chuẩn bị đúng số tiền vé xe buýt hoặc chạm thẻ đi lại của bạn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bus-fare.webp",
+    "img": "assets/images/words/b/bus-fare.webp",
     "topicIds": [
       "transport-directions-chặng-2",
       "top-1000-core-chặng-66"
@@ -19125,7 +19124,7 @@ export const WORDS = [
     "exampleVi": "Chạm thẻ đi lại của bạn vào máy đọc khi bước lên xe.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/transit-card.webp",
+    "img": "assets/images/words/t/transit-card.webp",
     "topicIds": [
       "transport-directions-chặng-2"
     ],
@@ -19141,7 +19140,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đi lại 45 phút bằng tàu điện ngầm mỗi ngày để đi làm.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/commute.webp",
+    "img": "assets/images/words/c/commute.webp",
     "topicIds": [
       "transport-directions-chặng-3",
       "top-1000-core-chặng-29"
@@ -19158,7 +19157,7 @@ export const WORDS = [
     "exampleVi": "Hàng ngàn người đi làm tràn ngập ga tàu điện lúc 8 giờ sáng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/commuter.webp",
+    "img": "assets/images/words/c/commuter.webp",
     "topicIds": [
       "transport-directions-chặng-3"
     ],
@@ -19174,7 +19173,7 @@ export const WORDS = [
     "exampleVi": "Hành khách đã xếp hàng trật tự để bước lên xe buýt.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/board.webp",
+    "img": "assets/images/words/b/board.webp",
     "topicIds": [
       "transport-directions-chặng-3",
       "top-1000-core-chặng-15"
@@ -19191,7 +19190,7 @@ export const WORDS = [
     "exampleVi": "Bấm chuông trước trạm dừng để bước xuống xe thuận lợi.",
     "level": "A1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/get-off.webp",
+    "img": "assets/images/words/g/get-off.webp",
     "topicIds": [
       "transport-directions-chặng-3",
       "top-1000-core-chặng-7"
@@ -19208,7 +19207,7 @@ export const WORDS = [
     "exampleVi": "Chiếc xe buýt chật ních những hành khách đứng chen chúc.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/passenger.webp",
+    "img": "assets/images/words/p/passenger.webp",
     "topicIds": [
       "transport-directions-chặng-3",
       "top-1000-core-chặng-76"
@@ -19225,7 +19224,7 @@ export const WORDS = [
     "exampleVi": "Người soát vé đã kiểm tra vé của hành khách dọc theo toa tàu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/conductor.webp",
+    "img": "assets/images/words/c/conductor.webp",
     "topicIds": [
       "transport-directions-chặng-3"
     ],
@@ -19241,7 +19240,7 @@ export const WORDS = [
     "exampleVi": "Xin hãy nhường ghế ưu tiên của bạn cho người cao tuổi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/priority-seat.webp",
+    "img": "assets/images/words/p/priority-seat.webp",
     "topicIds": [
       "transport-directions-chặng-3"
     ],
@@ -19257,7 +19256,7 @@ export const WORDS = [
     "exampleVi": "Đoàn tàu cao tốc di chuyển với vận tốc 300 km/h.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/train.webp",
+    "img": "assets/images/words/t/train.webp",
     "topicIds": [
       "transport-directions-chặng-3",
       "top-1000-core-chặng-73"
@@ -19274,7 +19273,7 @@ export const WORDS = [
     "exampleVi": "Gặp tôi ở bên ngoài cổng chính của nhà ga xe lửa.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/railway-station.webp",
+    "img": "assets/images/words/r/railway-station.webp",
     "topicIds": [
       "transport-directions-chặng-3",
       "top-1000-core-chặng-76"
@@ -19291,7 +19290,7 @@ export const WORDS = [
     "exampleVi": "Hệ thống tàu điện ngầm New York hoạt động suốt ngày đêm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/subway.webp",
+    "img": "assets/images/words/s/subway.webp",
     "topicIds": [
       "transport-directions-chặng-3",
       "top-1000-core-chặng-76"
@@ -19308,7 +19307,7 @@ export const WORDS = [
     "exampleVi": "Chuyến tàu tốc hành đi London khởi hành từ Sân ga số 3.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/platform.webp",
+    "img": "assets/images/words/p/platform.webp",
     "topicIds": [
       "transport-directions-chặng-4",
       "top-1000-core-chặng-77"
@@ -19325,7 +19324,7 @@ export const WORDS = [
     "exampleVi": "Không bao giờ được bước qua đường ray khi đèn đang nhấp nháy.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/track-noun.webp",
+    "img": "assets/images/words/t/track-noun.webp",
     "topicIds": [
       "transport-directions-chặng-4",
       "top-1000-core-chặng-77"
@@ -19342,7 +19341,7 @@ export const WORDS = [
     "exampleVi": "Ghế ngồi đã đặt trước của chúng tôi nằm ở Toa B hạng nhất.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/carriage.webp",
+    "img": "assets/images/words/c/carriage.webp",
     "topicIds": [
       "transport-directions-chặng-4"
     ],
@@ -19358,7 +19357,7 @@ export const WORDS = [
     "exampleVi": "Mua vé xu tàu điện một chiều từ máy bán vé tự động.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/ticket-machine.webp",
+    "img": "assets/images/words/t/ticket-machine.webp",
     "topicIds": [
       "transport-directions-chặng-4",
       "top-1000-core-chặng-77"
@@ -19375,7 +19374,7 @@ export const WORDS = [
     "exampleVi": "Quét mã vé QR của bạn tại cổng xoay soát vé lối vào.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/turnstile.webp",
+    "img": "assets/images/words/t/turnstile.webp",
     "topicIds": [
       "transport-directions-chặng-4"
     ],
@@ -19391,7 +19390,7 @@ export const WORDS = [
     "exampleVi": "Tàu hỏa cao tốc khởi hành đúng giờ theo lịch trình.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/depart.webp",
+    "img": "assets/images/words/d/depart.webp",
     "topicIds": [
       "transport-directions-chặng-4",
       "top-1000-core-chặng-29"
@@ -19408,7 +19407,7 @@ export const WORDS = [
     "exampleVi": "Đoàn tàu đã đến nơi sớm năm phút so với lịch trình.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/arrive.webp",
+    "img": "assets/images/words/a/arrive.webp",
     "topicIds": [
       "transport-directions-chặng-4",
       "top-1000-core-chặng-7"
@@ -19425,7 +19424,7 @@ export const WORDS = [
     "exampleVi": "Đường sắt cao tốc kết nối các thành phố thủ đô lớn rất hiệu quả.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/high-speed-rail.webp",
+    "img": "assets/images/words/h/high-speed-rail.webp",
     "topicIds": [
       "transport-directions-chặng-4"
     ],
@@ -19441,7 +19440,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã đặt một khoang nằm 4 giường trên chuyến tàu đêm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/compartment.webp",
+    "img": "assets/images/words/c/compartment.webp",
     "topicIds": [
       "transport-directions-chặng-4"
     ],
@@ -19457,7 +19456,7 @@ export const WORDS = [
     "exampleVi": "Đặt vali nặng chắc chắn lên giá để hành lý phía trên đầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/luggage-rack.webp",
+    "img": "assets/images/words/l/luggage-rack.webp",
     "topicIds": [
       "transport-directions-chặng-4"
     ],
@@ -19473,7 +19472,7 @@ export const WORDS = [
     "exampleVi": "Đầu máy hơi nước lịch sử đã kéo theo các toa tàu cổ điển.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/locomotive.webp",
+    "img": "assets/images/words/l/locomotive.webp",
     "topicIds": [
       "transport-directions-chặng-5"
     ],
@@ -19489,7 +19488,7 @@ export const WORDS = [
     "exampleVi": "Đi Tuyến số 1 thẳng đến sân bay quốc tế.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/line.webp",
+    "img": "assets/images/words/l/line.webp",
     "topicIds": [
       "transport-directions-chặng-5",
       "top-1000-core-chặng-74"
@@ -19506,7 +19505,7 @@ export const WORDS = [
     "exampleVi": "Hãy đến sân bay ba tiếng trước các chuyến bay quốc tế.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/airport.webp",
+    "img": "assets/images/words/a/airport.webp",
     "topicIds": [
       "transport-directions-chặng-5",
       "top-1000-core-chặng-74"
@@ -19523,7 +19522,7 @@ export const WORDS = [
     "exampleVi": "Chiếc máy bay khổng lồ bay êm ả lướt trên những tầng mây.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/airplane.webp",
+    "img": "assets/images/words/a/airplane.webp",
     "topicIds": [
       "transport-directions-chặng-5",
       "top-1000-core-chặng-74"
@@ -19540,7 +19539,7 @@ export const WORDS = [
     "exampleVi": "Chuyến bay thẳng của chúng tôi đến Tokyo mất sáu tiếng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/flight.webp",
+    "img": "assets/images/words/f/flight.webp",
     "topicIds": [
       "transport-directions-chặng-5",
       "top-1000-core-chặng-77"
@@ -19557,7 +19556,7 @@ export const WORDS = [
     "exampleVi": "Hãy chuẩn bị sẵn hộ chiếu và thẻ lên máy bay để kiểm tra.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/boarding-pass.webp",
+    "img": "assets/images/words/b/boarding-pass.webp",
     "topicIds": [
       "transport-directions-chặng-5",
       "top-1000-core-chặng-77"
@@ -19574,7 +19573,7 @@ export const WORDS = [
     "exampleVi": "Các chuyến bay quốc tế hoạt động từ Nhà ga T2.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/terminal.webp",
+    "img": "assets/images/words/t/terminal.webp",
     "topicIds": [
       "transport-directions-chặng-5"
     ],
@@ -19590,7 +19589,7 @@ export const WORDS = [
     "exampleVi": "Làm thủ tục check-in trực tuyến trước 24 giờ để tiết kiệm thời gian.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/check-in-noun.webp",
+    "img": "assets/images/words/c/check-in-noun.webp",
     "topicIds": [
       "transport-directions-chặng-5",
       "top-1000-core-chặng-77"
@@ -19607,7 +19606,7 @@ export const WORDS = [
     "exampleVi": "Nhận hành lý của bạn tại Băng chuyền 4 trong khu vực nhận hành lý.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/baggage-claim.webp",
+    "img": "assets/images/words/b/baggage-claim.webp",
     "topicIds": [
       "transport-directions-chặng-5",
       "top-1000-core-chặng-77"
@@ -19624,7 +19623,7 @@ export const WORDS = [
     "exampleVi": "Mỗi hành khách được phép mang một kiện hành lý xách tay.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/luggage.webp",
+    "img": "assets/images/words/l/luggage.webp",
     "topicIds": [
       "transport-directions-chặng-5",
       "top-1000-core-chặng-77"
@@ -19641,7 +19640,7 @@ export const WORDS = [
     "exampleVi": "Đóng gói quần áo của bạn cẩn thận vào chiếc va-li chắc chắn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/suitcase.webp",
+    "img": "assets/images/words/s/suitcase.webp",
     "topicIds": [
       "transport-directions-chặng-6",
       "top-1000-core-chặng-77"
@@ -19658,7 +19657,7 @@ export const WORDS = [
     "exampleVi": "Lấy máy tính xách tay và chất lỏng ra trong khi kiểm tra an ninh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/security-check.webp",
+    "img": "assets/images/words/s/security-check.webp",
     "topicIds": [
       "transport-directions-chặng-6",
       "top-1000-core-chặng-77"
@@ -19675,7 +19674,7 @@ export const WORDS = [
     "exampleVi": "Khai báo các món hàng xa xỉ đắt tiền tại quầy hải quan.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/customs.webp",
+    "img": "assets/images/words/c/customs.webp",
     "topicIds": [
       "transport-directions-chặng-6"
     ],
@@ -19691,7 +19690,7 @@ export const WORDS = [
     "exampleVi": "Phi công đã hạ cánh máy bay an toàn dù gió rất to.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/land.webp",
+    "img": "assets/images/words/l/land.webp",
     "topicIds": [
       "transport-directions-chặng-6",
       "top-1000-core-chặng-15"
@@ -19708,7 +19707,7 @@ export const WORDS = [
     "exampleVi": "Tiếp viên hàng không đã hướng dẫn cách sử dụng áo phao cứu sinh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/flight-attendant.webp",
+    "img": "assets/images/words/f/flight-attendant.webp",
     "topicIds": [
       "transport-directions-chặng-6",
       "top-1000-core-chặng-78"
@@ -19725,7 +19724,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã thuê một chiếc thuyền chèo bằng gỗ trên hồ nước phẳng lặng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/boat.webp",
+    "img": "assets/images/words/b/boat.webp",
     "topicIds": [
       "transport-directions-chặng-6",
       "top-1000-core-chặng-74"
@@ -19742,7 +19741,7 @@ export const WORDS = [
     "exampleVi": "Một chiếc tàu chở hàng khổng lồ đã tiến vào cảng thương mại.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/ship.webp",
+    "img": "assets/images/words/s/ship.webp",
     "topicIds": [
       "transport-directions-chặng-6",
       "top-1000-core-chặng-74"
@@ -19759,7 +19758,7 @@ export const WORDS = [
     "exampleVi": "Đi phà chở khách qua sông để sang đảo.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/ferry.webp",
+    "img": "assets/images/words/f/ferry.webp",
     "topicIds": [
       "transport-directions-chặng-6",
       "top-1000-core-chặng-78"
@@ -19776,7 +19775,7 @@ export const WORDS = [
     "exampleVi": "Singapore là một trong những cảng biển bận rộn nhất thế giới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/port.webp",
+    "img": "assets/images/words/p/port.webp",
     "topicIds": [
       "transport-directions-chặng-6"
     ],
@@ -19792,7 +19791,7 @@ export const WORDS = [
     "exampleVi": "Các tàu đánh cá được neo đậu an toàn trong vịnh cảng kín gió.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/harbor.webp",
+    "img": "assets/images/words/h/harbor.webp",
     "topicIds": [
       "transport-directions-chặng-6"
     ],
@@ -19808,7 +19807,7 @@ export const WORDS = [
     "exampleVi": "Họ đã đi một chuyến du thuyền xa hoa kéo dài bảy ngày trên Địa Trung Hải.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cruise.webp",
+    "img": "assets/images/words/c/cruise.webp",
     "topicIds": [
       "transport-directions-chặng-7"
     ],
@@ -19824,7 +19823,7 @@ export const WORDS = [
     "exampleVi": "Chiếc du thuyền lướt buồm êm ả trên đại dương xanh thẳm.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/sail.webp",
+    "img": "assets/images/words/s/sail.webp",
     "topicIds": [
       "transport-directions-chặng-7",
       "top-1000-core-chặng-15"
@@ -19841,7 +19840,7 @@ export const WORDS = [
     "exampleVi": "Người thủy thủ giàu kinh nghiệm đã bẻ lái vượt qua cơn bão.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/sailor.webp",
+    "img": "assets/images/words/s/sailor.webp",
     "topicIds": [
       "transport-directions-chặng-7",
       "top-1000-core-chặng-78"
@@ -19858,7 +19857,7 @@ export const WORDS = [
     "exampleVi": "Thuyền trưởng đã chào đón các hành khách lên tàu.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/captain.webp",
+    "img": "assets/images/words/c/captain.webp",
     "topicIds": [
       "transport-directions-chặng-7",
       "top-1000-core-chặng-78"
@@ -19875,7 +19874,7 @@ export const WORDS = [
     "exampleVi": "Các thuyền viên đã thả chiếc mỏ neo sắt nặng xuống vịnh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/anchor.webp",
+    "img": "assets/images/words/a/anchor.webp",
     "topicIds": [
       "transport-directions-chặng-7"
     ],
@@ -19891,7 +19890,7 @@ export const WORDS = [
     "exampleVi": "Hành khách ngắm cảnh hoàng hôn từ trên boong tàu phía trên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/deck.webp",
+    "img": "assets/images/words/d/deck.webp",
     "topicIds": [
       "transport-directions-chặng-7"
     ],
@@ -19907,7 +19906,7 @@ export const WORDS = [
     "exampleVi": "Hãy mặc áo phao cứu sinh bất cứ khi nào bước lên cano cao tốc.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/life-jacket.webp",
+    "img": "assets/images/words/l/life-jacket.webp",
     "topicIds": [
       "transport-directions-chặng-7",
       "top-1000-core-chặng-78"
@@ -19924,7 +19923,7 @@ export const WORDS = [
     "exampleVi": "Con tàu được trang bị đủ xuồng cứu sinh cho tất cả mọi người.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/lifeboat.webp",
+    "img": "assets/images/words/l/lifeboat.webp",
     "topicIds": [
       "transport-directions-chặng-7"
     ],
@@ -19940,7 +19939,7 @@ export const WORDS = [
     "exampleVi": "Đi bộ dọc theo cầu tàu bằng gỗ để ngắm nhìn đường bờ biển.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pier.webp",
+    "img": "assets/images/words/p/pier.webp",
     "topicIds": [
       "transport-directions-chặng-7"
     ],
@@ -19956,7 +19955,7 @@ export const WORDS = [
     "exampleVi": "Tàu ngầm nghiên cứu thám hiểm các rãnh đại dương sâu thẳm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/submarine.webp",
+    "img": "assets/images/words/s/submarine.webp",
     "topicIds": [
       "transport-directions-chặng-7"
     ],
@@ -19972,7 +19971,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã học lái xe khi mới 18 tuổi.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/drive.webp",
+    "img": "assets/images/words/d/drive.webp",
     "topicIds": [
       "transport-directions-chặng-8",
       "top-1000-core-chặng-7"
@@ -19989,7 +19988,7 @@ export const WORDS = [
     "exampleVi": "Bạn phải luôn mang theo bằng lái xe bên mình mọi lúc.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/drivers-license.webp",
+    "img": "assets/images/words/d/drivers-license.webp",
     "topicIds": [
       "transport-directions-chặng-8",
       "top-1000-core-chặng-78"
@@ -20006,7 +20005,7 @@ export const WORDS = [
     "exampleVi": "Hãy luôn giữ cả hai tay chắc chắn trên vô-lăng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/steering-wheel.webp",
+    "img": "assets/images/words/s/steering-wheel.webp",
     "topicIds": [
       "transport-directions-chặng-8",
       "top-1000-core-chặng-65"
@@ -20023,7 +20022,7 @@ export const WORDS = [
     "exampleVi": "Hãy thắt dây an toàn trước khi nổ máy xe ô tô.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/seatbelt.webp",
+    "img": "assets/images/words/s/seatbelt.webp",
     "topicIds": [
       "transport-directions-chặng-8",
       "top-1000-core-chặng-78"
@@ -20040,7 +20039,7 @@ export const WORDS = [
     "exampleVi": "Hãy đạp nhẹ chân phanh để dừng xe êm ái.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/brake.webp",
+    "img": "assets/images/words/b/brake.webp",
     "topicIds": [
       "transport-directions-chặng-8",
       "top-1000-core-chặng-78"
@@ -20057,7 +20056,7 @@ export const WORDS = [
     "exampleVi": "Đạp chân ga để tăng tốc độ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/accelerator.webp",
+    "img": "assets/images/words/a/accelerator.webp",
     "topicIds": [
       "transport-directions-chặng-8"
     ],
@@ -20073,7 +20072,7 @@ export const WORDS = [
     "exampleVi": "Đạp hết chân côn khi chuyển số xe.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/clutch.webp",
+    "img": "assets/images/words/c/clutch.webp",
     "topicIds": [
       "transport-directions-chặng-8"
     ],
@@ -20089,7 +20088,7 @@ export const WORDS = [
     "exampleVi": "Nhìn gương chiếu hậu trước khi giảm tốc độ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/rearview-mirror.webp",
+    "img": "assets/images/words/r/rearview-mirror.webp",
     "topicIds": [
       "transport-directions-chặng-8",
       "top-1000-core-chặng-78"
@@ -20106,7 +20105,7 @@ export const WORDS = [
     "exampleVi": "Chỉnh cả hai gương chiếu hậu bên hông trước khi xuất phát.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/side-mirror.webp",
+    "img": "assets/images/words/s/side-mirror.webp",
     "topicIds": [
       "transport-directions-chặng-8",
       "top-1000-core-chặng-78"
@@ -20123,7 +20122,7 @@ export const WORDS = [
     "exampleVi": "Cần gạt nước kính chắn gió đã gạt sạch cơn mưa như trút nước.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/windshield.webp",
+    "img": "assets/images/words/w/windshield.webp",
     "topicIds": [
       "transport-directions-chặng-8"
     ],
@@ -20139,7 +20138,7 @@ export const WORDS = [
     "exampleVi": "Bật đèn pha khi lái xe qua các đường hầm nhiều sương mù.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/headlight.webp",
+    "img": "assets/images/words/h/headlight.webp",
     "topicIds": [
       "transport-directions-chặng-9",
       "top-1000-core-chặng-79"
@@ -20156,7 +20155,7 @@ export const WORDS = [
     "exampleVi": "Bật đèn xi-nhan trước khi rẽ ít nhất 30 mét.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/turn-signal.webp",
+    "img": "assets/images/words/t/turn-signal.webp",
     "topicIds": [
       "transport-directions-chặng-9",
       "top-1000-core-chặng-79"
@@ -20173,7 +20172,7 @@ export const WORDS = [
     "exampleVi": "Đỗ xe của bạn trong bãi đỗ xe dành cho khách.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/park.webp",
+    "img": "assets/images/words/p/park.webp",
     "topicIds": [
       "transport-directions-chặng-9",
       "top-1000-core-chặng-7"
@@ -20190,7 +20189,7 @@ export const WORDS = [
     "exampleVi": "Siêu thị có một bãi đỗ xe ngoài trời miễn phí rộng lớn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/parking-lot.webp",
+    "img": "assets/images/words/p/parking-lot.webp",
     "topicIds": [
       "transport-directions-chặng-9",
       "top-1000-core-chặng-79"
@@ -20207,7 +20206,7 @@ export const WORDS = [
     "exampleVi": "Lùi xe chầm chậm và quan sát kỹ camera lùi.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/reverse.webp",
+    "img": "assets/images/words/r/reverse.webp",
     "topicIds": [
       "transport-directions-chặng-9",
       "top-1000-core-chặng-29"
@@ -20224,7 +20223,7 @@ export const WORDS = [
     "exampleVi": "Dừng lại khi đèn tín hiệu giao thông chuyển sang màu đỏ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/traffic-light.webp",
+    "img": "assets/images/words/t/traffic-light.webp",
     "topicIds": [
       "transport-directions-chặng-9",
       "top-1000-core-chặng-75"
@@ -20241,7 +20240,7 @@ export const WORDS = [
     "exampleVi": "Tuân thủ tất cả các biển báo giao thông được cắm để an toàn đường bộ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/traffic-sign.webp",
+    "img": "assets/images/words/t/traffic-sign.webp",
     "topicIds": [
       "transport-directions-chặng-9",
       "top-1000-core-chặng-79"
@@ -20258,7 +20257,7 @@ export const WORDS = [
     "exampleVi": "Tốc độ giới hạn trên các tuyến đường khu dân cư là 40 km/h.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/speed-limit.webp",
+    "img": "assets/images/words/s/speed-limit.webp",
     "topicIds": [
       "transport-directions-chặng-9",
       "top-1000-core-chặng-79"
@@ -20275,7 +20274,7 @@ export const WORDS = [
     "exampleVi": "Luôn băng qua các đại lộ đông đúc bằng vạch sang đường cho người đi bộ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/crosswalk.webp",
+    "img": "assets/images/words/c/crosswalk.webp",
     "topicIds": [
       "transport-directions-chặng-9",
       "top-1000-core-chặng-79"
@@ -20292,7 +20291,7 @@ export const WORDS = [
     "exampleVi": "Nhường đường cho các phương tiện đang lưu thông bên trong vòng xuyến.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/roundabout.webp",
+    "img": "assets/images/words/r/roundabout.webp",
     "topicIds": [
       "transport-directions-chặng-9"
     ],
@@ -20308,7 +20307,7 @@ export const WORDS = [
     "exampleVi": "Hãy giảm tốc độ khi tiến lại gần một điểm giao cắt không có đèn tín hiệu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/intersection.webp",
+    "img": "assets/images/words/i/intersection.webp",
     "topicIds": [
       "transport-directions-chặng-10"
     ],
@@ -20324,7 +20323,7 @@ export const WORDS = [
     "exampleVi": "Hãy đi đúng làn đường quy định của bạn trên đường cao tốc.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/lane.webp",
+    "img": "assets/images/words/l/lane.webp",
     "topicIds": [
       "transport-directions-chặng-10",
       "top-1000-core-chặng-79"
@@ -20341,7 +20340,7 @@ export const WORDS = [
     "exampleVi": "Đừng đi vào con phố đó; đó là đường một chiều.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/one-way-street.webp",
+    "img": "assets/images/words/o/one-way-street.webp",
     "topicIds": [
       "transport-directions-chặng-10",
       "top-1000-core-chặng-73"
@@ -20358,7 +20357,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã phải nộp một khoản tiền phạt nặng vì vượt đèn đỏ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fine.webp",
+    "img": "assets/images/words/f/fine.webp",
     "topicIds": [
       "transport-directions-chặng-10"
     ],
@@ -20374,7 +20373,7 @@ export const WORDS = [
     "exampleVi": "Chiến sĩ cảnh sát giao thông đã vẫy tay điều tiết xe cộ qua giao lộ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/traffic-officer.webp",
+    "img": "assets/images/words/t/traffic-officer.webp",
     "topicIds": [
       "transport-directions-chặng-10",
       "top-1000-core-chặng-79"
@@ -20391,7 +20390,7 @@ export const WORDS = [
     "exampleVi": "Đội mũ bảo hiểm đạt chuẩn giúp bảo toàn tính mạng khi xảy ra va chạm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/helmet.webp",
+    "img": "assets/images/words/h/helmet.webp",
     "topicIds": [
       "transport-directions-chặng-10",
       "top-1000-core-chặng-79"
@@ -20408,7 +20407,7 @@ export const WORDS = [
     "exampleVi": "Vượt xe trên đoạn vạch kẻ liền màu vàng là vi phạm pháp luật.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/overtake.webp",
+    "img": "assets/images/words/o/overtake.webp",
     "topicIds": [
       "transport-directions-chặng-10",
       "top-1000-core-chặng-29"
@@ -20425,7 +20424,7 @@ export const WORDS = [
     "exampleVi": "Không để xe máy đi lên vỉa hè dành cho người đi bộ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/pavement.webp",
+    "img": "assets/images/words/p/pavement.webp",
     "topicIds": [
       "transport-directions-chặng-10",
       "top-1000-core-chặng-79"
@@ -20442,7 +20441,7 @@ export const WORDS = [
     "exampleVi": "Tuyến đường cao tốc mới đã rút ngắn một nửa thời gian di chuyển giữa các thành phố.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/highway.webp",
+    "img": "assets/images/words/h/highway.webp",
     "topicIds": [
       "transport-directions-chặng-10",
       "top-1000-core-chặng-80"
@@ -20459,7 +20458,7 @@ export const WORDS = [
     "exampleVi": "Xe trang bị thẻ thu phí không dừng qua trạm thu phí rất nhanh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/toll-booth.webp",
+    "img": "assets/images/words/t/toll-booth.webp",
     "topicIds": [
       "transport-directions-chặng-10"
     ],
@@ -20475,7 +20474,7 @@ export const WORDS = [
     "exampleVi": "Xin lỗi, bạn có thể chỉ đường giúp tôi đến viện bảo tàng được không?",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/directions.webp",
+    "img": "assets/images/words/d/directions.webp",
     "topicIds": [
       "transport-directions-chặng-11",
       "top-1000-core-chặng-75"
@@ -20492,7 +20491,7 @@ export const WORDS = [
     "exampleVi": "Hãy rẽ trái tại cột đèn giao thông tiếp theo.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/turn-left.webp",
+    "img": "assets/images/words/t/turn-left.webp",
     "topicIds": [
       "transport-directions-chặng-11",
       "top-1000-core-chặng-72"
@@ -20509,7 +20508,7 @@ export const WORDS = [
     "exampleVi": "Hãy rẽ phải sau khi đi qua tòa nhà ngân hàng trung ương.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/turn-right.webp",
+    "img": "assets/images/words/t/turn-right.webp",
     "topicIds": [
       "transport-directions-chặng-11",
       "top-1000-core-chặng-73"
@@ -20526,7 +20525,7 @@ export const WORDS = [
     "exampleVi": "Hãy đi thẳng về phía trước khoảng hai trăm mét.",
     "level": "A1",
     "pos": "phrase",
-    "img": "assets/images/words/go-straight.webp",
+    "img": "assets/images/words/g/go-straight.webp",
     "topicIds": [
       "transport-directions-chặng-11",
       "top-1000-core-chặng-73"
@@ -20543,7 +20542,7 @@ export const WORDS = [
     "exampleVi": "Hiệu thuốc nằm ngay đối diện với bưu điện.",
     "level": "A2",
     "pos": "preposition",
-    "img": "assets/images/words/opposite.webp",
+    "img": "assets/images/words/o/opposite.webp",
     "topicIds": [
       "transport-directions-chặng-11",
       "top-1000-core-chặng-75"
@@ -20560,7 +20559,7 @@ export const WORDS = [
     "exampleVi": "Quán cà phê nằm ngay bên cạnh hiệu sách.",
     "level": "A1",
     "pos": "preposition",
-    "img": "assets/images/words/next-to.webp",
+    "img": "assets/images/words/n/next-to.webp",
     "topicIds": [
       "transport-directions-chặng-11",
       "top-1000-core-chặng-73"
@@ -20577,7 +20576,7 @@ export const WORDS = [
     "exampleVi": "Ngân hàng nằm ở giữa tiệm bánh mì và khách sạn.",
     "level": "A1",
     "pos": "preposition",
-    "img": "assets/images/words/between.webp",
+    "img": "assets/images/words/b/between.webp",
     "topicIds": [
       "transport-directions-chặng-11",
       "top-1000-core-chặng-74"
@@ -20594,7 +20593,7 @@ export const WORDS = [
     "exampleVi": "Có một cửa hàng tiện lợi ở ngay góc phố.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/corner.webp",
+    "img": "assets/images/words/c/corner.webp",
     "topicIds": [
       "transport-directions-chặng-11",
       "top-1000-core-chặng-80"
@@ -20611,7 +20610,7 @@ export const WORDS = [
     "exampleVi": "Quan sát cả hai phía trước khi băng qua đường.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/cross.webp",
+    "img": "assets/images/words/c/cross.webp",
     "topicIds": [
       "transport-directions-chặng-11",
       "top-1000-core-chặng-8"
@@ -20628,7 +20627,7 @@ export const WORDS = [
     "exampleVi": "Siêu thị chỉ nằm ngay ở phía bên kia đường.",
     "level": "A2",
     "pos": "preposition",
-    "img": "assets/images/words/across.webp",
+    "img": "assets/images/words/a/across.webp",
     "topicIds": [
       "transport-directions-chặng-11",
       "top-1000-core-chặng-75"
@@ -20645,7 +20644,7 @@ export const WORDS = [
     "exampleVi": "Có trạm xăng nào ở gần đây không?",
     "level": "A1",
     "pos": "preposition",
-    "img": "assets/images/words/near.webp",
+    "img": "assets/images/words/n/near.webp",
     "topicIds": [
       "transport-directions-chặng-12",
       "top-1000-core-chặng-73"
@@ -20662,7 +20661,7 @@ export const WORDS = [
     "exampleVi": "Sân bay quốc tế cách nơi này bao xa?",
     "level": "A1",
     "pos": "adjective",
-    "img": "assets/images/words/far.webp",
+    "img": "assets/images/words/f/far.webp",
     "topicIds": [
       "transport-directions-chặng-12",
       "top-1000-core-chặng-72"
@@ -20679,7 +20678,7 @@ export const WORDS = [
     "exampleVi": "Hãy quay đầu xe tại ngã giao nhau tiếp theo.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/u-turn.webp",
+    "img": "assets/images/words/u/u-turn.webp",
     "topicIds": [
       "transport-directions-chặng-12",
       "top-1000-core-chặng-80"
@@ -20696,7 +20695,7 @@ export const WORDS = [
     "exampleVi": "Dùng tháp đồng hồ cao làm mốc định hướng cho bạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/landmark.webp",
+    "img": "assets/images/words/l/landmark.webp",
     "topicIds": [
       "transport-directions-chặng-12"
     ],
@@ -20712,7 +20711,7 @@ export const WORDS = [
     "exampleVi": "Đừng hoảng loạn nếu bạn bị lạc đường trong khu phố cổ.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/lost.webp",
+    "img": "assets/images/words/l/lost.webp",
     "topicIds": [
       "transport-directions-chặng-12",
       "top-1000-core-chặng-75"
@@ -20729,7 +20728,7 @@ export const WORDS = [
     "exampleVi": "Tải bản đồ thành phố ngoại tuyến về điện thoại thông minh của bạn.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/map.webp",
+    "img": "assets/images/words/m/map.webp",
     "topicIds": [
       "transport-directions-chặng-12",
       "top-1000-core-chặng-75"
@@ -20746,7 +20745,7 @@ export const WORDS = [
     "exampleVi": "Bật GPS trên điện thoại của bạn để được chỉ đường trực tiếp.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/gps.webp",
+    "img": "assets/images/words/g/gps.webp",
     "topicIds": [
       "transport-directions-chặng-12",
       "top-1000-core-chặng-80"
@@ -20763,7 +20762,7 @@ export const WORDS = [
     "exampleVi": "Ứng dụng dẫn đường tính toán lại tuyến đường nhanh nhất ngay lập tức.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/navigation.webp",
+    "img": "assets/images/words/n/navigation.webp",
     "topicIds": [
       "transport-directions-chặng-12"
     ],
@@ -20779,7 +20778,7 @@ export const WORDS = [
     "exampleVi": "Những người đi bộ đường dài luôn mang theo một chiếc la bàn từ tính trong ba lô.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/compass.webp",
+    "img": "assets/images/words/c/compass.webp",
     "topicIds": [
       "transport-directions-chặng-12"
     ],
@@ -20795,7 +20794,7 @@ export const WORDS = [
     "exampleVi": "Tuyến đường cao tốc dẫn thẳng về hướng Bắc.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/north.webp",
+    "img": "assets/images/words/n/north.webp",
     "topicIds": [
       "transport-directions-chặng-12",
       "top-1000-core-chặng-75"
@@ -20812,7 +20811,7 @@ export const WORDS = [
     "exampleVi": "Các loài chim di cư bay về phương Nam để tránh rét.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/south.webp",
+    "img": "assets/images/words/s/south.webp",
     "topicIds": [
       "transport-directions-chặng-13",
       "top-1000-core-chặng-75"
@@ -20829,7 +20828,7 @@ export const WORDS = [
     "exampleVi": "Mặt trời mọc ở hướng Đông vào mỗi buổi sáng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/east.webp",
+    "img": "assets/images/words/e/east.webp",
     "topicIds": [
       "transport-directions-chặng-13",
       "top-1000-core-chặng-75"
@@ -20846,7 +20845,7 @@ export const WORDS = [
     "exampleVi": "Lái xe về phía Tây để ngắm hoàng hôn trên biển.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/west.webp",
+    "img": "assets/images/words/w/west.webp",
     "topicIds": [
       "transport-directions-chặng-13",
       "top-1000-core-chặng-75"
@@ -20863,7 +20862,7 @@ export const WORDS = [
     "exampleVi": "Chia sẻ vị trí trực tiếp của bạn với bạn bè trên các ứng dụng nhắn tin.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/location.webp",
+    "img": "assets/images/words/l/location.webp",
     "topicIds": [
       "transport-directions-chặng-13",
       "top-1000-core-chặng-80"
@@ -20880,7 +20879,7 @@ export const WORDS = [
     "exampleVi": "Tổng quãng đường lái xe là khoảng 50 dặm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/distance.webp",
+    "img": "assets/images/words/d/distance.webp",
     "topicIds": [
       "transport-directions-chặng-13",
       "top-1000-core-chặng-80"
@@ -20897,7 +20896,7 @@ export const WORDS = [
     "exampleVi": "Bạn sẽ đến điểm đến của mình trong vòng hai mươi phút nữa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/destination.webp",
+    "img": "assets/images/words/d/destination.webp",
     "topicIds": [
       "transport-directions-chặng-13"
     ],
@@ -20913,7 +20912,7 @@ export const WORDS = [
     "exampleVi": "Hãy chọn tuyến đường bờ biển tuyệt đẹp chạy dọc ven biển.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/route.webp",
+    "img": "assets/images/words/r/route.webp",
     "topicIds": [
       "transport-directions-chặng-13",
       "top-1000-core-chặng-80"
@@ -20930,7 +20929,7 @@ export const WORDS = [
     "exampleVi": "Đi vào con hẻm nhỏ này là đường tắt đến trường học.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/shortcut.webp",
+    "img": "assets/images/words/s/shortcut.webp",
     "topicIds": [
       "transport-directions-chặng-13"
     ],
@@ -20946,7 +20945,7 @@ export const WORDS = [
     "exampleVi": "Thời gian dự kiến đến nơi (ETA) là 5 giờ 45 chiều.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/estimated-time.webp",
+    "img": "assets/images/words/e/estimated-time.webp",
     "topicIds": [
       "transport-directions-chặng-13",
       "top-1000-core-chặng-55"
@@ -20963,7 +20962,7 @@ export const WORDS = [
     "exampleVi": "Ghim vị trí cuộc họp hiện tại của bạn trên Google Maps.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/pin-verb.webp",
+    "img": "assets/images/words/p/pin-verb.webp",
     "topicIds": [
       "transport-directions-chặng-13",
       "top-1000-core-chặng-15"
@@ -20980,7 +20979,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi bị mắc kẹt trong một vụ kẹt xe kinh hoàng suốt một tiếng đồng hồ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/traffic-jam.webp",
+    "img": "assets/images/words/t/traffic-jam.webp",
     "topicIds": [
       "transport-directions-chặng-14",
       "top-1000-core-chặng-80"
@@ -20997,7 +20996,7 @@ export const WORDS = [
     "exampleVi": "Tránh đi qua trung tâm thành phố trong giờ cao điểm đông đúc.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/rush-hour.webp",
+    "img": "assets/images/words/r/rush-hour.webp",
     "topicIds": [
       "transport-directions-chặng-14",
       "top-1000-core-chặng-80"
@@ -21014,7 +21013,7 @@ export const WORDS = [
     "exampleVi": "Tắc nghẽn đô thị làm chậm trễ các dịch vụ khẩn cấp của thành phố.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/congestion.webp",
+    "img": "assets/images/words/c/congestion.webp",
     "topicIds": [
       "transport-directions-chặng-14"
     ],
@@ -21030,7 +21029,7 @@ export const WORDS = [
     "exampleVi": "Một vụ va quẹt ô tô nhỏ đã chặn mất hai làn xe trên cầu.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/accident.webp",
+    "img": "assets/images/words/a/accident.webp",
     "topicIds": [
       "transport-directions-chặng-14",
       "top-1000-core-chặng-80"
@@ -21047,7 +21046,7 @@ export const WORDS = [
     "exampleVi": "Rất may mắn là không có ai bị thương trong cú va chạm trên đường cao tốc.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/crash-noun.webp",
+    "img": "assets/images/words/c/crash-noun.webp",
     "topicIds": [
       "transport-directions-chặng-14",
       "top-1000-core-chặng-81"
@@ -21064,7 +21063,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã tấp xe vào lề đường để thay bánh xe bị xịt lốp.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/flat-tire.webp",
+    "img": "assets/images/words/f/flat-tire.webp",
     "topicIds": [
       "transport-directions-chặng-14",
       "top-1000-core-chặng-81"
@@ -21081,7 +21080,7 @@ export const WORDS = [
     "exampleVi": "Chiếc xe ô tô cũ của chúng tôi bị chết máy hỏng giữa đường cao tốc.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/break-down.webp",
+    "img": "assets/images/words/b/break-down.webp",
     "topicIds": [
       "transport-directions-chặng-14",
       "top-1000-core-chặng-15"
@@ -21098,7 +21097,7 @@ export const WORDS = [
     "exampleVi": "Hãy gọi một chiếc xe cứu hộ kéo để chở phương tiện bị hỏng đi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tow-truck.webp",
+    "img": "assets/images/words/t/tow-truck.webp",
     "topicIds": [
       "transport-directions-chặng-14"
     ],
@@ -21114,7 +21113,7 @@ export const WORDS = [
     "exampleVi": "Tuyết rơi dày đã gây ra sự hoãn chuyến bay đáng kể.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/delay-noun.webp",
+    "img": "assets/images/words/d/delay-noun.webp",
     "topicIds": [
       "transport-directions-chặng-14",
       "top-1000-core-chặng-81"
@@ -21131,7 +21130,7 @@ export const WORDS = [
     "exampleVi": "Hãng hàng không đã hủy toàn bộ các chuyến bay buổi sáng do sương mù dày đặc.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/cancel.webp",
+    "img": "assets/images/words/c/cancel.webp",
     "topicIds": [
       "transport-directions-chặng-14",
       "top-1000-core-chặng-15"
@@ -21148,7 +21147,7 @@ export const WORDS = [
     "exampleVi": "Hãy đi theo biển báo đường vòng tránh quanh công trường thi công.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/detour.webp",
+    "img": "assets/images/words/d/detour.webp",
     "topicIds": [
       "transport-directions-chặng-15"
     ],
@@ -21164,7 +21163,7 @@ export const WORDS = [
     "exampleVi": "Dự kiến giao thông sẽ di chuyển chậm do có công trình sửa chữa đường lớn phía trước.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/roadwork.webp",
+    "img": "assets/images/words/r/roadwork.webp",
     "topicIds": [
       "transport-directions-chặng-15"
     ],
@@ -21180,7 +21179,7 @@ export const WORDS = [
     "exampleVi": "Hãy đổ đầy bình xăng trước khi bạn bị hết xăng ở các vùng hẻo lánh.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/run-out-of-gas.webp",
+    "img": "assets/images/words/r/run-out-of-gas.webp",
     "topicIds": [
       "transport-directions-chặng-15",
       "top-1000-core-chặng-62"
@@ -21197,7 +21196,7 @@ export const WORDS = [
     "exampleVi": "Hãy dừng lại ở trạm xăng tiếp theo để đổ đầy nhiên liệu.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/gas-station.webp",
+    "img": "assets/images/words/g/gas-station.webp",
     "topicIds": [
       "transport-directions-chặng-15",
       "top-1000-core-chặng-65"
@@ -21214,7 +21213,7 @@ export const WORDS = [
     "exampleVi": "Hãy tấp vào làn dừng khẩn cấp và bật đèn cảnh báo nguy hiểm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/emergency-shoulder.webp",
+    "img": "assets/images/words/e/emergency-shoulder.webp",
     "topicIds": [
       "transport-directions-chặng-15"
     ],
@@ -21230,7 +21229,7 @@ export const WORDS = [
     "exampleVi": "Các kỹ sư phần mềm xây dựng những ứng dụng di động và web mạnh mẽ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/engineer.webp",
+    "img": "assets/images/words/e/engineer.webp",
     "topicIds": [
       "work-jobs-chặng-1",
       "top-1000-core-chặng-84"
@@ -21247,7 +21246,7 @@ export const WORDS = [
     "exampleVi": "Người quản lý dự án đã điều phối nhóm rất hiệu quả.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/manager.webp",
+    "img": "assets/images/words/m/manager.webp",
     "topicIds": [
       "work-jobs-chặng-1",
       "top-1000-core-chặng-83"
@@ -21264,7 +21263,7 @@ export const WORDS = [
     "exampleVi": "Kế toán viên đã chuẩn bị tờ khai thuế hàng năm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/accountant.webp",
+    "img": "assets/images/words/a/accountant.webp",
     "topicIds": [
       "work-jobs-chặng-1",
       "top-1000-core-chặng-84"
@@ -21281,7 +21280,7 @@ export const WORDS = [
     "exampleVi": "Kiến trúc sư đã phác thảo bản thiết kế cho căn biệt thự thân thiện môi trường.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/architect.webp",
+    "img": "assets/images/words/a/architect.webp",
     "topicIds": [
       "work-jobs-chặng-1"
     ],
@@ -21297,7 +21296,7 @@ export const WORDS = [
     "exampleVi": "Nhà báo điều tra đã phanh phui vụ bê bối tham nhũng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/journalist.webp",
+    "img": "assets/images/words/j/journalist.webp",
     "topicIds": [
       "work-jobs-chặng-1"
     ],
@@ -21313,7 +21312,7 @@ export const WORDS = [
     "exampleVi": "Họ đã thuê một chuyên viên tư vấn quản trị để tinh gọn quy trình vận hành.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/consultant.webp",
+    "img": "assets/images/words/c/consultant.webp",
     "topicIds": [
       "work-jobs-chặng-1"
     ],
@@ -21329,7 +21328,7 @@ export const WORDS = [
     "exampleVi": "Giám đốc điều hành đã phê duyệt ngân sách mở rộng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/director.webp",
+    "img": "assets/images/words/d/director.webp",
     "topicIds": [
       "work-jobs-chặng-1"
     ],
@@ -21345,7 +21344,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy là chuyên gia an ninh mạng bảo vệ cơ sở dữ liệu công ty.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/specialist.webp",
+    "img": "assets/images/words/s/specialist.webp",
     "topicIds": [
       "work-jobs-chặng-1"
     ],
@@ -21361,7 +21360,7 @@ export const WORDS = [
     "exampleVi": "Báo cáo sự cố an toàn cho người giám sát tầng ngay lập tức.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/supervisor.webp",
+    "img": "assets/images/words/s/supervisor.webp",
     "topicIds": [
       "work-jobs-chặng-1"
     ],
@@ -21377,7 +21376,7 @@ export const WORDS = [
     "exampleVi": "Một kỹ thuật viên IT đã sửa máy chủ mạng văn phòng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/technician.webp",
+    "img": "assets/images/words/t/technician.webp",
     "topicIds": [
       "work-jobs-chặng-1",
       "top-1000-core-chặng-85"
@@ -21394,7 +21393,7 @@ export const WORDS = [
     "exampleVi": "Các cán bộ quản lý cấp cao đã tập hợp cho hội nghị hội đồng quản trị hàng quý.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/executive.webp",
+    "img": "assets/images/words/e/executive.webp",
     "topicIds": [
       "work-jobs-chặng-2"
     ],
@@ -21410,7 +21409,7 @@ export const WORDS = [
     "exampleVi": "Là một nhà thiết kế tự do, cô ấy tự sắp xếp lịch làm việc linh hoạt của mình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/freelancer.webp",
+    "img": "assets/images/words/f/freelancer.webp",
     "topicIds": [
       "work-jobs-chặng-2"
     ],
@@ -21426,7 +21425,7 @@ export const WORDS = [
     "exampleVi": "Thực tập sinh mùa hè đã hỗ trợ các cuộc khảo sát nghiên cứu thị trường.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/intern.webp",
+    "img": "assets/images/words/i/intern.webp",
     "topicIds": [
       "work-jobs-chặng-2",
       "top-1000-core-chặng-85"
@@ -21443,7 +21442,7 @@ export const WORDS = [
     "exampleVi": "Nhân viên bán hàng năng nổ đã vượt mục tiêu doanh số hàng tháng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/salesperson.webp",
+    "img": "assets/images/words/s/salesperson.webp",
     "topicIds": [
       "work-jobs-chặng-2",
       "top-1000-core-chặng-85"
@@ -21460,7 +21459,7 @@ export const WORDS = [
     "exampleVi": "Nhân viên lễ tân đã hướng dẫn khách lên hội trường hội nghị tầng 5.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/receptionist.webp",
+    "img": "assets/images/words/r/receptionist.webp",
     "topicIds": [
       "work-jobs-chặng-2",
       "top-1000-core-chặng-85"
@@ -21477,7 +21476,7 @@ export const WORDS = [
     "exampleVi": "Văn phòng chi nhánh của chúng tôi nằm tại trung tâm thương mại thành phố.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/office.webp",
+    "img": "assets/images/words/o/office.webp",
     "topicIds": [
       "work-jobs-chặng-2",
       "top-1000-core-chặng-62"
@@ -21494,7 +21493,7 @@ export const WORDS = [
     "exampleVi": "Nuôi dưỡng một môi trường làm việc hòa nhập giúp tăng năng suất nhân viên.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/workplace.webp",
+    "img": "assets/images/words/w/workplace.webp",
     "topicIds": [
       "work-jobs-chặng-2",
       "top-1000-core-chặng-85"
@@ -21511,7 +21510,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy trang trí góc làm việc của mình bằng ảnh gia đình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cubicle.webp",
+    "img": "assets/images/words/c/cubicle.webp",
     "topicIds": [
       "work-jobs-chặng-2"
     ],
@@ -21527,7 +21526,7 @@ export const WORDS = [
     "exampleVi": "Hãy giữ cho bàn làm việc của bạn luôn ngăn nắp và sạch sẽ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/desk.webp",
+    "img": "assets/images/words/d/desk.webp",
     "topicIds": [
       "work-jobs-chặng-2",
       "top-1000-core-chặng-84"
@@ -21544,7 +21543,7 @@ export const WORDS = [
     "exampleVi": "Công ty đa quốc gia đã chuyển trụ sở chính toàn cầu sang Tokyo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/headquarters.webp",
+    "img": "assets/images/words/h/headquarters.webp",
     "topicIds": [
       "work-jobs-chặng-2"
     ],
@@ -21560,7 +21559,7 @@ export const WORDS = [
     "exampleVi": "Hãy liên hệ phòng Nhân sự để tìm hiểu về các chế độ phúc lợi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/department.webp",
+    "img": "assets/images/words/d/department.webp",
     "topicIds": [
       "work-jobs-chặng-3",
       "top-1000-core-chặng-83"
@@ -21577,7 +21576,7 @@ export const WORDS = [
     "exampleVi": "Đặt phòng hội nghị cho buổi thuyết trình với khách hàng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/conference-room.webp",
+    "img": "assets/images/words/c/conference-room.webp",
     "topicIds": [
       "work-jobs-chặng-3",
       "top-1000-core-chặng-83"
@@ -21594,7 +21593,7 @@ export const WORDS = [
     "exampleVi": "Máy in laser đã hết giấy và mực in màu đen.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/printer.webp",
+    "img": "assets/images/words/p/printer.webp",
     "topicIds": [
       "work-jobs-chặng-3",
       "top-1000-core-chặng-85"
@@ -21611,7 +21610,7 @@ export const WORDS = [
     "exampleVi": "Tạo hai mươi bản sao chương trình họp trên máy photocopy.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/photocopier.webp",
+    "img": "assets/images/words/p/photocopier.webp",
     "topicIds": [
       "work-jobs-chặng-3"
     ],
@@ -21627,7 +21626,7 @@ export const WORDS = [
     "exampleVi": "Đặt mua đồ dùng văn phòng phẩm mới vào mỗi tháng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/stationery.webp",
+    "img": "assets/images/words/s/stationery.webp",
     "topicIds": [
       "work-jobs-chặng-3"
     ],
@@ -21643,7 +21642,7 @@ export const WORDS = [
     "exampleVi": "Tiêu hủy các tài liệu nhạy cảm của khách hàng trong máy hủy tài liệu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/shredder.webp",
+    "img": "assets/images/words/s/shredder.webp",
     "topicIds": [
       "work-jobs-chặng-3"
     ],
@@ -21659,7 +21658,7 @@ export const WORDS = [
     "exampleVi": "Động não các ý tưởng tiếp thị sáng tạo trên bảng trắng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/whiteboard.webp",
+    "img": "assets/images/words/w/whiteboard.webp",
     "topicIds": [
       "work-jobs-chặng-3",
       "top-1000-core-chặng-85"
@@ -21676,7 +21675,7 @@ export const WORDS = [
     "exampleVi": "Nhân viên thưởng thức cà phê espresso tươi trong phòng nghỉ giải lao.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/break-room.webp",
+    "img": "assets/images/words/b/break-room.webp",
     "topicIds": [
       "work-jobs-chặng-3",
       "top-1000-core-chặng-83"
@@ -21693,7 +21692,7 @@ export const WORDS = [
     "exampleVi": "Quẹt thẻ nhân viên an ninh của bạn để bước vào tòa nhà.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/badge.webp",
+    "img": "assets/images/words/b/badge.webp",
     "topicIds": [
       "work-jobs-chặng-3",
       "top-1000-core-chặng-85"
@@ -21710,7 +21709,7 @@ export const WORDS = [
     "exampleVi": "Tùy chỉnh sơ yếu lý lịch của bạn cho khớp với các yêu cầu công việc cụ thể.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/resume.webp",
+    "img": "assets/images/words/r/resume.webp",
     "topicIds": [
       "work-jobs-chặng-3",
       "top-1000-core-chặng-85"
@@ -21727,7 +21726,7 @@ export const WORDS = [
     "exampleVi": "Nộp hồ sơ năng lực cập nhật của bạn kèm theo bảng điểm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/curriculum-vitae.webp",
+    "img": "assets/images/words/c/curriculum-vitae.webp",
     "topicIds": [
       "work-jobs-chặng-4"
     ],
@@ -21743,7 +21742,7 @@ export const WORDS = [
     "exampleVi": "Một bức thư xin việc hấp dẫn sẽ giải thích niềm đam mê của bạn đối với vị trí.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cover-letter.webp",
+    "img": "assets/images/words/c/cover-letter.webp",
     "topicIds": [
       "work-jobs-chặng-4"
     ],
@@ -21759,7 +21758,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã nộp đơn ứng tuyển vào vị trí quản lý tiếp thị số.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/apply.webp",
+    "img": "assets/images/words/a/apply.webp",
     "topicIds": [
       "work-jobs-chặng-4",
       "top-1000-core-chặng-15"
@@ -21776,7 +21775,7 @@ export const WORDS = [
     "exampleVi": "Hơn 200 ứng viên đã cạnh tranh cho ba vị trí còn trống.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/applicant.webp",
+    "img": "assets/images/words/a/applicant.webp",
     "topicIds": [
       "work-jobs-chặng-4"
     ],
@@ -21792,7 +21791,7 @@ export const WORDS = [
     "exampleVi": "Hội đồng tuyển dụng đã chọn ra danh sách rút gọn năm ứng cử viên hàng đầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/candidate.webp",
+    "img": "assets/images/words/c/candidate.webp",
     "topicIds": [
       "work-jobs-chặng-4"
     ],
@@ -21808,7 +21807,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy sở hữu toàn bộ các bằng cấp chuyên môn kỹ thuật cần thiết.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/qualification.webp",
+    "img": "assets/images/words/q/qualification.webp",
     "topicIds": [
       "work-jobs-chặng-4"
     ],
@@ -21824,7 +21823,7 @@ export const WORDS = [
     "exampleVi": "Thông thạo tiếng Anh là một yêu cầu bắt buộc cho vị trí này.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/requirement.webp",
+    "img": "assets/images/words/r/requirement.webp",
     "topicIds": [
       "work-jobs-chặng-4"
     ],
@@ -21840,7 +21839,7 @@ export const WORDS = [
     "exampleVi": "Bộ phận kinh doanh của chúng tôi đang có một vị trí trống ngay lập tức cho trưởng nhóm tài khoản.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/vacancy.webp",
+    "img": "assets/images/words/v/vacancy.webp",
     "topicIds": [
       "work-jobs-chặng-4"
     ],
@@ -21856,7 +21855,7 @@ export const WORDS = [
     "exampleVi": "Xem kỹ bản mô tả công việc trước khi nộp hồ sơ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/job-description.webp",
+    "img": "assets/images/words/j/job-description.webp",
     "topicIds": [
       "work-jobs-chặng-4"
     ],
@@ -21872,7 +21871,7 @@ export const WORDS = [
     "exampleVi": "Một chuyên viên tuyển dụng công nghệ đã liên hệ với anh ấy qua LinkedIn kèm lời mời.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/recruiter.webp",
+    "img": "assets/images/words/r/recruiter.webp",
     "topicIds": [
       "work-jobs-chặng-4"
     ],
@@ -21888,7 +21887,7 @@ export const WORDS = [
     "exampleVi": "Cung cấp thông tin của hai người giới thiệu chuyên môn từ các quản lý cũ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/reference.webp",
+    "img": "assets/images/words/r/reference.webp",
     "topicIds": [
       "work-jobs-chặng-5"
     ],
@@ -21904,7 +21903,7 @@ export const WORDS = [
     "exampleVi": "Bộ kỹ năng phân tích của cô ấy khiến cô ấy trở thành nhân tài quý giá cho ngành khoa học dữ liệu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/skill-set.webp",
+    "img": "assets/images/words/s/skill-set.webp",
     "topicIds": [
       "work-jobs-chặng-5"
     ],
@@ -21920,7 +21919,7 @@ export const WORDS = [
     "exampleVi": "Các chuyên gia săn đầu người đã tiếp cận anh ấy với vị trí Giám đốc công nghệ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/headhunter.webp",
+    "img": "assets/images/words/h/headhunter.webp",
     "topicIds": [
       "work-jobs-chặng-5"
     ],
@@ -21936,7 +21935,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã chuẩn bị rất kỹ lưỡng cho buổi phỏng vấn hành vi vòng cuối.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/interview.webp",
+    "img": "assets/images/words/i/interview.webp",
     "topicIds": [
       "work-jobs-chặng-5",
       "top-1000-core-chặng-85"
@@ -21953,7 +21952,7 @@ export const WORDS = [
     "exampleVi": "Người phỏng vấn đã đánh giá khả năng giải quyết vấn đề kỹ thuật.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/interviewer.webp",
+    "img": "assets/images/words/i/interviewer.webp",
     "topicIds": [
       "work-jobs-chặng-5",
       "top-1000-core-chặng-86"
@@ -21970,7 +21969,7 @@ export const WORDS = [
     "exampleVi": "Người được phỏng vấn đã trả lời từng câu hỏi hóc búa một cách bình tĩnh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/interviewee.webp",
+    "img": "assets/images/words/i/interviewee.webp",
     "topicIds": [
       "work-jobs-chặng-5"
     ],
@@ -21986,7 +21985,7 @@ export const WORDS = [
     "exampleVi": "Bài thuyết trình của cô ấy về việc cắt giảm chi phí đã gây ấn tượng với ban giám đốc.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/impress.webp",
+    "img": "assets/images/words/i/impress.webp",
     "topicIds": [
       "work-jobs-chặng-5",
       "top-1000-core-chặng-29"
@@ -22003,7 +22002,7 @@ export const WORDS = [
     "exampleVi": "Làm nổi bật những thế mạnh then chốt của bạn là điều cốt yếu khi phỏng vấn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/strengths.webp",
+    "img": "assets/images/words/s/strengths.webp",
     "topicIds": [
       "work-jobs-chặng-5",
       "top-1000-core-chặng-86"
@@ -22020,7 +22019,7 @@ export const WORDS = [
     "exampleVi": "Thể hiện sự tự nhận thức bản thân bằng cách giải thích cách bạn khắc phục các điểm yếu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/weaknesses.webp",
+    "img": "assets/images/words/w/weaknesses.webp",
     "topicIds": [
       "work-jobs-chặng-5"
     ],
@@ -22036,7 +22035,7 @@ export const WORDS = [
     "exampleVi": "Tuân thủ nghiêm túc quy chuẩn trang phục công sở chuyên nghiệp.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/dress-code.webp",
+    "img": "assets/images/words/d/dress-code.webp",
     "topicIds": [
       "work-jobs-chặng-5",
       "top-1000-core-chặng-86"
@@ -22053,7 +22052,7 @@ export const WORDS = [
     "exampleVi": "Ngôn ngữ cơ thể tự tin và ánh mắt giao tiếp thể hiện sự vững vàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/body-language.webp",
+    "img": "assets/images/words/b/body-language.webp",
     "topicIds": [
       "work-jobs-chặng-6"
     ],
@@ -22069,7 +22068,7 @@ export const WORDS = [
     "exampleVi": "Công ty có kế hoạch tuyển dụng 50 lập trình viên phần mềm mới.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/hire.webp",
+    "img": "assets/images/words/h/hire.webp",
     "topicIds": [
       "work-jobs-chặng-6",
       "top-1000-core-chặng-15"
@@ -22086,7 +22085,7 @@ export const WORDS = [
     "exampleVi": "Đừng nản lòng nếu một đơn ứng tuyển bị từ chối.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/reject.webp",
+    "img": "assets/images/words/r/reject.webp",
     "topicIds": [
       "work-jobs-chặng-6",
       "top-1000-core-chặng-29"
@@ -22103,7 +22102,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã nhận được một lời mời nhận việc hấp dẫn kèm quyền chọn cổ phiếu lớn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/offer.webp",
+    "img": "assets/images/words/o/offer.webp",
     "topicIds": [
       "work-jobs-chặng-6",
       "top-1000-core-chặng-86"
@@ -22120,7 +22119,7 @@ export const WORDS = [
     "exampleVi": "Ứng viên có thể đàm phán mức lương khởi điểm cơ bản một cách lịch sự.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/negotiate.webp",
+    "img": "assets/images/words/n/negotiate.webp",
     "topicIds": [
       "work-jobs-chặng-6",
       "top-1000-core-chặng-29"
@@ -22137,7 +22136,7 @@ export const WORDS = [
     "exampleVi": "Chỉ có bốn ứng viên lọt vào danh sách tuyển dụng rút gọn cuối cùng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/shortlist-noun.webp",
+    "img": "assets/images/words/s/shortlist-noun.webp",
     "topicIds": [
       "work-jobs-chặng-6"
     ],
@@ -22153,7 +22152,7 @@ export const WORDS = [
     "exampleVi": "Hãy gửi một bức thư cảm ơn theo dõi lịch sự trong vòng 24 giờ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/follow-up-noun.webp",
+    "img": "assets/images/words/f/follow-up-noun.webp",
     "topicIds": [
       "work-jobs-chặng-6"
     ],
@@ -22169,7 +22168,7 @@ export const WORDS = [
     "exampleVi": "Quy trình hội nhập có cấu trúc giúp người mới hòa nhập nhanh chóng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/onboarding.webp",
+    "img": "assets/images/words/o/onboarding.webp",
     "topicIds": [
       "work-jobs-chặng-6"
     ],
@@ -22185,7 +22184,7 @@ export const WORDS = [
     "exampleVi": "Họ đã đưa ra một gói lương hàng năm rất cạnh tranh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/salary-noun.webp",
+    "img": "assets/images/words/s/salary-noun.webp",
     "topicIds": [
       "work-jobs-chặng-6",
       "top-1000-core-chặng-86"
@@ -22202,7 +22201,7 @@ export const WORDS = [
     "exampleVi": "Mức tiền công tối thiểu theo giờ của liên bang đã được tăng lên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/wage-noun.webp",
+    "img": "assets/images/words/w/wage-noun.webp",
     "topicIds": [
       "work-jobs-chặng-6"
     ],
@@ -22218,7 +22217,7 @@ export const WORDS = [
     "exampleVi": "Ký hợp đồng lao động trước ngày làm việc đầu tiên của bạn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/contract.webp",
+    "img": "assets/images/words/c/contract.webp",
     "topicIds": [
       "work-jobs-chặng-7",
       "top-1000-core-chặng-86"
@@ -22235,7 +22234,7 @@ export const WORDS = [
     "exampleVi": "Nhân viên đã nhận được một khoản tiền thưởng hiệu suất hậu hĩnh vào cuối năm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bonus.webp",
+    "img": "assets/images/words/b/bonus.webp",
     "topicIds": [
       "work-jobs-chặng-7",
       "top-1000-core-chặng-71"
@@ -22252,7 +22251,7 @@ export const WORDS = [
     "exampleVi": "Phúc lợi nhân viên công ty bao gồm bảo hiểm nha khoa và mắt toàn diện.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/benefit.webp",
+    "img": "assets/images/words/b/benefit.webp",
     "topicIds": [
       "work-jobs-chặng-7"
     ],
@@ -22268,7 +22267,7 @@ export const WORDS = [
     "exampleVi": "Bảo hiểm y tế bảo vệ các gia đình khỏi các hóa đơn viện phí bất ngờ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/insurance.webp",
+    "img": "assets/images/words/i/insurance.webp",
     "topicIds": [
       "work-jobs-chặng-7"
     ],
@@ -22284,7 +22283,7 @@ export const WORDS = [
     "exampleVi": "Đóng góp hàng tháng vào quỹ hưu trí có công ty đóng góp đối ứng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pension-noun.webp",
+    "img": "assets/images/words/p/pension-noun.webp",
     "topicIds": [
       "work-jobs-chặng-7"
     ],
@@ -22300,7 +22299,7 @@ export const WORDS = [
     "exampleVi": "Nhân viên chính thức nhận được 18 ngày nghỉ phép hưởng nguyên lương mỗi năm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/paid-leave.webp",
+    "img": "assets/images/words/p/paid-leave.webp",
     "topicIds": [
       "work-jobs-chặng-7"
     ],
@@ -22316,7 +22315,7 @@ export const WORDS = [
     "exampleVi": "Nộp giấy chứng nhận y tế khi xin nghỉ phép ốm đau.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/sick-leave.webp",
+    "img": "assets/images/words/s/sick-leave.webp",
     "topicIds": [
       "work-jobs-chặng-7",
       "top-1000-core-chặng-41"
@@ -22333,7 +22332,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã nghỉ sáu tháng thai sản hưởng lương.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/maternity-leave.webp",
+    "img": "assets/images/words/m/maternity-leave.webp",
     "topicIds": [
       "work-jobs-chặng-7"
     ],
@@ -22349,7 +22348,7 @@ export const WORDS = [
     "exampleVi": "Nhân viên nhận 1.5 lần mức lương theo giờ cho thời gian làm việc ngoài giờ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/overtime.webp",
+    "img": "assets/images/words/o/overtime.webp",
     "topicIds": [
       "work-jobs-chặng-7",
       "top-1000-core-chặng-86"
@@ -22366,7 +22365,7 @@ export const WORDS = [
     "exampleVi": "Thời gian thử việc tiêu chuẩn kéo dài trọn vẹn hai tháng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/probation.webp",
+    "img": "assets/images/words/p/probation.webp",
     "topicIds": [
       "work-jobs-chặng-7"
     ],
@@ -22382,7 +22381,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã chuyển từ nhân viên bán thời gian sang nhân viên toàn thời gian.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/full-time.webp",
+    "img": "assets/images/words/f/full-time.webp",
     "topicIds": [
       "work-jobs-chặng-8",
       "top-1000-core-chặng-57"
@@ -22399,7 +22398,7 @@ export const WORDS = [
     "exampleVi": "Nhiều sinh viên đại học nhận các công việc gia sư bán thời gian.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/part-time.webp",
+    "img": "assets/images/words/p/part-time.webp",
     "topicIds": [
       "work-jobs-chặng-8",
       "top-1000-core-chặng-58"
@@ -22416,7 +22415,7 @@ export const WORDS = [
     "exampleVi": "Những công nhân bị cắt giảm đã nhận được ba tháng tiền trợ cấp thôi việc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/severance-pay.webp",
+    "img": "assets/images/words/s/severance-pay.webp",
     "topicIds": [
       "work-jobs-chặng-8",
       "top-1000-core-chặng-66"
@@ -22433,7 +22432,7 @@ export const WORDS = [
     "exampleVi": "Cuộc họp nhanh hàng tuần bắt đầu chính xác lúc 9:00.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/meeting.webp",
+    "img": "assets/images/words/m/meeting.webp",
     "topicIds": [
       "work-jobs-chặng-8",
       "top-1000-core-chặng-84"
@@ -22450,7 +22449,7 @@ export const WORDS = [
     "exampleVi": "Hãy lưu hành chương trình họp trước ít nhất một ngày.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/agenda.webp",
+    "img": "assets/images/words/a/agenda.webp",
     "topicIds": [
       "work-jobs-chặng-8"
     ],
@@ -22466,7 +22465,7 @@ export const WORDS = [
     "exampleVi": "Bài thuyết trình bằng trang chiếu đa phương tiện của anh ấy đã gây ấn tượng với các nhà đầu tư tiềm năng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/presentation.webp",
+    "img": "assets/images/words/p/presentation.webp",
     "topicIds": [
       "work-jobs-chặng-8",
       "top-1000-core-chặng-86"
@@ -22483,7 +22482,7 @@ export const WORDS = [
     "exampleVi": "Diễn giả chính đã trả lời các câu hỏi của khán giả một cách mạch lạc.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/presenter.webp",
+    "img": "assets/images/words/p/presenter.webp",
     "topicIds": [
       "work-jobs-chặng-8",
       "top-1000-core-chặng-86"
@@ -22500,7 +22499,7 @@ export const WORDS = [
     "exampleVi": "Hãy giữ cho các slide súc tích với các biểu đồ trực quan và ít chữ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/slides.webp",
+    "img": "assets/images/words/s/slides.webp",
     "topicIds": [
       "work-jobs-chặng-8",
       "top-1000-core-chặng-86"
@@ -22517,7 +22516,7 @@ export const WORDS = [
     "exampleVi": "Chúng ta hãy thảo luận về các ưu tiên phân bổ ngân sách then chốt.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/discuss.webp",
+    "img": "assets/images/words/d/discuss.webp",
     "topicIds": [
       "work-jobs-chặng-8",
       "top-1000-core-chặng-15"
@@ -22534,7 +22533,7 @@ export const WORDS = [
     "exampleVi": "Đội ngũ sáng tạo đã cùng nhau động não các câu khẩu hiệu hấp dẫn cho đợt ra mắt.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/brainstorm.webp",
+    "img": "assets/images/words/b/brainstorm.webp",
     "topicIds": [
       "work-jobs-chặng-8",
       "top-1000-core-chặng-29"
@@ -22551,7 +22550,7 @@ export const WORDS = [
     "exampleVi": "Thư ký trợ lý đã ghi lại biên bản cuộc họp rất chính xác.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/minutes.webp",
+    "img": "assets/images/words/m/minutes.webp",
     "topicIds": [
       "work-jobs-chặng-9"
     ],
@@ -22567,7 +22566,7 @@ export const WORDS = [
     "exampleVi": "Hãy lên lịch cho một cuộc gọi hội nghị video vào chiều thứ Năm.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/schedule-verb.webp",
+    "img": "assets/images/words/s/schedule-verb.webp",
     "topicIds": [
       "work-jobs-chặng-9",
       "top-1000-core-chặng-16"
@@ -22584,7 +22583,7 @@ export const WORDS = [
     "exampleVi": "Hãy nộp bản đề xuất tài trợ trước thứ Sáu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/proposal.webp",
+    "img": "assets/images/words/p/proposal.webp",
     "topicIds": [
       "work-jobs-chặng-9"
     ],
@@ -22600,7 +22599,7 @@ export const WORDS = [
     "exampleVi": "Xem lại các đầu việc cần làm đã giao và chỉ định người chịu trách nhiệm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/action-items.webp",
+    "img": "assets/images/words/a/action-items.webp",
     "topicIds": [
       "work-jobs-chặng-9"
     ],
@@ -22616,7 +22615,7 @@ export const WORDS = [
     "exampleVi": "Kiểm tra và trả lời các email khẩn cấp của khách hàng vào mỗi sáng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/email.webp",
+    "img": "assets/images/words/e/email.webp",
     "topicIds": [
       "work-jobs-chặng-9",
       "top-1000-core-chặng-84"
@@ -22633,7 +22632,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy cố gắng duy trì một hộp thư đến ngăn nắp không có thư chưa đọc.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/inbox.webp",
+    "img": "assets/images/words/i/inbox.webp",
     "topicIds": [
       "work-jobs-chặng-9",
       "top-1000-core-chặng-87"
@@ -22650,7 +22649,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng xem thỏa thuận đã ký trong tệp đính kèm của email.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/attachment.webp",
+    "img": "assets/images/words/a/attachment.webp",
     "topicIds": [
       "work-jobs-chặng-9",
       "top-1000-core-chặng-87"
@@ -22667,7 +22666,7 @@ export const WORDS = [
     "exampleVi": "Chuyển tiếp các thông số kỹ thuật cho các trưởng nhóm kỹ thuật của chúng ta.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/forward.webp",
+    "img": "assets/images/words/f/forward.webp",
     "topicIds": [
       "work-jobs-chặng-9",
       "top-1000-core-chặng-16"
@@ -22684,7 +22683,7 @@ export const WORDS = [
     "exampleVi": "Viết dòng tiêu đề rõ ràng và súc tích cho các yêu cầu khẩn cấp.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/subject-line.webp",
+    "img": "assets/images/words/s/subject-line.webp",
     "topicIds": [
       "work-jobs-chặng-9",
       "top-1000-core-chặng-87"
@@ -22701,7 +22700,7 @@ export const WORDS = [
     "exampleVi": "Hãy CC người quản lý dự án trong tất cả các trao đổi với nhà cung cấp.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/cc-carbon-copy.webp",
+    "img": "assets/images/words/c/cc-carbon-copy.webp",
     "topicIds": [
       "work-jobs-chặng-9",
       "top-1000-core-chặng-29"
@@ -22718,7 +22717,7 @@ export const WORDS = [
     "exampleVi": "Sử dụng BCC khi gửi email cho một danh sách lớn người đăng ký nhận bản tin.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/bcc-blind-carbon-copy.webp",
+    "img": "assets/images/words/b/bcc-blind-carbon-copy.webp",
     "topicIds": [
       "work-jobs-chặng-10",
       "top-1000-core-chặng-30"
@@ -22735,7 +22734,7 @@ export const WORDS = [
     "exampleVi": "Hãy kèm theo chức danh nghề nghiệp và số điện thoại trong chữ ký email của bạn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/signature.webp",
+    "img": "assets/images/words/s/signature.webp",
     "topicIds": [
       "work-jobs-chặng-10",
       "top-1000-core-chặng-87"
@@ -22752,7 +22751,7 @@ export const WORDS = [
     "exampleVi": "Bạn có thể vui lòng làm rõ đoạn 3 của bản thỏa thuận được không?",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/clarify.webp",
+    "img": "assets/images/words/c/clarify.webp",
     "topicIds": [
       "work-jobs-chặng-10",
       "top-1000-core-chặng-30"
@@ -22769,7 +22768,7 @@ export const WORDS = [
     "exampleVi": "Kiểm tra thư mục thư rác nếu bạn không thấy email kích hoạt.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/spam.webp",
+    "img": "assets/images/words/s/spam.webp",
     "topicIds": [
       "work-jobs-chặng-10",
       "top-1000-core-chặng-87"
@@ -22786,7 +22785,7 @@ export const WORDS = [
     "exampleVi": "Đánh dấu email là mức độ quan trọng cao đối với các vấn đề khẩn cấp.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/urgent.webp",
+    "img": "assets/images/words/u/urgent.webp",
     "topicIds": [
       "work-jobs-chặng-10",
       "top-1000-core-chặng-84"
@@ -22803,7 +22802,7 @@ export const WORDS = [
     "exampleVi": "Lưu trữ hồ sơ tất cả các trao đổi thư từ chính thức với khách hàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/correspondence.webp",
+    "img": "assets/images/words/c/correspondence.webp",
     "topicIds": [
       "work-jobs-chặng-10"
     ],
@@ -22819,7 +22818,7 @@ export const WORDS = [
     "exampleVi": "Duy trì giọng điệu lịch thiệp và chuyên nghiệp trong các email công việc.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/professional.webp",
+    "img": "assets/images/words/p/professional.webp",
     "topicIds": [
       "work-jobs-chặng-10",
       "top-1000-core-chặng-84"
@@ -22836,7 +22835,7 @@ export const WORDS = [
     "exampleVi": "Nhóm của chúng tôi đã triển khai thành công dự án thương mại điện tử mới.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/project.webp",
+    "img": "assets/images/words/p/project.webp",
     "topicIds": [
       "work-jobs-chặng-10",
       "top-1000-core-chặng-87"
@@ -22853,7 +22852,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã làm việc đến tận đêm muộn để kịp hạn chót của dự án.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/deadline.webp",
+    "img": "assets/images/words/d/deadline.webp",
     "topicIds": [
       "work-jobs-chặng-10",
       "top-1000-core-chặng-87"
@@ -22870,7 +22869,7 @@ export const WORDS = [
     "exampleVi": "Chia nhỏ các mục tiêu lớn thành các nhiệm vụ nhỏ hàng ngày có thể thực hiện được.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/task.webp",
+    "img": "assets/images/words/t/task.webp",
     "topicIds": [
       "work-jobs-chặng-10",
       "top-1000-core-chặng-87"
@@ -22887,7 +22886,7 @@ export const WORDS = [
     "exampleVi": "Người quản lý trưởng nhóm đã phân công các mô-đun cho từng lập trình viên.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/assign.webp",
+    "img": "assets/images/words/a/assign.webp",
     "topicIds": [
       "work-jobs-chặng-11",
       "top-1000-core-chặng-30"
@@ -22904,7 +22903,7 @@ export const WORDS = [
     "exampleVi": "Những nhà lãnh đạo xuất sắc luôn biết cách ủy quyền công việc một cách hiệu quả.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/delegate-verb.webp",
+    "img": "assets/images/words/d/delegate-verb.webp",
     "topicIds": [
       "work-jobs-chặng-11",
       "top-1000-core-chặng-30"
@@ -22921,7 +22920,7 @@ export const WORDS = [
     "exampleVi": "Theo dõi tiến độ chạy nước rút hàng ngày trên bảng điều khiển kanban.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/progress.webp",
+    "img": "assets/images/words/p/progress.webp",
     "topicIds": [
       "work-jobs-chặng-11",
       "top-1000-core-chặng-87"
@@ -22938,7 +22937,7 @@ export const WORDS = [
     "exampleVi": "Gửi báo cáo tình trạng dự án hàng tuần cho các bên liên quan.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/status-report.webp",
+    "img": "assets/images/words/s/status-report.webp",
     "topicIds": [
       "work-jobs-chặng-11"
     ],
@@ -22954,7 +22953,7 @@ export const WORDS = [
     "exampleVi": "Tự động hóa việc nhập dữ liệu lặp đi lặp lại giúp tối ưu hóa quy trình làm việc của nhóm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/workflow.webp",
+    "img": "assets/images/words/w/workflow.webp",
     "topicIds": [
       "work-jobs-chặng-11"
     ],
@@ -22970,7 +22969,7 @@ export const WORDS = [
     "exampleVi": "Sản phẩm bàn giao của quý đầu tiên đến hạn vào ngày 31 tháng 3.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/deliverable.webp",
+    "img": "assets/images/words/d/deliverable.webp",
     "topicIds": [
       "work-jobs-chặng-11"
     ],
@@ -22986,7 +22985,7 @@ export const WORDS = [
     "exampleVi": "Dự án xây dựng đang bị chậm hai tuần so với tiến độ.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/behind-schedule.webp",
+    "img": "assets/images/words/b/behind-schedule.webp",
     "topicIds": [
       "work-jobs-chặng-11"
     ],
@@ -23002,7 +23001,7 @@ export const WORDS = [
     "exampleVi": "Bản cập nhật phần mềm đã được tung ra sớm ba ngày so với kế hoạch.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/ahead-of-schedule.webp",
+    "img": "assets/images/words/a/ahead-of-schedule.webp",
     "topicIds": [
       "work-jobs-chặng-11"
     ],
@@ -23018,7 +23017,7 @@ export const WORDS = [
     "exampleVi": "Sự phê duyệt chậm trễ từ khách hàng là điểm nghẽn chính trong quá trình sản xuất.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/bottleneck.webp",
+    "img": "assets/images/words/b/bottleneck.webp",
     "topicIds": [
       "work-jobs-chặng-11"
     ],
@@ -23034,7 +23033,7 @@ export const WORDS = [
     "exampleVi": "Mục tiêu quý hàng đầu của chúng tôi là mở rộng lượng người dùng hoạt động.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/objective.webp",
+    "img": "assets/images/words/o/objective.webp",
     "topicIds": [
       "work-jobs-chặng-11"
     ],
@@ -23050,7 +23049,7 @@ export const WORDS = [
     "exampleVi": "Tổng giám đốc đã quyết định thăng chức cho anh ấy vì thành tích xuất sắc.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/promote.webp",
+    "img": "assets/images/words/p/promote.webp",
     "topicIds": [
       "work-jobs-chặng-12",
       "top-1000-core-chặng-30"
@@ -23067,7 +23066,7 @@ export const WORDS = [
     "exampleVi": "Hãy tìm một người cố vấn có thể định hướng con đường sự nghiệp dài hạn của bạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/career-path.webp",
+    "img": "assets/images/words/c/career-path.webp",
     "topicIds": [
       "work-jobs-chặng-12"
     ],
@@ -23083,7 +23082,7 @@ export const WORDS = [
     "exampleVi": "Đoạt giải thưởng Sáng tạo là thành tựu sự nghiệp đáng tự hào nhất của cô ấy.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/achievement.webp",
+    "img": "assets/images/words/a/achievement.webp",
     "topicIds": [
       "work-jobs-chặng-12"
     ],
@@ -23099,7 +23098,7 @@ export const WORDS = [
     "exampleVi": "Các đợt đánh giá hiệu suất hàng năm quyết định việc tăng lương.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/performance-review.webp",
+    "img": "assets/images/words/p/performance-review.webp",
     "topicIds": [
       "work-jobs-chặng-12"
     ],
@@ -23115,7 +23114,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã xin người giám sát tăng 10% lương dựa trên năng lực.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/raise.webp",
+    "img": "assets/images/words/r/raise.webp",
     "topicIds": [
       "work-jobs-chặng-12",
       "top-1000-core-chặng-65"
@@ -23132,7 +23131,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã thể hiện khả năng lãnh đạo truyền cảm hứng trong cuộc khủng hoảng công ty.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/leadership.webp",
+    "img": "assets/images/words/l/leadership.webp",
     "topicIds": [
       "work-jobs-chặng-12"
     ],
@@ -23148,7 +23147,7 @@ export const WORDS = [
     "exampleVi": "Công ty cung cấp các khóa đào tạo phát triển năng lực lãnh đạo liên tục.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/training.webp",
+    "img": "assets/images/words/t/training.webp",
     "topicIds": [
       "work-jobs-chặng-12",
       "top-1000-core-chặng-65"
@@ -23165,7 +23164,7 @@ export const WORDS = [
     "exampleVi": "Tham dự một buổi hội thảo cuối tuần về các công cụ trí tuệ nhân tạo.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/workshop.webp",
+    "img": "assets/images/words/w/workshop.webp",
     "topicIds": [
       "work-jobs-chặng-12",
       "top-1000-core-chặng-87"
@@ -23182,7 +23181,7 @@ export const WORDS = [
     "exampleVi": "Nhân viên được khuyến khích nâng cao tay nghề về máy học.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/upskill.webp",
+    "img": "assets/images/words/u/upskill.webp",
     "topicIds": [
       "work-jobs-chặng-12",
       "top-1000-core-chặng-30"
@@ -23199,7 +23198,7 @@ export const WORDS = [
     "exampleVi": "Hoài bão của anh ấy là thành lập công ty khởi nghiệp công nghệ sinh học của riêng mình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ambition.webp",
+    "img": "assets/images/words/a/ambition.webp",
     "topicIds": [
       "work-jobs-chặng-12"
     ],
@@ -23215,7 +23214,7 @@ export const WORDS = [
     "exampleVi": "Các hội nghị chuyên ngành mang lại cơ hội tuyệt vời để xây dựng mạng lưới quan hệ chuyên nghiệp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/networking.webp",
+    "img": "assets/images/words/n/networking.webp",
     "topicIds": [
       "work-jobs-chặng-13"
     ],
@@ -23231,7 +23230,7 @@ export const WORDS = [
     "exampleVi": "Sở hữu chứng chỉ quản lý dự án PMP giúp nâng cao triển vọng nghề nghiệp.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/certificate.webp",
+    "img": "assets/images/words/c/certificate.webp",
     "topicIds": [
       "work-jobs-chặng-13",
       "top-1000-core-chặng-88"
@@ -23248,7 +23247,7 @@ export const WORDS = [
     "exampleVi": "Các nhà quản lý thực hiện các đợt đánh giá năng lực nhân viên giữa năm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/appraisal.webp",
+    "img": "assets/images/words/a/appraisal.webp",
     "topicIds": [
       "work-jobs-chặng-13"
     ],
@@ -23264,7 +23263,7 @@ export const WORDS = [
     "exampleVi": "Khối lượng công việc hàng ngày nặng nề đã khiến cô ấy vô cùng mệt mỏi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/workload.webp",
+    "img": "assets/images/words/w/workload.webp",
     "topicIds": [
       "work-jobs-chặng-13"
     ],
@@ -23280,7 +23279,7 @@ export const WORDS = [
     "exampleVi": "Cân bằng lành mạnh giữa công việc và cuộc sống giúp tăng tỷ lệ gắn bó của nhân viên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/work-life-balance.webp",
+    "img": "assets/images/words/w/work-life-balance.webp",
     "topicIds": [
       "work-jobs-chặng-13"
     ],
@@ -23296,7 +23295,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã từ chức khỏi vị trí của mình để học lên bằng thạc sĩ.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/resign.webp",
+    "img": "assets/images/words/r/resign.webp",
     "topicIds": [
       "work-jobs-chặng-13",
       "top-1000-core-chặng-30"
@@ -23313,7 +23312,7 @@ export const WORDS = [
     "exampleVi": "Nộp thư xin thôi việc chính thức trước hai tuần.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/resignation.webp",
+    "img": "assets/images/words/r/resignation.webp",
     "topicIds": [
       "work-jobs-chặng-13"
     ],
@@ -23329,7 +23328,7 @@ export const WORDS = [
     "exampleVi": "Tập đoàn đã phải cắt giảm 1.000 công nhân trong quá trình tái cơ cấu.",
     "level": "B1",
     "pos": "phrasal verb",
-    "img": "assets/images/words/lay-off.webp",
+    "img": "assets/images/words/l/lay-off.webp",
     "topicIds": [
       "work-jobs-chặng-13",
       "top-1000-core-chặng-30"
@@ -23346,7 +23345,7 @@ export const WORDS = [
     "exampleVi": "Nhân viên đã bị sa thải do vi phạm chính sách bảo mật.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/dismiss.webp",
+    "img": "assets/images/words/d/dismiss.webp",
     "topicIds": [
       "work-jobs-chặng-13",
       "top-1000-core-chặng-30"
@@ -23363,7 +23362,7 @@ export const WORDS = [
     "exampleVi": "Bố tôi dự định nghỉ hưu ở tuổi 62 và đi du lịch vòng quanh thế giới.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/retire.webp",
+    "img": "assets/images/words/r/retire.webp",
     "topicIds": [
       "work-jobs-chặng-13",
       "top-1000-core-chặng-16"
@@ -23380,7 +23379,7 @@ export const WORDS = [
     "exampleVi": "Làm việc từ xa mang lại sự linh hoạt cho nhân viên và loại bỏ việc đi lại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/remote-work.webp",
+    "img": "assets/images/words/r/remote-work.webp",
     "topicIds": [
       "work-jobs-chặng-14",
       "top-1000-core-chặng-83"
@@ -23397,7 +23396,7 @@ export const WORDS = [
     "exampleVi": "Công ty chúng tôi áp dụng mô hình kết hợp với hai ngày làm việc tại văn phòng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/hybrid.webp",
+    "img": "assets/images/words/h/hybrid.webp",
     "topicIds": [
       "work-jobs-chặng-14",
       "top-1000-core-chặng-65"
@@ -23414,7 +23413,7 @@ export const WORDS = [
     "exampleVi": "Các y tá thường làm việc theo ca đêm kéo dài 12 tiếng trong bệnh viện.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/shift.webp",
+    "img": "assets/images/words/s/shift.webp",
     "topicIds": [
       "work-jobs-chặng-14",
       "top-1000-core-chặng-88"
@@ -23431,7 +23430,7 @@ export const WORDS = [
     "exampleVi": "Các bậc cha mẹ đánh giá cao thời gian làm việc linh hoạt để chăm sóc con nhỏ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/flexible-hours.webp",
+    "img": "assets/images/words/f/flexible-hours.webp",
     "topicIds": [
       "work-jobs-chặng-14"
     ],
@@ -23447,7 +23446,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy thể hiện đặc biệt xuất sắc ngay cả khi làm việc dưới áp lực gay gắt.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/under-pressure.webp",
+    "img": "assets/images/words/u/under-pressure.webp",
     "topicIds": [
       "work-jobs-chặng-14"
     ],
@@ -23463,7 +23462,7 @@ export const WORDS = [
     "exampleVi": "Hãy nghỉ ngơi để nạp lại năng lượng sau khi hoàn thành các cột mốc lớn.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/take-time-off.webp",
+    "img": "assets/images/words/t/take-time-off.webp",
     "topicIds": [
       "work-jobs-chặng-14",
       "top-1000-core-chặng-83"
@@ -23480,7 +23479,7 @@ export const WORDS = [
     "exampleVi": "Trẻ em đi bộ đến trường tiểu học trong khu phố.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/school.webp",
+    "img": "assets/images/words/s/school.webp",
     "topicIds": [
       "education-learning-chặng-1",
       "top-1000-core-chặng-88"
@@ -23497,7 +23496,7 @@ export const WORDS = [
     "exampleVi": "Trẻ nhỏ học hát và giao tiếp xã hội ở trường mẫu giáo.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/kindergarten.webp",
+    "img": "assets/images/words/k/kindergarten.webp",
     "topicIds": [
       "education-learning-chặng-1"
     ],
@@ -23513,7 +23512,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy dạy toán lớp hai tại một trường tiểu học.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/primary-school.webp",
+    "img": "assets/images/words/p/primary-school.webp",
     "topicIds": [
       "education-learning-chặng-1"
     ],
@@ -23529,7 +23528,7 @@ export const WORDS = [
     "exampleVi": "Học sinh bắt đầu học ngoại ngữ ở trường trung học cơ sở.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/secondary-school.webp",
+    "img": "assets/images/words/s/secondary-school.webp",
     "topicIds": [
       "education-learning-chặng-1"
     ],
@@ -23545,7 +23544,7 @@ export const WORDS = [
     "exampleVi": "Học sinh lớp 12 chuẩn bị chăm chỉ cho kỳ thi tuyển sinh đại học.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/high-school.webp",
+    "img": "assets/images/words/h/high-school.webp",
     "topicIds": [
       "education-learning-chặng-1"
     ],
@@ -23561,7 +23560,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã được nhận vào trường Đại học Oxford.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/university.webp",
+    "img": "assets/images/words/u/university.webp",
     "topicIds": [
       "education-learning-chặng-1",
       "top-1000-core-chặng-88"
@@ -23578,7 +23577,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã theo học một trường cao đẳng kỹ thuật cộng đồng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/college.webp",
+    "img": "assets/images/words/c/college.webp",
     "topicIds": [
       "education-learning-chặng-1"
     ],
@@ -23594,7 +23593,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã tốt nghiệp Học viện Quân sự Quốc gia.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/academy.webp",
+    "img": "assets/images/words/a/academy.webp",
     "topicIds": [
       "education-learning-chặng-1"
     ],
@@ -23610,7 +23609,7 @@ export const WORDS = [
     "exampleVi": "Khuôn viên trường đại học rợp bóng cây có hồ nước và phòng thí nghiệm hiện đại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/campus.webp",
+    "img": "assets/images/words/c/campus.webp",
     "topicIds": [
       "education-learning-chặng-1"
     ],
@@ -23626,7 +23625,7 @@ export const WORDS = [
     "exampleVi": "Sống trong ký túc xá đại học giúp nuôi dưỡng những tình bạn bền lâu.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/dormitory.webp",
+    "img": "assets/images/words/d/dormitory.webp",
     "topicIds": [
       "education-learning-chặng-1"
     ],
@@ -23642,7 +23641,7 @@ export const WORDS = [
     "exampleVi": "Khoa Y học nổi tiếng trên trường quốc tế.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/faculty.webp",
+    "img": "assets/images/words/f/faculty.webp",
     "topicIds": [
       "education-learning-chặng-2"
     ],
@@ -23658,7 +23657,7 @@ export const WORDS = [
     "exampleVi": "Các kỳ thi cuối khóa diễn ra vào cuối học kỳ mùa thu.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/semester.webp",
+    "img": "assets/images/words/s/semester.webp",
     "topicIds": [
       "education-learning-chặng-2"
     ],
@@ -23674,7 +23673,7 @@ export const WORDS = [
     "exampleVi": "Năm học mới bắt đầu vào tháng Chín.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/academic-year.webp",
+    "img": "assets/images/words/a/academic-year.webp",
     "topicIds": [
       "education-learning-chặng-2"
     ],
@@ -23690,7 +23689,7 @@ export const WORDS = [
     "exampleVi": "Các trường dạy nghề đào tạo thợ máy và thợ điện có tay nghề.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/vocational.webp",
+    "img": "assets/images/words/v/vocational.webp",
     "topicIds": [
       "education-learning-chặng-2"
     ],
@@ -23706,7 +23705,7 @@ export const WORDS = [
     "exampleVi": "Giáo dục chất lượng là chìa khóa để thoát khỏi nghèo đói.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/education.webp",
+    "img": "assets/images/words/e/education.webp",
     "topicIds": [
       "education-learning-chặng-2",
       "top-1000-core-chặng-71"
@@ -23723,7 +23722,7 @@ export const WORDS = [
     "exampleVi": "Máy chiếu thông minh được lắp đặt trong mọi phòng học.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/classroom.webp",
+    "img": "assets/images/words/c/classroom.webp",
     "topicIds": [
       "education-learning-chặng-2",
       "top-1000-core-chặng-83"
@@ -23740,7 +23739,7 @@ export const WORDS = [
     "exampleVi": "Hãy mang sách giáo khoa sinh học đến lớp vào ngày mai.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/textbook.webp",
+    "img": "assets/images/words/t/textbook.webp",
     "topicIds": [
       "education-learning-chặng-2"
     ],
@@ -23756,7 +23755,7 @@ export const WORDS = [
     "exampleVi": "Hãy giữ một cuốn vở riêng để ghi từ vựng tiếng Anh mới.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/notebook.webp",
+    "img": "assets/images/words/n/notebook.webp",
     "topicIds": [
       "education-learning-chặng-2",
       "top-1000-core-chặng-88"
@@ -23773,7 +23772,7 @@ export const WORDS = [
     "exampleVi": "Hãy đóng gói bút chì và sách giáo khoa vào ba lô của bạn.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/backpack.webp",
+    "img": "assets/images/words/b/backpack.webp",
     "topicIds": [
       "education-learning-chặng-2",
       "top-1000-core-chặng-88"
@@ -23790,7 +23789,7 @@ export const WORDS = [
     "exampleVi": "Cậu bé để những chiếc bút dạ quang nhiều màu trong hộp bút.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/pencil-case.webp",
+    "img": "assets/images/words/p/pencil-case.webp",
     "topicIds": [
       "education-learning-chặng-2",
       "top-1000-core-chặng-88"
@@ -23807,7 +23806,7 @@ export const WORDS = [
     "exampleVi": "Dùng cục tẩy để sửa các lỗi sai trên bài kiểm tra.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/eraser.webp",
+    "img": "assets/images/words/e/eraser.webp",
     "topicIds": [
       "education-learning-chặng-3",
       "top-1000-core-chặng-88"
@@ -23824,7 +23823,7 @@ export const WORDS = [
     "exampleVi": "Vẽ một đường cơ sở thẳng bằng chiếc thước nhựa 30cm.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/ruler.webp",
+    "img": "assets/images/words/r/ruler.webp",
     "topicIds": [
       "education-learning-chặng-3",
       "top-1000-core-chặng-88"
@@ -23841,7 +23840,7 @@ export const WORDS = [
     "exampleVi": "Gọt những cây bút chì cùn bằng chiếc gọt bút để bàn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/sharpener.webp",
+    "img": "assets/images/words/s/sharpener.webp",
     "topicIds": [
       "education-learning-chặng-3"
     ],
@@ -23857,7 +23856,7 @@ export const WORDS = [
     "exampleVi": "Máy tính khoa học được phép mang vào các kỳ thi giải tích.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/calculator.webp",
+    "img": "assets/images/words/c/calculator.webp",
     "topicIds": [
       "education-learning-chặng-3"
     ],
@@ -23873,7 +23872,7 @@ export const WORDS = [
     "exampleVi": "Đánh dấu các thuật ngữ then chốt trong bài viết bằng bút dạ màu vàng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/highlighter.webp",
+    "img": "assets/images/words/h/highlighter.webp",
     "topicIds": [
       "education-learning-chặng-3"
     ],
@@ -23889,7 +23888,7 @@ export const WORDS = [
     "exampleVi": "Giáo viên đã viết các phương trình lên bảng đen bằng phấn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/chalk.webp",
+    "img": "assets/images/words/c/chalk.webp",
     "topicIds": [
       "education-learning-chặng-3"
     ],
@@ -23905,7 +23904,7 @@ export const WORDS = [
     "exampleVi": "Hãy nhìn vào sơ đồ được vẽ trên bảng đen.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/blackboard.webp",
+    "img": "assets/images/words/b/blackboard.webp",
     "topicIds": [
       "education-learning-chặng-3",
       "top-1000-core-chặng-88"
@@ -23922,7 +23921,7 @@ export const WORDS = [
     "exampleVi": "Phòng học địa lý có một quả địa cầu phát sáng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/globe.webp",
+    "img": "assets/images/words/g/globe.webp",
     "topicIds": [
       "education-learning-chặng-3"
     ],
@@ -23938,7 +23937,7 @@ export const WORDS = [
     "exampleVi": "Giáo sư đã dùng một máy chiếu HD để hiển thị các trang trình chiếu.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/projector.webp",
+    "img": "assets/images/words/p/projector.webp",
     "topicIds": [
       "education-learning-chặng-3"
     ],
@@ -23954,7 +23953,7 @@ export const WORDS = [
     "exampleVi": "Toán học giúp phát triển tư duy logic và kỹ năng giải quyết vấn đề.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/mathematics.webp",
+    "img": "assets/images/words/m/mathematics.webp",
     "topicIds": [
       "education-learning-chặng-3",
       "top-1000-core-chặng-89"
@@ -23971,7 +23970,7 @@ export const WORDS = [
     "exampleVi": "Newton đã phát hiện ra các định luật cơ bản của vật lý cổ điển.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/physics.webp",
+    "img": "assets/images/words/p/physics.webp",
     "topicIds": [
       "education-learning-chặng-4"
     ],
@@ -23987,7 +23986,7 @@ export const WORDS = [
     "exampleVi": "Học sinh đã thực hiện các phản ứng axit-bazơ trong phòng thí nghiệm hóa học.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/chemistry.webp",
+    "img": "assets/images/words/c/chemistry.webp",
     "topicIds": [
       "education-learning-chặng-4"
     ],
@@ -24003,7 +24002,7 @@ export const WORDS = [
     "exampleVi": "Lớp sinh học bao gồm di truyền học, sự sống tế bào và các hệ sinh thái.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/biology.webp",
+    "img": "assets/images/words/b/biology.webp",
     "topicIds": [
       "education-learning-chặng-4"
     ],
@@ -24019,7 +24018,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã phân tích các vở bi kịch của Shakespeare trong giờ văn học thế giới.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/literature.webp",
+    "img": "assets/images/words/l/literature.webp",
     "topicIds": [
       "education-learning-chặng-4"
     ],
@@ -24035,7 +24034,7 @@ export const WORDS = [
     "exampleVi": "Học lịch sử giúp chúng ta hiểu rõ hơn về thế giới hiện đại.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/history.webp",
+    "img": "assets/images/words/h/history.webp",
     "topicIds": [
       "education-learning-chặng-4",
       "top-1000-core-chặng-89"
@@ -24052,7 +24051,7 @@ export const WORDS = [
     "exampleVi": "Trong giờ địa lý, chúng tôi đã tìm hiểu các đới khí hậu và bản đồ thế giới.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/geography.webp",
+    "img": "assets/images/words/g/geography.webp",
     "topicIds": [
       "education-learning-chặng-4"
     ],
@@ -24068,7 +24067,7 @@ export const WORDS = [
     "exampleVi": "Sinh viên tốt nghiệp ngành khoa học máy tính đang có nhu cầu tuyển dụng toàn cầu rất cao.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/computer-science.webp",
+    "img": "assets/images/words/c/computer-science.webp",
     "topicIds": [
       "education-learning-chặng-4"
     ],
@@ -24084,7 +24083,7 @@ export const WORDS = [
     "exampleVi": "Kinh tế học vi mô phân tích việc ra quyết định của từng người tiêu dùng cá nhân.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/economics.webp",
+    "img": "assets/images/words/e/economics.webp",
     "topicIds": [
       "education-learning-chặng-4"
     ],
@@ -24100,7 +24099,7 @@ export const WORDS = [
     "exampleVi": "Tâm lý học khám phá hành vi nhận thức và cảm xúc con người.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/psychology.webp",
+    "img": "assets/images/words/p/psychology.webp",
     "topicIds": [
       "education-learning-chặng-4"
     ],
@@ -24116,7 +24115,7 @@ export const WORDS = [
     "exampleVi": "Triết học giảng dạy cách đặt câu hỏi phản biện và lập luận đạo đức.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/philosophy.webp",
+    "img": "assets/images/words/p/philosophy.webp",
     "topicIds": [
       "education-learning-chặng-4"
     ],
@@ -24132,7 +24131,7 @@ export const WORDS = [
     "exampleVi": "Học một ngoại ngữ giúp mở rộng chân trời văn hóa.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/foreign-language.webp",
+    "img": "assets/images/words/f/foreign-language.webp",
     "topicIds": [
       "education-learning-chặng-5"
     ],
@@ -24148,7 +24147,7 @@ export const WORDS = [
     "exampleVi": "Các tiết học thể dục giúp học sinh trẻ luôn tràn đầy năng lượng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/physical-education.webp",
+    "img": "assets/images/words/p/physical-education.webp",
     "topicIds": [
       "education-learning-chặng-5"
     ],
@@ -24164,7 +24163,7 @@ export const WORDS = [
     "exampleVi": "Xã hội học nghiên cứu sự bất bình đẳng xã hội và các chuyển biến văn hóa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/sociology.webp",
+    "img": "assets/images/words/s/sociology.webp",
     "topicIds": [
       "education-learning-chặng-5"
     ],
@@ -24180,7 +24179,7 @@ export const WORDS = [
     "exampleVi": "Học sinh đã thực hành vẽ tranh màu nước trong giờ mỹ thuật.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/art.webp",
+    "img": "assets/images/words/a/art.webp",
     "topicIds": [
       "education-learning-chặng-5",
       "top-1000-core-chặng-89"
@@ -24197,7 +24196,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã học cả cuối tuần cho bài thi sinh học cuối kỳ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/exam.webp",
+    "img": "assets/images/words/e/exam.webp",
     "topicIds": [
       "education-learning-chặng-5",
       "top-1000-core-chặng-89"
@@ -24214,7 +24213,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi có một bài kiểm tra miệng 15 phút bất ngờ vào sáng nay.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/test.webp",
+    "img": "assets/images/words/t/test.webp",
     "topicIds": [
       "education-learning-chặng-5",
       "top-1000-core-chặng-89"
@@ -24231,7 +24230,7 @@ export const WORDS = [
     "exampleVi": "Cậu ấy đã đạt điểm số tuyệt đối 100 trong bài kiểm tra toán.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/score.webp",
+    "img": "assets/images/words/s/score.webp",
     "topicIds": [
       "education-learning-chặng-5"
     ],
@@ -24247,7 +24246,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã đạt toàn điểm A trong tất cả các môn học đại học.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/grade.webp",
+    "img": "assets/images/words/g/grade.webp",
     "topicIds": [
       "education-learning-chặng-5"
     ],
@@ -24263,7 +24262,7 @@ export const WORDS = [
     "exampleVi": "Hơn 90% thí sinh đã thi đỗ kỳ thi cấp chứng chỉ hành nghề.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/pass.webp",
+    "img": "assets/images/words/p/pass.webp",
     "topicIds": [
       "education-learning-chặng-5",
       "top-1000-core-chặng-25"
@@ -24280,7 +24279,7 @@ export const WORDS = [
     "exampleVi": "Nếu bạn thi trượt bài thi, bạn có thể thi lại vào tháng tới.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/fail.webp",
+    "img": "assets/images/words/f/fail.webp",
     "topicIds": [
       "education-learning-chặng-5",
       "top-1000-core-chặng-25"
@@ -24297,7 +24296,7 @@ export const WORDS = [
     "exampleVi": "Sinh viên được phép thi lại các học phần bị trượt một lần.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/retake.webp",
+    "img": "assets/images/words/r/retake.webp",
     "topicIds": [
       "education-learning-chặng-6",
       "top-1000-core-chặng-32"
@@ -24314,7 +24313,7 @@ export const WORDS = [
     "exampleVi": "Gian lận trong thi cử sẽ dẫn đến việc bị đuổi học ngay lập tức.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/cheat.webp",
+    "img": "assets/images/words/c/cheat.webp",
     "topicIds": [
       "education-learning-chặng-6",
       "top-1000-core-chặng-32"
@@ -24331,7 +24330,7 @@ export const WORDS = [
     "exampleVi": "Đánh giá quá trình liên tục chiếm 40% điểm tổng kết khóa học.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/assessment.webp",
+    "img": "assets/images/words/a/assessment.webp",
     "topicIds": [
       "education-learning-chặng-6"
     ],
@@ -24347,7 +24346,7 @@ export const WORDS = [
     "exampleVi": "Các cuộc đánh giá giảng viên diễn ra vào cuối mỗi học kỳ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/evaluation.webp",
+    "img": "assets/images/words/e/evaluation.webp",
     "topicIds": [
       "education-learning-chặng-6"
     ],
@@ -24363,7 +24362,7 @@ export const WORDS = [
     "exampleVi": "Tránh việc học nhồi nhét vào đêm trước một kỳ thi quan trọng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/cram.webp",
+    "img": "assets/images/words/c/cram.webp",
     "topicIds": [
       "education-learning-chặng-6",
       "top-1000-core-chặng-32"
@@ -24380,7 +24379,7 @@ export const WORDS = [
     "exampleVi": "Hãy ôn tập lại các ghi chú bài giảng đều đặn vào mỗi tối.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/revise.webp",
+    "img": "assets/images/words/r/revise.webp",
     "topicIds": [
       "education-learning-chặng-6",
       "top-1000-core-chặng-33"
@@ -24397,7 +24396,7 @@ export const WORDS = [
     "exampleVi": "Bài kiểm tra tiếng Anh bao gồm 50 câu hỏi trắc nghiệm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/multiple-choice.webp",
+    "img": "assets/images/words/m/multiple-choice.webp",
     "topicIds": [
       "education-learning-chặng-6"
     ],
@@ -24413,7 +24412,7 @@ export const WORDS = [
     "exampleVi": "Học sinh đã viết một bài luận nghị luận dài 1000 từ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/essay.webp",
+    "img": "assets/images/words/e/essay.webp",
     "topicIds": [
       "education-learning-chặng-6"
     ],
@@ -24429,7 +24428,7 @@ export const WORDS = [
     "exampleVi": "Giám thị coi thi đã kiểm tra thẻ sinh viên ở cửa phòng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/proctor.webp",
+    "img": "assets/images/words/p/proctor.webp",
     "topicIds": [
       "education-learning-chặng-6"
     ],
@@ -24445,7 +24444,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy sở hữu bằng cử nhân ngành kinh tế học.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/degree.webp",
+    "img": "assets/images/words/d/degree.webp",
     "topicIds": [
       "education-learning-chặng-6"
     ],
@@ -24461,7 +24460,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã hoàn thành bằng Cử nhân Khoa học ngành Công nghệ Thông tin.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/bachelor.webp",
+    "img": "assets/images/words/b/bachelor.webp",
     "topicIds": [
       "education-learning-chặng-7"
     ],
@@ -24477,7 +24476,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã theo học bằng Thạc sĩ Quản trị Kinh doanh (MBA).",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/master.webp",
+    "img": "assets/images/words/m/master.webp",
     "topicIds": [
       "education-learning-chặng-7"
     ],
@@ -24493,7 +24492,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã nhận bằng tiến sĩ về vật lý lượng tử.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/doctorate.webp",
+    "img": "assets/images/words/d/doctorate.webp",
     "topicIds": [
       "education-learning-chặng-7"
     ],
@@ -24509,7 +24508,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã nhận được chứng chỉ văn bằng nghề về nghệ thuật ẩm thực.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/diploma.webp",
+    "img": "assets/images/words/d/diploma.webp",
     "topicIds": [
       "education-learning-chặng-7"
     ],
@@ -24525,7 +24524,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã tốt nghiệp loại danh dự từ Trường Luật Harvard.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/graduate.webp",
+    "img": "assets/images/words/g/graduate.webp",
     "topicIds": [
       "education-learning-chặng-7",
       "top-1000-core-chặng-25"
@@ -24542,7 +24541,7 @@ export const WORDS = [
     "exampleVi": "Cha mẹ đã tự hào ăn mừng tại buổi lễ tốt nghiệp đại học.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/graduation.webp",
+    "img": "assets/images/words/g/graduation.webp",
     "topicIds": [
       "education-learning-chặng-7"
     ],
@@ -24558,7 +24557,7 @@ export const WORDS = [
     "exampleVi": "Các cựu sinh viên đại học đã tập hợp cho buổi họp mặt kỷ niệm 10 năm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/alumni.webp",
+    "img": "assets/images/words/a/alumni.webp",
     "topicIds": [
       "education-learning-chặng-7"
     ],
@@ -24574,7 +24573,7 @@ export const WORDS = [
     "exampleVi": "Hãy đính kèm bảng điểm học tập chính thức khi nộp hồ sơ xin việc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/transcript.webp",
+    "img": "assets/images/words/t/transcript.webp",
     "topicIds": [
       "education-learning-chặng-7"
     ],
@@ -24590,7 +24589,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã tốt nghiệp thủ khoa với loại danh dự cao nhất.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/honors.webp",
+    "img": "assets/images/words/h/honors.webp",
     "topicIds": [
       "education-learning-chặng-7"
     ],
@@ -24606,7 +24605,7 @@ export const WORDS = [
     "exampleVi": "Các tân cử nhân đã tung mũ cử nhân lên không trung khi kết thúc buổi lễ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/cap-and-gown.webp",
+    "img": "assets/images/words/c/cap-and-gown.webp",
     "topicIds": [
       "education-learning-chặng-7"
     ],
@@ -24622,7 +24621,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã bảo vệ luận văn thạc sĩ của mình trước hội đồng khoa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/thesis.webp",
+    "img": "assets/images/words/t/thesis.webp",
     "topicIds": [
       "education-learning-chặng-8"
     ],
@@ -24638,7 +24637,7 @@ export const WORDS = [
     "exampleVi": "Luận án tiến sĩ của anh ấy đã được xuất bản trên một tạp chí khoa học hàng đầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/dissertation.webp",
+    "img": "assets/images/words/d/dissertation.webp",
     "topicIds": [
       "education-learning-chặng-8"
     ],
@@ -24654,7 +24653,7 @@ export const WORDS = [
     "exampleVi": "Trường đại học đã tăng học phí thêm 5% trong năm nay.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/tuition-fee.webp",
+    "img": "assets/images/words/t/tuition-fee.webp",
     "topicIds": [
       "education-learning-chặng-8"
     ],
@@ -24670,7 +24669,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã giành được một suất học bổng toàn phần danh giá để du học tại Anh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/scholarship.webp",
+    "img": "assets/images/words/s/scholarship.webp",
     "topicIds": [
       "education-learning-chặng-8"
     ],
@@ -24686,7 +24685,7 @@ export const WORDS = [
     "exampleVi": "Nhóm nghiên cứu đã nhận được khoản tài trợ một triệu đô-la từ chính phủ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/grant.webp",
+    "img": "assets/images/words/g/grant.webp",
     "topicIds": [
       "education-learning-chặng-8"
     ],
@@ -24702,7 +24701,7 @@ export const WORDS = [
     "exampleVi": "Nhiều sinh viên dựa vào sự hỗ trợ tài chính để có thể trang trải chi phí đại học.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/financial-aid.webp",
+    "img": "assets/images/words/f/financial-aid.webp",
     "topicIds": [
       "education-learning-chặng-8"
     ],
@@ -24718,7 +24717,7 @@ export const WORDS = [
     "exampleVi": "Việc trả nợ các khoản vay sinh viên có thể mất đến một thập kỷ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/student-loan.webp",
+    "img": "assets/images/words/s/student-loan.webp",
     "topicIds": [
       "education-learning-chặng-8"
     ],
@@ -24734,7 +24733,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã được trao một suất học bổng nghiên cứu sau tiến sĩ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fellowship.webp",
+    "img": "assets/images/words/f/fellowship.webp",
     "topicIds": [
       "education-learning-chặng-8"
     ],
@@ -24750,7 +24749,7 @@ export const WORDS = [
     "exampleVi": "Các nghiên cứu sinh tiến sĩ nhận được một khoản trợ cấp sinh hoạt phí hàng tháng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/stipend.webp",
+    "img": "assets/images/words/s/stipend.webp",
     "topicIds": [
       "education-learning-chặng-8"
     ],
@@ -24766,7 +24765,7 @@ export const WORDS = [
     "exampleVi": "Đại học Harvard quản lý quỹ hiến tặng học thuật lớn nhất thế giới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/endowment.webp",
+    "img": "assets/images/words/e/endowment.webp",
     "topicIds": [
       "education-learning-chặng-8"
     ],
@@ -24782,7 +24781,7 @@ export const WORDS = [
     "exampleVi": "Các nhà tài trợ doanh nghiệp cấp kinh phí cho các suất học bổng công nghệ STEM.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/sponsor-noun.webp",
+    "img": "assets/images/words/s/sponsor-noun.webp",
     "topicIds": [
       "education-learning-chặng-9"
     ],
@@ -24798,7 +24797,7 @@ export const WORDS = [
     "exampleVi": "Sinh viên thu nhập thấp có thể nộp đơn xin miễn giảm lệ phí nộp hồ sơ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fee-waiver.webp",
+    "img": "assets/images/words/f/fee-waiver.webp",
     "topicIds": [
       "education-learning-chặng-9"
     ],
@@ -24814,7 +24813,7 @@ export const WORDS = [
     "exampleVi": "Chi phí sinh hoạt ở các thành phố lớn vượt qua cả tiền học phí.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/expenses.webp",
+    "img": "assets/images/words/e/expenses.webp",
     "topicIds": [
       "education-learning-chặng-9"
     ],
@@ -24830,7 +24829,7 @@ export const WORDS = [
     "exampleVi": "Học bổng dựa trên thành tích tôn vinh các điểm số thi chuẩn hóa cao.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/merit-based.webp",
+    "img": "assets/images/words/m/merit-based.webp",
     "topicIds": [
       "education-learning-chặng-9"
     ],
@@ -24846,7 +24845,7 @@ export const WORDS = [
     "exampleVi": "Các khoản trợ cấp dựa trên nhu cầu hỗ trợ các sinh viên có hoàn cảnh khó khăn.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/need-based.webp",
+    "img": "assets/images/words/n/need-based.webp",
     "topicIds": [
       "education-learning-chặng-9"
     ],
@@ -24862,7 +24861,7 @@ export const WORDS = [
     "exampleVi": "Trường cho phép đóng học phí thông qua kế hoạch trả góp làm 4 đợt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/installment-plan.webp",
+    "img": "assets/images/words/i/installment-plan.webp",
     "topicIds": [
       "education-learning-chặng-9"
     ],
@@ -24878,7 +24877,7 @@ export const WORDS = [
     "exampleVi": "Tự học chuyên tâm là điều cốt yếu để làm chủ bất kỳ môn học nào.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/self-study.webp",
+    "img": "assets/images/words/s/self-study.webp",
     "topicIds": [
       "education-learning-chặng-9"
     ],
@@ -24894,7 +24893,7 @@ export const WORDS = [
     "exampleVi": "Thẻ học flashcard lặp lại ngắt quãng giúp tăng cường khả năng ghi nhớ từ vựng đáng kể.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/flashcard.webp",
+    "img": "assets/images/words/f/flashcard.webp",
     "topicIds": [
       "education-learning-chặng-9"
     ],
@@ -24910,7 +24909,7 @@ export const WORDS = [
     "exampleVi": "Hãy học thuộc lòng 15 từ vựng mới mỗi ngày.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/memorize.webp",
+    "img": "assets/images/words/m/memorize.webp",
     "topicIds": [
       "education-learning-chặng-9",
       "top-1000-core-chặng-25"
@@ -24927,7 +24926,7 @@ export const WORDS = [
     "exampleVi": "Thuật toán FSRS tối đa hóa độ lưu giữ trí nhớ dài hạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/retention.webp",
+    "img": "assets/images/words/r/retention.webp",
     "topicIds": [
       "education-learning-chặng-9"
     ],
@@ -24943,7 +24942,7 @@ export const WORDS = [
     "exampleVi": "Lặp lại ngắt quãng khắc phục đường cong quên lãng một cách hiệu quả.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/spaced-repetition.webp",
+    "img": "assets/images/words/s/spaced-repetition.webp",
     "topicIds": [
       "education-learning-chặng-10"
     ],
@@ -24959,7 +24958,7 @@ export const WORDS = [
     "exampleVi": "Tắt điện thoại di động để tập trung vào việc học tập.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/concentrate.webp",
+    "img": "assets/images/words/c/concentrate.webp",
     "topicIds": [
       "education-learning-chặng-10",
       "top-1000-core-chặng-25"
@@ -24976,7 +24975,7 @@ export const WORDS = [
     "exampleVi": "Hãy tập trung vào việc làm chủ các nền tảng ngữ pháp trước.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/focus.webp",
+    "img": "assets/images/words/f/focus.webp",
     "topicIds": [
       "education-learning-chặng-10",
       "top-1000-core-chặng-16"
@@ -24993,7 +24992,7 @@ export const WORDS = [
     "exampleVi": "Thông báo mạng xã hội là yếu tố gây xao nhãng học tập lớn nhất.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/distraction.webp",
+    "img": "assets/images/words/d/distraction.webp",
     "topicIds": [
       "education-learning-chặng-10"
     ],
@@ -25009,7 +25008,7 @@ export const WORDS = [
     "exampleVi": "Kỹ năng ghi chép hiệu quả củng cố khả năng hiểu bài giảng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/note-taking.webp",
+    "img": "assets/images/words/n/note-taking.webp",
     "topicIds": [
       "education-learning-chặng-10"
     ],
@@ -25025,7 +25024,7 @@ export const WORDS = [
     "exampleVi": "Các mẹo liên tưởng trực quan giúp nhớ lại các chu trình hóa sinh phức tạp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mnemonics.webp",
+    "img": "assets/images/words/m/mnemonics.webp",
     "topicIds": [
       "education-learning-chặng-10"
     ],
@@ -25041,7 +25040,7 @@ export const WORDS = [
     "exampleVi": "Ôn tập các thẻ đến hạn hôm nay để duy trì chuỗi ngày học của bạn.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/review.webp",
+    "img": "assets/images/words/r/review.webp",
     "topicIds": [
       "education-learning-chặng-10",
       "top-1000-core-chặng-16"
@@ -25058,7 +25057,7 @@ export const WORDS = [
     "exampleVi": "Luyện tập nói tiếng Anh to rõ ràng 20 phút mỗi ngày.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/practice.webp",
+    "img": "assets/images/words/p/practice.webp",
     "topicIds": [
       "education-learning-chặng-10",
       "top-1000-core-chặng-16"
@@ -25075,7 +25074,7 @@ export const WORDS = [
     "exampleVi": "Vẽ một sơ đồ tư duy nhiều màu sắc để liên kết các khái niệm có liên quan.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mind-map.webp",
+    "img": "assets/images/words/m/mind-map.webp",
     "topicIds": [
       "education-learning-chặng-10"
     ],
@@ -25091,7 +25090,7 @@ export const WORDS = [
     "exampleVi": "Sự yên lặng được thực hiện nghiêm ngặt bên trong thư viện đọc sách chính.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/library.webp",
+    "img": "assets/images/words/l/library.webp",
     "topicIds": [
       "education-learning-chặng-10",
       "top-1000-core-chặng-89"
@@ -25108,7 +25107,7 @@ export const WORDS = [
     "exampleVi": "Người thủ thư đã giúp anh ấy tìm các cuộn vi phim lưu trữ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/librarian.webp",
+    "img": "assets/images/words/l/librarian.webp",
     "topicIds": [
       "education-learning-chặng-11"
     ],
@@ -25124,7 +25123,7 @@ export const WORDS = [
     "exampleVi": "Nghiên cứu khoa học thúc đẩy sự đổi mới công nghệ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/research.webp",
+    "img": "assets/images/words/r/research.webp",
     "topicIds": [
       "education-learning-chặng-11"
     ],
@@ -25140,7 +25139,7 @@ export const WORDS = [
     "exampleVi": "Các nhà nghiên cứu y học đã phát hiện ra một ứng viên vắc-xin mới đầy triển vọng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/researcher.webp",
+    "img": "assets/images/words/r/researcher.webp",
     "topicIds": [
       "education-learning-chặng-11"
     ],
@@ -25156,7 +25155,7 @@ export const WORDS = [
     "exampleVi": "Bài báo của anh ấy đã được xuất bản trên một tạp chí y khoa có bình duyệt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/journal.webp",
+    "img": "assets/images/words/j/journal.webp",
     "topicIds": [
       "education-learning-chặng-11"
     ],
@@ -25172,7 +25171,7 @@ export const WORDS = [
     "exampleVi": "Kèm theo các trích dẫn chính xác cho tất cả các nguồn tài liệu được tham khảo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/citation.webp",
+    "img": "assets/images/words/c/citation.webp",
     "topicIds": [
       "education-learning-chặng-11"
     ],
@@ -25188,7 +25187,7 @@ export const WORDS = [
     "exampleVi": "Phần mềm của trường đại học quét tất cả các bài luận để tìm hành vi đạo văn kỹ thuật số.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/plagiarism.webp",
+    "img": "assets/images/words/p/plagiarism.webp",
     "topicIds": [
       "education-learning-chặng-11"
     ],
@@ -25204,7 +25203,7 @@ export const WORDS = [
     "exampleVi": "Tìm kiếm trên các cơ sở dữ liệu trực tuyến để tìm các bài báo học thuật có bình duyệt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/database.webp",
+    "img": "assets/images/words/d/database.webp",
     "topicIds": [
       "education-learning-chặng-11"
     ],
@@ -25220,7 +25219,7 @@ export const WORDS = [
     "exampleVi": "Các bản thảo lịch sử được bảo quản trong kho lưu trữ kiểm soát nhiệt độ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/archive.webp",
+    "img": "assets/images/words/a/archive.webp",
     "topicIds": [
       "education-learning-chặng-11"
     ],
@@ -25236,7 +25235,7 @@ export const WORDS = [
     "exampleVi": "Tra cứu mã vị trí sách trong mục lục thư viện vi tính hóa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/catalog.webp",
+    "img": "assets/images/words/c/catalog.webp",
     "topicIds": [
       "education-learning-chặng-11"
     ],
@@ -25252,7 +25251,7 @@ export const WORDS = [
     "exampleVi": "Phòng đọc ấn phẩm định kỳ lưu giữ các tin tức quốc tế hiện tại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/periodical.webp",
+    "img": "assets/images/words/p/periodical.webp",
     "topicIds": [
       "education-learning-chặng-11"
     ],
@@ -25268,7 +25267,7 @@ export const WORDS = [
     "exampleVi": "Đặt một buồng tự học riêng để viết luận văn trong yên tĩnh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/study-carrel.webp",
+    "img": "assets/images/words/s/study-carrel.webp",
     "topicIds": [
       "education-learning-chặng-12"
     ],
@@ -25284,7 +25283,7 @@ export const WORDS = [
     "exampleVi": "Giáo sư Smith mang đến những bài giảng đại chúng lôi cuốn về vật lý.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/professor.webp",
+    "img": "assets/images/words/p/professor.webp",
     "topicIds": [
       "education-learning-chặng-12"
     ],
@@ -25300,7 +25299,7 @@ export const WORDS = [
     "exampleVi": "Giảng viên cao cấp đã giải thích phương pháp luận lịch sử.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/lecturer.webp",
+    "img": "assets/images/words/l/lecturer.webp",
     "topicIds": [
       "education-learning-chặng-12"
     ],
@@ -25316,7 +25315,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã thuê một gia sư riêng để nâng cao điểm SAT môn toán.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/tutor.webp",
+    "img": "assets/images/words/t/tutor.webp",
     "topicIds": [
       "education-learning-chặng-12"
     ],
@@ -25332,7 +25331,7 @@ export const WORDS = [
     "exampleVi": "Các bạn sinh viên đại học đã tập hợp ở sân trung tâm.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/student.webp",
+    "img": "assets/images/words/s/student.webp",
     "topicIds": [
       "education-learning-chặng-12",
       "top-1000-core-chặng-89"
@@ -25349,7 +25348,7 @@ export const WORDS = [
     "exampleVi": "Tôi đã làm dự án khoa học cùng hai người bạn cùng lớp.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/classmate.webp",
+    "img": "assets/images/words/c/classmate.webp",
     "topicIds": [
       "education-learning-chặng-12",
       "top-1000-core-chặng-89"
@@ -25366,7 +25365,7 @@ export const WORDS = [
     "exampleVi": "Trường đại học tổ chức tuần định hướng cho các tân sinh viên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/freshman.webp",
+    "img": "assets/images/words/f/freshman.webp",
     "topicIds": [
       "education-learning-chặng-12"
     ],
@@ -25382,7 +25381,7 @@ export const WORDS = [
     "exampleVi": "Sinh viên năm hai đăng ký chuyên ngành học chính thức trước mùa xuân.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/sophomore.webp",
+    "img": "assets/images/words/s/sophomore.webp",
     "topicIds": [
       "education-learning-chặng-12"
     ],
@@ -25398,7 +25397,7 @@ export const WORDS = [
     "exampleVi": "Sinh viên năm ba thường tìm được các suất thực tập mùa hè ở doanh nghiệp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/junior.webp",
+    "img": "assets/images/words/j/junior.webp",
     "topicIds": [
       "education-learning-chặng-12"
     ],
@@ -25414,7 +25413,7 @@ export const WORDS = [
     "exampleVi": "Sinh viên đại học năm cuối viết luận văn tốt nghiệp và tìm kiếm việc làm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/senior.webp",
+    "img": "assets/images/words/s/senior.webp",
     "topicIds": [
       "education-learning-chặng-12"
     ],
@@ -25430,7 +25429,7 @@ export const WORDS = [
     "exampleVi": "Hiệu trưởng nhà trường đã phát biểu trước học sinh trong buổi chào cờ sáng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/principal-noun.webp",
+    "img": "assets/images/words/p/principal-noun.webp",
     "topicIds": [
       "education-learning-chặng-13"
     ],
@@ -25446,7 +25445,7 @@ export const WORDS = [
     "exampleVi": "Trưởng khoa Kỹ thuật đã vinh danh các dự án sinh viên xuất sắc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/dean.webp",
+    "img": "assets/images/words/d/dean.webp",
     "topicIds": [
       "education-learning-chặng-13"
     ],
@@ -25462,7 +25461,7 @@ export const WORDS = [
     "exampleVi": "Tham khảo ý kiến của cố vấn học tập trước khi hủy một môn học.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/advisor.webp",
+    "img": "assets/images/words/a/advisor.webp",
     "topicIds": [
       "education-learning-chặng-13"
     ],
@@ -25478,7 +25477,7 @@ export const WORDS = [
     "exampleVi": "Trợ giảng đã chấm các bài tập về nhà hàng tuần.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/teaching-assistant.webp",
+    "img": "assets/images/words/t/teaching-assistant.webp",
     "topicIds": [
       "education-learning-chặng-13"
     ],
@@ -25494,7 +25493,7 @@ export const WORDS = [
     "exampleVi": "Học trực tuyến mang lại sự linh hoạt tuyệt vời về mặt thời gian.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/online-learning.webp",
+    "img": "assets/images/words/o/online-learning.webp",
     "topicIds": [
       "education-learning-chặng-13"
     ],
@@ -25510,7 +25509,7 @@ export const WORDS = [
     "exampleVi": "Đào tạo từ xa cho phép người đi làm có được các văn bằng được công nhận.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/distance-learning.webp",
+    "img": "assets/images/words/d/distance-learning.webp",
     "topicIds": [
       "education-learning-chặng-13"
     ],
@@ -25526,7 +25525,7 @@ export const WORDS = [
     "exampleVi": "Đi du học giúp xây dựng tính tự lập và góc nhìn toàn cầu.",
     "level": "A2",
     "pos": "phrase",
-    "img": "assets/images/words/study-abroad.webp",
+    "img": "assets/images/words/s/study-abroad.webp",
     "topicIds": [
       "education-learning-chặng-13",
       "top-1000-core-chặng-91"
@@ -25543,7 +25542,7 @@ export const WORDS = [
     "exampleVi": "Các trường đại học cung cấp các chương trình định hướng cho du học sinh quốc tế.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/international-student.webp",
+    "img": "assets/images/words/i/international-student.webp",
     "topicIds": [
       "education-learning-chặng-13"
     ],
@@ -25559,7 +25558,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã trải qua một học kỳ ở Paris theo chương trình trao đổi sinh viên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/exchange-program.webp",
+    "img": "assets/images/words/e/exchange-program.webp",
     "topicIds": [
       "education-learning-chặng-13"
     ],
@@ -25575,7 +25574,7 @@ export const WORDS = [
     "exampleVi": "Đăng ký tham gia buổi hội thảo trực tuyến miễn phí về tuyển sinh quốc tế.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/webinar.webp",
+    "img": "assets/images/words/w/webinar.webp",
     "topicIds": [
       "education-learning-chặng-13"
     ],
@@ -25591,7 +25590,7 @@ export const WORDS = [
     "exampleVi": "Các trường đại học hàng đầu đăng tải các khóa học MOOC miễn phí trên các nền tảng lớn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mooc.webp",
+    "img": "assets/images/words/m/mooc.webp",
     "topicIds": [
       "education-learning-chặng-14"
     ],
@@ -25607,7 +25606,7 @@ export const WORDS = [
     "exampleVi": "Các ứng viên quốc tế phải xin được thị thực du học sinh diện F-1 hợp lệ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/visa.webp",
+    "img": "assets/images/words/v/visa.webp",
     "topicIds": [
       "education-learning-chặng-14"
     ],
@@ -25623,7 +25622,7 @@ export const WORDS = [
     "exampleVi": "Đạt điểm IELTS 7.0 mở ra cánh cửa vào các trường đại học trên toàn thế giới.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/ielts.webp",
+    "img": "assets/images/words/i/ielts.webp",
     "topicIds": [
       "education-learning-chặng-14"
     ],
@@ -25639,7 +25638,7 @@ export const WORDS = [
     "exampleVi": "Các cơ sở giáo dục của Mỹ chấp nhận cả chứng chỉ tiếng Anh TOEFL lẫn IELTS.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/toefl.webp",
+    "img": "assets/images/words/t/toefl.webp",
     "topicIds": [
       "education-learning-chặng-14"
     ],
@@ -25655,7 +25654,7 @@ export const WORDS = [
     "exampleVi": "Tân du học sinh quốc tế có thể trải qua cảm giác sốc văn hóa nhẹ ban đầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/culture-shock.webp",
+    "img": "assets/images/words/c/culture-shock.webp",
     "topicIds": [
       "education-learning-chặng-14"
     ],
@@ -25671,7 +25670,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy cảm thấy nhớ nhà trong vài tuần đầu tiên ở nước ngoài.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/homesick.webp",
+    "img": "assets/images/words/h/homesick.webp",
     "topicIds": [
       "education-learning-chặng-14",
       "top-1000-core-chặng-83"
@@ -25688,7 +25687,7 @@ export const WORDS = [
     "exampleVi": "Đắm mình hoàn toàn trong ngôn ngữ là con đường nhanh nhất để lưu loát tự nhiên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/immersion.webp",
+    "img": "assets/images/words/i/immersion.webp",
     "topicIds": [
       "education-learning-chặng-14"
     ],
@@ -25704,7 +25703,7 @@ export const WORDS = [
     "exampleVi": "Hãy kiểm tra xem trường đại học nước ngoài có kiểm định quốc tế hay không.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/accreditation.webp",
+    "img": "assets/images/words/a/accreditation.webp",
     "topicIds": [
       "education-learning-chặng-14"
     ],
@@ -25720,7 +25719,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy thích đi du lịch và trải nghiệm những nền văn hóa mới.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/travel.webp",
+    "img": "assets/images/words/t/travel.webp",
     "topicIds": [
       "travel-places-chặng-1",
       "top-1000-core-chặng-16"
@@ -25737,7 +25736,7 @@ export const WORDS = [
     "exampleVi": "Hãy đảm bảo hộ chiếu của bạn còn hạn ít nhất 6 tháng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/passport.webp",
+    "img": "assets/images/words/p/passport.webp",
     "topicIds": [
       "travel-places-chặng-1",
       "top-1000-core-chặng-92"
@@ -25754,7 +25753,7 @@ export const WORDS = [
     "exampleVi": "Lịch trình du lịch 5 ngày của chúng tôi bao gồm Tokyo và Kyoto.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/itinerary.webp",
+    "img": "assets/images/words/i/itinerary.webp",
     "topicIds": [
       "travel-places-chặng-1"
     ],
@@ -25770,7 +25769,7 @@ export const WORDS = [
     "exampleVi": "Hãy đóng gói quần áo nhẹ và giày đi bộ thoải mái.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/pack.webp",
+    "img": "assets/images/words/p/pack.webp",
     "topicIds": [
       "travel-places-chặng-1",
       "top-1000-core-chặng-16"
@@ -25787,7 +25786,7 @@ export const WORDS = [
     "exampleVi": "Đi du lịch bụi ba lô qua Đông Nam Á rất phổ biến với giới trẻ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/backpacking.webp",
+    "img": "assets/images/words/b/backpacking.webp",
     "topicIds": [
       "travel-places-chặng-1"
     ],
@@ -25803,7 +25802,7 @@ export const WORDS = [
     "exampleVi": "Đổi ngoại tệ trước khi đi du lịch nước ngoài.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/foreign.webp",
+    "img": "assets/images/words/f/foreign.webp",
     "topicIds": [
       "travel-places-chặng-1",
       "top-1000-core-chặng-92"
@@ -25820,7 +25819,7 @@ export const WORDS = [
     "exampleVi": "Việc lên máy bay bắt đầu 45 phút trước giờ khởi hành.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/boarding.webp",
+    "img": "assets/images/words/b/boarding.webp",
     "topicIds": [
       "travel-places-chặng-1"
     ],
@@ -25836,7 +25835,7 @@ export const WORDS = [
     "exampleVi": "Đại lý du lịch đã đặt một gói kỳ nghỉ trọn gói.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/travel-agent.webp",
+    "img": "assets/images/words/t/travel-agent.webp",
     "topicIds": [
       "travel-places-chặng-1"
     ],
@@ -25852,7 +25851,7 @@ export const WORDS = [
     "exampleVi": "Kiểm tra danh sách đồ đạc trước khi lên đường.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/checklist.webp",
+    "img": "assets/images/words/c/checklist.webp",
     "topicIds": [
       "travel-places-chặng-1"
     ],
@@ -25868,7 +25867,7 @@ export const WORDS = [
     "exampleVi": "Hành trình vượt biển Đại Tây Dương kéo dài hai tuần.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/voyage.webp",
+    "img": "assets/images/words/v/voyage.webp",
     "topicIds": [
       "travel-places-chặng-1"
     ],
@@ -25884,7 +25883,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã đặt một khách sạn 4 sao nhìn ra bến cảng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/hotel.webp",
+    "img": "assets/images/words/h/hotel.webp",
     "topicIds": [
       "travel-places-chặng-2",
       "top-1000-core-chặng-92"
@@ -25901,7 +25900,7 @@ export const WORDS = [
     "exampleVi": "Khu nghỉ dưỡng ven biển sang trọng có ba hồ bơi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/resort.webp",
+    "img": "assets/images/words/r/resort.webp",
     "topicIds": [
       "travel-places-chặng-2"
     ],
@@ -25917,7 +25916,7 @@ export const WORDS = [
     "exampleVi": "Nhà nghỉ thanh niên cung cấp giường tầng và bếp dùng chung.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/hostel.webp",
+    "img": "assets/images/words/h/hostel.webp",
     "topicIds": [
       "travel-places-chặng-2"
     ],
@@ -25933,7 +25932,7 @@ export const WORDS = [
     "exampleVi": "Khách có thể nhận phòng bắt đầu từ 2 giờ chiều.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/check-in-phrasal-verb.webp",
+    "img": "assets/images/words/c/check-in-phrasal-verb.webp",
     "topicIds": [
       "travel-places-chặng-2",
       "top-1000-core-chặng-26"
@@ -25950,7 +25949,7 @@ export const WORDS = [
     "exampleVi": "Hãy nhớ trả phòng trước 12 giờ trưa để tránh bị phụ phí.",
     "level": "A2",
     "pos": "phrasal verb",
-    "img": "assets/images/words/check-out.webp",
+    "img": "assets/images/words/c/check-out.webp",
     "topicIds": [
       "travel-places-chặng-2",
       "top-1000-core-chặng-26"
@@ -25967,7 +25966,7 @@ export const WORDS = [
     "exampleVi": "Hỏi quầy lễ tân để xin thêm khăn tắm và chìa khóa phòng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/front-desk.webp",
+    "img": "assets/images/words/f/front-desk.webp",
     "topicIds": [
       "travel-places-chặng-2"
     ],
@@ -25983,7 +25982,7 @@ export const WORDS = [
     "exampleVi": "Đặt bữa sáng thông qua dịch vụ phục vụ phòng 24 giờ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/room-service.webp",
+    "img": "assets/images/words/r/room-service.webp",
     "topicIds": [
       "travel-places-chặng-2"
     ],
@@ -25999,7 +25998,7 @@ export const WORDS = [
     "exampleVi": "Bộ phận dọn phòng thay ga giường và khăn tắm mỗi ngày.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/housekeeping.webp",
+    "img": "assets/images/words/h/housekeeping.webp",
     "topicIds": [
       "travel-places-chặng-2"
     ],
@@ -26015,7 +26014,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã đặt một phòng đơn yên tĩnh cho chuyến hội nghị.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/single-room.webp",
+    "img": "assets/images/words/s/single-room.webp",
     "topicIds": [
       "travel-places-chặng-2"
     ],
@@ -26031,7 +26030,7 @@ export const WORDS = [
     "exampleVi": "Cặp đôi đã đặt một phòng đôi cao cấp có tầm nhìn ra biển.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/double-room.webp",
+    "img": "assets/images/words/d/double-room.webp",
     "topicIds": [
       "travel-places-chặng-2"
     ],
@@ -26047,7 +26046,7 @@ export const WORDS = [
     "exampleVi": "Bạn bè ở chung phòng thường thích phòng hai giường đơn hơn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/twin-room.webp",
+    "img": "assets/images/words/t/twin-room.webp",
     "topicIds": [
       "travel-places-chặng-3"
     ],
@@ -26063,7 +26062,7 @@ export const WORDS = [
     "exampleVi": "Phòng suite sang trọng có bồn sục jacuzzi riêng ngoài ban công.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/suite.webp",
+    "img": "assets/images/words/s/suite.webp",
     "topicIds": [
       "travel-places-chặng-3"
     ],
@@ -26079,7 +26078,7 @@ export const WORDS = [
     "exampleVi": "Tiện nghi khách sạn bao gồm Wi-Fi tốc độ cao và bữa sáng miễn phí.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/amenities.webp",
+    "img": "assets/images/words/a/amenities.webp",
     "topicIds": [
       "travel-places-chặng-3"
     ],
@@ -26095,7 +26094,7 @@ export const WORDS = [
     "exampleVi": "Cắm thẻ từ vào khe trên tường để bật đèn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/key-card.webp",
+    "img": "assets/images/words/k/key-card.webp",
     "topicIds": [
       "travel-places-chặng-3"
     ],
@@ -26111,7 +26110,7 @@ export const WORDS = [
     "exampleVi": "Ở tại một homestay trong làng mang lại trải nghiệm văn hóa bản địa chân thực.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/homestay.webp",
+    "img": "assets/images/words/h/homestay.webp",
     "topicIds": [
       "travel-places-chặng-3"
     ],
@@ -26127,7 +26126,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi dành buổi chiều đi tham quan ngắm cảnh ở thành phố Rome lịch sử.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/sightseeing.webp",
+    "img": "assets/images/words/s/sightseeing.webp",
     "topicIds": [
       "travel-places-chặng-3"
     ],
@@ -26143,7 +26142,7 @@ export const WORDS = [
     "exampleVi": "Người hướng dẫn viên du lịch thân thiện đã chia sẻ những câu chuyện lịch sử hấp dẫn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/tour-guide.webp",
+    "img": "assets/images/words/t/tour-guide.webp",
     "topicIds": [
       "travel-places-chặng-3"
     ],
@@ -26159,7 +26158,7 @@ export const WORDS = [
     "exampleVi": "Tượng đài Washington sừng sững trên quảng trường quốc gia.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/monument.webp",
+    "img": "assets/images/words/m/monument.webp",
     "topicIds": [
       "travel-places-chặng-3"
     ],
@@ -26175,7 +26174,7 @@ export const WORDS = [
     "exampleVi": "Tháp Eiffel là điểm thu hút khách du lịch được ghé thăm nhiều nhất thế giới.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/attraction.webp",
+    "img": "assets/images/words/a/attraction.webp",
     "topicIds": [
       "travel-places-chặng-3"
     ],
@@ -26191,7 +26190,7 @@ export const WORDS = [
     "exampleVi": "Bảo tàng Louvre lưu giữ những kiệt tác hội họa nổi tiếng thế giới.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/museum.webp",
+    "img": "assets/images/words/m/museum.webp",
     "topicIds": [
       "travel-places-chặng-3",
       "top-1000-core-chặng-92"
@@ -26208,7 +26207,7 @@ export const WORDS = [
     "exampleVi": "Du khách trầm trồ trước những sảnh cung điện hoàng gia mạ vàng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/palace.webp",
+    "img": "assets/images/words/p/palace.webp",
     "topicIds": [
       "travel-places-chặng-4"
     ],
@@ -26224,7 +26223,7 @@ export const WORDS = [
     "exampleVi": "Lâu đài đá thời trung cổ nhìn xuống dòng sông uốn khúc.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/castle.webp",
+    "img": "assets/images/words/c/castle.webp",
     "topicIds": [
       "travel-places-chặng-4"
     ],
@@ -26240,7 +26239,7 @@ export const WORDS = [
     "exampleVi": "Vé vào cổng miễn phí cho trẻ em dưới sáu tuổi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/admission.webp",
+    "img": "assets/images/words/a/admission.webp",
     "topicIds": [
       "travel-places-chặng-4"
     ],
@@ -26256,7 +26255,7 @@ export const WORDS = [
     "exampleVi": "Lấy một tờ gấp giới thiệu du lịch thành phố tại trung tâm thông tin.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/brochure.webp",
+    "img": "assets/images/words/b/brochure.webp",
     "topicIds": [
       "travel-places-chặng-4"
     ],
@@ -26272,7 +26271,7 @@ export const WORDS = [
     "exampleVi": "Phòng trưng bày đang tổ chức một cuộc triển lãm nghệ thuật ấn tượng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/exhibition.webp",
+    "img": "assets/images/words/e/exhibition.webp",
     "topicIds": [
       "travel-places-chặng-4"
     ],
@@ -26288,7 +26287,7 @@ export const WORDS = [
     "exampleVi": "Những ngôi chùa Phật giáo cổ kính nằm dọc sườn núi thanh bình.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/temple.webp",
+    "img": "assets/images/words/t/temple.webp",
     "topicIds": [
       "travel-places-chặng-4"
     ],
@@ -26304,7 +26303,7 @@ export const WORDS = [
     "exampleVi": "Khám phá các tàn tích đấu trường La Mã cổ đại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ruins.webp",
+    "img": "assets/images/words/r/ruins.webp",
     "topicIds": [
       "travel-places-chặng-4"
     ],
@@ -26320,7 +26319,7 @@ export const WORDS = [
     "exampleVi": "Tượng Nữ thần Tự do đứng sừng sững trên bến cảng New York.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/statue.webp",
+    "img": "assets/images/words/s/statue.webp",
     "topicIds": [
       "travel-places-chặng-4"
     ],
@@ -26336,7 +26335,7 @@ export const WORDS = [
     "exampleVi": "Thưởng thức tầm nhìn toàn cảnh núi non ngoạn mục từ đỉnh núi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/panorama.webp",
+    "img": "assets/images/words/p/panorama.webp",
     "topicIds": [
       "travel-places-chặng-4"
     ],
@@ -26352,7 +26351,7 @@ export const WORDS = [
     "exampleVi": "Bãi biển cát trắng và làn nước màu ngọc lam mời gọi người bơi lội.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/beach.webp",
+    "img": "assets/images/words/b/beach.webp",
     "topicIds": [
       "travel-places-chặng-4",
       "top-1000-core-chặng-92"
@@ -26369,7 +26368,7 @@ export const WORDS = [
     "exampleVi": "Lái xe dọc theo vùng duyên hải Thái Bình Dương đẹp như tranh vẽ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/coast.webp",
+    "img": "assets/images/words/c/coast.webp",
     "topicIds": [
       "travel-places-chặng-5"
     ],
@@ -26385,7 +26384,7 @@ export const WORDS = [
     "exampleVi": "Phú Quốc là hòn đảo thiên đường nhiệt đới lớn nhất của Việt Nam.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/island.webp",
+    "img": "assets/images/words/i/island.webp",
     "topicIds": [
       "travel-places-chặng-5",
       "top-1000-core-chặng-92"
@@ -26402,7 +26401,7 @@ export const WORDS = [
     "exampleVi": "Đi lặn với ống thở giữa những rạn san hô rực rỡ trong đầm phá.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/snorkeling.webp",
+    "img": "assets/images/words/s/snorkeling.webp",
     "topicIds": [
       "travel-places-chặng-5"
     ],
@@ -26418,7 +26417,7 @@ export const WORDS = [
     "exampleVi": "Lặn bình khí cho phép các nhà thám hiểm ngắm nhìn rùa biển.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/scuba-diving.webp",
+    "img": "assets/images/words/s/scuba-diving.webp",
     "topicIds": [
       "travel-places-chặng-5"
     ],
@@ -26434,7 +26433,7 @@ export const WORDS = [
     "exampleVi": "Du khách thích thú tắm nắng trên những chiếc ghế dài thoải mái.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/sunbathing.webp",
+    "img": "assets/images/words/s/sunbathing.webp",
     "topicIds": [
       "travel-places-chặng-5"
     ],
@@ -26450,7 +26449,7 @@ export const WORDS = [
     "exampleVi": "Đeo kính râm phân cực để bảo vệ đôi mắt của bạn.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/sunglasses.webp",
+    "img": "assets/images/words/s/sunglasses.webp",
     "topicIds": [
       "travel-places-chặng-5",
       "top-1000-core-chặng-92"
@@ -26467,7 +26466,7 @@ export const WORDS = [
     "exampleVi": "Đóng gói bộ đồ bơi và đôi dép tông yêu thích của bạn cho chuyến đi biển.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/swimsuit.webp",
+    "img": "assets/images/words/s/swimsuit.webp",
     "topicIds": [
       "travel-places-chặng-5"
     ],
@@ -26483,7 +26482,7 @@ export const WORDS = [
     "exampleVi": "Những người lướt sóng cưỡi trên những con sóng biển khổng lồ khi thủy triều lên.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/wave.webp",
+    "img": "assets/images/words/w/wave.webp",
     "topicIds": [
       "travel-places-chặng-5"
     ],
@@ -26499,7 +26498,7 @@ export const WORDS = [
     "exampleVi": "Bảo vệ các rạn san hô mỏng manh khỏi ô nhiễm và thiệt hại do mỏ neo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/coral-reef.webp",
+    "img": "assets/images/words/c/coral-reef.webp",
     "topicIds": [
       "travel-places-chặng-5"
     ],
@@ -26515,7 +26514,7 @@ export const WORDS = [
     "exampleVi": "Lũ trẻ nhặt những chiếc vỏ sò nhiều màu sắc dọc theo đường bờ biển.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/seashell.webp",
+    "img": "assets/images/words/s/seashell.webp",
     "topicIds": [
       "travel-places-chặng-5"
     ],
@@ -26531,7 +26530,7 @@ export const WORDS = [
     "exampleVi": "Thuê một chiếc ván lướt sóng và học các bài học từ những người chuyên nghiệp địa phương.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/surfboard.webp",
+    "img": "assets/images/words/s/surfboard.webp",
     "topicIds": [
       "travel-places-chặng-6"
     ],
@@ -26547,7 +26546,7 @@ export const WORDS = [
     "exampleVi": "Họ đã trải qua một kỳ nghỉ hè thư giãn tại vùng ven biển.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/seaside.webp",
+    "img": "assets/images/words/s/seaside.webp",
     "topicIds": [
       "travel-places-chặng-6"
     ],
@@ -26563,7 +26562,7 @@ export const WORDS = [
     "exampleVi": "Du thuyền lướt qua vịnh biển xanh ngọc bích dưới bầu trời trong xanh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bay.webp",
+    "img": "assets/images/words/b/bay.webp",
     "topicIds": [
       "travel-places-chặng-6"
     ],
@@ -26579,7 +26578,7 @@ export const WORDS = [
     "exampleVi": "Những ngọn núi phủ tuyết trắng tạo nên một đường chân trời hùng vĩ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/mountain.webp",
+    "img": "assets/images/words/m/mountain.webp",
     "topicIds": [
       "travel-places-chặng-6",
       "top-1000-core-chặng-93"
@@ -26596,7 +26595,7 @@ export const WORDS = [
     "exampleVi": "Đi bộ đường dài cuối tuần trong rừng thông giúp tinh thần thư thái.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/hiking.webp",
+    "img": "assets/images/words/h/hiking.webp",
     "topicIds": [
       "travel-places-chặng-6"
     ],
@@ -26612,7 +26611,7 @@ export const WORDS = [
     "exampleVi": "Đi cắm trại dưới bầu trời đầy sao bên hồ nước.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/camping.webp",
+    "img": "assets/images/words/c/camping.webp",
     "topicIds": [
       "travel-places-chặng-6"
     ],
@@ -26628,7 +26627,7 @@ export const WORDS = [
     "exampleVi": "Dựng lều cắm trại chống nước trước khi trời tối.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/tent.webp",
+    "img": "assets/images/words/t/tent.webp",
     "topicIds": [
       "travel-places-chặng-6"
     ],
@@ -26644,7 +26643,7 @@ export const WORDS = [
     "exampleVi": "Túi ngủ giữ nhiệt giúp bạn ấm áp trong thời tiết giá lạnh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/sleeping-bag.webp",
+    "img": "assets/images/words/s/sleeping-bag.webp",
     "topicIds": [
       "travel-places-chặng-6"
     ],
@@ -26660,7 +26659,7 @@ export const WORDS = [
     "exampleVi": "Hát những bài ca dân gian khi quây quần bên đống lửa trại rực hồng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/campfire.webp",
+    "img": "assets/images/words/c/campfire.webp",
     "topicIds": [
       "travel-places-chặng-6"
     ],
@@ -26676,7 +26675,7 @@ export const WORDS = [
     "exampleVi": "Những người leo núi đã lên tới đỉnh núi sau 8 tiếng đồng hồ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/summit.webp",
+    "img": "assets/images/words/s/summit.webp",
     "topicIds": [
       "travel-places-chặng-6"
     ],
@@ -26692,7 +26691,7 @@ export const WORDS = [
     "exampleVi": "Hãy đi theo con đường mòn leo núi đã được đánh dấu để tránh bị lạc.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/trail.webp",
+    "img": "assets/images/words/t/trail.webp",
     "topicIds": [
       "travel-places-chặng-7"
     ],
@@ -26708,7 +26707,7 @@ export const WORDS = [
     "exampleVi": "Luôn mang theo một chiếc đèn pin LED đáng tin cậy khi đi bộ ban đêm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/flashlight.webp",
+    "img": "assets/images/words/f/flashlight.webp",
     "topicIds": [
       "travel-places-chặng-7"
     ],
@@ -26724,7 +26723,7 @@ export const WORDS = [
     "exampleVi": "Hẻm núi Grand Canyon phô diễn những kiến tạo đá đỏ ngoạn mục.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/canyon.webp",
+    "img": "assets/images/words/c/canyon.webp",
     "topicIds": [
       "travel-places-chặng-7"
     ],
@@ -26740,7 +26739,7 @@ export const WORDS = [
     "exampleVi": "Hoa dại nở rộ khắp thung lũng xanh mướt trên núi cao.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/valley.webp",
+    "img": "assets/images/words/v/valley.webp",
     "topicIds": [
       "travel-places-chặng-7"
     ],
@@ -26756,7 +26755,7 @@ export const WORDS = [
     "exampleVi": "Sơn Đoòng là hang động đá vôi tự nhiên lớn nhất trên Trái Đất.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/cave.webp",
+    "img": "assets/images/words/c/cave.webp",
     "topicIds": [
       "travel-places-chặng-7"
     ],
@@ -26772,7 +26771,7 @@ export const WORDS = [
     "exampleVi": "Lắng nghe tiếng nước gầm vang của thác nước giữa rừng nhiệt đới.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/waterfall.webp",
+    "img": "assets/images/words/w/waterfall.webp",
     "topicIds": [
       "travel-places-chặng-7"
     ],
@@ -26788,7 +26787,7 @@ export const WORDS = [
     "exampleVi": "Khám phá vùng hoang dã nguyên sơ chưa được khai phá cùng hướng dẫn viên địa phương.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/wilderness.webp",
+    "img": "assets/images/words/w/wilderness.webp",
     "topicIds": [
       "travel-places-chặng-7"
     ],
@@ -26804,7 +26803,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã mua những chiếc khăn lụa thủ công làm quà lưu niệm du lịch.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/souvenir.webp",
+    "img": "assets/images/words/s/souvenir.webp",
     "topicIds": [
       "travel-places-chặng-7"
     ],
@@ -26820,7 +26819,7 @@ export const WORDS = [
     "exampleVi": "Dạo bước qua khu chợ đêm nhộn nhịp để thưởng thức các món ăn vặt đường phố.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/night-market.webp",
+    "img": "assets/images/words/n/night-market.webp",
     "topicIds": [
       "travel-places-chặng-7"
     ],
@@ -26836,7 +26835,7 @@ export const WORDS = [
     "exampleVi": "Ẩm thực đường phố Việt Nam nổi tiếng về độ tươi ngon và hương vị đậm đà.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/street-food.webp",
+    "img": "assets/images/words/s/street-food.webp",
     "topicIds": [
       "travel-places-chặng-7",
       "top-1000-core-chặng-74"
@@ -26853,7 +26852,7 @@ export const WORDS = [
     "exampleVi": "Các nghệ nhân địa phương bán đồ gốm sứ thủ công tinh xảo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/craft.webp",
+    "img": "assets/images/words/c/craft.webp",
     "topicIds": [
       "travel-places-chặng-8"
     ],
@@ -26869,7 +26868,7 @@ export const WORDS = [
     "exampleVi": "Mặc cả một cách lịch sự tại các khu chợ đường phố là điều phổ biến.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/bargain-verb.webp",
+    "img": "assets/images/words/b/bargain-verb.webp",
     "topicIds": [
       "travel-places-chặng-8",
       "top-1000-core-chặng-33"
@@ -26886,7 +26885,7 @@ export const WORDS = [
     "exampleVi": "Gửi một tấm bưu thiếp đẹp như tranh vẽ từ Paris về nhà.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/postcard.webp",
+    "img": "assets/images/words/p/postcard.webp",
     "topicIds": [
       "travel-places-chặng-8",
       "top-1000-core-chặng-93"
@@ -26903,7 +26902,7 @@ export const WORDS = [
     "exampleVi": "Những người bán hàng rong thân thiện bán món xôi xoài ngọt ngào.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/vendor.webp",
+    "img": "assets/images/words/v/vendor.webp",
     "topicIds": [
       "travel-places-chặng-8"
     ],
@@ -26919,7 +26918,7 @@ export const WORDS = [
     "exampleVi": "Tham gia một tour tham quan xưởng rượu vang và trải nghiệm nếm thử phô mai.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tasting.webp",
+    "img": "assets/images/words/t/tasting.webp",
     "topicIds": [
       "travel-places-chặng-8"
     ],
@@ -26935,7 +26934,7 @@ export const WORDS = [
     "exampleVi": "Khu chợ trung tâm nhộn nhịp với các loại gia vị và trái cây tươi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/marketplace.webp",
+    "img": "assets/images/words/m/marketplace.webp",
     "topicIds": [
       "travel-places-chặng-8"
     ],
@@ -26951,7 +26950,7 @@ export const WORDS = [
     "exampleVi": "Dạo xem cửa hàng quà tặng bảo tàng để tìm sách nghệ thuật và móc chìa khóa.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/gift-shop.webp",
+    "img": "assets/images/words/g/gift-shop.webp",
     "topicIds": [
       "travel-places-chặng-8"
     ],
@@ -26967,7 +26966,7 @@ export const WORDS = [
     "exampleVi": "Mua ví da làm thủ công do các nghệ nhân địa phương chế tác.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/handmade.webp",
+    "img": "assets/images/words/h/handmade.webp",
     "topicIds": [
       "travel-places-chặng-8",
       "top-1000-core-chặng-93"
@@ -26984,7 +26983,7 @@ export const WORDS = [
     "exampleVi": "Sạp hoa quả trưng bày những quả đu đủ chín và thanh long.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/stall.webp",
+    "img": "assets/images/words/s/stall.webp",
     "topicIds": [
       "travel-places-chặng-8"
     ],
@@ -27000,7 +26999,7 @@ export const WORDS = [
     "exampleVi": "Phong cảnh sa mạc bao la rực sáng màu cam lúc bình minh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/landscape.webp",
+    "img": "assets/images/words/l/landscape.webp",
     "topicIds": [
       "travel-places-chặng-8"
     ],
@@ -27016,7 +27015,7 @@ export const WORDS = [
     "exampleVi": "Hành khách ngắm nhìn cảnh quan núi non ngoạn mục qua cửa sổ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/scenery.webp",
+    "img": "assets/images/words/s/scenery.webp",
     "topicIds": [
       "travel-places-chặng-9"
     ],
@@ -27032,7 +27031,7 @@ export const WORDS = [
     "exampleVi": "Màn bắn pháo hoa trên sông thực sự rất hùng vĩ và ngoạn mục.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/spectacular.webp",
+    "img": "assets/images/words/s/spectacular.webp",
     "topicIds": [
       "travel-places-chặng-9"
     ],
@@ -27048,7 +27047,7 @@ export const WORDS = [
     "exampleVi": "Khung cảnh nhìn từ vách đá trên núi đẹp đến nghẹt thở.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/breathtaking.webp",
+    "img": "assets/images/words/b/breathtaking.webp",
     "topicIds": [
       "travel-places-chặng-9"
     ],
@@ -27064,7 +27063,7 @@ export const WORDS = [
     "exampleVi": "Núi Phú Sĩ là một ngọn núi lửa dạng tầng hoạt động mang tính biểu tượng ở Nhật Bản.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/volcano.webp",
+    "img": "assets/images/words/v/volcano.webp",
     "topicIds": [
       "travel-places-chặng-9"
     ],
@@ -27080,7 +27079,7 @@ export const WORDS = [
     "exampleVi": "Tàu du lịch di chuyển qua những con sông băng xanh cao chót vót ở Alaska.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/glacier.webp",
+    "img": "assets/images/words/g/glacier.webp",
     "topicIds": [
       "travel-places-chặng-9"
     ],
@@ -27096,7 +27095,7 @@ export const WORDS = [
     "exampleVi": "Các loài chim biển làm tổ dọc theo những vách đá dựng đứng ven biển.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/cliff.webp",
+    "img": "assets/images/words/c/cliff.webp",
     "topicIds": [
       "travel-places-chặng-9"
     ],
@@ -27112,7 +27111,7 @@ export const WORDS = [
     "exampleVi": "Rừng mưa Amazon là nơi sinh sống của hàng triệu loài sinh vật quý hiếm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/rainforest.webp",
+    "img": "assets/images/words/r/rainforest.webp",
     "topicIds": [
       "travel-places-chặng-9"
     ],
@@ -27128,7 +27127,7 @@ export const WORDS = [
     "exampleVi": "Cây cọ và những con suối trong lành phát triển xanh tốt tại ốc đảo sa mạc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/oasis.webp",
+    "img": "assets/images/words/o/oasis.webp",
     "topicIds": [
       "travel-places-chặng-9"
     ],
@@ -27144,7 +27143,7 @@ export const WORDS = [
     "exampleVi": "Những người chèo thuyền kayak lướt nhẹ trên mặt đầm phá xanh ngọc thanh bình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/lagoon.webp",
+    "img": "assets/images/words/l/lagoon.webp",
     "topicIds": [
       "travel-places-chặng-9"
     ],
@@ -27160,7 +27159,7 @@ export const WORDS = [
     "exampleVi": "Thác Victoria là một trong những kỳ quan thiên nhiên vĩ đại nhất thế giới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/natural-wonder.webp",
+    "img": "assets/images/words/n/natural-wonder.webp",
     "topicIds": [
       "travel-places-chặng-9"
     ],
@@ -27176,7 +27175,7 @@ export const WORDS = [
     "exampleVi": "Du khách trượt xuống những đồi cát đỏ khổng lồ ở Mũi Né.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/dune.webp",
+    "img": "assets/images/words/d/dune.webp",
     "topicIds": [
       "travel-places-chặng-10"
     ],
@@ -27192,7 +27191,7 @@ export const WORDS = [
     "exampleVi": "Old Faithful là một mạch nước ngầm địa nhiệt nổi tiếng ở Yellowstone.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/geyser.webp",
+    "img": "assets/images/words/g/geyser.webp",
     "topicIds": [
       "travel-places-chặng-10"
     ],
@@ -27208,7 +27207,7 @@ export const WORDS = [
     "exampleVi": "Cao nguyên Tây Tạng thường được gọi là nóc nhà của thế giới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/plateau.webp",
+    "img": "assets/images/words/p/plateau.webp",
     "topicIds": [
       "travel-places-chặng-10"
     ],
@@ -27224,7 +27223,7 @@ export const WORDS = [
     "exampleVi": "Ngắm nhìn cảnh hoàng hôn dát vàng trên đại dương phẳng lặng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/sunset.webp",
+    "img": "assets/images/words/s/sunset.webp",
     "topicIds": [
       "travel-places-chặng-10",
       "top-1000-core-chặng-93"
@@ -27241,7 +27240,7 @@ export const WORDS = [
     "exampleVi": "Phố cổ Hội An rực rỡ với hàng trăm chiếc đèn lồng lụa.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/old-town.webp",
+    "img": "assets/images/words/o/old-town.webp",
     "topicIds": [
       "travel-places-chặng-10"
     ],
@@ -27257,7 +27256,7 @@ export const WORDS = [
     "exampleVi": "Các nghệ sĩ đường phố biểu diễn hàng ngày trên quảng trường đi bộ trung tâm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/square.webp",
+    "img": "assets/images/words/s/square.webp",
     "topicIds": [
       "travel-places-chặng-10"
     ],
@@ -27273,7 +27272,7 @@ export const WORDS = [
     "exampleVi": "Nhà thờ Đức Bà là một kiệt tác của kiến trúc Gothic Pháp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cathedral.webp",
+    "img": "assets/images/words/c/cathedral.webp",
     "topicIds": [
       "travel-places-chặng-10"
     ],
@@ -27289,7 +27288,7 @@ export const WORDS = [
     "exampleVi": "Leo lên đỉnh tháp đồng hồ để ngắm toàn cảnh thành phố 360 độ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/tower.webp",
+    "img": "assets/images/words/t/tower.webp",
     "topicIds": [
       "travel-places-chặng-10"
     ],
@@ -27305,7 +27304,7 @@ export const WORDS = [
     "exampleVi": "Cầu Cổng Vàng bắc qua vịnh San Francisco.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/bridge.webp",
+    "img": "assets/images/words/b/bridge.webp",
     "topicIds": [
       "travel-places-chặng-10",
       "top-1000-core-chặng-93"
@@ -27322,7 +27321,7 @@ export const WORDS = [
     "exampleVi": "Những tòa nhà chọc trời hiện đại thống trị đường chân trời rực rỡ của thành phố.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/skyscraper.webp",
+    "img": "assets/images/words/s/skyscraper.webp",
     "topicIds": [
       "travel-places-chặng-10"
     ],
@@ -27338,7 +27337,7 @@ export const WORDS = [
     "exampleVi": "Tản bộ qua những con ngõ lát đá cuội đầy các quán cà phê ấm cúng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/alley.webp",
+    "img": "assets/images/words/a/alley.webp",
     "topicIds": [
       "travel-places-chặng-11"
     ],
@@ -27354,7 +27353,7 @@ export const WORDS = [
     "exampleVi": "Ném một đồng xu may mắn vào đài phun nước Trevi lịch sử.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/fountain.webp",
+    "img": "assets/images/words/f/fountain.webp",
     "topicIds": [
       "travel-places-chặng-11"
     ],
@@ -27370,7 +27369,7 @@ export const WORDS = [
     "exampleVi": "Barcelona nổi tiếng với kiến trúc đầy kỳ ảo của kiến trúc sư Antoni Gaudí.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/architecture.webp",
+    "img": "assets/images/words/a/architecture.webp",
     "topicIds": [
       "travel-places-chặng-11"
     ],
@@ -27386,7 +27385,7 @@ export const WORDS = [
     "exampleVi": "Nguyễn Huệ là con phố đi bộ sôi động ở trung tâm Sài Gòn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/pedestrian-street.webp",
+    "img": "assets/images/words/p/pedestrian-street.webp",
     "topicIds": [
       "travel-places-chặng-11",
       "top-1000-core-chặng-91"
@@ -27403,7 +27402,7 @@ export const WORDS = [
     "exampleVi": "Những cỗ xe ngựa cổ kính lăn bánh trên những con phố lát đá cuội lịch sử.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cobblestone.webp",
+    "img": "assets/images/words/c/cobblestone.webp",
     "topicIds": [
       "travel-places-chặng-11"
     ],
@@ -27419,7 +27418,7 @@ export const WORDS = [
     "exampleVi": "Những chiếc thuyền gondola lướt êm ả dọc theo các con kênh của Venice.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/canal.webp",
+    "img": "assets/images/words/c/canal.webp",
     "topicIds": [
       "travel-places-chặng-11"
     ],
@@ -27435,7 +27434,7 @@ export const WORDS = [
     "exampleVi": "Bảo tồn các địa danh lịch sử cho các thế hệ tương lai.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/historic.webp",
+    "img": "assets/images/words/h/historic.webp",
     "topicIds": [
       "travel-places-chặng-11"
     ],
@@ -27451,7 +27450,7 @@ export const WORDS = [
     "exampleVi": "Đường chân trời Manhattan bừng sáng rực rỡ trong ánh hoàng hôn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/skyline.webp",
+    "img": "assets/images/words/s/skyline.webp",
     "topicIds": [
       "travel-places-chặng-11"
     ],
@@ -27467,7 +27466,7 @@ export const WORDS = [
     "exampleVi": "Các gia đình tản bộ dọc con đường dạo bộ ven sông vào buổi tối mát mẻ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/promenade.webp",
+    "img": "assets/images/words/p/promenade.webp",
     "topicIds": [
       "travel-places-chặng-11"
     ],
@@ -27483,7 +27482,7 @@ export const WORDS = [
     "exampleVi": "Hãy đắm mình trong văn hóa trà đạo độc đáo của Nhật Bản.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/culture.webp",
+    "img": "assets/images/words/c/culture.webp",
     "topicIds": [
       "travel-places-chặng-11",
       "top-1000-core-chặng-65"
@@ -27500,7 +27499,7 @@ export const WORDS = [
     "exampleVi": "Lễ hội Rio Carnival là lễ hội samba sôi động nhất thế giới.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/festival.webp",
+    "img": "assets/images/words/f/festival.webp",
     "topicIds": [
       "travel-places-chặng-12",
       "top-1000-core-chặng-65"
@@ -27517,7 +27516,7 @@ export const WORDS = [
     "exampleVi": "Mặc áo dài trong dịp Tết Nguyên Đán là một truyền thống đáng quý của người Việt.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/tradition.webp",
+    "img": "assets/images/words/t/tradition.webp",
     "topicIds": [
       "travel-places-chặng-12"
     ],
@@ -27533,7 +27532,7 @@ export const WORDS = [
     "exampleVi": "Hãy tìm hiểu các phong tục ăn uống địa phương trước khi đi du lịch nước ngoài.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/custom.webp",
+    "img": "assets/images/words/c/custom.webp",
     "topicIds": [
       "travel-places-chặng-12"
     ],
@@ -27549,7 +27548,7 @@ export const WORDS = [
     "exampleVi": "Các vũ công đã mặc những bộ trang phục dân gian truyền thống cầu kỳ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/costume.webp",
+    "img": "assets/images/words/c/costume.webp",
     "topicIds": [
       "travel-places-chặng-12"
     ],
@@ -27565,7 +27564,7 @@ export const WORDS = [
     "exampleVi": "Chứng kiến nghi lễ ban phước đón bình minh truyền thống tại ngôi chùa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ceremony.webp",
+    "img": "assets/images/words/c/ceremony.webp",
     "topicIds": [
       "travel-places-chặng-12"
     ],
@@ -27581,7 +27580,7 @@ export const WORDS = [
     "exampleVi": "Các cụ già kể những câu chuyện dân gian địa phương lôi cuốn cho trẻ em trong làng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/folklore.webp",
+    "img": "assets/images/words/f/folklore.webp",
     "topicIds": [
       "travel-places-chặng-12"
     ],
@@ -27597,7 +27596,7 @@ export const WORDS = [
     "exampleVi": "Một cuộc diễu hành đường phố hoành tráng có các ban nhạc diễu hành và xe hoa khổng lồ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/parade.webp",
+    "img": "assets/images/words/p/parade.webp",
     "topicIds": [
       "travel-places-chặng-12"
     ],
@@ -27613,7 +27612,7 @@ export const WORDS = [
     "exampleVi": "Hỗ trợ các nghệ nhân bản địa bằng cách mua các sản phẩm thủ công có đạo đức.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/indigenous.webp",
+    "img": "assets/images/words/i/indigenous.webp",
     "topicIds": [
       "travel-places-chặng-12"
     ],
@@ -27629,7 +27628,7 @@ export const WORDS = [
     "exampleVi": "Tham gia vào nghi thức thắp hương truyền thống của Nhật Bản.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ritual.webp",
+    "img": "assets/images/words/r/ritual.webp",
     "topicIds": [
       "travel-places-chặng-12"
     ],
@@ -27645,7 +27644,7 @@ export const WORDS = [
     "exampleVi": "Tôn trọng quy tắc ứng xử ở chùa bằng cách che kín vai.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/etiquette.webp",
+    "img": "assets/images/words/e/etiquette.webp",
     "topicIds": [
       "travel-places-chặng-12"
     ],
@@ -27661,7 +27660,7 @@ export const WORDS = [
     "exampleVi": "Các hoạt động đón năm mới khép lại bằng màn pháo hoa nửa đêm rực rỡ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/celebration.webp",
+    "img": "assets/images/words/c/celebration.webp",
     "topicIds": [
       "travel-places-chặng-13"
     ],
@@ -27677,7 +27676,7 @@ export const WORDS = [
     "exampleVi": "Thưởng thức một buổi biểu diễn múa rối nước truyền thống.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/performance.webp",
+    "img": "assets/images/words/p/performance.webp",
     "topicIds": [
       "travel-places-chặng-13"
     ],
@@ -27693,7 +27692,7 @@ export const WORDS = [
     "exampleVi": "Các làng nghề thủ công chuyên đan lát rổ rá bằng tre.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/handicraft.webp",
+    "img": "assets/images/words/h/handicraft.webp",
     "topicIds": [
       "travel-places-chặng-13"
     ],
@@ -27709,7 +27708,7 @@ export const WORDS = [
     "exampleVi": "Luôn mua bảo hiểm du lịch toàn diện trước khi bay ra nước ngoài.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/travel-insurance.webp",
+    "img": "assets/images/words/t/travel-insurance.webp",
     "topicIds": [
       "travel-places-chặng-13"
     ],
@@ -27725,7 +27724,7 @@ export const WORDS = [
     "exampleVi": "Hãy liên hệ đại sứ quán quốc gia của bạn nếu bị mất hoặc bị đánh cắp hộ chiếu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/embassy.webp",
+    "img": "assets/images/words/e/embassy.webp",
     "topicIds": [
       "travel-places-chặng-13"
     ],
@@ -27741,7 +27740,7 @@ export const WORDS = [
     "exampleVi": "Lãnh sự quán cấp giấy thông hành khẩn cấp cho công dân.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/consulate.webp",
+    "img": "assets/images/words/c/consulate.webp",
     "topicIds": [
       "travel-places-chặng-13"
     ],
@@ -27757,7 +27756,7 @@ export const WORDS = [
     "exampleVi": "Hãy cẩn giác với những kẻ móc túi lén lút ở các điểm du lịch đông đúc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pickpocket.webp",
+    "img": "assets/images/words/p/pickpocket.webp",
     "topicIds": [
       "travel-places-chặng-13"
     ],
@@ -27773,7 +27772,7 @@ export const WORDS = [
     "exampleVi": "Tránh các chiêu trò lừa đảo đồng hồ tắc-xi bằng cách dùng ứng dụng đặt xe uy tín.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/scam.webp",
+    "img": "assets/images/words/s/scam.webp",
     "topicIds": [
       "travel-places-chặng-13"
     ],
@@ -27789,7 +27788,7 @@ export const WORDS = [
     "exampleVi": "Kiểm tra quầy đồ thất lạc ở sân bay để tìm lại túi xách bị quên.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/lost-and-found.webp",
+    "img": "assets/images/words/l/lost-and-found.webp",
     "topicIds": [
       "travel-places-chặng-13"
     ],
@@ -27805,7 +27804,7 @@ export const WORDS = [
     "exampleVi": "Hãy ghi lại số điện thoại liên hệ khẩn cấp vào cuốn sổ tay của bạn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/emergency-contact.webp",
+    "img": "assets/images/words/e/emergency-contact.webp",
     "topicIds": [
       "travel-places-chặng-13"
     ],
@@ -27821,7 +27820,7 @@ export const WORDS = [
     "exampleVi": "Hãy ưu tiên sự an toàn cá nhân hơn là những lựa chọn chỗ ở giá rẻ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/safety.webp",
+    "img": "assets/images/words/s/safety.webp",
     "topicIds": [
       "travel-places-chặng-14"
     ],
@@ -27837,7 +27836,7 @@ export const WORDS = [
     "exampleVi": "Hãy báo cáo chiếc ví bị mất cắp của bạn cho cảnh sát du lịch ngay lập tức.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/stolen.webp",
+    "img": "assets/images/words/s/stolen.webp",
     "topicIds": [
       "travel-places-chặng-14",
       "top-1000-core-chặng-93"
@@ -27854,7 +27853,7 @@ export const WORDS = [
     "exampleVi": "Kiểm tra các yêu cầu tiêm phòng bệnh sốt vàng da bắt buộc trước khi đi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/vaccination.webp",
+    "img": "assets/images/words/v/vaccination.webp",
     "topicIds": [
       "travel-places-chặng-14"
     ],
@@ -27870,7 +27869,7 @@ export const WORDS = [
     "exampleVi": "Hãy cẩn trọng khi đi bộ một mình trong những con hẻm tối muộn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/caution.webp",
+    "img": "assets/images/words/c/caution.webp",
     "topicIds": [
       "travel-places-chặng-14"
     ],
@@ -27886,7 +27885,7 @@ export const WORDS = [
     "exampleVi": "Lập biên bản báo cáo chính thức tại đồn cảnh sát gần nhất.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/police-station.webp",
+    "img": "assets/images/words/p/police-station.webp",
     "topicIds": [
       "travel-places-chặng-14",
       "top-1000-core-chặng-93"
@@ -27903,7 +27902,7 @@ export const WORDS = [
     "exampleVi": "Cất hộ chiếu và trang sức trong két sắt an toàn của phòng khách sạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/safe-deposit-box-noun.webp",
+    "img": "assets/images/words/s/safe-deposit-box-noun.webp",
     "topicIds": [
       "travel-places-chặng-14",
       "top-1000-core-chặng-81"
@@ -27920,7 +27919,7 @@ export const WORDS = [
     "exampleVi": "Chúng ta hãy xem bộ phim bom tấn mới tại rạp chiếu phim IMAX.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/cinema.webp",
+    "img": "assets/images/words/c/cinema.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-1",
       "top-1000-core-chặng-93"
@@ -27937,7 +27936,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi rất thích xem một bộ phim hành động vào tối thứ Sáu.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/movie.webp",
+    "img": "assets/images/words/m/movie.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-1",
       "top-1000-core-chặng-93"
@@ -27954,7 +27953,7 @@ export const WORDS = [
     "exampleVi": "Nam diễn viên chính đã giành giải thưởng Viện Hàn lâm cho diễn xuất của mình.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/actor.webp",
+    "img": "assets/images/words/a/actor.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-1",
       "top-1000-core-chặng-93"
@@ -27971,7 +27970,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy là một nữ diễn viên trẻ tài năng đóng chính trong các phim tâm lý tình cảm.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/actress.webp",
+    "img": "assets/images/words/a/actress.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-1",
       "top-1000-core-chặng-94"
@@ -27988,7 +27987,7 @@ export const WORDS = [
     "exampleVi": "Các biên kịch đã sáng tác một kịch bản hấp dẫn đầy những bước ngoặt cốt truyện.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/script.webp",
+    "img": "assets/images/words/s/script.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-1"
     ],
@@ -28004,7 +28003,7 @@ export const WORDS = [
     "exampleVi": "Bộ phim siêu anh hùng bom tấn đã phá vỡ mọi kỷ lục phòng vé mùa hè.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/blockbuster.webp",
+    "img": "assets/images/words/b/blockbuster.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-1"
     ],
@@ -28020,7 +28019,7 @@ export const WORDS = [
     "exampleVi": "Xem phim nước ngoài có phụ đề tiếng Anh giúp nâng cao kỹ năng nghe.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/subtitle.webp",
+    "img": "assets/images/words/s/subtitle.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-1"
     ],
@@ -28036,7 +28035,7 @@ export const WORDS = [
     "exampleVi": "Khoa học viễn tưởng là thể loại phim yêu thích nhất của anh ấy.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/genre.webp",
+    "img": "assets/images/words/g/genre.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-1"
     ],
@@ -28052,7 +28051,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã cười nghiêng ngả khi xem bộ phim hài gia đình vui nhộn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/comedy.webp",
+    "img": "assets/images/words/c/comedy.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-1"
     ],
@@ -28068,7 +28067,7 @@ export const WORDS = [
     "exampleVi": "Bạn có thích xem các bộ phim kinh dị siêu nhiên vào ban đêm không?",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/horror.webp",
+    "img": "assets/images/words/h/horror.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-1"
     ],
@@ -28084,7 +28083,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã xem một bộ phim tài liệu thiên nhiên mở mang tầm mắt về thế giới hoang dã đại dương.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/documentary.webp",
+    "img": "assets/images/words/d/documentary.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-2"
     ],
@@ -28100,7 +28099,7 @@ export const WORDS = [
     "exampleVi": "Nhạc phim đã giành được nhiều giải thưởng âm nhạc toàn cầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/soundtrack.webp",
+    "img": "assets/images/words/s/soundtrack.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-2"
     ],
@@ -28116,7 +28115,7 @@ export const WORDS = [
     "exampleVi": "Các ngôi sao nổi tiếng đã sải bước trên thảm đỏ tại buổi công chiếu phim thế giới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/premiere.webp",
+    "img": "assets/images/words/p/premiere.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-2"
     ],
@@ -28132,7 +28131,7 @@ export const WORDS = [
     "exampleVi": "Lấy một xô bắp rang bơ lớn trước khi bộ phim bắt đầu.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/popcorn.webp",
+    "img": "assets/images/words/p/popcorn.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-2",
       "top-1000-core-chặng-94"
@@ -28149,7 +28148,7 @@ export const WORDS = [
     "exampleVi": "Nghe nhạc cổ điển êm dịu giúp giảm bớt lo âu tinh thần.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/music.webp",
+    "img": "assets/images/words/m/music.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-2",
       "top-1000-core-chặng-94"
@@ -28166,7 +28165,7 @@ export const WORDS = [
     "exampleVi": "Bài hát pop mới của cô ấy đã đạt vị trí số một trên bảng xếp hạng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/song.webp",
+    "img": "assets/images/words/s/song.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-2",
       "top-1000-core-chặng-94"
@@ -28183,7 +28182,7 @@ export const WORDS = [
     "exampleVi": "Hàng ngàn người hâm mộ đã hát theo tại buổi hòa nhạc rock trên sân vận động.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/concert.webp",
+    "img": "assets/images/words/c/concert.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-2",
       "top-1000-core-chặng-94"
@@ -28200,7 +28199,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã học chơi đàn ghi-ta mộc khi còn học trung học phổ thông.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/guitar.webp",
+    "img": "assets/images/words/g/guitar.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-2",
       "top-1000-core-chặng-94"
@@ -28217,7 +28216,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy chơi đàn đại dương cầm với sự duyên dáng đáng kinh ngạc.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/piano.webp",
+    "img": "assets/images/words/p/piano.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-2",
       "top-1000-core-chặng-94"
@@ -28234,7 +28233,7 @@ export const WORDS = [
     "exampleVi": "Tay trống tràn đầy năng lượng đã giữ một nhịp điệu ổn định và mạnh mẽ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/drums.webp",
+    "img": "assets/images/words/d/drums.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-2"
     ],
@@ -28250,7 +28249,7 @@ export const WORDS = [
     "exampleVi": "Bản độc tấu vĩ cầm đã làm rơi những giọt nước mắt xúc động của người nghe.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/violin.webp",
+    "img": "assets/images/words/v/violin.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-3"
     ],
@@ -28266,7 +28265,7 @@ export const WORDS = [
     "exampleVi": "Ca sĩ chính tài năng sở hữu một quãng giọng rộng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/singer.webp",
+    "img": "assets/images/words/s/singer.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-3",
       "top-1000-core-chặng-94"
@@ -28283,7 +28282,7 @@ export const WORDS = [
     "exampleVi": "Ban nhạc rock độc lập đã phát hành album phòng thu đầu tay của họ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/band.webp",
+    "img": "assets/images/words/b/band.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-3",
       "top-1000-core-chặng-94"
@@ -28300,7 +28299,7 @@ export const WORDS = [
     "exampleVi": "Lời bài hát đậm chất thơ truyền tải thông điệp về hòa bình thế giới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/lyrics.webp",
+    "img": "assets/images/words/l/lyrics.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-3"
     ],
@@ -28316,7 +28315,7 @@ export const WORDS = [
     "exampleVi": "Giai điệu bắt tai cứ đọng mãi trong đầu tôi suốt cả ngày.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/melody.webp",
+    "img": "assets/images/words/m/melody.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-3"
     ],
@@ -28332,7 +28331,7 @@ export const WORDS = [
     "exampleVi": "Nhảy múa theo nhịp điệu salsa Latin sôi động.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/rhythm.webp",
+    "img": "assets/images/words/r/rhythm.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-3"
     ],
@@ -28348,7 +28347,7 @@ export const WORDS = [
     "exampleVi": "Dàn nhạc giao hưởng đã biểu diễn Bản giao hưởng số 9 của Beethoven.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/orchestra.webp",
+    "img": "assets/images/words/o/orchestra.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-3"
     ],
@@ -28364,7 +28363,7 @@ export const WORDS = [
     "exampleVi": "Đeo tai nghe chống ồn để thưởng thức âm thanh trong trẻo tuyệt đối.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/headphones.webp",
+    "img": "assets/images/words/h/headphones.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-3",
       "top-1000-core-chặng-94"
@@ -28381,7 +28380,7 @@ export const WORDS = [
     "exampleVi": "Album đĩa than của cô ấy đã bán được hơn một triệu bản vật lý.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/album.webp",
+    "img": "assets/images/words/a/album.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-3"
     ],
@@ -28397,7 +28396,7 @@ export const WORDS = [
     "exampleVi": "Đọc sách mở rộng thế giới quan và vốn từ vựng của bạn.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/book.webp",
+    "img": "assets/images/words/b/book.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-3",
       "top-1000-core-chặng-95"
@@ -28414,7 +28413,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đọc một cuốn tiểu thuyết trinh thám ly kỳ vào mỗi chiều Chủ nhật.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/novel.webp",
+    "img": "assets/images/words/n/novel.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-4"
     ],
@@ -28430,7 +28429,7 @@ export const WORDS = [
     "exampleVi": "Tác giả có sách bán chạy nhất đã ký tặng sách cho những người hâm mộ háo hức.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/author.webp",
+    "img": "assets/images/words/a/author.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-4"
     ],
@@ -28446,7 +28445,7 @@ export const WORDS = [
     "exampleVi": "Cuốn tiểu thuyết ly kỳ có một cốt truyện bất ngờ và kịch tính.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/plot.webp",
+    "img": "assets/images/words/p/plot.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-4"
     ],
@@ -28462,7 +28461,7 @@ export const WORDS = [
     "exampleVi": "Nhân vật chính thể hiện sự kiên cường đáng ngưỡng mộ qua mọi gian khổ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/character.webp",
+    "img": "assets/images/words/c/character.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-4"
     ],
@@ -28478,7 +28477,7 @@ export const WORDS = [
     "exampleVi": "Trẻ em thích sưu tầm những cuốn truyện tranh siêu anh hùng cổ điển.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/comic-book.webp",
+    "img": "assets/images/words/c/comic-book.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-4",
       "top-1000-core-chặng-95"
@@ -28495,7 +28494,7 @@ export const WORDS = [
     "exampleVi": "Truyện tranh manga Nhật Bản có người hâm mộ trên khắp toàn cầu.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/manga.webp",
+    "img": "assets/images/words/m/manga.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-4"
     ],
@@ -28511,7 +28510,7 @@ export const WORDS = [
     "exampleVi": "Mang theo hàng ngàn cuốn sách điện tử trên một chiếc máy đọc sách Kindle nhẹ nhàng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/e-book.webp",
+    "img": "assets/images/words/e/e-book.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-4"
     ],
@@ -28527,7 +28526,7 @@ export const WORDS = [
     "exampleVi": "Đặt một chiếc thẻ đánh dấu bằng da vào trang 140 trước khi gấp sách lại.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bookmark.webp",
+    "img": "assets/images/words/b/bookmark.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-4"
     ],
@@ -28543,7 +28542,7 @@ export const WORDS = [
     "exampleVi": "Lắng nghe sách nói trong lúc đi làm hàng ngày.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/audiobook.webp",
+    "img": "assets/images/words/a/audiobook.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-4"
     ],
@@ -28559,7 +28558,7 @@ export const WORDS = [
     "exampleVi": "Cuốn cẩm nang phát triển bản thân đã trở thành cuốn sách bán chạy quốc tế ngay lập tức.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/bestseller.webp",
+    "img": "assets/images/words/b/bestseller.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-4"
     ],
@@ -28575,7 +28574,7 @@ export const WORDS = [
     "exampleVi": "Bạn thích đọc truyện hư cấu lịch sử hay tiểu sử người thật việc thật hơn?",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fiction.webp",
+    "img": "assets/images/words/f/fiction.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-5"
     ],
@@ -28591,7 +28590,7 @@ export const WORDS = [
     "exampleVi": "Sách kinh doanh phi hư cấu mang lại những hiểu biết quản trị thực tế có thể áp dụng ngay.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/non-fiction.webp",
+    "img": "assets/images/words/n/non-fiction.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-5"
     ],
@@ -28607,7 +28606,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy sáng tác thơ trữ tình ca ngợi vẻ đẹp của thiên nhiên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/poetry.webp",
+    "img": "assets/images/words/p/poetry.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-5"
     ],
@@ -28623,7 +28622,7 @@ export const WORDS = [
     "exampleVi": "Hãy đọc chương 4 trước buổi thảo luận chuyên đề ngày mai.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/chapter.webp",
+    "img": "assets/images/words/c/chapter.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-5"
     ],
@@ -28639,7 +28638,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy chơi các trò chơi điện tử nhiều người chơi cùng bạn bè trên mạng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/video-game.webp",
+    "img": "assets/images/words/v/video-game.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-5",
       "top-1000-core-chặng-95"
@@ -28656,7 +28655,7 @@ export const WORDS = [
     "exampleVi": "Các game thủ thể thao điện tử chuyên nghiệp luyện tập mười tiếng mỗi ngày.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/gamer.webp",
+    "img": "assets/images/words/g/gamer.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-5"
     ],
@@ -28672,7 +28671,7 @@ export const WORDS = [
     "exampleVi": "PlayStation và Nintendo Switch là những cỗ máy chơi game phổ biến.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/console.webp",
+    "img": "assets/images/words/c/console.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-5"
     ],
@@ -28688,7 +28687,7 @@ export const WORDS = [
     "exampleVi": "Cầm chiếc tay cầm chơi game không dây bằng cả hai tay.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/controller.webp",
+    "img": "assets/images/words/c/controller.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-5"
     ],
@@ -28704,7 +28703,7 @@ export const WORDS = [
     "exampleVi": "Cuối cùng anh ấy đã đánh bại con trùm và đạt đến cấp độ 50.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/level.webp",
+    "img": "assets/images/words/l/level.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-5",
       "top-1000-core-chặng-95"
@@ -28721,7 +28720,7 @@ export const WORDS = [
     "exampleVi": "Các trò chơi 3D hiện đại sở hữu đồ họa 4K chân thực như ảnh chụp.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/graphics.webp",
+    "img": "assets/images/words/g/graphics.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-5"
     ],
@@ -28737,7 +28736,7 @@ export const WORDS = [
     "exampleVi": "Các trò chơi đấu trường trận chiến trực tuyến nhiều người chơi đòi hỏi sự phối hợp nhóm.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/multiplayer.webp",
+    "img": "assets/images/words/m/multiplayer.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-6"
     ],
@@ -28753,7 +28752,7 @@ export const WORDS = [
     "exampleVi": "Các giải đấu thể thao điện tử lấp đầy những nhà thi đấu khổng lồ trên toàn cầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/esports.webp",
+    "img": "assets/images/words/e/esports.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-6"
     ],
@@ -28769,7 +28768,7 @@ export const WORDS = [
     "exampleVi": "Streamer nổi tiếng có hơn năm triệu người đăng ký theo dõi trực tiếp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/streamer.webp",
+    "img": "assets/images/words/s/streamer.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-6"
     ],
@@ -28785,7 +28784,7 @@ export const WORDS = [
     "exampleVi": "Kính thực tế ảo mang lại trải nghiệm chơi game đắm chìm ngoạn mục.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/virtual-reality.webp",
+    "img": "assets/images/words/v/virtual-reality.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-6"
     ],
@@ -28801,7 +28800,7 @@ export const WORDS = [
     "exampleVi": "Hoàn thành nhiệm vụ phụ hàng ngày để kiếm thêm tiền vàng thưởng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/quest.webp",
+    "img": "assets/images/words/q/quest.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-6"
     ],
@@ -28817,7 +28816,7 @@ export const WORDS = [
     "exampleVi": "Tùy chỉnh nhân vật ảo trong game của bạn bằng áo giáp và đôi cánh độc đáo.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/avatar.webp",
+    "img": "assets/images/words/a/avatar.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-6"
     ],
@@ -28833,7 +28832,7 @@ export const WORDS = [
     "exampleVi": "Nhóm của chúng tôi đã đánh bại nhà đương kim vô địch trong trận chung kết.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/defeat.webp",
+    "img": "assets/images/words/d/defeat.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-6",
       "top-1000-core-chặng-26"
@@ -28850,7 +28849,7 @@ export const WORDS = [
     "exampleVi": "Độ trễ mạng internet cao gây ra hiện tượng giật lag phiền toái trong game.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/lag.webp",
+    "img": "assets/images/words/l/lag.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-6"
     ],
@@ -28866,7 +28865,7 @@ export const WORDS = [
     "exampleVi": "Bóng đá là môn thể thao được yêu thích nhất trên toàn thế giới.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/football.webp",
+    "img": "assets/images/words/f/football.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-6",
       "top-1000-core-chặng-95"
@@ -28883,7 +28882,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã tập ném bóng ba điểm trên sân bóng rổ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/basketball.webp",
+    "img": "assets/images/words/b/basketball.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-6",
       "top-1000-core-chặng-95"
@@ -28900,7 +28899,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã chơi bóng chuyền bãi biển trên cát lúc hoàng hôn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/volleyball.webp",
+    "img": "assets/images/words/v/volleyball.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-7"
     ],
@@ -28916,7 +28915,7 @@ export const WORDS = [
     "exampleVi": "Đội tuyển trường chúng tôi đã giành chiếc cúp vô địch cấp khu vực.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/team.webp",
+    "img": "assets/images/words/t/team.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-7",
       "top-1000-core-chặng-95"
@@ -28933,7 +28932,7 @@ export const WORDS = [
     "exampleVi": "Trận đấu chung kết đầy kịch tính đã kết thúc với tỷ số hòa 2-2.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/match-noun.webp",
+    "img": "assets/images/words/m/match-noun.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-7",
       "top-1000-core-chặng-95"
@@ -28950,7 +28949,7 @@ export const WORDS = [
     "exampleVi": "Tám mươi ngàn khán giả đã lấp đầy sân vận động bóng đá quốc gia.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/stadium.webp",
+    "img": "assets/images/words/s/stadium.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-7"
     ],
@@ -28966,7 +28965,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã ghi một bàn thắng móc bóng kiểu xe đạp chổng ngược ngoạn mục ở phút 90.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/goal.webp",
+    "img": "assets/images/words/g/goal.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-7",
       "top-1000-core-chặng-95"
@@ -28983,7 +28982,7 @@ export const WORDS = [
     "exampleVi": "Trọng tài đã thổi còi để ra hiệu bắt đầu trận đấu.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/referee.webp",
+    "img": "assets/images/words/r/referee.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-7"
     ],
@@ -28999,7 +28998,7 @@ export const WORDS = [
     "exampleVi": "Huấn luyện viên kỳ cựu đã vạch ra một chiến thuật phản công xuất sắc.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/coach.webp",
+    "img": "assets/images/words/c/coach.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-7"
     ],
@@ -29015,7 +29014,7 @@ export const WORDS = [
     "exampleVi": "FIFA World Cup là giải đấu thể thao quốc tế hàng đầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tournament.webp",
+    "img": "assets/images/words/t/tournament.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-7"
     ],
@@ -29031,7 +29030,7 @@ export const WORDS = [
     "exampleVi": "Câu lạc bộ đã giành được danh hiệu vô địch giải đấu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/championship.webp",
+    "img": "assets/images/words/c/championship.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-7"
     ],
@@ -29047,7 +29046,7 @@ export const WORDS = [
     "exampleVi": "Hậu vệ đã phạm lỗi chiến thuật ở gần khu vực cấm địa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/foul.webp",
+    "img": "assets/images/words/f/foul.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-7"
     ],
@@ -29063,7 +29062,7 @@ export const WORDS = [
     "exampleVi": "Thủ môn nhanh nhẹn đã có ba pha cứu thua phạt đền khó tin.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/goalkeeper.webp",
+    "img": "assets/images/words/g/goalkeeper.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-8"
     ],
@@ -29079,7 +29078,7 @@ export const WORDS = [
     "exampleVi": "Cầu thủ dự bị đã đánh đầu ghi bàn thắng quyết định ở cuối trận.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/substitute.webp",
+    "img": "assets/images/words/s/substitute.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-8"
     ],
@@ -29095,7 +29094,7 @@ export const WORDS = [
     "exampleVi": "Bơi lội giúp phát triển bờ vai săn chắc và sức bền tim mạch.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/swimming.webp",
+    "img": "assets/images/words/s/swimming.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-8",
       "top-1000-core-chặng-95"
@@ -29112,7 +29111,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy chơi quần vợt đơn tại câu lạc bộ thể thao địa phương.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/tennis.webp",
+    "img": "assets/images/words/t/tennis.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-8",
       "top-1000-core-chặng-96"
@@ -29129,7 +29128,7 @@ export const WORDS = [
     "exampleVi": "Chơi cầu lông ngoài trời cùng hàng xóm rất vui.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/badminton.webp",
+    "img": "assets/images/words/b/badminton.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-8",
       "top-1000-core-chặng-96"
@@ -29146,7 +29145,7 @@ export const WORDS = [
     "exampleVi": "Luyện tập võ thuật rèn luyện tính kỷ luật và khả năng tự vệ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/martial-arts.webp",
+    "img": "assets/images/words/m/martial-arts.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-8"
     ],
@@ -29162,7 +29161,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã giành hai huy chương vàng trong các nội dung điền kinh chạy nước rút.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/athletics.webp",
+    "img": "assets/images/words/a/athletics.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-8"
     ],
@@ -29178,7 +29177,7 @@ export const WORDS = [
     "exampleVi": "Căng cước cây vợt tennis của bạn bằng dây nylon lực căng cao.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/racket.webp",
+    "img": "assets/images/words/r/racket.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-8"
     ],
@@ -29194,7 +29193,7 @@ export const WORDS = [
     "exampleVi": "Đập quả cầu lông vũ qua lưới với tốc độ cao.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/shuttlecock.webp",
+    "img": "assets/images/words/s/shuttlecock.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-8"
     ],
@@ -29210,7 +29209,7 @@ export const WORDS = [
     "exampleVi": "Đặt một sân tennis trong nhà cho sáng Chủ nhật.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/court.webp",
+    "img": "assets/images/words/c/court.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-8"
     ],
@@ -29226,7 +29225,7 @@ export const WORDS = [
     "exampleVi": "Các trận đấu quyền anh hạng nặng đòi hỏi sức mạnh thể chất thuần túy.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/boxing.webp",
+    "img": "assets/images/words/b/boxing.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-9"
     ],
@@ -29242,7 +29241,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã tập luyện trong sáu tháng để hoàn thành cuộc chạy ma-ra-tông đầu tiên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/marathon.webp",
+    "img": "assets/images/words/m/marathon.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-9"
     ],
@@ -29258,7 +29257,7 @@ export const WORDS = [
     "exampleVi": "Usain Bolt nắm giữ kỷ lục thế giới ở các cuộc chạy nước rút 100 mét.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/sprint.webp",
+    "img": "assets/images/words/s/sprint.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-9"
     ],
@@ -29274,7 +29273,7 @@ export const WORDS = [
     "exampleVi": "Nhà vô địch Olympic đã tự hào khoe chiếc huy chương vàng của mình.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/medal.webp",
+    "img": "assets/images/words/m/medal.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-9"
     ],
@@ -29290,7 +29289,7 @@ export const WORDS = [
     "exampleVi": "Nghiên cứu phong cách thi đấu của đối thủ trước trận đấu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/opponent.webp",
+    "img": "assets/images/words/o/opponent.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-9"
     ],
@@ -29306,7 +29305,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy thích chơi mười tám lỗ gôn vào dịp cuối tuần.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/golf.webp",
+    "img": "assets/images/words/g/golf.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-9"
     ],
@@ -29322,7 +29321,7 @@ export const WORDS = [
     "exampleVi": "Tập yoga buổi sáng hàng ngày giúp tăng cường sự dẻo dai cơ thể và tư thế.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/yoga.webp",
+    "img": "assets/images/words/y/yoga.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-9"
     ],
@@ -29338,7 +29337,7 @@ export const WORDS = [
     "exampleVi": "Nhiếp ảnh phong cảnh đòi hỏi sự kiên nhẫn và ánh sáng giờ vàng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/photography.webp",
+    "img": "assets/images/words/p/photography.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-9"
     ],
@@ -29354,7 +29353,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã mua một chiếc máy ảnh kỹ thuật số không gương lật chuyên nghiệp.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/camera.webp",
+    "img": "assets/images/words/c/camera.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-9",
       "top-1000-core-chặng-96"
@@ -29371,7 +29370,7 @@ export const WORDS = [
     "exampleVi": "Ống kính tele chụp động vật hoang dã ở xa với độ chi tiết sắc nét.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/lens.webp",
+    "img": "assets/images/words/l/lens.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-9"
     ],
@@ -29387,7 +29386,7 @@ export const WORDS = [
     "exampleVi": "Gắn máy ảnh lên một chiếc chân máy 3 chân chắc chắn để phơi sáng ban đêm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tripod.webp",
+    "img": "assets/images/words/t/tripod.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-10"
     ],
@@ -29403,7 +29402,7 @@ export const WORDS = [
     "exampleVi": "Phòng chụp chuyên về nhiếp ảnh chân dung nghệ thuật cao cấp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/portrait.webp",
+    "img": "assets/images/words/p/portrait.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-10"
     ],
@@ -29419,7 +29418,7 @@ export const WORDS = [
     "exampleVi": "Nhiếp ảnh gia đã bắt trọn niềm vui chân thực trên gương mặt của họ.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/capture.webp",
+    "img": "assets/images/words/c/capture.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-10",
       "top-1000-core-chặng-33"
@@ -29436,7 +29435,7 @@ export const WORDS = [
     "exampleVi": "Tốc độ màn trập nhanh giúp đóng băng chuyển động bay lượn nhanh của chim trên không trung.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/shutter.webp",
+    "img": "assets/images/words/s/shutter.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-10"
     ],
@@ -29452,7 +29451,7 @@ export const WORDS = [
     "exampleVi": "Khẩu độ lớn tạo ra hiệu ứng xóa phông nền bokeh rất đẹp mắt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/aperture.webp",
+    "img": "assets/images/words/a/aperture.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-10"
     ],
@@ -29468,7 +29467,7 @@ export const WORDS = [
     "exampleVi": "Chỉnh sửa màu ảnh thô trong phần mềm chỉnh sửa chuyên nghiệp.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/edit.webp",
+    "img": "assets/images/words/e/edit.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-10",
       "top-1000-core-chặng-26"
@@ -29485,7 +29484,7 @@ export const WORDS = [
     "exampleVi": "Áp dụng bộ lọc màu đen trắng cổ điển cho bức ảnh chân dung.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/filter.webp",
+    "img": "assets/images/words/f/filter.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-10"
     ],
@@ -29501,7 +29500,7 @@ export const WORDS = [
     "exampleVi": "Cảm biến 45 megapixel cung cấp độ phân giải cao đáng kinh ngạc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/resolution.webp",
+    "img": "assets/images/words/r/resolution.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-10"
     ],
@@ -29517,7 +29516,7 @@ export const WORDS = [
     "exampleVi": "Họ đã chụp một bức ảnh tự sướng nhóm tươi cười trước đài phun nước.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/selfie.webp",
+    "img": "assets/images/words/s/selfie.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-10",
       "top-1000-core-chặng-96"
@@ -29534,7 +29533,7 @@ export const WORDS = [
     "exampleVi": "Tránh sử dụng đèn flash trực tiếp gắt trong các phòng có ánh sáng tối.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/flash.webp",
+    "img": "assets/images/words/f/flash.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-10"
     ],
@@ -29550,7 +29549,7 @@ export const WORDS = [
     "exampleVi": "Điều chỉnh các thông số phơi sáng để tránh làm cháy sáng các vùng sáng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/exposure.webp",
+    "img": "assets/images/words/e/exposure.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-11"
     ],
@@ -29566,7 +29565,7 @@ export const WORDS = [
     "exampleVi": "Những bức tranh sơn dầu của các bậc thầy thời Phục hưng được treo trong phòng triển lãm.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/painting.webp",
+    "img": "assets/images/words/p/painting.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-11",
       "top-1000-core-chặng-96"
@@ -29583,7 +29582,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã phác thảo một bản vẽ chì tinh xảo về một chú đại bàng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/drawing.webp",
+    "img": "assets/images/words/d/drawing.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-11",
       "top-1000-core-chặng-96"
@@ -29600,7 +29599,7 @@ export const WORDS = [
     "exampleVi": "Các tác phẩm điêu khắc bằng đá cẩm thạch của Michelangelo thể hiện giải phẫu người sống động như thật.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/sculpture.webp",
+    "img": "assets/images/words/s/sculpture.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-11"
     ],
@@ -29616,7 +29615,7 @@ export const WORDS = [
     "exampleVi": "Tạo hình đất sét thô trên bàn xoay là nghệ thuật làm gốm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pottery.webp",
+    "img": "assets/images/words/p/pottery.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-11"
     ],
@@ -29632,7 +29631,7 @@ export const WORDS = [
     "exampleVi": "Họa sĩ đã căng tấm vải vẽ tranh màu trắng sạch sẽ lên các khung gỗ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/canvas.webp",
+    "img": "assets/images/words/c/canvas.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-11"
     ],
@@ -29648,7 +29647,7 @@ export const WORDS = [
     "exampleVi": "Chọn những cây cọ vẽ đầu nhỏ cho các chi tiết chân dung tinh xảo.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/paintbrush.webp",
+    "img": "assets/images/words/p/paintbrush.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-11"
     ],
@@ -29664,7 +29663,7 @@ export const WORDS = [
     "exampleVi": "Kiến trúc sư đã vẽ những bản phác thảo ý tưởng nhanh trong cuốn sổ tay.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/sketch.webp",
+    "img": "assets/images/words/s/sketch.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-11"
     ],
@@ -29680,7 +29679,7 @@ export const WORDS = [
     "exampleVi": "Phòng trưng bày nghệ thuật tư nhân trưng bày các tác phẩm nghệ thuật đương đại hiện đại.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/gallery.webp",
+    "img": "assets/images/words/g/gallery.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-11"
     ],
@@ -29696,7 +29695,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã gấp một con hạc giấy tuyệt đẹp bằng kỹ thuật origami.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/origami.webp",
+    "img": "assets/images/words/o/origami.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-11"
     ],
@@ -29712,7 +29711,7 @@ export const WORDS = [
     "exampleVi": "Đan những chiếc khăn len ấm áp là sở thích mùa đông thư giãn của cô ấy.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/knitting.webp",
+    "img": "assets/images/words/k/knitting.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-12"
     ],
@@ -29728,7 +29727,7 @@ export const WORDS = [
     "exampleVi": "Những chiếc bát gốm tráng men có hoa văn rực rỡ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ceramics.webp",
+    "img": "assets/images/words/c/ceramics.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-12"
     ],
@@ -29744,7 +29743,7 @@ export const WORDS = [
     "exampleVi": "Bóp những gam màu sơn dầu tương phản lên bảng pha màu gỗ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/palette.webp",
+    "img": "assets/images/words/p/palette.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-12"
     ],
@@ -29760,7 +29759,7 @@ export const WORDS = [
     "exampleVi": "Các ông đồ thư pháp truyền thống Việt Nam viết những câu đối Tết may mắn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/calligraphy.webp",
+    "img": "assets/images/words/c/calligraphy.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-12"
     ],
@@ -29776,7 +29775,7 @@ export const WORDS = [
     "exampleVi": "Mona Lisa là kiệt tác nghệ thuật lừng danh để đời của Leonardo da Vinci.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/masterpiece.webp",
+    "img": "assets/images/words/m/masterpiece.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-12"
     ],
@@ -29792,7 +29791,7 @@ export const WORDS = [
     "exampleVi": "Những nghệ nhân đồ gỗ lành nghề chạm khắc những con rồng tinh xảo vào đồ nội thất gỗ tếch.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/craftsman.webp",
+    "img": "assets/images/words/c/craftsman.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-12"
     ],
@@ -29808,7 +29807,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã xem một vở nhạc kịch Broadway tại nhà hát lớn của thành phố.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/theater.webp",
+    "img": "assets/images/words/t/theater.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-12",
       "top-1000-core-chặng-83"
@@ -29825,7 +29824,7 @@ export const WORDS = [
     "exampleVi": "Các lớp học nhảy salsa tiếp thêm năng lượng cho các cặp đôi vào mỗi tối thứ Bảy.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/dance.webp",
+    "img": "assets/images/words/d/dance.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-12",
       "top-1000-core-chặng-96"
@@ -29842,7 +29841,7 @@ export const WORDS = [
     "exampleVi": "Các vũ công ba-lê đã luyện tập những động tác xoay người duyên dáng trong lớp múa.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/ballet.webp",
+    "img": "assets/images/words/b/ballet.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-12"
     ],
@@ -29858,7 +29857,7 @@ export const WORDS = [
     "exampleVi": "The Phantom of the Opera là một vở nhạc kịch nổi tiếng vượt thời gian trên toàn thế giới.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/musical.webp",
+    "img": "assets/images/words/m/musical.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-12"
     ],
@@ -29874,7 +29873,7 @@ export const WORDS = [
     "exampleVi": "Khán giả đã đứng dậy vỗ tay nhiệt liệt vào cuối buổi biểu diễn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/audience.webp",
+    "img": "assets/images/words/a/audience.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-13"
     ],
@@ -29890,7 +29889,7 @@ export const WORDS = [
     "exampleVi": "Các diễn viên đã bước ra sân khấu trung tâm rực sáng ánh đèn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/stage.webp",
+    "img": "assets/images/words/s/stage.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-13"
     ],
@@ -29906,7 +29905,7 @@ export const WORDS = [
     "exampleVi": "Học sinh trong trường đã tập dượt một vở kịch hài của Shakespeare.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/play.webp",
+    "img": "assets/images/words/p/play.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-13",
       "top-1000-core-chặng-96"
@@ -29923,7 +29922,7 @@ export const WORDS = [
     "exampleVi": "Dàn diễn viên đã tổ chức một buổi tổng duyệt trang phục kéo dài bốn tiếng trước đêm mở màn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/rehearsal.webp",
+    "img": "assets/images/words/r/rehearsal.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-13"
     ],
@@ -29939,7 +29938,7 @@ export const WORDS = [
     "exampleVi": "Video âm nhạc hip-hop hiện đại có vũ đạo vô cùng sôi động.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/choreography.webp",
+    "img": "assets/images/words/c/choreography.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-13"
     ],
@@ -29955,7 +29954,7 @@ export const WORDS = [
     "exampleVi": "Một tràng pháo tay rộn rã như sấm vang vọng khắp hội trường.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/applause.webp",
+    "img": "assets/images/words/a/applause.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-13"
     ],
@@ -29971,7 +29970,7 @@ export const WORDS = [
     "exampleVi": "Các giọng nam cao đã biểu diễn những khúc aria opera kinh điển của Ý.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/opera.webp",
+    "img": "assets/images/words/o/opera.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-13"
     ],
@@ -29987,7 +29986,7 @@ export const WORDS = [
     "exampleVi": "Việc thay trang phục và trang điểm diễn ra tại khu hậu trường bận rộn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/backstage.webp",
+    "img": "assets/images/words/b/backstage.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-13"
     ],
@@ -30003,7 +30002,7 @@ export const WORDS = [
     "exampleVi": "Đèn chiếu rọi đã dõi theo vũ công đơn ca dọc sàn sân khấu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/spotlight.webp",
+    "img": "assets/images/words/s/spotlight.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-13"
     ],
@@ -30019,7 +30018,7 @@ export const WORDS = [
     "exampleVi": "Làm vườn và vẽ tranh sơn dầu là những sở thích cuối tuần thư giãn.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/hobby.webp",
+    "img": "assets/images/words/h/hobby.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-13",
       "top-1000-core-chặng-96"
@@ -30036,7 +30035,7 @@ export const WORDS = [
     "exampleVi": "Bố tôi đi câu cá trên hồ thanh bình vào mỗi sáng sớm Chủ nhật.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/fishing.webp",
+    "img": "assets/images/words/f/fishing.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-14",
       "top-1000-core-chặng-96"
@@ -30053,7 +30052,7 @@ export const WORDS = [
     "exampleVi": "Làm vườn mang lại những bữa rau hữu cơ tươi ngon cho bàn ăn của chúng tôi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/gardening.webp",
+    "img": "assets/images/words/g/gardening.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-14"
     ],
@@ -30069,7 +30068,7 @@ export const WORDS = [
     "exampleVi": "Lũ trẻ thả những cánh diều hình rồng sặc sỡ trong công viên lộng gió.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/kite.webp",
+    "img": "assets/images/words/k/kite.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-14",
       "top-1000-core-chặng-97"
@@ -30086,7 +30085,7 @@ export const WORDS = [
     "exampleVi": "Mang theo ống nhòm khi đi ngắm chim ở các khu bảo tồn ngập nước.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/birdwatching.webp",
+    "img": "assets/images/words/b/birdwatching.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-14"
     ],
@@ -30102,7 +30101,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã sưu tầm những con tem bưu chính cổ trong suốt hai mươi năm.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/collect.webp",
+    "img": "assets/images/words/c/collect.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-14",
       "top-1000-core-chặng-26"
@@ -30119,7 +30118,7 @@ export const WORDS = [
     "exampleVi": "Bộ sưu tập tiền xu của cô ấy bao gồm những đồng bạc La Mã cổ đại quý hiếm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/collection.webp",
+    "img": "assets/images/words/c/collection.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-14"
     ],
@@ -30135,7 +30134,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã đóng gói bánh mì kẹp và nước chanh tươi cho buổi dã ngoại trong công viên.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/picnic.webp",
+    "img": "assets/images/words/p/picnic.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-14",
       "top-1000-core-chặng-97"
@@ -30152,7 +30151,7 @@ export const WORDS = [
     "exampleVi": "Các trò chơi cờ bàn gia đình mang lại tiếng cười và sự thi đấu thân thiện.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/board-game.webp",
+    "img": "assets/images/words/b/board-game.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-14"
     ],
@@ -30168,7 +30167,7 @@ export const WORDS = [
     "exampleVi": "Cờ vua rèn giũa khả năng nhìn xa chiến thuật và tính toán chiến lược.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/chess.webp",
+    "img": "assets/images/words/c/chess.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-14"
     ],
@@ -30184,7 +30183,7 @@ export const WORDS = [
     "exampleVi": "Lắp ráp một bức tranh ghép hình 1000 mảnh đòi hỏi sự kiên nhẫn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/puzzle.webp",
+    "img": "assets/images/words/p/puzzle.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-14"
     ],
@@ -30200,7 +30199,7 @@ export const WORDS = [
     "exampleVi": "Dành những giờ phút rảnh rỗi để theo đuổi những đam mê sáng tạo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/leisure.webp",
+    "img": "assets/images/words/l/leisure.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-15"
     ],
@@ -30216,7 +30215,7 @@ export const WORDS = [
     "exampleVi": "Các cặp đôi tản bộ thong thả dọc theo con đường ven hồ thanh bình lúc hoàng hôn.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/stroll.webp",
+    "img": "assets/images/words/s/stroll.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-15",
       "top-1000-core-chặng-26"
@@ -30233,7 +30232,7 @@ export const WORDS = [
     "exampleVi": "Nghe tiếng mưa rơi mang lại một cảm giác thư giãn tuyệt đối.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/relaxation.webp",
+    "img": "assets/images/words/r/relaxation.webp",
     "topicIds": [
       "entertainment-hobbies-chặng-15"
     ],
@@ -30249,7 +30248,7 @@ export const WORDS = [
     "exampleVi": "Máy vi tính hiện đại thực hiện các phép tính phức tạp chỉ trong vài phần nghìn giây.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/computer.webp",
+    "img": "assets/images/words/c/computer.webp",
     "topicIds": [
       "technology-internet-chặng-1",
       "top-1000-core-chặng-89"
@@ -30266,7 +30265,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy trượt chiếc máy tính xách tay siêu nhẹ của mình vào ba lô.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/laptop.webp",
+    "img": "assets/images/words/l/laptop.webp",
     "topicIds": [
       "technology-internet-chặng-1",
       "top-1000-core-chặng-89"
@@ -30283,7 +30282,7 @@ export const WORDS = [
     "exampleVi": "Bàn phím cơ mang lại cảm giác gõ phím xúc giác rất đã tay.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/keyboard.webp",
+    "img": "assets/images/words/k/keyboard.webp",
     "topicIds": [
       "technology-internet-chặng-1",
       "top-1000-core-chặng-90"
@@ -30300,7 +30299,7 @@ export const WORDS = [
     "exampleVi": "Nhấp chuột trái để mở tệp tin.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/mouse.webp",
+    "img": "assets/images/words/m/mouse.webp",
     "topicIds": [
       "technology-internet-chặng-1",
       "top-1000-core-chặng-90"
@@ -30317,7 +30316,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã kết nối thêm một màn hình 4K 27 inch phụ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/monitor.webp",
+    "img": "assets/images/words/m/monitor.webp",
     "topicIds": [
       "technology-internet-chặng-1"
     ],
@@ -30333,7 +30332,7 @@ export const WORDS = [
     "exampleVi": "Nâng cấp phần cứng bên trong để chạy các công cụ thiết kế đồ họa nặng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/hardware.webp",
+    "img": "assets/images/words/h/hardware.webp",
     "topicIds": [
       "technology-internet-chặng-1"
     ],
@@ -30349,7 +30348,7 @@ export const WORDS = [
     "exampleVi": "Bộ vi xử lý 8 nhân mang lại tốc độ tính toán nhanh như chớp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/processor.webp",
+    "img": "assets/images/words/p/processor.webp",
     "topicIds": [
       "technology-internet-chặng-1"
     ],
@@ -30365,7 +30364,7 @@ export const WORDS = [
     "exampleVi": "Ổ cứng thể rắn (SSD) khởi động hệ điều hành ngay tức thì.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/hard-drive.webp",
+    "img": "assets/images/words/h/hard-drive.webp",
     "topicIds": [
       "technology-internet-chặng-1"
     ],
@@ -30381,7 +30380,7 @@ export const WORDS = [
     "exampleVi": "Hãy đảm bảo máy trạm của bạn có ít nhất 16GB RAM.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ram.webp",
+    "img": "assets/images/words/r/ram.webp",
     "topicIds": [
       "technology-internet-chặng-1"
     ],
@@ -30397,7 +30396,7 @@ export const WORDS = [
     "exampleVi": "Cắm ổ flash vào cổng USB phía trước.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/usb.webp",
+    "img": "assets/images/words/u/usb.webp",
     "topicIds": [
       "technology-internet-chặng-1"
     ],
@@ -30413,7 +30412,7 @@ export const WORDS = [
     "exampleVi": "Card đồ họa cắm trực tiếp vào bo mạch chủ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/motherboard.webp",
+    "img": "assets/images/words/m/motherboard.webp",
     "topicIds": [
       "technology-internet-chặng-2"
     ],
@@ -30429,7 +30428,7 @@ export const WORDS = [
     "exampleVi": "Kết nối loa bluetooth ngoài để có âm trầm vòm phong phú.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/speaker.webp",
+    "img": "assets/images/words/s/speaker.webp",
     "topicIds": [
       "technology-internet-chặng-2",
       "top-1000-core-chặng-90"
@@ -30446,7 +30445,7 @@ export const WORDS = [
     "exampleVi": "Bật webcam HD của bạn trong các cuộc gọi hội nghị video.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/webcam.webp",
+    "img": "assets/images/words/w/webcam.webp",
     "topicIds": [
       "technology-internet-chặng-2"
     ],
@@ -30462,7 +30461,7 @@ export const WORDS = [
     "exampleVi": "Sử dụng micrô chống ồn để thu podcast giọng nói rõ ràng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/microphone.webp",
+    "img": "assets/images/words/m/microphone.webp",
     "topicIds": [
       "technology-internet-chặng-2"
     ],
@@ -30478,7 +30477,7 @@ export const WORDS = [
     "exampleVi": "Card đồ họa cao cấp hiển thị hình ảnh trò chơi 3D chân thực.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/graphics-card.webp",
+    "img": "assets/images/words/g/graphics-card.webp",
     "topicIds": [
       "technology-internet-chặng-2"
     ],
@@ -30494,7 +30493,7 @@ export const WORDS = [
     "exampleVi": "Cài đặt phần mềm diệt virus để bảo vệ chống lại các mối đe dọa phần mềm độc hại.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/software.webp",
+    "img": "assets/images/words/s/software.webp",
     "topicIds": [
       "technology-internet-chặng-2"
     ],
@@ -30510,7 +30509,7 @@ export const WORDS = [
     "exampleVi": "Windows, macOS và Linux là các hệ điều hành máy tính để bàn lớn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/operating-system.webp",
+    "img": "assets/images/words/o/operating-system.webp",
     "topicIds": [
       "technology-internet-chặng-2"
     ],
@@ -30526,7 +30525,7 @@ export const WORDS = [
     "exampleVi": "Tải ứng dụng thẻ flashcard từ vựng về máy tính bảng của bạn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/application.webp",
+    "img": "assets/images/words/a/application.webp",
     "topicIds": [
       "technology-internet-chặng-2"
     ],
@@ -30542,7 +30541,7 @@ export const WORDS = [
     "exampleVi": "Google Chrome và Firefox là các trình duyệt web phổ biến.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/browser.webp",
+    "img": "assets/images/words/b/browser.webp",
     "topicIds": [
       "technology-internet-chặng-2"
     ],
@@ -30558,7 +30557,7 @@ export const WORDS = [
     "exampleVi": "Làm theo các hướng dẫn trên màn hình để cài đặt bản cập nhật mới.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/install.webp",
+    "img": "assets/images/words/i/install.webp",
     "topicIds": [
       "technology-internet-chặng-2",
       "top-1000-core-chặng-26"
@@ -30575,7 +30574,7 @@ export const WORDS = [
     "exampleVi": "Gỡ cài đặt các ứng dụng không dùng để giải phóng dung lượng ổ cứng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/uninstall.webp",
+    "img": "assets/images/words/u/uninstall.webp",
     "topicIds": [
       "technology-internet-chặng-3",
       "top-1000-core-chặng-33"
@@ -30592,7 +30591,7 @@ export const WORDS = [
     "exampleVi": "Hãy luôn cập nhật hệ điều hành điện thoại để đảm bảo an ninh.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/update.webp",
+    "img": "assets/images/words/u/update.webp",
     "topicIds": [
       "technology-internet-chặng-3",
       "top-1000-core-chặng-26"
@@ -30609,7 +30608,7 @@ export const WORDS = [
     "exampleVi": "Đội ngũ kỹ thuật đã vá một lỗi bảo mật đăng nhập nghiêm trọng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bug.webp",
+    "img": "assets/images/words/b/bug.webp",
     "topicIds": [
       "technology-internet-chặng-3"
     ],
@@ -30625,7 +30624,7 @@ export const WORDS = [
     "exampleVi": "Ứng dụng chỉnh sửa đã bị sập trước khi tôi kịp lưu dự án của mình.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/crash-verb.webp",
+    "img": "assets/images/words/c/crash-verb.webp",
     "topicIds": [
       "technology-internet-chặng-3",
       "top-1000-core-chặng-26"
@@ -30642,7 +30641,7 @@ export const WORDS = [
     "exampleVi": "Tính năng giao diện tối giúp giảm mỏi mắt khi học vào ban đêm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/feature.webp",
+    "img": "assets/images/words/f/feature.webp",
     "topicIds": [
       "technology-internet-chặng-3"
     ],
@@ -30658,7 +30657,7 @@ export const WORDS = [
     "exampleVi": "Giao diện người dùng bóng bẩy, trực quan làm hài lòng người dùng di động.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/user-interface.webp",
+    "img": "assets/images/words/u/user-interface.webp",
     "topicIds": [
       "technology-internet-chặng-3"
     ],
@@ -30674,7 +30673,7 @@ export const WORDS = [
     "exampleVi": "Điều chỉnh cài đặt âm thanh thông báo trong phần tùy chọn.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/settings.webp",
+    "img": "assets/images/words/s/settings.webp",
     "topicIds": [
       "technology-internet-chặng-3",
       "top-1000-core-chặng-90"
@@ -30691,7 +30690,7 @@ export const WORDS = [
     "exampleVi": "Khởi động lại máy tính của bạn sau khi cài đặt các bản cập nhật trình điều khiển lớn.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/reboot.webp",
+    "img": "assets/images/words/r/reboot.webp",
     "topicIds": [
       "technology-internet-chặng-3",
       "top-1000-core-chặng-33"
@@ -30708,7 +30707,7 @@ export const WORDS = [
     "exampleVi": "Phần mềm miễn phí mã nguồn mở cung cấp các công cụ chỉnh sửa ảnh mạnh mẽ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/freeware.webp",
+    "img": "assets/images/words/f/freeware.webp",
     "topicIds": [
       "technology-internet-chặng-3"
     ],
@@ -30724,7 +30723,7 @@ export const WORDS = [
     "exampleVi": "Mua giấy phép bản quyền phần mềm thương mại nhiều người dùng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/license.webp",
+    "img": "assets/images/words/l/license.webp",
     "topicIds": [
       "technology-internet-chặng-3"
     ],
@@ -30740,7 +30739,7 @@ export const WORDS = [
     "exampleVi": "Mạng internet kết nối hàng tỷ người và thiết bị ngay lập tức.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/internet.webp",
+    "img": "assets/images/words/i/internet.webp",
     "topicIds": [
       "technology-internet-chặng-4",
       "top-1000-core-chặng-90"
@@ -30757,7 +30756,7 @@ export const WORDS = [
     "exampleVi": "Mật khẩu của mạng Wi-Fi quán cà phê là gì vậy?",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/wi-fi.webp",
+    "img": "assets/images/words/w/wi-fi.webp",
     "topicIds": [
       "technology-internet-chặng-4",
       "top-1000-core-chặng-90"
@@ -30774,7 +30773,7 @@ export const WORDS = [
     "exampleVi": "Mạng cáp quang băng thông rộng tốc độ cao truyền phát video 4K không bị giật.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/broadband.webp",
+    "img": "assets/images/words/b/broadband.webp",
     "topicIds": [
       "technology-internet-chặng-4"
     ],
@@ -30790,7 +30789,7 @@ export const WORDS = [
     "exampleVi": "Khởi động lại bộ phát Wi-Fi gia đình nếu bị mất kết nối.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/router.webp",
+    "img": "assets/images/words/r/router.webp",
     "topicIds": [
       "technology-internet-chặng-4"
     ],
@@ -30806,7 +30805,7 @@ export const WORDS = [
     "exampleVi": "Xem video trực tuyến tiêu tốn lượng băng thông internet đáng kể.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/bandwidth.webp",
+    "img": "assets/images/words/b/bandwidth.webp",
     "topicIds": [
       "technology-internet-chặng-4"
     ],
@@ -30822,7 +30821,7 @@ export const WORDS = [
     "exampleVi": "Tải xuống các tệp phát âm âm thanh để học tập ngoại tuyến.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/download.webp",
+    "img": "assets/images/words/d/download.webp",
     "topicIds": [
       "technology-internet-chặng-4",
       "top-1000-core-chặng-26"
@@ -30839,7 +30838,7 @@ export const WORDS = [
     "exampleVi": "Tải các tệp dự án đã hoàn thành của bạn lên Google Drive.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/upload.webp",
+    "img": "assets/images/words/u/upload.webp",
     "topicIds": [
       "technology-internet-chặng-4",
       "top-1000-core-chặng-27"
@@ -30856,7 +30855,7 @@ export const WORDS = [
     "exampleVi": "Ứng dụng thẻ từ này chạy 100% ưu tiên ngoại tuyến bằng IndexedDB.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/offline.webp",
+    "img": "assets/images/words/o/offline.webp",
     "topicIds": [
       "technology-internet-chặng-4",
       "top-1000-core-chặng-90"
@@ -30873,7 +30872,7 @@ export const WORDS = [
     "exampleVi": "Tham gia phòng học tiếng Anh trực tuyến tương tác hàng tuần của chúng tôi.",
     "level": "A1",
     "pos": "adjective",
-    "img": "assets/images/words/online.webp",
+    "img": "assets/images/words/o/online.webp",
     "topicIds": [
       "technology-internet-chặng-4",
       "top-1000-core-chặng-84"
@@ -30890,7 +30889,7 @@ export const WORDS = [
     "exampleVi": "Ghé thăm trang web giáo dục của chúng tôi để nhận tài liệu học tập miễn phí.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/website.webp",
+    "img": "assets/images/words/w/website.webp",
     "topicIds": [
       "technology-internet-chặng-4",
       "top-1000-core-chặng-90"
@@ -30907,7 +30906,7 @@ export const WORDS = [
     "exampleVi": "Sao chép và dán đường dẫn liên kết URL vào thanh địa chỉ trình duyệt.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/url.webp",
+    "img": "assets/images/words/u/url.webp",
     "topicIds": [
       "technology-internet-chặng-5"
     ],
@@ -30923,7 +30922,7 @@ export const WORDS = [
     "exampleVi": "Nhấp vào siêu liên kết màu xanh để xem định nghĩa từ điển.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/hyperlink.webp",
+    "img": "assets/images/words/h/hyperlink.webp",
     "topicIds": [
       "technology-internet-chặng-5"
     ],
@@ -30939,7 +30938,7 @@ export const WORDS = [
     "exampleVi": "Máy chủ web đã xử lý hơn một triệu yêu cầu mỗi giây.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/server.webp",
+    "img": "assets/images/words/s/server.webp",
     "topicIds": [
       "technology-internet-chặng-5"
     ],
@@ -30955,7 +30954,7 @@ export const WORDS = [
     "exampleVi": "Cắm cáp mạng Ethernet để có tốc độ chơi game tối đa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ethernet.webp",
+    "img": "assets/images/words/e/ethernet.webp",
     "topicIds": [
       "technology-internet-chặng-5"
     ],
@@ -30971,7 +30970,7 @@ export const WORDS = [
     "exampleVi": "Độ trễ thấp là điều tối quan trọng đối với chơi game thi đấu nhiều người.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/latency.webp",
+    "img": "assets/images/words/l/latency.webp",
     "topicIds": [
       "technology-internet-chặng-5"
     ],
@@ -30987,7 +30986,7 @@ export const WORDS = [
     "exampleVi": "Điện thoại thông minh đã cách mạng hóa cách thức con người giao tiếp.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/smartphone.webp",
+    "img": "assets/images/words/s/smartphone.webp",
     "topicIds": [
       "technology-internet-chặng-5",
       "top-1000-core-chặng-90"
@@ -31004,7 +31003,7 @@ export const WORDS = [
     "exampleVi": "Chụm và phóng to bằng hai ngón tay trên màn hình cảm ứng OLED.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/touchscreen.webp",
+    "img": "assets/images/words/t/touchscreen.webp",
     "topicIds": [
       "technology-internet-chặng-5"
     ],
@@ -31020,7 +31019,7 @@ export const WORDS = [
     "exampleVi": "Viên pin dung lượng lớn 5000mAh dùng được tới hai ngày.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/battery.webp",
+    "img": "assets/images/words/b/battery.webp",
     "topicIds": [
       "technology-internet-chặng-5",
       "top-1000-core-chặng-90"
@@ -31037,7 +31036,7 @@ export const WORDS = [
     "exampleVi": "Cắm củ sạc nhanh vào ổ cắm điện trên tường.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/charger.webp",
+    "img": "assets/images/words/c/charger.webp",
     "topicIds": [
       "technology-internet-chặng-5",
       "top-1000-core-chặng-91"
@@ -31054,7 +31053,7 @@ export const WORDS = [
     "exampleVi": "Mang theo một cục sạc dự phòng nhỏ gọn trong các chuyến đi cả ngày.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/power-bank.webp",
+    "img": "assets/images/words/p/power-bank.webp",
     "topicIds": [
       "technology-internet-chặng-5"
     ],
@@ -31070,7 +31069,7 @@ export const WORDS = [
     "exampleVi": "Đồng hồ thông minh theo dõi số bước chân và nhịp tim hàng ngày.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/smartwatch.webp",
+    "img": "assets/images/words/s/smartwatch.webp",
     "topicIds": [
       "technology-internet-chặng-6"
     ],
@@ -31086,7 +31085,7 @@ export const WORDS = [
     "exampleVi": "Tai nghe nhét tai không dây kết nối mượt mà với điện thoại thông minh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/earbuds.webp",
+    "img": "assets/images/words/e/earbuds.webp",
     "topicIds": [
       "technology-internet-chặng-6"
     ],
@@ -31102,7 +31101,7 @@ export const WORDS = [
     "exampleVi": "Bật Bluetooth để đồng bộ dữ liệu với vòng đeo tay thể dục.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bluetooth.webp",
+    "img": "assets/images/words/b/bluetooth.webp",
     "topicIds": [
       "technology-internet-chặng-6"
     ],
@@ -31118,7 +31117,7 @@ export const WORDS = [
     "exampleVi": "Một chiếc ốp lưng điện thoại bằng silicon chống sốc giúp bảo vệ khỏi rơi vỡ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/phone-case.webp",
+    "img": "assets/images/words/p/phone-case.webp",
     "topicIds": [
       "technology-internet-chặng-6"
     ],
@@ -31134,7 +31133,7 @@ export const WORDS = [
     "exampleVi": "Dán một miếng dán cường lực bằng kính để tránh trầy xước.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/screen-protector.webp",
+    "img": "assets/images/words/s/screen-protector.webp",
     "topicIds": [
       "technology-internet-chặng-6"
     ],
@@ -31150,7 +31149,7 @@ export const WORDS = [
     "exampleVi": "Lắp thẻ SIM trả trước địa phương khi đến một quốc gia mới.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/sim-card.webp",
+    "img": "assets/images/words/s/sim-card.webp",
     "topicIds": [
       "technology-internet-chặng-6"
     ],
@@ -31166,7 +31165,7 @@ export const WORDS = [
     "exampleVi": "Tắt các thông báo không cần thiết để duy trì sự tập trung sâu.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/notification.webp",
+    "img": "assets/images/words/n/notification.webp",
     "topicIds": [
       "technology-internet-chặng-6"
     ],
@@ -31182,7 +31181,7 @@ export const WORDS = [
     "exampleVi": "Vuốt sang trái để chuyển sang thẻ từ vựng tiếp theo.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/swipe.webp",
+    "img": "assets/images/words/s/swipe.webp",
     "topicIds": [
       "technology-internet-chặng-6",
       "top-1000-core-chặng-27"
@@ -31199,7 +31198,7 @@ export const WORDS = [
     "exampleVi": "Các nền tảng mạng xã hội kết nối bạn bè trên khắp các châu lục.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/social-media.webp",
+    "img": "assets/images/words/s/social-media.webp",
     "topicIds": [
       "technology-internet-chặng-6"
     ],
@@ -31215,7 +31214,7 @@ export const WORDS = [
     "exampleVi": "Cập nhật ảnh đại diện trang cá nhân bằng một bức ảnh chuyên nghiệp.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/profile.webp",
+    "img": "assets/images/words/p/profile.webp",
     "topicIds": [
       "technology-internet-chặng-6"
     ],
@@ -31231,7 +31230,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã đăng những bức ảnh du lịch tuyệt đẹp lên Instagram.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/post.webp",
+    "img": "assets/images/words/p/post.webp",
     "topicIds": [
       "technology-internet-chặng-7",
       "top-1000-core-chặng-16"
@@ -31248,7 +31247,7 @@ export const WORDS = [
     "exampleVi": "Hãy chia sẻ cẩm nang học tiếng Anh bổ ích này cho bạn cùng lớp.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/share-verb.webp",
+    "img": "assets/images/words/s/share-verb.webp",
     "topicIds": [
       "technology-internet-chặng-7",
       "top-1000-core-chặng-16"
@@ -31265,7 +31264,7 @@ export const WORDS = [
     "exampleVi": "Để lại một bình luận lịch sự dưới video hướng dẫn học tập.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/comment.webp",
+    "img": "assets/images/words/c/comment.webp",
     "topicIds": [
       "technology-internet-chặng-7"
     ],
@@ -31281,7 +31280,7 @@ export const WORDS = [
     "exampleVi": "Thầy giáo dạy ngôn ngữ đã đạt được 100.000 người theo dõi trên TikTok.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/follower.webp",
+    "img": "assets/images/words/f/follower.webp",
     "topicIds": [
       "technology-internet-chặng-7"
     ],
@@ -31297,7 +31296,7 @@ export const WORDS = [
     "exampleVi": "Hãy đăng ký kênh YouTube của chúng tôi để nhận các bài học ngữ pháp hàng tuần.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/subscribe.webp",
+    "img": "assets/images/words/s/subscribe.webp",
     "topicIds": [
       "technology-internet-chặng-7",
       "top-1000-core-chặng-27"
@@ -31314,7 +31313,7 @@ export const WORDS = [
     "exampleVi": "Những người có ảnh hưởng về phong cách sống hàng đầu quảng bá các thương hiệu thân thiện môi trường.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/influencer.webp",
+    "img": "assets/images/words/i/influencer.webp",
     "topicIds": [
       "technology-internet-chặng-7"
     ],
@@ -31330,7 +31329,7 @@ export const WORDS = [
     "exampleVi": "Video chú mèo hài hước của cô ấy đã lan truyền chóng mặt với 10 triệu lượt xem.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/viral.webp",
+    "img": "assets/images/words/v/viral.webp",
     "topicIds": [
       "technology-internet-chặng-7"
     ],
@@ -31346,7 +31345,7 @@ export const WORDS = [
     "exampleVi": "Gắn thẻ bài viết của bạn với #LearnEnglishDaily để tham gia cộng đồng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/hashtag.webp",
+    "img": "assets/images/words/h/hashtag.webp",
     "topicIds": [
       "technology-internet-chặng-7"
     ],
@@ -31362,7 +31361,7 @@ export const WORDS = [
     "exampleVi": "Tham gia buổi phát sóng trực tiếp hỏi đáp vào 8 giờ tối Chủ nhật này.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/livestream.webp",
+    "img": "assets/images/words/l/livestream.webp",
     "topicIds": [
       "technology-internet-chặng-7"
     ],
@@ -31378,7 +31377,7 @@ export const WORDS = [
     "exampleVi": "Gửi tin nhắn riêng (DM) để trao đổi về tài trợ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/direct-message.webp",
+    "img": "assets/images/words/d/direct-message.webp",
     "topicIds": [
       "technology-internet-chặng-7"
     ],
@@ -31394,7 +31393,7 @@ export const WORDS = [
     "exampleVi": "Gắn thẻ ba người bạn đang chuẩn bị thi IELTS.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/tag.webp",
+    "img": "assets/images/words/t/tag.webp",
     "topicIds": [
       "technology-internet-chặng-8",
       "top-1000-core-chặng-27"
@@ -31411,7 +31410,7 @@ export const WORDS = [
     "exampleVi": "Video ngắn dạng dọc đang là xu hướng nội dung thống trị.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/trend.webp",
+    "img": "assets/images/words/t/trend.webp",
     "topicIds": [
       "technology-internet-chặng-8"
     ],
@@ -31427,7 +31426,7 @@ export const WORDS = [
     "exampleVi": "Lướt qua bảng tin để khám phá những câu chuyện đang thịnh hành.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/feed.webp",
+    "img": "assets/images/words/f/feed.webp",
     "topicIds": [
       "technology-internet-chặng-8"
     ],
@@ -31443,7 +31442,7 @@ export const WORDS = [
     "exampleVi": "Các chuyên viên phân tích an ninh mạng bảo vệ hệ thống khỏi sự xâm nhập của tin tặc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cybersecurity.webp",
+    "img": "assets/images/words/c/cybersecurity.webp",
     "topicIds": [
       "technology-internet-chặng-8"
     ],
@@ -31459,7 +31458,7 @@ export const WORDS = [
     "exampleVi": "Tạo một mật khẩu mạnh kết hợp các ký tự đặc biệt và chữ số.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/password.webp",
+    "img": "assets/images/words/p/password.webp",
     "topicIds": [
       "technology-internet-chặng-8",
       "top-1000-core-chặng-91"
@@ -31476,7 +31475,7 @@ export const WORDS = [
     "exampleVi": "Các hacker mũ trắng có đạo đức kiểm tra hệ thống để tìm lỗ hổng bảo mật.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/hacker.webp",
+    "img": "assets/images/words/h/hacker.webp",
     "topicIds": [
       "technology-internet-chặng-8"
     ],
@@ -31492,7 +31491,7 @@ export const WORDS = [
     "exampleVi": "Không bao giờ nhấp vào các tệp đính kèm email đáng ngờ để tránh phần mềm độc hại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/malware.webp",
+    "img": "assets/images/words/m/malware.webp",
     "topicIds": [
       "technology-internet-chặng-8"
     ],
@@ -31508,7 +31507,7 @@ export const WORDS = [
     "exampleVi": "Quét các ổ đĩa USB ngoài thường xuyên để tìm virus máy tính.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/virus.webp",
+    "img": "assets/images/words/v/virus.webp",
     "topicIds": [
       "technology-internet-chặng-8"
     ],
@@ -31524,7 +31523,7 @@ export const WORDS = [
     "exampleVi": "Email lừa đảo đánh lừa người dùng tiết lộ thông tin đăng nhập ngân hàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/phishing.webp",
+    "img": "assets/images/words/p/phishing.webp",
     "topicIds": [
       "technology-internet-chặng-8"
     ],
@@ -31540,7 +31539,7 @@ export const WORDS = [
     "exampleVi": "Mã hóa đầu cuối đảm bảo tính bảo mật tuyệt đối cho tin nhắn riêng tư.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/encryption.webp",
+    "img": "assets/images/words/e/encryption.webp",
     "topicIds": [
       "technology-internet-chặng-8"
     ],
@@ -31556,7 +31555,7 @@ export const WORDS = [
     "exampleVi": "Tường lửa doanh nghiệp đã ngăn chặn các nỗ lực xâm nhập trái phép.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/firewall.webp",
+    "img": "assets/images/words/f/firewall.webp",
     "topicIds": [
       "technology-internet-chặng-9"
     ],
@@ -31572,7 +31571,7 @@ export const WORDS = [
     "exampleVi": "Đọc các chính sách quyền riêng tư của trang web liên quan đến việc thu thập dữ liệu cá nhân.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/privacy.webp",
+    "img": "assets/images/words/p/privacy.webp",
     "topicIds": [
       "technology-internet-chặng-9"
     ],
@@ -31588,7 +31587,7 @@ export const WORDS = [
     "exampleVi": "Bật tính năng xác thực hai yếu tố (2FA) cho tất cả các tài khoản quan trọng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/authentication.webp",
+    "img": "assets/images/words/a/authentication.webp",
     "topicIds": [
       "technology-internet-chặng-9"
     ],
@@ -31604,7 +31603,7 @@ export const WORDS = [
     "exampleVi": "Các nhà phát triển phần mềm đã phát hành bản vá khẩn cấp cho lỗ hổng bảo mật zero-day.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/vulnerability.webp",
+    "img": "assets/images/words/v/vulnerability.webp",
     "topicIds": [
       "technology-internet-chặng-9"
     ],
@@ -31620,7 +31619,7 @@ export const WORDS = [
     "exampleVi": "Sự cố rò rỉ dữ liệu lớn đã làm lộ hàng triệu mật khẩu của khách hàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/data-breach.webp",
+    "img": "assets/images/words/d/data-breach.webp",
     "topicIds": [
       "technology-internet-chặng-9"
     ],
@@ -31636,7 +31635,7 @@ export const WORDS = [
     "exampleVi": "Bảo vệ số căn cước của bạn để tránh bị đánh cắp danh tính.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/identity-theft.webp",
+    "img": "assets/images/words/i/identity-theft.webp",
     "topicIds": [
       "technology-internet-chặng-9"
     ],
@@ -31652,7 +31651,7 @@ export const WORDS = [
     "exampleVi": "FaceID và cảm biến vân tay cung cấp tính năng mở khóa sinh trắc học an toàn.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/biometric.webp",
+    "img": "assets/images/words/b/biometric.webp",
     "topicIds": [
       "technology-internet-chặng-9"
     ],
@@ -31668,7 +31667,7 @@ export const WORDS = [
     "exampleVi": "Lưu trữ các tài liệu quan trọng của bạn an toàn lên đám mây.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/cloud.webp",
+    "img": "assets/images/words/c/cloud.webp",
     "topicIds": [
       "technology-internet-chặng-9"
     ],
@@ -31684,7 +31683,7 @@ export const WORDS = [
     "exampleVi": "Google Drive và Dropbox cung cấp các gói lưu trữ đám mây đáng tin cậy.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cloud-storage.webp",
+    "img": "assets/images/words/c/cloud-storage.webp",
     "topicIds": [
       "technology-internet-chặng-9"
     ],
@@ -31700,7 +31699,7 @@ export const WORDS = [
     "exampleVi": "Luôn duy trì một bản sao lưu tự động hàng ngày cho cơ sở dữ liệu của bạn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/backup.webp",
+    "img": "assets/images/words/b/backup.webp",
     "topicIds": [
       "technology-internet-chặng-9"
     ],
@@ -31716,7 +31715,7 @@ export const WORDS = [
     "exampleVi": "Thẻ học flashcard của bạn tự động đồng bộ trên cả điện thoại và máy tính bảng.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/sync.webp",
+    "img": "assets/images/words/s/sync.webp",
     "topicIds": [
       "technology-internet-chặng-10",
       "top-1000-core-chặng-27"
@@ -31733,7 +31732,7 @@ export const WORDS = [
     "exampleVi": "Phân tích dữ liệu lớn tiết lộ các xu hướng hành vi mua sắm của người tiêu dùng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/big-data.webp",
+    "img": "assets/images/words/b/big-data.webp",
     "topicIds": [
       "technology-internet-chặng-10",
       "top-1000-core-chặng-84"
@@ -31750,7 +31749,7 @@ export const WORDS = [
     "exampleVi": "Các gã khổng lồ công nghệ vận hành các trung tâm dữ liệu siêu lớn tiết kiệm năng lượng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/data-center.webp",
+    "img": "assets/images/words/d/data-center.webp",
     "topicIds": [
       "technology-internet-chặng-10"
     ],
@@ -31766,7 +31765,7 @@ export const WORDS = [
     "exampleVi": "Doanh nghiệp đã hoàn thành việc chuyển đổi toàn bộ lên đám mây đúng hạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/migration.webp",
+    "img": "assets/images/words/m/migration.webp",
     "topicIds": [
       "technology-internet-chặng-10"
     ],
@@ -31782,7 +31781,7 @@ export const WORDS = [
     "exampleVi": "Nâng cấp dung lượng lưu trữ đám mây của bạn lên 2 Terabyte.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/storage-capacity.webp",
+    "img": "assets/images/words/s/storage-capacity.webp",
     "topicIds": [
       "technology-internet-chặng-10"
     ],
@@ -31798,7 +31797,7 @@ export const WORDS = [
     "exampleVi": "Dễ dàng khôi phục tiến độ học thẻ của bạn từ tệp sao lưu JSON.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/restore.webp",
+    "img": "assets/images/words/r/restore.webp",
     "topicIds": [
       "technology-internet-chặng-10",
       "top-1000-core-chặng-33"
@@ -31815,7 +31814,7 @@ export const WORDS = [
     "exampleVi": "Xuất nhật ký học tập của bạn thành bảng tính CSV dễ đọc.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/export.webp",
+    "img": "assets/images/words/e/export.webp",
     "topicIds": [
       "technology-internet-chặng-10",
       "top-1000-core-chặng-27"
@@ -31832,7 +31831,7 @@ export const WORDS = [
     "exampleVi": "Nhập các bộ từ vựng tùy chỉnh trực tiếp vào ứng dụng.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/import.webp",
+    "img": "assets/images/words/i/import.webp",
     "topicIds": [
       "technology-internet-chặng-10",
       "top-1000-core-chặng-27"
@@ -31849,7 +31848,7 @@ export const WORDS = [
     "exampleVi": "Phân tích dữ liệu giúp giáo viên xác định những điểm yếu của học sinh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/data-analytics.webp",
+    "img": "assets/images/words/d/data-analytics.webp",
     "topicIds": [
       "technology-internet-chặng-10"
     ],
@@ -31865,7 +31864,7 @@ export const WORDS = [
     "exampleVi": "JSON là một định dạng tệp tin trao đổi dữ liệu gọn nhẹ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/file-format.webp",
+    "img": "assets/images/words/f/file-format.webp",
     "topicIds": [
       "technology-internet-chặng-10"
     ],
@@ -31881,7 +31880,7 @@ export const WORDS = [
     "exampleVi": "Xóa bộ nhớ đệm trình duyệt để xem các cập nhật mới nhất của trang web.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cache.webp",
+    "img": "assets/images/words/c/cache.webp",
     "topicIds": [
       "technology-internet-chặng-11"
     ],
@@ -31897,7 +31896,7 @@ export const WORDS = [
     "exampleVi": "Trí tuệ nhân tạo biến đổi ngành y tế, giáo dục và giao thông vận tải.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/artificial-intelligence.webp",
+    "img": "assets/images/words/a/artificial-intelligence.webp",
     "topicIds": [
       "technology-internet-chặng-11"
     ],
@@ -31913,7 +31912,7 @@ export const WORDS = [
     "exampleVi": "Các thuật toán học máy cung cấp sức mạnh cho công cụ tìm kiếm và gợi ý.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/machine-learning.webp",
+    "img": "assets/images/words/m/machine-learning.webp",
     "topicIds": [
       "technology-internet-chặng-11"
     ],
@@ -31929,7 +31928,7 @@ export const WORDS = [
     "exampleVi": "Thuật toán FSRS-6 lên lịch lặp lại các thẻ ngắt quãng với độ chính xác cực cao.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/algorithm.webp",
+    "img": "assets/images/words/a/algorithm.webp",
     "topicIds": [
       "technology-internet-chặng-11"
     ],
@@ -31945,7 +31944,7 @@ export const WORDS = [
     "exampleVi": "Tự động hóa nhà máy giúp đẩy nhanh quá trình sản xuất đồng thời giảm chi phí.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/automation.webp",
+    "img": "assets/images/words/a/automation.webp",
     "topicIds": [
       "technology-internet-chặng-11"
     ],
@@ -31961,7 +31960,7 @@ export const WORDS = [
     "exampleVi": "Robot phẫu thuật hỗ trợ các bác sĩ thực hiện các ca mổ mắt tinh vi.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/robot.webp",
+    "img": "assets/images/words/r/robot.webp",
     "topicIds": [
       "technology-internet-chặng-11",
       "top-1000-core-chặng-91"
@@ -31978,7 +31977,7 @@ export const WORDS = [
     "exampleVi": "Chatbot AI cung cấp dịch vụ hỗ trợ khách hàng tức thì 24/7.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/chatbot.webp",
+    "img": "assets/images/words/c/chatbot.webp",
     "topicIds": [
       "technology-internet-chặng-11"
     ],
@@ -31994,7 +31993,7 @@ export const WORDS = [
     "exampleVi": "Mạng nơ-ron sâu nhận dạng giọng nói và các mẫu hình ảnh phức tạp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/neural-network.webp",
+    "img": "assets/images/words/n/neural-network.webp",
     "topicIds": [
       "technology-internet-chặng-11"
     ],
@@ -32010,7 +32009,7 @@ export const WORDS = [
     "exampleVi": "NLP cho phép dịch tự động chính xác giữa nhiều ngôn ngữ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/natural-language-processing.webp",
+    "img": "assets/images/words/n/natural-language-processing.webp",
     "topicIds": [
       "technology-internet-chặng-11"
     ],
@@ -32026,7 +32025,7 @@ export const WORDS = [
     "exampleVi": "Xe tự lái sử dụng học sâu để phát hiện các chướng ngại vật.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/deep-learning.webp",
+    "img": "assets/images/words/d/deep-learning.webp",
     "topicIds": [
       "technology-internet-chặng-11"
     ],
@@ -32042,7 +32041,7 @@ export const WORDS = [
     "exampleVi": "Viết các câu lệnh nhắc chính xác sẽ tạo ra sự hỗ trợ lập trình AI chất lượng cao.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/prompt.webp",
+    "img": "assets/images/words/p/prompt.webp",
     "topicIds": [
       "technology-internet-chặng-12"
     ],
@@ -32058,7 +32057,7 @@ export const WORDS = [
     "exampleVi": "AI tạo sinh giúp đẩy nhanh thiết kế sáng tạo và sản xuất nội dung.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/generative-ai.webp",
+    "img": "assets/images/words/g/generative-ai.webp",
     "topicIds": [
       "technology-internet-chặng-12"
     ],
@@ -32074,7 +32073,7 @@ export const WORDS = [
     "exampleVi": "Các mô hình ngôn ngữ lớn hiểu được ngữ cảnh và trả lời các câu hỏi tinh tế.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/model.webp",
+    "img": "assets/images/words/m/model.webp",
     "topicIds": [
       "technology-internet-chặng-12"
     ],
@@ -32090,7 +32089,7 @@ export const WORDS = [
     "exampleVi": "Huấn luyện các mô hình AI đòi hỏi các bộ dữ liệu sạch và cân bằng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/dataset.webp",
+    "img": "assets/images/words/d/dataset.webp",
     "topicIds": [
       "technology-internet-chặng-12"
     ],
@@ -32106,7 +32105,7 @@ export const WORDS = [
     "exampleVi": "Web Speech API cung cấp giọng đọc TTS dự phòng để phát âm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tts-text-to-speech.webp",
+    "img": "assets/images/words/t/tts-text-to-speech.webp",
     "topicIds": [
       "technology-internet-chặng-12"
     ],
@@ -32122,7 +32121,7 @@ export const WORDS = [
     "exampleVi": "Phát triển các nguyên tắc đạo đức AI giúp ngăn chặn sự thiên vị và lạm dụng thuật toán.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ethics.webp",
+    "img": "assets/images/words/e/ethics.webp",
     "topicIds": [
       "technology-internet-chặng-12"
     ],
@@ -32138,7 +32137,7 @@ export const WORDS = [
     "exampleVi": "Học lập trình giúp nâng cao kỹ năng giải quyết vấn đề phân tích.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/programming.webp",
+    "img": "assets/images/words/p/programming.webp",
     "topicIds": [
       "technology-internet-chặng-12"
     ],
@@ -32154,7 +32153,7 @@ export const WORDS = [
     "exampleVi": "Viết mã nguồn JavaScript sạch sẽ, mô-đun hóa và dễ bảo trì.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/code.webp",
+    "img": "assets/images/words/c/code.webp",
     "topicIds": [
       "technology-internet-chặng-12"
     ],
@@ -32170,7 +32169,7 @@ export const WORDS = [
     "exampleVi": "Các lập trình viên frontend thiết kế giao diện người dùng đáp ứng linh hoạt.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/developer.webp",
+    "img": "assets/images/words/d/developer.webp",
     "topicIds": [
       "technology-internet-chặng-12"
     ],
@@ -32186,7 +32185,7 @@ export const WORDS = [
     "exampleVi": "Python và JavaScript là những ngôn ngữ lập trình được giảng dạy rộng rãi cho người mới bắt đầu.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/language.webp",
+    "img": "assets/images/words/l/language.webp",
     "topicIds": [
       "technology-internet-chặng-12",
       "top-1000-core-chặng-91"
@@ -32203,7 +32202,7 @@ export const WORDS = [
     "exampleVi": "Viết một hàm có thể tái sử dụng để tính độ bền trí nhớ FSRS.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/function.webp",
+    "img": "assets/images/words/f/function.webp",
     "topicIds": [
       "technology-internet-chặng-13"
     ],
@@ -32219,7 +32218,7 @@ export const WORDS = [
     "exampleVi": "Khai báo các biến số bằng const và let trong JavaScript ES6 hiện đại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/variable.webp",
+    "img": "assets/images/words/v/variable.webp",
     "topicIds": [
       "technology-internet-chặng-13"
     ],
@@ -32235,7 +32234,7 @@ export const WORDS = [
     "exampleVi": "Sử dụng công cụ phát triển trình duyệt để sửa các lỗi thời gian chạy JavaScript.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/debug.webp",
+    "img": "assets/images/words/d/debug.webp",
     "topicIds": [
       "technology-internet-chặng-13",
       "top-1000-core-chặng-33"
@@ -32252,7 +32251,7 @@ export const WORDS = [
     "exampleVi": "JavaScript thuần túy đã được chọn ở đây thay vì các khung phát triển giao diện nặng nề.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/framework.webp",
+    "img": "assets/images/words/f/framework.webp",
     "topicIds": [
       "technology-internet-chặng-13"
     ],
@@ -32268,7 +32267,7 @@ export const WORDS = [
     "exampleVi": "Đẩy các bản cập nhật mã nguồn lên kho lưu trữ GitHub mã nguồn mở của bạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/repository.webp",
+    "img": "assets/images/words/r/repository.webp",
     "topicIds": [
       "technology-internet-chặng-13"
     ],
@@ -32284,7 +32283,7 @@ export const WORDS = [
     "exampleVi": "Các công cụ đóng gói nhanh như esbuild biên dịch và đóng gói mô-đun trong vài phần nghìn giây.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/compile.webp",
+    "img": "assets/images/words/c/compile.webp",
     "topicIds": [
       "technology-internet-chặng-13",
       "top-1000-core-chặng-33"
@@ -32301,7 +32300,7 @@ export const WORDS = [
     "exampleVi": "Lặp qua các phần tử mảng bằng một vòng lặp forEach.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/loop.webp",
+    "img": "assets/images/words/l/loop.webp",
     "topicIds": [
       "technology-internet-chặng-13"
     ],
@@ -32317,7 +32316,7 @@ export const WORDS = [
     "exampleVi": "Lưu trữ các mục flashcard bên trong một mảng các đối tượng JavaScript.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/array.webp",
+    "img": "assets/images/words/a/array.webp",
     "topicIds": [
       "technology-internet-chặng-13"
     ],
@@ -32333,7 +32332,7 @@ export const WORDS = [
     "exampleVi": "Một dấu chấm phẩy bị thiếu đã gây ra một lỗi cú pháp JavaScript nhỏ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/syntax.webp",
+    "img": "assets/images/words/s/syntax.webp",
     "topicIds": [
       "technology-internet-chặng-13"
     ],
@@ -32349,7 +32348,7 @@ export const WORDS = [
     "exampleVi": "Cộng đồng mã nguồn mở hợp tác trên toàn cầu để xây dựng phần mềm.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/open-source.webp",
+    "img": "assets/images/words/o/open-source.webp",
     "topicIds": [
       "technology-internet-chặng-13",
       "top-1000-core-chặng-84"
@@ -32366,7 +32365,7 @@ export const WORDS = [
     "exampleVi": "Triển khai các ứng dụng web trang đơn tĩnh dễ dàng lên các máy chủ đám mây.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/deploy.webp",
+    "img": "assets/images/words/d/deploy.webp",
     "topicIds": [
       "technology-internet-chặng-14",
       "top-1000-core-chặng-33"
@@ -32383,7 +32382,7 @@ export const WORDS = [
     "exampleVi": "Thung lũng Silicon là trung tâm toàn cầu cho các công ty khởi nghiệp công nghệ được tài trợ mạo hiểm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/startup.webp",
+    "img": "assets/images/words/s/startup.webp",
     "topicIds": [
       "technology-internet-chặng-14"
     ],
@@ -32399,7 +32398,7 @@ export const WORDS = [
     "exampleVi": "Đổi mới công nghệ thúc đẩy sự thịnh vượng kinh tế bền vững.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/innovation.webp",
+    "img": "assets/images/words/i/innovation.webp",
     "topicIds": [
       "technology-internet-chặng-14"
     ],
@@ -32415,7 +32414,7 @@ export const WORDS = [
     "exampleVi": "Chuyển đổi số hiện đại hóa các hoạt động ngân hàng truyền thống.",
     "level": "A2",
     "pos": "adjective",
-    "img": "assets/images/words/digital.webp",
+    "img": "assets/images/words/d/digital.webp",
     "topicIds": [
       "technology-internet-chặng-14",
       "top-1000-core-chặng-91"
@@ -32432,7 +32431,7 @@ export const WORDS = [
     "exampleVi": "Các ứng dụng Fintech cung cấp tính năng chuyển tiền vi mô ngang hàng tức thì.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fintech-noun.webp",
+    "img": "assets/images/words/f/fintech-noun.webp",
     "topicIds": [
       "technology-internet-chặng-14"
     ],
@@ -32448,7 +32447,7 @@ export const WORDS = [
     "exampleVi": "Quét mã QR để thanh toán ngay lập tức bằng ví điện tử trên điện thoại.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/e-wallet.webp",
+    "img": "assets/images/words/e/e-wallet.webp",
     "topicIds": [
       "technology-internet-chặng-14"
     ],
@@ -32464,7 +32463,7 @@ export const WORDS = [
     "exampleVi": "Quét mã QR trên bàn nhà hàng để xem thực đơn điện tử.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/qr-code.webp",
+    "img": "assets/images/words/q/qr-code.webp",
     "topicIds": [
       "technology-internet-chặng-14"
     ],
@@ -32480,7 +32479,7 @@ export const WORDS = [
     "exampleVi": "Các dịch vụ phát trực tuyến hoạt động theo mô hình thuê bao hàng tháng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/subscription.webp",
+    "img": "assets/images/words/s/subscription.webp",
     "topicIds": [
       "technology-internet-chặng-14"
     ],
@@ -32496,7 +32495,7 @@ export const WORDS = [
     "exampleVi": "Bitcoin và Ethereum là những đồng tiền mã hóa được biết đến nhiều nhất.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cryptocurrency-noun.webp",
+    "img": "assets/images/words/c/cryptocurrency-noun.webp",
     "topicIds": [
       "technology-internet-chặng-14"
     ],
@@ -32512,7 +32511,7 @@ export const WORDS = [
     "exampleVi": "Công nghệ blockchain đảm bảo các hồ sơ bất biến và minh bạch.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/blockchain-noun.webp",
+    "img": "assets/images/words/b/blockchain-noun.webp",
     "topicIds": [
       "technology-internet-chặng-14"
     ],
@@ -32528,7 +32527,7 @@ export const WORDS = [
     "exampleVi": "Các cơ quan chính phủ đang trải qua quá trình chuyển đổi số nhanh chóng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/digital-transformation.webp",
+    "img": "assets/images/words/d/digital-transformation.webp",
     "topicIds": [
       "technology-internet-chặng-15"
     ],
@@ -32544,7 +32543,7 @@ export const WORDS = [
     "exampleVi": "Các doanh nhân công nghệ thuyết trình trước các quỹ đầu tư mạo hiểm hàng đầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/venture-capital-noun.webp",
+    "img": "assets/images/words/v/venture-capital-noun.webp",
     "topicIds": [
       "technology-internet-chặng-15"
     ],
@@ -32560,7 +32559,7 @@ export const WORDS = [
     "exampleVi": "Xe điện tự lái gây ra sự đột phá thay đổi lớn cho ngành công nghiệp ô tô.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/disruption.webp",
+    "img": "assets/images/words/d/disruption.webp",
     "topicIds": [
       "technology-internet-chặng-15"
     ],
@@ -32576,7 +32575,7 @@ export const WORDS = [
     "exampleVi": "Kiến trúc đám mây đảm bảo ứng dụng web có khả năng mở rộng quy mô rất cao.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/scalable.webp",
+    "img": "assets/images/words/s/scalable.webp",
     "topicIds": [
       "technology-internet-chặng-15"
     ],
@@ -32592,7 +32591,7 @@ export const WORDS = [
     "exampleVi": "Doanh nhân có tầm nhìn đã sáng lập ba dự án công nghệ xanh thành công.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/entrepreneur.webp",
+    "img": "assets/images/words/e/entrepreneur.webp",
     "topicIds": [
       "technology-internet-chặng-15"
     ],
@@ -32608,7 +32607,7 @@ export const WORDS = [
     "exampleVi": "Kiểm tra dự báo thời tiết hàng ngày trước khi ra khỏi nhà.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/weather.webp",
+    "img": "assets/images/words/w/weather.webp",
     "topicIds": [
       "nature-weather-chặng-1",
       "top-1000-core-chặng-97"
@@ -32625,7 +32624,7 @@ export const WORDS = [
     "exampleVi": "Đó là một buổi chiều nắng ấm rực rỡ trên bãi biển.",
     "level": "A1",
     "pos": "adjective",
-    "img": "assets/images/words/sunny.webp",
+    "img": "assets/images/words/s/sunny.webp",
     "topicIds": [
       "nature-weather-chặng-1",
       "top-1000-core-chặng-91"
@@ -32642,7 +32641,7 @@ export const WORDS = [
     "exampleVi": "Mang theo một chiếc ô vào những ngày trời mưa ướt át.",
     "level": "A1",
     "pos": "adjective",
-    "img": "assets/images/words/rainy.webp",
+    "img": "assets/images/words/r/rainy.webp",
     "topicIds": [
       "nature-weather-chặng-1",
       "top-1000-core-chặng-91"
@@ -32659,7 +32658,7 @@ export const WORDS = [
     "exampleVi": "Bờ biển lộng gió rất lý tưởng để thả diều.",
     "level": "A1",
     "pos": "adjective",
-    "img": "assets/images/words/windy.webp",
+    "img": "assets/images/words/w/windy.webp",
     "topicIds": [
       "nature-weather-chặng-1",
       "top-1000-core-chặng-91"
@@ -32676,7 +32675,7 @@ export const WORDS = [
     "exampleVi": "Bầu trời u ám đầy mây xám đe dọa trút một cơn mưa rào lớn.",
     "level": "A1",
     "pos": "adjective",
-    "img": "assets/images/words/cloudy.webp",
+    "img": "assets/images/words/c/cloudy.webp",
     "topicIds": [
       "nature-weather-chặng-1",
       "top-1000-core-chặng-92"
@@ -32693,7 +32692,7 @@ export const WORDS = [
     "exampleVi": "Nhiệt độ buổi chiều đã lên tới 35 độ C.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/temperature.webp",
+    "img": "assets/images/words/t/temperature.webp",
     "topicIds": [
       "nature-weather-chặng-1"
     ],
@@ -32709,7 +32708,7 @@ export const WORDS = [
     "exampleVi": "Thời tiết mùa hè nhiệt đới có đặc trưng là độ ẩm cao.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/humidity.webp",
+    "img": "assets/images/words/h/humidity.webp",
     "topicIds": [
       "nature-weather-chặng-1"
     ],
@@ -32725,7 +32724,7 @@ export const WORDS = [
     "exampleVi": "Sương mù buổi sáng dày đặc đã làm giảm tầm nhìn trên đường cao tốc đáng kể.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/fog.webp",
+    "img": "assets/images/words/f/fog.webp",
     "topicIds": [
       "nature-weather-chặng-1"
     ],
@@ -32741,7 +32740,7 @@ export const WORDS = [
     "exampleVi": "Lũ trẻ đắp một người tuyết tươi cười trong lớp tuyết mùa đông mới rơi.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/snow.webp",
+    "img": "assets/images/words/s/snow.webp",
     "topicIds": [
       "nature-weather-chặng-1",
       "top-1000-core-chặng-97"
@@ -32758,7 +32757,7 @@ export const WORDS = [
     "exampleVi": "Hãy ở yên trong nhà an toàn khi có cơn giông bão mùa hè dữ dội.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/thunderstorm.webp",
+    "img": "assets/images/words/t/thunderstorm.webp",
     "topicIds": [
       "nature-weather-chặng-1"
     ],
@@ -32774,7 +32773,7 @@ export const WORDS = [
     "exampleVi": "Mùa thu là mùa rực rỡ sắc màu yêu thích nhất trong năm của tôi.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/season.webp",
+    "img": "assets/images/words/s/season.webp",
     "topicIds": [
       "nature-weather-chặng-2",
       "top-1000-core-chặng-97"
@@ -32791,7 +32790,7 @@ export const WORDS = [
     "exampleVi": "Hoa anh đào nở rộ vào đầu mùa xuân.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/spring.webp",
+    "img": "assets/images/words/s/spring.webp",
     "topicIds": [
       "nature-weather-chặng-2",
       "top-1000-core-chặng-97"
@@ -32808,7 +32807,7 @@ export const WORDS = [
     "exampleVi": "Học sinh tận hưởng kỳ nghỉ hè kéo dài ba tháng khỏi trường học.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/summer.webp",
+    "img": "assets/images/words/s/summer.webp",
     "topicIds": [
       "nature-weather-chặng-2",
       "top-1000-core-chặng-97"
@@ -32825,7 +32824,7 @@ export const WORDS = [
     "exampleVi": "Những chiếc lá vàng rơi duyên dáng từ cây phong vào mùa thu.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/autumn.webp",
+    "img": "assets/images/words/a/autumn.webp",
     "topicIds": [
       "nature-weather-chặng-2",
       "top-1000-core-chặng-97"
@@ -32842,7 +32841,7 @@ export const WORDS = [
     "exampleVi": "Mặc một chiếc áo khoác giữ nhiệt dày trong những tháng mùa đông giá rét.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/winter.webp",
+    "img": "assets/images/words/w/winter.webp",
     "topicIds": [
       "nature-weather-chặng-2",
       "top-1000-core-chặng-97"
@@ -32859,7 +32858,7 @@ export const WORDS = [
     "exampleVi": "Một làn gió biển mát rượi thổi qua khung cửa sổ đang mở.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/breeze.webp",
+    "img": "assets/images/words/b/breeze.webp",
     "topicIds": [
       "nature-weather-chặng-2"
     ],
@@ -32875,7 +32874,7 @@ export const WORDS = [
     "exampleVi": "Hoa tulip nở rộ khắp những cánh đồng bạt ngàn của Hà Lan vào tháng Tư.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/bloom.webp",
+    "img": "assets/images/words/b/bloom.webp",
     "topicIds": [
       "nature-weather-chặng-2",
       "top-1000-core-chặng-27"
@@ -32892,7 +32891,7 @@ export const WORDS = [
     "exampleVi": "Gió mùa mùa hè mang lại những trận mưa rào như trút nước.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/monsoon.webp",
+    "img": "assets/images/words/m/monsoon.webp",
     "topicIds": [
       "nature-weather-chặng-2"
     ],
@@ -32908,7 +32907,7 @@ export const WORDS = [
     "exampleVi": "Băng trên mặt hồ đóng băng tan chảy khi mùa xuân đến.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/thaw.webp",
+    "img": "assets/images/words/t/thaw.webp",
     "topicIds": [
       "nature-weather-chặng-2",
       "top-1000-core-chặng-33"
@@ -32925,7 +32924,7 @@ export const WORDS = [
     "exampleVi": "Các quốc gia Địa Trung Hải được hưởng khí hậu ấm áp và dễ chịu.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/climate.webp",
+    "img": "assets/images/words/c/climate.webp",
     "topicIds": [
       "nature-weather-chặng-2"
     ],
@@ -32941,7 +32940,7 @@ export const WORDS = [
     "exampleVi": "Các đội cứu hộ khẩn cấp đã nhanh chóng triển khai sau thảm họa thiên tai.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/natural-disaster.webp",
+    "img": "assets/images/words/n/natural-disaster.webp",
     "topicIds": [
       "nature-weather-chặng-3"
     ],
@@ -32957,7 +32956,7 @@ export const WORDS = [
     "exampleVi": "Các tòa nhà chọc trời hiện đại của Nhật Bản được thiết kế để chống chịu động đất.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/earthquake.webp",
+    "img": "assets/images/words/e/earthquake.webp",
     "topicIds": [
       "nature-weather-chặng-3"
     ],
@@ -32973,7 +32972,7 @@ export const WORDS = [
     "exampleVi": "Những cơn mưa lớn theo mùa đã gây ra các trận lũ sông nghiêm trọng ở vùng trũng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/flood.webp",
+    "img": "assets/images/words/f/flood.webp",
     "topicIds": [
       "nature-weather-chặng-3"
     ],
@@ -32989,7 +32988,7 @@ export const WORDS = [
     "exampleVi": "Cư dân ven biển đã sơ tán trước khi cơn bão Cấp 5 đổ bộ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/hurricane.webp",
+    "img": "assets/images/words/h/hurricane.webp",
     "topicIds": [
       "nature-weather-chặng-3"
     ],
@@ -33005,7 +33004,7 @@ export const WORDS = [
     "exampleVi": "Cơn lốc xoáy dữ dội đã giật tung mái các ngôi nhà ở vùng nông thôn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tornado.webp",
+    "img": "assets/images/words/t/tornado.webp",
     "topicIds": [
       "nature-weather-chặng-3"
     ],
@@ -33021,7 +33020,7 @@ export const WORDS = [
     "exampleVi": "Còi báo động ven biển đã vang lên cảnh báo về một cơn sóng thần Thái Bình Dương sắp tới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tsunami.webp",
+    "img": "assets/images/words/t/tsunami.webp",
     "topicIds": [
       "nature-weather-chặng-3"
     ],
@@ -33037,7 +33036,7 @@ export const WORDS = [
     "exampleVi": "Nạn hạn hán kéo dài nghiêm trọng đã tàn phá mùa màng của cả khu vực.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/drought.webp",
+    "img": "assets/images/words/d/drought.webp",
     "topicIds": [
       "nature-weather-chặng-3"
     ],
@@ -33053,7 +33052,7 @@ export const WORDS = [
     "exampleVi": "Lính cứu hỏa đã chiến đấu với các đám cháy rừng dữ dội suốt ngày đêm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/wildfire.webp",
+    "img": "assets/images/words/w/wildfire.webp",
     "topicIds": [
       "nature-weather-chặng-3"
     ],
@@ -33069,7 +33068,7 @@ export const WORDS = [
     "exampleVi": "Người trượt tuyết phải chú ý đến các cảnh báo lở tuyết trên các sườn dốc núi cao.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/avalanche.webp",
+    "img": "assets/images/words/a/avalanche.webp",
     "topicIds": [
       "nature-weather-chặng-3"
     ],
@@ -33085,7 +33084,7 @@ export const WORDS = [
     "exampleVi": "Vụ phun trào núi lửa đã phun những đám mây tro bụi hàng dặm lên bầu trời.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/eruption.webp",
+    "img": "assets/images/words/e/eruption.webp",
     "topicIds": [
       "nature-weather-chặng-3"
     ],
@@ -33101,7 +33100,7 @@ export const WORDS = [
     "exampleVi": "Bảo vệ các loài động vật hoang dã có nguy cơ tuyệt chủng khỏi nạn săn trộm bất hợp pháp.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/animal.webp",
+    "img": "assets/images/words/a/animal.webp",
     "topicIds": [
       "nature-weather-chặng-4",
       "top-1000-core-chặng-97"
@@ -33118,7 +33117,7 @@ export const WORDS = [
     "exampleVi": "Sư tử đực nổi tiếng được tôn vinh là chúa tể sơn lâm.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/lion.webp",
+    "img": "assets/images/words/l/lion.webp",
     "topicIds": [
       "nature-weather-chặng-4",
       "top-1000-core-chặng-98"
@@ -33135,7 +33134,7 @@ export const WORDS = [
     "exampleVi": "Hổ Bengal là những kẻ săn mồi oai vệ của các khu rừng nhiệt đới châu Á.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/tiger.webp",
+    "img": "assets/images/words/t/tiger.webp",
     "topicIds": [
       "nature-weather-chặng-4",
       "top-1000-core-chặng-98"
@@ -33152,7 +33151,7 @@ export const WORDS = [
     "exampleVi": "Loài voi thể hiện sự đồng cảm sâu sắc và trí nhớ dài hạn đặc biệt.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/elephant.webp",
+    "img": "assets/images/words/e/elephant.webp",
     "topicIds": [
       "nature-weather-chặng-4",
       "top-1000-core-chặng-98"
@@ -33169,7 +33168,7 @@ export const WORDS = [
     "exampleVi": "Những chú khỉ tinh nghịch đu mình qua các cành cây trên vòm lá.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/monkey.webp",
+    "img": "assets/images/words/m/monkey.webp",
     "topicIds": [
       "nature-weather-chặng-4",
       "top-1000-core-chặng-98"
@@ -33186,7 +33185,7 @@ export const WORDS = [
     "exampleVi": "Gấu xám bắt cá hồi tươi ở những con sông chảy xiết phương bắc.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/bear.webp",
+    "img": "assets/images/words/b/bear.webp",
     "topicIds": [
       "nature-weather-chặng-4",
       "top-1000-core-chặng-98"
@@ -33203,7 +33202,7 @@ export const WORDS = [
     "exampleVi": "Cá voi và cá heo là những loài thú biển hít thở bằng không khí.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/mammal.webp",
+    "img": "assets/images/words/m/mammal.webp",
     "topicIds": [
       "nature-weather-chặng-4"
     ],
@@ -33219,7 +33218,7 @@ export const WORDS = [
     "exampleVi": "Rắn, rùa và cá sấu thuộc về lớp bò sát.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/reptile.webp",
+    "img": "assets/images/words/r/reptile.webp",
     "topicIds": [
       "nature-weather-chặng-4"
     ],
@@ -33235,7 +33234,7 @@ export const WORDS = [
     "exampleVi": "Chó và mèo là những thú cưng nuôi trong nhà trung thành và tình cảm.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/pet.webp",
+    "img": "assets/images/words/p/pet.webp",
     "topicIds": [
       "nature-weather-chặng-4",
       "top-1000-core-chặng-83"
@@ -33252,7 +33251,7 @@ export const WORDS = [
     "exampleVi": "Nạn phá rừng phá hủy môi trường sống tự nhiên của đười ươi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/habitat.webp",
+    "img": "assets/images/words/h/habitat.webp",
     "topicIds": [
       "nature-weather-chặng-4"
     ],
@@ -33268,7 +33267,7 @@ export const WORDS = [
     "exampleVi": "Những chú chim hót buổi sáng làm rộn rã khu vườn với giai điệu vui tươi.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/bird.webp",
+    "img": "assets/images/words/b/bird.webp",
     "topicIds": [
       "nature-weather-chặng-5",
       "top-1000-core-chặng-98"
@@ -33285,7 +33284,7 @@ export const WORDS = [
     "exampleVi": "Đại bàng bay lượn có thị lực sắc bén như dao cạo để phát hiện con mồi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/eagle.webp",
+    "img": "assets/images/words/e/eagle.webp",
     "topicIds": [
       "nature-weather-chặng-5"
     ],
@@ -33301,7 +33300,7 @@ export const WORDS = [
     "exampleVi": "Cá voi xanh là loài động vật lớn nhất từng được biết đến trên Trái Đất.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/whale.webp",
+    "img": "assets/images/words/w/whale.webp",
     "topicIds": [
       "nature-weather-chặng-5"
     ],
@@ -33317,7 +33316,7 @@ export const WORDS = [
     "exampleVi": "Những chú cá heo thông minh đã nhảy đùa vui vẻ bên cạnh thuyền du lịch của chúng tôi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/dolphin.webp",
+    "img": "assets/images/words/d/dolphin.webp",
     "topicIds": [
       "nature-weather-chặng-5"
     ],
@@ -33333,7 +33332,7 @@ export const WORDS = [
     "exampleVi": "Cá mập trắng lớn là những kẻ săn mồi đỉnh cao đáng gờm của đại dương.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/shark.webp",
+    "img": "assets/images/words/s/shark.webp",
     "topicIds": [
       "nature-weather-chặng-5"
     ],
@@ -33349,7 +33348,7 @@ export const WORDS = [
     "exampleVi": "Chim cánh cụt hoàng đế tụ tập sát vào nhau để chống chọi với bão tuyết Nam Cực.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/penguin.webp",
+    "img": "assets/images/words/p/penguin.webp",
     "topicIds": [
       "nature-weather-chặng-5"
     ],
@@ -33365,7 +33364,7 @@ export const WORDS = [
     "exampleVi": "Công đực khoe bộ lông đuôi óng ánh rực rỡ để thu hút bạn tình.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/feather.webp",
+    "img": "assets/images/words/f/feather.webp",
     "topicIds": [
       "nature-weather-chặng-5"
     ],
@@ -33381,7 +33380,7 @@ export const WORDS = [
     "exampleVi": "Chim cổ đỏ đã xây một chiếc tổ bằng cành cây ấm cúng trên cây táo cao.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/nest.webp",
+    "img": "assets/images/words/n/nest.webp",
     "topicIds": [
       "nature-weather-chặng-5"
     ],
@@ -33397,7 +33396,7 @@ export const WORDS = [
     "exampleVi": "Con bạch tuộc thông minh đã ngụy trang hòa lẫn hoàn hảo vào đáy biển.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/octopus.webp",
+    "img": "assets/images/words/o/octopus.webp",
     "topicIds": [
       "nature-weather-chặng-5"
     ],
@@ -33413,7 +33412,7 @@ export const WORDS = [
     "exampleVi": "Trồng cây giúp thanh lọc không khí đô thị và chống lại hiện tượng nóng lên toàn cầu.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/tree.webp",
+    "img": "assets/images/words/t/tree.webp",
     "topicIds": [
       "nature-weather-chặng-5",
       "top-1000-core-chặng-98"
@@ -33430,7 +33429,7 @@ export const WORDS = [
     "exampleVi": "Những khu rừng thông cổ thụ phủ kín các sườn núi hùng vĩ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/forest.webp",
+    "img": "assets/images/words/f/forest.webp",
     "topicIds": [
       "nature-weather-chặng-6",
       "top-1000-core-chặng-98"
@@ -33447,7 +33446,7 @@ export const WORDS = [
     "exampleVi": "Một bó hoa tươi ngát hương đã làm bừng sáng cả phòng khách.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/flower.webp",
+    "img": "assets/images/words/f/flower.webp",
     "topicIds": [
       "nature-weather-chặng-6",
       "top-1000-core-chặng-98"
@@ -33464,7 +33463,7 @@ export const WORDS = [
     "exampleVi": "Lá mùa thu chuyển sang những sắc đỏ tươi và vàng hổ phách rực rỡ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/leaf.webp",
+    "img": "assets/images/words/l/leaf.webp",
     "topicIds": [
       "nature-weather-chặng-6",
       "top-1000-core-chặng-98"
@@ -33481,7 +33480,7 @@ export const WORDS = [
     "exampleVi": "Rễ cây ăn sâu bám chặt vào đất và ngăn ngừa xói mòn bờ sông.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/root.webp",
+    "img": "assets/images/words/r/root.webp",
     "topicIds": [
       "nature-weather-chặng-6"
     ],
@@ -33497,7 +33496,7 @@ export const WORDS = [
     "exampleVi": "Thân cây gỗ đỏ khổng lồ có đường kính đo được hơn mười mét.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/trunk.webp",
+    "img": "assets/images/words/t/trunk.webp",
     "topicIds": [
       "nature-weather-chặng-6"
     ],
@@ -33513,7 +33512,7 @@ export const WORDS = [
     "exampleVi": "Gia vị quế được thu hoạch từ lớp vỏ cây thơm ngát.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/bark.webp",
+    "img": "assets/images/words/b/bark.webp",
     "topicIds": [
       "nature-weather-chặng-6"
     ],
@@ -33529,7 +33528,7 @@ export const WORDS = [
     "exampleVi": "Đàn gia súc gặm cỏ thanh bình trên những ngọn đồi cỏ xanh trập trùng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/grass.webp",
+    "img": "assets/images/words/g/grass.webp",
     "topicIds": [
       "nature-weather-chặng-6",
       "top-1000-core-chặng-99"
@@ -33546,7 +33545,7 @@ export const WORDS = [
     "exampleVi": "Các đoàn thám hiểm đã vượt qua khu rừng rậm nhiệt đới dày đặc không thể xuyên qua.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/jungle.webp",
+    "img": "assets/images/words/j/jungle.webp",
     "topicIds": [
       "nature-weather-chặng-6"
     ],
@@ -33562,7 +33561,7 @@ export const WORDS = [
     "exampleVi": "Dòng sông Mê Kông hùng vĩ nuôi sống sinh kế của hàng triệu nông dân.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/river.webp",
+    "img": "assets/images/words/r/river.webp",
     "topicIds": [
       "nature-weather-chặng-6",
       "top-1000-core-chặng-99"
@@ -33579,7 +33578,7 @@ export const WORDS = [
     "exampleVi": "Những người chèo thuyền thích thú với mặt hồ trên núi phẳng lặng như gương.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/lake.webp",
+    "img": "assets/images/words/l/lake.webp",
     "topicIds": [
       "nature-weather-chặng-6",
       "top-1000-core-chặng-99"
@@ -33596,7 +33595,7 @@ export const WORDS = [
     "exampleVi": "Thái Bình Dương bao phủ hơn 30% diện tích bề mặt Trái Đất.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/ocean.webp",
+    "img": "assets/images/words/o/ocean.webp",
     "topicIds": [
       "nature-weather-chặng-7",
       "top-1000-core-chặng-99"
@@ -33613,7 +33612,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã giương buồm vượt qua biển Địa Trung Hải xanh ngắt.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/sea.webp",
+    "img": "assets/images/words/s/sea.webp",
     "topicIds": [
       "nature-weather-chặng-7",
       "top-1000-core-chặng-99"
@@ -33630,7 +33629,7 @@ export const WORDS = [
     "exampleVi": "Dòng nước trong vắt sủi bọt chảy qua con suối đá giữa rừng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/stream.webp",
+    "img": "assets/images/words/s/stream.webp",
     "topicIds": [
       "nature-weather-chặng-7"
     ],
@@ -33646,7 +33645,7 @@ export const WORDS = [
     "exampleVi": "Những chú cá koi nhiều màu sắc bơi lội duyên dáng trong ao vườn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/pond.webp",
+    "img": "assets/images/words/p/pond.webp",
     "topicIds": [
       "nature-weather-chặng-7"
     ],
@@ -33662,7 +33661,7 @@ export const WORDS = [
     "exampleVi": "Thuyền đánh cá đã ra khơi vào lúc thủy triều lên lúc sáng sớm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tide.webp",
+    "img": "assets/images/words/t/tide.webp",
     "topicIds": [
       "nature-weather-chặng-7"
     ],
@@ -33678,7 +33677,7 @@ export const WORDS = [
     "exampleVi": "Những dòng hải lưu mạnh vận chuyển nước ấm lên các vĩ độ phía bắc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/current.webp",
+    "img": "assets/images/words/c/current.webp",
     "topicIds": [
       "nature-weather-chặng-7"
     ],
@@ -33694,7 +33693,7 @@ export const WORDS = [
     "exampleVi": "Đầm lầy ngập mặn bảo vệ các bờ biển khỏi những con sóng bão tàn phá.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/swamp.webp",
+    "img": "assets/images/words/s/swamp.webp",
     "topicIds": [
       "nature-weather-chặng-7"
     ],
@@ -33710,7 +33709,7 @@ export const WORDS = [
     "exampleVi": "Sahara là sa mạc cát nóng lớn nhất trên thế giới.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/desert.webp",
+    "img": "assets/images/words/d/desert.webp",
     "topicIds": [
       "nature-weather-chặng-7"
     ],
@@ -33726,7 +33725,7 @@ export const WORDS = [
     "exampleVi": "Những đồi chè xanh mướt trải dài khắp vùng cao nguyên.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/hill.webp",
+    "img": "assets/images/words/h/hill.webp",
     "topicIds": [
       "nature-weather-chặng-7",
       "top-1000-core-chặng-99"
@@ -33743,7 +33742,7 @@ export const WORDS = [
     "exampleVi": "Những cánh đồng lúa mì vàng óng bao phủ các vùng đồng bằng màu mỡ trung tâm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/plain.webp",
+    "img": "assets/images/words/p/plain.webp",
     "topicIds": [
       "nature-weather-chặng-7"
     ],
@@ -33759,7 +33758,7 @@ export const WORDS = [
     "exampleVi": "Ý là một bán đảo hình chiếc ủng nhô ra biển Địa Trung Hải.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/peninsula.webp",
+    "img": "assets/images/words/p/peninsula.webp",
     "topicIds": [
       "nature-weather-chặng-8"
     ],
@@ -33775,7 +33774,7 @@ export const WORDS = [
     "exampleVi": "Địa chất học tiết lộ lịch sử hàng triệu năm của các tầng đá trên Trái Đất.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/geology.webp",
+    "img": "assets/images/words/g/geology.webp",
     "topicIds": [
       "nature-weather-chặng-8"
     ],
@@ -33791,7 +33790,7 @@ export const WORDS = [
     "exampleVi": "Các nhà cổ sinh vật học đã phát hiện ra một hóa thạch xương khủng long được bảo quản tốt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fossil.webp",
+    "img": "assets/images/words/f/fossil.webp",
     "topicIds": [
       "nature-weather-chặng-8"
     ],
@@ -33807,7 +33806,7 @@ export const WORDS = [
     "exampleVi": "Xói mòn bờ biển đe dọa các ngôi nhà ven biển và vách đá.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/erosion.webp",
+    "img": "assets/images/words/e/erosion.webp",
     "topicIds": [
       "nature-weather-chặng-8"
     ],
@@ -33823,7 +33822,7 @@ export const WORDS = [
     "exampleVi": "Những chiếc xe địa hình đã chinh phục địa hình đồi núi dốc và nhiều đá.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/terrain.webp",
+    "img": "assets/images/words/t/terrain.webp",
     "topicIds": [
       "nature-weather-chặng-8"
     ],
@@ -33839,7 +33838,7 @@ export const WORDS = [
     "exampleVi": "Fansipan được tôn vinh là đỉnh núi cao nhất Đông Dương.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/peak.webp",
+    "img": "assets/images/words/p/peak.webp",
     "topicIds": [
       "nature-weather-chặng-8"
     ],
@@ -33855,7 +33854,7 @@ export const WORDS = [
     "exampleVi": "Đất núi lửa màu mỡ cung cấp chất dinh dưỡng dồi dào cho các vườn nho xanh tốt.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/volcanic.webp",
+    "img": "assets/images/words/v/volcanic.webp",
     "topicIds": [
       "nature-weather-chặng-8"
     ],
@@ -33871,7 +33870,7 @@ export const WORDS = [
     "exampleVi": "Những vì sao lấp lánh rực rỡ trên bầu trời đêm trong vắt.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/sky.webp",
+    "img": "assets/images/words/s/sky.webp",
     "topicIds": [
       "nature-weather-chặng-8",
       "top-1000-core-chặng-99"
@@ -33888,7 +33887,7 @@ export const WORDS = [
     "exampleVi": "Mặt trời cung cấp sự ấm áp và ánh sáng thiết yếu cho mọi sự sống trên Trái Đất.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/sun.webp",
+    "img": "assets/images/words/s/sun.webp",
     "topicIds": [
       "nature-weather-chặng-8",
       "top-1000-core-chặng-99"
@@ -33905,7 +33904,7 @@ export const WORDS = [
     "exampleVi": "Mặt trăng tròn sáng rực đã chiếu rọi mặt biển đêm tối.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/moon.webp",
+    "img": "assets/images/words/m/moon.webp",
     "topicIds": [
       "nature-weather-chặng-8",
       "top-1000-core-chặng-65"
@@ -33922,7 +33921,7 @@ export const WORDS = [
     "exampleVi": "Các nhà thiên văn học phát hiện hàng ngàn ngôi sao xa xôi mới mỗi năm.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/star.webp",
+    "img": "assets/images/words/s/star.webp",
     "topicIds": [
       "nature-weather-chặng-9",
       "top-1000-core-chặng-99"
@@ -33939,7 +33938,7 @@ export const WORDS = [
     "exampleVi": "Sao Hỏa là hành tinh thứ tư tính từ mặt trời trong hệ mặt trời của chúng ta.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/planet.webp",
+    "img": "assets/images/words/p/planet.webp",
     "topicIds": [
       "nature-weather-chặng-9"
     ],
@@ -33955,7 +33954,7 @@ export const WORDS = [
     "exampleVi": "Hệ mặt trời của chúng ta nằm bên trong thiên hà xoắn ốc Dải Ngân Hà.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/galaxy.webp",
+    "img": "assets/images/words/g/galaxy.webp",
     "topicIds": [
       "nature-weather-chặng-9"
     ],
@@ -33971,7 +33970,7 @@ export const WORDS = [
     "exampleVi": "Tám hành tinh quay quanh một cách duyên dáng trong hệ mặt trời.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/solar-system.webp",
+    "img": "assets/images/words/s/solar-system.webp",
     "topicIds": [
       "nature-weather-chặng-9"
     ],
@@ -33987,7 +33986,7 @@ export const WORDS = [
     "exampleVi": "Đám đông tập trung với kính bảo vệ để quan sát hiện tượng nhật thực.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/eclipse.webp",
+    "img": "assets/images/words/e/eclipse.webp",
     "topicIds": [
       "nature-weather-chặng-9"
     ],
@@ -34003,7 +34002,7 @@ export const WORDS = [
     "exampleVi": "Kính viễn vọng Không gian James Webb chụp những bức ảnh hồng ngoại vũ trụ sâu thẳm.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/telescope.webp",
+    "img": "assets/images/words/t/telescope.webp",
     "topicIds": [
       "nature-weather-chặng-9"
     ],
@@ -34019,7 +34018,7 @@ export const WORDS = [
     "exampleVi": "Sao chổi Halley bay vút qua bầu trời đêm của Trái Đất mỗi 75 năm một lần.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/comet.webp",
+    "img": "assets/images/words/c/comet.webp",
     "topicIds": [
       "nature-weather-chặng-9"
     ],
@@ -34035,7 +34034,7 @@ export const WORDS = [
     "exampleVi": "Bảo vệ môi trường toàn cầu đòi hỏi sự hợp tác quốc tế.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/environment.webp",
+    "img": "assets/images/words/e/environment.webp",
     "topicIds": [
       "nature-weather-chặng-9"
     ],
@@ -34051,7 +34050,7 @@ export const WORDS = [
     "exampleVi": "Ô nhiễm nhựa gây ra mối đe dọa nghiêm trọng đối với các hệ sinh thái biển.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/pollution.webp",
+    "img": "assets/images/words/p/pollution.webp",
     "topicIds": [
       "nature-weather-chặng-9"
     ],
@@ -34067,7 +34066,7 @@ export const WORDS = [
     "exampleVi": "Năng lượng sạch tái tạo giúp giảm thiểu các tác động của biến đổi khí hậu.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/climate-change.webp",
+    "img": "assets/images/words/c/climate-change.webp",
     "topicIds": [
       "nature-weather-chặng-9"
     ],
@@ -34083,7 +34082,7 @@ export const WORDS = [
     "exampleVi": "Sự nóng lên toàn cầu làm đẩy nhanh sự tan chảy của các chỏm băng vùng cực.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/global-warming.webp",
+    "img": "assets/images/words/g/global-warming.webp",
     "topicIds": [
       "nature-weather-chặng-10"
     ],
@@ -34099,7 +34098,7 @@ export const WORDS = [
     "exampleVi": "Các dự án trồng lại rừng đảo ngược những thiệt hại do nạn phá rừng gây ra.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/deforestation.webp",
+    "img": "assets/images/words/d/deforestation.webp",
     "topicIds": [
       "nature-weather-chặng-10"
     ],
@@ -34115,7 +34114,7 @@ export const WORDS = [
     "exampleVi": "Pin mặt trời và tuabin gió tạo ra nguồn năng lượng tái tạo sạch.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/renewable-energy.webp",
+    "img": "assets/images/words/r/renewable-energy.webp",
     "topicIds": [
       "nature-weather-chặng-10"
     ],
@@ -34131,7 +34130,7 @@ export const WORDS = [
     "exampleVi": "Các nhóm bảo tồn động vật hoang dã bảo vệ các loài có nguy cơ tuyệt chủng khỏi sự tuyệt chủng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/conservation.webp",
+    "img": "assets/images/words/c/conservation.webp",
     "topicIds": [
       "nature-weather-chặng-10"
     ],
@@ -34147,7 +34146,7 @@ export const WORDS = [
     "exampleVi": "Rạn san hô và vùng đất ngập nước là những hệ sinh thái dưới nước mong manh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ecosystem.webp",
+    "img": "assets/images/words/e/ecosystem.webp",
     "topicIds": [
       "nature-weather-chặng-10"
     ],
@@ -34163,7 +34162,7 @@ export const WORDS = [
     "exampleVi": "Rừng mưa nhiệt đới lưu giữ sự đa dạng sinh học phong phú nhất trên hành tinh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/biodiversity.webp",
+    "img": "assets/images/words/b/biodiversity.webp",
     "topicIds": [
       "nature-weather-chặng-10"
     ],
@@ -34179,7 +34178,7 @@ export const WORDS = [
     "exampleVi": "Việt Nam là một đất nước Đông Nam Á tươi đẹp và thanh bình.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/country.webp",
+    "img": "assets/images/words/c/country.webp",
     "topicIds": [
       "society-world-chặng-1",
       "top-1000-core-chặng-99"
@@ -34196,7 +34195,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy mang hai quốc tịch Mỹ và Pháp.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/nationality.webp",
+    "img": "assets/images/words/n/nationality.webp",
     "topicIds": [
       "society-world-chặng-1"
     ],
@@ -34212,7 +34211,7 @@ export const WORDS = [
     "exampleVi": "Hà Nội là thủ đô nghìn năm văn hiến của Việt Nam.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/capital.webp",
+    "img": "assets/images/words/c/capital.webp",
     "topicIds": [
       "society-world-chặng-1",
       "top-1000-core-chặng-100"
@@ -34229,7 +34228,7 @@ export const WORDS = [
     "exampleVi": "Những công dân có trách nhiệm tham gia tích cực vào các công việc của cộng đồng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/citizen.webp",
+    "img": "assets/images/words/c/citizen.webp",
     "topicIds": [
       "society-world-chặng-1"
     ],
@@ -34245,7 +34244,7 @@ export const WORDS = [
     "exampleVi": "Lá cờ đỏ sao vàng tung bay trong gió nhẹ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/flag.webp",
+    "img": "assets/images/words/f/flag.webp",
     "topicIds": [
       "society-world-chặng-1",
       "top-1000-core-chặng-100"
@@ -34262,7 +34261,7 @@ export const WORDS = [
     "exampleVi": "Du khách đã đi qua trạm kiểm soát biên giới quốc tế một cách thuận lợi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/border.webp",
+    "img": "assets/images/words/b/border.webp",
     "topicIds": [
       "society-world-chặng-1"
     ],
@@ -34278,7 +34277,7 @@ export const WORDS = [
     "exampleVi": "Liên Hợp Quốc thúc đẩy sự hợp tác giữa các quốc gia.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/nation.webp",
+    "img": "assets/images/words/n/nation.webp",
     "topicIds": [
       "society-world-chặng-1"
     ],
@@ -34294,7 +34293,7 @@ export const WORDS = [
     "exampleVi": "Dân số toàn cầu đã vượt qua con số tám tỷ người.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/population.webp",
+    "img": "assets/images/words/p/population.webp",
     "topicIds": [
       "society-world-chặng-1"
     ],
@@ -34310,7 +34309,7 @@ export const WORDS = [
     "exampleVi": "Các thế hệ người nhập cư đã đóng góp vào sự đa dạng văn hóa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/immigrant.webp",
+    "img": "assets/images/words/i/immigrant.webp",
     "topicIds": [
       "society-world-chặng-1"
     ],
@@ -34326,7 +34325,7 @@ export const WORDS = [
     "exampleVi": "Chính phủ đã ban hành các chính sách để hỗ trợ các doanh nghiệp nhỏ địa phương.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/government.webp",
+    "img": "assets/images/words/g/government.webp",
     "topicIds": [
       "society-world-chặng-1"
     ],
@@ -34342,7 +34341,7 @@ export const WORDS = [
     "exampleVi": "Tất cả công dân đều bình đẳng trước pháp luật.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/law.webp",
+    "img": "assets/images/words/l/law.webp",
     "topicIds": [
       "society-world-chặng-2",
       "top-1000-core-chặng-100"
@@ -34359,7 +34358,7 @@ export const WORDS = [
     "exampleVi": "Chủ tịch nước đã phát biểu trước toàn dân trong dịp ngày lễ quốc gia.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/president.webp",
+    "img": "assets/images/words/p/president.webp",
     "topicIds": [
       "society-world-chặng-2",
       "top-1000-core-chặng-100"
@@ -34376,7 +34375,7 @@ export const WORDS = [
     "exampleVi": "Thủ tướng đã công bố những sáng kiến cơ sở hạ tầng kinh tế mới.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/prime-minister.webp",
+    "img": "assets/images/words/p/prime-minister.webp",
     "topicIds": [
       "society-world-chặng-2"
     ],
@@ -34392,7 +34391,7 @@ export const WORDS = [
     "exampleVi": "Các đại biểu Quốc hội đã tranh luận về dự luật ngân sách quốc gia hàng năm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/parliament.webp",
+    "img": "assets/images/words/p/parliament.webp",
     "topicIds": [
       "society-world-chặng-2"
     ],
@@ -34408,7 +34407,7 @@ export const WORDS = [
     "exampleVi": "Hàng triệu cử tri đã bỏ phiếu trong cuộc tổng tuyển cử.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/election.webp",
+    "img": "assets/images/words/e/election.webp",
     "topicIds": [
       "society-world-chặng-2"
     ],
@@ -34424,7 +34423,7 @@ export const WORDS = [
     "exampleVi": "Công dân có quyền dân chủ bỏ phiếu trong các cuộc bầu cử địa phương.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/vote.webp",
+    "img": "assets/images/words/v/vote.webp",
     "topicIds": [
       "society-world-chặng-2",
       "top-1000-core-chặng-27"
@@ -34441,7 +34440,7 @@ export const WORDS = [
     "exampleVi": "Tự do ngôn luận là một trụ cột cơ bản của nền dân chủ hiện đại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/democracy.webp",
+    "img": "assets/images/words/d/democracy.webp",
     "topicIds": [
       "society-world-chặng-2"
     ],
@@ -34457,7 +34456,7 @@ export const WORDS = [
     "exampleVi": "Hiến pháp bảo vệ các quyền cơ bản của mỗi công dân.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/constitution.webp",
+    "img": "assets/images/words/c/constitution.webp",
     "topicIds": [
       "society-world-chặng-2"
     ],
@@ -34473,7 +34472,7 @@ export const WORDS = [
     "exampleVi": "Hoạt động tình nguyện củng cố mối liên kết bên trong cộng đồng khu dân cư địa phương.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/community.webp",
+    "img": "assets/images/words/c/community.webp",
     "topicIds": [
       "society-world-chặng-2"
     ],
@@ -34489,7 +34488,7 @@ export const WORDS = [
     "exampleVi": "Giáo dục là điều cần thiết cho một xã hội hài hòa và tiến bộ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/society.webp",
+    "img": "assets/images/words/s/society.webp",
     "topicIds": [
       "society-world-chặng-2"
     ],
@@ -34505,7 +34504,7 @@ export const WORDS = [
     "exampleVi": "Sự phát triển đô thị nhanh chóng đòi hỏi quy hoạch giao thông công cộng thông minh.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/urban.webp",
+    "img": "assets/images/words/u/urban.webp",
     "topicIds": [
       "society-world-chặng-3"
     ],
@@ -34521,7 +34520,7 @@ export const WORDS = [
     "exampleVi": "Nhiều người tìm kiếm lối sống thanh bình ở các ngôi làng nông thôn yên tĩnh.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/rural.webp",
+    "img": "assets/images/words/r/rural.webp",
     "topicIds": [
       "society-world-chặng-3"
     ],
@@ -34537,7 +34536,7 @@ export const WORDS = [
     "exampleVi": "Tokyo là một đại đô thị công nghệ và tài chính nhộn nhịp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/metropolis.webp",
+    "img": "assets/images/words/m/metropolis.webp",
     "topicIds": [
       "society-world-chặng-3"
     ],
@@ -34553,7 +34552,7 @@ export const WORDS = [
     "exampleVi": "Các gia đình thường chuyển ra vùng ngoại ô xanh mát để có thêm không gian sống.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/suburbs.webp",
+    "img": "assets/images/words/s/suburbs.webp",
     "topicIds": [
       "society-world-chặng-3"
     ],
@@ -34569,7 +34568,7 @@ export const WORDS = [
     "exampleVi": "Đầu tư vào cơ sở hạ tầng đường sắt hiện đại thúc đẩy thương mại quốc gia.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/infrastructure.webp",
+    "img": "assets/images/words/i/infrastructure.webp",
     "topicIds": [
       "society-world-chặng-3"
     ],
@@ -34585,7 +34584,7 @@ export const WORDS = [
     "exampleVi": "Tham gia tái chế là một ví dụ về trách nhiệm công dân.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/civic.webp",
+    "img": "assets/images/words/c/civic.webp",
     "topicIds": [
       "society-world-chặng-3"
     ],
@@ -34601,7 +34600,7 @@ export const WORDS = [
     "exampleVi": "Chăm sóc sức khỏe và vệ sinh công cộng là những dịch vụ công thiết yếu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/public-service.webp",
+    "img": "assets/images/words/p/public-service.webp",
     "topicIds": [
       "society-world-chặng-3"
     ],
@@ -34617,7 +34616,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi xem tin tức thời sự truyền hình buổi tối lúc 7 giờ mỗi đêm.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/news.webp",
+    "img": "assets/images/words/n/news.webp",
     "topicIds": [
       "society-world-chặng-3",
       "top-1000-core-chặng-100"
@@ -34634,7 +34633,7 @@ export const WORDS = [
     "exampleVi": "Ông tôi thích đọc tờ nhật báo buổi sáng bên tách trà.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/newspaper.webp",
+    "img": "assets/images/words/n/newspaper.webp",
     "topicIds": [
       "society-world-chặng-3",
       "top-1000-core-chặng-100"
@@ -34651,7 +34650,7 @@ export const WORDS = [
     "exampleVi": "Trận đấu thể thao quốc gia trực tiếp đã được phát sóng tới hàng triệu gia đình.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/broadcast.webp",
+    "img": "assets/images/words/b/broadcast.webp",
     "topicIds": [
       "society-world-chặng-3",
       "top-1000-core-chặng-27"
@@ -34668,7 +34667,7 @@ export const WORDS = [
     "exampleVi": "Tiêu đề trang nhất của tờ báo đã công bố thỏa thuận hòa bình lịch sử.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/headline.webp",
+    "img": "assets/images/words/h/headline.webp",
     "topicIds": [
       "society-world-chặng-4"
     ],
@@ -34684,7 +34683,7 @@ export const WORDS = [
     "exampleVi": "Các cơ quan truyền thông số đã phần lớn thay thế các tạp chí in truyền thống.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/media.webp",
+    "img": "assets/images/words/m/media.webp",
     "topicIds": [
       "society-world-chặng-4"
     ],
@@ -34700,7 +34699,7 @@ export const WORDS = [
     "exampleVi": "Bộ Y tế đã tổ chức một buổi họp báo để giải quyết về đợt bùng phát dịch.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/press-conference.webp",
+    "img": "assets/images/words/p/press-conference.webp",
     "topicIds": [
       "society-world-chặng-4"
     ],
@@ -34716,7 +34715,7 @@ export const WORDS = [
     "exampleVi": "Báo chí độc lập phản đối sự kiểm duyệt thông tin tùy tiện của chính phủ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/censorship.webp",
+    "img": "assets/images/words/c/censorship.webp",
     "topicIds": [
       "society-world-chặng-4"
     ],
@@ -34732,7 +34731,7 @@ export const WORDS = [
     "exampleVi": "Hãy kiểm tra kỹ các nguồn tin để tránh chia sẻ tin giả mạo có ác ý.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fake-news.webp",
+    "img": "assets/images/words/f/fake-news.webp",
     "topicIds": [
       "society-world-chặng-4"
     ],
@@ -34748,7 +34747,7 @@ export const WORDS = [
     "exampleVi": "Chuỗi cung ứng kinh tế toàn cầu kết nối các nhà máy xuyên đại dương.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/global-economy.webp",
+    "img": "assets/images/words/g/global-economy.webp",
     "topicIds": [
       "society-world-chặng-4"
     ],
@@ -34764,7 +34763,7 @@ export const WORDS = [
     "exampleVi": "Các hiệp định thương mại tự do xóa bỏ thuế quan giữa các quốc gia đối tác.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/trade.webp",
+    "img": "assets/images/words/t/trade.webp",
     "topicIds": [
       "society-world-chặng-4"
     ],
@@ -34780,7 +34779,7 @@ export const WORDS = [
     "exampleVi": "Hạ thấp thuế quan qua biên giới khuyến khích thương mại quốc tế phát triển.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tariff-noun.webp",
+    "img": "assets/images/words/t/tariff-noun.webp",
     "topicIds": [
       "society-world-chặng-4"
     ],
@@ -34796,7 +34795,7 @@ export const WORDS = [
     "exampleVi": "Các quốc gia đã ký kết một hiệp ước thương mại tự do quốc tế mang tính lịch sử.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/treaty.webp",
+    "img": "assets/images/words/t/treaty.webp",
     "topicIds": [
       "society-world-chặng-4"
     ],
@@ -34812,7 +34811,7 @@ export const WORDS = [
     "exampleVi": "Toàn cầu hóa cho phép sự lan tỏa nhanh chóng của các đổi mới công nghệ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/globalization.webp",
+    "img": "assets/images/words/g/globalization.webp",
     "topicIds": [
       "society-world-chặng-4"
     ],
@@ -34828,7 +34827,7 @@ export const WORDS = [
     "exampleVi": "Tăng trưởng kinh tế và giáo dục phổ cập giúp xóa bỏ tình trạng nghèo đói cùng cực.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/poverty.webp",
+    "img": "assets/images/words/p/poverty.webp",
     "topicIds": [
       "society-world-chặng-5"
     ],
@@ -34844,7 +34843,7 @@ export const WORDS = [
     "exampleVi": "Các thị trường mới nổi mang lại tiềm năng lợi nhuận cao cho các nhà đầu tư nước ngoài.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/market.webp",
+    "img": "assets/images/words/m/market.webp",
     "topicIds": [
       "society-world-chặng-5",
       "top-1000-core-chặng-100"
@@ -34861,7 +34860,7 @@ export const WORDS = [
     "exampleVi": "Các tổ chức quốc tế đã áp đặt các lệnh trừng phạt kinh tế nghiêm khắc lên chế độ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/sanction.webp",
+    "img": "assets/images/words/s/sanction.webp",
     "topicIds": [
       "society-world-chặng-5"
     ],
@@ -34877,7 +34876,7 @@ export const WORDS = [
     "exampleVi": "Mọi quốc gia đều nỗ lực duy trì nền hòa bình và an ninh toàn cầu lâu dài.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/peace.webp",
+    "img": "assets/images/words/p/peace.webp",
     "topicIds": [
       "society-world-chặng-5",
       "top-1000-core-chặng-100"
@@ -34894,7 +34893,7 @@ export const WORDS = [
     "exampleVi": "Chiến tranh gây ra sự mất mát đau thương về sinh mạng vô tội và sự tàn phá.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/war.webp",
+    "img": "assets/images/words/w/war.webp",
     "topicIds": [
       "society-world-chặng-5",
       "top-1000-core-chặng-100"
@@ -34911,7 +34910,7 @@ export const WORDS = [
     "exampleVi": "Ngoại giao khéo léo đã giải quyết tranh chấp biên giới mà không cần xung đột vũ trang.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/diplomacy.webp",
+    "img": "assets/images/words/d/diplomacy.webp",
     "topicIds": [
       "society-world-chặng-5"
     ],
@@ -34927,7 +34926,7 @@ export const WORDS = [
     "exampleVi": "Đại sứ đã tổ chức một buổi chiêu đãi kỷ niệm ngày quốc khánh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ambassador.webp",
+    "img": "assets/images/words/a/ambassador.webp",
     "topicIds": [
       "society-world-chặng-5"
     ],
@@ -34943,7 +34942,7 @@ export const WORDS = [
     "exampleVi": "Các cuộc đàm phán hòa bình giữa hai phái đoàn đã kéo dài ba tuần.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/negotiation.webp",
+    "img": "assets/images/words/n/negotiation.webp",
     "topicIds": [
       "society-world-chặng-5"
     ],
@@ -34959,7 +34958,7 @@ export const WORDS = [
     "exampleVi": "Hòa giải giúp hạ nhiệt các cuộc xung đột địa chính trị khu vực.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/conflict.webp",
+    "img": "assets/images/words/c/conflict.webp",
     "topicIds": [
       "society-world-chặng-5"
     ],
@@ -34975,7 +34974,7 @@ export const WORDS = [
     "exampleVi": "Quân đội đã vận chuyển lương thực khẩn cấp cho các nạn nhân bão lũ.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/army.webp",
+    "img": "assets/images/words/a/army.webp",
     "topicIds": [
       "society-world-chặng-5"
     ],
@@ -34991,7 +34990,7 @@ export const WORDS = [
     "exampleVi": "Những người lính dũng cảm đã canh gác các đồn biên phòng trên núi cao hẻo lánh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/soldier.webp",
+    "img": "assets/images/words/s/soldier.webp",
     "topicIds": [
       "society-world-chặng-6"
     ],
@@ -35007,7 +35006,7 @@ export const WORDS = [
     "exampleVi": "Cả hai bên đã đồng ý một lệnh ngừng bắn nhân đạo ngay lập tức kéo dài 48 giờ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ceasefire.webp",
+    "img": "assets/images/words/c/ceasefire.webp",
     "topicIds": [
       "society-world-chặng-6"
     ],
@@ -35023,7 +35022,7 @@ export const WORDS = [
     "exampleVi": "Các quốc gia đã thành lập một liên minh quân sự phòng thủ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/alliance.webp",
+    "img": "assets/images/words/a/alliance.webp",
     "topicIds": [
       "society-world-chặng-6"
     ],
@@ -35039,7 +35038,7 @@ export const WORDS = [
     "exampleVi": "Tuyên ngôn Quốc tế Nhân quyền đã được thông qua vào năm 1948.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/human-rights.webp",
+    "img": "assets/images/words/h/human-rights.webp",
     "topicIds": [
       "society-world-chặng-6"
     ],
@@ -35055,7 +35054,7 @@ export const WORDS = [
     "exampleVi": "Bình đẳng giới tại nơi làm việc mang lại lợi ích cho toàn bộ nền kinh tế.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/equality.webp",
+    "img": "assets/images/words/e/equality.webp",
     "topicIds": [
       "society-world-chặng-6"
     ],
@@ -35071,7 +35070,7 @@ export const WORDS = [
     "exampleVi": "Tự do ngôn luận là điều cốt yếu cho sự tiến bộ của khoa học và nghệ thuật.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/freedom.webp",
+    "img": "assets/images/words/f/freedom.webp",
     "topicIds": [
       "society-world-chặng-6"
     ],
@@ -35087,7 +35086,7 @@ export const WORDS = [
     "exampleVi": "Hệ thống tư pháp tồn tại để mang lại sự công lý vô tư.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/justice.webp",
+    "img": "assets/images/words/j/justice.webp",
     "topicIds": [
       "society-world-chặng-6"
     ],
@@ -35103,7 +35102,7 @@ export const WORDS = [
     "exampleVi": "Pháp luật nghiêm cấm mọi sự phân biệt đối xử về chủng tộc và tôn giáo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/discrimination.webp",
+    "img": "assets/images/words/d/discrimination.webp",
     "topicIds": [
       "society-world-chặng-6"
     ],
@@ -35119,7 +35118,7 @@ export const WORDS = [
     "exampleVi": "Các nhà hoạt động môi trường đã nâng cao nhận thức về nạn phá rừng toàn cầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/activist.webp",
+    "img": "assets/images/words/a/activist.webp",
     "topicIds": [
       "society-world-chặng-6"
     ],
@@ -35135,7 +35134,7 @@ export const WORDS = [
     "exampleVi": "Hàng ngàn người đã tham gia một cuộc biểu tình hòa bình trên đường phố vì hành động vì khí hậu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/protest.webp",
+    "img": "assets/images/words/p/protest.webp",
     "topicIds": [
       "society-world-chặng-6"
     ],
@@ -35151,7 +35150,7 @@ export const WORDS = [
     "exampleVi": "Tiếp cận chăm sóc y tế chất lượng phải là một quyền, chứ không phải một đặc quyền.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/privilege.webp",
+    "img": "assets/images/words/p/privilege.webp",
     "topicIds": [
       "society-world-chặng-7"
     ],
@@ -35167,7 +35166,7 @@ export const WORDS = [
     "exampleVi": "Giáo dục phụ nữ là chất xúc tác cho sự tự chủ và phát triển của cộng đồng toàn cầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/empowerment.webp",
+    "img": "assets/images/words/e/empowerment.webp",
     "topicIds": [
       "society-world-chặng-7"
     ],
@@ -35183,7 +35182,7 @@ export const WORDS = [
     "exampleVi": "Tự do tôn giáo được bảo vệ theo luật pháp quốc tế.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/religion.webp",
+    "img": "assets/images/words/r/religion.webp",
     "topicIds": [
       "society-world-chặng-7"
     ],
@@ -35199,7 +35198,7 @@ export const WORDS = [
     "exampleVi": "Đức tin tâm linh kiên định đã mang lại sự an ủi cho cô ấy trong những lúc khó khăn.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/faith.webp",
+    "img": "assets/images/words/f/faith.webp",
     "topicIds": [
       "society-world-chặng-7"
     ],
@@ -35215,7 +35214,7 @@ export const WORDS = [
     "exampleVi": "Tiếng chuông nhà thờ ngân vang êm đềm vào sáng Chủ nhật.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/church.webp",
+    "img": "assets/images/words/c/church.webp",
     "topicIds": [
       "society-world-chặng-7",
       "top-1000-core-chặng-72"
@@ -35232,7 +35231,7 @@ export const WORDS = [
     "exampleVi": "Những người hành hương thắp những nén nhang tại ngôi chùa cổ trên núi.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/pagoda.webp",
+    "img": "assets/images/words/p/pagoda.webp",
     "topicIds": [
       "society-world-chặng-7"
     ],
@@ -35248,7 +35247,7 @@ export const WORDS = [
     "exampleVi": "Nhà thờ Hồi giáo bằng đá cẩm thạch uy nghiêm có những ngọn tháp mọc cao vút.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/mosque.webp",
+    "img": "assets/images/words/m/mosque.webp",
     "topicIds": [
       "society-world-chặng-7"
     ],
@@ -35264,7 +35263,7 @@ export const WORDS = [
     "exampleVi": "Họ đã tập hợp trong sự yên lặng trang nghiêm để cầu nguyện cho hòa bình.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/pray.webp",
+    "img": "assets/images/words/p/pray.webp",
     "topicIds": [
       "society-world-chặng-7",
       "top-1000-core-chặng-28"
@@ -35281,7 +35280,7 @@ export const WORDS = [
     "exampleVi": "Hãy đối xử với những khu chôn cất thiêng liêng cổ xưa với sự tôn kính cao nhất.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/sacred.webp",
+    "img": "assets/images/words/s/sacred.webp",
     "topicIds": [
       "society-world-chặng-7"
     ],
@@ -35297,7 +35296,7 @@ export const WORDS = [
     "exampleVi": "Thiền định mang lại một cảm giác tĩnh lặng tâm linh sâu sắc bên trong.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/spiritual.webp",
+    "img": "assets/images/words/s/spiritual.webp",
     "topicIds": [
       "society-world-chặng-7"
     ],
@@ -35313,7 +35312,7 @@ export const WORDS = [
     "exampleVi": "Các nhà sư Phật giáo đi khất thực buổi sáng bằng chân trần.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/monk.webp",
+    "img": "assets/images/words/m/monk.webp",
     "topicIds": [
       "society-world-chặng-8"
     ],
@@ -35329,7 +35328,7 @@ export const WORDS = [
     "exampleVi": "Tôn trọng các niềm tin tôn giáo khác nhau thúc đẩy sự chung sống hòa hợp.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/belief.webp",
+    "img": "assets/images/words/b/belief.webp",
     "topicIds": [
       "society-world-chặng-8"
     ],
@@ -35345,7 +35344,7 @@ export const WORDS = [
     "exampleVi": "Toàn bộ số tiền thu được từ cuộc chạy marathon đã được quyên góp cho một tổ chức từ thiện trẻ em.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/charity.webp",
+    "img": "assets/images/words/c/charity.webp",
     "topicIds": [
       "society-world-chặng-8"
     ],
@@ -35361,7 +35360,7 @@ export const WORDS = [
     "exampleVi": "Các tình nguyện viên sinh viên đã giúp dọn sạch rác thải nhựa khỏi bãi biển thành phố.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/volunteer.webp",
+    "img": "assets/images/words/v/volunteer.webp",
     "topicIds": [
       "society-world-chặng-8"
     ],
@@ -35377,7 +35376,7 @@ export const WORDS = [
     "exampleVi": "Hãy hiến máu tại điểm bệnh viện lưu động để cứu sống người bệnh.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/donate.webp",
+    "img": "assets/images/words/d/donate.webp",
     "topicIds": [
       "society-world-chặng-8",
       "top-1000-core-chặng-28"
@@ -35394,7 +35393,7 @@ export const WORDS = [
     "exampleVi": "Tổ chức phi lợi nhuận đã nhận được một khoản quyên góp ẩn danh một triệu đô-la hậu hĩnh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/donation.webp",
+    "img": "assets/images/words/d/donation.webp",
     "topicIds": [
       "society-world-chặng-8"
     ],
@@ -35410,7 +35409,7 @@ export const WORDS = [
     "exampleVi": "Các tổ chức phi lợi nhuận cung cấp nước uống sạch cho các ngôi làng vùng sâu vùng xa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/nonprofit.webp",
+    "img": "assets/images/words/n/nonprofit.webp",
     "topicIds": [
       "society-world-chặng-8"
     ],
@@ -35426,7 +35425,7 @@ export const WORDS = [
     "exampleVi": "Đêm tiệc dạ hội gây quỹ đã thu được 500.000 đô cho nghiên cứu ung thư.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fundraiser.webp",
+    "img": "assets/images/words/f/fundraiser.webp",
     "topicIds": [
       "society-world-chặng-8"
     ],
@@ -35442,7 +35441,7 @@ export const WORDS = [
     "exampleVi": "Các tỷ phú đã dành tài sản của mình cho các hoạt động nhân đạo y tế toàn cầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/philanthropy.webp",
+    "img": "assets/images/words/p/philanthropy.webp",
     "topicIds": [
       "society-world-chặng-8"
     ],
@@ -35458,7 +35457,7 @@ export const WORDS = [
     "exampleVi": "Các đoàn xe đã vận chuyển hàng viện trợ nhân đạo khẩn cấp đến các vùng thiên tai.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/humanitarian.webp",
+    "img": "assets/images/words/h/humanitarian.webp",
     "topicIds": [
       "society-world-chặng-8"
     ],
@@ -35474,7 +35473,7 @@ export const WORDS = [
     "exampleVi": "Các trung tâm cộng đồng hỗ trợ những cha mẹ đơn thân có thu nhập thấp.",
     "level": "A1",
     "pos": "verb",
-    "img": "assets/images/words/support.webp",
+    "img": "assets/images/words/s/support.webp",
     "topicIds": [
       "society-world-chặng-9",
       "top-1000-core-chặng-17"
@@ -35491,7 +35490,7 @@ export const WORDS = [
     "exampleVi": "Các đội cứu trợ thiên tai đã phân phát chăn ấm và khẩu phần đồ ăn đóng hộp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/relief.webp",
+    "img": "assets/images/words/r/relief.webp",
     "topicIds": [
       "society-world-chặng-9"
     ],
@@ -35507,7 +35506,7 @@ export const WORDS = [
     "exampleVi": "Đầu tư vào công nghệ xanh xây dựng một tương lai bền vững cho tất cả mọi người.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/future.webp",
+    "img": "assets/images/words/f/future.webp",
     "topicIds": [
       "society-world-chặng-9",
       "top-1000-core-chặng-100"
@@ -35524,7 +35523,7 @@ export const WORDS = [
     "exampleVi": "Hiện đại hóa nông nghiệp giúp tăng năng suất cây trồng đồng thời tiết kiệm nước.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/modernization.webp",
+    "img": "assets/images/words/m/modernization.webp",
     "topicIds": [
       "society-world-chặng-9"
     ],
@@ -35540,7 +35539,7 @@ export const WORDS = [
     "exampleVi": "Các chính sách phát triển bền vững của doanh nghiệp giúp giảm lượng khí thải carbon công nghiệp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/sustainability.webp",
+    "img": "assets/images/words/s/sustainability.webp",
     "topicIds": [
       "society-world-chặng-9"
     ],
@@ -35556,7 +35555,7 @@ export const WORDS = [
     "exampleVi": "Thám hiểm không gian mở rộng những biên giới chung của toàn nhân loại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/humanity.webp",
+    "img": "assets/images/words/h/humanity.webp",
     "topicIds": [
       "society-world-chặng-9"
     ],
@@ -35572,7 +35571,7 @@ export const WORDS = [
     "exampleVi": "Năng lượng nhiệt hạch sạch mở ra những triển vọng tươi sáng cho nguồn năng lượng vô tận.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/prospect.webp",
+    "img": "assets/images/words/p/prospect.webp",
     "topicIds": [
       "society-world-chặng-9"
     ],
@@ -35588,7 +35587,7 @@ export const WORDS = [
     "exampleVi": "Ứng phó với đại dịch toàn cầu đòi hỏi sự hợp tác quốc tế minh bạch.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cooperation.webp",
+    "img": "assets/images/words/c/cooperation.webp",
     "topicIds": [
       "society-world-chặng-9"
     ],
@@ -35604,7 +35603,7 @@ export const WORDS = [
     "exampleVi": "Con người phải học cách sống hòa hợp sinh thái với thiên nhiên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/harmony.webp",
+    "img": "assets/images/words/h/harmony.webp",
     "topicIds": [
       "society-world-chặng-9"
     ],
@@ -35620,7 +35619,7 @@ export const WORDS = [
     "exampleVi": "Chuyển đổi số tái định hình nền truyền thông toàn cầu hiện đại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/transformation.webp",
+    "img": "assets/images/words/t/transformation.webp",
     "topicIds": [
       "society-world-chặng-9"
     ],
@@ -35636,7 +35635,7 @@ export const WORDS = [
     "exampleVi": "Giáo dục, đổi mới và hòa bình là những nền tảng của sự phồn vinh quốc gia lâu dài.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/prosperity.webp",
+    "img": "assets/images/words/p/prosperity.webp",
     "topicIds": [
       "society-world-chặng-10"
     ],
@@ -35652,7 +35651,7 @@ export const WORDS = [
     "exampleVi": "Tất cả hợp đồng khách hàng được sắp xếp theo bảng chữ cái trong tủ hồ sơ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/filing-cabinet.webp",
+    "img": "assets/images/words/f/filing-cabinet.webp",
     "topicIds": [
       "toeic-b1-chặng-1"
     ],
@@ -35668,7 +35667,7 @@ export const WORDS = [
     "exampleVi": "Chúng ta cần thay hộp mực đen trước khi in các tài liệu phát tay.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cartridge.webp",
+    "img": "assets/images/words/c/cartridge.webp",
     "topicIds": [
       "toeic-b1-chặng-1"
     ],
@@ -35684,7 +35683,7 @@ export const WORDS = [
     "exampleVi": "Trưởng phòng hành chính thực hiện kiểm kê văn phòng phẩm hằng tháng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/inventory.webp",
+    "img": "assets/images/words/i/inventory.webp",
     "topicIds": [
       "toeic-b1-chặng-1"
     ],
@@ -35700,7 +35699,7 @@ export const WORDS = [
     "exampleVi": "Công ty đã mua ghế công thái học để giảm đau lưng cho nhân viên.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/ergonomic.webp",
+    "img": "assets/images/words/e/ergonomic.webp",
     "topicIds": [
       "toeic-b1-chặng-1"
     ],
@@ -35716,7 +35715,7 @@ export const WORDS = [
     "exampleVi": "Bộ phát mạng bắt đầu bị trục trặc trong cuộc họp trực tuyến buổi sáng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/malfunction.webp",
+    "img": "assets/images/words/m/malfunction.webp",
     "topicIds": [
       "toeic-b1-chặng-1",
       "top-1000-core-chặng-34"
@@ -35733,7 +35732,7 @@ export const WORDS = [
     "exampleVi": "Tủ đồ dùng được bổ sung giấy in vào mỗi thứ Hai.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/replenish.webp",
+    "img": "assets/images/words/r/replenish.webp",
     "topicIds": [
       "toeic-b1-chặng-1",
       "top-1000-core-chặng-34"
@@ -35750,7 +35749,7 @@ export const WORDS = [
     "exampleVi": "Mỗi trạm làm việc đều được trang bị màn hình đôi và mạng internet tốc độ cao.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/workstation.webp",
+    "img": "assets/images/words/w/workstation.webp",
     "topicIds": [
       "toeic-b1-chặng-1"
     ],
@@ -35766,7 +35765,7 @@ export const WORDS = [
     "exampleVi": "Tôi viết thư này để hỏi về tình trạng giao hàng của đơn hàng mới nhất.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/inquire.webp",
+    "img": "assets/images/words/i/inquire.webp",
     "topicIds": [
       "toeic-b1-chặng-1",
       "top-1000-core-chặng-34"
@@ -35783,7 +35782,7 @@ export const WORDS = [
     "exampleVi": "Hãy kiểm tra kỹ địa chỉ email để thư đến đúng người nhận mong muốn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/recipient.webp",
+    "img": "assets/images/words/r/recipient.webp",
     "topicIds": [
       "toeic-b1-chặng-1"
     ],
@@ -35799,7 +35798,7 @@ export const WORDS = [
     "exampleVi": "Tôi sẽ liên hệ lại với khách hàng vào ngày mai về phản hồi của họ.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/follow-up-verb.webp",
+    "img": "assets/images/words/f/follow-up-verb.webp",
     "topicIds": [
       "toeic-b1-chặng-1",
       "top-1000-core-chặng-34"
@@ -35816,7 +35815,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng thông báo cho phòng nhân sự nếu thông tin liên lạc của bạn thay đổi.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/notify.webp",
+    "img": "assets/images/words/n/notify.webp",
     "topicIds": [
       "toeic-b1-chặng-2",
       "top-1000-core-chặng-34"
@@ -35833,7 +35832,7 @@ export const WORDS = [
     "exampleVi": "Tôi liên hệ với bạn về sự kiện ra mắt sản phẩm sắp tới.",
     "level": "B1",
     "pos": "preposition",
-    "img": "assets/images/words/regarding.webp",
+    "img": "assets/images/words/r/regarding.webp",
     "topicIds": [
       "toeic-b1-chặng-2"
     ],
@@ -35849,7 +35848,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã chuẩn bị bản thảo đầu tiên của thông cáo báo chí để duyệt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/draft.webp",
+    "img": "assets/images/words/d/draft.webp",
     "topicIds": [
       "toeic-b1-chặng-2"
     ],
@@ -35865,7 +35864,7 @@ export const WORDS = [
     "exampleVi": "Email bị gửi trả lại vì người gửi đã nhập sai tên miền.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/sender.webp",
+    "img": "assets/images/words/s/sender.webp",
     "topicIds": [
       "toeic-b1-chặng-2"
     ],
@@ -35881,7 +35880,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng cho chúng tôi biết liệu 2:00 chiều thứ Sáu có thuận tiện cho bạn không.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/convenient.webp",
+    "img": "assets/images/words/c/convenient.webp",
     "topicIds": [
       "toeic-b1-chặng-2"
     ],
@@ -35897,7 +35896,7 @@ export const WORDS = [
     "exampleVi": "Ủy ban đã đạt được quyết định nhất trí thông qua kế hoạch mở rộng.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/unanimous.webp",
+    "img": "assets/images/words/u/unanimous.webp",
     "topicIds": [
       "toeic-b1-chặng-2"
     ],
@@ -35913,7 +35912,7 @@ export const WORDS = [
     "exampleVi": "Chủ tọa đã tuyên bố khai mạc phiên họp đúng 9 giờ sáng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/chairperson.webp",
+    "img": "assets/images/words/c/chairperson.webp",
     "topicIds": [
       "toeic-b1-chặng-2"
     ],
@@ -35929,7 +35928,7 @@ export const WORDS = [
     "exampleVi": "Hội nghị đã tạm dừng đến 1:30 chiều để nghỉ ăn trưa.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/adjourn.webp",
+    "img": "assets/images/words/a/adjourn.webp",
     "topicIds": [
       "toeic-b1-chặng-2",
       "top-1000-core-chặng-34"
@@ -35946,7 +35945,7 @@ export const WORDS = [
     "exampleVi": "Hơn hai trăm người tham dự đã đăng ký tham gia hội thảo tiếp thị khu vực.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/attendee.webp",
+    "img": "assets/images/words/a/attendee.webp",
     "topicIds": [
       "toeic-b1-chặng-2"
     ],
@@ -35962,7 +35961,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã đặt ngày dự kiến là 15 tháng 10 cho buổi trưng bày sản phẩm.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/tentative.webp",
+    "img": "assets/images/words/t/tentative.webp",
     "topicIds": [
       "toeic-b1-chặng-2"
     ],
@@ -35978,7 +35977,7 @@ export const WORDS = [
     "exampleVi": "Một điều phối viên chuyên nghiệp đã được thuê để điều hành buổi tọa đàm.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/facilitate.webp",
+    "img": "assets/images/words/f/facilitate.webp",
     "topicIds": [
       "toeic-b1-chặng-3",
       "top-1000-core-chặng-34"
@@ -35995,7 +35994,7 @@ export const WORDS = [
     "exampleVi": "Trưởng ban an toàn đã tổ chức một buổi chỉ dẫn ngắn trước khi tham quan nhà máy.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/briefing.webp",
+    "img": "assets/images/words/b/briefing.webp",
     "topicIds": [
       "toeic-b1-chặng-3"
     ],
@@ -36011,7 +36010,7 @@ export const WORDS = [
     "exampleVi": "Công ty nhân sự giúp các tập đoàn công nghệ tuyển dụng các nhà khoa học dữ liệu tài năng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/recruit.webp",
+    "img": "assets/images/words/r/recruit.webp",
     "topicIds": [
       "toeic-b1-chặng-3",
       "top-1000-core-chặng-34"
@@ -36028,7 +36027,7 @@ export const WORDS = [
     "exampleVi": "Khả năng lãnh đạo và kỹ năng giao tiếp là các tiêu chí lựa chọn then chốt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/criteria.webp",
+    "img": "assets/images/words/c/criteria.webp",
     "topicIds": [
       "toeic-b1-chặng-3"
     ],
@@ -36044,7 +36043,7 @@ export const WORDS = [
     "exampleVi": "Chuyên viên nhân sự đã hoàn thành việc sàng lọc hồ sơ ban đầu trong 2 ngày.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/screening.webp",
+    "img": "assets/images/words/s/screening.webp",
     "topicIds": [
       "toeic-b1-chặng-3"
     ],
@@ -36060,7 +36059,7 @@ export const WORDS = [
     "exampleVi": "Sáu ứng viên đã được đưa vào danh sách rút gọn cho vòng thuyết trình cuối.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/shortlist-verb.webp",
+    "img": "assets/images/words/s/shortlist-verb.webp",
     "topicIds": [
       "toeic-b1-chặng-3",
       "top-1000-core-chặng-34"
@@ -36077,7 +36076,7 @@ export const WORDS = [
     "exampleVi": "Nhân viên được hưởng các phúc lợi y tế toàn diện và thẻ tập thể dục miễn phí.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/benefits.webp",
+    "img": "assets/images/words/b/benefits.webp",
     "topicIds": [
       "toeic-b1-chặng-3"
     ],
@@ -36093,7 +36092,7 @@ export const WORDS = [
     "exampleVi": "Đại diện bán hàng nhận thưởng tiền mặt khi vượt chỉ tiêu hằng quý.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/incentive.webp",
+    "img": "assets/images/words/i/incentive.webp",
     "topicIds": [
       "toeic-b1-chặng-3"
     ],
@@ -36109,7 +36108,7 @@ export const WORDS = [
     "exampleVi": "Các nhân sự bị tinh giản trong đợt tái cấu trúc đã nhận 6 tháng trợ cấp thôi việc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/severance.webp",
+    "img": "assets/images/words/s/severance.webp",
     "topicIds": [
       "toeic-b1-chặng-3"
     ],
@@ -36125,7 +36124,7 @@ export const WORDS = [
     "exampleVi": "Hãy kiểm tra phiếu lương hằng tháng để thấy các khoản khấu trừ thuế được liệt kê rõ ràng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/deduction.webp",
+    "img": "assets/images/words/d/deduction.webp",
     "topicIds": [
       "toeic-b1-chặng-3"
     ],
@@ -36141,7 +36140,7 @@ export const WORDS = [
     "exampleVi": "Công ty cung cấp phụ cấp đi lại hằng tháng cho nhân viên bán hàng thị trường.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/allowance-noun.webp",
+    "img": "assets/images/words/a/allowance-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-4"
     ],
@@ -36157,7 +36156,7 @@ export const WORDS = [
     "exampleVi": "Mức thù lao thỏa đáng thu hút nhân tài hàng đầu trong ngành tài chính cạnh tranh.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/remuneration.webp",
+    "img": "assets/images/words/r/remuneration.webp",
     "topicIds": [
       "toeic-b1-chặng-4"
     ],
@@ -36173,7 +36172,7 @@ export const WORDS = [
     "exampleVi": "Nhân viên được hưởng 20 ngày nghỉ phép thường niên có lương mỗi năm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/leave-noun.webp",
+    "img": "assets/images/words/l/leave-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-4"
     ],
@@ -36189,7 +36188,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy sẽ nghỉ thai sản có lương trong 4 tháng bắt đầu từ tháng tới.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/maternity.webp",
+    "img": "assets/images/words/m/maternity.webp",
     "topicIds": [
       "toeic-b1-chặng-4"
     ],
@@ -36205,7 +36204,7 @@ export const WORDS = [
     "exampleVi": "Bữa trưa miễn phí và làm việc kết hợp từ xa là các đãi ngộ phổ biến tại các công ty khởi nghiệp hiện đại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/perk.webp",
+    "img": "assets/images/words/p/perk.webp",
     "topicIds": [
       "toeic-b1-chặng-4"
     ],
@@ -36221,7 +36220,7 @@ export const WORDS = [
     "exampleVi": "Tất cả nhân viên phải tuân thủ nghiêm ngặt các quy định an toàn trong phòng thí nghiệm hóa chất.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/comply.webp",
+    "img": "assets/images/words/c/comply.webp",
     "topicIds": [
       "toeic-b1-chặng-4",
       "top-1000-core-chặng-34"
@@ -36238,7 +36237,7 @@ export const WORDS = [
     "exampleVi": "Các tổ chức tài chính phải chịu sự điều chỉnh của các quy định chính phủ nghiêm ngặt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/regulation.webp",
+    "img": "assets/images/words/r/regulation.webp",
     "topicIds": [
       "toeic-b1-chặng-4"
     ],
@@ -36254,7 +36253,7 @@ export const WORDS = [
     "exampleVi": "Mỗi nhân viên đều đã ký thỏa thuận bảo mật về dữ liệu khách hàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/confidentiality.webp",
+    "img": "assets/images/words/c/confidentiality.webp",
     "topicIds": [
       "toeic-b1-chặng-4"
     ],
@@ -36270,7 +36269,7 @@ export const WORDS = [
     "exampleVi": "Bộ quy tắc ứng xử doanh nghiệp nhấn mạnh tính chính trực, sự đa dạng và tôn trọng lẫn nhau.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/code-of-conduct.webp",
+    "img": "assets/images/words/c/code-of-conduct.webp",
     "topicIds": [
       "toeic-b1-chặng-4"
     ],
@@ -36286,7 +36285,7 @@ export const WORDS = [
     "exampleVi": "Chia sẻ chi tiết tài khoản khách hàng là sự vi phạm nghiêm trọng quy định công ty.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/violation.webp",
+    "img": "assets/images/words/v/violation.webp",
     "topicIds": [
       "toeic-b1-chặng-4"
     ],
@@ -36302,7 +36301,7 @@ export const WORDS = [
     "exampleVi": "Nhân viên an ninh thực thi yêu cầu phải đeo thẻ định danh mọi lúc.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/enforce.webp",
+    "img": "assets/images/words/e/enforce.webp",
     "topicIds": [
       "toeic-b1-chặng-5",
       "top-1000-core-chặng-35"
@@ -36319,7 +36318,7 @@ export const WORDS = [
     "exampleVi": "Nghỉ làm không phép nhiều lần có thể dẫn đến hình thức xử lý kỷ luật chính thức.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/disciplinary.webp",
+    "img": "assets/images/words/d/disciplinary.webp",
     "topicIds": [
       "toeic-b1-chặng-5"
     ],
@@ -36335,7 +36334,7 @@ export const WORDS = [
     "exampleVi": "Đội ngũ chăm sóc khách hàng của chúng tôi duy trì các tiêu chuẩn phản hồi cao.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/standard.webp",
+    "img": "assets/images/words/s/standard.webp",
     "topicIds": [
       "toeic-b1-chặng-5"
     ],
@@ -36351,7 +36350,7 @@ export const WORDS = [
     "exampleVi": "Hãy làm theo quy trình sơ tán khẩn cấp tiêu chuẩn nếu chuông báo cháy reo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/procedure.webp",
+    "img": "assets/images/words/p/procedure.webp",
     "topicIds": [
       "toeic-b1-chặng-5"
     ],
@@ -36367,7 +36366,7 @@ export const WORDS = [
     "exampleVi": "Công ty cam kết tìm kiếm nguồn cung ứng hợp đạo đức cho tất cả nguyên liệu sản xuất.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/ethical.webp",
+    "img": "assets/images/words/e/ethical.webp",
     "topicIds": [
       "toeic-b1-chặng-5"
     ],
@@ -36383,7 +36382,7 @@ export const WORDS = [
     "exampleVi": "Hướng dẫn thương hiệu chỉ định rõ màu sắc và phông chữ cho mọi tài liệu tiếp thị.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/guidelines.webp",
+    "img": "assets/images/words/g/guidelines.webp",
     "topicIds": [
       "toeic-b1-chặng-5"
     ],
@@ -36399,7 +36398,7 @@ export const WORDS = [
     "exampleVi": "Quy định công ty nghiêm cấm hút thuốc ở bất kỳ đâu trong khuôn viên tòa nhà.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/prohibit.webp",
+    "img": "assets/images/words/p/prohibit.webp",
     "topicIds": [
       "toeic-b1-chặng-5",
       "top-1000-core-chặng-35"
@@ -36416,7 +36415,7 @@ export const WORDS = [
     "exampleVi": "Chiến dịch tiếp thị số đã mang lại hơn 50.000 lượt truy cập trang web.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/campaign.webp",
+    "img": "assets/images/words/c/campaign.webp",
     "topicIds": [
       "toeic-b1-chặng-5"
     ],
@@ -36432,7 +36431,7 @@ export const WORDS = [
     "exampleVi": "Ứng dụng di động mới của chúng tôi được thiết kế đặc biệt cho nhóm khách hàng mục tiêu trẻ am hiểu công nghệ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/target-audience.webp",
+    "img": "assets/images/words/t/target-audience.webp",
     "topicIds": [
       "toeic-b1-chặng-5"
     ],
@@ -36448,7 +36447,7 @@ export const WORDS = [
     "exampleVi": "Quảng cáo trên mạng xã hội đã nâng cao thành công độ nhận diện thương hiệu trên toàn quốc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/brand-awareness.webp",
+    "img": "assets/images/words/b/brand-awareness.webp",
     "topicIds": [
       "toeic-b1-chặng-5"
     ],
@@ -36464,7 +36463,7 @@ export const WORDS = [
     "exampleVi": "Thương hiệu đồ thể thao đã chốt hợp đồng bảo chứng lớn với nhà vô địch Olympic.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/endorsement.webp",
+    "img": "assets/images/words/e/endorsement.webp",
     "topicIds": [
       "toeic-b1-chặng-6"
     ],
@@ -36480,7 +36479,7 @@ export const WORDS = [
     "exampleVi": "Với chiến lược giá mới, công ty chúng tôi đã chiếm được 20% thị phần.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/market-share.webp",
+    "img": "assets/images/words/m/market-share.webp",
     "topicIds": [
       "toeic-b1-chặng-6"
     ],
@@ -36496,7 +36495,7 @@ export const WORDS = [
     "exampleVi": "Cuộc khảo sát đã thu thập dữ liệu người tiêu dùng giá trị qua nhiều nhóm nhân khẩu học chính.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/demographic.webp",
+    "img": "assets/images/words/d/demographic.webp",
     "topicIds": [
       "toeic-b1-chặng-6"
     ],
@@ -36512,7 +36511,7 @@ export const WORDS = [
     "exampleVi": "Công ty sáng tạo đã sản xuất một đoạn quảng cáo truyền hình ấn tượng cho loại đồ uống mới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/commercial.webp",
+    "img": "assets/images/words/c/commercial.webp",
     "topicIds": [
       "toeic-b1-chặng-6"
     ],
@@ -36528,7 +36527,7 @@ export const WORDS = [
     "exampleVi": "Hãng sản xuất điện tử dự định ra mắt chiếc điện thoại thông minh chủ lực vào tháng 9.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/launch.webp",
+    "img": "assets/images/words/l/launch.webp",
     "topicIds": [
       "toeic-b1-chặng-6",
       "top-1000-core-chặng-35"
@@ -36545,7 +36544,7 @@ export const WORDS = [
     "exampleVi": "Ngân hàng đã đồng ý tài trợ cho hội nghị thượng đỉnh công nghệ quốc tế vào tháng tới.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/sponsor-verb.webp",
+    "img": "assets/images/words/s/sponsor-verb.webp",
     "topicIds": [
       "toeic-b1-chặng-6",
       "top-1000-core-chặng-35"
@@ -36562,7 +36561,7 @@ export const WORDS = [
     "exampleVi": "Chiến lược tiếp thị nội dung của chúng tôi tập trung vào việc giải quyết các vấn đề thực tế của khách hàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/strategy.webp",
+    "img": "assets/images/words/s/strategy.webp",
     "topicIds": [
       "toeic-b1-chặng-6"
     ],
@@ -36578,7 +36577,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã thiết kế các tính năng cao cấp nhắm riêng vào phân khúc khách hàng doanh nghiệp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/segment.webp",
+    "img": "assets/images/words/s/segment.webp",
     "topicIds": [
       "toeic-b1-chặng-6"
     ],
@@ -36594,7 +36593,7 @@ export const WORDS = [
     "exampleVi": "Các tình nguyện viên đã phát tờ rơi quảng cáo tại khu mua sắm trung tâm thành phố.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/flyer.webp",
+    "img": "assets/images/words/f/flyer.webp",
     "topicIds": [
       "toeic-b1-chặng-6"
     ],
@@ -36610,7 +36609,7 @@ export const WORDS = [
     "exampleVi": "Bàn hỗ trợ phản hồi mọi câu hỏi của khách hàng trong vòng 30 phút.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/inquiry.webp",
+    "img": "assets/images/words/i/inquiry.webp",
     "topicIds": [
       "toeic-b1-chặng-6"
     ],
@@ -36626,7 +36625,7 @@ export const WORDS = [
     "exampleVi": "Sự hài lòng của khách hàng là ưu tiên vận hành cao nhất của công ty chúng tôi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/satisfaction.webp",
+    "img": "assets/images/words/s/satisfaction.webp",
     "topicIds": [
       "toeic-b1-chặng-7"
     ],
@@ -36642,7 +36641,7 @@ export const WORDS = [
     "exampleVi": "Chương trình khách hàng thân thiết của chúng tôi tặng thưởng cho người mua thường xuyên bằng các mức giảm giá độc quyền.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/loyalty.webp",
+    "img": "assets/images/words/l/loyalty.webp",
     "topicIds": [
       "toeic-b1-chặng-7"
     ],
@@ -36658,7 +36657,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng giữ máy để trao đổi với đại diện dịch vụ chăm sóc khách hàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/representative.webp",
+    "img": "assets/images/words/r/representative.webp",
     "topicIds": [
       "toeic-b1-chặng-7"
     ],
@@ -36674,7 +36673,7 @@ export const WORDS = [
     "exampleVi": "Đội ngũ kỹ thuật của chúng tôi đã làm việc chăm chỉ để giải quyết lỗi phần mềm trước buổi trưa.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/resolve.webp",
+    "img": "assets/images/words/r/resolve.webp",
     "topicIds": [
       "toeic-b1-chặng-7",
       "top-1000-core-chặng-35"
@@ -36691,7 +36690,7 @@ export const WORDS = [
     "exampleVi": "Nếu vấn đề không thể xử lý bởi hỗ trợ cấp một, hãy chuyển lên cho trưởng nhóm kỹ thuật.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/escalate.webp",
+    "img": "assets/images/words/e/escalate.webp",
     "topicIds": [
       "toeic-b1-chặng-7",
       "top-1000-core-chặng-35"
@@ -36708,7 +36707,7 @@ export const WORDS = [
     "exampleVi": "Hãy luôn đối xử với khách hàng bằng sự chuyên nghiệp và lịch thiệp cao nhất.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/courtesy.webp",
+    "img": "assets/images/words/c/courtesy.webp",
     "topicIds": [
       "toeic-b1-chặng-7"
     ],
@@ -36724,7 +36723,7 @@ export const WORDS = [
     "exampleVi": "Khách sạn boutique phục vụ một tập khách hàng doanh nhân quốc tế cao cấp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/clientele.webp",
+    "img": "assets/images/words/c/clientele.webp",
     "topicIds": [
       "toeic-b1-chặng-7"
     ],
@@ -36740,7 +36739,7 @@ export const WORDS = [
     "exampleVi": "Cảm ơn bạn đã liên hệ; vui lòng cho chúng tôi biết nếu bạn cần hỗ trợ thêm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/assistance.webp",
+    "img": "assets/images/words/a/assistance.webp",
     "topicIds": [
       "toeic-b1-chặng-7"
     ],
@@ -36756,7 +36755,7 @@ export const WORDS = [
     "exampleVi": "Những lời đánh giá tích cực của khách hàng được hiển thị nổi bật trên trang chủ của chúng tôi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/testimonial.webp",
+    "img": "assets/images/words/t/testimonial.webp",
     "topicIds": [
       "toeic-b1-chặng-7"
     ],
@@ -36772,7 +36771,7 @@ export const WORDS = [
     "exampleVi": "Phòng kế toán sẽ xuất hóa đơn điện tử ngay khi giao hàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/invoice-noun.webp",
+    "img": "assets/images/words/i/invoice-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-7"
     ],
@@ -36788,7 +36787,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng ghi số đơn đặt hàng mua trên tất cả các phiếu gửi hàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/purchase-order.webp",
+    "img": "assets/images/words/p/purchase-order.webp",
     "topicIds": [
       "toeic-b1-chặng-8"
     ],
@@ -36804,7 +36803,7 @@ export const WORDS = [
     "exampleVi": "Nhà cung cấp đã gửi bảng báo giá chi tiết nêu rõ chi phí thiết bị và lắp đặt.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/quotation.webp",
+    "img": "assets/images/words/q/quotation.webp",
     "topicIds": [
       "toeic-b1-chặng-8"
     ],
@@ -36820,7 +36819,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng đảm bảo địa chỉ thanh toán khớp với thông tin trên thẻ doanh nghiệp của bạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/billing.webp",
+    "img": "assets/images/words/b/billing.webp",
     "topicIds": [
       "toeic-b1-chặng-8"
     ],
@@ -36836,7 +36835,7 @@ export const WORDS = [
     "exampleVi": "Biên lai liệt kê chi tiết mọi chi phí nhân công, phụ tùng thay thế và các loại thuế áp dụng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/itemize.webp",
+    "img": "assets/images/words/i/itemize.webp",
     "topicIds": [
       "toeic-b1-chặng-8"
     ],
@@ -36852,7 +36851,7 @@ export const WORDS = [
     "exampleVi": "Đội ngũ thu mua đã đàm phán mức giá sỉ với các nhà cung ứng nông sản địa phương.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/procurement.webp",
+    "img": "assets/images/words/p/procurement.webp",
     "topicIds": [
       "toeic-b1-chặng-8"
     ],
@@ -36868,7 +36867,7 @@ export const WORDS = [
     "exampleVi": "Điều khoản thanh toán tiêu chuẩn của chúng tôi yêu cầu thanh toán ròng trong vòng 30 ngày kể từ ngày xuất hóa đơn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/terms-of-payment.webp",
+    "img": "assets/images/words/t/terms-of-payment.webp",
     "topicIds": [
       "toeic-b1-chặng-8"
     ],
@@ -36884,7 +36883,7 @@ export const WORDS = [
     "exampleVi": "Nhà thầu đã cung cấp bản dự toán sơ bộ cho dự án cải tạo văn phòng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/estimate.webp",
+    "img": "assets/images/words/e/estimate.webp",
     "topicIds": [
       "toeic-b1-chặng-8"
     ],
@@ -36900,7 +36899,7 @@ export const WORDS = [
     "exampleVi": "Kiểm soát viên tài chính phải phê duyệt tất cả các khoản chi tiêu vượt quá 10.000 đô la.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/authorize.webp",
+    "img": "assets/images/words/a/authorize.webp",
     "topicIds": [
       "toeic-b1-chặng-8"
     ],
@@ -36916,7 +36915,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã chuyển sang nhà cung cấp trong nước để tránh chậm trễ vận chuyển quốc tế.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/supplier.webp",
+    "img": "assets/images/words/s/supplier.webp",
     "topicIds": [
       "toeic-b1-chặng-8"
     ],
@@ -36932,7 +36931,7 @@ export const WORDS = [
     "exampleVi": "Lô hàng linh kiện điện tử quốc tế đã cập cảng sáng nay.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/shipment.webp",
+    "img": "assets/images/words/s/shipment.webp",
     "topicIds": [
       "toeic-b1-chặng-8"
     ],
@@ -36948,7 +36947,7 @@ export const WORDS = [
     "exampleVi": "Quản lý logistics hiệu quả đã giúp giảm chi phí phân phối trong toàn bộ chuỗi cung ứng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/logistics.webp",
+    "img": "assets/images/words/l/logistics.webp",
     "topicIds": [
       "toeic-b1-chặng-9"
     ],
@@ -36964,7 +36963,7 @@ export const WORDS = [
     "exampleVi": "Công ty vận hành một nhà kho phân phối tự động gần đường cao tốc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/warehouse.webp",
+    "img": "assets/images/words/w/warehouse.webp",
     "topicIds": [
       "toeic-b1-chặng-9"
     ],
@@ -36980,7 +36979,7 @@ export const WORDS = [
     "exampleVi": "Khách hàng có thể nhập mã theo dõi trực tuyến để kiểm tra tình trạng bưu kiện theo thời gian thực.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/tracking.webp",
+    "img": "assets/images/words/t/tracking.webp",
     "topicIds": [
       "toeic-b1-chặng-9"
     ],
@@ -36996,7 +36995,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi hợp tác với đơn vị vận chuyển chuyển phát nhanh uy tín để đảm bảo giao hàng trong ngày hôm sau.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/carrier.webp",
+    "img": "assets/images/words/c/carrier.webp",
     "topicIds": [
       "toeic-b1-chặng-9"
     ],
@@ -37012,7 +37011,7 @@ export const WORDS = [
     "exampleVi": "Đại lý giao nhận hàng hóa đã xử lý thủ tục hải quan và vận chuyển đường hàng không.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/freight.webp",
+    "img": "assets/images/words/f/freight.webp",
     "topicIds": [
       "toeic-b1-chặng-9"
     ],
@@ -37028,7 +37027,7 @@ export const WORDS = [
     "exampleVi": "Lô hàng rượu vang nhập khẩu mới nhất đã được kiểm tra khi đến hải quan.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/consignment.webp",
+    "img": "assets/images/words/c/consignment.webp",
     "topicIds": [
       "toeic-b1-chặng-9"
     ],
@@ -37044,7 +37043,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã trả thêm một khoản phí để chuyển phát hỏa tốc các linh kiện thay thế khẩn cấp.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/expedite.webp",
+    "img": "assets/images/words/e/expedite.webp",
     "topicIds": [
       "toeic-b1-chặng-9"
     ],
@@ -37060,7 +37059,7 @@ export const WORDS = [
     "exampleVi": "Người vận hành xe nâng đã xếp các tấm pallet gỗ gọn gàng bên trong khu vực bốc dỡ hàng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/pallet.webp",
+    "img": "assets/images/words/p/pallet.webp",
     "topicIds": [
       "toeic-b1-chặng-9"
     ],
@@ -37076,7 +37075,7 @@ export const WORDS = [
     "exampleVi": "Thùng các-tông được đóng dấu rõ ràng 'Hàng dễ vỡ - Xin nhẹ tay'.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/fragile.webp",
+    "img": "assets/images/words/f/fragile.webp",
     "topicIds": [
       "toeic-b1-chặng-9"
     ],
@@ -37092,7 +37091,7 @@ export const WORDS = [
     "exampleVi": "Lô hàng hiện đang trong quá trình vận chuyển và dự kiến sẽ tới tổng kho vào ngày mai.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/transit.webp",
+    "img": "assets/images/words/t/transit.webp",
     "topicIds": [
       "toeic-b1-chặng-9"
     ],
@@ -37108,7 +37107,7 @@ export const WORDS = [
     "exampleVi": "Thanh tra cảng đã kiểm tra bản kê khai hàng hóa trước khi cấp phép cập bến.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/manifest.webp",
+    "img": "assets/images/words/m/manifest.webp",
     "topicIds": [
       "toeic-b1-chặng-10"
     ],
@@ -37124,7 +37123,7 @@ export const WORDS = [
     "exampleVi": "Các giám đốc điều hành đã đạt được thỏa thuận chung về mọi điều khoản của mối quan hệ đối tác chiến lược.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/agreement.webp",
+    "img": "assets/images/words/a/agreement.webp",
     "topicIds": [
       "toeic-b1-chặng-10"
     ],
@@ -37140,7 +37139,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng xem lại kỹ điều khoản không tiết lộ thông tin trước khi ký.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/clause.webp",
+    "img": "assets/images/words/c/clause.webp",
     "topicIds": [
       "toeic-b1-chặng-10"
     ],
@@ -37156,7 +37155,7 @@ export const WORDS = [
     "exampleVi": "Các điều khoản dàn xếp đã được chấp thuận bởi tất cả các bên tham gia.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/party.webp",
+    "img": "assets/images/words/p/party.webp",
     "topicIds": [
       "toeic-b1-chặng-10"
     ],
@@ -37172,7 +37171,7 @@ export const WORDS = [
     "exampleVi": "Hợp đồng thuê quy định rõ tiền thuê phải được gửi vào ngày đầu tiên mỗi tháng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/specify.webp",
+    "img": "assets/images/words/s/specify.webp",
     "topicIds": [
       "toeic-b1-chặng-10"
     ],
@@ -37188,7 +37187,7 @@ export const WORDS = [
     "exampleVi": "Hãy chắc chắn bạn hiểu tất cả điều khoản thanh toán trước khi hoàn tất giao dịch.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/terms.webp",
+    "img": "assets/images/words/t/terms.webp",
     "topicIds": [
       "toeic-b1-chặng-10"
     ],
@@ -37204,7 +37203,7 @@ export const WORDS = [
     "exampleVi": "Khách hàng rất hài lòng và đã chọn gia hạn gói thuê bao phần mềm hằng năm.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/renew.webp",
+    "img": "assets/images/words/r/renew.webp",
     "topicIds": [
       "toeic-b1-chặng-10"
     ],
@@ -37220,7 +37219,7 @@ export const WORDS = [
     "exampleVi": "Sau khi được ký bởi các đại diện có thẩm quyền, thỏa thuận này sẽ có tính ràng buộc pháp lý.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/binding.webp",
+    "img": "assets/images/words/b/binding.webp",
     "topicIds": [
       "toeic-b1-chặng-10"
     ],
@@ -37236,7 +37235,7 @@ export const WORDS = [
     "exampleVi": "Việc không giao hàng đúng hạn đã cấu thành một hành vi vi phạm hợp đồng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/breach.webp",
+    "img": "assets/images/words/b/breach.webp",
     "topicIds": [
       "toeic-b1-chặng-10"
     ],
@@ -37252,7 +37251,7 @@ export const WORDS = [
     "exampleVi": "Bất kỳ bên nào cũng có thể chấm dứt hợp đồng bằng cách gửi thông báo bằng văn bản trước 30 ngày.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/terminate.webp",
+    "img": "assets/images/words/t/terminate.webp",
     "topicIds": [
       "toeic-b1-chặng-10"
     ],
@@ -37268,7 +37267,7 @@ export const WORDS = [
     "exampleVi": "Hợp đồng bao gồm một điều khoản đặc biệt để giải quyết các tranh chấp thanh toán trong tương lai.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/provision.webp",
+    "img": "assets/images/words/p/provision.webp",
     "topicIds": [
       "toeic-b1-chặng-11"
     ],
@@ -37284,7 +37283,7 @@ export const WORDS = [
     "exampleVi": "Thỏa thuận quy định rằng tất cả hàng hóa phải đáp ứng các tiêu chuẩn an toàn quốc tế.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/stipulate.webp",
+    "img": "assets/images/words/s/stipulate.webp",
     "topicIds": [
       "toeic-b1-chặng-11"
     ],
@@ -37300,7 +37299,7 @@ export const WORDS = [
     "exampleVi": "Nếu phát hiện chữ ký giả mạo, toàn bộ hợp đồng sẽ bị tuyên bố vô hiệu lực.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/null-and-void.webp",
+    "img": "assets/images/words/n/null-and-void.webp",
     "topicIds": [
       "toeic-b1-chặng-11"
     ],
@@ -37316,7 +37315,7 @@ export const WORDS = [
     "exampleVi": "Sự hợp tác chặt chẽ giữa bộ phận bán hàng và kỹ thuật đã đảm bảo sản phẩm ra mắt đúng hạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/collaboration.webp",
+    "img": "assets/images/words/c/collaboration.webp",
     "topicIds": [
       "toeic-b1-chặng-11"
     ],
@@ -37332,7 +37331,7 @@ export const WORDS = [
     "exampleVi": "Hãng sản xuất ô tô nước ngoài đã thành lập một liên doanh với một nhà sản xuất nội địa.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/joint-venture.webp",
+    "img": "assets/images/words/j/joint-venture.webp",
     "topicIds": [
       "toeic-b1-chặng-11"
     ],
@@ -37348,7 +37347,7 @@ export const WORDS = [
     "exampleVi": "Chi nhánh liên kết khu vực của chúng tôi phụ trách phân phối khách hàng khắp Đông Nam Á.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/affiliate.webp",
+    "img": "assets/images/words/a/affiliate.webp",
     "topicIds": [
       "toeic-b1-chặng-11"
     ],
@@ -37364,7 +37363,7 @@ export const WORDS = [
     "exampleVi": "Sự sáp nhập của hai gã khổng lồ viễn thông đã tạo ra mạng lưới lớn nhất cả nước.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/merger.webp",
+    "img": "assets/images/words/m/merger.webp",
     "topicIds": [
       "toeic-b1-chặng-11"
     ],
@@ -37380,7 +37379,7 @@ export const WORDS = [
     "exampleVi": "Công ty công nghệ đã công bố việc mua lại một công ty khởi nghiệp trí tuệ nhân tạo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/acquisition.webp",
+    "img": "assets/images/words/a/acquisition.webp",
     "topicIds": [
       "toeic-b1-chặng-11"
     ],
@@ -37396,7 +37395,7 @@ export const WORDS = [
     "exampleVi": "Cả hai công ty đều mong đợi một mối quan hệ đối tác lâu dài cùng phát triển và thành công.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/mutual.webp",
+    "img": "assets/images/words/m/mutual.webp",
     "topicIds": [
       "toeic-b1-chặng-11"
     ],
@@ -37412,7 +37411,7 @@ export const WORDS = [
     "exampleVi": "Tập đoàn đa quốc gia đã mở một công ty con sản xuất mới tại Việt Nam.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/subsidiary.webp",
+    "img": "assets/images/words/s/subsidiary.webp",
     "topicIds": [
       "toeic-b1-chặng-11"
     ],
@@ -37428,7 +37427,7 @@ export const WORDS = [
     "exampleVi": "Sự sáp nhập đã tạo ra những hiệu ứng cộng hưởng mạnh mẽ trong phân phối và đổi mới sản phẩm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/synergy.webp",
+    "img": "assets/images/words/s/synergy.webp",
     "topicIds": [
       "toeic-b1-chặng-12"
     ],
@@ -37444,7 +37443,7 @@ export const WORDS = [
     "exampleVi": "Một tập đoàn liên danh quốc tế đã trúng thầu hợp đồng xây dựng cảng biển hiện đại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/consortium.webp",
+    "img": "assets/images/words/c/consortium.webp",
     "topicIds": [
       "toeic-b1-chặng-12"
     ],
@@ -37460,7 +37459,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi tự hào công bố đối tác công nghệ mới cho cơ sở hạ tầng đám mây.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/partner.webp",
+    "img": "assets/images/words/p/partner.webp",
     "topicIds": [
       "toeic-b1-chặng-12"
     ],
@@ -37476,7 +37475,7 @@ export const WORDS = [
     "exampleVi": "Tập đoàn đặt mục tiêu hợp nhất các hoạt động bán lẻ dưới một thương hiệu duy nhất.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/consolidate.webp",
+    "img": "assets/images/words/c/consolidate.webp",
     "topicIds": [
       "toeic-b1-chặng-12"
     ],
@@ -37492,7 +37491,7 @@ export const WORDS = [
     "exampleVi": "Nhiều công ty thuê ngoài các công việc hỗ trợ công nghệ thông tin không cốt lõi để giảm chi phí vận hành.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/outsource.webp",
+    "img": "assets/images/words/o/outsource.webp",
     "topicIds": [
       "toeic-b1-chặng-12"
     ],
@@ -37508,7 +37507,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã mua một nhượng quyền thương mại thức ăn nhanh và mở nhà hàng đầu tiên ở trung tâm thành phố.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/franchise.webp",
+    "img": "assets/images/words/f/franchise.webp",
     "topicIds": [
       "toeic-b1-chặng-12"
     ],
@@ -37524,7 +37523,7 @@ export const WORDS = [
     "exampleVi": "Ngân hàng trực tuyến cho phép người dùng hoàn tất các giao dịch chuyển tiền quốc tế an toàn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/transaction.webp",
+    "img": "assets/images/words/t/transaction.webp",
     "topicIds": [
       "toeic-b1-chặng-12"
     ],
@@ -37540,7 +37539,7 @@ export const WORDS = [
     "exampleVi": "Nhà cung cấp đã nhận được tiền thanh toán hóa đơn qua điện chuyển khoản trong vòng 2 giờ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/wire-transfer-noun.webp",
+    "img": "assets/images/words/w/wire-transfer-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-12"
     ],
@@ -37556,7 +37555,7 @@ export const WORDS = [
     "exampleVi": "Tài khoản doanh nghiệp có hạn mức thấu chi được cấp phép là 50.000 đô la.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/overdraft-noun.webp",
+    "img": "assets/images/words/o/overdraft-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-12"
     ],
@@ -37572,7 +37571,7 @@ export const WORDS = [
     "exampleVi": "Phí chuyển tiền kiều hối quốc tế đã được giảm để hỗ trợ lao động xuyên biên giới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/remittance-noun.webp",
+    "img": "assets/images/words/r/remittance-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-12"
     ],
@@ -37588,7 +37587,7 @@ export const WORDS = [
     "exampleVi": "Bất động sản thương mại đã đóng vai trò là tài sản thế chấp cho khoản vay doanh nghiệp hàng triệu đô.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/collateral-noun.webp",
+    "img": "assets/images/words/c/collateral-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-13"
     ],
@@ -37604,7 +37603,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng đảm bảo rằng tên của người thụ hưởng khớp với chủ tài khoản chính thức.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/beneficiary-noun.webp",
+    "img": "assets/images/words/b/beneficiary-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-13"
     ],
@@ -37620,7 +37619,7 @@ export const WORDS = [
     "exampleVi": "Một công ty độc lập bên ngoài đã tiến hành cuộc kiểm toán tài chính thường niên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/audit-noun.webp",
+    "img": "assets/images/words/a/audit-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-13"
     ],
@@ -37636,7 +37635,7 @@ export const WORDS = [
     "exampleVi": "Công ty đã thực hiện cắt giảm chi tiêu nghiêm ngặt để xóa bỏ thâm hụt ngân sách.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/deficit.webp",
+    "img": "assets/images/words/d/deficit.webp",
     "topicIds": [
       "toeic-b1-chặng-13"
     ],
@@ -37652,7 +37651,7 @@ export const WORDS = [
     "exampleVi": "Khoản thặng dư tài chính đã cho phép tập đoàn tái đầu tư mạnh mẽ vào nghiên cứu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/surplus.webp",
+    "img": "assets/images/words/s/surplus.webp",
     "topicIds": [
       "toeic-b1-chặng-13"
     ],
@@ -37668,7 +37667,7 @@ export const WORDS = [
     "exampleVi": "Tất cả giao dịch của nhà cung cấp đều được ghi chép tuần tự vào sổ cái kế toán chung.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/ledger.webp",
+    "img": "assets/images/words/l/ledger.webp",
     "topicIds": [
       "toeic-b1-chặng-13"
     ],
@@ -37684,7 +37683,7 @@ export const WORDS = [
     "exampleVi": "Năm tài chính của công ty chúng tôi kết thúc vào ngày 31 tháng 12.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fiscal-year-noun.webp",
+    "img": "assets/images/words/f/fiscal-year-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-13"
     ],
@@ -37700,7 +37699,7 @@ export const WORDS = [
     "exampleVi": "Kế toán viên sơ cấp phải đối chiếu sao kê ngân hàng với các báo cáo chi tiêu nội bộ.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/reconcile.webp",
+    "img": "assets/images/words/r/reconcile.webp",
     "topicIds": [
       "toeic-b1-chặng-13"
     ],
@@ -37716,7 +37715,7 @@ export const WORDS = [
     "exampleVi": "Chi phí vốn đầu tư vào máy móc mới sẽ tăng trong quý tới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/expenditure.webp",
+    "img": "assets/images/words/e/expenditure.webp",
     "topicIds": [
       "toeic-b1-chặng-13"
     ],
@@ -37732,7 +37731,7 @@ export const WORDS = [
     "exampleVi": "Khấu hao đội xe vận chuyển được tính vào tờ khai thuế thường niên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/depreciation-noun.webp",
+    "img": "assets/images/words/d/depreciation-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-13"
     ],
@@ -37748,7 +37747,7 @@ export const WORDS = [
     "exampleVi": "Bảng cân đối kế toán cho thấy khối tài sản dồi dào và các khoản nợ ngắn hạn ở mức tối thiểu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/balance-sheet-noun.webp",
+    "img": "assets/images/words/b/balance-sheet-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-14"
     ],
@@ -37764,7 +37763,7 @@ export const WORDS = [
     "exampleVi": "Tiền lãi trên số dư nợ chưa thanh toán tiếp tục được tích lũy trên cơ sở hằng ngày.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/accrue.webp",
+    "img": "assets/images/words/a/accrue.webp",
     "topicIds": [
       "toeic-b1-chặng-14"
     ],
@@ -37780,7 +37779,7 @@ export const WORDS = [
     "exampleVi": "Chuyển địa điểm đến khu phức hợp văn phòng hiện đại đã giúp giảm chi phí vận hành gián tiếp hằng năm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/overhead.webp",
+    "img": "assets/images/words/o/overhead.webp",
     "topicIds": [
       "toeic-b1-chặng-14"
     ],
@@ -37796,7 +37795,7 @@ export const WORDS = [
     "exampleVi": "Ghi chép sổ sách kế toán chính xác là điều cốt lõi để vượt qua các cuộc thanh tra thuế của chính phủ mà không gặp sự cố.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/bookkeeping.webp",
+    "img": "assets/images/words/b/bookkeeping.webp",
     "topicIds": [
       "toeic-b1-chặng-14"
     ],
@@ -37812,7 +37811,7 @@ export const WORDS = [
     "exampleVi": "Đội ngũ kế toán đã chốt bảng lương tháng trước kỳ nghỉ lễ quốc gia.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/payroll.webp",
+    "img": "assets/images/words/p/payroll.webp",
     "topicIds": [
       "toeic-b1-chặng-14"
     ],
@@ -37828,7 +37827,7 @@ export const WORDS = [
     "exampleVi": "Doanh thu hằng năm đã tăng 25% nhờ doanh số xuất khẩu ra nước ngoài mạnh mẽ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/revenue-noun.webp",
+    "img": "assets/images/words/r/revenue-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-14"
     ],
@@ -37844,7 +37843,7 @@ export const WORDS = [
     "exampleVi": "Trái phiếu kho bạc chính phủ mang lại tỷ suất sinh lời hằng năm ổn định là 4%.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/yield-noun.webp",
+    "img": "assets/images/words/y/yield-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-14"
     ],
@@ -37860,7 +37859,7 @@ export const WORDS = [
     "exampleVi": "Việc mở rộng thị trường quốc tế đã tạo ra hàng trăm cơ hội việc làm tại địa phương.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/expansion.webp",
+    "img": "assets/images/words/e/expansion.webp",
     "topicIds": [
       "toeic-b1-chặng-14"
     ],
@@ -37876,7 +37875,7 @@ export const WORDS = [
     "exampleVi": "Tập đoàn đầu tư nước ngoài đã mua lại 30% cổ phần vốn trong hãng hàng không.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/stake.webp",
+    "img": "assets/images/words/s/stake.webp",
     "topicIds": [
       "toeic-b1-chặng-14"
     ],
@@ -37892,7 +37891,7 @@ export const WORDS = [
     "exampleVi": "Các nhà đầu tư không nên đầu cơ bằng nguồn tiền mà họ không thể chấp nhận mất trắng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/speculate.webp",
+    "img": "assets/images/words/s/speculate.webp",
     "topicIds": [
       "toeic-b1-chặng-14"
     ],
@@ -37908,7 +37907,7 @@ export const WORDS = [
     "exampleVi": "Sự biến động giá dầu đã ảnh hưởng trực tiếp đến chi phí vận chuyển trong toàn ngành giao thông.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/fluctuation.webp",
+    "img": "assets/images/words/f/fluctuation.webp",
     "topicIds": [
       "toeic-b1-chặng-15"
     ],
@@ -37924,7 +37923,7 @@ export const WORDS = [
     "exampleVi": "Các nhà sáng lập đã giữ lại phần lớn vốn chủ sở hữu để nắm quyền kiểm soát chiến lược đối với việc phát triển sản phẩm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/equity-noun.webp",
+    "img": "assets/images/words/e/equity-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-15"
     ],
@@ -37940,7 +37939,7 @@ export const WORDS = [
     "exampleVi": "Ban điều hành đã công bố báo cáo thu nhập quý ba vào chiều ngày hôm qua.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/quarterly.webp",
+    "img": "assets/images/words/q/quarterly.webp",
     "topicIds": [
       "toeic-b1-chặng-15"
     ],
@@ -37956,7 +37955,7 @@ export const WORDS = [
     "exampleVi": "Các dự báo tài chính chỉ ra mức tăng trưởng 10% ổn định trong 5 năm tới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/projection.webp",
+    "img": "assets/images/words/p/projection.webp",
     "topicIds": [
       "toeic-b1-chặng-15"
     ],
@@ -37972,7 +37971,7 @@ export const WORDS = [
     "exampleVi": "Chỗ ở khách sạn gần trung tâm hội nghị đã được đặt trước nhiều tháng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/accommodation.webp",
+    "img": "assets/images/words/a/accommodation.webp",
     "topicIds": [
       "toeic-b1-chặng-15"
     ],
@@ -37988,7 +37987,7 @@ export const WORDS = [
     "exampleVi": "Phòng kế toán sẽ hoàn lại toàn bộ các hóa đơn tiền ăn đã được duyệt trong chuyến công tác.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/reimburse.webp",
+    "img": "assets/images/words/r/reimburse.webp",
     "topicIds": [
       "toeic-b1-chặng-15"
     ],
@@ -38004,7 +38003,7 @@ export const WORDS = [
     "exampleVi": "Chuyên viên tư vấn bán hàng nhận được một khoản phụ cấp công tác phí hằng ngày để trang trải chỗ ở và ăn uống.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/per-diem.webp",
+    "img": "assets/images/words/p/per-diem.webp",
     "topicIds": [
       "toeic-b1-chặng-15"
     ],
@@ -38020,7 +38019,7 @@ export const WORDS = [
     "exampleVi": "Khách sạn sang trọng cung cấp dịch vụ xe đưa đón sân bay miễn phí cho các khách hàng cấp cao.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/complimentary.webp",
+    "img": "assets/images/words/c/complimentary.webp",
     "topicIds": [
       "toeic-b1-chặng-15"
     ],
@@ -38036,7 +38035,7 @@ export const WORDS = [
     "exampleVi": "Một chuyến xe buýt trung chuyển miễn phí chạy qua lại giữa ga tàu và sảnh khách sạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/shuttle.webp",
+    "img": "assets/images/words/s/shuttle.webp",
     "topicIds": [
       "toeic-b1-chặng-15"
     ],
@@ -38052,7 +38051,7 @@ export const WORDS = [
     "exampleVi": "Bữa tiệc trao giải thưởng thường niên của tập đoàn sẽ được tổ chức tại đại sảnh khiêu vũ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/banquet.webp",
+    "img": "assets/images/words/b/banquet.webp",
     "topicIds": [
       "toeic-b1-chặng-15"
     ],
@@ -38068,7 +38067,7 @@ export const WORDS = [
     "exampleVi": "Nhân viên hỗ trợ khách sạn đã đặt vé xem kịch và thu xếp xe limousine riêng cho đoàn đại biểu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/concierge.webp",
+    "img": "assets/images/words/c/concierge.webp",
     "topicIds": [
       "toeic-b1-chặng-16"
     ],
@@ -38084,7 +38083,7 @@ export const WORDS = [
     "exampleVi": "Các đại biểu từ hơn 30 quốc gia đã tập trung về đây cho hội nghị thượng đỉnh thương mại thường niên.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/delegate-noun.webp",
+    "img": "assets/images/words/d/delegate-noun.webp",
     "topicIds": [
       "toeic-b1-chặng-16"
     ],
@@ -38100,7 +38099,7 @@ export const WORDS = [
     "exampleVi": "Công ty đã tổ chức một buổi tiệc chiêu đãi chào mừng các đại biểu quốc tế đến thăm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/reception.webp",
+    "img": "assets/images/words/r/reception.webp",
     "topicIds": [
       "toeic-b1-chặng-16"
     ],
@@ -38116,7 +38115,7 @@ export const WORDS = [
     "exampleVi": "Vị Tổng giám đốc có tầm nhìn đã có bài phát biểu khai mạc đầy cảm hứng về tương lai của năng lượng tái tạo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/keynote.webp",
+    "img": "assets/images/words/k/keynote.webp",
     "topicIds": [
       "toeic-b1-chặng-16"
     ],
@@ -38132,7 +38131,7 @@ export const WORDS = [
     "exampleVi": "Trung tâm hội nghị mới được cải tạo đã đóng vai trò là địa điểm chính cho triển lãm toàn cầu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/venue.webp",
+    "img": "assets/images/words/v/venue.webp",
     "topicIds": [
       "toeic-b1-chặng-16"
     ],
@@ -38148,7 +38147,7 @@ export const WORDS = [
     "exampleVi": "Mỗi người tham gia hội thảo đều nhận được một cuốn tài liệu hướng dẫn đào tạo toàn diện và chứng chỉ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/participant.webp",
+    "img": "assets/images/words/p/participant.webp",
     "topicIds": [
       "toeic-b1-chặng-16"
     ],
@@ -38164,7 +38163,7 @@ export const WORDS = [
     "exampleVi": "Đăng ký sớm mang lại mức giảm giá 30% cho phí vé tham dự hội nghị.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/registration.webp",
+    "img": "assets/images/words/r/registration.webp",
     "topicIds": [
       "toeic-b1-chặng-16"
     ],
@@ -38180,7 +38179,7 @@ export const WORDS = [
     "exampleVi": "Công ty đã tổ chức một buổi hội thảo chuyên đề nửa ngày về các chuẩn mực báo cáo tài chính quốc tế.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/seminar.webp",
+    "img": "assets/images/words/s/seminar.webp",
     "topicIds": [
       "toeic-b1-chặng-16"
     ],
@@ -38196,7 +38195,7 @@ export const WORDS = [
     "exampleVi": "Các bác sĩ chuyên khoa ung thư hàng đầu đã tham dự hội nghị chuyên đề y khoa quốc tế về nghiên cứu ung thư.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/symposium.webp",
+    "img": "assets/images/words/s/symposium.webp",
     "topicIds": [
       "toeic-b1-chặng-16"
     ],
@@ -38212,7 +38211,7 @@ export const WORDS = [
     "exampleVi": "Nhà báo đã đảm nhận vai trò người điều phối phiên thảo luận trong cuộc tranh luận kinh tế sôi nổi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/moderator.webp",
+    "img": "assets/images/words/m/moderator.webp",
     "topicIds": [
       "toeic-b1-chặng-16"
     ],
@@ -38228,7 +38227,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng xem trang 5 của tài liệu phát tay in sẵn để xem các biểu đồ thống kê chính.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/handout.webp",
+    "img": "assets/images/words/h/handout.webp",
     "topicIds": [
       "toeic-b1-chặng-17"
     ],
@@ -38244,7 +38243,7 @@ export const WORDS = [
     "exampleVi": "Khách tham quan tập trung đông đúc xung quanh gian hàng trình diễn phần mềm tương tác của chúng tôi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/booth.webp",
+    "img": "assets/images/words/b/booth.webp",
     "topicIds": [
       "toeic-b1-chặng-17"
     ],
@@ -38260,7 +38259,7 @@ export const WORDS = [
     "exampleVi": "Phiên họp chuyên đề buổi sáng sẽ đề cập đến các phương pháp tiếp thị số tốt nhất.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/session.webp",
+    "img": "assets/images/words/s/session.webp",
     "topicIds": [
       "toeic-b1-chặng-17"
     ],
@@ -38276,7 +38275,7 @@ export const WORDS = [
     "exampleVi": "Lễ khai mạc sẽ bắt đầu đúng 9 giờ sáng.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/commence.webp",
+    "img": "assets/images/words/c/commence.webp",
     "topicIds": [
       "toeic-b1-chặng-17"
     ],
@@ -38292,7 +38291,7 @@ export const WORDS = [
     "exampleVi": "Việc áp dụng phần mềm quản lý dự án hiện đại đã giúp tăng năng suất làm việc của nhóm một cách đáng kể.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/productivity.webp",
+    "img": "assets/images/words/p/productivity.webp",
     "topicIds": [
       "toeic-b1-chặng-17"
     ],
@@ -38308,7 +38307,7 @@ export const WORDS = [
     "exampleVi": "Mọi sự thay đổi đối với phạm vi dự án đều phải được khách hàng phê duyệt chính thức.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/scope.webp",
+    "img": "assets/images/words/s/scope.webp",
     "topicIds": [
       "toeic-b1-chặng-17"
     ],
@@ -38324,7 +38323,7 @@ export const WORDS = [
     "exampleVi": "Ngân sách dự án bao gồm một quỹ dự phòng 10% cho các chi phí phát sinh ngoài dự kiến.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/contingency.webp",
+    "img": "assets/images/words/c/contingency.webp",
     "topicIds": [
       "toeic-b1-chặng-17"
     ],
@@ -38340,7 +38339,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã tự động hóa việc nhập dữ liệu lặp đi lặp lại để tinh gọn quy trình báo cáo hằng ngày.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/streamline.webp",
+    "img": "assets/images/words/s/streamline.webp",
     "topicIds": [
       "toeic-b1-chặng-17"
     ],
@@ -38356,7 +38355,7 @@ export const WORDS = [
     "exampleVi": "Phòng công nghệ thông tin sẽ triển khai các giao thức bảo mật mới vào cuối tuần.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/implement.webp",
+    "img": "assets/images/words/i/implement.webp",
     "topicIds": [
       "toeic-b1-chặng-17"
     ],
@@ -38372,7 +38371,7 @@ export const WORDS = [
     "exampleVi": "Phân tích kỹ thuật đã chứng minh rằng việc chế tạo mẫu thử nghiệm chạy bằng năng lượng mặt trời là rất khả thi.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/feasible.webp",
+    "img": "assets/images/words/f/feasible.webp",
     "topicIds": [
       "toeic-b1-chặng-17"
     ],
@@ -38388,7 +38387,7 @@ export const WORDS = [
     "exampleVi": "Định nghĩa vai trò rõ ràng giúp thúc đẩy tính minh bạch và trách nhiệm giải trình cá nhân trong toàn nhóm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/accountability.webp",
+    "img": "assets/images/words/a/accountability.webp",
     "topicIds": [
       "toeic-b1-chặng-18"
     ],
@@ -38404,7 +38403,7 @@ export const WORDS = [
     "exampleVi": "Nhà máy đã vượt qua cuộc thanh tra an toàn môi trường thường niên của chính phủ.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/inspection.webp",
+    "img": "assets/images/words/i/inspection.webp",
     "topicIds": [
       "toeic-b1-chặng-18"
     ],
@@ -38420,7 +38419,7 @@ export const WORDS = [
     "exampleVi": "Các cảm biến tự động phát hiện ngay cả những lỗi bề mặt nhỏ nhất trên dây chuyền lắp ráp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/defect.webp",
+    "img": "assets/images/words/d/defect.webp",
     "topicIds": [
       "toeic-b1-chặng-18"
     ],
@@ -38436,7 +38435,7 @@ export const WORDS = [
     "exampleVi": "Hãy đeo kính bảo hộ và găng tay để tránh các mối nguy hiểm hóa chất trong phòng thí nghiệm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/hazard.webp",
+    "img": "assets/images/words/h/hazard.webp",
     "topicIds": [
       "toeic-b1-chặng-18"
     ],
@@ -38452,7 +38451,7 @@ export const WORDS = [
     "exampleVi": "Cơ sở sản xuất duy trì sự tuân thủ nghiêm ngặt các tiêu chuẩn quốc tế ISO.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/compliance.webp",
+    "img": "assets/images/words/c/compliance.webp",
     "topicIds": [
       "toeic-b1-chặng-18"
     ],
@@ -38468,7 +38467,7 @@ export const WORDS = [
     "exampleVi": "Như một biện pháp phòng ngừa an toàn, các cửa thoát hiểm phải được giữ thông thoáng khỏi mọi chướng ngại vật.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/precaution.webp",
+    "img": "assets/images/words/p/precaution.webp",
     "topicIds": [
       "toeic-b1-chặng-18"
     ],
@@ -38484,7 +38483,7 @@ export const WORDS = [
     "exampleVi": "Các sản phẩm thực phẩm hữu cơ của chúng tôi đã nhận được chứng nhận hữu cơ chính thức từ Bộ Nông nghiệp.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/certification.webp",
+    "img": "assets/images/words/c/certification.webp",
     "topicIds": [
       "toeic-b1-chặng-18"
     ],
@@ -38500,7 +38499,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi đã tiêu chuẩn hóa các quy trình dịch vụ khách hàng tại tất cả các chi nhánh bán lẻ quốc tế.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/standardize.webp",
+    "img": "assets/images/words/s/standardize.webp",
     "topicIds": [
       "toeic-b1-chặng-18"
     ],
@@ -38516,7 +38515,7 @@ export const WORDS = [
     "exampleVi": "Hãng sản xuất ô tô đã phải thu hồi 10.000 chiếc xe do sự cố túi khí.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/recall.webp",
+    "img": "assets/images/words/r/recall.webp",
     "topicIds": [
       "toeic-b1-chặng-18"
     ],
@@ -38532,7 +38531,7 @@ export const WORDS = [
     "exampleVi": "Công nhân xây dựng phải đội mũ bảo hộ cứng và đi ủng mũi thép tại công trường.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/protective.webp",
+    "img": "assets/images/words/p/protective.webp",
     "topicIds": [
       "toeic-b1-chặng-18"
     ],
@@ -38548,7 +38547,7 @@ export const WORDS = [
     "exampleVi": "Nhân viên đã thực hành cuộc diễn tập sơ tán tòa nhà một cách trôi chảy trong vòng chưa đầy 4 phút.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/evacuation.webp",
+    "img": "assets/images/words/e/evacuation.webp",
     "topicIds": [
       "toeic-b1-chặng-19"
     ],
@@ -38564,7 +38563,7 @@ export const WORDS = [
     "exampleVi": "Mỗi thiết bị y tế đều trải qua quá trình thử nghiệm nghiêm ngặt trước khi được cấp phép ra thị trường.",
     "level": "B1",
     "pos": "adjective",
-    "img": "assets/images/words/rigorous.webp",
+    "img": "assets/images/words/r/rigorous.webp",
     "topicIds": [
       "toeic-b1-chặng-19"
     ],
@@ -38580,7 +38579,7 @@ export const WORDS = [
     "exampleVi": "Cân phòng thí nghiệm cần được hiệu chuẩn hằng tháng để đảm bảo độ chính xác của phép đo.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/calibration.webp",
+    "img": "assets/images/words/c/calibration.webp",
     "topicIds": [
       "toeic-b1-chặng-19"
     ],
@@ -38596,7 +38595,7 @@ export const WORDS = [
     "exampleVi": "Hãy tuân thủ cẩn thận các quy chuẩn vệ sinh khi chuẩn bị bữa ăn trong bếp thương mại.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/protocol.webp",
+    "img": "assets/images/words/p/protocol.webp",
     "topicIds": [
       "toeic-b1-chặng-19"
     ],
@@ -38612,7 +38611,7 @@ export const WORDS = [
     "exampleVi": "Hệ thống lọc không khí nghiêm ngặt giúp ngăn ngừa nhiễm khuẩn trong các phòng sạch dược phẩm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/contamination.webp",
+    "img": "assets/images/words/c/contamination.webp",
     "topicIds": [
       "toeic-b1-chặng-19"
     ],
@@ -38628,7 +38627,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng nộp báo cáo sự cố chi tiết nếu có bất kỳ thương tích nào xảy ra tại nơi làm việc.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/incident.webp",
+    "img": "assets/images/words/i/incident.webp",
     "topicIds": [
       "toeic-b1-chặng-19"
     ],
@@ -38644,7 +38643,7 @@ export const WORDS = [
     "exampleVi": "Tất cả các báo cáo tài chính đều được lập phù hợp với các chuẩn mực kế toán quốc tế.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/in-accordance-with.webp",
+    "img": "assets/images/words/i/in-accordance-with.webp",
     "topicIds": [
       "toeic-b1-chặng-19"
     ],
@@ -38660,7 +38659,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng nộp đơn xin nghỉ phép ít nhất 2 tuần trước ngày bạn khởi hành.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/prior-to.webp",
+    "img": "assets/images/words/p/prior-to.webp",
     "topicIds": [
       "toeic-b1-chặng-19"
     ],
@@ -38676,7 +38675,7 @@ export const WORDS = [
     "exampleVi": "Kiến trúc sư đã tính đến các quy chuẩn xây dựng địa phương và các điều kiện môi trường.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/take-into-account.webp",
+    "img": "assets/images/words/t/take-into-account.webp",
     "topicIds": [
       "toeic-b1-chặng-19",
       "top-1000-core-chặng-92"
@@ -38693,7 +38692,7 @@ export const WORDS = [
     "exampleVi": "Thay mặt hội đồng quản trị, tôi chào đón tất cả các bạn đến với đêm tiệc thường niên.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/on-behalf-of.webp",
+    "img": "assets/images/words/o/on-behalf-of.webp",
     "topicIds": [
       "toeic-b1-chặng-19"
     ],
@@ -38709,7 +38708,7 @@ export const WORDS = [
     "exampleVi": "Để đáp ứng nhu cầu của khách hàng, công ty đã giới thiệu tùy chọn gia hạn bảo hành.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/in-response-to.webp",
+    "img": "assets/images/words/i/in-response-to.webp",
     "topicIds": [
       "toeic-b1-chặng-20"
     ],
@@ -38725,7 +38724,7 @@ export const WORDS = [
     "exampleVi": "Người quản lý có kỳ vọng cao về mặt tính đúng giờ và tinh thần làm việc nhóm của nhân viên.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/with-respect-to.webp",
+    "img": "assets/images/words/w/with-respect-to.webp",
     "topicIds": [
       "toeic-b1-chặng-20"
     ],
@@ -38741,7 +38740,7 @@ export const WORDS = [
     "exampleVi": "Nhờ kết quả của các nỗ lực tiếp thị mạnh mẽ, doanh số đã tăng 30% trong quý này.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/as-a-result-of.webp",
+    "img": "assets/images/words/a/as-a-result-of.webp",
     "topicIds": [
       "toeic-b1-chặng-20"
     ],
@@ -38757,7 +38756,7 @@ export const WORDS = [
     "exampleVi": "Thời gian khởi hành chuyến bay dự kiến tùy thuộc vào điều kiện thời tiết và sự cấp phép của đài kiểm soát không lưu.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/subject-to.webp",
+    "img": "assets/images/words/s/subject-to.webp",
     "topicIds": [
       "toeic-b1-chặng-20"
     ],
@@ -38773,7 +38772,7 @@ export const WORDS = [
     "exampleVi": "Tòa nhà trụ sở khu vực mới của tập đoàn hiện đang trong quá trình xây dựng ở trung tâm thành phố.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/under-construction.webp",
+    "img": "assets/images/words/u/under-construction.webp",
     "topicIds": [
       "toeic-b1-chặng-20"
     ],
@@ -38789,7 +38788,7 @@ export const WORDS = [
     "exampleVi": "Thang máy chở khách chính tạm thời bị hỏng để bảo trì định kỳ.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/out-of-order.webp",
+    "img": "assets/images/words/o/out-of-order.webp",
     "topicIds": [
       "toeic-b1-chặng-20"
     ],
@@ -38805,7 +38804,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã được bổ nhiệm làm giám đốc phụ trách mảng thu hút nhân tài doanh nghiệp.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/in-charge-of.webp",
+    "img": "assets/images/words/i/in-charge-of.webp",
     "topicIds": [
       "toeic-b1-chặng-20"
     ],
@@ -38821,7 +38820,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi rất mong được hợp tác với tổ chức đáng kính của bạn trong tương lai gần.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/look-forward-to-phrase.webp",
+    "img": "assets/images/words/l/look-forward-to-phrase.webp",
     "topicIds": [
       "toeic-b1-chặng-20",
       "top-1000-core-chặng-92"
@@ -38838,7 +38837,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng ký và gửi lại hợp đồng đính kèm ngay khi bạn thấy thuận tiện nhất.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/at-your-earliest-convenience.webp",
+    "img": "assets/images/words/a/at-your-earliest-convenience.webp",
     "topicIds": [
       "toeic-b1-chặng-20"
     ],
@@ -38854,7 +38853,7 @@ export const WORDS = [
     "exampleVi": "Hãy sử dụng bảng tính kế toán dùng chung để theo dõi sát sao tất cả các chi phí công tác.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/keep-track-of.webp",
+    "img": "assets/images/words/k/keep-track-of.webp",
     "topicIds": [
       "toeic-b1-chặng-20"
     ],
@@ -38870,7 +38869,7 @@ export const WORDS = [
     "exampleVi": "Sau các cuộc đàm phán căng thẳng, hai tập đoàn đã đạt được sự thỏa thuận thành công.",
     "level": "B1",
     "pos": "phrase",
-    "img": "assets/images/words/reach-an-agreement.webp",
+    "img": "assets/images/words/r/reach-an-agreement.webp",
     "topicIds": [
       "toeic-b1-chặng-21"
     ],
@@ -38886,7 +38885,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi cần bám sát ngân sách hằng tháng để tiết kiệm mua nhà mới.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/budget-noun-2.webp",
+    "img": "assets/images/words/b/budget-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-1"
     ],
@@ -38905,7 +38904,7 @@ export const WORDS = [
     "exampleVi": "Thu nhập hằng năm của cô ấy tăng đáng kể sau khi được thăng chức.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/income-noun-2.webp",
+    "img": "assets/images/words/i/income-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-1"
     ],
@@ -38923,7 +38922,7 @@ export const WORDS = [
     "exampleVi": "Chi phí sinh hoạt ở các thành phố lớn tiếp tục tăng cao.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/expense-noun-2.webp",
+    "img": "assets/images/words/e/expense-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-1"
     ],
@@ -38941,7 +38940,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã gửi toàn bộ tiền tiết kiệm của mình vào một tài khoản sinh lời cao.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/savings-noun-2.webp",
+    "img": "assets/images/words/s/savings-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-1"
     ],
@@ -38959,7 +38958,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã đàm phán mức lương cơ bản cạnh tranh cho vị trí mới của mình.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/salary-noun-2.webp",
+    "img": "assets/images/words/s/salary-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-1"
     ],
@@ -38977,7 +38976,7 @@ export const WORDS = [
     "exampleVi": "Chính phủ đã bỏ phiếu tăng mức lương tối thiểu.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/wage-noun-2.webp",
+    "img": "assets/images/words/w/wage-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-1"
     ],
@@ -38995,7 +38994,7 @@ export const WORDS = [
     "exampleVi": "Giá trị tài sản ròng của ông ấy ước tính hơn năm triệu đô la.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/net-worth.webp",
+    "img": "assets/images/words/n/net-worth.webp",
     "topicIds": [
       "finance-banking-chặng-1"
     ],
@@ -39013,7 +39012,7 @@ export const WORDS = [
     "exampleVi": "Các cố vấn tài chính khuyên nên giữ 3 đến 6 tháng chi phí trong quỹ khẩn cấp.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/emergency-fund-noun-2.webp",
+    "img": "assets/images/words/e/emergency-fund-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-1"
     ],
@@ -39031,7 +39030,7 @@ export const WORDS = [
     "exampleVi": "Quản lý dòng tiền dương là điều tối quan trọng cho sự ổn định lâu dài.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/cash-flow.webp",
+    "img": "assets/images/words/c/cash-flow.webp",
     "topicIds": [
       "finance-banking-chặng-1"
     ],
@@ -39049,7 +39048,7 @@ export const WORDS = [
     "exampleVi": "Ông ấy sẽ bắt đầu nhận lương hưu công ty khi bước sang tuổi 65.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/pension-noun-2.webp",
+    "img": "assets/images/words/p/pension-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-1"
     ],
@@ -39067,7 +39066,7 @@ export const WORDS = [
     "exampleVi": "Nhờ lối sống tiết kiệm, họ đã trả hết nợ nần trước thời hạn.",
     "level": "B2",
     "pos": "adjective",
-    "img": "assets/images/words/frugal-adjective-2.webp",
+    "img": "assets/images/words/f/frugal-adjective-2.webp",
     "topicIds": [
       "finance-banking-chặng-2"
     ],
@@ -39085,7 +39084,7 @@ export const WORDS = [
     "exampleVi": "Liệu chúng ta có đủ khả năng chi trả để mua xe hơi mới trong năm nay không?",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/afford.webp",
+    "img": "assets/images/words/a/afford.webp",
     "topicIds": [
       "finance-banking-chặng-2",
       "top-1000-core-chặng-28"
@@ -39104,7 +39103,7 @@ export const WORDS = [
     "exampleVi": "Cha mẹ thường cho con cái tuổi teen một khoản tiền tiêu vặt hằng tuần.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/allowance-noun-2.webp",
+    "img": "assets/images/words/a/allowance-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-2"
     ],
@@ -39122,7 +39121,7 @@ export const WORDS = [
     "exampleVi": "Bất động sản và cổ phiếu được coi là những tài sản sinh lời.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/assets.webp",
+    "img": "assets/images/words/a/assets.webp",
     "topicIds": [
       "finance-banking-chặng-2"
     ],
@@ -39140,7 +39139,7 @@ export const WORDS = [
     "exampleVi": "Khoản vay thế chấp và vay sinh viên là các khoản nợ dài hạn.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/liabilities.webp",
+    "img": "assets/images/words/l/liabilities.webp",
     "topicIds": [
       "finance-banking-chặng-2"
     ],
@@ -39158,7 +39157,7 @@ export const WORDS = [
     "exampleVi": "Chi phí du lịch thường được trích từ nguồn thu nhập tùy ý sử dụng.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/discretionary-income.webp",
+    "img": "assets/images/words/d/discretionary-income.webp",
     "topicIds": [
       "finance-banking-chặng-2"
     ],
@@ -39176,7 +39175,7 @@ export const WORDS = [
     "exampleVi": "Đạt được độc lập tài chính cho phép bạn tự do theo đuổi đam mê của mình.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/financial-independence.webp",
+    "img": "assets/images/words/f/financial-independence.webp",
     "topicIds": [
       "finance-banking-chặng-2"
     ],
@@ -39194,7 +39193,7 @@ export const WORDS = [
     "exampleVi": "Thẻ tín dụng khiến người ta rất dễ rơi vào bẫy chi tiêu vượt quá khả năng.",
     "level": "B2",
     "pos": "idiom",
-    "img": "assets/images/words/live-beyond-ones-means.webp",
+    "img": "assets/images/words/l/live-beyond-ones-means.webp",
     "topicIds": [
       "finance-banking-chặng-2"
     ],
@@ -39212,7 +39211,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã dùng món tiền trúng số bất ngờ để đầu tư vào bất động sản.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/windfall.webp",
+    "img": "assets/images/words/w/windfall.webp",
     "topicIds": [
       "finance-banking-chặng-2"
     ],
@@ -39230,7 +39229,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy vẫn duy trì được khả năng thanh toán nợ bất chấp suy thoái kinh tế khó khăn.",
     "level": "C1",
     "pos": "adjective",
-    "img": "assets/images/words/solvent.webp",
+    "img": "assets/images/words/s/solvent.webp",
     "topicIds": [
       "finance-banking-chặng-2"
     ],
@@ -39248,7 +39247,7 @@ export const WORDS = [
     "exampleVi": "Tôi muốn mở một tài khoản ngân hàng vãng lai mới.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/bank-account-noun-2.webp",
+    "img": "assets/images/words/b/bank-account-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-3"
     ],
@@ -39266,7 +39265,7 @@ export const WORDS = [
     "exampleVi": "Bạn có thể kiểm tra số dư tài khoản trên ứng dụng di động.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/balance-noun-2.webp",
+    "img": "assets/images/words/b/balance-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-3"
     ],
@@ -39284,7 +39283,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã nộp 1.000 đô la tiền mặt vào tài khoản tại quầy giao dịch.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/deposit-noun-2.webp",
+    "img": "assets/images/words/d/deposit-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-3"
     ],
@@ -39302,7 +39301,7 @@ export const WORDS = [
     "exampleVi": "Bạn có thể rút tối đa 500 đô la mỗi ngày từ máy ATM.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/withdraw-verb-2.webp",
+    "img": "assets/images/words/w/withdraw-verb-2.webp",
     "topicIds": [
       "finance-banking-chặng-3"
     ],
@@ -39320,7 +39319,7 @@ export const WORDS = [
     "exampleVi": "Tôi sẽ chuyển khoản thanh toán trực tiếp vào tài khoản ngân hàng của bạn.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/transfer-verb-2.webp",
+    "img": "assets/images/words/t/transfer-verb-2.webp",
     "topicIds": [
       "finance-banking-chặng-3"
     ],
@@ -39338,7 +39337,7 @@ export const WORDS = [
     "exampleVi": "Chúng tôi cần bản sao kê ngân hàng 3 tháng gần nhất để phê duyệt khoản vay mua nhà.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/bank-statement.webp",
+    "img": "assets/images/words/b/bank-statement.webp",
     "topicIds": [
       "finance-banking-chặng-3"
     ],
@@ -39356,7 +39355,7 @@ export const WORDS = [
     "exampleVi": "Ngân hàng sẽ tính phí phạt nếu bạn thấu chi ngoài hạn mức đã thỏa thuận.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/overdraft-noun-2.webp",
+    "img": "assets/images/words/o/overdraft-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-3"
     ],
@@ -39374,7 +39373,7 @@ export const WORDS = [
     "exampleVi": "Giao dịch viên ngân hàng đã giúp tôi đổi ngoại tệ cho chuyến đi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/teller-noun-2.webp",
+    "img": "assets/images/words/t/teller-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-3"
     ],
@@ -39392,7 +39391,7 @@ export const WORDS = [
     "exampleVi": "Chi nhánh ngân hàng địa phương của chúng tôi mở cửa vào các sáng Thứ Bảy.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/branch-noun-2.webp",
+    "img": "assets/images/words/b/branch-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-3"
     ],
@@ -39410,7 +39409,7 @@ export const WORDS = [
     "exampleVi": "Tôi dùng tài khoản thanh toán cho các khoản mua sắm hằng ngày và trả hóa đơn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/checking-account.webp",
+    "img": "assets/images/words/c/checking-account.webp",
     "topicIds": [
       "finance-banking-chặng-3"
     ],
@@ -39428,7 +39427,7 @@ export const WORDS = [
     "exampleVi": "Tài khoản tiết kiệm lãi suất cao giúp bảo vệ tiền của bạn trước lạm phát.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/savings-account-noun-2.webp",
+    "img": "assets/images/words/s/savings-account-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-4"
     ],
@@ -39446,7 +39445,7 @@ export const WORDS = [
     "exampleVi": "Điện chuyển tiền quốc tế thường mất từ 1 đến 3 ngày làm việc để hoàn tất.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/wire-transfer-noun-2.webp",
+    "img": "assets/images/words/w/wire-transfer-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-4"
     ],
@@ -39464,7 +39463,7 @@ export const WORDS = [
     "exampleVi": "Tiền lương hằng tháng của tôi được chuyển trực tiếp vào tài khoản vào ngày 25.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/direct-deposit.webp",
+    "img": "assets/images/words/d/direct-deposit.webp",
     "topicIds": [
       "finance-banking-chặng-4"
     ],
@@ -39482,7 +39481,7 @@ export const WORDS = [
     "exampleVi": "Bạn cần mã định tuyến của ngân hàng để thiết lập thanh toán hóa đơn tự động.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/routing-number.webp",
+    "img": "assets/images/words/r/routing-number.webp",
     "topicIds": [
       "finance-banking-chặng-4"
     ],
@@ -39500,7 +39499,7 @@ export const WORDS = [
     "exampleVi": "Hãy cung cấp mã SWIFT của ngân hàng bạn khi nhận tiền từ nước ngoài.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/swift-code.webp",
+    "img": "assets/images/words/s/swift-code.webp",
     "topicIds": [
       "finance-banking-chặng-4"
     ],
@@ -39518,7 +39517,7 @@ export const WORDS = [
     "exampleVi": "Ngân hàng có thể đóng băng tài khoản không hoạt động sau 6 tháng không có giao dịch.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/dormant-account.webp",
+    "img": "assets/images/words/d/dormant-account.webp",
     "topicIds": [
       "finance-banking-chặng-4"
     ],
@@ -39536,7 +39535,7 @@ export const WORDS = [
     "exampleVi": "Tiền mặt có tính thanh khoản cao nhất trong tất cả các tài sản tài chính.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/liquidity.webp",
+    "img": "assets/images/words/l/liquidity.webp",
     "topicIds": [
       "finance-banking-chặng-4"
     ],
@@ -39554,7 +39553,7 @@ export const WORDS = [
     "exampleVi": "Sổ đỏ quan trọng được cất giữ an toàn trong két bảo hiểm của ngân hàng.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/safe-deposit-box-noun-2.webp",
+    "img": "assets/images/words/s/safe-deposit-box-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-4"
     ],
@@ -39572,7 +39571,7 @@ export const WORDS = [
     "exampleVi": "Ngân hàng trung ương quyết định hạ lãi suất để kích thích nền kinh tế.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/central-bank.webp",
+    "img": "assets/images/words/c/central-bank.webp",
     "topicIds": [
       "finance-banking-chặng-4"
     ],
@@ -39590,7 +39589,7 @@ export const WORDS = [
     "exampleVi": "Bạn phải tải lên căn cước để hoàn thành quy trình xác thực danh tính KYC.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/know-your-customer-kyc.webp",
+    "img": "assets/images/words/k/know-your-customer-kyc.webp",
     "topicIds": [
       "finance-banking-chặng-4"
     ],
@@ -39608,7 +39607,7 @@ export const WORDS = [
     "exampleVi": "Thanh toán toàn bộ dư nợ thẻ tín dụng giúp tránh được lãi suất cao.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/credit-card-noun-2.webp",
+    "img": "assets/images/words/c/credit-card-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-5"
     ],
@@ -39626,7 +39625,7 @@ export const WORDS = [
     "exampleVi": "Dùng thẻ ghi nợ giúp bạn không chi tiêu vượt quá số tiền mình đang có.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/debit-card-noun-2.webp",
+    "img": "assets/images/words/d/debit-card-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-5"
     ],
@@ -39644,7 +39643,7 @@ export const WORDS = [
     "exampleVi": "Thanh toán không tiếp xúc giúp việc thanh toán nhanh chóng và tiện lợi hơn.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/contactless-payment.webp",
+    "img": "assets/images/words/c/contactless-payment.webp",
     "topicIds": [
       "finance-banking-chặng-5"
     ],
@@ -39662,7 +39661,7 @@ export const WORDS = [
     "exampleVi": "Nhà cung cấp đã gửi hóa đơn yêu cầu thanh toán trong vòng 30 ngày.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/invoice-noun-2.webp",
+    "img": "assets/images/words/i/invoice-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-5"
     ],
@@ -39680,7 +39679,7 @@ export const WORDS = [
     "exampleVi": "Hãy luôn giữ biên lai phòng trường hợp bạn cần đổi trả hàng hóa.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/receipt-noun-2.webp",
+    "img": "assets/images/words/r/receipt-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-5"
     ],
@@ -39698,7 +39697,7 @@ export const WORDS = [
     "exampleVi": "Một số loại thẻ tín dụng quốc tế không thu phí giao dịch ngoại tệ.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/transaction-fee.webp",
+    "img": "assets/images/words/t/transaction-fee.webp",
     "topicIds": [
       "finance-banking-chặng-5"
     ],
@@ -39716,7 +39715,7 @@ export const WORDS = [
     "exampleVi": "Tiền lãi sẽ bắt đầu phát sinh nếu dư nợ bị kéo dài qua kỳ sao kê.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/billing-cycle.webp",
+    "img": "assets/images/words/b/billing-cycle.webp",
     "topicIds": [
       "finance-banking-chặng-5"
     ],
@@ -39734,7 +39733,7 @@ export const WORDS = [
     "exampleVi": "Khách hàng đã yêu cầu hoàn tiền khiếu nại sau khi đơn hàng không được giao.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/chargeback.webp",
+    "img": "assets/images/words/c/chargeback.webp",
     "topicIds": [
       "finance-banking-chặng-5"
     ],
@@ -39752,7 +39751,7 @@ export const WORDS = [
     "exampleVi": "Không bao giờ chia sẻ mã PIN thẻ ATM của bạn với bất kỳ ai.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/pin-personal-identification-number.webp",
+    "img": "assets/images/words/p/pin-personal-identification-number.webp",
     "topicIds": [
       "finance-banking-chặng-5"
     ],
@@ -39770,7 +39769,7 @@ export const WORDS = [
     "exampleVi": "Thương nhân chấp nhận thanh toán bằng ví điện tử qua mã QR.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/merchant.webp",
+    "img": "assets/images/words/m/merchant.webp",
     "topicIds": [
       "finance-banking-chặng-5"
     ],
@@ -39788,7 +39787,7 @@ export const WORDS = [
     "exampleVi": "Trang web đã tích hợp cổng thanh toán an toàn cho các đơn hàng trực tuyến.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/payment-gateway.webp",
+    "img": "assets/images/words/p/payment-gateway.webp",
     "topicIds": [
       "finance-banking-chặng-6"
     ],
@@ -39806,7 +39805,7 @@ export const WORDS = [
     "exampleVi": "Hầu hết các thẻ tín dụng đều có thời gian ân hạn miễn lãi lên đến 45 ngày.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/grace-period.webp",
+    "img": "assets/images/words/g/grace-period.webp",
     "topicIds": [
       "finance-banking-chặng-6"
     ],
@@ -39824,7 +39823,7 @@ export const WORDS = [
     "exampleVi": "Việc thanh toán đúng hạn giúp cô ấy đủ điều kiện được tăng hạn mức tín dụng.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/credit-limit-noun-2.webp",
+    "img": "assets/images/words/c/credit-limit-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-6"
     ],
@@ -39842,7 +39841,7 @@ export const WORDS = [
     "exampleVi": "Chiếc thẻ này hoàn lại 5% tiền cho các khoản chi tiêu mua sắm thực phẩm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/cashback.webp",
+    "img": "assets/images/words/c/cashback.webp",
     "topicIds": [
       "finance-banking-chặng-6"
     ],
@@ -39860,7 +39859,7 @@ export const WORDS = [
     "exampleVi": "Ngân hàng đã cảnh báo cho tôi về dấu hiệu gian lận thẻ tín dụng tiềm ẩn.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/fraud.webp",
+    "img": "assets/images/words/f/fraud.webp",
     "topicIds": [
       "finance-banking-chặng-6"
     ],
@@ -39878,7 +39877,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã vay một khoản vốn kinh doanh để mở rộng tiệm bánh.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/loan-noun-2.webp",
+    "img": "assets/images/words/l/loan-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-6"
     ],
@@ -39896,7 +39895,7 @@ export const WORDS = [
     "exampleVi": "Họ đã vay thế chấp lãi suất cố định 30 năm để mua căn hộ mới.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/mortgage-noun-2.webp",
+    "img": "assets/images/words/m/mortgage-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-6"
     ],
@@ -39914,7 +39913,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã thế chấp ngôi nhà của mình làm tài sản đảm bảo cho khoản vay ngân hàng.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/collateral-noun-2.webp",
+    "img": "assets/images/words/c/collateral-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-6"
     ],
@@ -39932,7 +39931,7 @@ export const WORDS = [
     "exampleVi": "Trả nợ trước hạn giúp giảm số tiền nợ gốc nhanh hơn.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/principal-noun-2.webp",
+    "img": "assets/images/words/p/principal-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-6"
     ],
@@ -39950,7 +39949,7 @@ export const WORDS = [
     "exampleVi": "Lãi suất tăng khiến việc vay mượn tiền trở nên đắt đỏ hơn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/interest-rate-noun-2.webp",
+    "img": "assets/images/words/i/interest-rate-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-6"
     ],
@@ -39968,7 +39967,7 @@ export const WORDS = [
     "exampleVi": "Những người đi vay có điểm tín dụng cao sẽ được hưởng mức lãi suất thấp hơn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/borrower.webp",
+    "img": "assets/images/words/b/borrower.webp",
     "topicIds": [
       "finance-banking-chặng-7"
     ],
@@ -39986,7 +39985,7 @@ export const WORDS = [
     "exampleVi": "Các tổ chức cho vay thương mại luôn đánh giá kỹ rủi ro trước khi duyệt vay.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/lender.webp",
+    "img": "assets/images/words/l/lender.webp",
     "topicIds": [
       "finance-banking-chặng-7"
     ],
@@ -40004,7 +40003,7 @@ export const WORDS = [
     "exampleVi": "Nếu bạn vỡ nợ khoản vay mua nhà, ngân hàng có thể tịch thu bất động sản.",
     "level": "B2",
     "pos": "verb",
-    "img": "assets/images/words/default-verb-2.webp",
+    "img": "assets/images/words/d/default-verb-2.webp",
     "topicIds": [
       "finance-banking-chặng-7"
     ],
@@ -40022,7 +40021,7 @@ export const WORDS = [
     "exampleVi": "Duy trì điểm tín dụng xuất sắc là điều thiết yếu để có các điều khoản vay ưu đãi.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/credit-score-noun-2.webp",
+    "img": "assets/images/words/c/credit-score-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-7"
     ],
@@ -40040,7 +40039,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã lập kế hoạch để sạch bóng nợ nần trong vòng 3 năm.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/debt-noun-2.webp",
+    "img": "assets/images/words/d/debt-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-7"
     ],
@@ -40058,7 +40057,7 @@ export const WORDS = [
     "exampleVi": "Các khoản trả nợ vay mua nhà hằng tháng được tự động trừ từ tài khoản của anh ấy.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/repayment.webp",
+    "img": "assets/images/words/r/repayment.webp",
     "topicIds": [
       "finance-banking-chặng-7"
     ],
@@ -40076,7 +40075,7 @@ export const WORDS = [
     "exampleVi": "Bạn có thể thanh toán chiếc máy tính xách tay trong 12 kỳ trả góp 0% lãi suất.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/installment-noun-2.webp",
+    "img": "assets/images/words/i/installment-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-7"
     ],
@@ -40094,7 +40093,7 @@ export const WORDS = [
     "exampleVi": "Cha mẹ anh ấy đã đứng ra làm người bảo lãnh cho khoản vay sinh viên đầu tiên của anh.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/guarantor.webp",
+    "img": "assets/images/words/g/guarantor.webp",
     "topicIds": [
       "finance-banking-chặng-7"
     ],
@@ -40112,7 +40111,7 @@ export const WORDS = [
     "exampleVi": "Toàn bộ tiền gốc trái phiếu sẽ được hoàn trả vào ngày đáo hạn.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/maturity-date.webp",
+    "img": "assets/images/words/m/maturity-date.webp",
     "topicIds": [
       "finance-banking-chặng-7"
     ],
@@ -40130,7 +40129,7 @@ export const WORDS = [
     "exampleVi": "Nhiều chủ nhà đã tái cấp vốn cho khoản vay mua nhà khi lãi suất chạm đáy kỷ lục.",
     "level": "B2",
     "pos": "verb",
-    "img": "assets/images/words/refinance.webp",
+    "img": "assets/images/words/r/refinance.webp",
     "topicIds": [
       "finance-banking-chặng-7"
     ],
@@ -40148,7 +40147,7 @@ export const WORDS = [
     "exampleVi": "Ngân hàng đã giảm tỷ lệ nợ xấu thông qua việc thẩm định tín dụng chặt chẽ hơn.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/bad-debt.webp",
+    "img": "assets/images/words/b/bad-debt.webp",
     "topicIds": [
       "finance-banking-chặng-8"
     ],
@@ -40166,7 +40165,7 @@ export const WORDS = [
     "exampleVi": "Bảng lịch trình trả nợ cho thấy số tiền trả cho gốc so với lãi qua từng kỳ.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/amortization.webp",
+    "img": "assets/images/words/a/amortization.webp",
     "topicIds": [
       "finance-banking-chặng-8"
     ],
@@ -40184,7 +40183,7 @@ export const WORDS = [
     "exampleVi": "Việc không trả nợ vay mua nhà đã dẫn đến việc căn nhà bị ngân hàng tịch thu phát mại.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/foreclosure.webp",
+    "img": "assets/images/words/f/foreclosure.webp",
     "topicIds": [
       "finance-banking-chặng-8"
     ],
@@ -40202,7 +40201,7 @@ export const WORDS = [
     "exampleVi": "Lịch sử công việc ổn định giúp nâng cao mức độ uy tín tín dụng của người đi vay.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/creditworthiness.webp",
+    "img": "assets/images/words/c/creditworthiness.webp",
     "topicIds": [
       "finance-banking-chặng-8"
     ],
@@ -40220,7 +40219,7 @@ export const WORDS = [
     "exampleVi": "Nộp đơn xin phá sản là biện pháp cuối cùng cho những cá nhân ngập trong nợ nần.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/bankruptcy.webp",
+    "img": "assets/images/words/b/bankruptcy.webp",
     "topicIds": [
       "finance-banking-chặng-8"
     ],
@@ -40238,7 +40237,7 @@ export const WORDS = [
     "exampleVi": "Albert Einstein từng gọi lãi kép là kỳ quan thứ tám của thế giới.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/compound-interest-noun-2.webp",
+    "img": "assets/images/words/c/compound-interest-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-8"
     ],
@@ -40256,7 +40255,7 @@ export const WORDS = [
     "exampleVi": "Lãi đơn không sinh thêm lãi dồn theo thời gian.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/simple-interest.webp",
+    "img": "assets/images/words/s/simple-interest.webp",
     "topicIds": [
       "finance-banking-chặng-8"
     ],
@@ -40274,7 +40273,7 @@ export const WORDS = [
     "exampleVi": "Trái phiếu chính phủ mang lại tỷ suất sinh lời bảo đảm 4,5% hằng năm.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/yield-noun-2.webp",
+    "img": "assets/images/words/y/yield-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-8"
     ],
@@ -40292,7 +40291,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã gửi tiền vào sổ tiết kiệm kỳ hạn 12 tháng để hưởng mức lãi suất cao hơn.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/fixed-deposit.webp",
+    "img": "assets/images/words/f/fixed-deposit.webp",
     "topicIds": [
       "finance-banking-chặng-8"
     ],
@@ -40310,7 +40309,7 @@ export const WORDS = [
     "exampleVi": "Lạm phát cao làm suy giảm giá trị thực tế của tiền mặt tiết kiệm theo thời gian.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/inflation-noun-2.webp",
+    "img": "assets/images/words/i/inflation-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-8"
     ],
@@ -40328,7 +40327,7 @@ export const WORDS = [
     "exampleVi": "Giảm phát có thể khiến người tiêu dùng trì hoãn mua sắm, làm chậm nền kinh tế.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/deflation.webp",
+    "img": "assets/images/words/d/deflation.webp",
     "topicIds": [
       "finance-banking-chặng-9"
     ],
@@ -40346,7 +40345,7 @@ export const WORDS = [
     "exampleVi": "Đầu tư vào tài sản sinh lời giúp bảo toàn sức mua của đồng tiền.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/purchasing-power.webp",
+    "img": "assets/images/words/p/purchasing-power.webp",
     "topicIds": [
       "finance-banking-chặng-9"
     ],
@@ -40364,7 +40363,7 @@ export const WORDS = [
     "exampleVi": "Hãy so sánh tỷ lệ APR giữa các bên cho vay trước khi chọn mở thẻ tín dụng.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/annual-percentage-rate-apr.webp",
+    "img": "assets/images/words/a/annual-percentage-rate-apr.webp",
     "topicIds": [
       "finance-banking-chặng-9"
     ],
@@ -40382,7 +40381,7 @@ export const WORDS = [
     "exampleVi": "Tỷ suất APY 5% sẽ giúp tiền tiết kiệm của bạn tăng trưởng nhanh hơn lãi đơn.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/annual-percentage-yield-apy.webp",
+    "img": "assets/images/words/a/annual-percentage-yield-apy.webp",
     "topicIds": [
       "finance-banking-chặng-9"
     ],
@@ -40400,7 +40399,7 @@ export const WORDS = [
     "exampleVi": "Mở chứng chỉ tiền gửi mang lại lợi nhuận chắc chắn mà không có rủi ro.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/certificate-of-deposit-cd.webp",
+    "img": "assets/images/words/c/certificate-of-deposit-cd.webp",
     "topicIds": [
       "finance-banking-chặng-9"
     ],
@@ -40418,7 +40417,7 @@ export const WORDS = [
     "exampleVi": "Nếu lãi suất danh nghĩa là 6% và lạm phát là 4%, thì lãi suất thực tế là 2%.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/real-interest-rate.webp",
+    "img": "assets/images/words/r/real-interest-rate.webp",
     "topicIds": [
       "finance-banking-chặng-9"
     ],
@@ -40436,7 +40435,7 @@ export const WORDS = [
     "exampleVi": "Tình trạng đình lạm đặt ra thử thách gay gắt cho các nhà hoạch định chính sách tiền tệ.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/stagflation.webp",
+    "img": "assets/images/words/s/stagflation.webp",
     "topicIds": [
       "finance-banking-chặng-9"
     ],
@@ -40454,7 +40453,7 @@ export const WORDS = [
     "exampleVi": "Sự phá giá đồng tiền giúp hàng xuất khẩu rẻ hơn nhưng khiến hàng nhập khẩu đắt đỏ hơn.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/devaluation.webp",
+    "img": "assets/images/words/d/devaluation.webp",
     "topicIds": [
       "finance-banking-chặng-9"
     ],
@@ -40472,7 +40471,7 @@ export const WORDS = [
     "exampleVi": "Trong thời kỳ siêu lạm phát, giá cả có thể tăng gấp đôi chỉ trong vài ngày.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/hyperinflation.webp",
+    "img": "assets/images/words/h/hyperinflation.webp",
     "topicIds": [
       "finance-banking-chặng-9"
     ],
@@ -40490,7 +40489,7 @@ export const WORDS = [
     "exampleVi": "Khi đến hạn, tiền gốc cộng lãi sẽ được chuyển vào tài khoản chính của bạn.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/maturity-noun-2.webp",
+    "img": "assets/images/words/m/maturity-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-9"
     ],
@@ -40508,7 +40507,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã mua cổ phiếu công nghệ để tăng trưởng vốn dài hạn.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/stock-noun-2.webp",
+    "img": "assets/images/words/s/stock-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-10"
     ],
@@ -40526,7 +40525,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy sở hữu 500 cổ phần của tập đoàn Apple.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/share-noun.webp",
+    "img": "assets/images/words/s/share-noun.webp",
     "topicIds": [
       "finance-banking-chặng-10"
     ],
@@ -40544,7 +40543,7 @@ export const WORDS = [
     "exampleVi": "Công ty đã công bố mức chi trả cổ tức quý là 0,80 đô la cho mỗi cổ phiếu.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/dividend-noun-2.webp",
+    "img": "assets/images/words/d/dividend-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-10"
     ],
@@ -40562,7 +40561,7 @@ export const WORDS = [
     "exampleVi": "Một danh mục đầu tư đa dạng hóa giúp giảm thiểu rủi ro qua các chu kỳ thị trường.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/portfolio-noun-2.webp",
+    "img": "assets/images/words/p/portfolio-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-10"
     ],
@@ -40580,7 +40579,7 @@ export const WORDS = [
     "exampleVi": "Trái phiếu kho bạc được coi là một trong những công cụ tài chính an toàn nhất.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/bond.webp",
+    "img": "assets/images/words/b/bond.webp",
     "topicIds": [
       "finance-banking-chặng-10"
     ],
@@ -40598,7 +40597,7 @@ export const WORDS = [
     "exampleVi": "Các quỹ đầu tư tư nhân rót vốn trực tiếp vào các công ty tư nhân đầy triển vọng.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/equity-noun-2.webp",
+    "img": "assets/images/words/e/equity-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-10"
     ],
@@ -40616,7 +40615,7 @@ export const WORDS = [
     "exampleVi": "Các nhà đầu tư đã thu được lợi nhuận kỷ lục trong đợt thị trường giá lên vừa qua.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/bull-market.webp",
+    "img": "assets/images/words/b/bull-market.webp",
     "topicIds": [
       "finance-banking-chặng-10"
     ],
@@ -40634,7 +40633,7 @@ export const WORDS = [
     "exampleVi": "Chiến lược bình quân giá giúp các nhà đầu tư vượt qua thị trường giá xuống một cách bình tĩnh.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/bear-market.webp",
+    "img": "assets/images/words/b/bear-market.webp",
     "topicIds": [
       "finance-banking-chặng-10"
     ],
@@ -40652,7 +40651,7 @@ export const WORDS = [
     "exampleVi": "Lợi nhuận vốn phải chịu thuế khi các khoản đầu tư được bán ra có lãi.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/capital-gain.webp",
+    "img": "assets/images/words/c/capital-gain.webp",
     "topicIds": [
       "finance-banking-chặng-10"
     ],
@@ -40670,7 +40669,7 @@ export const WORDS = [
     "exampleVi": "Các công ty môi giới chứng khoán trực tuyến cho phép nhà đầu tư cá nhân giao dịch miễn phí hoa hồng.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/broker.webp",
+    "img": "assets/images/words/b/broker.webp",
     "topicIds": [
       "finance-banking-chặng-10"
     ],
@@ -40688,7 +40687,7 @@ export const WORDS = [
     "exampleVi": "Warren Buffett khuyên phần lớn nhà đầu tư cá nhân nên đầu tư vào quỹ chỉ số toàn thị trường.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/index-fund.webp",
+    "img": "assets/images/words/i/index-fund.webp",
     "topicIds": [
       "finance-banking-chặng-11"
     ],
@@ -40706,7 +40705,7 @@ export const WORDS = [
     "exampleVi": "Các quỹ ETF mang lại sự đa dạng hóa tức thì với tỷ lệ chi phí quản lý thấp.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/exchange-traded-fund-etf.webp",
+    "img": "assets/images/words/e/exchange-traded-fund-etf.webp",
     "topicIds": [
       "finance-banking-chặng-11"
     ],
@@ -40724,7 +40723,7 @@ export const WORDS = [
     "exampleVi": "Thị trường tiền mã hóa nổi tiếng với mức độ biến động giá vô cùng dữ dội.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/volatility.webp",
+    "img": "assets/images/words/v/volatility.webp",
     "topicIds": [
       "finance-banking-chặng-11"
     ],
@@ -40742,7 +40741,7 @@ export const WORDS = [
     "exampleVi": "Việc phân bổ tài sản hợp lý giữa cổ phiếu, trái phiếu và bất động sản giúp cân bằng rủi ro.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/asset-allocation.webp",
+    "img": "assets/images/words/a/asset-allocation.webp",
     "topicIds": [
       "finance-banking-chặng-11"
     ],
@@ -40760,7 +40759,7 @@ export const WORDS = [
     "exampleVi": "Công ty kỳ lân công nghệ đã có đợt phát hành IPO thành công trên sàn chứng khoán New York.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/initial-public-offering-ipo.webp",
+    "img": "assets/images/words/i/initial-public-offering-ipo.webp",
     "topicIds": [
       "finance-banking-chặng-11"
     ],
@@ -40778,7 +40777,7 @@ export const WORDS = [
     "exampleVi": "Các công ty siêu lớn có mức vốn hóa thị trường vượt mức 200 tỷ đô la.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/market-capitalization.webp",
+    "img": "assets/images/words/m/market-capitalization.webp",
     "topicIds": [
       "finance-banking-chặng-11"
     ],
@@ -40796,7 +40795,7 @@ export const WORDS = [
     "exampleVi": "Đa dạng hóa là chìa khóa để giảm thiểu các rủi ro phi hệ thống.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/diversification.webp",
+    "img": "assets/images/words/d/diversification.webp",
     "topicIds": [
       "finance-banking-chặng-11"
     ],
@@ -40814,7 +40813,7 @@ export const WORDS = [
     "exampleVi": "Vàng thường được dùng như một công cụ phòng ngừa rủi ro lạm phát.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/hedge.webp",
+    "img": "assets/images/words/h/hedge.webp",
     "topicIds": [
       "finance-banking-chặng-11"
     ],
@@ -40832,7 +40831,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đóng góp tiền hằng tháng vào một quỹ đầu tư tương hỗ hưu trí.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/mutual-fund-noun-2.webp",
+    "img": "assets/images/words/m/mutual-fund-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-11"
     ],
@@ -40850,7 +40849,7 @@ export const WORDS = [
     "exampleVi": "Chiến dịch tiếp thị đã mang lại tỷ suất ROI ấn tượng lên tới 300%.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/return-on-investment-roi.webp",
+    "img": "assets/images/words/r/return-on-investment-roi.webp",
     "topicIds": [
       "finance-banking-chặng-11"
     ],
@@ -40868,7 +40867,7 @@ export const WORDS = [
     "exampleVi": "Hút thuốc làm tăng đáng kể mức phí bảo hiểm y tế của bạn.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/insurance-premium.webp",
+    "img": "assets/images/words/i/insurance-premium.webp",
     "topicIds": [
       "finance-banking-chặng-12"
     ],
@@ -40886,7 +40885,7 @@ export const WORDS = [
     "exampleVi": "Chủ hợp đồng bảo hiểm có quyền yêu cầu chi trả quyền lợi khi xảy ra tai nạn.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/policyholder.webp",
+    "img": "assets/images/words/p/policyholder.webp",
     "topicIds": [
       "finance-banking-chặng-12"
     ],
@@ -40904,7 +40903,7 @@ export const WORDS = [
     "exampleVi": "Hãy chắc chắn rằng bảo hiểm xe ô tô của bạn bao gồm phạm vi bồi thường thiệt hại do ngập lụt.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/coverage.webp",
+    "img": "assets/images/words/c/coverage.webp",
     "topicIds": [
       "finance-banking-chặng-12"
     ],
@@ -40922,7 +40921,7 @@ export const WORDS = [
     "exampleVi": "Lựa chọn mức miễn thường cao hơn sẽ giúp giảm phí đóng bảo hiểm hằng tháng.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/deductible.webp",
+    "img": "assets/images/words/d/deductible.webp",
     "topicIds": [
       "finance-banking-chặng-12"
     ],
@@ -40940,7 +40939,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã nộp hồ sơ yêu cầu bồi thường bảo hiểm sau vụ tai nạn xe hơi.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/insurance-claim.webp",
+    "img": "assets/images/words/i/insurance-claim.webp",
     "topicIds": [
       "finance-banking-chặng-12"
     ],
@@ -40958,7 +40957,7 @@ export const WORDS = [
     "exampleVi": "Anh ấy đã chỉ định vợ mình là người thụ hưởng chính của hợp đồng bảo hiểm nhân thọ.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/beneficiary-noun-2.webp",
+    "img": "assets/images/words/b/beneficiary-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-12"
     ],
@@ -40976,7 +40975,7 @@ export const WORDS = [
     "exampleVi": "Thẩm định y khoa quyết định việc phê duyệt hợp đồng bảo hiểm nhân thọ.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/underwriting.webp",
+    "img": "assets/images/words/u/underwriting.webp",
     "topicIds": [
       "finance-banking-chặng-12"
     ],
@@ -40994,7 +40993,7 @@ export const WORDS = [
     "exampleVi": "Bảo hiểm trách nhiệm dân sự đối với bên thứ ba là bắt buộc đối với mọi chủ xe.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/liability-noun-2.webp",
+    "img": "assets/images/words/l/liability-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-12"
     ],
@@ -41012,7 +41011,7 @@ export const WORDS = [
     "exampleVi": "Hợp đồng có điều khoản bồi thường thiệt hại để bảo vệ trước các tổn thất.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/indemnity.webp",
+    "img": "assets/images/words/i/indemnity.webp",
     "topicIds": [
       "finance-banking-chặng-12"
     ],
@@ -41030,7 +41029,7 @@ export const WORDS = [
     "exampleVi": "Các chuyên viên định phí sử dụng mô hình toán học để đánh giá tuổi thọ và rủi ro tai nạn.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/actuary.webp",
+    "img": "assets/images/words/a/actuary.webp",
     "topicIds": [
       "finance-banking-chặng-12"
     ],
@@ -41048,7 +41047,7 @@ export const WORDS = [
     "exampleVi": "Công ty đã báo cáo mức tăng 20% doanh thu trong quý.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/revenue-noun-2.webp",
+    "img": "assets/images/words/r/revenue-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-13"
     ],
@@ -41066,7 +41065,7 @@ export const WORDS = [
     "exampleVi": "Công ty đã tạo ra mức lợi nhuận ròng kỷ lục trong năm nay.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/profit-noun-2.webp",
+    "img": "assets/images/words/p/profit-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-13"
     ],
@@ -41084,7 +41083,7 @@ export const WORDS = [
     "exampleVi": "Các doanh nghiệp phần mềm thường có biên lợi nhuận gộp rất cao, trên 80%.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/gross-margin.webp",
+    "img": "assets/images/words/g/gross-margin.webp",
     "topicIds": [
       "finance-banking-chặng-13"
     ],
@@ -41102,7 +41101,7 @@ export const WORDS = [
     "exampleVi": "Lợi nhuận ròng được thúc đẩy nhờ việc cắt giảm mạnh chi phí vận hành.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/net-profit.webp",
+    "img": "assets/images/words/n/net-profit.webp",
     "topicIds": [
       "finance-banking-chặng-13"
     ],
@@ -41120,7 +41119,7 @@ export const WORDS = [
     "exampleVi": "Chi nhánh bán lẻ đã đạt doanh số bán hàng hằng năm là 10 triệu đô la.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/turnover.webp",
+    "img": "assets/images/words/t/turnover.webp",
     "topicIds": [
       "finance-banking-chặng-13"
     ],
@@ -41138,7 +41137,7 @@ export const WORDS = [
     "exampleVi": "Bảng cân đối kế toán lành mạnh cho thấy công ty có rất ít rủi ro về nợ.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/balance-sheet-noun-2.webp",
+    "img": "assets/images/words/b/balance-sheet-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-13"
     ],
@@ -41156,7 +41155,7 @@ export const WORDS = [
     "exampleVi": "Năm tài chính của tập đoàn kết thúc vào ngày 31 tháng 12.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/fiscal-year-noun-2.webp",
+    "img": "assets/images/words/f/fiscal-year-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-13"
     ],
@@ -41174,7 +41173,7 @@ export const WORDS = [
     "exampleVi": "Cuộc kiểm toán độc lập xác nhận rằng sổ sách tài chính hoàn toàn chính xác và tuân thủ.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/audit-noun-2.webp",
+    "img": "assets/images/words/a/audit-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-13"
     ],
@@ -41192,7 +41191,7 @@ export const WORDS = [
     "exampleVi": "Khấu hao máy móc được tính là chi phí vận hành cho mục đích tính thuế.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/depreciation-noun-2.webp",
+    "img": "assets/images/words/d/depreciation-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-13"
     ],
@@ -41210,7 +41209,7 @@ export const WORDS = [
     "exampleVi": "Công ty khởi nghiệp kỳ vọng sẽ đạt điểm hòa vốn trong vòng 18 tháng.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/break-even-point.webp",
+    "img": "assets/images/words/b/break-even-point.webp",
     "topicIds": [
       "finance-banking-chặng-13"
     ],
@@ -41228,7 +41227,7 @@ export const WORDS = [
     "exampleVi": "Hạ giá vốn hàng bán ngay lập tức cải thiện lợi nhuận gộp của công ty.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/cost-of-goods-sold-cogs.webp",
+    "img": "assets/images/words/c/cost-of-goods-sold-cogs.webp",
     "topicIds": [
       "finance-banking-chặng-14"
     ],
@@ -41246,7 +41245,7 @@ export const WORDS = [
     "exampleVi": "Thu hồi các khoản phải thu hiệu quả giúp cải thiện vốn lưu động của doanh nghiệp.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/accounts-receivable.webp",
+    "img": "assets/images/words/a/accounts-receivable.webp",
     "topicIds": [
       "finance-banking-chặng-14"
     ],
@@ -41264,7 +41263,7 @@ export const WORDS = [
     "exampleVi": "Bộ phận kế toán xử lý các khoản tiền phải trả vào mỗi Thứ Sáu.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/accounts-payable.webp",
+    "img": "assets/images/words/a/accounts-payable.webp",
     "topicIds": [
       "finance-banking-chặng-14"
     ],
@@ -41282,7 +41281,7 @@ export const WORDS = [
     "exampleVi": "Thương vụ M&A khổng lồ đã tạo ra nhà mạng viễn thông lớn nhất khu vực.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/merger-and-acquisition-ma.webp",
+    "img": "assets/images/words/m/merger-and-acquisition-ma.webp",
     "topicIds": [
       "finance-banking-chặng-14"
     ],
@@ -41300,7 +41299,7 @@ export const WORDS = [
     "exampleVi": "Các nhà đầu tư đã tiến hành thẩm định pháp lý và tài chính kỹ lưỡng trước khi ký hợp đồng.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/due-diligence.webp",
+    "img": "assets/images/words/d/due-diligence.webp",
     "topicIds": [
       "finance-banking-chặng-14"
     ],
@@ -41318,7 +41317,7 @@ export const WORDS = [
     "exampleVi": "Các khoản quyên góp từ thiện đủ điều kiện được khấu trừ thuế.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/tax-deduction.webp",
+    "img": "assets/images/words/t/tax-deduction.webp",
     "topicIds": [
       "finance-banking-chặng-14"
     ],
@@ -41336,7 +41335,7 @@ export const WORDS = [
     "exampleVi": "Giá cả niêm yết trong siêu thị đã bao gồm thuế giá trị gia tăng VAT.",
     "level": "B1",
     "pos": "noun",
-    "img": "assets/images/words/value-added-tax-vat.webp",
+    "img": "assets/images/words/v/value-added-tax-vat.webp",
     "topicIds": [
       "finance-banking-chặng-14"
     ],
@@ -41354,7 +41353,7 @@ export const WORDS = [
     "exampleVi": "Thuế quan cao hơn đánh vào đồ điện tử nhập khẩu đã làm tăng giá bán lẻ.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/tariff-noun-2.webp",
+    "img": "assets/images/words/t/tariff-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-14"
     ],
@@ -41372,7 +41371,7 @@ export const WORDS = [
     "exampleVi": "Các ngân hàng thực thi chính sách tuân thủ chống rửa tiền nghiêm ngặt cho các giao dịch xuyên biên giới.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/anti-money-laundering-aml.webp",
+    "img": "assets/images/words/a/anti-money-laundering-aml.webp",
     "topicIds": [
       "finance-banking-chặng-14"
     ],
@@ -41390,7 +41389,7 @@ export const WORDS = [
     "exampleVi": "Công ty khởi nghiệp AI đã huy động được 20 triệu đô la vốn đầu tư mạo hiểm vòng Series A.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/venture-capital-noun-2.webp",
+    "img": "assets/images/words/v/venture-capital-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-14"
     ],
@@ -41408,7 +41407,7 @@ export const WORDS = [
     "exampleVi": "Hợp đồng niên kim mang lại nguồn thu nhập định kỳ bảo đảm trong suốt thời gian nghỉ hưu.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/annuity.webp",
+    "img": "assets/images/words/a/annuity.webp",
     "topicIds": [
       "finance-banking-chặng-15"
     ],
@@ -41426,7 +41425,7 @@ export const WORDS = [
     "exampleVi": "Kiều hối do người lao động ở nước ngoài gửi về đóng góp rất lớn cho nền kinh tế quốc dân.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/remittance-noun-2.webp",
+    "img": "assets/images/words/r/remittance-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-15"
     ],
@@ -41444,7 +41443,7 @@ export const WORDS = [
     "exampleVi": "Các nhà hoạch định tài chính có nghĩa vụ ủy thác phải hành động vì lợi ích cao nhất của khách hàng.",
     "level": "C1",
     "pos": "adjective",
-    "img": "assets/images/words/fiduciary.webp",
+    "img": "assets/images/words/f/fiduciary.webp",
     "topicIds": [
       "finance-banking-chặng-15"
     ],
@@ -41462,7 +41461,7 @@ export const WORDS = [
     "exampleVi": "Công ty khởi nghiệp đã cắt giảm tốc độ tiêu hao tiền hằng tháng để kéo dài thời gian hoạt động.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/burn-rate.webp",
+    "img": "assets/images/words/b/burn-rate.webp",
     "topicIds": [
       "finance-banking-chặng-15"
     ],
@@ -41480,7 +41479,7 @@ export const WORDS = [
     "exampleVi": "Với lượng vốn hiện tại, doanh nghiệp có 12 tháng hoạt động trước khi cần gọi vốn mới.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/runway.webp",
+    "img": "assets/images/words/r/runway.webp",
     "topicIds": [
       "finance-banking-chặng-15"
     ],
@@ -41498,7 +41497,7 @@ export const WORDS = [
     "exampleVi": "Tiền được giữ trong tài khoản ký quỹ trung gian cho đến khi người mua kiểm tra bất động sản.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/escrow.webp",
+    "img": "assets/images/words/e/escrow.webp",
     "topicIds": [
       "finance-banking-chặng-15"
     ],
@@ -41516,7 +41515,7 @@ export const WORDS = [
     "exampleVi": "Cục Dự trữ Liên bang đã thắt chặt chính sách tiền tệ để kiềm chế lạm phát.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/monetary-policy.webp",
+    "img": "assets/images/words/m/monetary-policy.webp",
     "topicIds": [
       "finance-banking-chặng-15"
     ],
@@ -41534,7 +41533,7 @@ export const WORDS = [
     "exampleVi": "Đồng đô la Mỹ và Việt Nam đồng là những ví dụ về tiền pháp định.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/fiat-currency.webp",
+    "img": "assets/images/words/f/fiat-currency.webp",
     "topicIds": [
       "finance-banking-chặng-15"
     ],
@@ -41552,7 +41551,7 @@ export const WORDS = [
     "exampleVi": "Ngoại hối là thị trường tài chính lớn nhất và có tính thanh khoản cao nhất trên thế giới.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/forex-foreign-exchange.webp",
+    "img": "assets/images/words/f/forex-foreign-exchange.webp",
     "topicIds": [
       "finance-banking-chặng-15"
     ],
@@ -41570,7 +41569,7 @@ export const WORDS = [
     "exampleVi": "Các ứng dụng công nghệ tài chính Fintech đã cách mạng hóa thanh toán di động và đầu tư vi mô.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/fintech-noun-2.webp",
+    "img": "assets/images/words/f/fintech-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-15"
     ],
@@ -41588,7 +41587,7 @@ export const WORDS = [
     "exampleVi": "Các quốc gia Bắc Âu đang chuyển dịch nhanh chóng hướng tới một xã hội hoàn toàn không dùng tiền mặt.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/cashless-society.webp",
+    "img": "assets/images/words/c/cashless-society.webp",
     "topicIds": [
       "finance-banking-chặng-16"
     ],
@@ -41606,7 +41605,7 @@ export const WORDS = [
     "exampleVi": "Thẻ tín dụng hoạt động dựa trên mô hình tín dụng quay vòng.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/revolving-credit.webp",
+    "img": "assets/images/words/r/revolving-credit.webp",
     "topicIds": [
       "finance-banking-chặng-16"
     ],
@@ -41624,7 +41623,7 @@ export const WORDS = [
     "exampleVi": "Bitcoin là loại tiền mã hóa được công nhận rộng rãi nhất.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/cryptocurrency-noun-2.webp",
+    "img": "assets/images/words/c/cryptocurrency-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-16"
     ],
@@ -41642,7 +41641,7 @@ export const WORDS = [
     "exampleVi": "Công nghệ chuỗi khối mang lại tính minh bạch không thể chỉnh sửa cho các sổ cái tài chính.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/blockchain-noun-2.webp",
+    "img": "assets/images/words/b/blockchain-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-16"
     ],
@@ -41660,7 +41659,7 @@ export const WORDS = [
     "exampleVi": "Các nền tảng cho vay ngang hàng bỏ qua các khâu trung gian ngân hàng truyền thống.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/peer-to-peer-p2p-lending.webp",
+    "img": "assets/images/words/p/peer-to-peer-p2p-lending.webp",
     "topicIds": [
       "finance-banking-chặng-16"
     ],
@@ -41678,7 +41677,7 @@ export const WORDS = [
     "exampleVi": "Các bên cho vay ưu tiên tỷ lệ nợ trên thu nhập dưới 36% để phê duyệt vay mua nhà.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/debt-to-income-dti-ratio.webp",
+    "img": "assets/images/words/d/debt-to-income-dti-ratio.webp",
     "topicIds": [
       "finance-banking-chặng-16"
     ],
@@ -41696,7 +41695,7 @@ export const WORDS = [
     "exampleVi": "Phần lớn các khoản vay tiêu dùng được neo theo mức lãi suất cơ bản chuẩn.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/prime-rate.webp",
+    "img": "assets/images/words/p/prime-rate.webp",
     "topicIds": [
       "finance-banking-chặng-16"
     ],
@@ -41714,7 +41713,7 @@ export const WORDS = [
     "exampleVi": "Thẻ tín dụng cá nhân và vay sinh viên là các khoản vay tín chấp phổ biến.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/unsecured-loan.webp",
+    "img": "assets/images/words/u/unsecured-loan.webp",
     "topicIds": [
       "finance-banking-chặng-16"
     ],
@@ -41732,7 +41731,7 @@ export const WORDS = [
     "exampleVi": "Hãy kiểm tra xem hợp đồng vay mua nhà của bạn có điều khoản phạt trả nợ trước hạn không.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/prepayment-penalty.webp",
+    "img": "assets/images/words/p/prepayment-penalty.webp",
     "topicIds": [
       "finance-banking-chặng-16"
     ],
@@ -41750,7 +41749,7 @@ export const WORDS = [
     "exampleVi": "Cuộc khủng hoảng tài chính toàn cầu năm 2008 bùng nổ từ sự sụp đổ của các khoản vay mua nhà dưới chuẩn.",
     "level": "C1",
     "pos": "adjective",
-    "img": "assets/images/words/subprime.webp",
+    "img": "assets/images/words/s/subprime.webp",
     "topicIds": [
       "finance-banking-chặng-16"
     ],
@@ -41768,7 +41767,7 @@ export const WORDS = [
     "exampleVi": "Đường cong lợi suất đảo ngược thường được coi là chỉ báo sớm của suy thoái kinh tế.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/yield-curve.webp",
+    "img": "assets/images/words/y/yield-curve.webp",
     "topicIds": [
       "finance-banking-chặng-17"
     ],
@@ -41786,7 +41785,7 @@ export const WORDS = [
     "exampleVi": "Ngân hàng trung ương đã khởi động chính sách nới lỏng định lượng để hạ chi phí vay vốn.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/quantitative-easing-qe.webp",
+    "img": "assets/images/words/q/quantitative-easing-qe.webp",
     "topicIds": [
       "finance-banking-chặng-17"
     ],
@@ -41804,7 +41803,7 @@ export const WORDS = [
     "exampleVi": "Chính phủ đã thông qua gói kích thích tài khóa trị giá nhiều tỷ đô la.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/fiscal-stimulus.webp",
+    "img": "assets/images/words/f/fiscal-stimulus.webp",
     "topicIds": [
       "finance-banking-chặng-17"
     ],
@@ -41822,7 +41821,7 @@ export const WORDS = [
     "exampleVi": "Na Uy quản lý quỹ đầu tư quốc gia lớn nhất thế giới từ nguồn doanh thu dầu mỏ.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/sovereign-wealth-fund.webp",
+    "img": "assets/images/words/s/sovereign-wealth-fund.webp",
     "topicIds": [
       "finance-banking-chặng-17"
     ],
@@ -41840,7 +41839,7 @@ export const WORDS = [
     "exampleVi": "Các nhà đầu tư thận trọng ưa chuộng cổ phiếu blue-chip vì mức cổ tức ổn định đáng tin cậy.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/blue-chip-stock.webp",
+    "img": "assets/images/words/b/blue-chip-stock.webp",
     "topicIds": [
       "finance-banking-chặng-17"
     ],
@@ -41858,7 +41857,7 @@ export const WORDS = [
     "exampleVi": "Bán khống mang rủi ro vô hạn nếu giá cổ phiếu bất ngờ tăng vọt.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/short-selling.webp",
+    "img": "assets/images/words/s/short-selling.webp",
     "topicIds": [
       "finance-banking-chặng-17"
     ],
@@ -41876,7 +41875,7 @@ export const WORDS = [
     "exampleVi": "Các quỹ phòng hộ triển khai những chiến lược giao dịch thuật toán vô cùng phức tạp.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/hedge-fund.webp",
+    "img": "assets/images/words/h/hedge-fund.webp",
     "topicIds": [
       "finance-banking-chặng-17"
     ],
@@ -41894,7 +41893,7 @@ export const WORDS = [
     "exampleVi": "Sử dụng đòn bẩy tài chính quá mức sẽ phóng đại cả lợi nhuận lẫn thua lỗ.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/leverage.webp",
+    "img": "assets/images/words/l/leverage.webp",
     "topicIds": [
       "finance-banking-chặng-17"
     ],
@@ -41912,7 +41911,7 @@ export const WORDS = [
     "exampleVi": "Các thuật toán giao dịch tần suất cao khai thác cơ hội chênh lệch giá chỉ trong từng phần nghìn giây.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/arbitrage.webp",
+    "img": "assets/images/words/a/arbitrage.webp",
     "topicIds": [
       "finance-banking-chặng-17"
     ],
@@ -41930,7 +41929,7 @@ export const WORDS = [
     "exampleVi": "Các công ty công nghệ thường trao quyền chọn cổ phiếu để khuyến khích nhân tài hàng đầu.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/stock-option.webp",
+    "img": "assets/images/words/s/stock-option.webp",
     "topicIds": [
       "finance-banking-chặng-17"
     ],
@@ -41948,7 +41947,7 @@ export const WORDS = [
     "exampleVi": "Khoản cổ phần nhân viên của cô ấy tuân theo lộ trình trao quyền 4 năm tiêu chuẩn với kỳ hạn 1 năm đầu tiên.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/vesting-schedule.webp",
+    "img": "assets/images/words/v/vesting-schedule.webp",
     "topicIds": [
       "finance-banking-chặng-18"
     ],
@@ -41966,7 +41965,7 @@ export const WORDS = [
     "exampleVi": "Những nhà đầu tư thiên thần thuở ban đầu đã thu về khoản lợi nhuận gấp hàng nghìn lần khi công ty niêm yết cổ phiếu.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/angel-investor.webp",
+    "img": "assets/images/words/a/angel-investor.webp",
     "topicIds": [
       "finance-banking-chặng-18"
     ],
@@ -41984,7 +41983,7 @@ export const WORDS = [
     "exampleVi": "Các chuyên viên bảo hiểm tiến hành đánh giá rủi ro kỹ lưỡng trước khi phát hành hợp đồng.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/risk-assessment.webp",
+    "img": "assets/images/words/r/risk-assessment.webp",
     "topicIds": [
       "finance-banking-chặng-18"
     ],
@@ -42002,7 +42001,7 @@ export const WORDS = [
     "exampleVi": "Các công ty tái bảo hiểm toàn cầu giúp phân tán thiệt hại thảm khốc từ các cơn bão.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/reinsurance.webp",
+    "img": "assets/images/words/r/reinsurance.webp",
     "topicIds": [
       "finance-banking-chặng-18"
     ],
@@ -42020,7 +42019,7 @@ export const WORDS = [
     "exampleVi": "Mức miễn thường được thiết kế nhằm giảm thiểu rủi ro đạo đức nơi người mua bảo hiểm.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/moral-hazard.webp",
+    "img": "assets/images/words/m/moral-hazard.webp",
     "topicIds": [
       "finance-banking-chặng-18"
     ],
@@ -42038,7 +42037,7 @@ export const WORDS = [
     "exampleVi": "Các bên mua vốn cổ phần tư nhân định giá doanh nghiệp dựa trên hệ số nhân EBITDA.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/earnings-before-interest-taxes-depreciation-and-amortization-ebitda.webp",
+    "img": "assets/images/words/e/earnings-before-interest-taxes-depreciation-and-amortization-ebitda.webp",
     "topicIds": [
       "finance-banking-chặng-18"
     ],
@@ -42056,7 +42055,7 @@ export const WORDS = [
     "exampleVi": "Nhà sản xuất chip công bố chương trình CapEx 10 tỷ đô la để xây dựng các nhà máy bán dẫn mới.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/capital-expenditure-capex.webp",
+    "img": "assets/images/words/c/capital-expenditure-capex.webp",
     "topicIds": [
       "finance-banking-chặng-18"
     ],
@@ -42074,7 +42073,7 @@ export const WORDS = [
     "exampleVi": "Chuyển đổi sang hạ tầng đám mây đã giúp giảm chi phí vận hành OpEx cho mảng CNTT.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/operating-expenditure-opex.webp",
+    "img": "assets/images/words/o/operating-expenditure-opex.webp",
     "topicIds": [
       "finance-banking-chặng-18"
     ],
@@ -42092,7 +42091,7 @@ export const WORDS = [
     "exampleVi": "Nhà bán lẻ đã bước vào thủ tục tuyên bố mất khả năng thanh toán sau nhiều quý thua lỗ liên tiếp.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/insolvency.webp",
+    "img": "assets/images/words/i/insolvency.webp",
     "topicIds": [
       "finance-banking-chặng-18"
     ],
@@ -42110,7 +42109,7 @@ export const WORDS = [
     "exampleVi": "Tòa án phá sản đã ra lệnh thanh lý tài sản để hoàn trả tiền cho các chủ nợ.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/liquidation.webp",
+    "img": "assets/images/words/l/liquidation.webp",
     "topicIds": [
       "finance-banking-chặng-18"
     ],
@@ -42128,7 +42127,7 @@ export const WORDS = [
     "exampleVi": "Công ty đã tài trợ cho kế hoạch mở rộng hoàn toàn bằng nguồn lợi nhuận giữ lại.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/retained-earnings.webp",
+    "img": "assets/images/words/r/retained-earnings.webp",
     "topicIds": [
       "finance-banking-chặng-19"
     ],
@@ -42146,7 +42145,7 @@ export const WORDS = [
     "exampleVi": "Việc đối chiếu sổ cái với ngân hàng phải được thực hiện vào cuối mỗi tháng.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/reconciliation-noun-2.webp",
+    "img": "assets/images/words/r/reconciliation-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-19"
     ],
@@ -42164,7 +42163,7 @@ export const WORDS = [
     "exampleVi": "Sự trung thành với thương hiệu và sở hữu trí tuệ chiếm một phần lớn trong lợi thế thương mại.",
     "level": "C1",
     "pos": "noun",
-    "img": "assets/images/words/goodwill.webp",
+    "img": "assets/images/words/g/goodwill.webp",
     "topicIds": [
       "finance-banking-chặng-19"
     ],
@@ -42182,7 +42181,7 @@ export const WORDS = [
     "exampleVi": "Vị giám đốc điều hành đã bị truy tố với tội danh giao dịch nội gián trái phép.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/insider-trading.webp",
+    "img": "assets/images/words/i/insider-trading.webp",
     "topicIds": [
       "finance-banking-chặng-19"
     ],
@@ -42200,7 +42199,7 @@ export const WORDS = [
     "exampleVi": "Quỹ lừa đảo đã sụp đổ khi bị vạch trần là một mô hình Ponzi trị giá hàng tỷ đô la.",
     "level": "B2",
     "pos": "noun",
-    "img": "assets/images/words/ponzi-scheme.webp",
+    "img": "assets/images/words/p/ponzi-scheme.webp",
     "topicIds": [
       "finance-banking-chặng-19"
     ],
@@ -42218,7 +42217,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy dắt chú chó golden retriever thân thiện của mình đi dạo mỗi tối.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/dog.webp",
+    "img": "assets/images/words/d/dog.webp",
     "topicIds": [
       "pets-animals-chặng-1"
     ],
@@ -42237,7 +42236,7 @@ export const WORDS = [
     "exampleVi": "Chú mèo trắng lông xù đang ngủ ngon lành trên tấm thảm ấm áp.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/cat.webp",
+    "img": "assets/images/words/c/cat.webp",
     "topicIds": [
       "pets-animals-chặng-1"
     ],
@@ -42256,7 +42255,7 @@ export const WORDS = [
     "exampleVi": "Chú chó con tinh nghịch vẫy đuôi rối rít khi nhìn thấy chủ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/puppy.webp",
+    "img": "assets/images/words/p/puppy.webp",
     "topicIds": [
       "pets-animals-chặng-1"
     ],
@@ -42275,7 +42274,7 @@ export const WORDS = [
     "exampleVi": "Chú mèo con bé xíu uống sữa ấm từ chiếc đĩa nhỏ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/kitten.webp",
+    "img": "assets/images/words/k/kitten.webp",
     "topicIds": [
       "pets-animals-chặng-1"
     ],
@@ -42294,7 +42293,7 @@ export const WORDS = [
     "exampleVi": "Chú thỏ cưng đáng yêu đang vui vẻ gặm một củ cà rốt tươi.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/rabbit.webp",
+    "img": "assets/images/words/r/rabbit.webp",
     "topicIds": [
       "pets-animals-chặng-1"
     ],
@@ -42313,7 +42312,7 @@ export const WORDS = [
     "exampleVi": "Chú chuột hamster nhỏ lông xù chạy đầy năng lượng trên chiếc bánh xe tập thể dục xoay tròn.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/hamster.webp",
+    "img": "assets/images/words/h/hamster.webp",
     "topicIds": [
       "pets-animals-chặng-1"
     ],
@@ -42332,7 +42331,7 @@ export const WORDS = [
     "exampleVi": "Chú vẹt xanh sặc sỡ có thể bắt chước các từ tiếng Anh đơn giản một cách rõ ràng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/parrot.webp",
+    "img": "assets/images/words/p/parrot.webp",
     "topicIds": [
       "pets-animals-chặng-1"
     ],
@@ -42351,7 +42350,7 @@ export const WORDS = [
     "exampleVi": "Hai chú cá vàng rực rỡ đang bơi lội duyên dáng bên trong bể cá thủy tinh.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/goldfish.webp",
+    "img": "assets/images/words/g/goldfish.webp",
     "topicIds": [
       "pets-animals-chặng-1"
     ],
@@ -42370,7 +42369,7 @@ export const WORDS = [
     "exampleVi": "Chú rùa cưng thong thả tắm nắng trên tảng đá cạnh hồ nước.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/turtle.webp",
+    "img": "assets/images/words/t/turtle.webp",
     "topicIds": [
       "pets-animals-chặng-1"
     ],
@@ -42389,7 +42388,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy đã mua một chiếc vòng cổ da màu đỏ êm ái có bảng tên cho chú chó của mình.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/collar.webp",
+    "img": "assets/images/words/c/collar.webp",
     "topicIds": [
       "pets-animals-chặng-1"
     ],
@@ -42408,7 +42407,7 @@ export const WORDS = [
     "exampleVi": "Người nông dân cho đàn gà thả vườn ăn vào mỗi buổi sáng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/chicken.webp",
+    "img": "assets/images/words/c/chicken.webp",
     "topicIds": [
       "pets-animals-chặng-2"
     ],
@@ -42427,7 +42426,7 @@ export const WORDS = [
     "exampleVi": "Một đàn vịt màu vàng đang bơi lội vui vẻ qua ao nông trại.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/duck.webp",
+    "img": "assets/images/words/d/duck.webp",
     "topicIds": [
       "pets-animals-chặng-2"
     ],
@@ -42446,7 +42445,7 @@ export const WORDS = [
     "exampleVi": "Chú lợn màu hồng đang nghỉ ngơi thoải mái bên trong chuồng gỗ sạch sẽ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/pig.webp",
+    "img": "assets/images/words/p/pig.webp",
     "topicIds": [
       "pets-animals-chặng-2"
     ],
@@ -42465,7 +42464,7 @@ export const WORDS = [
     "exampleVi": "Cô bò sữa đốm đen trắng gặm cỏ thanh bình trên đồng cỏ xanh.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/cow.webp",
+    "img": "assets/images/words/c/cow.webp",
     "topicIds": [
       "pets-animals-chặng-2"
     ],
@@ -42484,7 +42483,7 @@ export const WORDS = [
     "exampleVi": "Chú ngựa màu nâu oai phong phi nước đại nhanh chóng qua đồng cỏ rộng mở.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/horse.webp",
+    "img": "assets/images/words/h/horse.webp",
     "topicIds": [
       "pets-animals-chặng-2"
     ],
@@ -42503,7 +42502,7 @@ export const WORDS = [
     "exampleVi": "Đàn cừu lông xù cùng nhau gặm cỏ trên sườn đồi đồng cỏ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/sheep.webp",
+    "img": "assets/images/words/s/sheep.webp",
     "topicIds": [
       "pets-animals-chặng-2"
     ],
@@ -42522,7 +42521,7 @@ export const WORDS = [
     "exampleVi": "Chú dê nhanh nhẹn trèo thoăn thoắt lên ngọn đồi đá.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/goat.webp",
+    "img": "assets/images/words/g/goat.webp",
     "topicIds": [
       "pets-animals-chặng-2"
     ],
@@ -42541,7 +42540,7 @@ export const WORDS = [
     "exampleVi": "Chú gà trống oai vệ gáy vang đón bình minh mỗi sớm mai.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/rooster.webp",
+    "img": "assets/images/words/r/rooster.webp",
     "topicIds": [
       "pets-animals-chặng-2"
     ],
@@ -42560,7 +42559,7 @@ export const WORDS = [
     "exampleVi": "Đàn ngỗng trắng lạch bạch duyên dáng đi xuống bờ sông.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/goose.webp",
+    "img": "assets/images/words/g/goose.webp",
     "topicIds": [
       "pets-animals-chặng-2"
     ],
@@ -42579,7 +42578,7 @@ export const WORDS = [
     "exampleVi": "Con trâu nước là người bạn đồng hành trung thành của người nông dân Đông Nam Á.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/buffalo.webp",
+    "img": "assets/images/words/b/buffalo.webp",
     "topicIds": [
       "pets-animals-chặng-2"
     ],
@@ -42598,7 +42597,7 @@ export const WORDS = [
     "exampleVi": "Chú ong mật đang bay vo ve chăm chỉ quanh những bông hoa hướng dương vàng rực rỡ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/bee.webp",
+    "img": "assets/images/words/b/bee.webp",
     "topicIds": [
       "pets-animals-chặng-3"
     ],
@@ -42617,7 +42616,7 @@ export const WORDS = [
     "exampleVi": "Một hàng kiến thợ bận rộn tha những mẩu bánh vụn về tổ của chúng.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/ant.webp",
+    "img": "assets/images/words/a/ant.webp",
     "topicIds": [
       "pets-animals-chặng-3"
     ],
@@ -42636,7 +42635,7 @@ export const WORDS = [
     "exampleVi": "Một chú bướm rực rỡ tuyệt đẹp đậu nhẹ nhàng trên những cánh hoa hồng trong vườn.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/butterfly.webp",
+    "img": "assets/images/words/b/butterfly.webp",
     "topicIds": [
       "pets-animals-chặng-3"
     ],
@@ -42655,7 +42654,7 @@ export const WORDS = [
     "exampleVi": "Chú nhện vườn dệt một tấm mạng tơ tròn phức tạp giữa các cành cây.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/spider.webp",
+    "img": "assets/images/words/s/spider.webp",
     "topicIds": [
       "pets-animals-chặng-3"
     ],
@@ -42674,7 +42673,7 @@ export const WORDS = [
     "exampleVi": "Hãy dùng xịt chống muỗi khi đi cắm trại gần hồ trong rừng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/mosquito.webp",
+    "img": "assets/images/words/m/mosquito.webp",
     "topicIds": [
       "pets-animals-chặng-3"
     ],
@@ -42693,7 +42692,7 @@ export const WORDS = [
     "exampleVi": "Chú ếch xanh nhỏ nhảy thoăn thoắt lên chiếc lá sen bồng bềnh trên mặt nước.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/frog.webp",
+    "img": "assets/images/words/f/frog.webp",
     "topicIds": [
       "pets-animals-chặng-3"
     ],
@@ -42712,7 +42711,7 @@ export const WORDS = [
     "exampleVi": "Chú thạch sùng nhỏ bò thoăn thoắt lên bức tường đá ngoài trời.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/lizard.webp",
+    "img": "assets/images/words/l/lizard.webp",
     "topicIds": [
       "pets-animals-chặng-3"
     ],
@@ -42731,7 +42730,7 @@ export const WORDS = [
     "exampleVi": "Chú ốc sên vườn bò chầm chậm qua chiếc lá xanh ẩm ướt sau cơn mưa sáng.",
     "level": "A2",
     "pos": "noun",
-    "img": "assets/images/words/snail.webp",
+    "img": "assets/images/words/s/snail.webp",
     "topicIds": [
       "pets-animals-chặng-3"
     ],
@@ -42750,7 +42749,7 @@ export const WORDS = [
     "exampleVi": "Cô ấy xua đuổi con ruồi nhà phiền phức đang bay vo ve gần bàn ăn.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/fly-insect.webp",
+    "img": "assets/images/words/f/fly-insect.webp",
     "topicIds": [
       "pets-animals-chặng-3"
     ],
@@ -42769,7 +42768,7 @@ export const WORDS = [
     "exampleVi": "Chú chuột đồng bé xíu chạy thoăn thoắt dưới sàn chuồng gỗ.",
     "level": "A1",
     "pos": "noun",
-    "img": "assets/images/words/mouse-animal.webp",
+    "img": "assets/images/words/m/mouse-animal.webp",
     "topicIds": [
       "pets-animals-chặng-3"
     ],
@@ -42780,2562 +42779,5 @@ export const WORDS = [
   }
 ];
 
-export const WORDS_MAP = new Map();
-for (const word of WORDS) {
-  WORDS_MAP.set(word.id, word);
-}
-
-export const LEGACY_ID_MAP = {
-  "dl-001": "wake-up",
-  "dl-002": "get-up",
-  "dl-003": "alarm-clock",
-  "dl-004": "snooze",
-  "dl-005": "stretch",
-  "dl-006": "yawn",
-  "dl-007": "brush",
-  "dl-008": "toothbrush",
-  "dl-009": "toothpaste",
-  "dl-010": "wash",
-  "dl-011": "shower",
-  "dl-012": "towel",
-  "dl-013": "soap",
-  "dl-014": "shampoo",
-  "dl-015": "comb",
-  "dl-016": "hairdryer",
-  "dl-017": "shave",
-  "dl-018": "razor",
-  "dl-019": "skincare",
-  "dl-020": "sunscreen",
-  "dl-021": "lotion",
-  "dl-022": "get-dressed",
-  "dl-023": "put-on",
-  "dl-024": "outfit",
-  "dl-025": "mirror",
-  "dl-026": "make-the-bed",
-  "dl-027": "breakfast",
-  "dl-028": "brew",
-  "dl-029": "boil",
-  "dl-030": "kettle",
-  "dl-031": "gather",
-  "dl-032": "grab",
-  "dl-033": "keys",
-  "dl-034": "deodorant",
-  "dl-035": "head-out",
-  "dl-036": "fasten",
-  "dl-037": "eat",
-  "dl-038": "drink",
-  "dl-039": "walk",
-  "dl-040": "run",
-  "dl-041": "go",
-  "dl-042": "come",
-  "dl-043": "leave-verb",
-  "dl-044": "set-off",
-  "dl-045": "enter",
-  "dl-046": "return",
-  "dl-047": "stay",
-  "dl-048": "wait",
-  "dl-049": "meet",
-  "dl-050": "talk",
-  "dl-051": "speak",
-  "dl-052": "listen",
-  "dl-053": "watch",
-  "dl-054": "read",
-  "dl-055": "write",
-  "dl-056": "immerse",
-  "dl-057": "learn",
-  "dl-058": "work",
-  "dl-059": "persevere",
-  "dl-060": "send",
-  "dl-061": "receive",
-  "dl-062": "call",
-  "dl-063": "reply",
-  "dl-064": "scroll",
-  "dl-065": "search",
-  "dl-066": "find",
-  "dl-067": "carry",
-  "dl-068": "hold",
-  "dl-069": "open",
-  "dl-070": "close",
-  "dl-071": "turn-on",
-  "dl-072": "turn-off",
-  "dl-073": "push",
-  "dl-074": "pull",
-  "dl-075": "sit-down",
-  "dl-076": "stand-up",
-  "dl-077": "cook",
-  "dl-078": "chop",
-  "dl-079": "fry",
-  "dl-080": "bake",
-  "dl-081": "heat-up",
-  "dl-082": "wash-dishes",
-  "dl-083": "dry-dishes",
-  "dl-084": "dishwasher",
-  "dl-085": "wipe",
-  "dl-086": "sweep",
-  "dl-087": "broom",
-  "dl-088": "mop-verb",
-  "dl-089": "vacuum",
-  "dl-090": "dust",
-  "dl-091": "clean-up",
-  "dl-092": "tidy-up",
-  "dl-093": "organize",
-  "dl-094": "do-laundry",
-  "dl-095": "washing-machine",
-  "dl-096": "detergent",
-  "dl-097": "hang-clothes",
-  "dl-098": "fold",
-  "dl-099": "iron-verb",
-  "dl-100": "take-out-the-trash",
-  "dl-101": "garbage-bin",
-  "dl-102": "recycle",
-  "dl-103": "water-the-plants",
-  "dl-104": "feed-the-pet",
-  "dl-105": "walk-the-dog",
-  "dl-106": "fix",
-  "dl-107": "repair",
-  "dl-108": "replace",
-  "dl-109": "lock-verb",
-  "dl-110": "unlock",
-  "dl-111": "answer-the-door",
-  "dl-112": "air-out",
-  "dl-113": "clutter",
-  "dl-114": "bed-sheet",
-  "dl-115": "pillowcase",
-  "dl-116": "chores",
-  "dl-117": "early",
-  "dl-118": "late",
-  "dl-119": "on-time",
-  "dl-120": "in-time",
-  "dl-121": "usually",
-  "dl-122": "always",
-  "dl-123": "often",
-  "dl-124": "sometimes",
-  "dl-125": "rarely",
-  "dl-126": "never",
-  "dl-127": "occasionally",
-  "dl-128": "daily",
-  "dl-129": "weekly",
-  "dl-130": "monthly",
-  "dl-131": "morning",
-  "dl-132": "noon",
-  "dl-133": "afternoon",
-  "dl-134": "evening",
-  "dl-135": "midnight",
-  "dl-136": "dawn",
-  "dl-137": "schedule-noun",
-  "dl-138": "routine",
-  "dl-139": "appointment",
-  "dl-140": "disinfect",
-  "dl-141": "delay-verb",
-  "dl-142": "postpone",
-  "dl-143": "reschedule",
-  "dl-144": "spend-time",
-  "dl-145": "waste-time",
-  "dl-146": "save-time",
-  "dl-147": "free-time",
-  "dl-148": "busy",
-  "dl-149": "punctual",
-  "dl-150": "timetable",
-  "dl-151": "duration",
-  "dl-152": "need",
-  "dl-153": "want",
-  "dl-154": "prefer",
-  "dl-155": "choose",
-  "dl-156": "decide",
-  "dl-157": "defer",
-  "dl-158": "purchase",
-  "dl-159": "prioritize",
-  "dl-160": "allocate",
-  "dl-161": "cost",
-  "dl-162": "promptly",
-  "dl-163": "order",
-  "dl-164": "pick-up",
-  "dl-165": "deliver",
-  "dl-166": "grocery",
-  "dl-167": "overdue",
-  "dl-168": "convenience-store",
-  "dl-169": "simultaneously",
-  "dl-170": "rearrange",
-  "dl-171": "consecutive",
-  "dl-172": "change",
-  "dl-173": "periodically",
-  "dl-174": "on-sale",
-  "dl-175": "timely",
-  "dl-176": "expired",
-  "dl-177": "out-of-stock",
-  "dl-178": "run-out-of",
-  "dl-179": "refill",
-  "dl-180": "timeframe",
-  "dl-181": "fulfill",
-  "dl-182": "necessity",
-  "dl-183": "return-item",
-  "dl-184": "shopping-list",
-  "dl-185": "obligation",
-  "dl-186": "plastic-bag",
-  "dl-187": "come-home",
-  "dl-188": "take-off",
-  "dl-189": "unwind",
-  "dl-190": "recharge",
-  "dl-191": "rest",
-  "dl-192": "lie-down",
-  "dl-193": "take-a-nap",
-  "dl-194": "doze-off",
-  "dl-195": "stay-up-late",
-  "dl-196": "sleepy",
-  "dl-197": "tired",
-  "dl-198": "exhausted",
-  "dl-199": "pajamas",
-  "dl-200": "set-an-alarm",
-  "dl-201": "turn-off-lights",
-  "dl-202": "get-into-bed",
-  "dl-203": "go-to-bed",
-  "dl-204": "fall-asleep",
-  "dl-205": "fast-asleep",
-  "dl-206": "deep-sleep",
-  "dl-207": "dream",
-  "dl-208": "nightmare",
-  "dl-209": "toss-and-turn",
-  "dl-210": "insomnia",
-  "dl-211": "snore",
-  "dl-212": "heavy-sleeper",
-  "dl-213": "light-sleeper",
-  "dl-214": "restful",
-  "dl-215": "night-owl",
-  "dl-216": "early-bird",
-  "dl-217": "bedtime",
-  "dl-218": "sleep-in",
-  "dl-219": "oversleep",
-  "dl-220": "drowsy",
-  "dl-221": "restless",
-  "dl-222": "hurry-up",
-  "dl-223": "take-your-time",
-  "dl-224": "get-ready",
-  "dl-225": "as-usual",
-  "dl-226": "step-by-step",
-  "dl-227": "day-by-day",
-  "dl-228": "from-time-to-time",
-  "dl-229": "once-in-a-while",
-  "dl-230": "grab-a-bite",
-  "dl-231": "take-a-break",
-  "dl-232": "have-a-seat",
-  "dl-233": "hit-the-sack",
-  "dl-234": "call-it-a-day",
-  "dl-235": "keep-in-touch",
-  "dl-236": "take-care",
-  "dl-237": "in-a-hurry",
-  "dl-238": "run-out-of-time",
-  "dl-239": "kill-time",
-  "dl-240": "make-time",
-  "dl-241": "take-it-easy",
-  "dl-242": "look-forward-to-phrasal-verb",
-  "dl-243": "catch-up-with",
-  "dl-244": "on-the-way",
-  "dl-245": "daily-basis",
-  "dl-246": "daily-habit",
-  "dl-247": "to-do-list",
-  "dl-248": "check-off",
-  "dl-249": "wrap-up",
-  "dl-250": "all-day-long",
-  "dl-251": "charge-phone",
-  "dl-252": "battery-low",
-  "dl-253": "plug-in",
-  "dl-254": "unplug",
-  "dl-255": "check-notifications",
-  "dl-256": "freshen-up",
-  "dl-257": "put-on-makeup",
-  "dl-258": "take-off-makeup",
-  "dl-259": "washcloth",
-  "dl-260": "gargle",
-  "dl-261": "deep-breath",
-  "dl-262": "pour",
-  "dl-263": "sip",
-  "dl-264": "slice",
-  "dl-265": "spill",
-  "dl-266": "wipe-down",
-  "dl-267": "air-dry",
-  "dl-268": "laundry-basket",
-  "dl-269": "clothes-hanger",
-  "dl-270": "ironing-board",
-  "dl-271": "run-errands",
-  "dl-272": "drop-by",
-  "dl-273": "drop-off",
-  "dl-274": "lock-up",
-  "dl-275": "take-notes",
-  "dl-276": "look-up",
-  "dl-277": "wait-in-line",
-  "dl-278": "make-plans",
-  "dl-279": "keep-a-diary",
-  "dl-280": "set-a-timer",
-  "dl-281": "trim-nails",
-  "dl-282": "splash-water",
-  "dl-283": "bath-mat",
-  "dl-284": "night-light",
-  "dl-285": "fall-back-asleep",
-  "dl-286": "daily-schedule",
-  "dl-287": "productive",
-  "dl-288": "peaceful",
-  "dl-289": "take-a-walk",
-  "dl-290": "sit-back",
-  "dl-291": "check-the-weather",
-  "dl-292": "get-home",
-  "dl-293": "turn-around",
-  "dl-294": "switch-off",
-  "dl-295": "squeeze",
-  "dl-296": "rinse",
-  "dl-297": "take-off-coat",
-  "dl-298": "get-dressed-up",
-  "dl-299": "stay-in",
-  "dl-300": "good-night",
-  "pp-001": "parent",
-  "pp-002": "sibling",
-  "pp-003": "infant",
-  "pp-004": "toddler",
-  "pp-005": "adolescent",
-  "pp-006": "twin",
-  "pp-007": "grandchild",
-  "pp-008": "guardian",
-  "pp-009": "upbringing",
-  "pp-010": "household",
-  "pp-011": "breadwinner",
-  "pp-012": "nurture",
-  "pp-013": "offspring",
-  "pp-014": "foster",
-  "pp-015": "heritage",
-  "pp-016": "spouse",
-  "pp-017": "relative",
-  "pp-018": "ancestor",
-  "pp-019": "descendant",
-  "pp-020": "in-laws",
-  "pp-021": "fiance",
-  "pp-022": "fiancee",
-  "pp-023": "nuptials",
-  "pp-024": "matrimony",
-  "pp-025": "kinship",
-  "pp-026": "maternal",
-  "pp-027": "paternal",
-  "pp-028": "lineage",
-  "pp-029": "genealogy",
-  "pp-030": "heir",
-  "pp-031": "companion",
-  "pp-032": "acquaintance",
-  "pp-033": "comrade",
-  "pp-034": "confidant",
-  "pp-035": "intimate",
-  "pp-036": "solidarity",
-  "pp-037": "camaraderie",
-  "pp-038": "peer",
-  "pp-039": "reunion",
-  "pp-040": "socialize",
-  "pp-041": "bonding",
-  "pp-042": "lifelong",
-  "pp-043": "hospitality",
-  "pp-044": "trustworthy",
-  "pp-045": "affection",
-  "pp-046": "conscientious",
-  "pp-047": "resilient",
-  "pp-048": "compassionate",
-  "pp-049": "optimistic",
-  "pp-050": "diligent",
-  "pp-051": "empathetic",
-  "pp-052": "charismatic",
-  "pp-053": "adaptable",
-  "pp-054": "perceptive",
-  "pp-055": "generous",
-  "pp-056": "courteous",
-  "pp-057": "humble",
-  "pp-058": "sincere",
-  "pp-059": "authentic",
-  "pp-060": "enthusiastic",
-  "pp-061": "introverted",
-  "pp-062": "extroverted",
-  "pp-063": "assertive",
-  "pp-064": "diplomatic",
-  "pp-065": "pragmatic",
-  "pp-066": "meticulous",
-  "pp-067": "impulsive",
-  "pp-068": "stubborn",
-  "pp-069": "cynical",
-  "pp-070": "gullible",
-  "pp-071": "tactful",
-  "pp-072": "arrogant",
-  "pp-073": "benevolent",
-  "pp-074": "frank",
-  "pp-075": "tenacious",
-  "pp-076": "slender",
-  "pp-077": "sturdy",
-  "pp-078": "petite",
-  "pp-079": "muscular",
-  "pp-080": "posture",
-  "pp-081": "stature",
-  "pp-082": "complexion",
-  "pp-083": "obese",
-  "pp-084": "lanky",
-  "pp-085": "stocky",
-  "pp-086": "silhouette",
-  "pp-087": "physique",
-  "pp-088": "graceful",
-  "pp-089": "chubby",
-  "pp-090": "well-groomed",
-  "pp-091": "wrinkle",
-  "pp-092": "freckle",
-  "pp-093": "jawline",
-  "pp-094": "eyebrow",
-  "pp-095": "eyelash",
-  "pp-096": "dimple",
-  "pp-097": "scar",
-  "pp-098": "beard",
-  "pp-099": "mustache",
-  "pp-100": "forehead",
-  "pp-101": "cheekbone",
-  "pp-102": "mole",
-  "pp-103": "bald",
-  "pp-104": "pale",
-  "pp-105": "radiant",
-  "pp-106": "childhood",
-  "pp-107": "adolescence",
-  "pp-108": "adulthood",
-  "pp-109": "maturity-noun",
-  "pp-110": "retirement",
-  "pp-111": "youth",
-  "pp-112": "milestone",
-  "pp-113": "elderly",
-  "pp-114": "centenarian",
-  "pp-115": "longevity",
-  "pp-116": "rite-of-passage",
-  "pp-117": "legacy",
-  "pp-118": "midlife",
-  "pp-119": "decade",
-  "pp-120": "senior-citizen",
-  "pp-121": "colleague",
-  "pp-122": "mentor",
-  "pp-123": "protege",
-  "pp-124": "superior",
-  "pp-125": "subordinate",
-  "pp-126": "associate",
-  "pp-127": "network",
-  "pp-128": "counterpart",
-  "pp-129": "liaison",
-  "pp-130": "hierarchy",
-  "pp-131": "delegation",
-  "pp-132": "stakeholder",
-  "pp-133": "rapport",
-  "pp-134": "affiliation",
-  "pp-135": "predecessor",
-  "pp-136": "gratitude",
-  "pp-137": "empathy",
-  "pp-138": "jealousy",
-  "pp-139": "devotion",
-  "pp-140": "sympathy",
-  "pp-141": "resentment",
-  "pp-142": "admiration",
-  "pp-143": "compassion",
-  "pp-145": "estrangement",
-  "pp-146": "intimacy",
-  "pp-147": "reconciliation-noun",
-  "pp-148": "envy",
-  "pp-149": "trust",
-  "pp-150": "belonging",
-  "cf-001": "converse",
-  "cf-002": "chit-chat",
-  "cf-003": "whisper",
-  "cf-004": "gossip",
-  "cf-005": "dialogue",
-  "cf-006": "utter",
-  "cf-007": "articulate-adjective",
-  "cf-008": "mumble",
-  "cf-009": "remark",
-  "cf-010": "chatter",
-  "cf-011": "banter",
-  "cf-012": "proclaim",
-  "cf-013": "exclaim",
-  "cf-014": "declare",
-  "cf-015": "monologue",
-  "cf-016": "debate",
-  "cf-017": "dispute",
-  "cf-018": "controversy",
-  "cf-019": "consensus",
-  "cf-020": "persuade",
-  "cf-021": "convince",
-  "cf-022": "concur",
-  "cf-023": "contradict",
-  "cf-024": "compromise",
-  "cf-025": "argument",
-  "cf-026": "deliberation",
-  "cf-027": "refute",
-  "cf-028": "mediate",
-  "cf-029": "standpoint",
-  "cf-030": "concession",
-  "cf-031": "elaborate",
-  "cf-032": "summarize",
-  "cf-033": "illustrate",
-  "cf-034": "emphasize",
-  "cf-035": "paraphrase",
-  "cf-036": "articulate-verb",
-  "cf-037": "convey",
-  "cf-038": "demonstrate",
-  "cf-039": "eloquence",
-  "cf-040": "succinct",
-  "cf-041": "coherent",
-  "cf-042": "metaphor",
-  "cf-043": "analogy",
-  "cf-044": "rhetoric",
-  "cf-045": "tone",
-  "cf-046": "comprehend",
-  "cf-047": "interpret",
-  "cf-048": "misunderstand",
-  "cf-049": "attentive",
-  "cf-050": "perceive",
-  "cf-051": "insight",
-  "cf-052": "receptive",
-  "cf-053": "acknowledge",
-  "cf-055": "feedback",
-  "cf-056": "clarification",
-  "cf-057": "grasp",
-  "cf-058": "attune",
-  "cf-059": "decipher",
-  "cf-060": "mindful",
-  "cf-061": "delighted",
-  "cf-062": "ecstatic",
-  "cf-063": "elated",
-  "cf-064": "blissful",
-  "cf-065": "cheerful",
-  "cf-066": "contentment",
-  "cf-067": "euphoria",
-  "cf-068": "jubilant",
-  "cf-069": "exhilarated",
-  "cf-070": "gratified",
-  "cf-072": "optimism",
-  "cf-073": "enthusiasm",
-  "cf-074": "serenity",
-  "cf-075": "triumphant",
-  "cf-076": "despair",
-  "cf-077": "melancholy",
-  "cf-078": "disillusioned",
-  "cf-079": "grief",
-  "cf-080": "sorrow",
-  "cf-081": "gloomy",
-  "cf-082": "heartbroken",
-  "cf-083": "downcast",
-  "cf-084": "devastated",
-  "cf-085": "frustration",
-  "cf-086": "bitter",
-  "cf-087": "resigned",
-  "cf-088": "disheartened",
-  "cf-089": "mourn",
-  "cf-090": "depressed",
-  "cf-091": "anxiety",
-  "cf-092": "apprehensive",
-  "cf-093": "stressful",
-  "cf-094": "agitated",
-  "cf-096": "dread",
-  "cf-097": "panicked",
-  "cf-098": "overwhelmed",
-  "cf-099": "uneasy",
-  "cf-100": "nervous",
-  "cf-101": "tension",
-  "cf-102": "fidgety",
-  "cf-103": "hectic",
-  "cf-104": "burnout",
-  "cf-105": "jittery",
-  "cf-106": "astonished",
-  "cf-107": "intrigued",
-  "cf-108": "inquisitive",
-  "cf-109": "fascinated",
-  "cf-110": "bewildered",
-  "cf-111": "flabbergasted",
-  "cf-112": "curiosity",
-  "cf-113": "mesmerized",
-  "cf-114": "perplexed",
-  "cf-115": "startled",
-  "cf-116": "stunned",
-  "cf-117": "wonder",
-  "cf-118": "awe",
-  "cf-119": "baffled",
-  "cf-120": "mystified",
-  "cf-121": "attitude",
-  "cf-122": "patience",
-  "cf-123": "tolerance",
-  "cf-124": "indifference",
-  "cf-126": "skeptical",
-  "cf-127": "reluctant",
-  "cf-128": "eager",
-  "cf-129": "defensive",
-  "cf-132": "courageous",
-  "cf-133": "persistent",
-  "cf-134": "apathetic",
-  "cf-136": "gesture",
-  "cf-137": "nod",
-  "cf-138": "frown",
-  "cf-139": "shrug",
-  "cf-140": "eye-contact",
-  "cf-142": "grimace",
-  "cf-143": "wink",
-  "cf-144": "smirk",
-  "cf-145": "gaze",
-  "cf-146": "glance",
-  "cf-147": "stare",
-  "cf-148": "slouch",
-  "cf-149": "gesticulate",
-  "cf-150": "fidget",
-  "fd-001": "ingredient",
-  "fd-002": "dairy",
-  "fd-003": "grain",
-  "fd-004": "seasoning",
-  "fd-005": "produce",
-  "fd-006": "flour",
-  "fd-007": "yeast",
-  "fd-008": "condiment",
-  "fd-009": "herb",
-  "fd-010": "spice",
-  "fd-011": "preservative",
-  "fd-012": "staple",
-  "fd-013": "organic",
-  "fd-014": "extract-noun",
-  "fd-015": "perishable",
-  "fd-016": "citrus",
-  "fd-017": "berry",
-  "fd-018": "tuber",
-  "fd-019": "legume",
-  "fd-020": "avocado",
-  "fd-021": "spinach",
-  "fd-022": "broccoli",
-  "fd-023": "pomegranate",
-  "fd-024": "artichoke",
-  "fd-025": "asparagus",
-  "fd-026": "eggplant",
-  "fd-027": "zucchini",
-  "fd-028": "cauliflower",
-  "fd-029": "papaya",
-  "fd-030": "beetroot",
-  "fd-031": "poultry",
-  "fd-032": "seafood",
-  "fd-033": "beef",
-  "fd-034": "pork",
-  "fd-035": "salmon",
-  "fd-036": "shrimp",
-  "fd-037": "crab",
-  "fd-038": "lobster",
-  "fd-039": "tuna",
-  "fd-040": "oyster",
-  "fd-041": "clam",
-  "fd-042": "tenderloin",
-  "fd-043": "fillet",
-  "fd-044": "venison",
-  "fd-045": "mince",
-  "fd-046": "beverage",
-  "fd-047": "espresso",
-  "fd-048": "herbal-tea",
-  "fd-049": "smoothie",
-  "fd-050": "mocktail",
-  "fd-051": "hydration",
-  "fd-052": "decaffeinated",
-  "fd-053": "infusion",
-  "fd-054": "sparkling",
-  "fd-056": "distill",
-  "fd-057": "cider",
-  "fd-058": "refreshment",
-  "fd-059": "electrolyte",
-  "fd-060": "quench",
-  "fd-061": "simmer",
-  "fd-062": "saute",
-  "fd-064": "roast",
-  "fd-065": "marinate",
-  "fd-066": "caramelize",
-  "fd-067": "poach",
-  "fd-068": "blanch",
-  "fd-069": "grill",
-  "fd-070": "deep-fry",
-  "fd-071": "steam",
-  "fd-072": "knead",
-  "fd-073": "whisk-verb",
-  "fd-074": "garnish",
-  "fd-075": "deglaze",
-  "fd-076": "savory",
-  "fd-077": "succulent",
-  "fd-078": "aromatic",
-  "fd-079": "crispy",
-  "fd-080": "tangy",
-  "fd-082": "bland",
-  "fd-083": "pungent",
-  "fd-084": "delectable",
-  "fd-085": "zesty",
-  "fd-086": "scrumptious",
-  "fd-087": "greasy",
-  "fd-088": "creamy",
-  "fd-089": "sour",
-  "fd-090": "appetizing",
-  "fd-091": "appliance",
-  "fd-092": "skillet",
-  "fd-093": "colander",
-  "fd-094": "cutlery",
-  "fd-095": "blender",
-  "fd-096": "whisk-noun",
-  "fd-097": "ladle",
-  "fd-098": "spatula",
-  "fd-099": "pestle-and-mortar",
-  "fd-100": "tongs",
-  "fd-101": "peeler",
-  "fd-102": "saucepan",
-  "fd-103": "casserole",
-  "fd-104": "grater",
-  "fd-105": "apron",
-  "fd-106": "menu",
-  "fd-107": "appetizer",
-  "fd-108": "entree",
-  "fd-109": "sommelier",
-  "fd-110": "gratuity",
-  "fd-111": "culinary",
-  "fd-112": "buffet",
-  "fd-113": "gourmet",
-  "fd-114": "hostess",
-  "fd-115": "platter",
-  "fd-116": "side-dish",
-  "fd-117": "specialty",
-  "fd-118": "course",
-  "fd-119": "reservation",
-  "fd-120": "bill",
-  "fd-121": "pastry",
-  "fd-122": "confectionery",
-  "fd-123": "custard",
-  "fd-124": "mousse",
-  "fd-125": "pudding",
-  "fd-126": "tart",
-  "fd-127": "sorbet",
-  "fd-128": "syrup",
-  "fd-129": "topping",
-  "fd-130": "delicacy",
-  "fd-131": "caramel",
-  "fd-132": "gelato",
-  "fd-133": "waffle",
-  "fd-134": "macaron",
-  "fd-135": "icing",
-  "fd-136": "nutrition",
-  "fd-137": "calorie",
-  "fd-138": "dietary",
-  "fd-139": "metabolism",
-  "fd-140": "carbohydrate",
-  "fd-141": "protein",
-  "fd-142": "antioxidant",
-  "fd-143": "fiber",
-  "fd-144": "deficiency",
-  "fd-145": "vegetarian",
-  "fd-146": "gluten-free",
-  "fd-147": "intolerance",
-  "fd-148": "appetite",
-  "fd-149": "fasting",
-  "fd-150": "supplement",
-  "hl-001": "living-room",
-  "hl-002": "sofa",
-  "hl-003": "coffee-table",
-  "hl-004": "armchair",
-  "hl-005": "curtain",
-  "hl-006": "carpet",
-  "hl-007": "cushion",
-  "hl-008": "bookshelf",
-  "hl-009": "television",
-  "hl-010": "lamp",
-  "hl-011": "vase",
-  "hl-012": "decoration",
-  "hl-013": "cozy",
-  "hl-014": "spacious",
-  "hl-015": "entertain",
-  "hl-016": "bedroom",
-  "hl-017": "bed",
-  "hl-018": "mattress",
-  "hl-019": "pillow",
-  "hl-020": "blanket",
-  "hl-021": "wardrobe",
-  "hl-022": "hanger",
-  "hl-023": "bedside-table",
-  "hl-024": "dresser",
-  "hl-027": "asleep",
-  "hl-030": "nap",
-  "hl-031": "kitchen",
-  "hl-032": "refrigerator",
-  "hl-033": "freezer",
-  "hl-034": "stove",
-  "hl-035": "oven",
-  "hl-036": "microwave",
-  "hl-038": "sink",
-  "hl-041": "toaster",
-  "hl-042": "cabinet",
-  "hl-043": "countertop",
-  "hl-044": "pantry",
-  "hl-045": "cookware",
-  "hl-046": "bathroom",
-  "hl-048": "bathtub",
-  "hl-049": "toilet",
-  "hl-055": "conditioner",
-  "hl-058": "faucet",
-  "hl-059": "drain",
-  "hl-060": "hygiene",
-  "hl-061": "housework",
-  "hl-062": "vacuum-cleaner",
-  "hl-064": "mop-noun",
-  "hl-067": "laundry",
-  "hl-069": "trash-can",
-  "hl-071": "tidy",
-  "hl-074": "scrub",
-  "hl-078": "dryer",
-  "hl-079": "air-conditioner",
-  "hl-080": "fan",
-  "hl-081": "heater",
-  "hl-082": "iron-noun",
-  "hl-084": "water-heater",
-  "hl-085": "plug",
-  "hl-086": "socket",
-  "hl-087": "switch",
-  "hl-088": "extension-cord",
-  "hl-089": "electricity",
-  "hl-090": "power-outage",
-  "hl-091": "toolbox",
-  "hl-092": "hammer",
-  "hl-093": "nail",
-  "hl-094": "screwdriver",
-  "hl-095": "screw",
-  "hl-096": "pliers",
-  "hl-097": "tape-measure",
-  "hl-098": "ladder",
-  "hl-099": "light-bulb",
-  "hl-102": "leak",
-  "hl-103": "plumber",
-  "hl-104": "electrician",
-  "hl-105": "maintenance",
-  "hl-106": "garden",
-  "hl-107": "balcony",
-  "hl-108": "yard",
-  "hl-109": "lawn",
-  "hl-110": "fence",
-  "hl-111": "gate",
-  "hl-112": "plant",
-  "hl-113": "water",
-  "hl-114": "flowerpot",
-  "hl-115": "soil",
-  "hl-116": "seed",
-  "hl-117": "hose",
-  "hl-118": "prune",
-  "hl-119": "patio",
-  "hl-120": "barbecue",
-  "hl-121": "apartment",
-  "hl-122": "rent",
-  "hl-123": "landlord",
-  "hl-124": "landlady",
-  "hl-125": "tenant",
-  "hl-126": "lease",
-  "hl-127": "deposit-noun",
-  "hl-128": "furnished",
-  "hl-129": "unfurnished",
-  "hl-130": "utility-bill",
-  "hl-131": "real-estate",
-  "hl-132": "estate-agent",
-  "hl-133": "neighborhood",
-  "hl-134": "relocate",
-  "hl-135": "move-in",
-  "hl-136": "doorbell",
-  "hl-137": "lock-noun",
-  "hl-138": "key",
-  "hl-139": "security-guard",
-  "hl-140": "elevator",
-  "hl-141": "staircase",
-  "hl-142": "corridor",
-  "hl-143": "basement",
-  "hl-144": "garage",
-  "hl-145": "fire-alarm",
-  "hl-146": "fire-extinguisher",
-  "hl-147": "cctv-camera",
-  "hl-148": "intercom",
-  "hl-149": "amenity",
-  "hl-150": "resident",
-  "hb-001": "head",
-  "hb-003": "shoulder",
-  "hb-004": "chest",
-  "hb-005": "back",
-  "hb-006": "waist",
-  "hb-007": "hip",
-  "hb-008": "arm",
-  "hb-009": "elbow",
-  "hb-010": "wrist",
-  "hb-011": "palm",
-  "hb-012": "finger",
-  "hb-013": "knee",
-  "hb-014": "ankle",
-  "hb-015": "heel",
-  "hb-016": "brain",
-  "hb-017": "heart",
-  "hb-018": "lungs",
-  "hb-019": "stomach",
-  "hb-020": "liver",
-  "hb-021": "kidney",
-  "hb-022": "blood",
-  "hb-023": "bone",
-  "hb-024": "muscle",
-  "hb-025": "joint",
-  "hb-026": "spine",
-  "hb-027": "vein",
-  "hb-028": "artery",
-  "hb-029": "pulse",
-  "hb-030": "immune-system",
-  "hb-031": "symptom",
-  "hb-032": "fever",
-  "hb-033": "cough",
-  "hb-034": "headache",
-  "hb-035": "sore-throat",
-  "hb-036": "flu",
-  "hb-037": "cold",
-  "hb-038": "dizzy",
-  "hb-039": "nausea",
-  "hb-040": "allergy",
-  "hb-041": "rash",
-  "hb-042": "infection",
-  "hb-043": "swelling",
-  "hb-044": "fatigue",
-  "hb-045": "sprain",
-  "hb-046": "hospital",
-  "hb-047": "clinic",
-  "hb-048": "doctor",
-  "hb-049": "nurse",
-  "hb-050": "patient",
-  "hb-052": "emergency",
-  "hb-053": "ambulance",
-  "hb-054": "examine",
-  "hb-055": "diagnose",
-  "hb-056": "diagnosis",
-  "hb-057": "x-ray",
-  "hb-058": "blood-test",
-  "hb-059": "surgery",
-  "hb-060": "surgeon",
-  "hb-061": "medicine",
-  "hb-062": "pharmacy",
-  "hb-063": "pharmacist",
-  "hb-064": "prescription",
-  "hb-065": "pill",
-  "hb-066": "tablet",
-  "hb-067": "painkiller",
-  "hb-068": "antibiotic",
-  "hb-069": "dosage",
-  "hb-070": "side-effect",
-  "hb-071": "vaccine",
-  "hb-072": "injection",
-  "hb-073": "recover",
-  "hb-074": "treatment",
-  "hb-075": "heal",
-  "hb-076": "dentist",
-  "hb-077": "tooth",
-  "hb-078": "teeth",
-  "hb-079": "toothache",
-  "hb-080": "cavity",
-  "hb-081": "filling",
-  "hb-082": "gums",
-  "hb-083": "dental-floss",
-  "hb-084": "mouthwash",
-  "hb-085": "braces",
-  "hb-086": "extract-verb",
-  "hb-087": "plaque",
-  "hb-088": "enamel",
-  "hb-089": "wisdom-tooth",
-  "hb-090": "breath",
-  "hb-092": "diet",
-  "hb-094": "vitamin",
-  "hb-095": "mineral",
-  "hb-102": "processed-food",
-  "hb-103": "obesity",
-  "hb-106": "exercise",
-  "hb-107": "workout",
-  "hb-108": "gym",
-  "hb-109": "jogging",
-  "hb-110": "stretching",
-  "hb-111": "warm-up",
-  "hb-112": "cardio",
-  "hb-113": "stamina",
-  "hb-114": "dumbbell",
-  "hb-115": "treadmill",
-  "hb-116": "push-up",
-  "hb-117": "squat",
-  "hb-118": "trainer",
-  "hb-119": "sweat",
-  "hb-120": "endurance",
-  "hb-121": "mental-health",
-  "hb-122": "stress",
-  "hb-124": "depression",
-  "hb-125": "meditation",
-  "hb-126": "mindfulness",
-  "hb-127": "relax",
-  "hb-128": "counseling",
-  "hb-129": "therapist",
-  "hb-131": "well-being",
-  "hb-132": "emotion",
-  "hb-133": "cope",
-  "hb-135": "positivity",
-  "hb-136": "first-aid",
-  "hb-137": "bandage",
-  "hb-138": "band-aid",
-  "hb-139": "antiseptic",
-  "hb-140": "wound",
-  "hb-141": "bleeding",
-  "hb-142": "burn",
-  "hb-143": "blister",
-  "hb-144": "cpr",
-  "hb-145": "choke",
-  "hb-146": "faint",
-  "hb-147": "bruise",
-  "hb-148": "stitch",
-  "hb-149": "cast",
-  "hb-150": "safety-kit",
-  "sm-001": "supermarket",
-  "sm-002": "shopping-mall",
-  "sm-004": "shopping-cart",
-  "sm-005": "basket",
-  "sm-006": "aisle",
-  "sm-007": "shelf",
-  "sm-008": "cashier",
-  "sm-009": "checkout",
-  "sm-010": "store-clerk",
-  "sm-011": "bakery-section",
-  "sm-014": "in-stock",
-  "sm-016": "clothing",
-  "sm-017": "fitting-room",
-  "sm-018": "try-on",
-  "sm-019": "size",
-  "sm-020": "fit",
-  "sm-021": "match-verb",
-  "sm-022": "brand",
-  "sm-023": "designer",
-  "sm-024": "trendy",
-  "sm-025": "casual",
-  "sm-026": "formal",
-  "sm-027": "accessory",
-  "sm-028": "fabric",
-  "sm-029": "tight",
-  "sm-030": "loose",
-  "sm-031": "price",
-  "sm-032": "price-tag",
-  "sm-033": "discount",
-  "sm-034": "sale",
-  "sm-035": "bargain-noun",
-  "sm-036": "affordable",
-  "sm-037": "expensive",
-  "sm-038": "cheap",
-  "sm-039": "coupon",
-  "sm-040": "promotion",
-  "sm-041": "deal",
-  "sm-042": "rip-off",
-  "sm-043": "overpriced",
-  "sm-044": "clearance",
-  "sm-045": "voucher",
-  "sm-046": "cash",
-  "sm-047": "credit-card-noun",
-  "sm-048": "debit-card-noun",
-  "sm-049": "receipt-noun",
-  "sm-051": "coin",
-  "sm-052": "banknote",
-  "sm-053": "wallet",
-  "sm-054": "purse",
-  "sm-055": "contactless",
-  "sm-056": "tip",
-  "sm-058": "currency",
-  "sm-059": "exchange-rate",
-  "sm-060": "split-the-bill",
-  "sm-061": "online-shopping",
-  "sm-062": "add-to-cart",
-  "sm-063": "delivery",
-  "sm-064": "shipping-fee",
-  "sm-065": "package",
-  "sm-066": "courier",
-  "sm-067": "tracking-number",
-  "sm-068": "e-commerce",
-  "sm-069": "customer-review",
-  "sm-070": "rating",
-  "sm-071": "wishlist",
-  "sm-072": "order-confirmation",
-  "sm-073": "cash-on-delivery",
-  "sm-074": "dispatch",
-  "sm-075": "pre-order",
-  "sm-076": "refund",
-  "sm-077": "exchange",
-  "sm-079": "warranty",
-  "sm-080": "guarantee",
-  "sm-081": "customer-service",
-  "sm-082": "defective",
-  "sm-083": "damaged",
-  "sm-084": "complaint",
-  "sm-085": "complain",
-  "sm-087": "satisfied",
-  "sm-088": "compensation",
-  "sm-089": "helpline",
-  "sm-090": "policy",
-  "sm-091": "bank",
-  "sm-092": "bank-account-noun",
-  "sm-093": "atm",
-  "sm-094": "withdraw-verb",
-  "sm-095": "deposit-verb",
-  "sm-096": "balance-noun",
-  "sm-097": "transfer-verb",
-  "sm-098": "pin-noun",
-  "sm-099": "statement",
-  "sm-100": "branch-noun",
-  "sm-101": "teller-noun",
-  "sm-102": "fee",
-  "sm-103": "mobile-banking",
-  "sm-104": "savings-account-noun",
-  "sm-105": "cheque",
-  "sm-106": "budget-noun",
-  "sm-107": "save",
-  "sm-108": "savings-noun",
-  "sm-109": "income-noun",
-  "sm-110": "expense-noun",
-  "sm-111": "spend",
-  "sm-112": "frugal-adjective",
-  "sm-113": "waste",
-  "sm-114": "emergency-fund-noun",
-  "sm-115": "overspend",
-  "sm-116": "piggy-bank",
-  "sm-117": "living-costs",
-  "sm-118": "track-verb",
-  "sm-119": "financial-freedom",
-  "sm-120": "pocket-money",
-  "sm-121": "loan-noun",
-  "sm-122": "borrow",
-  "sm-123": "lend",
-  "sm-124": "debt-noun",
-  "sm-125": "interest",
-  "sm-126": "interest-rate-noun",
-  "sm-127": "mortgage-noun",
-  "sm-128": "installment-noun",
-  "sm-129": "credit-limit-noun",
-  "sm-130": "credit-score-noun",
-  "sm-131": "pay-off",
-  "sm-132": "owe",
-  "sm-134": "default-verb",
-  "sm-135": "bankrupt",
-  "sm-136": "investment",
-  "sm-137": "invest",
-  "sm-138": "stock-noun",
-  "sm-139": "shareholder",
-  "sm-140": "profit-noun",
-  "sm-141": "loss",
-  "sm-142": "stock-market",
-  "sm-143": "asset",
-  "sm-144": "liability-noun",
-  "sm-145": "dividend-noun",
-  "sm-146": "inflation-noun",
-  "sm-147": "wealth",
-  "sm-148": "portfolio-noun",
-  "sm-149": "mutual-fund-noun",
-  "sm-150": "compound-interest-noun",
-  "td-001": "vehicle",
-  "td-002": "car",
-  "td-003": "motorcycle",
-  "td-004": "bicycle",
-  "td-005": "bus",
-  "td-006": "taxi",
-  "td-007": "truck",
-  "td-008": "van",
-  "td-009": "scooter",
-  "td-010": "pedestrian",
-  "td-012": "fire-truck",
-  "td-013": "carpool",
-  "td-014": "ride-hailing",
-  "td-015": "helicopter",
-  "td-016": "public-transport",
-  "td-017": "bus-stop",
-  "td-018": "bus-terminal",
-  "td-019": "bus-route",
-  "td-020": "bus-fare",
-  "td-021": "transit-card",
-  "td-022": "commute",
-  "td-023": "commuter",
-  "td-025": "board",
-  "td-026": "get-off",
-  "td-028": "passenger",
-  "td-029": "conductor",
-  "td-030": "priority-seat",
-  "td-031": "train",
-  "td-032": "railway-station",
-  "td-033": "subway",
-  "td-034": "platform",
-  "td-035": "track-noun",
-  "td-036": "carriage",
-  "td-037": "ticket-machine",
-  "td-038": "turnstile",
-  "td-039": "depart",
-  "td-040": "arrive",
-  "td-041": "high-speed-rail",
-  "td-042": "compartment",
-  "td-043": "luggage-rack",
-  "td-044": "locomotive",
-  "td-045": "line",
-  "td-046": "airport",
-  "td-047": "airplane",
-  "td-048": "flight",
-  "td-049": "boarding-pass",
-  "td-051": "terminal",
-  "td-052": "check-in-noun",
-  "td-053": "baggage-claim",
-  "td-054": "luggage",
-  "td-055": "suitcase",
-  "td-056": "security-check",
-  "td-057": "customs",
-  "td-059": "land",
-  "td-060": "flight-attendant",
-  "td-061": "boat",
-  "td-062": "ship",
-  "td-063": "ferry",
-  "td-064": "port",
-  "td-065": "harbor",
-  "td-066": "cruise",
-  "td-067": "sail",
-  "td-068": "sailor",
-  "td-069": "captain",
-  "td-070": "anchor",
-  "td-071": "deck",
-  "td-072": "life-jacket",
-  "td-073": "lifeboat",
-  "td-074": "pier",
-  "td-075": "submarine",
-  "td-076": "drive",
-  "td-077": "drivers-license",
-  "td-078": "steering-wheel",
-  "td-079": "seatbelt",
-  "td-080": "brake",
-  "td-081": "accelerator",
-  "td-082": "clutch",
-  "td-083": "rearview-mirror",
-  "td-084": "side-mirror",
-  "td-085": "windshield",
-  "td-086": "headlight",
-  "td-087": "turn-signal",
-  "td-088": "park",
-  "td-089": "parking-lot",
-  "td-090": "reverse",
-  "td-091": "traffic-light",
-  "td-092": "traffic-sign",
-  "td-093": "speed-limit",
-  "td-094": "crosswalk",
-  "td-095": "roundabout",
-  "td-096": "intersection",
-  "td-097": "lane",
-  "td-098": "one-way-street",
-  "td-099": "fine",
-  "td-100": "traffic-officer",
-  "td-101": "helmet",
-  "td-102": "overtake",
-  "td-103": "pavement",
-  "td-104": "highway",
-  "td-105": "toll-booth",
-  "td-106": "directions",
-  "td-107": "turn-left",
-  "td-108": "turn-right",
-  "td-109": "go-straight",
-  "td-110": "opposite",
-  "td-111": "next-to",
-  "td-112": "between",
-  "td-113": "corner",
-  "td-114": "cross",
-  "td-115": "across",
-  "td-116": "near",
-  "td-117": "far",
-  "td-118": "u-turn",
-  "td-119": "landmark",
-  "td-120": "lost",
-  "td-121": "map",
-  "td-122": "gps",
-  "td-123": "navigation",
-  "td-124": "compass",
-  "td-125": "north",
-  "td-126": "south",
-  "td-127": "east",
-  "td-128": "west",
-  "td-129": "location",
-  "td-130": "distance",
-  "td-131": "destination",
-  "td-132": "route",
-  "td-133": "shortcut",
-  "td-134": "estimated-time",
-  "td-135": "pin-verb",
-  "td-136": "traffic-jam",
-  "td-137": "rush-hour",
-  "td-138": "congestion",
-  "td-139": "accident",
-  "td-140": "crash-noun",
-  "td-141": "flat-tire",
-  "td-142": "break-down",
-  "td-143": "tow-truck",
-  "td-144": "delay-noun",
-  "td-145": "cancel",
-  "td-146": "detour",
-  "td-147": "roadwork",
-  "td-148": "run-out-of-gas",
-  "td-149": "gas-station",
-  "td-150": "emergency-shoulder",
-  "wj-001": "engineer",
-  "wj-002": "manager",
-  "wj-003": "accountant",
-  "wj-004": "architect",
-  "wj-005": "journalist",
-  "wj-006": "consultant",
-  "wj-007": "director",
-  "wj-008": "specialist",
-  "wj-009": "supervisor",
-  "wj-010": "technician",
-  "wj-011": "executive",
-  "wj-012": "freelancer",
-  "wj-013": "intern",
-  "wj-014": "salesperson",
-  "wj-015": "receptionist",
-  "wj-016": "office",
-  "wj-018": "workplace",
-  "wj-019": "cubicle",
-  "wj-020": "desk",
-  "wj-021": "headquarters",
-  "wj-022": "department",
-  "wj-023": "conference-room",
-  "wj-024": "printer",
-  "wj-025": "photocopier",
-  "wj-026": "stationery",
-  "wj-027": "shredder",
-  "wj-028": "whiteboard",
-  "wj-029": "break-room",
-  "wj-030": "badge",
-  "wj-031": "resume",
-  "wj-032": "curriculum-vitae",
-  "wj-033": "cover-letter",
-  "wj-034": "apply",
-  "wj-035": "applicant",
-  "wj-036": "candidate",
-  "wj-037": "qualification",
-  "wj-038": "requirement",
-  "wj-039": "vacancy",
-  "wj-040": "job-description",
-  "wj-041": "recruiter",
-  "wj-042": "reference",
-  "wj-044": "skill-set",
-  "wj-045": "headhunter",
-  "wj-046": "interview",
-  "wj-047": "interviewer",
-  "wj-048": "interviewee",
-  "wj-049": "impress",
-  "wj-050": "strengths",
-  "wj-051": "weaknesses",
-  "wj-052": "dress-code",
-  "wj-053": "body-language",
-  "wj-054": "hire",
-  "wj-055": "reject",
-  "wj-056": "offer",
-  "wj-057": "negotiate",
-  "wj-058": "shortlist-noun",
-  "wj-059": "follow-up-noun",
-  "wj-060": "onboarding",
-  "wj-061": "salary-noun",
-  "wj-062": "wage-noun",
-  "wj-063": "contract",
-  "wj-064": "bonus",
-  "wj-065": "benefit",
-  "wj-066": "insurance",
-  "wj-067": "pension-noun",
-  "wj-068": "paid-leave",
-  "wj-069": "sick-leave",
-  "wj-070": "maternity-leave",
-  "wj-071": "overtime",
-  "wj-072": "probation",
-  "wj-073": "full-time",
-  "wj-074": "part-time",
-  "wj-075": "severance-pay",
-  "wj-076": "meeting",
-  "wj-077": "agenda",
-  "wj-078": "presentation",
-  "wj-079": "presenter",
-  "wj-080": "slides",
-  "wj-081": "discuss",
-  "wj-082": "brainstorm",
-  "wj-083": "minutes",
-  "wj-084": "schedule-verb",
-  "wj-087": "proposal",
-  "wj-090": "action-items",
-  "wj-091": "email",
-  "wj-092": "inbox",
-  "wj-093": "attachment",
-  "wj-094": "forward",
-  "wj-096": "subject-line",
-  "wj-097": "cc-carbon-copy",
-  "wj-098": "bcc-blind-carbon-copy",
-  "wj-099": "signature",
-  "wj-101": "clarify",
-  "wj-102": "spam",
-  "wj-103": "urgent",
-  "wj-104": "correspondence",
-  "wj-105": "professional",
-  "wj-106": "project",
-  "wj-107": "deadline",
-  "wj-109": "task",
-  "wj-110": "assign",
-  "wj-111": "delegate-verb",
-  "wj-113": "progress",
-  "wj-114": "status-report",
-  "wj-115": "workflow",
-  "wj-116": "deliverable",
-  "wj-117": "behind-schedule",
-  "wj-118": "ahead-of-schedule",
-  "wj-119": "bottleneck",
-  "wj-120": "objective",
-  "wj-122": "promote",
-  "wj-123": "career-path",
-  "wj-124": "achievement",
-  "wj-125": "performance-review",
-  "wj-126": "raise",
-  "wj-127": "leadership",
-  "wj-129": "training",
-  "wj-130": "workshop",
-  "wj-131": "upskill",
-  "wj-132": "ambition",
-  "wj-133": "networking",
-  "wj-134": "certificate",
-  "wj-135": "appraisal",
-  "wj-136": "workload",
-  "wj-138": "work-life-balance",
-  "wj-139": "resign",
-  "wj-140": "resignation",
-  "wj-141": "lay-off",
-  "wj-142": "dismiss",
-  "wj-143": "retire",
-  "wj-145": "remote-work",
-  "wj-146": "hybrid",
-  "wj-147": "shift",
-  "wj-148": "flexible-hours",
-  "wj-149": "under-pressure",
-  "wj-150": "take-time-off",
-  "el-001": "school",
-  "el-002": "kindergarten",
-  "el-003": "primary-school",
-  "el-004": "secondary-school",
-  "el-005": "high-school",
-  "el-006": "university",
-  "el-007": "college",
-  "el-008": "academy",
-  "el-009": "campus",
-  "el-010": "dormitory",
-  "el-011": "faculty",
-  "el-012": "semester",
-  "el-013": "academic-year",
-  "el-014": "vocational",
-  "el-015": "education",
-  "el-016": "classroom",
-  "el-017": "textbook",
-  "el-018": "notebook",
-  "el-019": "backpack",
-  "el-020": "pencil-case",
-  "el-021": "eraser",
-  "el-022": "ruler",
-  "el-023": "sharpener",
-  "el-024": "calculator",
-  "el-025": "highlighter",
-  "el-026": "chalk",
-  "el-027": "blackboard",
-  "el-029": "globe",
-  "el-030": "projector",
-  "el-031": "mathematics",
-  "el-032": "physics",
-  "el-033": "chemistry",
-  "el-034": "biology",
-  "el-035": "literature",
-  "el-036": "history",
-  "el-037": "geography",
-  "el-038": "computer-science",
-  "el-039": "economics",
-  "el-040": "psychology",
-  "el-041": "philosophy",
-  "el-042": "foreign-language",
-  "el-043": "physical-education",
-  "el-044": "sociology",
-  "el-045": "art",
-  "el-046": "exam",
-  "el-047": "test",
-  "el-048": "score",
-  "el-049": "grade",
-  "el-050": "pass",
-  "el-051": "fail",
-  "el-052": "retake",
-  "el-053": "cheat",
-  "el-054": "assessment",
-  "el-055": "evaluation",
-  "el-056": "cram",
-  "el-057": "revise",
-  "el-058": "multiple-choice",
-  "el-059": "essay",
-  "el-060": "proctor",
-  "el-061": "degree",
-  "el-062": "bachelor",
-  "el-063": "master",
-  "el-064": "doctorate",
-  "el-065": "diploma",
-  "el-067": "graduate",
-  "el-068": "graduation",
-  "el-069": "alumni",
-  "el-070": "transcript",
-  "el-071": "honors",
-  "el-072": "cap-and-gown",
-  "el-074": "thesis",
-  "el-075": "dissertation",
-  "el-076": "tuition-fee",
-  "el-077": "scholarship",
-  "el-078": "grant",
-  "el-079": "financial-aid",
-  "el-080": "student-loan",
-  "el-081": "fellowship",
-  "el-082": "stipend",
-  "el-084": "endowment",
-  "el-085": "sponsor-noun",
-  "el-086": "fee-waiver",
-  "el-087": "expenses",
-  "el-088": "merit-based",
-  "el-089": "need-based",
-  "el-090": "installment-plan",
-  "el-091": "self-study",
-  "el-092": "flashcard",
-  "el-093": "memorize",
-  "el-094": "retention",
-  "el-095": "spaced-repetition",
-  "el-096": "concentrate",
-  "el-097": "focus",
-  "el-098": "distraction",
-  "el-099": "note-taking",
-  "el-101": "mnemonics",
-  "el-103": "review",
-  "el-104": "practice",
-  "el-105": "mind-map",
-  "el-106": "library",
-  "el-107": "librarian",
-  "el-110": "research",
-  "el-111": "researcher",
-  "el-112": "journal",
-  "el-113": "citation",
-  "el-114": "plagiarism",
-  "el-115": "database",
-  "el-117": "archive",
-  "el-118": "catalog",
-  "el-119": "periodical",
-  "el-120": "study-carrel",
-  "el-121": "professor",
-  "el-122": "lecturer",
-  "el-123": "tutor",
-  "el-124": "student",
-  "el-125": "classmate",
-  "el-126": "freshman",
-  "el-127": "sophomore",
-  "el-128": "junior",
-  "el-129": "senior",
-  "el-130": "principal-noun",
-  "el-131": "dean",
-  "el-132": "advisor",
-  "el-134": "teaching-assistant",
-  "el-136": "online-learning",
-  "el-137": "distance-learning",
-  "el-138": "study-abroad",
-  "el-139": "international-student",
-  "el-140": "exchange-program",
-  "el-141": "webinar",
-  "el-142": "mooc",
-  "el-143": "visa",
-  "el-144": "ielts",
-  "el-145": "toefl",
-  "el-146": "culture-shock",
-  "el-147": "homesick",
-  "el-148": "immersion",
-  "el-149": "accreditation",
-  "tp-001": "travel",
-  "tp-002": "passport",
-  "tp-004": "itinerary",
-  "tp-005": "pack",
-  "tp-009": "backpacking",
-  "tp-010": "foreign",
-  "tp-012": "boarding",
-  "tp-013": "travel-agent",
-  "tp-014": "checklist",
-  "tp-015": "voyage",
-  "tp-016": "hotel",
-  "tp-017": "resort",
-  "tp-018": "hostel",
-  "tp-019": "check-in-phrasal-verb",
-  "tp-020": "check-out",
-  "tp-021": "front-desk",
-  "tp-022": "room-service",
-  "tp-023": "housekeeping",
-  "tp-024": "single-room",
-  "tp-025": "double-room",
-  "tp-026": "twin-room",
-  "tp-027": "suite",
-  "tp-028": "amenities",
-  "tp-029": "key-card",
-  "tp-030": "homestay",
-  "tp-031": "sightseeing",
-  "tp-032": "tour-guide",
-  "tp-033": "monument",
-  "tp-034": "attraction",
-  "tp-035": "museum",
-  "tp-037": "palace",
-  "tp-038": "castle",
-  "tp-039": "admission",
-  "tp-040": "brochure",
-  "tp-041": "exhibition",
-  "tp-042": "temple",
-  "tp-043": "ruins",
-  "tp-044": "statue",
-  "tp-045": "panorama",
-  "tp-046": "beach",
-  "tp-047": "coast",
-  "tp-048": "island",
-  "tp-049": "snorkeling",
-  "tp-050": "scuba-diving",
-  "tp-051": "sunbathing",
-  "tp-053": "sunglasses",
-  "tp-054": "swimsuit",
-  "tp-055": "wave",
-  "tp-056": "coral-reef",
-  "tp-057": "seashell",
-  "tp-058": "surfboard",
-  "tp-059": "seaside",
-  "tp-060": "bay",
-  "tp-061": "mountain",
-  "tp-062": "hiking",
-  "tp-063": "camping",
-  "tp-064": "tent",
-  "tp-065": "sleeping-bag",
-  "tp-066": "campfire",
-  "tp-067": "summit",
-  "tp-068": "trail",
-  "tp-070": "flashlight",
-  "tp-071": "canyon",
-  "tp-072": "valley",
-  "tp-073": "cave",
-  "tp-074": "waterfall",
-  "tp-075": "wilderness",
-  "tp-076": "souvenir",
-  "tp-077": "night-market",
-  "tp-078": "street-food",
-  "tp-080": "craft",
-  "tp-081": "bargain-verb",
-  "tp-082": "postcard",
-  "tp-083": "vendor",
-  "tp-085": "tasting",
-  "tp-087": "marketplace",
-  "tp-088": "gift-shop",
-  "tp-089": "handmade",
-  "tp-090": "stall",
-  "tp-091": "landscape",
-  "tp-092": "scenery",
-  "tp-093": "spectacular",
-  "tp-094": "breathtaking",
-  "tp-095": "volcano",
-  "tp-096": "glacier",
-  "tp-097": "cliff",
-  "tp-098": "rainforest",
-  "tp-099": "oasis",
-  "tp-100": "lagoon",
-  "tp-101": "natural-wonder",
-  "tp-102": "dune",
-  "tp-103": "geyser",
-  "tp-104": "plateau",
-  "tp-105": "sunset",
-  "tp-106": "old-town",
-  "tp-107": "square",
-  "tp-108": "cathedral",
-  "tp-109": "tower",
-  "tp-110": "bridge",
-  "tp-111": "skyscraper",
-  "tp-112": "alley",
-  "tp-113": "fountain",
-  "tp-114": "architecture",
-  "tp-115": "pedestrian-street",
-  "tp-116": "cobblestone",
-  "tp-117": "canal",
-  "tp-118": "historic",
-  "tp-119": "skyline",
-  "tp-120": "promenade",
-  "tp-121": "culture",
-  "tp-122": "festival",
-  "tp-123": "tradition",
-  "tp-124": "custom",
-  "tp-125": "costume",
-  "tp-126": "ceremony",
-  "tp-128": "folklore",
-  "tp-129": "parade",
-  "tp-130": "indigenous",
-  "tp-131": "ritual",
-  "tp-132": "etiquette",
-  "tp-133": "celebration",
-  "tp-134": "performance",
-  "tp-135": "handicraft",
-  "tp-136": "travel-insurance",
-  "tp-137": "embassy",
-  "tp-138": "consulate",
-  "tp-139": "pickpocket",
-  "tp-140": "scam",
-  "tp-141": "lost-and-found",
-  "tp-142": "emergency-contact",
-  "tp-145": "safety",
-  "tp-146": "stolen",
-  "tp-147": "vaccination",
-  "tp-148": "caution",
-  "tp-149": "police-station",
-  "tp-150": "safe-deposit-box-noun",
-  "eh-001": "cinema",
-  "eh-002": "movie",
-  "eh-003": "actor",
-  "eh-004": "actress",
-  "eh-006": "script",
-  "eh-007": "blockbuster",
-  "eh-008": "subtitle",
-  "eh-009": "genre",
-  "eh-010": "comedy",
-  "eh-011": "horror",
-  "eh-012": "documentary",
-  "eh-013": "soundtrack",
-  "eh-014": "premiere",
-  "eh-015": "popcorn",
-  "eh-016": "music",
-  "eh-017": "song",
-  "eh-018": "concert",
-  "eh-019": "guitar",
-  "eh-020": "piano",
-  "eh-021": "drums",
-  "eh-022": "violin",
-  "eh-023": "singer",
-  "eh-024": "band",
-  "eh-025": "lyrics",
-  "eh-026": "melody",
-  "eh-027": "rhythm",
-  "eh-028": "orchestra",
-  "eh-029": "headphones",
-  "eh-030": "album",
-  "eh-031": "book",
-  "eh-032": "novel",
-  "eh-033": "author",
-  "eh-034": "plot",
-  "eh-035": "character",
-  "eh-036": "comic-book",
-  "eh-037": "manga",
-  "eh-038": "e-book",
-  "eh-039": "bookmark",
-  "eh-040": "audiobook",
-  "eh-041": "bestseller",
-  "eh-042": "fiction",
-  "eh-043": "non-fiction",
-  "eh-044": "poetry",
-  "eh-045": "chapter",
-  "eh-046": "video-game",
-  "eh-047": "gamer",
-  "eh-048": "console",
-  "eh-049": "controller",
-  "eh-050": "level",
-  "eh-051": "graphics",
-  "eh-052": "multiplayer",
-  "eh-053": "esports",
-  "eh-054": "streamer",
-  "eh-055": "virtual-reality",
-  "eh-056": "quest",
-  "eh-057": "avatar",
-  "eh-059": "defeat",
-  "eh-060": "lag",
-  "eh-061": "football",
-  "eh-062": "basketball",
-  "eh-063": "volleyball",
-  "eh-064": "team",
-  "eh-065": "match-noun",
-  "eh-066": "stadium",
-  "eh-067": "goal",
-  "eh-068": "referee",
-  "eh-069": "coach",
-  "eh-070": "tournament",
-  "eh-071": "championship",
-  "eh-072": "foul",
-  "eh-073": "goalkeeper",
-  "eh-075": "substitute",
-  "eh-076": "swimming",
-  "eh-077": "tennis",
-  "eh-078": "badminton",
-  "eh-079": "martial-arts",
-  "eh-080": "athletics",
-  "eh-081": "racket",
-  "eh-082": "shuttlecock",
-  "eh-083": "court",
-  "eh-084": "boxing",
-  "eh-085": "marathon",
-  "eh-086": "sprint",
-  "eh-087": "medal",
-  "eh-088": "opponent",
-  "eh-089": "golf",
-  "eh-090": "yoga",
-  "eh-091": "photography",
-  "eh-092": "camera",
-  "eh-093": "lens",
-  "eh-094": "tripod",
-  "eh-095": "portrait",
-  "eh-096": "capture",
-  "eh-098": "shutter",
-  "eh-099": "aperture",
-  "eh-100": "edit",
-  "eh-101": "filter",
-  "eh-102": "resolution",
-  "eh-103": "selfie",
-  "eh-104": "flash",
-  "eh-105": "exposure",
-  "eh-106": "painting",
-  "eh-107": "drawing",
-  "eh-108": "sculpture",
-  "eh-109": "pottery",
-  "eh-110": "canvas",
-  "eh-111": "paintbrush",
-  "eh-112": "sketch",
-  "eh-113": "gallery",
-  "eh-114": "origami",
-  "eh-115": "knitting",
-  "eh-116": "ceramics",
-  "eh-117": "palette",
-  "eh-118": "calligraphy",
-  "eh-119": "masterpiece",
-  "eh-120": "craftsman",
-  "eh-121": "theater",
-  "eh-122": "dance",
-  "eh-123": "ballet",
-  "eh-124": "musical",
-  "eh-125": "audience",
-  "eh-126": "stage",
-  "eh-128": "play",
-  "eh-129": "rehearsal",
-  "eh-130": "choreography",
-  "eh-131": "applause",
-  "eh-132": "opera",
-  "eh-134": "backstage",
-  "eh-135": "spotlight",
-  "eh-136": "hobby",
-  "eh-137": "fishing",
-  "eh-138": "gardening",
-  "eh-139": "kite",
-  "eh-140": "birdwatching",
-  "eh-141": "collect",
-  "eh-142": "collection",
-  "eh-143": "picnic",
-  "eh-144": "board-game",
-  "eh-145": "chess",
-  "eh-146": "puzzle",
-  "eh-147": "leisure",
-  "eh-148": "stroll",
-  "eh-150": "relaxation",
-  "ti-001": "computer",
-  "ti-002": "laptop",
-  "ti-003": "keyboard",
-  "ti-004": "mouse",
-  "ti-005": "monitor",
-  "ti-006": "hardware",
-  "ti-007": "processor",
-  "ti-008": "hard-drive",
-  "ti-009": "ram",
-  "ti-010": "usb",
-  "ti-011": "motherboard",
-  "ti-012": "speaker",
-  "ti-013": "webcam",
-  "ti-014": "microphone",
-  "ti-015": "graphics-card",
-  "ti-016": "software",
-  "ti-017": "operating-system",
-  "ti-018": "application",
-  "ti-019": "browser",
-  "ti-020": "install",
-  "ti-021": "uninstall",
-  "ti-022": "update",
-  "ti-023": "bug",
-  "ti-024": "crash-verb",
-  "ti-025": "feature",
-  "ti-026": "user-interface",
-  "ti-027": "settings",
-  "ti-028": "reboot",
-  "ti-029": "freeware",
-  "ti-030": "license",
-  "ti-031": "internet",
-  "ti-032": "wi-fi",
-  "ti-033": "broadband",
-  "ti-034": "router",
-  "ti-035": "bandwidth",
-  "ti-036": "download",
-  "ti-037": "upload",
-  "ti-038": "offline",
-  "ti-039": "online",
-  "ti-040": "website",
-  "ti-041": "url",
-  "ti-042": "hyperlink",
-  "ti-043": "server",
-  "ti-044": "ethernet",
-  "ti-045": "latency",
-  "ti-046": "smartphone",
-  "ti-047": "touchscreen",
-  "ti-048": "battery",
-  "ti-049": "charger",
-  "ti-050": "power-bank",
-  "ti-052": "smartwatch",
-  "ti-053": "earbuds",
-  "ti-054": "bluetooth",
-  "ti-055": "phone-case",
-  "ti-056": "screen-protector",
-  "ti-057": "sim-card",
-  "ti-058": "notification",
-  "ti-059": "swipe",
-  "ti-061": "social-media",
-  "ti-062": "profile",
-  "ti-063": "post",
-  "ti-064": "share-verb",
-  "ti-065": "comment",
-  "ti-066": "follower",
-  "ti-067": "subscribe",
-  "ti-068": "influencer",
-  "ti-069": "viral",
-  "ti-070": "hashtag",
-  "ti-071": "livestream",
-  "ti-072": "direct-message",
-  "ti-073": "tag",
-  "ti-074": "trend",
-  "ti-075": "feed",
-  "ti-076": "cybersecurity",
-  "ti-077": "password",
-  "ti-078": "hacker",
-  "ti-079": "malware",
-  "ti-080": "virus",
-  "ti-081": "phishing",
-  "ti-082": "encryption",
-  "ti-083": "firewall",
-  "ti-084": "privacy",
-  "ti-085": "authentication",
-  "ti-087": "vulnerability",
-  "ti-088": "data-breach",
-  "ti-089": "identity-theft",
-  "ti-090": "biometric",
-  "ti-091": "cloud",
-  "ti-092": "cloud-storage",
-  "ti-093": "backup",
-  "ti-094": "sync",
-  "ti-096": "big-data",
-  "ti-097": "data-center",
-  "ti-098": "migration",
-  "ti-099": "storage-capacity",
-  "ti-100": "restore",
-  "ti-101": "export",
-  "ti-102": "import",
-  "ti-103": "data-analytics",
-  "ti-104": "file-format",
-  "ti-105": "cache",
-  "ti-106": "artificial-intelligence",
-  "ti-107": "machine-learning",
-  "ti-108": "algorithm",
-  "ti-109": "automation",
-  "ti-110": "robot",
-  "ti-111": "chatbot",
-  "ti-112": "neural-network",
-  "ti-113": "natural-language-processing",
-  "ti-114": "deep-learning",
-  "ti-115": "prompt",
-  "ti-116": "generative-ai",
-  "ti-117": "model",
-  "ti-118": "dataset",
-  "ti-119": "tts-text-to-speech",
-  "ti-120": "ethics",
-  "ti-121": "programming",
-  "ti-122": "code",
-  "ti-123": "developer",
-  "ti-124": "language",
-  "ti-125": "function",
-  "ti-126": "variable",
-  "ti-127": "debug",
-  "ti-128": "framework",
-  "ti-129": "repository",
-  "ti-130": "compile",
-  "ti-131": "loop",
-  "ti-132": "array",
-  "ti-133": "syntax",
-  "ti-134": "open-source",
-  "ti-135": "deploy",
-  "ti-136": "startup",
-  "ti-137": "innovation",
-  "ti-138": "digital",
-  "ti-139": "fintech-noun",
-  "ti-140": "e-wallet",
-  "ti-141": "qr-code",
-  "ti-142": "subscription",
-  "ti-143": "cryptocurrency-noun",
-  "ti-144": "blockchain-noun",
-  "ti-145": "digital-transformation",
-  "ti-146": "venture-capital-noun",
-  "ti-147": "disruption",
-  "ti-148": "scalable",
-  "ti-149": "entrepreneur",
-  "nw-001": "weather",
-  "nw-002": "sunny",
-  "nw-003": "rainy",
-  "nw-004": "windy",
-  "nw-005": "cloudy",
-  "nw-006": "temperature",
-  "nw-007": "humidity",
-  "nw-008": "fog",
-  "nw-009": "snow",
-  "nw-010": "thunderstorm",
-  "nw-011": "season",
-  "nw-012": "spring",
-  "nw-013": "summer",
-  "nw-014": "autumn",
-  "nw-015": "winter",
-  "nw-016": "breeze",
-  "nw-017": "bloom",
-  "nw-018": "monsoon",
-  "nw-019": "thaw",
-  "nw-020": "climate",
-  "nw-021": "natural-disaster",
-  "nw-022": "earthquake",
-  "nw-023": "flood",
-  "nw-024": "hurricane",
-  "nw-025": "tornado",
-  "nw-026": "tsunami",
-  "nw-027": "drought",
-  "nw-028": "wildfire",
-  "nw-029": "avalanche",
-  "nw-030": "eruption",
-  "nw-031": "animal",
-  "nw-032": "lion",
-  "nw-033": "tiger",
-  "nw-034": "elephant",
-  "nw-035": "monkey",
-  "nw-036": "bear",
-  "nw-037": "mammal",
-  "nw-038": "reptile",
-  "nw-039": "pet",
-  "nw-040": "habitat",
-  "nw-041": "bird",
-  "nw-042": "eagle",
-  "nw-043": "whale",
-  "nw-044": "dolphin",
-  "nw-045": "shark",
-  "nw-046": "penguin",
-  "nw-047": "feather",
-  "nw-048": "nest",
-  "nw-049": "octopus",
-  "nw-051": "tree",
-  "nw-052": "forest",
-  "nw-053": "flower",
-  "nw-054": "leaf",
-  "nw-055": "root",
-  "nw-057": "trunk",
-  "nw-058": "bark",
-  "nw-059": "grass",
-  "nw-060": "jungle",
-  "nw-061": "river",
-  "nw-062": "lake",
-  "nw-063": "ocean",
-  "nw-064": "sea",
-  "nw-065": "stream",
-  "nw-066": "pond",
-  "nw-067": "tide",
-  "nw-068": "current",
-  "nw-069": "swamp",
-  "nw-071": "desert",
-  "nw-072": "hill",
-  "nw-073": "plain",
-  "nw-074": "peninsula",
-  "nw-075": "geology",
-  "nw-076": "fossil",
-  "nw-077": "erosion",
-  "nw-078": "terrain",
-  "nw-079": "peak",
-  "nw-080": "volcanic",
-  "nw-081": "sky",
-  "nw-082": "sun",
-  "nw-083": "moon",
-  "nw-084": "star",
-  "nw-085": "planet",
-  "nw-086": "galaxy",
-  "nw-087": "solar-system",
-  "nw-088": "eclipse",
-  "nw-089": "telescope",
-  "nw-090": "comet",
-  "nw-091": "environment",
-  "nw-092": "pollution",
-  "nw-093": "climate-change",
-  "nw-094": "global-warming",
-  "nw-096": "deforestation",
-  "nw-097": "renewable-energy",
-  "nw-098": "conservation",
-  "nw-099": "ecosystem",
-  "nw-100": "biodiversity",
-  "sw-001": "country",
-  "sw-002": "nationality",
-  "sw-003": "capital",
-  "sw-004": "citizen",
-  "sw-005": "flag",
-  "sw-006": "border",
-  "sw-007": "nation",
-  "sw-008": "population",
-  "sw-010": "immigrant",
-  "sw-011": "government",
-  "sw-012": "law",
-  "sw-013": "president",
-  "sw-014": "prime-minister",
-  "sw-015": "parliament",
-  "sw-016": "election",
-  "sw-017": "vote",
-  "sw-018": "democracy",
-  "sw-019": "constitution",
-  "sw-021": "community",
-  "sw-022": "society",
-  "sw-023": "urban",
-  "sw-024": "rural",
-  "sw-025": "metropolis",
-  "sw-026": "suburbs",
-  "sw-027": "infrastructure",
-  "sw-029": "civic",
-  "sw-030": "public-service",
-  "sw-031": "news",
-  "sw-033": "newspaper",
-  "sw-034": "broadcast",
-  "sw-035": "headline",
-  "sw-036": "media",
-  "sw-038": "press-conference",
-  "sw-039": "censorship",
-  "sw-040": "fake-news",
-  "sw-041": "global-economy",
-  "sw-042": "trade",
-  "sw-045": "tariff-noun",
-  "sw-046": "treaty",
-  "sw-047": "globalization",
-  "sw-048": "poverty",
-  "sw-049": "market",
-  "sw-050": "sanction",
-  "sw-051": "peace",
-  "sw-052": "war",
-  "sw-053": "diplomacy",
-  "sw-054": "ambassador",
-  "sw-055": "negotiation",
-  "sw-056": "conflict",
-  "sw-057": "army",
-  "sw-058": "soldier",
-  "sw-059": "ceasefire",
-  "sw-060": "alliance",
-  "sw-061": "human-rights",
-  "sw-062": "equality",
-  "sw-063": "freedom",
-  "sw-064": "justice",
-  "sw-065": "discrimination",
-  "sw-067": "activist",
-  "sw-068": "protest",
-  "sw-069": "privilege",
-  "sw-070": "empowerment",
-  "sw-071": "religion",
-  "sw-072": "faith",
-  "sw-073": "church",
-  "sw-074": "pagoda",
-  "sw-075": "mosque",
-  "sw-076": "pray",
-  "sw-077": "sacred",
-  "sw-078": "spiritual",
-  "sw-079": "monk",
-  "sw-080": "belief",
-  "sw-081": "charity",
-  "sw-082": "volunteer",
-  "sw-083": "donate",
-  "sw-084": "donation",
-  "sw-085": "nonprofit",
-  "sw-086": "fundraiser",
-  "sw-087": "philanthropy",
-  "sw-088": "humanitarian",
-  "sw-089": "support",
-  "sw-090": "relief",
-  "sw-091": "future",
-  "sw-092": "modernization",
-  "sw-093": "sustainability",
-  "sw-094": "humanity",
-  "sw-096": "prospect",
-  "sw-097": "cooperation",
-  "sw-098": "harmony",
-  "sw-099": "transformation",
-  "sw-100": "prosperity",
-  "tb1-006": "filing-cabinet",
-  "tb1-007": "cartridge",
-  "tb1-008": "inventory",
-  "tb1-009": "ergonomic",
-  "tb1-010": "malfunction",
-  "tb1-011": "replenish",
-  "tb1-013": "workstation",
-  "tb1-017": "inquire",
-  "tb1-020": "recipient",
-  "tb1-022": "follow-up-verb",
-  "tb1-025": "notify",
-  "tb1-027": "regarding",
-  "tb1-028": "draft",
-  "tb1-029": "sender",
-  "tb1-035": "convenient",
-  "tb1-036": "unanimous",
-  "tb1-037": "chairperson",
-  "tb1-038": "adjourn",
-  "tb1-039": "attendee",
-  "tb1-041": "tentative",
-  "tb1-042": "facilitate",
-  "tb1-045": "briefing",
-  "tb1-048": "recruit",
-  "tb1-054": "criteria",
-  "tb1-057": "screening",
-  "tb1-058": "shortlist-verb",
-  "tb1-062": "benefits",
-  "tb1-063": "incentive",
-  "tb1-064": "severance",
-  "tb1-067": "deduction",
-  "tb1-068": "allowance-noun",
-  "tb1-070": "remuneration",
-  "tb1-072": "leave-noun",
-  "tb1-073": "maternity",
-  "tb1-074": "perk",
-  "tb1-077": "comply",
-  "tb1-078": "regulation",
-  "tb1-079": "confidentiality",
-  "tb1-080": "code-of-conduct",
-  "tb1-081": "violation",
-  "tb1-082": "enforce",
-  "tb1-083": "disciplinary",
-  "tb1-084": "standard",
-  "tb1-085": "procedure",
-  "tb1-086": "ethical",
-  "tb1-087": "guidelines",
-  "tb1-088": "prohibit",
-  "tb1-091": "campaign",
-  "tb1-092": "target-audience",
-  "tb1-093": "brand-awareness",
-  "tb1-094": "endorsement",
-  "tb1-095": "market-share",
-  "tb1-096": "demographic",
-  "tb1-098": "commercial",
-  "tb1-099": "launch",
-  "tb1-101": "sponsor-verb",
-  "tb1-103": "strategy",
-  "tb1-104": "segment",
-  "tb1-105": "flyer",
-  "tb1-106": "inquiry",
-  "tb1-107": "satisfaction",
-  "tb1-109": "loyalty",
-  "tb1-111": "representative",
-  "tb1-114": "resolve",
-  "tb1-115": "escalate",
-  "tb1-116": "courtesy",
-  "tb1-117": "clientele",
-  "tb1-118": "assistance",
-  "tb1-120": "testimonial",
-  "tb1-121": "invoice-noun",
-  "tb1-122": "purchase-order",
-  "tb1-123": "quotation",
-  "tb1-125": "billing",
-  "tb1-126": "itemize",
-  "tb1-128": "procurement",
-  "tb1-131": "terms-of-payment",
-  "tb1-132": "estimate",
-  "tb1-133": "authorize",
-  "tb1-134": "supplier",
-  "tb1-136": "shipment",
-  "tb1-137": "logistics",
-  "tb1-138": "warehouse",
-  "tb1-139": "tracking",
-  "tb1-140": "carrier",
-  "tb1-141": "freight",
-  "tb1-142": "consignment",
-  "tb1-145": "expedite",
-  "tb1-146": "pallet",
-  "tb1-148": "fragile",
-  "tb1-149": "transit",
-  "tb1-150": "manifest",
-  "tb1-152": "agreement",
-  "tb1-154": "clause",
-  "tb1-156": "party",
-  "tb1-157": "specify",
-  "tb1-158": "terms",
-  "tb1-159": "renew",
-  "tb1-160": "binding",
-  "tb1-161": "breach",
-  "tb1-162": "terminate",
-  "tb1-163": "provision",
-  "tb1-164": "stipulate",
-  "tb1-165": "null-and-void",
-  "tb1-167": "collaboration",
-  "tb1-168": "joint-venture",
-  "tb1-169": "affiliate",
-  "tb1-170": "merger",
-  "tb1-171": "acquisition",
-  "tb1-173": "mutual",
-  "tb1-174": "subsidiary",
-  "tb1-175": "synergy",
-  "tb1-176": "consortium",
-  "tb1-177": "partner",
-  "tb1-178": "consolidate",
-  "tb1-179": "outsource",
-  "tb1-180": "franchise",
-  "tb1-181": "transaction",
-  "tb1-184": "wire-transfer-noun",
-  "tb1-187": "overdraft-noun",
-  "tb1-188": "remittance-noun",
-  "tb1-191": "collateral-noun",
-  "tb1-195": "beneficiary-noun",
-  "tb1-196": "audit-noun",
-  "tb1-198": "deficit",
-  "tb1-199": "surplus",
-  "tb1-201": "ledger",
-  "tb1-202": "fiscal-year-noun",
-  "tb1-203": "reconcile",
-  "tb1-204": "expenditure",
-  "tb1-205": "depreciation-noun",
-  "tb1-206": "balance-sheet-noun",
-  "tb1-207": "accrue",
-  "tb1-208": "overhead",
-  "tb1-209": "bookkeeping",
-  "tb1-210": "payroll",
-  "tb1-211": "revenue-noun",
-  "tb1-217": "yield-noun",
-  "tb1-219": "expansion",
-  "tb1-220": "stake",
-  "tb1-221": "speculate",
-  "tb1-222": "fluctuation",
-  "tb1-223": "equity-noun",
-  "tb1-224": "quarterly",
-  "tb1-225": "projection",
-  "tb1-227": "accommodation",
-  "tb1-230": "reimburse",
-  "tb1-231": "per-diem",
-  "tb1-232": "complimentary",
-  "tb1-233": "shuttle",
-  "tb1-235": "banquet",
-  "tb1-236": "concierge",
-  "tb1-239": "delegate-noun",
-  "tb1-240": "reception",
-  "tb1-241": "keynote",
-  "tb1-242": "venue",
-  "tb1-243": "participant",
-  "tb1-244": "registration",
-  "tb1-245": "seminar",
-  "tb1-246": "symposium",
-  "tb1-247": "moderator",
-  "tb1-250": "handout",
-  "tb1-251": "booth",
-  "tb1-252": "session",
-  "tb1-255": "commence",
-  "tb1-258": "productivity",
-  "tb1-261": "scope",
-  "tb1-263": "contingency",
-  "tb1-266": "streamline",
-  "tb1-267": "implement",
-  "tb1-268": "feasible",
-  "tb1-270": "accountability",
-  "tb1-271": "inspection",
-  "tb1-272": "defect",
-  "tb1-273": "hazard",
-  "tb1-274": "compliance",
-  "tb1-275": "precaution",
-  "tb1-276": "certification",
-  "tb1-277": "standardize",
-  "tb1-278": "recall",
-  "tb1-279": "protective",
-  "tb1-280": "evacuation",
-  "tb1-281": "rigorous",
-  "tb1-282": "calibration",
-  "tb1-283": "protocol",
-  "tb1-284": "contamination",
-  "tb1-285": "incident",
-  "tb1-286": "in-accordance-with",
-  "tb1-287": "prior-to",
-  "tb1-288": "take-into-account",
-  "tb1-289": "on-behalf-of",
-  "tb1-290": "in-response-to",
-  "tb1-291": "with-respect-to",
-  "tb1-292": "as-a-result-of",
-  "tb1-293": "subject-to",
-  "tb1-294": "under-construction",
-  "tb1-295": "out-of-order",
-  "tb1-296": "in-charge-of",
-  "tb1-297": "look-forward-to-phrase",
-  "tb1-298": "at-your-earliest-convenience",
-  "tb1-299": "keep-track-of",
-  "tb1-300": "reach-an-agreement",
-  "fb-001": "budget-noun-2",
-  "fb-002": "income-noun-2",
-  "fb-003": "expense-noun-2",
-  "fb-004": "savings-noun-2",
-  "fb-005": "salary-noun-2",
-  "fb-006": "wage-noun-2",
-  "fb-007": "net-worth",
-  "fb-008": "emergency-fund-noun-2",
-  "fb-009": "cash-flow",
-  "fb-010": "pension-noun-2",
-  "fb-011": "frugal-adjective-2",
-  "fb-012": "afford",
-  "fb-013": "allowance-noun-2",
-  "fb-014": "assets",
-  "fb-015": "liabilities",
-  "fb-016": "discretionary-income",
-  "fb-017": "financial-independence",
-  "fb-018": "live-beyond-ones-means",
-  "fb-019": "windfall",
-  "fb-020": "solvent",
-  "fb-021": "bank-account-noun-2",
-  "fb-022": "balance-noun-2",
-  "fb-023": "deposit-noun-2",
-  "fb-024": "withdraw-verb-2",
-  "fb-025": "transfer-verb-2",
-  "fb-026": "bank-statement",
-  "fb-027": "overdraft-noun-2",
-  "fb-028": "teller-noun-2",
-  "fb-029": "branch-noun-2",
-  "fb-030": "checking-account",
-  "fb-031": "savings-account-noun-2",
-  "fb-032": "wire-transfer-noun-2",
-  "fb-033": "direct-deposit",
-  "fb-034": "routing-number",
-  "fb-035": "swift-code",
-  "fb-036": "dormant-account",
-  "fb-037": "liquidity",
-  "fb-038": "safe-deposit-box-noun-2",
-  "fb-039": "central-bank",
-  "fb-040": "know-your-customer-kyc",
-  "fb-041": "credit-card-noun-2",
-  "fb-042": "debit-card-noun-2",
-  "fb-043": "contactless-payment",
-  "fb-044": "invoice-noun-2",
-  "fb-045": "receipt-noun-2",
-  "fb-046": "transaction-fee",
-  "fb-047": "billing-cycle",
-  "fb-048": "chargeback",
-  "fb-049": "pin-personal-identification-number",
-  "fb-050": "merchant",
-  "fb-051": "payment-gateway",
-  "fb-052": "grace-period",
-  "fb-053": "credit-limit-noun-2",
-  "fb-054": "cashback",
-  "fb-055": "fraud",
-  "fb-056": "loan-noun-2",
-  "fb-057": "mortgage-noun-2",
-  "fb-058": "collateral-noun-2",
-  "fb-059": "principal-noun-2",
-  "fb-060": "interest-rate-noun-2",
-  "fb-061": "borrower",
-  "fb-062": "lender",
-  "fb-063": "default-verb-2",
-  "fb-064": "credit-score-noun-2",
-  "fb-065": "debt-noun-2",
-  "fb-066": "repayment",
-  "fb-067": "installment-noun-2",
-  "fb-068": "guarantor",
-  "fb-069": "maturity-date",
-  "fb-070": "refinance",
-  "fb-071": "bad-debt",
-  "fb-072": "amortization",
-  "fb-073": "foreclosure",
-  "fb-074": "creditworthiness",
-  "fb-075": "bankruptcy",
-  "fb-076": "compound-interest-noun-2",
-  "fb-077": "simple-interest",
-  "fb-078": "yield-noun-2",
-  "fb-079": "fixed-deposit",
-  "fb-080": "inflation-noun-2",
-  "fb-081": "deflation",
-  "fb-082": "purchasing-power",
-  "fb-083": "annual-percentage-rate-apr",
-  "fb-084": "annual-percentage-yield-apy",
-  "fb-085": "certificate-of-deposit-cd",
-  "fb-086": "real-interest-rate",
-  "fb-087": "stagflation",
-  "fb-088": "devaluation",
-  "fb-089": "hyperinflation",
-  "fb-090": "maturity-noun-2",
-  "fb-091": "stock-noun-2",
-  "fb-092": "share-noun",
-  "fb-093": "dividend-noun-2",
-  "fb-094": "portfolio-noun-2",
-  "fb-095": "bond",
-  "fb-096": "equity-noun-2",
-  "fb-097": "bull-market",
-  "fb-098": "bear-market",
-  "fb-099": "capital-gain",
-  "fb-100": "broker",
-  "fb-101": "index-fund",
-  "fb-102": "exchange-traded-fund-etf",
-  "fb-103": "volatility",
-  "fb-104": "asset-allocation",
-  "fb-105": "initial-public-offering-ipo",
-  "fb-106": "market-capitalization",
-  "fb-107": "diversification",
-  "fb-108": "hedge",
-  "fb-109": "mutual-fund-noun-2",
-  "fb-110": "return-on-investment-roi",
-  "fb-111": "insurance-premium",
-  "fb-112": "policyholder",
-  "fb-113": "coverage",
-  "fb-114": "deductible",
-  "fb-115": "insurance-claim",
-  "fb-116": "beneficiary-noun-2",
-  "fb-117": "underwriting",
-  "fb-118": "liability-noun-2",
-  "fb-119": "indemnity",
-  "fb-120": "actuary",
-  "fb-121": "revenue-noun-2",
-  "fb-122": "profit-noun-2",
-  "fb-123": "gross-margin",
-  "fb-124": "net-profit",
-  "fb-125": "turnover",
-  "fb-126": "balance-sheet-noun-2",
-  "fb-127": "fiscal-year-noun-2",
-  "fb-128": "audit-noun-2",
-  "fb-129": "depreciation-noun-2",
-  "fb-130": "break-even-point",
-  "fb-131": "cost-of-goods-sold-cogs",
-  "fb-132": "accounts-receivable",
-  "fb-133": "accounts-payable",
-  "fb-134": "merger-and-acquisition-ma",
-  "fb-135": "due-diligence",
-  "fb-136": "tax-deduction",
-  "fb-137": "value-added-tax-vat",
-  "fb-138": "tariff-noun-2",
-  "fb-139": "anti-money-laundering-aml",
-  "fb-140": "venture-capital-noun-2",
-  "fb-141": "annuity",
-  "fb-142": "remittance-noun-2",
-  "fb-143": "fiduciary",
-  "fb-144": "burn-rate",
-  "fb-145": "runway",
-  "fb-146": "escrow",
-  "fb-147": "monetary-policy",
-  "fb-148": "fiat-currency",
-  "fb-149": "forex-foreign-exchange",
-  "fb-150": "fintech-noun-2",
-  "fb-151": "cashless-society",
-  "fb-152": "revolving-credit",
-  "fb-153": "cryptocurrency-noun-2",
-  "fb-154": "blockchain-noun-2",
-  "fb-155": "peer-to-peer-p2p-lending",
-  "fb-156": "debt-to-income-dti-ratio",
-  "fb-157": "prime-rate",
-  "fb-158": "unsecured-loan",
-  "fb-159": "prepayment-penalty",
-  "fb-160": "subprime",
-  "fb-161": "yield-curve",
-  "fb-162": "quantitative-easing-qe",
-  "fb-163": "fiscal-stimulus",
-  "fb-164": "sovereign-wealth-fund",
-  "fb-165": "blue-chip-stock",
-  "fb-166": "short-selling",
-  "fb-167": "hedge-fund",
-  "fb-168": "leverage",
-  "fb-169": "arbitrage",
-  "fb-170": "stock-option",
-  "fb-171": "vesting-schedule",
-  "fb-172": "angel-investor",
-  "fb-173": "risk-assessment",
-  "fb-174": "reinsurance",
-  "fb-175": "moral-hazard",
-  "fb-176": "earnings-before-interest-taxes-depreciation-and-amortization-ebitda",
-  "fb-177": "capital-expenditure-capex",
-  "fb-178": "operating-expenditure-opex",
-  "fb-179": "insolvency",
-  "fb-180": "liquidation",
-  "fb-181": "retained-earnings",
-  "fb-182": "reconciliation-noun-2",
-  "fb-183": "goodwill",
-  "fb-184": "insider-trading",
-  "fb-185": "ponzi-scheme"
-};
+export const WORDS_MAP = new Map(WORDS.map(w => [w.id, w]));
+export const LEGACY_ID_MAP = new Map();
