@@ -15,6 +15,30 @@ const RELAY_SERVERS = [
 ];
 
 /**
+ * Trích xuất payload dữ liệu JSON từ gói tin ntfy (Hỗ trợ cả inline JSON và Attachment file >4KB)
+ */
+async function extractPayloadFromEvent(dataObj) {
+  if (!dataObj) return null;
+  // 1. Trường hợp dung lượng lớn (>4KB), ntfy tự động lưu thành file đính kèm
+  if (dataObj.attachment && dataObj.attachment.url) {
+    try {
+      const resp = await fetch(dataObj.attachment.url);
+      if (resp.ok) {
+        return await resp.json();
+      }
+    } catch (e) {}
+  }
+  // 2. Trường hợp chuỗi JSON inline trong message
+  if (dataObj.message) {
+    try {
+      const parsed = JSON.parse(dataObj.message);
+      if (typeof parsed === 'object') return parsed;
+    } catch (e) {}
+  }
+  return null;
+}
+
+/**
  * Gửi dữ liệu đa kênh song song đến danh sách máy chủ Relay
  */
 async function broadcastToRelays(topic, payload, headers = {}) {
@@ -241,13 +265,15 @@ export class SyncManager {
     RELAY_SERVERS.forEach((baseUrl) => {
       try {
         const es = new EventSource(`${baseUrl}/${reqTopic}/sse`);
-        es.onmessage = (event) => {
+        es.onmessage = async (event) => {
           if (isClosed || isProcessed) return;
           try {
             const dataObj = JSON.parse(event.data);
-            if (dataObj.event === 'message' && dataObj.message) {
-              const clientPayload = JSON.parse(dataObj.message);
-              processIncomingPayload(clientPayload);
+            if (dataObj.event === 'message') {
+              const clientPayload = await extractPayloadFromEvent(dataObj);
+              if (clientPayload) {
+                await processIncomingPayload(clientPayload);
+              }
             }
           } catch (e) {}
         };
@@ -258,11 +284,46 @@ export class SyncManager {
       } catch (e) {}
     });
 
+    // 2. Kênh Polling dự phòng nhẹ (mỗi 2.5s, tự dừng ngay khi nhận)
+    const pollTimer = setInterval(async () => {
+      if (isClosed || isProcessed) {
+        clearInterval(pollTimer);
+        return;
+      }
+      for (const baseUrl of RELAY_SERVERS) {
+        try {
+          const resp = await fetch(`${baseUrl}/${reqTopic}/json?poll=1`, {
+            headers: { 'Accept': 'application/json' }
+          });
+          if (resp.ok) {
+            const text = await resp.text();
+            const lines = text.trim().split('\n');
+            for (let i = lines.length - 1; i >= 0; i--) {
+              const line = lines[i].trim();
+              if (!line) continue;
+              try {
+                const eventObj = JSON.parse(line);
+                if (eventObj.event === 'message') {
+                  const clientPayload = await extractPayloadFromEvent(eventObj);
+                  if (clientPayload) {
+                    await processIncomingPayload(clientPayload);
+                    clearInterval(pollTimer);
+                    return;
+                  }
+                }
+              } catch (e) {}
+            }
+          }
+        } catch (e) {}
+      }
+    }, 2500);
+
     return {
       pin,
       pairUrl,
       stop: () => {
         isClosed = true;
+        clearInterval(pollTimer);
         eventSources.forEach((es) => {
           try { es.close(); } catch (e) {}
         });
@@ -323,20 +384,22 @@ export class SyncManager {
           es.onmessage = async (event) => {
             try {
               const dataObj = JSON.parse(event.data);
-              if (dataObj.event === 'message' && dataObj.message) {
-                const hostPayload = JSON.parse(dataObj.message);
-                const hostUnpacked = this.unpackageSyncData(hostPayload);
-                if (hostUnpacked) {
-                  clearTimeout(timer);
-                  StorageManager.createSafetySnapshot();
-                  const clientMerge = this.mergeProgress(hostUnpacked);
-                  await StorageManager.importBackup(clientMerge.data);
-                  finish({
-                    success: true,
-                    pin,
-                    stats: clientMerge.stats,
-                    data: clientMerge.data
-                  });
+              if (dataObj.event === 'message') {
+                const hostPayload = await extractPayloadFromEvent(dataObj);
+                if (hostPayload) {
+                  const hostUnpacked = this.unpackageSyncData(hostPayload);
+                  if (hostUnpacked) {
+                    clearTimeout(timer);
+                    StorageManager.createSafetySnapshot();
+                    const clientMerge = this.mergeProgress(hostUnpacked);
+                    await StorageManager.importBackup(clientMerge.data);
+                    finish({
+                      success: true,
+                      pin,
+                      stats: clientMerge.stats,
+                      data: clientMerge.data
+                    });
+                  }
                 }
               }
             } catch (e) {}
@@ -390,9 +453,11 @@ export class SyncManager {
               if (!line) continue;
               try {
                 const eventObj = JSON.parse(line);
-                if (eventObj.event === 'message' && eventObj.message) {
-                  const payload = JSON.parse(eventObj.message);
-                  return { success: true, payload: payload };
+                if (eventObj.event === 'message') {
+                  const payload = await extractPayloadFromEvent(eventObj);
+                  if (payload) {
+                    return { success: true, payload: payload };
+                  }
                 }
               } catch (pe) {}
             }
