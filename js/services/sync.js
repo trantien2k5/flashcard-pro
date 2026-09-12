@@ -211,7 +211,7 @@ export class SyncManager {
       }
     };
 
-    // 1. Kênh SSE (Real-Time Push)
+    // 1. Kênh SSE (Real-Time Push - Không giới hạn Rate Limit, phản hồi 0ms)
     try {
       eventSource = new EventSource(`https://ntfy.sh/${reqTopic}/sse`);
       eventSource.onmessage = (event) => {
@@ -225,20 +225,32 @@ export class SyncManager {
         } catch (e) {}
       };
       eventSource.onerror = () => {
-        // SSE bị chặn hoặc rớt mạng -> Polling loop bên dưới sẽ tự động đảm nhiệm
+        // SSE tự động reconnect ngầm
       };
     } catch (e) {}
 
-    // 2. Kênh Polling chủ động (Dự phòng chống chặn bởi Adblocker / Firewall)
+    // 2. Kênh Polling dự phòng giãn cách (Chỉ chạy khi SSE bị ngắt hoặc đóng)
+    let isPollingBusy = false;
+    let pollCooldownUntil = 0;
     pollInterval = setInterval(async () => {
       if (isClosed || isProcessed) {
         clearInterval(pollInterval);
         return;
       }
+      // Bỏ qua nếu SSE đang hoạt động tốt hoặc đang trong thời gian chờ cooldown 429
+      if (Date.now() < pollCooldownUntil || isPollingBusy) return;
+      if (eventSource && eventSource.readyState === EventSource.OPEN) return;
+
+      isPollingBusy = true;
       try {
         const resp = await fetch(`https://ntfy.sh/${reqTopic}/json?poll=1`, {
           headers: { 'Accept': 'application/json' }
         });
+        if (resp.status === 429) {
+          // Gặp 429: Chờ 10 giây trước khi thử lại để tránh nghẽn
+          pollCooldownUntil = Date.now() + 10000;
+          return;
+        }
         if (resp.ok) {
           const text = await resp.text();
           const lines = text.trim().split('\n');
@@ -255,8 +267,10 @@ export class SyncManager {
             } catch (e) {}
           }
         }
-      } catch (e) {}
-    }, 1200);
+      } catch (e) {} finally {
+        isPollingBusy = false;
+      }
+    }, 5000);
 
     return {
       pin,
@@ -310,55 +324,56 @@ export class SyncManager {
       return { success: false, error: 'Lỗi mạng khi kết nối thiết bị.' };
     }
 
-    // 2. Chờ nhận phản hồi bản Merged từ Host (Tối đa 8 giây)
-    try {
-      const startTime = Date.now();
-      while (Date.now() - startTime < 8000) {
-        await new Promise(r => setTimeout(r, 800));
-        const resp = await fetch(`https://ntfy.sh/${respTopic}/json?poll=1`, {
-          headers: { 'Accept': 'application/json' }
-        });
+    // 2. Chờ nhận phản hồi bản Merged từ Host qua EventSource (Real-time 0ms, không tốn request)
+    return new Promise((resolve) => {
+      let isDone = false;
+      let respSSE = null;
 
-        if (resp.ok) {
-          const text = await resp.text();
-          const lines = text.trim().split('\n');
-          for (let i = lines.length - 1; i >= 0; i--) {
-            const line = lines[i].trim();
-            if (!line) continue;
-            try {
-              const eventObj = JSON.parse(line);
-              if (eventObj.event === 'message' && eventObj.message) {
-                const hostPayload = JSON.parse(eventObj.message);
-                const hostUnpacked = this.unpackageSyncData(hostPayload);
-
-                if (hostUnpacked) {
-                  // Client import bản merged chuẩn từ Host (kèm snapshot an toàn)
-                  StorageManager.createSafetySnapshot();
-                  const clientMerge = this.mergeProgress(hostUnpacked);
-                  await StorageManager.importBackup(clientMerge.data);
-
-                  return {
-                    success: true,
-                    pin,
-                    stats: clientMerge.stats,
-                    data: clientMerge.data
-                  };
-                }
-              }
-            } catch (e) {}
-          }
+      const finish = (result) => {
+        if (isDone) return;
+        isDone = true;
+        if (respSSE) {
+          respSSE.close();
+          respSSE = null;
         }
-      }
-    } catch (err) {
-      console.warn('Lỗi chờ nhận bản merge:', err);
-    }
+        resolve(result);
+      };
 
-    return {
-      success: true,
-      pin,
-      stats: { total: Object.keys(clientPayload.c || {}).length },
-      warning: 'Đã gửi dữ liệu sang máy kia thành công.'
-    };
+      // Hết thời gian chờ tối đa 10 giây
+      const timer = setTimeout(() => {
+        finish({
+          success: true,
+          pin,
+          stats: { total: Object.keys(clientPayload.c || {}).length },
+          warning: 'Đã gửi dữ liệu sang máy kia thành công.'
+        });
+      }, 10000);
+
+      try {
+        respSSE = new EventSource(`https://ntfy.sh/${respTopic}/sse`);
+        respSSE.onmessage = async (event) => {
+          try {
+            const dataObj = JSON.parse(event.data);
+            if (dataObj.event === 'message' && dataObj.message) {
+              const hostPayload = JSON.parse(dataObj.message);
+              const hostUnpacked = this.unpackageSyncData(hostPayload);
+              if (hostUnpacked) {
+                clearTimeout(timer);
+                StorageManager.createSafetySnapshot();
+                const clientMerge = this.mergeProgress(hostUnpacked);
+                await StorageManager.importBackup(clientMerge.data);
+                finish({
+                  success: true,
+                  pin,
+                  stats: clientMerge.stats,
+                  data: clientMerge.data
+                });
+              }
+            }
+          } catch (e) {}
+        };
+      } catch (e) {}
+    });
   }
 
   /**
