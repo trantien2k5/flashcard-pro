@@ -291,7 +291,7 @@ export class DeckManager {
 
     for (let i = 0; i < cards.length; i++) {
       const card = cards[i];
-      const state = cardStates[card.id];
+      const state = StorageManager.getCardState(card.id);
       if (!state || state.state === State.New || state.state === 0) {
         newCount++;
       } else {
@@ -331,7 +331,6 @@ export class DeckManager {
    * Lấy danh sách thẻ ưu tiên thông minh theo thuật toán FSRS (Chuẩn Anki)
    */
   getStudyQueue(deckId = null, settings = {}, subtopic = null) {
-    const cardStates = StorageManager.getAllCardStates();
     let targetCards = [];
 
     if (deckId && subtopic) {
@@ -380,7 +379,7 @@ export class DeckManager {
 
     for (const card of targetCards) {
       const hydratedCard = this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card;
-      const state = cardStates[card.id];
+      const state = StorageManager.getCardState(card.id);
 
       if (!state || state.state === State.New || state.state === 0) {
         newCards.push({ ...hydratedCard, fsrsState: state || FSRS.createEmptyCard(card.id) });
