@@ -39,7 +39,13 @@
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
   --radius-full: 9999px;
+
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
@@ -49,6 +55,7 @@
   --nav-height: 68px;
   --safe-bottom: env(safe-area-inset-bottom, 16px);
   --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
@@ -110,6 +117,53 @@ html, body {
   overflow: hidden;
   -webkit-touch-callout: none;
 }
+
+/* ==========================================================================
+   Global Floating Scrollbar Styling (iOS / macOS Ultra-Sleek Pill)
+   ========================================================================== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.28) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.25);
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.55);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+[data-theme="light"] * {
+  scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.28);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.58);
+}
+
 /* ==========================================================================
    FSRS-6 Flashcard Pro - Layout & Navigation (Mobile-First + Desktop PC Sidebar)
    ========================================================================== */
@@ -811,7 +865,7 @@ html, body {
     min-width: 0;
     height: 100%;
     max-height: 100%;
-    padding: 18px 32px 24px 32px;
+    padding: 24px 28px 32px 28px;
     max-width: 100%;
     width: 100%;
     margin: 0;
@@ -820,6 +874,13 @@ html, body {
     box-sizing: border-box;
     scrollbar-width: thin;
     scrollbar-color: rgba(99, 102, 241, 0.25) transparent;
+  }
+
+  /* Cho phép màn hình Trang chủ Ôn tập tự động co giãn không bị cắt mất đáy */
+  #tab-review.active {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
   }
 
   /* macOS Style Floating Rounded Pill Scrollbar */

@@ -12,12 +12,27 @@
 .review-bento-container {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   width: 100%;
   max-width: 520px;
   margin: 0 auto;
   box-sizing: border-box;
   padding-bottom: 24px;
+}
+
+.review-main-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.review-col-left,
+.review-col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
 }
 
 .bento-section-group {
@@ -33,12 +48,12 @@
   background: transparent;
   border: none;
   border-radius: 0;
-  padding: 4px 2px 10px 2px;
+  padding: 2px 2px 14px 2px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   box-shadow: none;
 }
 
@@ -94,7 +109,24 @@
 .review-hero-badges {
   display: flex;
   align-items: center;
+  gap: 6px;
   flex-shrink: 0;
+}
+
+.pill-today-streak {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .pill-today-streak {
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.18);
 }
 
 .pill-today-pct {
@@ -112,6 +144,24 @@
 [data-theme="dark"] .pill-today-pct {
   color: #34d399;
   background: rgba(16, 185, 129, 0.15);
+}
+
+.hero-goal-ratio-pill {
+  font-size: 0.70rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--primary);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  white-space: nowrap;
+}
+
+[data-theme="light"] .hero-goal-ratio-pill {
+  color: #4f46e5;
+  background: #eff6ff;
+  border-color: #c7d2fe;
 }
 
 /* ==========================================================================
@@ -653,6 +703,88 @@
 }
 
 /* 5. Memory & Resume Deck Card */
+.memory-mastery-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+[data-theme="light"] .memory-mastery-strip {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.mastery-text-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.mastery-text-row strong {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.mastery-pct-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: #059669;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+[data-theme="dark"] .mastery-pct-badge {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.18);
+}
+
+.memory-mastery-bar-bg {
+  width: 100%;
+  height: 6px;
+  border-radius: 99px;
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+[data-theme="light"] .memory-mastery-bar-bg {
+  background: #e2e8f0;
+}
+
+.memory-mastery-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #6366f1 0%, #10b981 100%);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Capsule Load Intensity Bars */
+.capsule-bar-fill.load-low {
+  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.4);
+}
+
+.capsule-bar-fill.load-med {
+  background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);
+  box-shadow: 0 0 6px rgba(251, 191, 36, 0.4);
+}
+
+.capsule-bar-fill.load-high {
+  background: linear-gradient(180deg, #f87171 0%, #dc2626 100%);
+  box-shadow: 0 0 6px rgba(248, 113, 113, 0.5);
+}
+
 .memory-badges-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -796,73 +928,139 @@
    Desktop & Tablet Optimization (>= 860px) - World-Class 2-Column Bento Grid
    ========================================================================== */
 @media (min-width: 860px) {
+  #tab-review.tab-pane.active {
+    padding: 0;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
   .review-bento-container {
-    max-width: 1120px;
+    max-width: 1140px;
     width: 100%;
-    display: grid;
-    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
-    gap: 16px 20px;
-    padding: 6px 0 24px 0;
-    align-items: start;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 0 10px 0;
     margin: 0 auto;
+    box-sizing: border-box;
   }
 
   .review-hero-banner {
-    grid-column: 1 / -1;
     margin-bottom: 2px;
+    padding: 2px 2px 4px 2px;
   }
 
-  .bento-section-group.bento-group-hero {
-    grid-column: 1;
-    grid-row: 2;
+  .review-main-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.86fr);
+    gap: 16px;
+    align-items: stretch;
   }
 
-  .bento-section-group.bento-group-forecast {
-    grid-column: 1;
-    grid-row: 3;
+  .review-col-left,
+  .review-col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+    justify-content: space-between;
   }
 
-  .bento-section-group.bento-group-trend {
-    grid-column: 2;
-    grid-row: 2;
+  .bento-section-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
-  .bento-section-group.bento-group-memory {
-    grid-column: 2;
-    grid-row: 3;
+  .section-group-header {
+    margin-bottom: 4px;
   }
 
   .bento-greeting-title {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
 
   .bento-card {
-    padding: 15px 18px;
-    border-radius: 18px;
-    gap: 12px;
-  }
-
-  .btn-hero-action {
-    min-height: 52px;
-    font-size: 1.05rem;
-  }
-
-  .quad-tile {
-    min-height: 76px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 10px 14px;
+    border-radius: 14px;
+    gap: 8px;
+    box-sizing: border-box;
   }
 
-  .quad-number {
-    font-size: 1.45rem;
+  .bento-hero-card {
+    min-height: auto;
   }
 
-  .forecast-capsule {
-    height: 54px;
-    gap: 4px;
+  .bento-trend-card {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .trend-chart-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 70px;
   }
 
   .trend-svg-container {
-    height: 68px;
+    height: 65px;
+  }
+
+  .bento-forecast-card {
+    min-height: auto;
+    justify-content: center;
+  }
+
+  .bento-memory-card {
+    min-height: auto;
+    justify-content: space-between;
+  }
+
+  .btn-hero-action {
+    min-height: 42px;
+    font-size: 0.94rem;
+  }
+
+  .quad-tile {
+    min-height: 56px;
+    padding: 6px 10px;
+  }
+
+  .quad-number {
+    font-size: 1.25rem;
+  }
+
+  .forecast-capsule {
+    height: 44px;
+    gap: 2px;
+  }
+
+  .memory-mastery-strip {
+    margin-bottom: 6px;
+    padding: 6px 10px;
+  }
+
+  .memory-badges-grid {
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .memory-badge-item {
+    padding: 5px 7px;
+    gap: 5px;
+  }
+
+  .home-resume-deck-row {
+    padding: 6px 10px;
   }
 }
 

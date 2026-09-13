@@ -5,6 +5,8 @@
   "description": "Flashcard English Pro with FSRS-6 Spaced Repetition",
   "scripts": {
     "start": "python -m http.server 3000",
+    "test": "node test/check.js",
+    "refactor": "node test/refactor_guide.js",
     "validate:data": "node -e \"import('./data/index.js').then(m => { const res = m.validateData(); console.log(JSON.stringify(res.stats, null, 2)); if (!res.valid) { console.error(res.errors); process.exit(1); } else { console.log('0 errors | 0 broken references | 0 duplicate IDs | 0 taxonomy cycles'); } })\""
   },
   "keywords": [

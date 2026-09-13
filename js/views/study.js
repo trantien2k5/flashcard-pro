@@ -139,16 +139,6 @@ export function renderStudyOverlayShell() {
             </button>
           </div>
         </div>
-
-        <!-- Thanh gợi ý phím tắt trên Desktop PC -->
-        <div class="study-keyboard-hints" id="study-keyboard-hints">
-          <span class="kbd-hint"><kbd>Space</kbd> Lật thẻ</span>
-          <span class="kbd-hint"><kbd>1</kbd> Quên</span>
-          <span class="kbd-hint"><kbd>2</kbd> Khó</span>
-          <span class="kbd-hint"><kbd>3</kbd> Nhớ</span>
-          <span class="kbd-hint"><kbd>4</kbd> Dễ</span>
-          <span class="kbd-hint"><kbd>R</kbd> Phát âm</span>
-        </div>
       </div>
     `;
   }

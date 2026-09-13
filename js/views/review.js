@@ -27,201 +27,235 @@ export function renderReviewShell(container) {
               </svg>
             </div>
             <div class="review-hero-text">
-              <h2 class="review-hero-title">Nhiệm Vụ Hôm Nay</h2>
+              <h2 class="review-hero-title">Trung Tâm Ôn Tập Hàng Ngày</h2>
               <p class="review-hero-subtitle" id="home-today-status">Kế hoạch ôn tập & tích lũy từ vựng</p>
             </div>
           </div>
           <div class="review-hero-badges">
+            <span class="pill-today-streak" id="home-header-streak">🔥 0 ngày liên tục</span>
             <span class="pill-today-pct" id="home-goal-pct">0%</span>
           </div>
         </div>
 
-        <!-- 2. Bento Hero Card: Tiến Độ Mục Tiêu & 4 Khối Chỉ Số -->
-        <div class="bento-section-group bento-group-hero">
-          <div class="bento-card bento-hero-card">
-            <!-- Thanh tiến độ mục tiêu ngày -->
-            <div class="hero-bar-track" title="Tiến độ mục tiêu hôm nay">
-              <div class="hero-bar-fill" id="home-goal-bar-fill" style="width: 0%;"></div>
-            </div>
-
-            <!-- 4 Khối chỉ số 2 Cột (2x2 Quad Grid) - Không trùng lặp -->
-            <div class="hero-quad-grid">
-              <!-- Card 1: Cần ôn ngay -->
-              <div class="quad-tile tile-due" id="box-home-due">
-                <div class="quad-tile-top">
-                  <span class="quad-icon-badge">⏰</span>
-                  <span class="quad-label">CẦN ÔN TẬP</span>
+        <!-- 2-Column Responsive Dashboard Grid (Left: Hero & Forecast, Right: Trend & Memory) -->
+        <div class="review-main-grid">
+          <!-- CỘT TRÁI: NHIỆM VỤ HÔM NAY & DỰ BÁO LỊCH ÔN -->
+          <div class="review-col-left">
+            <!-- 2. Bento Hero Card: Nhiệm Vụ Hôm Nay -->
+            <div class="bento-section-group bento-group-hero">
+              <div class="section-group-header">
+                <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+                  <span class="section-group-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+                    </svg>
+                    NHIỆM VỤ HÔM NAY
+                  </span>
+                  <span class="hero-goal-ratio-pill" id="home-goal-ratio">0/10 từ</span>
                 </div>
-                <div class="quad-num-wrap">
-                  <span class="quad-number" id="home-due-val">0</span>
-                  <span class="quad-unit">từ</span>
-                </div>
-                <span class="quad-sub-hint">Ưu tiên ôn trước</span>
+                <span class="section-group-hint">Chỉ số tập trung và tiến độ mục tiêu ngày</span>
               </div>
 
-              <!-- Card 2: Đã học hôm nay -->
-              <div class="quad-tile tile-new" id="box-home-new">
-                <div class="quad-tile-top">
-                  <span class="quad-icon-badge">✨</span>
-                  <span class="quad-label">ĐÃ HỌC HÔM NAY</span>
+              <div class="bento-card bento-hero-card">
+                <!-- Thanh tiến độ mục tiêu ngày -->
+                <div class="hero-bar-track" title="Tiến độ mục tiêu hôm nay">
+                  <div class="hero-bar-fill" id="home-goal-bar-fill" style="width: 0%;"></div>
                 </div>
-                <div class="quad-num-wrap">
-                  <span class="quad-number" id="home-new-today-val">0/10</span>
-                  <span class="quad-unit">từ</span>
-                </div>
-                <span class="quad-sub-hint" id="home-goal-hint">Mục tiêu: 10 từ</span>
-              </div>
 
-              <!-- Card 3: Thời gian học -->
-              <div class="quad-tile tile-time" id="box-home-time">
-                <div class="quad-tile-top">
-                  <span class="quad-icon-badge">⏱️</span>
-                  <span class="quad-label">THỜI GIAN HỌC</span>
-                </div>
-                <div class="quad-num-wrap">
-                  <span class="quad-number" id="home-study-timer">0p</span>
-                </div>
-                <span class="quad-sub-hint">Tập trung hôm nay</span>
-              </div>
+                <!-- 4 Khối chỉ số 2 Cột (2x2 Quad Grid) -->
+                <div class="hero-quad-grid">
+                  <!-- Card 1: Cần ôn ngay -->
+                  <div class="quad-tile tile-due" id="box-home-due">
+                    <div class="quad-tile-top">
+                      <span class="quad-icon-badge">📥</span>
+                      <span class="quad-label">CẦN ÔN TẬP</span>
+                    </div>
+                    <div class="quad-num-wrap">
+                      <span class="quad-number" id="home-due-val">0</span>
+                      <span class="quad-unit">từ</span>
+                    </div>
+                    <span class="quad-sub-hint" id="home-due-hint">Ưu tiên ôn trước</span>
+                  </div>
 
-              <!-- Card 4: Tỉ lệ ghi nhớ -->
-              <div class="quad-tile tile-retention" id="box-home-retention">
-                <div class="quad-tile-top">
-                  <span class="quad-icon-badge">🎯</span>
-                  <span class="quad-label">TỈ LỆ GHI NHỚ</span>
+                  <!-- Card 2: Đã học hôm nay -->
+                  <div class="quad-tile tile-new" id="box-home-new">
+                    <div class="quad-tile-top">
+                      <span class="quad-icon-badge">✨</span>
+                      <span class="quad-label">ĐÃ HỌC HÔM NAY</span>
+                    </div>
+                    <div class="quad-num-wrap">
+                      <span class="quad-number" id="home-new-today-val">0/10</span>
+                      <span class="quad-unit">từ</span>
+                    </div>
+                    <span class="quad-sub-hint" id="home-goal-hint">Chỉ tiêu: 10 từ</span>
+                  </div>
+
+                  <!-- Card 3: Thời gian học -->
+                  <div class="quad-tile tile-time" id="box-home-time">
+                    <div class="quad-tile-top">
+                      <span class="quad-icon-badge">⏱️</span>
+                      <span class="quad-label">THỜI GIAN HỌC</span>
+                    </div>
+                    <div class="quad-num-wrap">
+                      <span class="quad-number" id="home-study-timer">0p</span>
+                    </div>
+                    <span class="quad-sub-hint">Tập trung hôm nay</span>
+                  </div>
+
+                  <!-- Card 4: Tỉ lệ nhớ tốt -->
+                  <div class="quad-tile tile-retention" id="box-home-retention">
+                    <div class="quad-tile-top">
+                      <span class="quad-icon-badge">🧠</span>
+                      <span class="quad-label">TỈ LỆ NHỚ TỐT</span>
+                    </div>
+                    <div class="quad-num-wrap">
+                      <span class="quad-number" id="home-retention-rate">100%</span>
+                    </div>
+                    <span class="quad-sub-hint" id="home-retention-hint">Trí nhớ xuất sắc 🌟</span>
+                  </div>
                 </div>
-                <div class="quad-num-wrap">
-                  <span class="quad-number" id="home-retention-rate">100%</span>
-                </div>
-                <span class="quad-sub-hint">Độ bền trí nhớ</span>
-              </div>
-            </div>
 
-            <!-- Nút Hành Động Chính (Hero CTA) -->
-            <button class="btn-hero-action" id="btn-home-hero-cta">
-              <svg class="action-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="5 3 19 12 5 21 5 3"/>
-              </svg>
-              <span id="home-hero-cta-text">Ôn 0 từ ngay</span>
-            </button>
-
-            <!-- Dòng thông tin ước tính & chuỗi -->
-            <div class="hero-meta-hint">
-              <span id="home-estimated-time">⏱️ Khoảng 0 phút</span>
-              <span class="hint-sep">•</span>
-              <span id="home-streak-hint">Học hôm nay để giữ chuỗi 🔥</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. Lịch Ôn Tập 7 Ngày (Section Header ngoài trần + Inset Card) -->
-        <div class="bento-section-group bento-group-forecast">
-          <div class="section-group-header">
-            <div style="display:flex; align-items:center; justify-content:space-between; width:100%; gap:8px;">
-              <span class="section-group-title">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-                  <line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
-                </svg>
-                LỊCH ÔN TẬP 7 NGÀY TỚI
-              </span>
-              <div style="display:flex; align-items:center; gap:6px;">
-                <span class="bento-badge-forecast" id="home-forecast-total">0 từ / 7 ngày</span>
-                <button type="button" class="btn-open-calendar-modal" id="btn-open-calendar-modal" title="Xem lịch tháng chi tiết" aria-label="Mở lịch tháng">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                <!-- Nút Hành Động Chính (Hero CTA) -->
+                <button class="btn-hero-action" id="btn-home-hero-cta">
+                  <svg class="action-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
                   </svg>
-                  <span>Lịch tháng ↗</span>
+                  <span id="home-hero-cta-text">Ôn 0 từ ngay</span>
                 </button>
-              </div>
-            </div>
-            <span class="section-group-hint">Số lượng thẻ đến hạn ôn theo từng ngày (Chạm để xem chi tiết)</span>
-          </div>
-          <div class="bento-card bento-forecast-card">
-            <div class="forecast-capsules-grid" id="home-review-forecast"></div>
-          </div>
-        </div>
 
-        <!-- 4. Bento Trend Card: Biểu Đồ Tiến Bộ 7 Ngày -->
-        <div class="bento-section-group bento-group-trend">
-          <div class="section-group-header">
-            <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
-              <span class="section-group-title">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
-                </svg>
-                TIẾN BỘ 7 NGÀY QUA
-              </span>
-              <span class="trend-delta-pill" id="home-trend-delta">↑ 0 từ nhớ tốt</span>
-            </div>
-            <span class="section-group-hint">Số từ vựng ôn tập và ghi nhớ thành công</span>
-          </div>
-
-          <div class="bento-card bento-trend-card">
-            <!-- Dynamic SVG Area Sparkline Chart -->
-            <div class="trend-chart-wrapper" id="home-trend-chart-box"></div>
-
-            <!-- Sub Row: Thống kê nhịp độ tinh gọn -->
-            <div class="trend-sub-row">
-              <div class="trend-stat-meta">
-                <span class="meta-item">⚡ Trung bình: <strong id="trend-avg-val">0</strong> từ/ngày</span>
-                <span class="meta-sep">•</span>
-                <span class="meta-item">Tổng cộng: <strong id="trend-total-val">0</strong> từ</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5. Phân bổ Trí nhớ FSRS & Tiếp tục học gần đây -->
-        <div class="bento-section-group bento-group-memory">
-          <div class="section-group-header">
-            <span class="section-group-title">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-              </svg>
-              KHO TỪ VỰNG & TRẠNG THÁI TRÍ NHỚ
-            </span>
-            <span class="section-group-hint">Độ bền trí nhớ theo thuật toán FSRS-6</span>
-          </div>
-
-          <div class="bento-card bento-memory-card">
-            <div class="memory-badges-grid">
-              <div class="memory-badge-item badge-mastered" title="Độ bền Stability ≥ 30 ngày">
-                <div class="memory-badge-icon">💎</div>
-                <div class="memory-badge-info">
-                  <span class="memory-badge-count" id="m-count-mastered">0</span>
-                  <span class="memory-badge-lbl">Nhớ sâu</span>
-                </div>
-              </div>
-              <div class="memory-badge-item badge-learning" title="Đang trong chu kỳ lặp lại ngắt quãng">
-                <div class="memory-badge-icon">🌱</div>
-                <div class="memory-badge-info">
-                  <span class="memory-badge-count" id="m-count-learning">0</span>
-                  <span class="memory-badge-lbl">Đang nhớ</span>
-                </div>
-              </div>
-              <div class="memory-badge-item badge-new" title="Từ mới chưa bắt đầu học">
-                <div class="memory-badge-icon">📖</div>
-                <div class="memory-badge-info">
-                  <span class="memory-badge-count" id="m-count-new">0</span>
-                  <span class="memory-badge-lbl">Chưa học</span>
+                <!-- Dòng thông tin ước tính & chuỗi -->
+                <div class="hero-meta-hint">
+                  <span id="home-estimated-time">⏱️ Khoảng 0 phút</span>
+                  <span class="hint-sep">•</span>
+                  <span id="home-streak-hint">Học hôm nay để giữ chuỗi 🔥</span>
                 </div>
               </div>
             </div>
 
-            <!-- Nút Tiếp tục chủ đề gần nhất -->
-            <div class="home-resume-deck-row" id="home-recent-deck-wrap">
-              <div class="resume-deck-left">
-                <span class="resume-deck-hint">Tiếp tục chủ đề:</span>
-                <strong class="resume-deck-name" id="home-recent-deck-name">Top 1000 từ cốt lõi</strong>
+            <!-- 3. Lịch Ôn Tập 7 Ngày -->
+            <div class="bento-section-group bento-group-forecast">
+              <div class="section-group-header">
+                <div style="display:flex; align-items:center; justify-content:space-between; width:100%; gap:8px;">
+                  <span class="section-group-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                      <line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
+                    </svg>
+                    DỰ BÁO LỊCH ÔN 7 NGÀY TỚI
+                  </span>
+                  <div style="display:flex; align-items:center; gap:6px;">
+                    <span class="bento-badge-forecast" id="home-forecast-total">0 từ / 7 ngày</span>
+                    <button type="button" class="btn-open-calendar-modal" id="btn-open-calendar-modal" title="Xem lịch tháng chi tiết" aria-label="Mở lịch tháng">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>Lịch tháng ↗</span>
+                    </button>
+                  </div>
+                </div>
+                <span class="section-group-hint">Số lượng thẻ đến hạn theo ngày (Chạm để mở lịch chi tiết)</span>
               </div>
-              <button type="button" class="btn-resume-deck-action" id="btn-home-resume-deck">
-                <span>Học tiếp</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
-              </button>
+              <div class="bento-card bento-forecast-card">
+                <div class="forecast-capsules-grid" id="home-review-forecast"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CỘT PHẢI: PHONG ĐỘ 7 NGÀY & HÀNH TRÌNH TỪ VỰNG -->
+          <div class="review-col-right">
+            <!-- 4. Bento Trend Card: Biểu Đồ Phong Độ 7 Ngày -->
+            <div class="bento-section-group bento-group-trend">
+              <div class="section-group-header">
+                <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+                  <span class="section-group-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+                    </svg>
+                    PHONG ĐỘ 7 NGÀY QUA
+                  </span>
+                  <span class="trend-delta-pill" id="home-trend-delta">✨ 0 lượt ôn tuần này</span>
+                </div>
+                <span class="section-group-hint">Số lượng từ vựng ôn tập mỗi ngày (T2 ➔ CN)</span>
+              </div>
+
+              <div class="bento-card bento-trend-card">
+                <!-- Dynamic SVG Area Sparkline Chart -->
+                <div class="trend-chart-wrapper" id="home-trend-chart-box"></div>
+
+                <!-- Sub Row: Thống kê nhịp độ tinh gọn -->
+                <div class="trend-sub-row">
+                  <div class="trend-stat-meta">
+                    <span class="meta-item">⚡ Trung bình: <strong id="trend-avg-val">0</strong> từ/ngày</span>
+                    <span class="meta-sep">•</span>
+                    <span class="meta-item">Tổng tuần: <strong id="trend-total-val">0</strong> từ</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. Hành Trình Từ Vựng & Tiếp Tục Học -->
+            <div class="bento-section-group bento-group-memory">
+              <div class="section-group-header">
+                <span class="section-group-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                  </svg>
+                  HÀNH TRÌNH TỪ VỰNG & HỌC TIẾP
+                </span>
+                <span class="section-group-hint">Tiến độ làm chủ kho 2.500+ từ vựng tiếng Anh</span>
+              </div>
+
+              <div class="bento-card bento-memory-card">
+                <!-- Mastery Progress Strip -->
+                <div class="memory-mastery-strip">
+                  <div class="mastery-text-row">
+                    <span>Đã làm chủ: <strong id="home-mastery-count">0</strong> / <strong id="home-total-count">0</strong> từ</span>
+                    <span class="mastery-pct-badge" id="home-mastery-pct">0%</span>
+                  </div>
+                  <div class="memory-mastery-bar-bg">
+                    <div class="memory-mastery-bar-fill" id="home-mastery-bar" style="width: 0%;"></div>
+                  </div>
+                </div>
+
+                <div class="memory-badges-grid">
+                  <div class="memory-badge-item badge-mastered" title="Độ bền Stability ≥ 30 ngày (Nhớ sâu)">
+                    <div class="memory-badge-icon">💎</div>
+                    <div class="memory-badge-info">
+                      <span class="memory-badge-count" id="m-count-mastered">0</span>
+                      <span class="memory-badge-lbl">Nhớ sâu</span>
+                    </div>
+                  </div>
+                  <div class="memory-badge-item badge-learning" title="Đang trong chu kỳ lặp lại ngắt quãng">
+                    <div class="memory-badge-icon">🌱</div>
+                    <div class="memory-badge-info">
+                      <span class="memory-badge-count" id="m-count-learning">0</span>
+                      <span class="memory-badge-lbl">Đang nhớ</span>
+                    </div>
+                  </div>
+                  <div class="memory-badge-item badge-new" title="Từ mới trong kho chưa học">
+                    <div class="memory-badge-icon">📖</div>
+                    <div class="memory-badge-info">
+                      <span class="memory-badge-count" id="m-count-new">0</span>
+                      <span class="memory-badge-lbl">Chưa học</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Nút Tiếp tục chủ đề gần nhất -->
+                <div class="home-resume-deck-row" id="home-recent-deck-wrap">
+                  <div class="resume-deck-left">
+                    <span class="resume-deck-hint">TIẾP TỤC CHỦ ĐỀ:</span>
+                    <strong class="resume-deck-name" id="home-recent-deck-name">Top 1000 từ cốt lõi</strong>
+                  </div>
+                  <button type="button" class="btn-resume-deck-action" id="btn-home-resume-deck">
+                    <span>Học tiếp</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -242,7 +276,7 @@ export function renderReviewTab(app) {
     const now = new Date();
     const totalCards = allCards.length;
 
-    // 1. Phân loại từ vựng & 3 Cấp độ thành tựu FSRS
+    // 1. Phân loại từ vựng & Cấp độ thành tựu FSRS
     let masteredCount = 0; // S >= MASTERY_STABILITY_THRESHOLD
     let learningCount = 0; // 3d <= S < 21d
     let newCount = 0;      // Chưa học
@@ -274,7 +308,7 @@ export function renderReviewTab(app) {
 
     const retentionRate = learnedCount > 0 ? Math.round((goodMemoryCount / learnedCount) * 100) : 100;
 
-    // Cập nhật Timer & Retention Rate trong 4 Card (Không lặp lại emoji)
+    // Cập nhật Timer & Retention Rate trong 4 Card
     const elTimer = document.getElementById('home-study-timer');
     if (elTimer) {
       const todaySecs = StorageManager.getTodayStudySeconds();
@@ -290,7 +324,18 @@ export function renderReviewTab(app) {
       elRetention.textContent = `${retentionRate}%`;
     }
 
-    // Cập nhật 3 Mini Badges
+    const elRetentionHint = document.getElementById('home-retention-hint');
+    if (elRetentionHint) {
+      if (retentionRate >= 90) {
+        elRetentionHint.textContent = 'Trí nhớ xuất sắc 🌟';
+      } else if (retentionRate >= 75) {
+        elRetentionHint.textContent = 'Độ nhớ rất tốt 👍';
+      } else {
+        elRetentionHint.textContent = 'Cần ôn thêm 📖';
+      }
+    }
+
+    // Cập nhật 3 Mini Badges & Thanh Mastery Progress
     const elMMastered = document.getElementById('m-count-mastered');
     if (elMMastered) elMMastered.textContent = masteredCount.toLocaleString('vi-VN');
 
@@ -299,6 +344,21 @@ export function renderReviewTab(app) {
 
     const elMNew = document.getElementById('m-count-new');
     if (elMNew) elMNew.textContent = newCount.toLocaleString('vi-VN');
+
+    const totalMastered = masteredCount + learningCount;
+    const masteryPct = totalCards > 0 ? Math.round((totalMastered / totalCards) * 100) : 0;
+
+    const elMasteryCount = document.getElementById('home-mastery-count');
+    if (elMasteryCount) elMasteryCount.textContent = totalMastered.toLocaleString('vi-VN');
+
+    const elTotalCount = document.getElementById('home-total-count');
+    if (elTotalCount) elTotalCount.textContent = totalCards.toLocaleString('vi-VN');
+
+    const elMasteryPct = document.getElementById('home-mastery-pct');
+    if (elMasteryPct) elMasteryPct.textContent = `${masteryPct}%`;
+
+    const elMasteryBar = document.getElementById('home-mastery-bar');
+    if (elMasteryBar) elMasteryBar.style.width = `${masteryPct}%`;
 
     // 2. Mục tiêu hôm nay & Nhật ký học
     const dailyGoal = Number(app.settings.dailyNewLimit) || 10;
@@ -320,9 +380,9 @@ export function renderReviewTab(app) {
       if (queueDue > 0) {
         elTodayStatus.textContent = `Có ${queueDue} từ cần ôn tập hôm nay`;
       } else if (todayNewLearned >= dailyGoal) {
-        elTodayStatus.textContent = 'Đã hoàn thành mục tiêu hôm nay ✓';
+        elTodayStatus.textContent = 'Đã hoàn thành chỉ tiêu hôm nay ✓';
       } else {
-        elTodayStatus.textContent = `Còn ${remainingGoal} từ để đạt mục tiêu hôm nay`;
+        elTodayStatus.textContent = `Còn ${remainingGoal} từ để đạt chỉ tiêu hôm nay`;
       }
     }
 
@@ -330,7 +390,7 @@ export function renderReviewTab(app) {
     const streak = StatsManager.calculateStreak(StorageManager.getStudyLogs());
     const elHeaderStreak = document.getElementById('home-header-streak');
     if (elHeaderStreak) {
-      elHeaderStreak.textContent = `🔥 ${streak} ngày`;
+      elHeaderStreak.textContent = `🔥 ${streak} ngày liên tục`;
     }
 
     const elStreakHint = document.getElementById('home-streak-hint');
@@ -356,26 +416,30 @@ export function renderReviewTab(app) {
     const elDueVal = document.getElementById('home-due-val');
     if (elDueVal) elDueVal.textContent = queueDue;
 
+    const elDueHint = document.getElementById('home-due-hint');
+    if (elDueHint) {
+      elDueHint.textContent = queueDue > 0 ? 'Ưu tiên ôn trước' : 'Đã sạch hàng đợi ✓';
+    }
+
     const elNewVal = document.getElementById('home-new-today-val');
     if (elNewVal) elNewVal.textContent = `${todayNewLearned}/${dailyGoal}`;
 
     const elGoalHint = document.getElementById('home-goal-hint');
     if (elGoalHint) {
       if (todayNewLearned >= dailyGoal) {
-        elGoalHint.textContent = `Đạt mục tiêu ngày ✓`;
+        elGoalHint.textContent = `Đạt chỉ tiêu ngày ✓`;
       } else {
         elGoalHint.textContent = `Còn ${remainingGoal} từ nữa`;
       }
     }
 
-    // E. CTA Nổi Bật: Ưu tiên ôn từ đến hạn; nếu hết từ cần ôn -> chuyển sang tab Chủ đề để học từ mới
+    // E. CTA Nổi Bật
     const btnHeroCta = document.getElementById('btn-home-hero-cta');
     const elCtaText = document.getElementById('home-hero-cta-text');
     const elEstTime = document.getElementById('home-estimated-time');
 
     if (btnHeroCta) {
       if (queueDue > 0) {
-        // Ưu tiên 1: Có từ đến hạn -> Ôn ngay
         if (elCtaText) elCtaText.textContent = `Ôn ${queueDue} từ ngay`;
         const estMin = Math.max(1, Math.ceil(queueDue * 0.5));
         if (elEstTime) elEstTime.textContent = `⏱️ Khoảng ${estMin} phút`;
@@ -390,9 +454,8 @@ export function renderReviewTab(app) {
           }
         };
       } else if (todayNewLearned < dailyGoal) {
-        // Ưu tiên 2: Hết từ cần ôn, chưa đủ mục tiêu ngày -> Điều hướng sang tab Chủ đề để chọn bài học từ mới
         if (elCtaText) elCtaText.textContent = `📚 Chọn chủ đề học từ mới`;
-        if (elEstTime) elEstTime.textContent = `💡 Không có từ cần ôn • Còn ${remainingGoal} từ mục tiêu`;
+        if (elEstTime) elEstTime.textContent = `💡 Đã hết từ cần ôn • Còn ${remainingGoal} từ chỉ tiêu`;
         btnHeroCta.className = 'btn-hero-action cta-priority-learn';
 
         btnHeroCta.onclick = () => {
@@ -403,9 +466,8 @@ export function renderReviewTab(app) {
           }
         };
       } else {
-        // Ưu tiên 3: Đã hoàn thành mục tiêu ngày và không có từ cần ôn -> Điều hướng sang tab Chủ đề
         if (elCtaText) elCtaText.textContent = `✨ Khám phá thêm chủ đề mới`;
-        if (elEstTime) elEstTime.textContent = `🎉 Đã hoàn thành mục tiêu ngày!`;
+        if (elEstTime) elEstTime.textContent = `🎉 Đã hoàn thành chỉ tiêu ngày!`;
         btnHeroCta.className = 'btn-hero-action cta-priority-extra';
 
         btnHeroCta.onclick = () => {
@@ -430,18 +492,16 @@ export function renderReviewTab(app) {
       const oneDayMs = 86400000;
       const sevenDaysMs = 7 * oneDayMs;
 
-      const forecastCounts = [0, 0, 0, 0, 0, 0, 0];
+      const forecastCounts = [queueDue, 0, 0, 0, 0, 0, 0];
 
       for (const card of allCards) {
         const state = StorageManager.getCardState(card.id);
         if (state && state.due && state.state !== State.New && state.state !== 0) {
           const dueMs = new Date(state.due).getTime();
           const diffMs = dueMs - startOfTodayMs;
-          if (diffMs < 0) {
-            forecastCounts[0]++;
-          } else if (diffMs < sevenDaysMs) {
+          if (diffMs >= oneDayMs && diffMs < sevenDaysMs) {
             const dayIndex = Math.floor(diffMs / oneDayMs);
-            if (dayIndex >= 0 && dayIndex < 7) {
+            if (dayIndex >= 1 && dayIndex < 7) {
               forecastCounts[dayIndex]++;
             }
           }
@@ -462,9 +522,22 @@ export function renderReviewTab(app) {
         const label = i === 0 ? 'H.nay' : (i === 1 ? 'Mai' : dayName);
         const barHeightPct = count > 0 ? Math.min(100, Math.max(25, Math.round((count / maxForecast) * 100))) : 8;
 
+        let loadTag = 'Trống';
+        let loadClass = 'load-empty';
+        if (count > 25) {
+          loadTag = 'Cao';
+          loadClass = 'load-high';
+        } else if (count > 10) {
+          loadTag = 'Vừa';
+          loadClass = 'load-med';
+        } else if (count > 0) {
+          loadTag = 'Nhẹ';
+          loadClass = 'load-low';
+        }
+
         const itemEl = document.createElement('div');
         itemEl.className = `forecast-capsule ${i === 0 ? 'is-today' : ''} ${count > 0 ? 'has-due' : 'is-empty'}`;
-        itemEl.title = `${label} (Ngày ${d.getDate()}/${d.getMonth() + 1}): ${count} từ cần ôn. Chạm để mở lịch tháng!`;
+        itemEl.title = `${label} (${d.getDate()}/${d.getMonth() + 1}): ${count} từ cần ôn (Tải ${loadTag}). Chạm để mở lịch tháng!`;
         itemEl.style.cursor = 'pointer';
 
         itemEl.innerHTML = `
@@ -473,7 +546,7 @@ export function renderReviewTab(app) {
             <span class="capsule-date-sub">${d.getDate()}</span>
           </div>
           <div class="capsule-bar-track">
-            <div class="capsule-bar-fill ${count > 0 ? 'fill-active' : ''}" style="height: ${barHeightPct}%;"></div>
+            <div class="capsule-bar-fill ${count > 0 ? 'fill-active ' + loadClass : ''}" style="height: ${barHeightPct}%;"></div>
           </div>
           <span class="capsule-count ${count > 0 ? 'has-count' : ''}">${count}</span>
         `;
@@ -497,8 +570,7 @@ export function renderReviewTab(app) {
       }
     }
 
-
-    // H. Biểu Đồ Tiến Bộ 7 Ngày Qua (Sparkline Area Chart)
+    // H. Biểu Đồ Phong Độ 7 Ngày Qua
     const elTrendDelta = document.getElementById('home-trend-delta');
     const chartBox = document.getElementById('home-trend-chart-box');
     const elAvgVal = document.getElementById('trend-avg-val');
@@ -518,13 +590,7 @@ export function renderReviewTab(app) {
     if (elTotalVal) elTotalVal.textContent = weekTotalCount;
 
     if (elTrendDelta) {
-      if (goodMemoryCount > 0) {
-        elTrendDelta.textContent = `↑ ${goodMemoryCount} từ nhớ tốt`;
-      } else if (weekTotalCount > 0) {
-        elTrendDelta.textContent = `+${weekTotalCount} từ / 7 ngày`;
-      } else {
-        elTrendDelta.textContent = `+${todayNewLearned} từ hôm nay`;
-      }
+      elTrendDelta.textContent = `✨ ${weekTotalCount} lượt ôn tuần này`;
     }
 
     if (chartBox) {
@@ -565,11 +631,11 @@ export function renderReviewTab(app) {
       `).join('');
 
       chartBox.innerHTML = `
-        <div class="trend-svg-container">
-          <svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" class="trend-spark-svg">
+        <div class="trend-sparkline-box">
+          <svg viewBox="0 0 ${w} ${h}" class="trend-svg-chart" preserveAspectRatio="none">
             <defs>
-              <linearGradient id="trendGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#10b981" stop-opacity="0.30"/>
+              <linearGradient id="trendGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#10b981" stop-opacity="0.32"/>
                 <stop offset="100%" stop-color="#10b981" stop-opacity="0.0"/>
               </linearGradient>
             </defs>
@@ -584,7 +650,7 @@ export function renderReviewTab(app) {
       `;
     }
 
-    // I. Thanh Lối Tắt Chủ Đề Gần Đây (Quick Deck Resume)
+    // I. Thanh Lối Tắt Chủ Đề Gần Đây
     const allDecks = app.deckManager.getAllDecks();
     let recentDeck = null;
     let maxStudyTime = 0;

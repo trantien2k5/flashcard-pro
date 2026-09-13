@@ -5,7 +5,7 @@
 
 import { StorageManager } from '../services/storage.js';
 import { State, isCardDue } from '../core/fsrs.js';
-import { escapeHTML, scrollToTop, getLocalDateKey } from '../utils.js';
+import { escapeHTML, scrollToTop } from '../utils.js';
 import { speak, onAudioPlayStateChange } from '../services/audio.js';
 
 // Local view state to preserve across tab switches

@@ -5,7 +5,7 @@
 
 import { StorageManager } from '../services/storage.js';
 import { State } from '../core/fsrs.js';
-import { escapeHTML, escapeRegex } from '../utils.js';
+import { escapeHTML, highlightKeyword } from '../utils.js';
 import { speak } from '../services/audio.js';
 import { SyncManager, SimpleQRCode } from '../services/sync.js';
 
@@ -489,14 +489,6 @@ export function setupSearch(app) {
       history = history.filter(item => item.toLowerCase() !== query.toLowerCase());
       saveSearchHistory(history);
       renderSearchSuggestions();
-    };
-
-    const highlightKeyword = (text, keyword) => {
-      if (!text || !keyword) return escapeHTML(text || '');
-      const escaped = escapeHTML(text);
-      const escapedKw = escapeRegex(escapeHTML(keyword));
-      const regex = new RegExp(`(${escapedKw})`, 'gi');
-      return escaped.replace(regex, '<mark class="search-highlight">$1</mark>');
     };
 
     const openSearchModal = (initialQuery = '') => {

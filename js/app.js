@@ -27,8 +27,7 @@ import {
   setupStudyControls, 
   startStudySession as startStudyView, 
   handleCardChange, 
-  handleStudyFinish, 
-  showSummaryModal 
+  handleStudyFinish 
 } from './views/study.js';
 import { setupSearch, setupSyncController, openSyncModal, showToast, showConfirm, mountGlobalModals } from './views/components.js';
 
