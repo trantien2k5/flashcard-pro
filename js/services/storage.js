@@ -927,15 +927,22 @@ export class BackupService {
   /**
    * Export all user data to a downloadable JSON file
    */
-  static exportToJSON(filename = null) {
+  static exportToJSON(customFilename = null) {
     try {
       const data = StorageManager.exportBackup();
       const jsonStr = JSON.stringify(data, null, 2);
       const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
       
-      const dateStr = new Date().toISOString().slice(0, 10);
-      const safeFilename = filename || `flashcard_pro_backup_${dateStr}.json`;
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, '0');
+      const dd = String(now.getDate()).padStart(2, '0');
+      const hh = String(now.getHours()).padStart(2, '0');
+      const min = String(now.getMinutes()).padStart(2, '0');
+      const timeTag = `${yyyy}${mm}${dd}_${hh}h${min}`;
+      
+      const safeFilename = customFilename || `flashcard_backup_${timeTag}.json`;
 
       const link = document.createElement('a');
       link.href = url;
@@ -945,7 +952,7 @@ export class BackupService {
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
 
-      return { success: true, count: Object.keys(data.cards || {}).length };
+      return { success: true, count: Object.keys(data.cards || {}).length, filename: safeFilename };
     } catch (e) {
       console.error('[BackupService] Export error:', e);
       return { success: false, error: e.message };

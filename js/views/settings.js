@@ -3,7 +3,7 @@
  * Consolidates FSRS Parameters, Audio, Theme Configuration, Achievements & Pure Local Data Management
  */
 
-import { StorageManager } from '../services/storage.js';
+import { StorageManager, BackupService } from '../services/storage.js';
 import { StatsManager } from '../core/stats.js';
 import { State } from '../core/fsrs.js';
 import { showConfirm, showToast } from './components.js';
@@ -326,19 +326,12 @@ export function setupSettingsUI(app) {
     if (btnExport) {
       btnExport.onclick = () => {
         try {
-          const data = StorageManager.exportBackup();
-          const jsonStr = JSON.stringify(data, null, 2);
-          const blob = new Blob([jsonStr], { type: 'application/json' });
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          const dateStr = new Date().toISOString().slice(0, 10);
-          a.href = url;
-          a.download = `flashcard_pro_backup_${dateStr}.json`;
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-          showToast('Đã xuất file sao lưu JSON thành công! 📁', 'success');
+          const result = BackupService.exportToJSON();
+          if (result && result.success) {
+            showToast(`Đã xuất file: ${result.filename} 📁`, 'success');
+          } else {
+            showToast('Lỗi khi xuất file sao lưu.', 'error');
+          }
         } catch (err) {
           console.error('Lỗi xuất file:', err);
           showToast('Lỗi khi xuất file backup.', 'error');
