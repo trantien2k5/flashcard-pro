@@ -118,26 +118,36 @@ export function renderStudyOverlayShell() {
 
         <div class="study-bottom-controls" id="study-controls-wrapper">
           <div id="fsrs-buttons-container" class="fsrs-buttons-grid">
-            <button class="btn-fsrs-rating again" data-rating="1" title="Quên (1)">
+            <button class="btn-fsrs-rating again" data-rating="1" title="Quên (Phím 1)">
               <span class="fsrs-rating-title">Quên</span>
               <span class="fsrs-badge-interval" id="interval-again">1m</span>
             </button>
 
-            <button class="btn-fsrs-rating hard" data-rating="2" title="Khó (2)">
+            <button class="btn-fsrs-rating hard" data-rating="2" title="Khó (Phím 2)">
               <span class="fsrs-rating-title">Khó</span>
               <span class="fsrs-badge-interval" id="interval-hard">10m</span>
             </button>
 
-            <button class="btn-fsrs-rating good" data-rating="3" title="Nhớ (3)">
+            <button class="btn-fsrs-rating good" data-rating="3" title="Nhớ (Phím 3)">
               <span class="fsrs-rating-title">Nhớ</span>
               <span class="fsrs-badge-interval" id="interval-good">1d</span>
             </button>
 
-            <button class="btn-fsrs-rating easy" data-rating="4" title="Dễ (4)">
+            <button class="btn-fsrs-rating easy" data-rating="4" title="Dễ (Phím 4)">
               <span class="fsrs-rating-title">Dễ</span>
               <span class="fsrs-badge-interval" id="interval-easy">4d</span>
             </button>
           </div>
+        </div>
+
+        <!-- Thanh gợi ý phím tắt trên Desktop PC -->
+        <div class="study-keyboard-hints" id="study-keyboard-hints">
+          <span class="kbd-hint"><kbd>Space</kbd> Lật thẻ</span>
+          <span class="kbd-hint"><kbd>1</kbd> Quên</span>
+          <span class="kbd-hint"><kbd>2</kbd> Khó</span>
+          <span class="kbd-hint"><kbd>3</kbd> Nhớ</span>
+          <span class="kbd-hint"><kbd>4</kbd> Dễ</span>
+          <span class="kbd-hint"><kbd>R</kbd> Phát âm</span>
         </div>
       </div>
     `;

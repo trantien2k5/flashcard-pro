@@ -37,7 +37,7 @@ export function renderReviewShell(container) {
         </div>
 
         <!-- 2. Bento Hero Card: Tiến Độ Mục Tiêu & 4 Khối Chỉ Số -->
-        <div class="bento-section-group">
+        <div class="bento-section-group bento-group-hero">
           <div class="bento-card bento-hero-card">
             <!-- Thanh tiến độ mục tiêu ngày -->
             <div class="hero-bar-track" title="Tiến độ mục tiêu hôm nay">
@@ -115,7 +115,7 @@ export function renderReviewShell(container) {
         </div>
 
         <!-- 3. Lịch Ôn Tập 7 Ngày (Section Header ngoài trần + Inset Card) -->
-        <div class="bento-section-group">
+        <div class="bento-section-group bento-group-forecast">
           <div class="section-group-header">
             <div style="display:flex; align-items:center; justify-content:space-between; width:100%; gap:8px;">
               <span class="section-group-title">
@@ -146,7 +146,7 @@ export function renderReviewShell(container) {
         </div>
 
         <!-- 4. Bento Trend Card: Biểu Đồ Tiến Bộ 7 Ngày -->
-        <div class="bento-section-group">
+        <div class="bento-section-group bento-group-trend">
           <div class="section-group-header">
             <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
               <span class="section-group-title">
@@ -174,6 +174,56 @@ export function renderReviewShell(container) {
             </div>
           </div>
         </div>
+
+        <!-- 5. Phân bổ Trí nhớ FSRS & Tiếp tục học gần đây -->
+        <div class="bento-section-group bento-group-memory">
+          <div class="section-group-header">
+            <span class="section-group-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+              KHO TỪ VỰNG & TRẠNG THÁI TRÍ NHỚ
+            </span>
+            <span class="section-group-hint">Độ bền trí nhớ theo thuật toán FSRS-6</span>
+          </div>
+
+          <div class="bento-card bento-memory-card">
+            <div class="memory-badges-grid">
+              <div class="memory-badge-item badge-mastered" title="Độ bền Stability ≥ 30 ngày">
+                <div class="memory-badge-icon">💎</div>
+                <div class="memory-badge-info">
+                  <span class="memory-badge-count" id="m-count-mastered">0</span>
+                  <span class="memory-badge-lbl">Nhớ sâu</span>
+                </div>
+              </div>
+              <div class="memory-badge-item badge-learning" title="Đang trong chu kỳ lặp lại ngắt quãng">
+                <div class="memory-badge-icon">🌱</div>
+                <div class="memory-badge-info">
+                  <span class="memory-badge-count" id="m-count-learning">0</span>
+                  <span class="memory-badge-lbl">Đang nhớ</span>
+                </div>
+              </div>
+              <div class="memory-badge-item badge-new" title="Từ mới chưa bắt đầu học">
+                <div class="memory-badge-icon">📖</div>
+                <div class="memory-badge-info">
+                  <span class="memory-badge-count" id="m-count-new">0</span>
+                  <span class="memory-badge-lbl">Chưa học</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nút Tiếp tục chủ đề gần nhất -->
+            <div class="home-resume-deck-row" id="home-recent-deck-wrap">
+              <div class="resume-deck-left">
+                <span class="resume-deck-hint">Tiếp tục chủ đề:</span>
+                <strong class="resume-deck-name" id="home-recent-deck-name">Top 1000 từ cốt lõi</strong>
+              </div>
+              <button type="button" class="btn-resume-deck-action" id="btn-home-resume-deck">
+                <span>Học tiếp</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
         </div>
 
       </div>

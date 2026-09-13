@@ -652,40 +652,213 @@
   color: var(--border);
 }
 
+/* 5. Memory & Resume Deck Card */
+.memory-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.memory-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  transition: transform 0.18s ease;
+}
+
+.memory-badge-item:hover {
+  transform: translateY(-1px);
+}
+
+[data-theme="light"] .memory-badge-item {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.memory-badge-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.memory-badge-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.memory-badge-count {
+  font-size: 1.05rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.badge-mastered .memory-badge-count { color: #10b981; }
+[data-theme="light"] .badge-mastered .memory-badge-count { color: #059669; }
+
+.badge-learning .memory-badge-count { color: #38bdf8; }
+[data-theme="light"] .badge-learning .memory-badge-count { color: #0284c7; }
+
+.badge-new .memory-badge-count { color: #a855f7; }
+[data-theme="light"] .badge-new .memory-badge-count { color: #7c3aed; }
+
+.memory-badge-lbl {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.home-resume-deck-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 14px;
+  gap: 10px;
+}
+
+[data-theme="light"] .home-resume-deck-row {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.resume-deck-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.resume-deck-hint {
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+[data-theme="light"] .resume-deck-hint {
+  color: #1e40af;
+}
+
+.resume-deck-name {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-theme="light"] .resume-deck-name {
+  color: #1e3a8a;
+}
+
+.btn-resume-deck-action {
+  padding: 6px 14px;
+  border-radius: 99px;
+  background: var(--primary);
+  border: none;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+.btn-resume-deck-action:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.45);
+}
+
+.btn-resume-deck-action:active {
+  transform: scale(0.95);
+}
+
 /* ==========================================================================
-   Desktop & Tablet Optimization (>= 860px)
+   Desktop & Tablet Optimization (>= 860px) - World-Class 2-Column Bento Grid
    ========================================================================== */
 @media (min-width: 860px) {
   .review-bento-container {
-    max-width: 620px;
-    gap: 14px;
-    padding: 8px 0;
+    max-width: 1120px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    gap: 16px 20px;
+    padding: 6px 0 24px 0;
+    align-items: start;
+    margin: 0 auto;
   }
+
+  .review-hero-banner {
+    grid-column: 1 / -1;
+    margin-bottom: 2px;
+  }
+
+  .bento-section-group.bento-group-hero {
+    grid-column: 1;
+  }
+
+  .bento-section-group.bento-group-forecast {
+    grid-column: 1;
+  }
+
+  .bento-section-group.bento-group-trend {
+    grid-column: 2;
+  }
+
+  .bento-section-group.bento-group-memory {
+    grid-column: 2;
+  }
+
   .bento-greeting-title {
     font-size: 1.25rem;
   }
+
   .bento-card {
-    padding: 14px 18px;
+    padding: 15px 18px;
     border-radius: 18px;
-    gap: 11px;
+    gap: 12px;
   }
+
   .btn-hero-action {
     min-height: 52px;
     font-size: 1.05rem;
   }
+
   .quad-tile {
-    min-height: 74px;
-    padding: 10px 12px;
+    min-height: 76px;
+    padding: 10px 14px;
   }
+
   .quad-number {
-    font-size: 1.4rem;
+    font-size: 1.45rem;
   }
+
   .forecast-capsule {
-    height: 52px;
+    height: 54px;
     gap: 4px;
   }
+
   .trend-svg-container {
-    height: 60px;
+    height: 68px;
   }
 }
 
