@@ -814,18 +814,22 @@
 
   .bento-section-group.bento-group-hero {
     grid-column: 1;
+    grid-row: 2;
   }
 
   .bento-section-group.bento-group-forecast {
     grid-column: 1;
+    grid-row: 3;
   }
 
   .bento-section-group.bento-group-trend {
     grid-column: 2;
+    grid-row: 2;
   }
 
   .bento-section-group.bento-group-memory {
     grid-column: 2;
+    grid-row: 3;
   }
 
   .bento-greeting-title {

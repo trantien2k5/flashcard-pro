@@ -526,6 +526,8 @@ export function setupSearch(app) {
     };
 
     if (btnOpenHeader) btnOpenHeader.onclick = () => openSearchModal();
+    const btnOpenSidebar = document.getElementById('btn-sidebar-search');
+    if (btnOpenSidebar) btnOpenSidebar.onclick = () => openSearchModal();
     if (btnCloseSearch) btnCloseSearch.onclick = () => closeSearchModal();
 
     searchModal.addEventListener('click', (e) => {

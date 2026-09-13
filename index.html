@@ -79,6 +79,19 @@
         </div>
       </div>
 
+      <div class="sidebar-search-wrap">
+        <button type="button" id="btn-sidebar-search" class="sidebar-search-btn" title="Tìm kiếm từ vựng (Ctrl+K)">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+            </svg>
+            <span class="search-btn-text">Tìm kiếm...</span>
+          </div>
+          <kbd class="search-kbd">Ctrl K</kbd>
+        </button>
+      </div>
+
       <div class="sidebar-nav-list">
         <button class="nav-item active" data-tab="tab-review">
           <span class="nav-icon">
@@ -122,6 +135,16 @@
             </svg>
           </span>
           <span class="nav-label">Thống kê</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-profile">
+          <span class="nav-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </span>
+          <span class="nav-label">Hồ sơ</span>
         </button>
 
         <button class="nav-item" data-tab="tab-settings">
