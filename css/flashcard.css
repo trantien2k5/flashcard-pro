@@ -342,6 +342,142 @@
   border-color: #e2e8f0;
 }
 
+/* --------------------------------------------------------------------------
+   Top Bar Header: Trạng thái thẻ (State) & Số lần học (Reps)
+   -------------------------------------------------------------------------- */
+.card-top-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-bottom: clamp(6px, 1.2vh, 10px);
+  z-index: 10;
+}
+
+/* Badge Trạng thái thẻ FSRS */
+.card-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-size: clamp(0.72rem, 1.4vh, 0.78rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: all 0.25s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.card-status-badge .status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* 1. Trạng thái: Từ mới (State.New) */
+.card-status-badge.state-new {
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #a5b4fc;
+}
+
+.card-status-badge.state-new .status-dot {
+  background: #6366f1;
+  box-shadow: 0 0 6px rgba(99, 102, 241, 0.6);
+}
+
+[data-theme="light"] .card-status-badge.state-new {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  color: #4338ca;
+}
+
+/* 2. Trạng thái: Đang học (State.Learning) */
+.card-status-badge.state-learning {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fcd34d;
+}
+
+.card-status-badge.state-learning .status-dot {
+  background: #f59e0b;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.6);
+}
+
+[data-theme="light"] .card-status-badge.state-learning {
+  background: #fffbeb;
+  border-color: #fde68a;
+  color: #b45309;
+}
+
+/* 3. Trạng thái: Ôn tập (State.Review) */
+.card-status-badge.state-review {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #6ee7b7;
+}
+
+.card-status-badge.state-review .status-dot {
+  background: #10b981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+}
+
+[data-theme="light"] .card-status-badge.state-review {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #047857;
+}
+
+/* 4. Trạng thái: Luyện lại / Quên (State.Relearning) */
+.card-status-badge.state-relearning {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.card-status-badge.state-relearning .status-dot {
+  background: #ef4444;
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.6);
+}
+
+[data-theme="light"] .card-status-badge.state-relearning {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #b91c1c;
+}
+
+/* Badge Số lần học bấm thẻ (Reps Counter) */
+.card-reps-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 99px;
+  font-size: clamp(0.72rem, 1.4vh, 0.78rem);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+  color: var(--text-secondary, #94a3b8);
+  user-select: none;
+  -webkit-user-select: none;
+  transition: all 0.2s ease;
+}
+
+[data-theme="light"] .card-reps-badge {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #64748b;
+}
+
+.card-reps-badge svg {
+  color: var(--primary, #6366f1);
+  flex-shrink: 0;
+}
+
 /* Container Ảnh Minh Họa Trực Quan - Chiếm Tỉ Lệ Lớn & Sắc Nét */
 .card-image-container {
   width: 100%;

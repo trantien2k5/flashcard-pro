@@ -2,7 +2,8 @@
  * Study View Controller - Flashcard 3D Interactive Learning Engine
  */
 
-import { Rating } from '../core/fsrs.js';
+import { Rating, State } from '../core/fsrs.js';
+import { StorageManager } from '../services/storage.js';
 import { showConfirm } from './components.js';
 import { globalStudyTimer } from '../core/stats.js';
 import { unlockAudioContext, preloadCardImage } from '../core/session.js';
@@ -47,6 +48,20 @@ export function renderStudyOverlayShell() {
           <div id="flashcard-element" class="flashcard-3d-wrapper">
             <!-- MẶT TRƯỚC -->
             <div class="flashcard-face face-front">
+              <!-- Top Header: Trạng thái thẻ & Số lần học -->
+              <div class="card-top-bar">
+                <div class="card-status-badge state-new" id="card-front-status-badge">
+                  <span class="status-dot"></span>
+                  <span class="status-text" id="card-front-status-text">Từ mới</span>
+                </div>
+                <div class="card-reps-badge" id="card-front-reps-badge" title="Số lần học / bấm thẻ">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                  </svg>
+                  <span class="reps-text" id="card-front-reps-text">0 lần học</span>
+                </div>
+              </div>
+
               <div class="card-image-container" id="card-front-img-container" style="display: none;">
                 <img id="card-front-img" class="fc-image" alt="Visual" />
               </div>
@@ -65,6 +80,20 @@ export function renderStudyOverlayShell() {
 
             <!-- MẶT SAU -->
             <div class="flashcard-face face-back">
+              <!-- Top Header: Trạng thái thẻ & Số lần học -->
+              <div class="card-top-bar">
+                <div class="card-status-badge state-new" id="card-back-status-badge">
+                  <span class="status-dot"></span>
+                  <span class="status-text" id="card-back-status-text">Từ mới</span>
+                </div>
+                <div class="card-reps-badge" id="card-back-reps-badge" title="Số lần học / bấm thẻ">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                  </svg>
+                  <span class="reps-text" id="card-back-reps-text">0 lần học</span>
+                </div>
+              </div>
+
               <div class="card-back-content">
                 <div class="card-back-tag-row">
                   <span class="card-back-tag" id="card-back-tag">NGHĨA TIẾNG VIỆT</span>
@@ -345,7 +374,15 @@ function getStudyDom() {
     iEasy: document.getElementById('interval-easy'),
     btnAudioSpeaker: document.getElementById('btn-audio-speaker'),
     btnAudioUs: document.getElementById('btn-audio-us'),
-    btnAudioUk: document.getElementById('btn-audio-uk')
+    btnAudioUk: document.getElementById('btn-audio-uk'),
+    statusBadgeFront: document.getElementById('card-front-status-badge'),
+    statusTextFront: document.getElementById('card-front-status-text'),
+    repsBadgeFront: document.getElementById('card-front-reps-badge'),
+    repsTextFront: document.getElementById('card-front-reps-text'),
+    statusBadgeBack: document.getElementById('card-back-status-badge'),
+    statusTextBack: document.getElementById('card-back-status-text'),
+    repsBadgeBack: document.getElementById('card-back-reps-badge'),
+    repsTextBack: document.getElementById('card-back-reps-text')
   };
   return _dom;
 }
@@ -399,6 +436,45 @@ export function handleCardChange(app, card, progress) {
     if (dom.progressBar) {
       dom.progressBar.style.width = `${percent}%`;
     }
+
+    // Cập nhật trạng thái thẻ FSRS và số lần học bấm thẻ (reps) lên góc trên thẻ
+    const cardState = card.fsrsState || StorageManager.getCardState(card.id) || { state: State.New, reps: 0 };
+    const stateNum = cardState.state !== undefined ? cardState.state : State.New;
+    const repsCount = cardState.reps || 0;
+
+    let stateText = 'Từ mới';
+    let stateClass = 'state-new';
+
+    if (stateNum === State.Learning || stateNum === 1) {
+      stateText = 'Đang học';
+      stateClass = 'state-learning';
+    } else if (stateNum === State.Review || stateNum === 2) {
+      stateText = 'Ôn tập';
+      stateClass = 'state-review';
+    } else if (stateNum === State.Relearning || stateNum === 3) {
+      stateText = 'Luyện lại';
+      stateClass = 'state-relearning';
+    } else {
+      stateText = 'Từ mới';
+      stateClass = 'state-new';
+    }
+
+    const repsText = repsCount === 0 ? '0 lần học' : `${repsCount} lần học`;
+
+    const updateBadges = (badgeEl, textEl, repsEl) => {
+      if (badgeEl) {
+        badgeEl.className = `card-status-badge ${stateClass}`;
+      }
+      if (textEl) {
+        textEl.textContent = stateText;
+      }
+      if (repsEl) {
+        repsEl.textContent = repsText;
+      }
+    };
+
+    updateBadges(dom.statusBadgeFront, dom.statusTextFront, dom.repsTextFront);
+    updateBadges(dom.statusBadgeBack, dom.statusTextBack, dom.repsTextBack);
 
     // Xử lý hình ảnh minh họa trực quan (nếu từ vựng có trường img hoặc image)
     const imgSrc = card.img || card.image || '';
