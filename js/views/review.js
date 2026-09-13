@@ -57,11 +57,6 @@ export function renderReviewShell(container) {
               </div>
 
               <div class="bento-card bento-hero-card">
-                <!-- Thanh tiến độ mục tiêu ngày -->
-                <div class="hero-bar-track" title="Tiến độ mục tiêu hôm nay">
-                  <div class="hero-bar-fill" id="home-goal-bar-fill" style="width: 0%;"></div>
-                </div>
-
                 <!-- 4 Khối chỉ số 2 Cột (2x2 Quad Grid) -->
                 <div class="hero-quad-grid">
                   <!-- Card 1: Cần ôn ngay -->
