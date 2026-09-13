@@ -16,8 +16,11 @@ export const STORAGE_KEYS = {
   CARDS: 'fc_pro_cards',
   LOGS: 'fc_pro_logs',
   STREAK: 'fc_pro_streak',
+  STUDY_TIME: 'fc_pro_study_time_v2',
   SYNC_HISTORY: 'fc_pro_sync_history'
 };
+
+export const MASTERY_STABILITY_THRESHOLD = 21; // Ngưỡng thành thạo thống nhất toàn hệ thống (≥ 21 ngày)
 
 export const DEFAULT_SETTINGS = {
   requestRetention: 0.90, // 90% target retention
@@ -45,7 +48,7 @@ export const State = Object.freeze({
 });
 
 export const DEFAULT_FSRS_PARAMS = {
-  // 19 parameters of FSRS-6
+  // 19 parameters of standard FSRS-6
   w: [
     0.40255, 1.18385, 3.173, 15.69105,
     7.1949, 0.5345, 1.4604, 0.0046,
@@ -61,8 +64,8 @@ export const STABILITY_TIERS = [
   { level: 1, name: 'Mới học', min: 0, max: 3, label: 'Mức 1', desc: '1 - 3 ngày', color: '#6366f1' },
   { level: 2, name: 'Ngắn hạn', min: 3, max: 7, label: 'Mức 2', desc: '3 - 7 ngày (~1 tuần)', color: '#3b82f6' },
   { level: 3, name: 'Trung hạn', min: 7, max: 14, label: 'Mức 3', desc: '1 - 2 tuần', color: '#06b6d4' },
-  { level: 4, name: 'Bền vững', min: 14, max: 30, label: 'Mức 4', desc: '2 - 4 tuần', color: '#10b981' },
-  { level: 5, name: 'Ghi nhớ sâu', min: 30, max: Infinity, label: 'Mức 5', desc: '≥ 30 ngày (Dài hạn)', color: '#f59e0b' }
+  { level: 4, name: 'Bền vững', min: 14, max: 21, label: 'Mức 4', desc: '2 - 3 tuần', color: '#10b981' },
+  { level: 5, name: 'Thành thạo (Sâu)', min: 21, max: Infinity, label: 'Mức 5', desc: '≥ 21 ngày (Dài hạn)', color: '#f59e0b' }
 ];
 
 export const DECK_ENGLISH_NAMES = {

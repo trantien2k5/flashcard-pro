@@ -14,8 +14,9 @@ import {
 
 export { unlockAudioContext };
 
-// Bộ nhớ đệm RAM lưu giữ tham chiếu hình ảnh đã giải mã (Decoded Image Cache)
+// Bộ nhớ đệm RAM lưu giữ tham chiếu hình ảnh đã giải mã (Decoded Image Cache với LRU)
 const sessionImageCache = new Map();
+const MAX_IMAGE_CACHE_SIZE = 60;
 
 /**
  * Tải trước và giải mã hình ảnh vào GPU/Browser RAM cache
@@ -26,7 +27,17 @@ export function preloadCardImage(src) {
     return Promise.resolve(null);
   }
   if (sessionImageCache.has(src)) {
-    return sessionImageCache.get(src);
+    const p = sessionImageCache.get(src);
+    // Refresh LRU order
+    sessionImageCache.delete(src);
+    sessionImageCache.set(src, p);
+    return p;
+  }
+
+  // Prune oldest if exceeds capacity
+  if (sessionImageCache.size >= MAX_IMAGE_CACHE_SIZE) {
+    const oldestKey = sessionImageCache.keys().next().value;
+    sessionImageCache.delete(oldestKey);
   }
 
   const img = new Image();

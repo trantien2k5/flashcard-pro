@@ -326,12 +326,22 @@
   font-weight: 600;
 }
 
+[data-theme="light"] .journal-legend {
+  color: #475569;
+}
+
 .legend-cell {
   width: 11px;
   height: 11px;
   border-radius: 3px;
   border: 1px solid rgba(0,0,0,0.1);
 }
+
+[data-theme="light"] .legend-cell.heat-0 { background: #ffffff; border-color: #cbd5e1; }
+[data-theme="light"] .legend-cell.heat-1 { background: #ecfdf5; border-color: #a7f3d0; }
+[data-theme="light"] .legend-cell.heat-2 { background: #d1fae5; border-color: #6ee7b7; }
+[data-theme="light"] .legend-cell.heat-3 { background: #10b981; border-color: #059669; }
+[data-theme="light"] .legend-cell.heat-4 { background: #047857; border-color: #064e3b; }
 
 .journal-calendar-wrapper {
   padding: 12px 10px 14px 10px;
@@ -353,8 +363,16 @@
   letter-spacing: 0.04em;
 }
 
+[data-theme="light"] .weekday-cell {
+  color: #475569;
+}
+
 .weekday-cell.sun {
   color: #f43f5e;
+}
+
+[data-theme="light"] .weekday-cell.sun {
+  color: #e11d48;
 }
 
 .calendar-grid-cells {
@@ -383,7 +401,7 @@
 }
 
 [data-theme="light"] .calendar-day-cell {
-  background: #f1f5f9;
+  background: #f8fafc;
   border-color: #e2e8f0;
 }
 
@@ -415,8 +433,24 @@
 }
 
 .calendar-day-cell.is-future {
-  opacity: 0.35;
   cursor: default;
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.calendar-day-cell.is-future .day-number {
+  color: #64748b;
+  font-weight: 500;
+}
+
+[data-theme="light"] .calendar-day-cell.is-future {
+  background: #f8fafc;
+  border-color: #f1f5f9;
+}
+
+[data-theme="light"] .calendar-day-cell.is-future .day-number {
+  color: #94a3b8;
+  font-weight: 600;
 }
 
 .day-cell-top {
@@ -427,10 +461,15 @@
 }
 
 .day-number {
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 700;
   line-height: 1;
-  color: var(--text-secondary);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .day-number {
+  color: #1e293b;
+  font-weight: 700;
 }
 
 .today-dot {
@@ -466,67 +505,105 @@
 .heat-0 .day-pnl-val {
   color: var(--text-muted);
   font-weight: 500;
-  opacity: 0.45;
+  opacity: 0.6;
 }
 
 [data-theme="light"] .heat-0 {
-  background: #f8fafc;
+  background: #ffffff;
   border-color: #e2e8f0;
 }
 
+[data-theme="light"] .heat-0 .day-number {
+  color: #1e293b;
+  font-weight: 700;
+}
+
+[data-theme="light"] .heat-0 .day-pnl-val {
+  color: #94a3b8;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
 .heat-1 {
-  background: rgba(16, 185, 129, 0.12);
-  border-color: rgba(16, 185, 129, 0.28);
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.35);
 }
 .heat-1 .day-pnl-val {
-  color: #10b981;
+  color: #34d399;
+  font-weight: 800;
 }
 .heat-1 .day-number {
-  color: #059669;
+  color: #34d399;
+  font-weight: 800;
 }
 
 [data-theme="light"] .heat-1 {
-  background: rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.3);
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+[data-theme="light"] .heat-1 .day-number {
+  color: #065f46;
+  font-weight: 800;
+}
+[data-theme="light"] .heat-1 .day-pnl-val {
+  color: #047857;
+  font-weight: 800;
 }
 
 .heat-2 {
-  background: rgba(16, 185, 129, 0.24);
-  border-color: rgba(16, 185, 129, 0.45);
+  background: rgba(16, 185, 129, 0.28);
+  border-color: rgba(16, 185, 129, 0.55);
 }
 .heat-2 .day-pnl-val {
   color: #10b981;
   font-weight: 800;
 }
 .heat-2 .day-number {
-  color: #059669;
+  color: #34d399;
+  font-weight: 800;
 }
 
 [data-theme="light"] .heat-2 {
-  background: rgba(16, 185, 129, 0.2);
-  border-color: rgba(16, 185, 129, 0.5);
+  background: #d1fae5;
+  border-color: #6ee7b7;
+}
+[data-theme="light"] .heat-2 .day-number {
+  color: #064e3b;
+  font-weight: 800;
+}
+[data-theme="light"] .heat-2 .day-pnl-val {
+  color: #065f46;
+  font-weight: 800;
 }
 
 .heat-3 {
-  background: rgba(16, 185, 129, 0.45);
-  border-color: rgba(16, 185, 129, 0.7);
+  background: rgba(16, 185, 129, 0.5);
+  border-color: rgba(16, 185, 129, 0.8);
 }
 .heat-3 .day-pnl-val {
   color: #ffffff;
   font-weight: 800;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 .heat-3 .day-number {
   color: #ffffff;
   font-weight: 800;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="light"] .heat-3 {
   background: #10b981;
   border-color: #059669;
 }
+[data-theme="light"] .heat-3 .day-number {
+  color: #ffffff;
+  font-weight: 800;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
 [data-theme="light"] .heat-3 .day-pnl-val {
   color: #ffffff;
+  font-weight: 800;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .heat-4 {
@@ -542,6 +619,22 @@
 .heat-4 .day-number {
   color: #ffffff;
   font-weight: 800;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .heat-4 {
+  background: linear-gradient(135deg, #10b981, #047857);
+  border-color: #047857;
+}
+[data-theme="light"] .heat-4 .day-number {
+  color: #ffffff;
+  font-weight: 900;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+[data-theme="light"] .heat-4 .day-pnl-val {
+  color: #ffffff;
+  font-weight: 900;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* 7. Micro Day Popover Tooltip (Floating Quick Inspector on Hover/Touch) */

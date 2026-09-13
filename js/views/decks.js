@@ -3,7 +3,7 @@
  * Fully aligned with index.html DOM IDs, CSS classes & Scroll Restoration
  */
 
-import { DECK_ENGLISH_NAMES, getSubtopicIcon, getSubtopicColor } from '../config.js';
+import { DECK_ENGLISH_NAMES, getSubtopicIcon, getSubtopicColor, MASTERY_STABILITY_THRESHOLD } from '../config.js';
 import { StorageManager } from '../services/storage.js';
 import { State, isCardDue } from '../core/fsrs.js';
 import { TopicRepository } from '../../data/index.js';
@@ -759,7 +759,7 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
       const state = StorageManager.getCardState(card.id);
       if (!state || state.state === 0 || state.state === State.New) return 'new';
       if (isCardDue(state, now)) return 'due';
-      if (state.stability >= 21) return 'done';
+      if (state.stability >= MASTERY_STABILITY_THRESHOLD) return 'done';
       return 'learning';
     };
 

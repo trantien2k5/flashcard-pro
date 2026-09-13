@@ -182,6 +182,24 @@ export function setupStudyControls(app) {
       triggerFlip();
     });
 
+    let _isRatingInProgress = false;
+    const safeRateCard = (rating) => {
+      if (!app.studySession || !app.studySession.isActive) return;
+      if (!app.studySession.isFlipped) return;
+      if (_isRatingInProgress) return;
+      _isRatingInProgress = true;
+      try {
+        globalStudyTimer.recordActivity();
+        app.studySession.rateCard(rating);
+      } catch (err) {
+        console.error('Lỗi rating thẻ:', err);
+      } finally {
+        setTimeout(() => {
+          _isRatingInProgress = false;
+        }, 120);
+      }
+    };
+
     // Touch Swipe Gesture Support (Vuốt lên: Lật thẻ; Vuốt trái: Quên; Vuốt phải: Nhớ)
     let touchStartX = 0;
     let touchStartY = 0;
@@ -210,10 +228,10 @@ export function setupStudyControls(app) {
           if (app.studySession.isFlipped) {
             if (diffX < 0) {
               // Vuốt sang trái -> Quên (Again)
-              app.studySession.rateCard(Rating.Again);
+              safeRateCard(Rating.Again);
             } else {
               // Vuốt sang phải -> Nhớ (Good)
-              app.studySession.rateCard(Rating.Good);
+              safeRateCard(Rating.Good);
             }
           }
         } else if (diffY < -50 && Math.abs(diffY) > Math.abs(diffX) * 1.5) {
@@ -274,16 +292,12 @@ export function setupStudyControls(app) {
       });
     }
 
-    // 4 FSRS Rating buttons
+    // 4 FSRS Rating buttons (Bảo vệ chống bấm khi chưa lật & chống double-click)
     document.querySelectorAll('.btn-fsrs-rating').forEach(btn => {
-      btn.addEventListener('click', () => {
-        try {
-          globalStudyTimer.recordActivity();
-          const rating = parseInt(btn.getAttribute('data-rating'), 10);
-          app.studySession.rateCard(rating);
-        } catch (err) {
-          console.error('Lỗi rating thẻ:', err);
-        }
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const rating = parseInt(btn.getAttribute('data-rating'), 10);
+        safeRateCard(rating);
       });
     });
 
@@ -312,7 +326,8 @@ export function setupStudyControls(app) {
           else if (e.key === '4') rating = Rating.Easy;
 
           if (rating) {
-            app.studySession.rateCard(rating);
+            e.preventDefault();
+            safeRateCard(rating);
           }
         }
       } catch (err) {
@@ -511,9 +526,30 @@ export function handleCardChange(app, card, progress) {
     const cefrText = card.cefr || card.level || 'A1';
     if (dom.cefrBadgeBack) dom.cefrBadgeBack.textContent = cefrText.toUpperCase();
 
-    if (dom.wordFront) dom.wordFront.textContent = card.word || '';
+    if (dom.wordFront) {
+      const wordText = card.word || '';
+      dom.wordFront.textContent = wordText;
+      dom.wordFront.classList.remove('word-len-md', 'word-len-lg', 'word-len-xl');
+      const wLen = wordText.trim().length;
+      if (wLen > 24) {
+        dom.wordFront.classList.add('word-len-xl');
+      } else if (wLen > 16) {
+        dom.wordFront.classList.add('word-len-lg');
+      } else if (wLen > 11) {
+        dom.wordFront.classList.add('word-len-md');
+      }
+    }
+
     if (dom.phoneticFront) dom.phoneticFront.textContent = card.phonetic || card.ipa || '';
-    if (dom.meaningBack) dom.meaningBack.textContent = card.meaning || '';
+
+    if (dom.meaningBack) {
+      const meaningText = card.meaning || '';
+      dom.meaningBack.textContent = meaningText;
+      dom.meaningBack.classList.remove('meaning-len-lg');
+      if (meaningText.length > 30) {
+        dom.meaningBack.classList.add('meaning-len-lg');
+      }
+    }
 
     // Hiển thị định nghĩa tiếng Anh nếu có
     if (dom.defBack) {
@@ -573,6 +609,26 @@ export function handleStudyFinish(app, sessionStats) {
     const overlay = document.getElementById('study-overlay');
     if (overlay) overlay.classList.remove('active');
     scrollToTop();
+
+    // Tự động kiểm tra và mở khóa tiến độ (Progressive unlock) nếu hoàn thành Subtopic
+    if (app.currentStudyContext && app.currentStudyContext.deckId && app.currentStudyContext.subtopic) {
+      const deckId = app.currentStudyContext.deckId;
+      const subtopic = app.currentStudyContext.subtopic;
+      const subCards = app.deckManager?.getSubtopicCards(deckId, subtopic) || [];
+      const allLearned = subCards.length > 0 && subCards.every(c => {
+        const s = StorageManager.getCardState(c.id);
+        return s && s.state !== State.New && s.state !== 0;
+      });
+
+      if (allLearned) {
+        const subId = typeof subtopic === 'object' ? (subtopic.id || `${deckId}-${subtopic.name}`) : `${deckId}-${subtopic}`;
+        StorageManager.completeSubtopic(subId);
+        if (typeof subtopic === 'string') {
+          StorageManager.completeSubtopic(subtopic);
+        }
+      }
+    }
+
     showSummaryModal(app, sessionStats, false);
     app.refreshAllViews();
   } catch (err) {

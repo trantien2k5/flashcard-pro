@@ -444,6 +444,7 @@ export class FlashcardApp {
         }
         return;
       }
+      this.currentStudyContext = { deckId, subtopic, options };
       startStudyView(this, queue);
     } catch (err) {
       console.error('Lỗi startStudySession:', err);

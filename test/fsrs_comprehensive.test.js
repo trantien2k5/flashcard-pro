@@ -38,21 +38,21 @@ async function runTestSuite() {
   assert(emptyCard.state === State.New, 'Initial card state is State.New (0)');
   assert(!isCardDue(emptyCard, now), 'New card isCardDue returns false');
 
-  // 1.1 New Card -> Easy
+  // 1.1 New Card -> Easy (w[3] = 15.69d -> ~16d)
   const nextEasy = fsrs.calculateNextState(emptyCard, Rating.Easy, now);
   assert(nextEasy.state === State.Review, 'New card with Easy transitions directly to State.Review (2)');
   assert(nextEasy.scheduled_days >= 4, `New card with Easy scheduled_days is >= 4 days (actual: ${nextEasy.scheduled_days})`);
   assert(nextEasy.stability >= 3.5, `New card with Easy stability is >= 3.5 (actual: ${nextEasy.stability})`);
   assert(!isCardDue(nextEasy, now), 'Easy card is NOT due right now (isCardDue === false)');
   assert(!isCardDue(nextEasy, new Date('2026-09-13T12:00:00Z')), 'Easy card is NOT due after 1 day');
-  assert(isCardDue(nextEasy, new Date('2026-09-17T12:00:00Z')), 'Easy card IS due after 5 days');
+  assert(isCardDue(nextEasy, new Date(now.getTime() + 17 * 24 * 60 * 60 * 1000)), 'Easy card IS due after 17 days');
 
-  // 1.2 New Card -> Good
+  // 1.2 New Card -> Good (w[2] = 3.17d -> ~3d)
   const nextGood = fsrs.calculateNextState(emptyCard, Rating.Good, now);
   assert(nextGood.state === State.Review, 'New card with Good transitions to State.Review (2)');
   assert(nextGood.scheduled_days >= 1, `New card with Good scheduled_days is >= 1 day (actual: ${nextGood.scheduled_days})`);
   assert(!isCardDue(nextGood, now), 'Good card is NOT due right now');
-  assert(isCardDue(nextGood, new Date('2026-09-13T12:00:01Z')), 'Good card IS due tomorrow');
+  assert(isCardDue(nextGood, new Date(now.getTime() + 4 * 24 * 60 * 60 * 1000)), 'Good card IS due after 4 days');
 
   // 1.3 New Card -> Hard
   const nextHard = fsrs.calculateNextState(emptyCard, Rating.Hard, now);
@@ -163,9 +163,9 @@ async function runTestSuite() {
   assert(autoResult.queue.length === 1, 'Auto mode isolates due cards when due cards exist');
   assert(autoResult.queue[0].id === dueCardId, 'Auto mode prioritized due card');
 
-  // Test when 5 days pass
-  const futureNow = new Date(now.getTime() + 5 * 24 * 60 * 60 * 1000);
-  assert(isCardDue(retrievedState, futureNow), 'Card correctly becomes DUE 5 days later');
+  // Test when 17 days pass (Easy card scheduled ~16d)
+  const futureNow = new Date(now.getTime() + 17 * 24 * 60 * 60 * 1000);
+  assert(isCardDue(retrievedState, futureNow), 'Card correctly becomes DUE 17 days later');
 
   // ----------------------------------------------------
   // TEST GROUP 5: 30-Day Multi-Card Simulation

@@ -4,6 +4,7 @@
 
 import { StorageManager } from '../services/storage.js';
 import { State, isCardDue } from '../core/fsrs.js';
+import { MASTERY_STABILITY_THRESHOLD } from '../config.js';
 import { StatsManager } from '../core/stats.js';
 import { getLocalDateKey, escapeHTML } from '../utils.js';
 import { showToast } from './components.js';
@@ -192,8 +193,8 @@ export function renderReviewTab(app) {
     const totalCards = allCards.length;
 
     // 1. Phân loại từ vựng & 3 Cấp độ thành tựu FSRS
-    let masteredCount = 0; // S >= 14d
-    let learningCount = 0; // 3d <= S < 14d
+    let masteredCount = 0; // S >= MASTERY_STABILITY_THRESHOLD
+    let learningCount = 0; // 3d <= S < 21d
     let newCount = 0;      // Chưa học
     let learnedCount = 0;
     let goodMemoryCount = 0;
@@ -209,7 +210,7 @@ export function renderReviewTab(app) {
           dueCount++;
         }
         const s = state.stability || 0;
-        if (s >= 14) {
+        if (s >= MASTERY_STABILITY_THRESHOLD) {
           masteredCount++;
           goodMemoryCount++;
         } else if (s >= 3) {
@@ -250,23 +251,25 @@ export function renderReviewTab(app) {
     if (elMNew) elMNew.textContent = newCount.toLocaleString('vi-VN');
 
     // 2. Mục tiêu hôm nay & Nhật ký học
-    const dailyGoal = app.settings.dailyNewLimit || 10;
+    const dailyGoal = Number(app.settings.dailyNewLimit) || 10;
     const studyQueue = app.deckManager.getStudyQueue(null, app.settings);
     const queueDue = studyQueue.totalDue !== undefined ? studyQueue.totalDue : dueCount;
 
     const todayLogs = StorageManager.getStudyLogs().filter(l => 
       l.timestamp && getLocalDateKey(l.timestamp) === getLocalDateKey()
     );
-    const todayLearned = todayLogs.length;
-    const remainingGoal = Math.max(0, dailyGoal - todayLearned);
-    const goalPct = Math.min(100, Math.round((todayLearned / dailyGoal) * 100));
+    const todayNewLearned = todayLogs.filter(l => 
+      l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
+    ).length;
+    const remainingGoal = Math.max(0, dailyGoal - todayNewLearned);
+    const goalPct = Math.min(100, Math.round((todayNewLearned / dailyGoal) * 100));
 
     // A. Trạng thái hôm nay
     const elTodayStatus = document.getElementById('home-today-status');
     if (elTodayStatus) {
       if (queueDue > 0) {
         elTodayStatus.textContent = `Có ${queueDue} từ cần ôn tập hôm nay`;
-      } else if (todayLearned >= dailyGoal) {
+      } else if (todayNewLearned >= dailyGoal) {
         elTodayStatus.textContent = 'Đã hoàn thành mục tiêu hôm nay ✓';
       } else {
         elTodayStatus.textContent = `Còn ${remainingGoal} từ để đạt mục tiêu hôm nay`;
@@ -282,7 +285,7 @@ export function renderReviewTab(app) {
 
     const elStreakHint = document.getElementById('home-streak-hint');
     if (elStreakHint) {
-      if (todayLearned > 0) {
+      if (todayLogs.length > 0) {
         elStreakHint.textContent = `Đã giữ chuỗi ${streak} ngày hôm nay! 🌟`;
       } else {
         elStreakHint.textContent = `Học hôm nay để giữ chuỗi ${streak} ngày 🔥`;
@@ -291,7 +294,7 @@ export function renderReviewTab(app) {
 
     // C. Tiến độ mục tiêu ngày
     const elGoalRatio = document.getElementById('home-goal-ratio');
-    if (elGoalRatio) elGoalRatio.textContent = `${todayLearned} / ${dailyGoal}`;
+    if (elGoalRatio) elGoalRatio.textContent = `${todayNewLearned} / ${dailyGoal}`;
 
     const elGoalPct = document.getElementById('home-goal-pct');
     if (elGoalPct) elGoalPct.textContent = `${goalPct}%`;
@@ -304,11 +307,11 @@ export function renderReviewTab(app) {
     if (elDueVal) elDueVal.textContent = queueDue;
 
     const elNewVal = document.getElementById('home-new-today-val');
-    if (elNewVal) elNewVal.textContent = `${todayLearned}/${dailyGoal}`;
+    if (elNewVal) elNewVal.textContent = `${todayNewLearned}/${dailyGoal}`;
 
     const elGoalHint = document.getElementById('home-goal-hint');
     if (elGoalHint) {
-      if (todayLearned >= dailyGoal) {
+      if (todayNewLearned >= dailyGoal) {
         elGoalHint.textContent = `Đạt mục tiêu ngày ✓`;
       } else {
         elGoalHint.textContent = `Còn ${remainingGoal} từ nữa`;
@@ -336,7 +339,7 @@ export function renderReviewTab(app) {
             showToast('Lỗi: ' + err.message, 'error');
           }
         };
-      } else if (todayLearned < dailyGoal) {
+      } else if (todayNewLearned < dailyGoal) {
         // Ưu tiên 2: Hết từ cần ôn, chưa đủ mục tiêu ngày -> Điều hướng sang tab Chủ đề để chọn bài học từ mới
         if (elCtaText) elCtaText.textContent = `📚 Chọn chủ đề học từ mới`;
         if (elEstTime) elEstTime.textContent = `💡 Không có từ cần ôn • Còn ${remainingGoal} từ mục tiêu`;
@@ -470,7 +473,7 @@ export function renderReviewTab(app) {
       } else if (weekTotalCount > 0) {
         elTrendDelta.textContent = `+${weekTotalCount} từ / 7 ngày`;
       } else {
-        elTrendDelta.textContent = `+${todayLearned} từ hôm nay`;
+        elTrendDelta.textContent = `+${todayNewLearned} từ hôm nay`;
       }
     }
 

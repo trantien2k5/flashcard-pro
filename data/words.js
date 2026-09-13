@@ -1,8 +1,70 @@
 /**
  * CANONICAL VOCABULARY REPOSITORY - Flashcard English Pro
- * Single Source of Truth (SSOT) cho toàn bộ 2.582 từ vựng hệ thống
+ * Single Source of Truth (SSOT) cho toàn bộ từ vựng hệ thống
  * Sắp xếp theo thứ tự sư phạm: A1 (Cốt lõi) -> A2 (Mở rộng) -> B1 -> B2
  */
+
+export const LEGACY_ID_MAP = {
+  "savings-noun-2": "savings-noun",
+  "budget-noun-2": "budget-noun",
+  "income-noun-2": "income-noun",
+  "expense-noun-2": "expense-noun",
+  "salary-noun-2": "salary-noun",
+  "wage-noun-2": "wage-noun",
+  "emergency-fund-noun-2": "emergency-fund-noun",
+  "pension-noun-2": "pension-noun",
+  "allowance-noun-2": "allowance-noun",
+  "frugal-adjective-2": "frugal-adjective",
+  "bank-account-noun-2": "bank-account-noun",
+  "balance-noun-2": "balance-noun",
+  "deposit-noun-2": "deposit-noun",
+  "withdraw-verb-2": "withdraw-verb",
+  "transfer-verb-2": "transfer-verb",
+  "teller-noun-2": "teller-noun",
+  "branch-noun-2": "branch-noun",
+  "overdraft-noun-2": "overdraft-noun",
+  "savings-account-noun-2": "savings-account-noun",
+  "wire-transfer-noun-2": "wire-transfer-noun",
+  "safe-deposit-box-noun-2": "safe-deposit-box-noun",
+  "credit-card-noun-2": "credit-card-noun",
+  "debit-card-noun-2": "debit-card-noun",
+  "receipt-noun-2": "receipt-noun",
+  "invoice-noun-2": "invoice-noun",
+  "loan-noun-2": "loan-noun",
+  "interest-rate-noun-2": "interest-rate-noun",
+  "credit-limit-noun-2": "credit-limit-noun",
+  "mortgage-noun-2": "mortgage-noun",
+  "collateral-noun-2": "collateral-noun",
+  "principal-noun-2": "principal-noun",
+  "debt-noun-2": "debt-noun",
+  "default-verb-2": "default-verb",
+  "credit-score-noun-2": "credit-score-noun",
+  "installment-noun-2": "installment-noun",
+  "compound-interest-noun-2": "compound-interest-noun",
+  "yield-noun-2": "yield-noun",
+  "inflation-noun-2": "inflation-noun",
+  "maturity-noun-2": "maturity-noun",
+  "stock-noun-2": "stock-noun",
+  "dividend-noun-2": "dividend-noun",
+  "portfolio-noun-2": "portfolio-noun",
+  "equity-noun-2": "equity-noun",
+  "mutual-fund-noun-2": "mutual-fund-noun",
+  "beneficiary-noun-2": "beneficiary-noun",
+  "liability-noun-2": "liability-noun",
+  "profit-noun-2": "profit-noun",
+  "revenue-noun-2": "revenue-noun",
+  "balance-sheet-noun-2": "balance-sheet-noun",
+  "fiscal-year-noun-2": "fiscal-year-noun",
+  "audit-noun-2": "audit-noun",
+  "depreciation-noun-2": "depreciation-noun",
+  "tariff-noun-2": "tariff-noun",
+  "venture-capital-noun-2": "venture-capital-noun",
+  "remittance-noun-2": "remittance-noun",
+  "fintech-noun-2": "fintech-noun",
+  "cryptocurrency-noun-2": "cryptocurrency-noun",
+  "blockchain-noun-2": "blockchain-noun",
+  "reconciliation-noun-2": "reconciliation-noun"
+};
 
 export const WORDS = [
   {
@@ -9082,7 +9144,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/d/deposit-noun.webp",
     "topicIds": [
-      "home-living-chặng-10"
+      "home-living-chặng-10",
+      "finance-banking-chặng-3"
     ],
     "tags": []
   },
@@ -11199,7 +11262,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/m/maturity-noun.webp",
     "topicIds": [
-      "people-relationships-chặng-11"
+      "people-relationships-chặng-11",
+      "finance-banking-chặng-9"
     ],
     "tags": []
   },
@@ -11791,7 +11855,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/r/reconciliation-noun.webp",
     "topicIds": [
-      "people-relationships-chặng-15"
+      "people-relationships-chặng-15",
+      "finance-banking-chặng-19"
     ],
     "tags": []
   },
@@ -17757,7 +17822,8 @@ export const WORDS = [
     "img": "assets/images/words/c/credit-card-noun.webp",
     "topicIds": [
       "shopping-money-chặng-5",
-      "top-1000-core-chặng-69"
+      "top-1000-core-chặng-69",
+      "finance-banking-chặng-5"
     ],
     "tags": []
   },
@@ -17774,7 +17840,8 @@ export const WORDS = [
     "img": "assets/images/words/d/debit-card-noun.webp",
     "topicIds": [
       "shopping-money-chặng-5",
-      "top-1000-core-chặng-69"
+      "top-1000-core-chặng-69",
+      "finance-banking-chặng-5"
     ],
     "tags": []
   },
@@ -17791,7 +17858,8 @@ export const WORDS = [
     "img": "assets/images/words/r/receipt-noun.webp",
     "topicIds": [
       "shopping-money-chặng-5",
-      "top-1000-core-chặng-69"
+      "top-1000-core-chặng-69",
+      "finance-banking-chặng-5"
     ],
     "tags": []
   },
@@ -18390,7 +18458,8 @@ export const WORDS = [
     "img": "assets/images/words/b/bank-account-noun.webp",
     "topicIds": [
       "shopping-money-chặng-9",
-      "top-1000-core-chặng-70"
+      "top-1000-core-chặng-70",
+      "finance-banking-chặng-3"
     ],
     "tags": []
   },
@@ -18424,7 +18493,8 @@ export const WORDS = [
     "img": "assets/images/words/t/transfer-verb.webp",
     "topicIds": [
       "shopping-money-chặng-9",
-      "top-1000-core-chặng-14"
+      "top-1000-core-chặng-14",
+      "finance-banking-chặng-3"
     ],
     "tags": []
   },
@@ -18490,7 +18560,8 @@ export const WORDS = [
     "img": "assets/images/words/w/withdraw-verb.webp",
     "topicIds": [
       "shopping-money-chặng-9",
-      "top-1000-core-chặng-28"
+      "top-1000-core-chặng-28",
+      "finance-banking-chặng-3"
     ],
     "tags": []
   },
@@ -18523,7 +18594,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/b/balance-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-9"
+      "shopping-money-chặng-9",
+      "finance-banking-chặng-3"
     ],
     "tags": []
   },
@@ -18557,7 +18629,8 @@ export const WORDS = [
     "img": "assets/images/words/b/branch-noun.webp",
     "topicIds": [
       "shopping-money-chặng-10",
-      "top-1000-core-chặng-71"
+      "top-1000-core-chặng-71",
+      "finance-banking-chặng-3"
     ],
     "tags": []
   },
@@ -18591,7 +18664,8 @@ export const WORDS = [
     "img": "assets/images/words/s/savings-account-noun.webp",
     "topicIds": [
       "shopping-money-chặng-10",
-      "top-1000-core-chặng-71"
+      "top-1000-core-chặng-71",
+      "finance-banking-chặng-4"
     ],
     "tags": []
   },
@@ -18608,7 +18682,8 @@ export const WORDS = [
     "img": "assets/images/words/b/budget-noun.webp",
     "topicIds": [
       "shopping-money-chặng-10",
-      "top-1000-core-chặng-71"
+      "top-1000-core-chặng-71",
+      "finance-banking-chặng-1"
     ],
     "tags": []
   },
@@ -18625,7 +18700,8 @@ export const WORDS = [
     "img": "assets/images/words/s/savings-noun.webp",
     "topicIds": [
       "shopping-money-chặng-10",
-      "top-1000-core-chặng-71"
+      "top-1000-core-chặng-71",
+      "finance-banking-chặng-1"
     ],
     "tags": []
   },
@@ -18657,7 +18733,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/t/teller-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-10"
+      "shopping-money-chặng-10",
+      "finance-banking-chặng-3"
     ],
     "tags": []
   },
@@ -18773,7 +18850,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/i/income-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-11"
+      "shopping-money-chặng-11",
+      "finance-banking-chặng-1"
     ],
     "tags": []
   },
@@ -18789,7 +18867,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/e/expense-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-11"
+      "shopping-money-chặng-11",
+      "finance-banking-chặng-1"
     ],
     "tags": []
   },
@@ -18806,7 +18885,8 @@ export const WORDS = [
     "img": "assets/images/words/f/frugal-adjective.webp",
     "topicIds": [
       "shopping-money-chặng-11",
-      "top-1000-core-chặng-72"
+      "top-1000-core-chặng-72",
+      "finance-banking-chặng-2"
     ],
     "tags": []
   },
@@ -18822,7 +18902,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/e/emergency-fund-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-11"
+      "shopping-money-chặng-11",
+      "finance-banking-chặng-1"
     ],
     "tags": []
   },
@@ -18938,7 +19019,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/l/loan-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-12"
+      "shopping-money-chặng-12",
+      "finance-banking-chặng-6"
     ],
     "tags": []
   },
@@ -18954,7 +19036,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/d/debt-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-12"
+      "shopping-money-chặng-12",
+      "finance-banking-chặng-7"
     ],
     "tags": []
   },
@@ -18986,7 +19069,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/i/interest-rate-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-12"
+      "shopping-money-chặng-12",
+      "finance-banking-chặng-6"
     ],
     "tags": []
   },
@@ -19002,7 +19086,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/m/mortgage-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-12"
+      "shopping-money-chặng-12",
+      "finance-banking-chặng-6"
     ],
     "tags": []
   },
@@ -19018,7 +19103,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/i/installment-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-12"
+      "shopping-money-chặng-12",
+      "finance-banking-chặng-7"
     ],
     "tags": []
   },
@@ -19051,7 +19137,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/c/credit-limit-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-13"
+      "shopping-money-chặng-13",
+      "finance-banking-chặng-6"
     ],
     "tags": []
   },
@@ -19067,7 +19154,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/c/credit-score-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-13"
+      "shopping-money-chặng-13",
+      "finance-banking-chặng-7"
     ],
     "tags": []
   },
@@ -19101,7 +19189,8 @@ export const WORDS = [
     "img": "assets/images/words/d/default-verb.webp",
     "topicIds": [
       "shopping-money-chặng-13",
-      "top-1000-core-chặng-28"
+      "top-1000-core-chặng-28",
+      "finance-banking-chặng-7"
     ],
     "tags": []
   },
@@ -19167,7 +19256,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/s/stock-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-13"
+      "shopping-money-chặng-13",
+      "finance-banking-chặng-10"
     ],
     "tags": []
   },
@@ -19200,7 +19290,8 @@ export const WORDS = [
     "img": "assets/images/words/p/profit-noun.webp",
     "topicIds": [
       "shopping-money-chặng-14",
-      "top-1000-core-chặng-71"
+      "top-1000-core-chặng-71",
+      "finance-banking-chặng-13"
     ],
     "tags": []
   },
@@ -19264,7 +19355,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/l/liability-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-14"
+      "shopping-money-chặng-14",
+      "finance-banking-chặng-12"
     ],
     "tags": []
   },
@@ -19280,7 +19372,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/d/dividend-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-14"
+      "shopping-money-chặng-14",
+      "finance-banking-chặng-10"
     ],
     "tags": []
   },
@@ -19296,7 +19389,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/i/inflation-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-14"
+      "shopping-money-chặng-14",
+      "finance-banking-chặng-8"
     ],
     "tags": []
   },
@@ -19328,7 +19422,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/p/portfolio-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-14"
+      "shopping-money-chặng-14",
+      "finance-banking-chặng-10"
     ],
     "tags": []
   },
@@ -19344,7 +19439,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/m/mutual-fund-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-14"
+      "shopping-money-chặng-14",
+      "finance-banking-chặng-11"
     ],
     "tags": []
   },
@@ -19360,7 +19456,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/c/compound-interest-noun.webp",
     "topicIds": [
-      "shopping-money-chặng-15"
+      "shopping-money-chặng-15",
+      "finance-banking-chặng-8"
     ],
     "tags": []
   },
@@ -26315,7 +26412,8 @@ export const WORDS = [
     "img": "assets/images/words/s/safe-deposit-box-noun.webp",
     "topicIds": [
       "travel-places-chặng-14",
-      "top-1000-core-chặng-81"
+      "top-1000-core-chặng-81",
+      "finance-banking-chặng-4"
     ],
     "tags": []
   },
@@ -29852,7 +29950,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/p/principal-noun.webp",
     "topicIds": [
-      "education-learning-chặng-13"
+      "education-learning-chặng-13",
+      "finance-banking-chặng-6"
     ],
     "tags": []
   },
@@ -31000,7 +31099,8 @@ export const WORDS = [
     "img": "assets/images/words/s/salary-noun.webp",
     "topicIds": [
       "work-jobs-chặng-6",
-      "top-1000-core-chặng-86"
+      "top-1000-core-chặng-86",
+      "finance-banking-chặng-1"
     ],
     "tags": []
   },
@@ -31114,7 +31214,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/w/wage-noun.webp",
     "topicIds": [
-      "work-jobs-chặng-6"
+      "work-jobs-chặng-6",
+      "finance-banking-chặng-1"
     ],
     "tags": []
   },
@@ -31230,7 +31331,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/p/pension-noun.webp",
     "topicIds": [
-      "work-jobs-chặng-7"
+      "work-jobs-chặng-7",
+      "finance-banking-chặng-1"
     ],
     "tags": []
   },
@@ -34607,7 +34709,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/f/fintech-noun.webp",
     "topicIds": [
-      "technology-internet-chặng-14"
+      "technology-internet-chặng-14",
+      "finance-banking-chặng-15"
     ],
     "tags": []
   },
@@ -34639,7 +34742,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/c/cryptocurrency-noun.webp",
     "topicIds": [
-      "technology-internet-chặng-14"
+      "technology-internet-chặng-14",
+      "finance-banking-chặng-16"
     ],
     "tags": []
   },
@@ -34655,7 +34759,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/b/blockchain-noun.webp",
     "topicIds": [
-      "technology-internet-chặng-14"
+      "technology-internet-chặng-14",
+      "finance-banking-chặng-16"
     ],
     "tags": []
   },
@@ -34687,7 +34792,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/v/venture-capital-noun.webp",
     "topicIds": [
-      "technology-internet-chặng-15"
+      "technology-internet-chặng-15",
+      "finance-banking-chặng-14"
     ],
     "tags": []
   },
@@ -35240,7 +35346,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/a/allowance-noun.webp",
     "topicIds": [
-      "toeic-b1-chặng-4"
+      "toeic-b1-chặng-4",
+      "finance-banking-chặng-2"
     ],
     "tags": []
   },
@@ -35871,7 +35978,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/i/invoice-noun.webp",
     "topicIds": [
-      "toeic-b1-chặng-7"
+      "toeic-b1-chặng-7",
+      "finance-banking-chặng-5"
     ],
     "tags": []
   },
@@ -36639,7 +36747,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/w/wire-transfer-noun.webp",
     "topicIds": [
-      "toeic-b1-chặng-12"
+      "toeic-b1-chặng-12",
+      "finance-banking-chặng-4"
     ],
     "tags": []
   },
@@ -36655,7 +36764,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/o/overdraft-noun.webp",
     "topicIds": [
-      "toeic-b1-chặng-12"
+      "toeic-b1-chặng-12",
+      "finance-banking-chặng-3"
     ],
     "tags": []
   },
@@ -36671,7 +36781,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/r/remittance-noun.webp",
     "topicIds": [
-      "toeic-b1-chặng-12"
+      "toeic-b1-chặng-12",
+      "finance-banking-chặng-15"
     ],
     "tags": []
   },
@@ -36687,7 +36798,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/c/collateral-noun.webp",
     "topicIds": [
-      "toeic-b1-chặng-13"
+      "toeic-b1-chặng-13",
+      "finance-banking-chặng-6"
     ],
     "tags": []
   },
@@ -36703,7 +36815,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/b/beneficiary-noun.webp",
     "topicIds": [
-      "toeic-b1-chặng-13"
+      "toeic-b1-chặng-13",
+      "finance-banking-chặng-12"
     ],
     "tags": []
   },
@@ -36719,7 +36832,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/a/audit-noun.webp",
     "topicIds": [
-      "toeic-b1-chặng-13"
+      "toeic-b1-chặng-13",
+      "finance-banking-chặng-13"
     ],
     "tags": []
   },
@@ -36783,7 +36897,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/f/fiscal-year-noun.webp",
     "topicIds": [
-      "toeic-b1-chặng-13"
+      "toeic-b1-chặng-13",
+      "finance-banking-chặng-13"
     ],
     "tags": []
   },
@@ -36831,7 +36946,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/d/depreciation-noun.webp",
     "topicIds": [
-      "toeic-b1-chặng-13"
+      "toeic-b1-chặng-13",
+      "finance-banking-chặng-13"
     ],
     "tags": []
   },
@@ -36847,7 +36963,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/b/balance-sheet-noun.webp",
     "topicIds": [
-      "toeic-b1-chặng-14"
+      "toeic-b1-chặng-14",
+      "finance-banking-chặng-13"
     ],
     "tags": []
   },
@@ -36927,7 +37044,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/r/revenue-noun.webp",
     "topicIds": [
-      "toeic-b1-chặng-14"
+      "toeic-b1-chặng-14",
+      "finance-banking-chặng-13"
     ],
     "tags": []
   },
@@ -36943,7 +37061,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/y/yield-noun.webp",
     "topicIds": [
-      "toeic-b1-chặng-14"
+      "toeic-b1-chặng-14",
+      "finance-banking-chặng-8"
     ],
     "tags": []
   },
@@ -37023,7 +37142,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/e/equity-noun.webp",
     "topicIds": [
-      "toeic-b1-chặng-15"
+      "toeic-b1-chặng-15",
+      "finance-banking-chặng-10"
     ],
     "tags": []
   },
@@ -37974,115 +38094,6 @@ export const WORDS = [
     "tags": []
   },
   {
-    "id": "savings-noun-2",
-    "word": "Savings",
-    "meaning": "Tiền tiết kiệm",
-    "ipa": "/ˈseɪ.vɪŋz/",
-    "definition": "An amount of money saved, especially in a bank.",
-    "example": "He put all his savings into a high-yield account.",
-    "exampleVi": "Anh ấy đã gửi toàn bộ tiền tiết kiệm của mình vào một tài khoản sinh lời cao.",
-    "level": "A2",
-    "pos": "noun",
-    "img": "assets/images/words/s/savings-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-1"
-    ],
-    "tags": [
-      "savings"
-    ]
-  },
-  {
-    "id": "budget-noun-2",
-    "word": "Budget",
-    "meaning": "Ngân sách, kế hoạch chi tiêu",
-    "ipa": "/ˈbʌdʒ.ɪt/",
-    "definition": "An estimate of income and expenditure for a set period of time.",
-    "example": "We need to stick to our monthly budget to save for a new house.",
-    "exampleVi": "Chúng tôi cần bám sát ngân sách hằng tháng để tiết kiệm mua nhà mới.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/b/budget-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-1"
-    ],
-    "tags": [
-      "finance",
-      "money"
-    ]
-  },
-  {
-    "id": "income-noun-2",
-    "word": "Income",
-    "meaning": "Thu nhập",
-    "ipa": "/ˈɪn.kʌm/",
-    "definition": "Money received, especially on a regular basis, for work or through investments.",
-    "example": "Her annual income increased significantly after the promotion.",
-    "exampleVi": "Thu nhập hằng năm của cô ấy tăng đáng kể sau khi được thăng chức.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/i/income-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-1"
-    ],
-    "tags": [
-      "income"
-    ]
-  },
-  {
-    "id": "expense-noun-2",
-    "word": "Expense",
-    "meaning": "Chi phí, khoản chi tiêu",
-    "ipa": "/ɪkˈspens/",
-    "definition": "The money that something costs or that you need to spend on something.",
-    "example": "Living expenses in big cities continue to rise.",
-    "exampleVi": "Chi phí sinh hoạt ở các thành phố lớn tiếp tục tăng cao.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/e/expense-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-1"
-    ],
-    "tags": [
-      "spending"
-    ]
-  },
-  {
-    "id": "salary-noun-2",
-    "word": "Salary",
-    "meaning": "Lương cố định (hằng tháng/năm)",
-    "ipa": "/ˈsæl.ɚ.i/",
-    "definition": "A fixed regular payment, typically paid on a monthly or biweekly basis.",
-    "example": "She negotiated a competitive base salary for her new role.",
-    "exampleVi": "Cô ấy đã đàm phán mức lương cơ bản cạnh tranh cho vị trí mới của mình.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/s/salary-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-1"
-    ],
-    "tags": [
-      "salary"
-    ]
-  },
-  {
-    "id": "wage-noun-2",
-    "word": "Wage",
-    "meaning": "Tiền công (trả theo giờ hoặc ngày)",
-    "ipa": "/weɪdʒ/",
-    "definition": "A fixed regular payment earned for work or services, typically paid on a daily or weekly basis.",
-    "example": "The government voted to raise the minimum wage.",
-    "exampleVi": "Chính phủ đã bỏ phiếu tăng mức lương tối thiểu.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/w/wage-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-1"
-    ],
-    "tags": [
-      "income"
-    ]
-  },
-  {
     "id": "net-worth",
     "word": "Net worth",
     "meaning": "Giá trị tài sản ròng",
@@ -38098,24 +38109,6 @@ export const WORDS = [
     ],
     "tags": [
       "wealth"
-    ]
-  },
-  {
-    "id": "emergency-fund-noun-2",
-    "word": "Emergency fund",
-    "meaning": "Quỹ dự phòng khẩn cấp",
-    "ipa": "/ɪˈmɝː.dʒən.si fʌnd/",
-    "definition": "A stash of money set aside to cover the financial surprises life throws your way.",
-    "example": "Financial advisors recommend keeping 3 to 6 months of expenses in an emergency fund.",
-    "exampleVi": "Các cố vấn tài chính khuyên nên giữ 3 đến 6 tháng chi phí trong quỹ khẩn cấp.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/e/emergency-fund-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-1"
-    ],
-    "tags": [
-      "planning"
     ]
   },
   {
@@ -38137,24 +38130,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "pension-noun-2",
-    "word": "Pension",
-    "meaning": "Lương hưu, tiền trợ cấp hưu trí",
-    "ipa": "/ˈpen.ʃən/",
-    "definition": "A regular payment made during a person's retirement from an investment fund.",
-    "example": "He will start receiving his company pension when he turns 65.",
-    "exampleVi": "Ông ấy sẽ bắt đầu nhận lương hưu công ty khi bước sang tuổi 65.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/p/pension-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-1"
-    ],
-    "tags": [
-      "retirement"
-    ]
-  },
-  {
     "id": "afford",
     "word": "Afford",
     "meaning": "Đủ khả năng chi trả",
@@ -38171,42 +38146,6 @@ export const WORDS = [
     ],
     "tags": [
       "spending"
-    ]
-  },
-  {
-    "id": "allowance-noun-2",
-    "word": "Allowance",
-    "meaning": "Tiền tiêu vặt, khoản phụ cấp",
-    "ipa": "/əˈlaʊ.əns/",
-    "definition": "An amount of money given regularly for a specific purpose.",
-    "example": "Parents often give their teenagers a weekly allowance.",
-    "exampleVi": "Cha mẹ thường cho con cái tuổi teen một khoản tiền tiêu vặt hằng tuần.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/a/allowance-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-2"
-    ],
-    "tags": [
-      "allowance"
-    ]
-  },
-  {
-    "id": "frugal-adjective-2",
-    "word": "Frugal",
-    "meaning": "Tiết kiệm, thanh đạm",
-    "ipa": "/ˈfruː.ɡəl/",
-    "definition": "Careful about spending money or using things when you do not need to.",
-    "example": "By living a frugal lifestyle, they managed to pay off all their debts early.",
-    "exampleVi": "Nhờ lối sống tiết kiệm, họ đã trả hết nợ nần trước thời hạn.",
-    "level": "B2",
-    "pos": "adjective",
-    "img": "assets/images/words/f/frugal-adjective-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-2"
-    ],
-    "tags": [
-      "mindset"
     ]
   },
   {
@@ -38336,132 +38275,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "bank-account-noun-2",
-    "word": "Bank account",
-    "meaning": "Tài khoản ngân hàng",
-    "ipa": "/ˈbæŋk əˌkaʊnt/",
-    "definition": "An arrangement made with a bank whereby one may deposit and withdraw money.",
-    "example": "I would like to open a new checking bank account.",
-    "exampleVi": "Tôi muốn mở một tài khoản ngân hàng vãng lai mới.",
-    "level": "A2",
-    "pos": "noun",
-    "img": "assets/images/words/b/bank-account-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-3"
-    ],
-    "tags": [
-      "banking"
-    ]
-  },
-  {
-    "id": "balance-noun-2",
-    "word": "Balance",
-    "meaning": "Số dư tài khoản",
-    "ipa": "/ˈbæl.əns/",
-    "definition": "The amount of money held in a bank account at a given time.",
-    "example": "You can check your account balance on the mobile app.",
-    "exampleVi": "Bạn có thể kiểm tra số dư tài khoản trên ứng dụng di động.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/b/balance-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-3"
-    ],
-    "tags": [
-      "banking"
-    ]
-  },
-  {
-    "id": "deposit-noun-2",
-    "word": "Deposit",
-    "meaning": "Gửi tiền vào tài khoản; tiền đặt cọc",
-    "ipa": "/dɪˈpɑː.zɪt/",
-    "definition": "A sum of money placed or kept in a bank account.",
-    "example": "He made a cash deposit of $1,000 at the counter.",
-    "exampleVi": "Anh ấy đã nộp 1.000 đô la tiền mặt vào tài khoản tại quầy giao dịch.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/d/deposit-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-3"
-    ],
-    "tags": [
-      "banking"
-    ]
-  },
-  {
-    "id": "withdraw-verb-2",
-    "word": "Withdraw",
-    "meaning": "Rút tiền",
-    "ipa": "/wɪðˈdrɑː/",
-    "definition": "Remove money from a bank account.",
-    "example": "You can withdraw up to $500 daily from the ATM.",
-    "exampleVi": "Bạn có thể rút tối đa 500 đô la mỗi ngày từ máy ATM.",
-    "level": "B1",
-    "pos": "verb",
-    "img": "assets/images/words/w/withdraw-verb-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-3"
-    ],
-    "tags": [
-      "banking"
-    ]
-  },
-  {
-    "id": "transfer-verb-2",
-    "word": "Transfer",
-    "meaning": "Chuyển khoản, giao dịch chuyển tiền",
-    "ipa": "/trænsˈfɝː/",
-    "definition": "Move money from one account to another.",
-    "example": "I will transfer the payment directly to your bank account.",
-    "exampleVi": "Tôi sẽ chuyển khoản thanh toán trực tiếp vào tài khoản ngân hàng của bạn.",
-    "level": "B1",
-    "pos": "verb",
-    "img": "assets/images/words/t/transfer-verb-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-3"
-    ],
-    "tags": [
-      "banking"
-    ]
-  },
-  {
-    "id": "teller-noun-2",
-    "word": "Teller",
-    "meaning": "Giao dịch viên ngân hàng",
-    "ipa": "/ˈtel.ɚ/",
-    "definition": "A person employed to deal with customers' transactions in a bank.",
-    "example": "The bank teller helped me exchange currency for my trip.",
-    "exampleVi": "Giao dịch viên ngân hàng đã giúp tôi đổi ngoại tệ cho chuyến đi.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/t/teller-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-3"
-    ],
-    "tags": [
-      "banking"
-    ]
-  },
-  {
-    "id": "branch-noun-2",
-    "word": "Branch",
-    "meaning": "Chi nhánh ngân hàng",
-    "ipa": "/bræntʃ/",
-    "definition": "A local office or store belonging to a large company or bank.",
-    "example": "Our local bank branch is open on Saturday mornings.",
-    "exampleVi": "Chi nhánh ngân hàng địa phương của chúng tôi mở cửa vào các sáng Thứ Bảy.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/b/branch-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-3"
-    ],
-    "tags": [
-      "banking"
-    ]
-  },
-  {
     "id": "checking-account",
     "word": "Checking account",
     "meaning": "Tài khoản vãng lai / thanh toán",
@@ -38492,60 +38305,6 @@ export const WORDS = [
     "img": "assets/images/words/b/bank-statement.webp",
     "topicIds": [
       "finance-banking-chặng-3"
-    ],
-    "tags": [
-      "banking"
-    ]
-  },
-  {
-    "id": "overdraft-noun-2",
-    "word": "Overdraft",
-    "meaning": "Thấu chi (chi tiêu vượt số dư cho phép)",
-    "ipa": "/ˈoʊ.vɚ.dræft/",
-    "definition": "A deficit in a bank account caused by drawing more money than the account holds.",
-    "example": "The bank charges a penalty fee if you enter an unarranged overdraft.",
-    "exampleVi": "Ngân hàng sẽ tính phí phạt nếu bạn thấu chi ngoài hạn mức đã thỏa thuận.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/o/overdraft-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-3"
-    ],
-    "tags": [
-      "banking"
-    ]
-  },
-  {
-    "id": "savings-account-noun-2",
-    "word": "Savings account",
-    "meaning": "Tài khoản tiết kiệm",
-    "ipa": "/ˈseɪ.vɪŋz əˌkaʊnt/",
-    "definition": "A bank account that earns interest on the funds held.",
-    "example": "A high-interest savings account helps protect your money against inflation.",
-    "exampleVi": "Tài khoản tiết kiệm lãi suất cao giúp bảo vệ tiền của bạn trước lạm phát.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/s/savings-account-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-4"
-    ],
-    "tags": [
-      "banking"
-    ]
-  },
-  {
-    "id": "wire-transfer-noun-2",
-    "word": "Wire transfer",
-    "meaning": "Điện chuyển tiền (trong nước/quốc tế)",
-    "ipa": "/ˈwaɪr ˌtræns.fɝː/",
-    "definition": "An electronic transfer of funds across a network of banks.",
-    "example": "International wire transfers usually take 1 to 3 business days to clear.",
-    "exampleVi": "Điện chuyển tiền quốc tế thường mất từ 1 đến 3 ngày làm việc để hoàn tất.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/w/wire-transfer-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-4"
     ],
     "tags": [
       "banking"
@@ -38598,24 +38357,6 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "img": "assets/images/words/s/swift-code.webp",
-    "topicIds": [
-      "finance-banking-chặng-4"
-    ],
-    "tags": [
-      "banking"
-    ]
-  },
-  {
-    "id": "safe-deposit-box-noun-2",
-    "word": "Safe deposit box",
-    "meaning": "Két an toàn ngân hàng",
-    "ipa": "/ˌseɪf dɪˈpɑː.zɪt bɑːks/",
-    "definition": "An individually secured container held in a bank vault for storing valuables.",
-    "example": "Important property deeds are stored securely in a safe deposit box.",
-    "exampleVi": "Sổ đỏ quan trọng được cất giữ an toàn trong két bảo hiểm của ngân hàng.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/s/safe-deposit-box-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-4"
     ],
@@ -38696,60 +38437,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "credit-card-noun-2",
-    "word": "Credit card",
-    "meaning": "Thẻ tín dụng (chi tiêu trước, trả tiền sau)",
-    "ipa": "/ˈkred.ɪt ˌkɑːrd/",
-    "definition": "A small plastic or metal card issued by a bank allowing the holder to purchase goods on credit.",
-    "example": "Paying off your credit card balance in full avoids high interest charges.",
-    "exampleVi": "Thanh toán toàn bộ dư nợ thẻ tín dụng giúp tránh được lãi suất cao.",
-    "level": "A2",
-    "pos": "noun",
-    "img": "assets/images/words/c/credit-card-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-5"
-    ],
-    "tags": [
-      "cards"
-    ]
-  },
-  {
-    "id": "debit-card-noun-2",
-    "word": "Debit card",
-    "meaning": "Thẻ ghi nợ (trừ tiền trực tiếp từ tài khoản)",
-    "ipa": "/ˈdeb.ɪt ˌkɑːrd/",
-    "definition": "A payment card that deducts money directly from a consumer's checking account when used.",
-    "example": "Using a debit card prevents you from spending more than you have.",
-    "exampleVi": "Dùng thẻ ghi nợ giúp bạn không chi tiêu vượt quá số tiền mình đang có.",
-    "level": "A2",
-    "pos": "noun",
-    "img": "assets/images/words/d/debit-card-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-5"
-    ],
-    "tags": [
-      "cards"
-    ]
-  },
-  {
-    "id": "receipt-noun-2",
-    "word": "Receipt",
-    "meaning": "Biên lai, phiếu thu tiền",
-    "ipa": "/rɪˈsiːt/",
-    "definition": "A written or digital acknowledgment that a specified article or sum of money has been received.",
-    "example": "Always keep your receipt in case you need to return the item.",
-    "exampleVi": "Hãy luôn giữ biên lai phòng trường hợp bạn cần đổi trả hàng hóa.",
-    "level": "A2",
-    "pos": "noun",
-    "img": "assets/images/words/r/receipt-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-5"
-    ],
-    "tags": [
-      "billing"
-    ]
-  },
-  {
     "id": "pin-personal-identification-number",
     "word": "PIN (Personal Identification Number)",
     "meaning": "Mã PIN bảo mật cá nhân",
@@ -38765,24 +38452,6 @@ export const WORDS = [
     ],
     "tags": [
       "security"
-    ]
-  },
-  {
-    "id": "invoice-noun-2",
-    "word": "Invoice",
-    "meaning": "Hóa đơn thanh toán (yêu cầu trả tiền)",
-    "ipa": "/ˈɪn.vɔɪs/",
-    "definition": "A list of goods sent or services provided, with a statement of the sum due.",
-    "example": "The supplier sent an invoice due within 30 days.",
-    "exampleVi": "Nhà cung cấp đã gửi hóa đơn yêu cầu thanh toán trong vòng 30 ngày.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/i/invoice-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-5"
-    ],
-    "tags": [
-      "billing"
     ]
   },
   {
@@ -38876,24 +38545,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "loan-noun-2",
-    "word": "Loan",
-    "meaning": "Khoản vay",
-    "ipa": "/loʊn/",
-    "definition": "A thing that is borrowed, especially a sum of money that is expected to be paid back with interest.",
-    "example": "He took out a business loan to expand his bakery.",
-    "exampleVi": "Anh ấy đã vay một khoản vốn kinh doanh để mở rộng tiệm bánh.",
-    "level": "A2",
-    "pos": "noun",
-    "img": "assets/images/words/l/loan-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-6"
-    ],
-    "tags": [
-      "loans"
-    ]
-  },
-  {
     "id": "cashback",
     "word": "Cashback",
     "meaning": "Tiền hoàn lại sau chi tiêu",
@@ -38909,24 +38560,6 @@ export const WORDS = [
     ],
     "tags": [
       "cards"
-    ]
-  },
-  {
-    "id": "interest-rate-noun-2",
-    "word": "Interest rate",
-    "meaning": "Lãi suất",
-    "ipa": "/ˈɪn.trɪst reɪt/",
-    "definition": "The proportion of a loan that is charged as interest to the borrower, typically expressed as an annual percentage.",
-    "example": "Rising interest rates make borrowing money more expensive.",
-    "exampleVi": "Lãi suất tăng khiến việc vay mượn tiền trở nên đắt đỏ hơn.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/i/interest-rate-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-6"
-    ],
-    "tags": [
-      "interest"
     ]
   },
   {
@@ -38966,24 +38599,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "credit-limit-noun-2",
-    "word": "Credit limit",
-    "meaning": "Hạn mức tín dụng",
-    "ipa": "/ˈkred.ɪt ˌlɪm.ɪt/",
-    "definition": "The maximum amount of credit that a financial institution extends to a client.",
-    "example": "Her prompt payments qualified her for a credit limit increase.",
-    "exampleVi": "Việc thanh toán đúng hạn giúp cô ấy đủ điều kiện được tăng hạn mức tín dụng.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/c/credit-limit-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-6"
-    ],
-    "tags": [
-      "cards"
-    ]
-  },
-  {
     "id": "fraud",
     "word": "Fraud",
     "meaning": "Gian lận, lừa đảo tài chính",
@@ -38999,60 +38614,6 @@ export const WORDS = [
     ],
     "tags": [
       "security"
-    ]
-  },
-  {
-    "id": "mortgage-noun-2",
-    "word": "Mortgage",
-    "meaning": "Khoản vay thế chấp mua nhà",
-    "ipa": "/ˈmɔːr.ɡɪdʒ/",
-    "definition": "A loan used to buy a house or real estate, where the property acts as collateral.",
-    "example": "They secured a 30-year fixed-rate mortgage for their new apartment.",
-    "exampleVi": "Họ đã vay thế chấp lãi suất cố định 30 năm để mua căn hộ mới.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/m/mortgage-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-6"
-    ],
-    "tags": [
-      "loans"
-    ]
-  },
-  {
-    "id": "collateral-noun-2",
-    "word": "Collateral",
-    "meaning": "Tài sản thế chấp, vật bảo đảm",
-    "ipa": "/kəˈlæt̬.ɚ.əl/",
-    "definition": "Something pledged as security for repayment of a loan, to be forfeited in the event of a default.",
-    "example": "He pledged his house as collateral for the bank loan.",
-    "exampleVi": "Anh ấy đã thế chấp ngôi nhà của mình làm tài sản đảm bảo cho khoản vay ngân hàng.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/c/collateral-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-6"
-    ],
-    "tags": [
-      "loans"
-    ]
-  },
-  {
-    "id": "principal-noun-2",
-    "word": "Principal",
-    "meaning": "Tiền nợ gốc (chưa tính lãi)",
-    "ipa": "/ˈprɪn.sə.pəl/",
-    "definition": "An original sum of money invested or lent, as distinguished from interest or profit.",
-    "example": "Early repayments reduce the principal amount faster.",
-    "exampleVi": "Trả nợ trước hạn giúp giảm số tiền nợ gốc nhanh hơn.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/p/principal-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-6"
-    ],
-    "tags": [
-      "loans"
     ]
   },
   {
@@ -39092,60 +38653,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "debt-noun-2",
-    "word": "Debt",
-    "meaning": "Khoản nợ",
-    "ipa": "/det/",
-    "definition": "A sum of money that is owed or due.",
-    "example": "She made a plan to become completely debt-free in three years.",
-    "exampleVi": "Cô ấy đã lập kế hoạch để sạch bóng nợ nần trong vòng 3 năm.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/d/debt-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-7"
-    ],
-    "tags": [
-      "debt"
-    ]
-  },
-  {
-    "id": "default-verb-2",
-    "word": "Default",
-    "meaning": "Vỡ nợ, mất khả năng trả nợ",
-    "ipa": "/dɪˈfɑːlt/",
-    "definition": "Failure to fulfill an obligation, especially to repay a loan.",
-    "example": "If you default on your mortgage, the bank may seize the property.",
-    "exampleVi": "Nếu bạn vỡ nợ khoản vay mua nhà, ngân hàng có thể tịch thu bất động sản.",
-    "level": "B2",
-    "pos": "verb",
-    "img": "assets/images/words/d/default-verb-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-7"
-    ],
-    "tags": [
-      "risk"
-    ]
-  },
-  {
-    "id": "credit-score-noun-2",
-    "word": "Credit score",
-    "meaning": "Điểm tín dụng cá nhân",
-    "ipa": "/ˈkred.ɪt ˌskɔːr/",
-    "definition": "A number assigned to a person that indicates to lenders their capacity to repay a loan.",
-    "example": "Maintaining an excellent credit score is essential for securing favorable loan terms.",
-    "exampleVi": "Duy trì điểm tín dụng xuất sắc là điều thiết yếu để có các điều khoản vay ưu đãi.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/c/credit-score-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-7"
-    ],
-    "tags": [
-      "credit"
-    ]
-  },
-  {
     "id": "repayment",
     "word": "Repayment",
     "meaning": "Sự hoàn trả nợ, tiền trả góp",
@@ -39156,24 +38663,6 @@ export const WORDS = [
     "level": "B2",
     "pos": "noun",
     "img": "assets/images/words/r/repayment.webp",
-    "topicIds": [
-      "finance-banking-chặng-7"
-    ],
-    "tags": [
-      "loans"
-    ]
-  },
-  {
-    "id": "installment-noun-2",
-    "word": "Installment",
-    "meaning": "Đợt trả góp, kỳ trả góp",
-    "ipa": "/ɪnˈstɑːl.mənt/",
-    "definition": "One of a number of successive payments in settlement of a debt.",
-    "example": "You can pay for the laptop in twelve monthly zero-interest installments.",
-    "exampleVi": "Bạn có thể thanh toán chiếc máy tính xách tay trong 12 kỳ trả góp 0% lãi suất.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/i/installment-noun-2.webp",
     "topicIds": [
       "finance-banking-chặng-7"
     ],
@@ -39290,42 +38779,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "compound-interest-noun-2",
-    "word": "Compound interest",
-    "meaning": "Lãi kép (kỳ quan thứ 8 của thế giới)",
-    "ipa": "/ˌkɑːm.paʊnd ˈɪn.trɪst/",
-    "definition": "Interest calculated on the initial principal, which also includes all of the accumulated interest from previous periods.",
-    "example": "Albert Einstein called compound interest the eighth wonder of the world.",
-    "exampleVi": "Albert Einstein từng gọi lãi kép là kỳ quan thứ tám của thế giới.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/c/compound-interest-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-8"
-    ],
-    "tags": [
-      "wealth"
-    ]
-  },
-  {
-    "id": "yield-noun-2",
-    "word": "Yield",
-    "meaning": "Tỷ suất sinh lời, lợi suất",
-    "ipa": "/jiːld/",
-    "definition": "The earnings generated and realized on an investment over a particular period of time.",
-    "example": "Government bonds offer a guaranteed annual yield of 4.5%.",
-    "exampleVi": "Trái phiếu chính phủ mang lại tỷ suất sinh lời bảo đảm 4,5% hằng năm.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/y/yield-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-8"
-    ],
-    "tags": [
-      "return"
-    ]
-  },
-  {
     "id": "fixed-deposit",
     "word": "Fixed deposit",
     "meaning": "Gửi tiết kiệm có kỳ hạn",
@@ -39341,24 +38794,6 @@ export const WORDS = [
     ],
     "tags": [
       "savings"
-    ]
-  },
-  {
-    "id": "inflation-noun-2",
-    "word": "Inflation",
-    "meaning": "Lạm phát (sự tăng giá cả hàng hóa)",
-    "ipa": "/ɪnˈfleɪ.ʃən/",
-    "definition": "A general increase in prices and fall in the purchasing value of money.",
-    "example": "High inflation reduces the real value of cash savings over time.",
-    "exampleVi": "Lạm phát cao làm suy giảm giá trị thực tế của tiền mặt tiết kiệm theo thời gian.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/i/inflation-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-8"
-    ],
-    "tags": [
-      "macro"
     ]
   },
   {
@@ -39524,24 +38959,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "maturity-noun-2",
-    "word": "Maturity",
-    "meaning": "Kỳ hạn đáo hạn",
-    "ipa": "/məˈtʊr.ə.t̬i/",
-    "definition": "The time when an insurance policy, security, or loan finishes or becomes payable.",
-    "example": "Upon maturity, the principal plus interest is credited to your main account.",
-    "exampleVi": "Khi đến hạn, tiền gốc cộng lãi sẽ được chuyển vào tài khoản chính của bạn.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/m/maturity-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-9"
-    ],
-    "tags": [
-      "savings"
-    ]
-  },
-  {
     "id": "real-interest-rate",
     "word": "Real interest rate",
     "meaning": "Lãi suất thực tế (đã trừ lạm phát)",
@@ -39596,24 +39013,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "stock-noun-2",
-    "word": "Stock",
-    "meaning": "Cổ phiếu, cổ phần",
-    "ipa": "/stɑːk/",
-    "definition": "A fraction of ownership in a corporation.",
-    "example": "She bought shares of tech stock for long-term capital growth.",
-    "exampleVi": "Cô ấy đã mua cổ phiếu công nghệ để tăng trưởng vốn dài hạn.",
-    "level": "B1",
-    "pos": "noun",
-    "img": "assets/images/words/s/stock-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-10"
-    ],
-    "tags": [
-      "stocks"
-    ]
-  },
-  {
     "id": "share-noun",
     "word": "Share",
     "meaning": "Cổ phần",
@@ -39650,42 +39049,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "dividend-noun-2",
-    "word": "Dividend",
-    "meaning": "Cổ tức (lợi nhuận chia cho cổ đông)",
-    "ipa": "/ˈdɪv.ə.dend/",
-    "definition": "A sum of money paid regularly by a company to its shareholders out of its profits.",
-    "example": "The company announced a quarterly dividend payout of $0.80 per share.",
-    "exampleVi": "Công ty đã công bố mức chi trả cổ tức quý là 0,80 đô la cho mỗi cổ phiếu.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/d/dividend-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-10"
-    ],
-    "tags": [
-      "stocks"
-    ]
-  },
-  {
-    "id": "portfolio-noun-2",
-    "word": "Portfolio",
-    "meaning": "Danh mục đầu tư",
-    "ipa": "/pɔːrtˈfoʊ.li.oʊ/",
-    "definition": "A range of investments held by a person or organization.",
-    "example": "A diversified portfolio reduces overall risk across market cycles.",
-    "exampleVi": "Một danh mục đầu tư đa dạng hóa giúp giảm thiểu rủi ro qua các chu kỳ thị trường.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/p/portfolio-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-10"
-    ],
-    "tags": [
-      "investment"
-    ]
-  },
-  {
     "id": "bond",
     "word": "Bond",
     "meaning": "Trái phiếu",
@@ -39701,24 +39064,6 @@ export const WORDS = [
     ],
     "tags": [
       "bonds"
-    ]
-  },
-  {
-    "id": "equity-noun-2",
-    "word": "Equity",
-    "meaning": "Vốn chủ sở hữu, giá trị cổ phần",
-    "ipa": "/ˈek.wə.t̬i/",
-    "definition": "The value of the shares issued by a company, or the value of an asset less the value of all liabilities on that asset.",
-    "example": "Private equity firms invest directly in promising private companies.",
-    "exampleVi": "Các quỹ đầu tư tư nhân rót vốn trực tiếp vào các công ty tư nhân đầy triển vọng.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/e/equity-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-10"
-    ],
-    "tags": [
-      "equity"
     ]
   },
   {
@@ -39884,24 +39229,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "mutual-fund-noun-2",
-    "word": "Mutual fund",
-    "meaning": "Quỹ đầu tư tương hỗ",
-    "ipa": "/ˈmjuː.tʃu.əl ˌfʌnd/",
-    "definition": "An investment program funded by shareholders that trades in diversified holdings and is professionally managed.",
-    "example": "He contributes monthly to a retirement mutual fund.",
-    "exampleVi": "Anh ấy đóng góp tiền hằng tháng vào một quỹ đầu tư tương hỗ hưu trí.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/m/mutual-fund-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-11"
-    ],
-    "tags": [
-      "funds"
-    ]
-  },
-  {
     "id": "return-on-investment-roi",
     "word": "Return on Investment (ROI)",
     "meaning": "Tỷ suất hoàn vốn đầu tư (ROI)",
@@ -40046,42 +39373,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "beneficiary-noun-2",
-    "word": "Beneficiary",
-    "meaning": "Người thụ hưởng (bảo hiểm / thừa kế)",
-    "ipa": "/ˌben.əˈfɪʃ.i.er.i/",
-    "definition": "A person who derives advantage from something, especially a trust, will, or life insurance policy.",
-    "example": "He designated his spouse as the primary beneficiary of his life insurance.",
-    "exampleVi": "Anh ấy đã chỉ định vợ mình là người thụ hưởng chính của hợp đồng bảo hiểm nhân thọ.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/b/beneficiary-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-12"
-    ],
-    "tags": [
-      "legal"
-    ]
-  },
-  {
-    "id": "liability-noun-2",
-    "word": "Liability",
-    "meaning": "Trách nhiệm pháp lý bồi thường",
-    "ipa": "/ˌlaɪ.əˈbɪl.ə.t̬i/",
-    "definition": "The state of being responsible for something, especially by law.",
-    "example": "Third-party liability insurance is mandatory for all vehicle owners.",
-    "exampleVi": "Bảo hiểm trách nhiệm dân sự đối với bên thứ ba là bắt buộc đối với mọi chủ xe.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/l/liability-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-12"
-    ],
-    "tags": [
-      "legal"
-    ]
-  },
-  {
     "id": "underwriting",
     "word": "Underwriting",
     "meaning": "Nghiệp vụ thẩm định bảo hiểm/phát hành chứng khoán",
@@ -40136,42 +39427,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "profit-noun-2",
-    "word": "Profit",
-    "meaning": "Lợi nhuận",
-    "ipa": "/ˈprɑː.fɪt/",
-    "definition": "A financial gain, especially the difference between the amount earned and the amount spent in buying, operating, or producing something.",
-    "example": "The company generated record net profits this year.",
-    "exampleVi": "Công ty đã tạo ra mức lợi nhuận ròng kỷ lục trong năm nay.",
-    "level": "A2",
-    "pos": "noun",
-    "img": "assets/images/words/p/profit-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-13"
-    ],
-    "tags": [
-      "profit"
-    ]
-  },
-  {
-    "id": "revenue-noun-2",
-    "word": "Revenue",
-    "meaning": "Doanh thu",
-    "ipa": "/ˈrev.ə.nuː/",
-    "definition": "Income, especially when of a company or organization and of a substantial nature.",
-    "example": "The firm reported a 20% increase in quarterly revenue.",
-    "exampleVi": "Công ty đã báo cáo mức tăng 20% doanh thu trong quý.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/r/revenue-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-13"
-    ],
-    "tags": [
-      "revenue"
-    ]
-  },
-  {
     "id": "gross-margin",
     "word": "Gross margin",
     "meaning": "Biên lợi nhuận gộp",
@@ -40223,78 +39478,6 @@ export const WORDS = [
     ],
     "tags": [
       "business"
-    ]
-  },
-  {
-    "id": "balance-sheet-noun-2",
-    "word": "Balance sheet",
-    "meaning": "Bảng cân đối kế toán",
-    "ipa": "/ˈbæl.əns ˌʃiːt/",
-    "definition": "A statement of the assets, liabilities, and capital of a business or other organization at a particular point in time.",
-    "example": "A solid balance sheet indicates that a company has minimal debt risk.",
-    "exampleVi": "Bảng cân đối kế toán lành mạnh cho thấy công ty có rất ít rủi ro về nợ.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/b/balance-sheet-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-13"
-    ],
-    "tags": [
-      "accounting"
-    ]
-  },
-  {
-    "id": "fiscal-year-noun-2",
-    "word": "Fiscal year",
-    "meaning": "Năm tài chính",
-    "ipa": "/ˌfɪs.kəl ˈjɪr/",
-    "definition": "A year as reckoned for taxing or accounting purposes.",
-    "example": "The corporation's fiscal year ends on December 31st.",
-    "exampleVi": "Năm tài chính của tập đoàn kết thúc vào ngày 31 tháng 12.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/f/fiscal-year-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-13"
-    ],
-    "tags": [
-      "business"
-    ]
-  },
-  {
-    "id": "audit-noun-2",
-    "word": "Audit",
-    "meaning": "Kiểm toán, sự kiểm tra sổ sách kế toán",
-    "ipa": "/ˈɑː.dɪt/",
-    "definition": "An official inspection of an individual's or organization's accounts, typically by an independent body.",
-    "example": "The external audit confirmed that financial records were accurate and compliant.",
-    "exampleVi": "Cuộc kiểm toán độc lập xác nhận rằng sổ sách tài chính hoàn toàn chính xác và tuân thủ.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/a/audit-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-13"
-    ],
-    "tags": [
-      "audit"
-    ]
-  },
-  {
-    "id": "depreciation-noun-2",
-    "word": "Depreciation",
-    "meaning": "Khấu hao tài sản cố định",
-    "ipa": "/dɪˌpriː.ʃiˈeɪ.ʃən/",
-    "definition": "A reduction in the value of an asset over time, due in particular to wear and tear.",
-    "example": "Machinery depreciation is counted as an operational expense for tax purposes.",
-    "exampleVi": "Khấu hao máy móc được tính là chi phí vận hành cho mục đích tính thuế.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/d/depreciation-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-13"
-    ],
-    "tags": [
-      "accounting"
     ]
   },
   {
@@ -40388,42 +39571,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "tariff-noun-2",
-    "word": "Tariff",
-    "meaning": "Thuế quan, thuế nhập khẩu",
-    "ipa": "/ˈter.ɪf/",
-    "definition": "A tax or duty to be paid on a particular class of imports or exports.",
-    "example": "Higher tariffs on imported electronics increased retail prices.",
-    "exampleVi": "Thuế quan cao hơn đánh vào đồ điện tử nhập khẩu đã làm tăng giá bán lẻ.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/t/tariff-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-14"
-    ],
-    "tags": [
-      "trade"
-    ]
-  },
-  {
-    "id": "venture-capital-noun-2",
-    "word": "Venture capital",
-    "meaning": "Vốn đầu tư mạo hiểm (cho khởi nghiệp)",
-    "ipa": "/ˌven.tʃɚ ˈkæp.ə.t̬əl/",
-    "definition": "Capital invested in a project or business in which there is a substantial element of risk, typically a new or expanding business.",
-    "example": "The AI startup raised $20 million in Series A venture capital funding.",
-    "exampleVi": "Công ty khởi nghiệp AI đã huy động được 20 triệu đô la vốn đầu tư mạo hiểm vòng Series A.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/v/venture-capital-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-14"
-    ],
-    "tags": [
-      "funding"
-    ]
-  },
-  {
     "id": "accounts-receivable",
     "word": "Accounts receivable",
     "meaning": "Các khoản phải thu (tiền khách hàng nợ)",
@@ -40496,24 +39643,6 @@ export const WORDS = [
     ]
   },
   {
-    "id": "remittance-noun-2",
-    "word": "Remittance",
-    "meaning": "Kiều hối, tiền gửi về gia đình ở quê nhà/nước ngoài",
-    "ipa": "/rɪˈmɪt.əns/",
-    "definition": "A sum of money sent in payment or as a gift, especially across international borders.",
-    "example": "Remittances sent by overseas workers contribute greatly to the national economy.",
-    "exampleVi": "Kiều hối do người lao động ở nước ngoài gửi về đóng góp rất lớn cho nền kinh tế quốc dân.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/r/remittance-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-15"
-    ],
-    "tags": [
-      "money"
-    ]
-  },
-  {
     "id": "burn-rate",
     "word": "Burn rate",
     "meaning": "Tốc độ tiêu hao tiền mặt (hằng tháng)",
@@ -40583,24 +39712,6 @@ export const WORDS = [
     ],
     "tags": [
       "market"
-    ]
-  },
-  {
-    "id": "fintech-noun-2",
-    "word": "Fintech",
-    "meaning": "Công nghệ tài chính (Fintech)",
-    "ipa": "/ˈfɪn.tek/",
-    "definition": "Computer programs and other technology used to support or enable banking and financial services.",
-    "example": "Fintech apps have revolutionized mobile payments and micro-investing.",
-    "exampleVi": "Các ứng dụng công nghệ tài chính Fintech đã cách mạng hóa thanh toán di động và đầu tư vi mô.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/f/fintech-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-15"
-    ],
-    "tags": [
-      "tech"
     ]
   },
   {
@@ -40691,42 +39802,6 @@ export const WORDS = [
     ],
     "tags": [
       "trend"
-    ]
-  },
-  {
-    "id": "cryptocurrency-noun-2",
-    "word": "Cryptocurrency",
-    "meaning": "Tiền mã hóa, tiền kỹ thuật số",
-    "ipa": "/ˈkrɪp.toʊˌkɝː.ən.si/",
-    "definition": "A digital currency in which transactions are verified and records maintained by a decentralized system using cryptography.",
-    "example": "Bitcoin is the most widely recognized cryptocurrency.",
-    "exampleVi": "Bitcoin là loại tiền mã hóa được công nhận rộng rãi nhất.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/c/cryptocurrency-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-16"
-    ],
-    "tags": [
-      "crypto"
-    ]
-  },
-  {
-    "id": "blockchain-noun-2",
-    "word": "Blockchain",
-    "meaning": "Công nghệ chuỗi khối Blockchain",
-    "ipa": "/ˈblɑːk.tʃeɪn/",
-    "definition": "A decentralized, distributed digital ledger that records transactions across many computers.",
-    "example": "Blockchain technology provides immutable transparency for financial ledgers.",
-    "exampleVi": "Công nghệ chuỗi khối mang lại tính minh bạch không thể chỉnh sửa cho các sổ cái tài chính.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/b/blockchain-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-16"
-    ],
-    "tags": [
-      "tech"
     ]
   },
   {
@@ -41213,24 +40288,6 @@ export const WORDS = [
     ],
     "tags": [
       "legal"
-    ]
-  },
-  {
-    "id": "reconciliation-noun-2",
-    "word": "Reconciliation",
-    "meaning": "Đối chiếu sổ sách kế toán",
-    "ipa": "/ˌrek.ənˌsɪl.iˈeɪ.ʃən/",
-    "definition": "An accounting process that compares two sets of records to check that figures are correct and in agreement.",
-    "example": "Bank reconciliation must be performed at the end of each month.",
-    "exampleVi": "Việc đối chiếu sổ cái với ngân hàng phải được thực hiện vào cuối mỗi tháng.",
-    "level": "B2",
-    "pos": "noun",
-    "img": "assets/images/words/r/reconciliation-noun-2.webp",
-    "topicIds": [
-      "finance-banking-chặng-19"
-    ],
-    "tags": [
-      "accounting"
     ]
   },
   {
@@ -41918,7 +40975,8 @@ export const WORDS = [
     "pos": "noun",
     "img": "assets/images/words/t/tariff-noun.webp",
     "topicIds": [
-      "society-world-chặng-4"
+      "society-world-chặng-4",
+      "finance-banking-chặng-14"
     ],
     "tags": []
   },
@@ -42780,8 +41838,9 @@ export const WORDS = [
   }
 ];
 
-export const WORDS_MAP = new Map(WORDS.map(w => [w.id, w]));
-
-export const LEGACY_ID_MAP = {
-  // Aliases for backward compatibility
-};
+export const WORDS_MAP = new Map();
+for (const word of WORDS) {
+  if (word && word.id) {
+    WORDS_MAP.set(word.id, word);
+  }
+}

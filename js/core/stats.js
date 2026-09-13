@@ -4,6 +4,7 @@
 
 import { StorageManager } from '../services/storage.js';
 import { State, Rating } from './fsrs.js';
+import { MASTERY_STABILITY_THRESHOLD } from '../config.js';
 import { getLocalDateKey } from '../utils.js';
 
 export class StatsManager {
@@ -52,7 +53,7 @@ export class StatsManager {
           learningCardsCount++;
         } else if (state.state === State.Review) {
           reviewCardsCount++;
-          if (state.stability >= 21) {
+          if (state.stability >= MASTERY_STABILITY_THRESHOLD) {
             masteredCardsCount++;
           }
         }
@@ -264,7 +265,7 @@ export class StatsManager {
 
     // Nạp thời gian học theo ngày
     try {
-      const timeLogs = JSON.parse(localStorage.getItem('fc_pro_study_time_logs') || '{}');
+      const timeLogs = StorageManager.getStudyTimeMap() || {};
       for (const dateKey in timeLogs) {
         if (dailyMap[dateKey]) {
           dailyMap[dateKey].studySeconds = timeLogs[dateKey] || 0;
@@ -282,7 +283,8 @@ export class StatsManager {
         item.totalReviews++;
         const cardId = log.cardId || log.word;
         if (cardId) {
-          if (log.state === State.New || log.state === 0 || log.isNew) {
+          const isNew = log.oldState === State.New || log.oldState === 0 || (log.oldState === undefined && (log.state === State.New || log.state === 0 || log.isNew));
+          if (isNew) {
             item.wordsLearned.add(cardId);
           } else {
             item.wordsReviewed.add(cardId);

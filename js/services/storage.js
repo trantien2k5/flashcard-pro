@@ -217,12 +217,24 @@ export class StorageManager {
     });
   }
 
-  static _putToStore(db, storeName, item) {
-    try {
-      const tx = db.transaction(storeName, 'readwrite');
-      const store = tx.objectStore(storeName);
-      store.put(item);
-    } catch (e) {}
+  static async _putToStore(db, storeName, item) {
+    if (!db) return false;
+    return new Promise((resolve) => {
+      try {
+        const tx = db.transaction(storeName, 'readwrite');
+        const store = tx.objectStore(storeName);
+        store.put(item);
+        tx.oncomplete = () => resolve(true);
+        tx.onerror = (e) => {
+          console.warn(`[StorageManager] IndexedDB put error on ${storeName}:`, e);
+          resolve(false);
+        };
+        tx.onabort = () => resolve(false);
+      } catch (e) {
+        console.warn(`[StorageManager] Exception in _putToStore:`, e);
+        resolve(false);
+      }
+    });
   }
 
   static invalidateCache() {
@@ -231,6 +243,7 @@ export class StorageManager {
     _logsCache = null;
     _timeMapCache = null;
     _customDecksCache = null;
+    _userProgressCache = null;
   }
 
   static getSettings() {
@@ -250,7 +263,11 @@ export class StorageManager {
     try {
       _settingsCache = { ...settings };
       if (typeof localStorage !== 'undefined') {
-        localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
+        try {
+          localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
+        } catch (lsErr) {
+          console.warn('localStorage quota warning on saveSettings:', lsErr);
+        }
       }
       if (_dbPromise) {
         _dbPromise.then(db => {
@@ -295,21 +312,31 @@ export class StorageManager {
     try {
       const cards = this.getAllCardStates();
       const canonicalId = (LEGACY_ID_MAP && LEGACY_ID_MAP[cardState.id]) || cardState.id;
-      const normalizedState = { ...cardState, id: canonicalId };
+      
+      // Giới hạn history trong state để không làm phình to bộ nhớ
+      const history = Array.isArray(cardState.history) ? cardState.history.slice(-10) : [];
+      const normalizedState = { ...cardState, id: canonicalId, history };
+      
       cards[canonicalId] = normalizedState;
       _cardsCache = cards;
       _stateRevision++;
 
-      // Backup sang LocalStorage
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(cards));
-      }
-
-      // Lưu trữ IndexedDB bền vững
+      // 1. Lưu trữ IndexedDB bền vững (First-class persistence)
       if (_dbPromise) {
         _dbPromise.then(db => {
           this._putToStore(db, STORES.CARDS, normalizedState);
-        }).catch(() => {});
+        }).catch((idbErr) => {
+          console.warn('[StorageManager] IndexedDB saveCardState error:', idbErr);
+        });
+      }
+
+      // 2. Backup an toàn sang LocalStorage (với try/catch độc lập chống tràn quota)
+      if (typeof localStorage !== 'undefined') {
+        try {
+          localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(cards));
+        } catch (lsErr) {
+          console.warn('[StorageManager] LocalStorage full or blocked, IndexedDB remains source of truth:', lsErr);
+        }
       }
     } catch (e) {
       console.error('Error saving card state:', e);
@@ -323,25 +350,31 @@ export class StorageManager {
       const normalizedMap = {};
       for (const [id, state] of Object.entries(cardStatesMap)) {
         const canonicalId = (LEGACY_ID_MAP && LEGACY_ID_MAP[id]) || id;
-        const normalized = { ...state, id: canonicalId };
+        const history = Array.isArray(state.history) ? state.history.slice(-10) : [];
+        const normalized = { ...state, id: canonicalId, history };
         cards[canonicalId] = normalized;
         normalizedMap[canonicalId] = normalized;
       }
       _cardsCache = cards;
       _stateRevision++;
 
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(cards));
-      }
-
       if (_dbPromise) {
         _dbPromise.then(db => {
+          if (!db) return;
           const tx = db.transaction(STORES.CARDS, 'readwrite');
           const store = tx.objectStore(STORES.CARDS);
           for (const card of Object.values(normalizedMap)) {
             store.put(card);
           }
         }).catch(() => {});
+      }
+
+      if (typeof localStorage !== 'undefined') {
+        try {
+          localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(cards));
+        } catch (lsErr) {
+          console.warn('[StorageManager] LocalStorage quota error on batch save:', lsErr);
+        }
       }
     } catch (e) {
       console.error('Error saving batch cards:', e);
@@ -352,22 +385,27 @@ export class StorageManager {
     try {
       const logs = this.getStudyLogs();
       const logEntry = {
+        id: reviewEvent.id || `log_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`,
         ...reviewEvent,
-        timestamp: new Date().toISOString()
+        timestamp: reviewEvent.timestamp || new Date().toISOString()
       };
       logs.push(logEntry);
 
       if (logs.length > 5000) logs.splice(0, logs.length - 5000);
       _logsCache = logs;
 
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem(STORAGE_KEYS.STUDY_LOGS, JSON.stringify(logs));
-      }
-
       if (_dbPromise) {
         _dbPromise.then(db => {
           this._putToStore(db, STORES.STUDY_LOGS, logEntry);
         }).catch(() => {});
+      }
+
+      if (typeof localStorage !== 'undefined') {
+        try {
+          localStorage.setItem(STORAGE_KEYS.STUDY_LOGS, JSON.stringify(logs.slice(-500)));
+        } catch (lsErr) {
+          console.warn('LocalStorage quota warning on logReview:', lsErr);
+        }
       }
     } catch (e) {
       console.error('Error logging review:', e);

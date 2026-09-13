@@ -4,6 +4,7 @@
 
 import { StorageManager } from '../services/storage.js';
 import { FSRS, State, isCardDue } from './fsrs.js';
+import { MASTERY_STABILITY_THRESHOLD } from '../config.js';
 import { getLocalDateKey } from '../utils.js';
 import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords } from '../../data/index.js';
 
@@ -304,7 +305,7 @@ export class DeckManager {
           if (isCardDue(state, now)) dueCount++;
         } else if (state.state === State.Review) {
           reviewCount++;
-          if (state.stability >= 21) {
+          if (state.stability >= MASTERY_STABILITY_THRESHOLD) {
             masteredCount++;
           }
           if (isCardDue(state, now)) dueCount++;
@@ -406,22 +407,37 @@ export class DeckManager {
     // 1. Sắp xếp thẻ đến hạn theo thời gian đến hạn tăng dần
     dueCards.sort((a, b) => new Date(a.fsrsState.due) - new Date(b.fsrsState.due));
 
-    // 2. Tính hạn mức từ mới
-    let maxNew = settings.dailyNewLimit || 10;
+    // 2. Tính hạn mức từ mới và thẻ đến hạn
+    let maxNew = Number(settings.dailyNewLimit) || 10;
+    let maxReview = Number(settings.dailyReviewLimit) || 50;
+
+    const logs = StorageManager.getStudyLogs();
+    const todayKey = getLocalDateKey();
+    const todayLogs = logs.filter(l => l.timestamp && getLocalDateKey(l.timestamp) === todayKey);
+
+    const newCardsStudiedToday = todayLogs.filter(l => 
+      l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
+    ).length;
+
     if (!deckId && !subtopic) {
-      const logs = StorageManager.getStudyLogs();
-      const todayKey = getLocalDateKey();
-      const newCardsStudiedToday = logs.filter(l => 
-        l.timestamp && getLocalDateKey(l.timestamp) === todayKey && (l.oldState === State.New || l.oldState === 0)
-      ).length;
       maxNew = Math.max(0, maxNew - newCardsStudiedToday);
     } else {
-      maxNew = Math.max(10, settings.dailyNewLimit || 10);
+      maxNew = Math.max(1, Number(settings.dailyNewLimit) || 10);
     }
 
-    const maxReview = settings.dailyReviewLimit || 50;
-    const selectedDue = dueCards.slice(0, maxReview);
-    const selectedNew = newCards.slice(0, maxNew);
+    // Thẻ đến hạn: Luôn cho phép ôn tập khi có từ đến hạn (không bị chặn về 0)
+    let selectedDue = dueCards;
+    if (mode !== 'due_only' && dueCards.length > maxReview) {
+      selectedDue = dueCards.slice(0, maxReview);
+    }
+
+    // Thẻ mới: Khi học chủ đề con cụ thể, nạp trọn vẹn danh sách từ mới của chủ đề con đó
+    let selectedNew;
+    if (subtopic) {
+      selectedNew = newCards;
+    } else {
+      selectedNew = newCards.slice(0, mode === 'new_only' ? Math.max(1, Number(settings.dailyNewLimit) || 10) : maxNew);
+    }
 
     let queueCards = [];
     if (mode === 'due_only') {

@@ -4,7 +4,7 @@
  * Tự động phát hiện và cập nhật code mới tức thời khi Online (Zero-Friction Live Update).
  */
 
-const CACHE_NAME = 'flashcard-pro-v3.3.0';
+const CACHE_NAME = 'flashcard-pro-v3.4.0';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -94,7 +94,7 @@ self.addEventListener('message', (event) => {
   }
 });
 
-// 4. Fetch: Chiến lược Network-First linh hoạt + Cache Fallback 100% Offline
+// 4. Fetch: Chiến lược linh hoạt kết hợp Cache-First cho Assets & Network-First cho Code
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
@@ -114,12 +114,41 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Đối với tài nguyên ngoài domain (CDN audio từ điển, TTS API): Không can thiệp cache SW
+  // A. Cache-First cho Hình ảnh từ vựng (.webp, .png, .jpg, .svg) và Audio (.mp3)
+  const isImageOrAudio = 
+    url.pathname.includes('/assets/images/words/') ||
+    url.pathname.endsWith('.webp') ||
+    url.pathname.endsWith('.png') ||
+    url.pathname.endsWith('.jpg') ||
+    url.pathname.endsWith('.mp3') ||
+    url.hostname.includes('dictionary.cambridge.org') ||
+    url.hostname.includes('oxfordlearnersdictionaries.com');
+
+  if (isImageOrAudio) {
+    event.respondWith(
+      caches.match(event.request).then((cachedResponse) => {
+        if (cachedResponse) return cachedResponse;
+
+        return fetch(event.request).then((networkResponse) => {
+          if (networkResponse && (networkResponse.status === 200 || networkResponse.type === 'opaque')) {
+            const clone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone)).catch(() => {});
+          }
+          return networkResponse;
+        }).catch(() => {
+          return new Response('', { status: 404, statusText: 'Not Found' });
+        });
+      })
+    );
+    return;
+  }
+
+  // Đối với tài nguyên ngoài domain khác (nếu có): Không can thiệp cache SW
   if (url.origin !== self.location.origin) {
     return;
   }
 
-  // A. Navigation Request (Truy cập trang / HTML): Luôn tải HTML mới nhất từ server khi có mạng
+  // B. Navigation Request (Truy cập trang / HTML): Luôn tải HTML mới nhất từ server khi có mạng
   if (event.request.mode === 'navigate') {
     event.respondWith(
       fetch(event.request, { cache: 'no-cache' })
@@ -143,11 +172,10 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // B. Tệp tĩnh nội bộ (JS, CSS, Data, Images, Icons)
+  // C. Tệp tĩnh nội bộ (JS, CSS, Data, Icons): Network-First kèm Cache Fallback
   event.respondWith(
     fetch(event.request)
       .then((networkResponse) => {
-        // Nếu phản hồi hợp lệ (HTTP 200 Basic/Cors), cập nhật vào Cache cho lần dùng Offline kế tiếp
         if (networkResponse && networkResponse.status === 200 && (networkResponse.type === 'basic' || networkResponse.type === 'cors')) {
           const clone = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
@@ -157,7 +185,6 @@ self.addEventListener('fetch', (event) => {
         return networkResponse;
       })
       .catch(async () => {
-        // Khi không có mạng (Offline) -> Lấy từ Cache
         try {
           const cachedResponse = await caches.match(event.request, { ignoreSearch: true });
           if (cachedResponse) {

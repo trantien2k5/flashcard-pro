@@ -478,11 +478,11 @@
   flex-shrink: 0;
 }
 
-/* Container Ảnh Minh Họa Trực Quan - Chiếm Tỉ Lệ Lớn & Sắc Nét */
+/* Container Ảnh Minh Họa Trực Quan - Tự động co giãn theo chiều dài từ vựng */
 .card-image-container {
   width: 100%;
   flex: 1 1 auto;
-  min-height: 140px;
+  min-height: 80px;
   max-height: 52%;
   border-radius: clamp(12px, 2vh, 16px);
   overflow: hidden;
@@ -492,8 +492,8 @@
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  flex-shrink: 0;
-  margin-bottom: 4px;
+  flex-shrink: 1;
+  margin-bottom: clamp(10px, 1.8vh, 16px);
   box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -509,7 +509,7 @@
   transform: scale(1.02);
 }
 
-/* Cụm Từ & Phiên Âm Mặt Trước */
+/* Cụm Từ & Phiên Âm Mặt Trước - Tự Động Co Giãn Thông Minh */
 .card-word-info {
   text-align: center;
   margin: auto 0;
@@ -518,14 +518,40 @@
   flex-direction: column;
   align-items: center;
   gap: 3px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 6px;
 }
 
 .card-word-title {
-  font-size: clamp(2rem, 4.6vh, 2.55rem);
+  font-size: clamp(1.85rem, 4.4vh, 2.5rem);
   font-weight: 800;
   letter-spacing: -0.025em;
   color: var(--text-primary);
   margin: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.16;
+  max-width: 100%;
+  text-wrap: balance;
+  transition: font-size 0.15s ease;
+}
+
+/* Tự động hạ cỡ chữ theo độ dài ký tự của từ/cụm từ (Long Words Auto-Scaling) */
+.card-word-title.word-len-md {
+  font-size: clamp(1.5rem, 3.4vh, 1.95rem);
+  letter-spacing: -0.015em;
+}
+
+.card-word-title.word-len-lg {
+  font-size: clamp(1.25rem, 2.7vh, 1.55rem);
+  letter-spacing: -0.01em;
+}
+
+.card-word-title.word-len-xl {
+  font-size: clamp(1.05rem, 2.2vh, 1.3rem);
+  letter-spacing: 0;
 }
 
 [data-theme="light"] .card-word-title {
@@ -539,6 +565,8 @@
   margin-bottom: 0;
   font-weight: 600;
   font-family: var(--font-mono);
+  word-break: break-word;
+  max-width: 100%;
 }
 
 [data-theme="light"] .card-word-phonetic {
@@ -547,8 +575,8 @@
 
 /* Nút Loa Pill Phát Âm (Đẹp, Dễ Bấm & Nổi Bật) */
 .card-sound-btn {
-  margin-top: 0;
-  margin-bottom: clamp(6px, 1.4vh, 10px);
+  margin-top: clamp(2px, 0.8vh, 6px);
+  margin-bottom: clamp(8px, 1.6vh, 12px);
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
   color: var(--text-primary, #f0f6fc);
@@ -659,8 +687,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  flex: 1 1 auto;
   width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding: 2px 4px;
 }
 
 .card-back-tag-row {
@@ -715,11 +747,20 @@
 }
 
 .card-back-meaning {
-  font-size: clamp(1.6rem, 3.8vh, 2.2rem);
+  font-size: clamp(1.4rem, 3.4vh, 2rem);
   font-weight: 800;
   color: #34d399;
   margin-bottom: clamp(6px, 1.2vh, 10px);
   line-height: 1.25;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+  max-width: 100%;
+}
+
+.card-back-meaning.meaning-len-lg {
+  font-size: clamp(1.15rem, 2.5vh, 1.45rem);
+  line-height: 1.35;
 }
 
 [data-theme="light"] .card-back-meaning {
