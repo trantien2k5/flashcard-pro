@@ -883,7 +883,7 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
         wordsListContainer.appendChild(frag);
       }
 
-      // Render Pagination
+      // Hiển thị thanh điều hướng phân trang
       if (paginationContainer) {
         paginationContainer.innerHTML = '';
         if (totalPages > 1) {

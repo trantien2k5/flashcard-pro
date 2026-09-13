@@ -1,10 +1,10 @@
 /**
- * Flashcard English Pro - Core Utilities
- * Consolidates DOM, Async, Format, Sanitization & Helpers
+ * Flashcard English Pro - Tiện ích lõi (Core Utilities)
+ * Tổng hợp xử lý DOM, Async, Format định dạng, Xử lý chuỗi & Bảo mật Sanitization
  */
 
 /**
- * Escape HTML special characters to prevent XSS injection
+ * Mã hóa ký tự đặc biệt HTML chống tấn công XSS
  */
 export function escapeHTML(value) {
   return String(value ?? '').replace(/[&<>"']/g, ch => ({
@@ -17,7 +17,7 @@ export function escapeHTML(value) {
 }
 
 /**
- * Validate and safely sanitize CSS color strings
+ * Kiểm tra và làm sạch chuỗi mã màu CSS hợp lệ
  */
 export function safeColor(value, fallback = '#6366f1') {
   const color = String(value || '').trim();
@@ -25,14 +25,14 @@ export function safeColor(value, fallback = '#6366f1') {
 }
 
 /**
- * Escape special characters for safe regular expression usage
+ * Thoát các ký tự đặc biệt khi tạo RegExp động
  */
 export function escapeRegex(string) {
   return String(string || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 /**
- * Format elapsed seconds into mm:ss or hh:mm:ss
+ * Định dạng thời gian trôi qua (giây) thành chuỗi mm:ss hoặc hh:mm
  */
 export function formatTime(seconds = 0) {
   const sec = Math.max(0, Math.floor(seconds));
@@ -47,7 +47,7 @@ export function formatTime(seconds = 0) {
 }
 
 /**
- * Format date to Vietnamese locale string (e.g. "08/09/2026")
+ * Định dạng đối tượng Date thành chuỗi ngày theo chuẩn tiếng Việt (vd: "08/09/2026")
  */
 export function formatDate(date) {
   if (!date) return '';
@@ -61,7 +61,7 @@ export function formatDate(date) {
 }
 
 /**
- * Format numbers with Vietnamese thousand separators (e.g. 1.250)
+ * Định dạng số nguyên với dấu chấm ngăn cách hàng nghìn tiếng Việt (vd: 1.250)
  */
 export function formatNumber(num = 0) {
   const n = Number(num) || 0;
@@ -69,7 +69,7 @@ export function formatNumber(num = 0) {
 }
 
 /**
- * Clean FSRS interval string (strips <, ≤, spaces for concise button labels)
+ * Làm sạch chuỗi chu kỳ FSRS cho nhãn nút ngắn gọn (bỏ ký tự <, ≤, khoảng trắng thừa)
  */
 export function formatCleanInterval(text, fallback = '1d') {
   return (text || fallback).toString().replace(/^[<≤\s]+/, '').trim();
@@ -89,14 +89,14 @@ export function getLocalDateKey(date = new Date()) {
 }
 
 /**
- * Detect whether current client has touch capability
+ * Kiểm tra thiết bị hiện tại có hỗ trợ cảm ứng (Touch Screen) không
  */
 export function isTouchDevice() {
   return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
 }
 
 /**
- * Smoothly scroll window or container to top
+ * Cuộn mượt mà cửa sổ hoặc container lên đầu trang
  */
 export function scrollToTop(target = null, smooth = true) {
   try {
@@ -124,7 +124,7 @@ export function scrollToTop(target = null, smooth = true) {
 }
 
 /**
- * Highlight keywords in text with <mark> tags safely
+ * Đánh dấu từ khóa tìm kiếm trong chuỗi văn bản an toàn với thẻ <mark>
  */
 export function highlightKeyword(text, keyword) {
   if (!text || !keyword) return escapeHTML(text || '');
@@ -135,7 +135,7 @@ export function highlightKeyword(text, keyword) {
 }
 
 /**
- * Standard debounce utility for input event throttling
+ * Hàm Debounce trì hoãn gọi hàm liên tục (tối ưu gõ phím tìm kiếm)
  */
 export function debounce(fn, delay = 150) {
   let timer = null;
@@ -146,7 +146,7 @@ export function debounce(fn, delay = 150) {
 }
 
 /**
- * Throttle utility to limit execution rate
+ * Hàm Throttle giới hạn tần suất thực thi hàm theo chu kỳ mili-giây
  */
 export function throttle(fn, limit = 200) {
   let inThrottle = false;
@@ -190,7 +190,7 @@ export function bindModalBackdropAndEsc(modalEl, closeCallback) {
 }
 
 /**
- * Promise-based delay sleep helper
+ * Hàm trì hoãn Async Promise (Sleep)
  */
 export function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));

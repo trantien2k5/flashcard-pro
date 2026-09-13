@@ -1,6 +1,6 @@
 /**
- * Flashcard English Pro - Main Application Entry Point & Controller
- * Consolidates App Bootstrap, State Management, Navigation Router & Event Hub
+ * Flashcard English Pro - Điểm khởi động & Bộ điều phối ứng dụng chính
+ * Quản lý vòng đời App, Router chuyển đổi Tab, Khởi tạo trạng thái và Kết nối sự kiện
  */
 
 import { DeckManager } from './core/selectors.js';
@@ -10,7 +10,7 @@ import { StatsManager } from './core/stats.js';
 import { SyncManager } from './services/sync.js';
 import { scrollToTop } from './utils.js';
 
-// Feature Views & Shared Components
+// Giao diện các màn hình chức năng & Thành phần dùng chung
 import { renderReviewTab } from './views/review.js';
 import { renderDecksTab, 
   openSubtopicsPage, 
@@ -31,7 +31,7 @@ import {
 } from './views/study.js';
 import { setupSearch, setupSyncController, openSyncModal, showToast, showConfirm, mountGlobalModals } from './views/components.js';
 
-// Export constants & enums for full compatibility
+// Xuất các hằng số và Enum để tương thích toàn hệ thống
 export { DECK_ENGLISH_NAMES, SUBTOPIC_ICONS, getSubtopicIcon, getSubtopicColor, Rating, State, STABILITY_TIERS } from './config.js';
 
 export class FlashcardApp {

@@ -1,6 +1,5 @@
 /**
- * Settings & Profile View Controller
- * Consolidates FSRS Parameters, Audio, Theme Configuration, Achievements & Pure Local Data Management
+ * Cài Đặt & Hồ Sơ Cá Nhân - Quản lý tham số FSRS-6, âm thanh, giao diện và dữ liệu sao lưu
  */
 
 import { StorageManager, BackupService } from '../services/storage.js';
@@ -16,7 +15,7 @@ function saveAppSettings(app) {
 }
 
 /* ==========================================================================
-   1. SETTINGS VIEW CONTROLLER
+   1. ĐIỀU KHIỂN GIAO DIỆN CÀI ĐẶT & HỒ SƠ CÁ NHÂN
    ========================================================================== */
 
 export function renderSettingsTabShell(container) {
@@ -321,7 +320,7 @@ export function setupSettingsUI(app) {
       });
     }
 
-    // Export / Import JSON & Data Reset
+    // Xuất / Nhập dữ liệu sao lưu JSON & Đặt lại dữ liệu
     const btnExport = document.getElementById('btn-settings-export-data');
     if (btnExport) {
       btnExport.onclick = () => {

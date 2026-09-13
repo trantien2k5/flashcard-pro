@@ -1,6 +1,6 @@
 /**
- * Library View Controller - Comprehensive Vocabulary Directory & FSRS Manager
- * Clean 1-Row-Per-Word Layout & Interactive Rich Detail Modal
+ * Thư Viện Từ Vựng - Quản lý toàn diện kho từ vựng & trạng thái FSRS-6
+ * Giao diện tinh gọn 1 dòng/từ kèm Modal xem chi tiết chuyên sâu
  */
 
 import { StorageManager } from '../services/storage.js';
@@ -8,7 +8,7 @@ import { State, isCardDue } from '../core/fsrs.js';
 import { escapeHTML, scrollToTop } from '../utils.js';
 import { speak, onAudioPlayStateChange } from '../services/audio.js';
 
-// Local view state to preserve across tab switches
+// Trạng thái bộ lọc và tìm kiếm cục bộ của Thư viện (bảo toàn khi chuyển tab)
 let _libState = {
   searchQuery: '',
   selectedCefr: 'all',
@@ -19,7 +19,7 @@ let _libState = {
   currentPage: 1
 };
 
-// Listen to audio play state to animate the active sound button
+// Lắng nghe sự kiện phát âm thanh để hiển thị hiệu ứng sóng âm trên nút
 if (typeof window !== 'undefined') {
   onAudioPlayStateChange((isPlaying, accent, word) => {
     if (!isPlaying) {
@@ -29,7 +29,7 @@ if (typeof window !== 'undefined') {
 }
 
 /**
- * Format friendly FSRS due date & interval text
+ * Định dạng trạng thái FSRS, hạn ôn tập và nhãn phân tầng trí nhớ
  */
 function formatFSRSDueText(state, now = new Date()) {
   if (!state || state.state === State.New || state.state === 0 || !state.due) {
@@ -152,7 +152,7 @@ function formatFSRSDueText(state, now = new Date()) {
 }
 
 /**
- * Render main Library Tab Shell
+ * Khởi tạo và hiển thị toàn bộ giao diện màn hình Thư viện từ vựng
  */
 export function renderLibraryTab(app) {
   const container = document.getElementById('tab-library');
@@ -482,7 +482,7 @@ function getFilteredAndSortedCards(app) {
 }
 
 /**
- * Render danh sách từ vựng dạng 1 dòng/từ kèm phân trang
+ * Hiển thị danh sách từ vựng dạng 1 dòng/từ kèm phân trang
  */
 function renderLibraryWords(app) {
   const listContainer = document.getElementById('lib-words-list');
@@ -537,7 +537,7 @@ function renderLibraryWords(app) {
     return;
   }
 
-  // Render danh sách các Word Row (1 dòng/từ)
+  // Hiển thị danh sách các Word Row (1 dòng/từ)
   const now = new Date();
   const frag = document.createDocumentFragment();
 
@@ -620,12 +620,12 @@ function renderLibraryWords(app) {
   listContainer.innerHTML = '';
   listContainer.appendChild(frag);
 
-  // Render thanh phân trang
+  // Hiển thị thanh phân trang
   renderPaginationBar(app, totalPages, currentPage);
 }
 
 /**
- * Render thanh điều hướng phân trang (Pagination Bar)
+ * Hiển thị thanh điều hướng phân trang (Pagination Bar)
  */
 function renderPaginationBar(app, totalPages, currentPage) {
   const paginationBar = document.getElementById('lib-pagination-bar');

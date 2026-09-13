@@ -925,7 +925,7 @@ if (typeof window !== 'undefined') {
 
 export class BackupService {
   /**
-   * Export all user data to a downloadable JSON file
+   * Xuất toàn bộ dữ liệu người dùng ra tệp sao lưu JSON (.json)
    */
   static exportToJSON(customFilename = null) {
     try {
@@ -954,13 +954,13 @@ export class BackupService {
 
       return { success: true, count: Object.keys(data.cards || {}).length, filename: safeFilename };
     } catch (e) {
-      console.error('[BackupService] Export error:', e);
+      console.error('[BackupService] Lỗi xuất file sao lưu:', e);
       return { success: false, error: e.message };
     }
   }
 
   /**
-   * Import data from a selected File or JSON text
+   * Nhập dữ liệu từ tệp File hoặc văn bản JSON đã sao lưu
    */
   static async importFromFile(file) {
     if (!file) {
@@ -984,7 +984,7 @@ export class BackupService {
   }
 
   /**
-   * Reset all progress and settings
+   * Đặt lại toàn bộ dữ liệu và tiến trình học về trạng thái ban đầu
    */
   static async resetAll() {
     return await StorageManager.clearAllData();
