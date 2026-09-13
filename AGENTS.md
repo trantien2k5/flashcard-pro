@@ -96,12 +96,16 @@ simple-flashcard/
   - `Mức 4 (Bền vững)`: $14 \le S < 30$ ngày (Lịch ôn 2 - 4 tuần).
   - `Mức 5 (Ghi nhớ sâu)`: $S \ge 30$ ngày (Lịch ôn $\ge 30$ ngày / trên 1 tháng - Nhiều tháng).
 
+- **Đánh giá Năng lực Trí nhớ & Điểm Nhận thức (`StatsManager.getMemoryIntelligence`):**
+  - Tính toán xác suất nhớ thực tế trung bình $R(t)$ của toàn bộ thẻ đang hoạt động trong cơ sở dữ liệu.
+  - Thang điểm nhận thức FSRS (0 - 1000 điểm) và 5 cấp bậc danh hiệu (Tập sự, Pro, Expert, Master, Grandmaster).
+
 ### 3.2. Quản lý Dữ liệu & Cache (`js/services/storage.js`)
 - **Đa tầng Client Storage:**
   1. `RAM Cache` (`_cardsCache`, `_settingsCache`, `_logsCache`): Truy xuất $O(1)$, không block DOM.
   2. `IndexedDB` (`FlashcardProDB`): Lưu trữ bền vững tại trình duyệt phía client.
   3. `localStorage`: Dự phòng khi IndexedDB không khả dụng.
-  4. `JSON Export / Import`: Sao lưu và phục hồi dữ liệu hoàn chỉnh qua file `.json`.
+  4. `JSON Export / Import (`BackupService`):` Sao lưu và phục hồi dữ liệu chuẩn hóa theo định dạng thời gian phút `flashcard_backup_YYYYMMDD_HHhMM.json`.
 
 ### 3.3. Âm thanh Kép (Dual Audio Engine in `js/services/audio.js`)
 1. **Studio Native Audio (Priority 1):** Tải MP3 trực tiếp từ CDN từ điển chuẩn (US/UK).
