@@ -36,7 +36,9 @@ let _topicTreeCache = null;
 // Khởi tạo derived indexes 1 lần duy nhất từ canonical data
 for (const topic of TOPICS) {
   if (topic.parentId === null || topic.parentId === undefined) {
-    _rootTopics.push(topic);
+    if (!topic.hidden) {
+      _rootTopics.push(topic);
+    }
   } else {
     if (!_childTopicIdsByParentId.has(topic.parentId)) {
       _childTopicIdsByParentId.set(topic.parentId, []);

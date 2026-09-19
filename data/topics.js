@@ -18,6 +18,1214 @@ export const TOPICS = [
     "order": 0
   },
   {
+    "id": "top-1000-toeic",
+    "name": "1000 Từ Vựng TOEIC Cốt Lõi",
+    "titleEn": "1000 Essential TOEIC Words",
+    "parentId": null,
+    "description": "Lộ trình 1000 từ vựng TOEIC thực chiến tần suất xuất hiện cao nhất trong đề thi (Listening & Reading) và môi trường công sở quốc tế (500 - 850+). Sắp xếp theo thứ tự ưu tiên phổ biến nhất.",
+    "icon": "🎯",
+    "category": "toeic",
+    "color": "#0284c7",
+    "order": 1,
+    "isProgressive": true
+  },
+  {
+    "id": "top-1000-toeic-chặng-1",
+    "name": "1. Động từ Giao tiếp, Đàm phán & Thỏa thuận",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về động từ giao tiếp, đàm phán & thỏa thuận.",
+    "icon": "🤝",
+    "color": "#0284c7"
+  },
+  {
+    "id": "top-1000-toeic-chặng-2",
+    "name": "2. Động từ Phê duyệt, Đề xuất & Ban hành",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về động từ phê duyệt, đề xuất & ban hành.",
+    "icon": "📝",
+    "color": "#6366f1",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-1"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-3",
+    "name": "3. Động từ Đánh giá, Phân tích & Kiểm tra",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về động từ đánh giá, phân tích & kiểm tra.",
+    "icon": "🔍",
+    "color": "#10b981",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-2"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-4",
+    "name": "4. Động từ Tiến độ, Điều chỉnh & Gia hạn",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về động từ tiến độ, điều chỉnh & gia hạn.",
+    "icon": "⏳",
+    "color": "#f59e0b",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-3"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-5",
+    "name": "5. Động từ Phân công, Ủy quyền & Giám sát",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về động từ phân công, ủy quyền & giám sát.",
+    "icon": "👥",
+    "color": "#ec4899",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-4"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-6",
+    "name": "6. Động từ Hoàn tất, Đạt được & Vượt chỉ tiêu",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về động từ hoàn tất, đạt được & vượt chỉ tiêu.",
+    "icon": "🎯",
+    "color": "#8b5cf6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-5"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-7",
+    "name": "7. Động từ Khắc phục, Giải quyết & Bồi thường",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về động từ khắc phục, giải quyết & bồi thường.",
+    "icon": "🛠️",
+    "color": "#14b8a6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-6"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-8",
+    "name": "8. Động từ Tối ưu hóa, Nâng cấp & Đổi mới",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về động từ tối ưu hóa, nâng cấp & đổi mới.",
+    "icon": "⚡",
+    "color": "#06b6d4",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-7"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-9",
+    "name": "9. Động từ Giữ chân, Thu hút & Mở rộng",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về động từ giữ chân, thu hút & mở rộng.",
+    "icon": "📈",
+    "color": "#3b82f6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-8"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-10",
+    "name": "10. Động từ Tuân thủ, Cam kết & Thực thi",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về động từ tuân thủ, cam kết & thực thi.",
+    "icon": "📜",
+    "color": "#84cc16",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-9"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-11",
+    "name": "11. Thiết bị, Vật tư & Văn phòng phẩm",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về thiết bị, vật tư & văn phòng phẩm.",
+    "icon": "🖨️",
+    "color": "#0284c7",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-10"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-12",
+    "name": "12. Thông báo, Bản ghi nhớ & Lịch trình",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về thông báo, bản ghi nhớ & lịch trình.",
+    "icon": "📌",
+    "color": "#6366f1",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-11"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-13",
+    "name": "13. Quy trình, Hướng dẫn & Biểu mẫu",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về quy trình, hướng dẫn & biểu mẫu.",
+    "icon": "📋",
+    "color": "#10b981",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-12"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-14",
+    "name": "14. Hồ sơ, Lưu trữ & Bảo mật Tài liệu",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về hồ sơ, lưu trữ & bảo mật tài liệu.",
+    "icon": "📁",
+    "color": "#f59e0b",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-13"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-15",
+    "name": "15. Trao đổi Thư tín, Hồi âm & Đính kèm",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về trao đổi thư tín, hồi âm & đính kèm.",
+    "icon": "✉️",
+    "color": "#ec4899",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-14"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-16",
+    "name": "16. Không gian Làm việc, Cơ sở & Tiện ích",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về không gian làm việc, cơ sở & tiện ích.",
+    "icon": "🏢",
+    "color": "#8b5cf6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-15"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-17",
+    "name": "17. Cấp bậc Quản lý & Ban Lãnh đạo",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về cấp bậc quản lý & ban lãnh đạo.",
+    "icon": "👔",
+    "color": "#14b8a6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-16"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-18",
+    "name": "18. Thời hạn, Tiến độ & Hạn chót Dự án",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về thời hạn, tiến độ & hạn chót dự án.",
+    "icon": "⏱️",
+    "color": "#06b6d4",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-17"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-19",
+    "name": "19. Hội đồng Cố vấn, Ủy ban & Đại biểu",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về hội đồng cố vấn, ủy ban & đại biểu.",
+    "icon": "🏛️",
+    "color": "#3b82f6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-18"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-20",
+    "name": "20. Chính sách Doanh nghiệp & Nội quy",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về chính sách doanh nghiệp & nội quy.",
+    "icon": "📖",
+    "color": "#84cc16",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-19"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-21",
+    "name": "21. Điều khoản & Cấu trúc Hợp đồng",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về điều khoản & cấu trúc hợp đồng.",
+    "icon": "📑",
+    "color": "#0284c7",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-20"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-22",
+    "name": "22. Quyền hạn, Nghĩa vụ & Ràng buộc",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về quyền hạn, nghĩa vụ & ràng buộc.",
+    "icon": "⚖️",
+    "color": "#6366f1",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-21"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-23",
+    "name": "23. Bảo mật Thông tin & Sở hữu Trí tuệ",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về bảo mật thông tin & sở hữu trí tuệ.",
+    "icon": "🔒",
+    "color": "#10b981",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-22"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-24",
+    "name": "24. Bồi thường, Trách nhiệm & Bảo hiểm",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về bồi thường, trách nhiệm & bảo hiểm.",
+    "icon": "🛡️",
+    "color": "#f59e0b",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-23"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-25",
+    "name": "25. Tranh chấp, Khiếu nại & Trọng tài",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về tranh chấp, khiếu nại & trọng tài.",
+    "icon": "⚖️",
+    "color": "#ec4899",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-24"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-26",
+    "name": "26. Gia hạn, Chấm dứt & Hủy bỏ Hợp đồng",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về gia hạn, chấm dứt & hủy bỏ hợp đồng.",
+    "icon": "❌",
+    "color": "#8b5cf6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-25"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-27",
+    "name": "27. Liên doanh, Hợp tác & Nhượng quyền",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về liên doanh, hợp tác & nhượng quyền.",
+    "icon": "🤝",
+    "color": "#14b8a6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-26"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-28",
+    "name": "28. Đàm phán, Nhượng bộ & Thỏa hiệp",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về đàm phán, nhượng bộ & thỏa hiệp.",
+    "icon": "💬",
+    "color": "#06b6d4",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-27"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-29",
+    "name": "29. Công chứng, Chứng thực & Hiệu lực",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về công chứng, chứng thực & hiệu lực.",
+    "icon": "🔏",
+    "color": "#3b82f6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-28"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-30",
+    "name": "30. Đấu thầu, Mời thầu & Báo giá Hợp đồng",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về đấu thầu, mời thầu & báo giá hợp đồng.",
+    "icon": "📊",
+    "color": "#84cc16",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-29"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-31",
+    "name": "31. Tuyển dụng, Đăng tuyển & Ứng viên",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về tuyển dụng, đăng tuyển & ứng viên.",
+    "icon": "🎯",
+    "color": "#0284c7",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-30"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-32",
+    "name": "32. Hồ sơ Ứng viên & Thư giới thiệu",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về hồ sơ ứng viên & thư giới thiệu.",
+    "icon": "📄",
+    "color": "#6366f1",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-31"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-33",
+    "name": "33. Phỏng vấn, Sàng lọc & Thử việc",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về phỏng vấn, sàng lọc & thử việc.",
+    "icon": "🗣️",
+    "color": "#10b981",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-32"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-34",
+    "name": "34. Tiền lương, Thu nhập & Thù lao",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về tiền lương, thu nhập & thù lao.",
+    "icon": "💵",
+    "color": "#f59e0b",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-33"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-35",
+    "name": "35. Phúc lợi, Phụ cấp & Chế độ Đãi ngộ",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về phúc lợi, phụ cấp & chế độ đãi ngộ.",
+    "icon": "🎁",
+    "color": "#ec4899",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-34"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-36",
+    "name": "36. Ngày phép, Nghỉ ốm & Chuyên cần",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về ngày phép, nghỉ ốm & chuyên cần.",
+    "icon": "🗓️",
+    "color": "#8b5cf6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-35"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-37",
+    "name": "37. Đào tạo, Hội thảo & Hội nhập",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về đào tạo, hội thảo & hội nhập.",
+    "icon": "🎓",
+    "color": "#14b8a6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-36"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-38",
+    "name": "38. Đánh giá Hiệu suất & Cơ hội Thăng tiến",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về đánh giá hiệu suất & cơ hội thăng tiến.",
+    "icon": "⭐",
+    "color": "#06b6d4",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-37"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-39",
+    "name": "39. Thôi việc, Nghỉ hưu & Bãi nhiệm",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về thôi việc, nghỉ hưu & bãi nhiệm.",
+    "icon": "🚪",
+    "color": "#3b82f6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-38"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-40",
+    "name": "40. Văn hóa Công ty & Tinh thần Đồng đội",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về văn hóa công ty & tinh thần đồng đội.",
+    "icon": "🌟",
+    "color": "#84cc16",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-39"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-41",
+    "name": "41. Nghiên cứu Thị trường & Phân khúc",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về nghiên cứu thị trường & phân khúc.",
+    "icon": "📊",
+    "color": "#0284c7",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-40"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-42",
+    "name": "42. Chiến dịch Quảng bá & Truyền thông",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về chiến dịch quảng bá & truyền thông.",
+    "icon": "📢",
+    "color": "#6366f1",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-41"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-43",
+    "name": "43. Ấn phẩm Tiếp thị, Tờ rơi & Danh mục",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về ấn phẩm tiếp thị, tờ rơi & danh mục.",
+    "icon": "📰",
+    "color": "#10b981",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-42"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-44",
+    "name": "44. Thương hiệu, Nhận diện & Uy tín",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về thương hiệu, nhận diện & uy tín.",
+    "icon": "💎",
+    "color": "#f59e0b",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-43"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-45",
+    "name": "45. Tài trợ, Đại sứ & Đối tác Tiếp thị",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về tài trợ, đại sứ & đối tác tiếp thị.",
+    "icon": "🤝",
+    "color": "#ec4899",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-44"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-46",
+    "name": "46. Bán lẻ, Bán buôn & Kênh Phân phối",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về bán lẻ, bán buôn & kênh phân phối.",
+    "icon": "🏬",
+    "color": "#8b5cf6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-45"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-47",
+    "name": "47. Khuyến mãi, Chiết khấu & Mã Giảm giá",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về khuyến mãi, chiết khấu & mã giảm giá.",
+    "icon": "🏷️",
+    "color": "#14b8a6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-46"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-48",
+    "name": "48. Chiến lược Định giá & Doanh số Bán hàng",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về chiến lược định giá & doanh số bán hàng.",
+    "icon": "💰",
+    "color": "#06b6d4",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-47"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-49",
+    "name": "49. Khách hàng Tiềm năng & Phễu Chuyển đổi",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về khách hàng tiềm năng & phễu chuyển đổi.",
+    "icon": "🎯",
+    "color": "#3b82f6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-48"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-50",
+    "name": "50. Khảo sát Hài lòng & Phản hồi Khách hàng",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về khảo sát hài lòng & phản hồi khách hàng.",
+    "icon": "⭐",
+    "color": "#84cc16",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-49"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-51",
+    "name": "51. Đơn Đặt Hàng, Hóa đơn & Biên nhận",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về đơn đặt hàng, hóa đơn & biên nhận.",
+    "icon": "🧾",
+    "color": "#0284c7",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-50"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-52",
+    "name": "52. Kiểm kê Hàng tồn & Quản lý Kho bãi",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về kiểm kê hàng tồn & quản lý kho bãi.",
+    "icon": "📦",
+    "color": "#6366f1",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-51"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-53",
+    "name": "53. Đóng gói, Thùng hàng & Mã vạch",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về đóng gói, thùng hàng & mã vạch.",
+    "icon": "🏷️",
+    "color": "#10b981",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-52"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-54",
+    "name": "54. Đơn vị Vận chuyển & Giao nhận Hàng",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về đơn vị vận chuyển & giao nhận hàng.",
+    "icon": "🚚",
+    "color": "#f59e0b",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-53"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-55",
+    "name": "55. Cảng biển, Sân bay & Trung tâm Chuyển phát",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về cảng biển, sân bay & trung tâm chuyển phát.",
+    "icon": "⚓",
+    "color": "#ec4899",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-54"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-56",
+    "name": "56. Thủ tục Hải quan, Thuế suất & Thông quan",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về thủ tục hải quan, thuế suất & thông quan.",
+    "icon": "🛃",
+    "color": "#8b5cf6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-55"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-57",
+    "name": "57. Vận đơn & Chứng từ Vận tải Quốc tế",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về vận đơn & chứng từ vận tải quốc tế.",
+    "icon": "📜",
+    "color": "#14b8a6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-56"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-58",
+    "name": "58. Theo dõi Đơn hàng & Tiến độ Giao hàng",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về theo dõi đơn hàng & tiến độ giao hàng.",
+    "icon": "📍",
+    "color": "#06b6d4",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-57"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-59",
+    "name": "59. Chậm trễ, Hư hại & Khiếu nại Vận chuyển",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về chậm trễ, hư hại & khiếu nại vận chuyển.",
+    "icon": "⚠️",
+    "color": "#3b82f6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-58"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-60",
+    "name": "60. Chuỗi Cung ứng & Tối ưu Hậu cần",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về chuỗi cung ứng & tối ưu hậu cần.",
+    "icon": "🌐",
+    "color": "#84cc16",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-59"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-61",
+    "name": "61. Báo cáo Tài chính & Doanh thu Doanh nghiệp",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về báo cáo tài chính & doanh thu doanh nghiệp.",
+    "icon": "📈",
+    "color": "#0284c7",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-60"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-62",
+    "name": "62. Chi phí Vận hành, Ngân sách & Khấu trừ",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về chi phí vận hành, ngân sách & khấu trừ.",
+    "icon": "📉",
+    "color": "#6366f1",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-61"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-63",
+    "name": "63. Tài sản, Nợ phải trả & Vốn Chủ sở hữu",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về tài sản, nợ phải trả & vốn chủ sở hữu.",
+    "icon": "🏦",
+    "color": "#10b981",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-62"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-64",
+    "name": "64. Giao dịch Ngân hàng & Sao kê Tài khoản",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về giao dịch ngân hàng & sao kê tài khoản.",
+    "icon": "💳",
+    "color": "#f59e0b",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-63"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-65",
+    "name": "65. Tín dụng, Khoản vay & Lãi suất Vay",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về tín dụng, khoản vay & lãi suất vay.",
+    "icon": "💸",
+    "color": "#ec4899",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-64"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-66",
+    "name": "66. Đầu tư, Cổ phiếu & Trái phiếu Doanh nghiệp",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về đầu tư, cổ phiếu & trái phiếu doanh nghiệp.",
+    "icon": "📊",
+    "color": "#8b5cf6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-65"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-67",
+    "name": "67. Kiểm toán Độc lập & Kế toán Thuế",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về kiểm toán độc lập & kế toán thuế.",
+    "icon": "🧮",
+    "color": "#14b8a6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-66"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-68",
+    "name": "68. Thị trường Tiền tệ, Tỷ giá & Lạm phát",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về thị trường tiền tệ, tỷ giá & lạm phát.",
+    "icon": "💱",
+    "color": "#06b6d4",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-67"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-69",
+    "name": "69. Cổ đông, Cổ tức & Thâu tóm Doanh nghiệp",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về cổ đông, cổ tức & thâu tóm doanh nghiệp.",
+    "icon": "💎",
+    "color": "#3b82f6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-68"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-70",
+    "name": "70. Thanh khoản, Phá sản & Tái cấu trúc Vốn",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về thanh khoản, phá sản & tái cấu trúc vốn.",
+    "icon": "🔄",
+    "color": "#84cc16",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-69"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-71",
+    "name": "71. Quản trị Doanh nghiệp & Ban Giám đốc",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về quản trị doanh nghiệp & ban giám đốc.",
+    "icon": "🏢",
+    "color": "#0284c7",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-70"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-72",
+    "name": "72. Chiến lược Kinh doanh, Tầm nhìn & Mục tiêu",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về chiến lược kinh doanh, tầm nhìn & mục tiêu.",
+    "icon": "🎯",
+    "color": "#6366f1",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-71"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-73",
+    "name": "73. Năng suất Lao động & Hiệu quả Vận hành",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về năng suất lao động & hiệu quả vận hành.",
+    "icon": "⚡",
+    "color": "#10b981",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-72"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-74",
+    "name": "74. Hội nghị, Hội thảo & Diễn đàn Thương mại",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về hội nghị, hội thảo & diễn đàn thương mại.",
+    "icon": "🎤",
+    "color": "#f59e0b",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-73"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-75",
+    "name": "75. Địa điểm Tổ chức, Hội trường & Gian hàng",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về địa điểm tổ chức, hội trường & gian hàng.",
+    "icon": "🏛️",
+    "color": "#ec4899",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-74"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-76",
+    "name": "76. Diễn giả Chính, Khách mời & Đại biểu",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về diễn giả chính, khách mời & đại biểu.",
+    "icon": "🎙️",
+    "color": "#8b5cf6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-75"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-77",
+    "name": "77. Chương trình Nghị sự & Kỷ yếu Hội nghị",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về chương trình nghị sự & kỷ yếu hội nghị.",
+    "icon": "📑",
+    "color": "#14b8a6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-76"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-78",
+    "name": "78. Tiệc Chiêu đãi, Tiếp tân & Giao lưu Đối tác",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về tiệc chiêu đãi, tiếp tân & giao lưu đối tác.",
+    "icon": "🥂",
+    "color": "#06b6d4",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-77"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-79",
+    "name": "79. Cuộc họp Nội bộ, Thảo luận & Biểu quyết",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về cuộc họp nội bộ, thảo luận & biểu quyết.",
+    "icon": "👥",
+    "color": "#3b82f6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-78"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-80",
+    "name": "80. Đổi mới Sáng tạo & Tái thiết Doanh nghiệp",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về đổi mới sáng tạo & tái thiết doanh nghiệp.",
+    "icon": "💡",
+    "color": "#84cc16",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-79"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-81",
+    "name": "81. Phần mềm Ứng dụng & Cơ sở Dữ liệu",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về phần mềm ứng dụng & cơ sở dữ liệu.",
+    "icon": "💻",
+    "color": "#0284c7",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-80"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-82",
+    "name": "82. Phần cứng, Thiết bị Máy chủ & Ngoại vi",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về phần cứng, thiết bị máy chủ & ngoại vi.",
+    "icon": "🖥️",
+    "color": "#6366f1",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-81"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-83",
+    "name": "83. Mạng Nội bộ, Viễn thông & Điện toán Đám mây",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về mạng nội bộ, viễn thông & điện toán đám mây.",
+    "icon": "☁️",
+    "color": "#10b981",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-82"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-84",
+    "name": "84. An ninh Mạng, Mã hóa & Bảo mật Dữ liệu",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về an ninh mạng, mã hóa & bảo mật dữ liệu.",
+    "icon": "🔒",
+    "color": "#f59e0b",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-83"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-85",
+    "name": "85. Sự cố Kỹ thuật, Lỗi Hệ thống & Sửa lỗi",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về sự cố kỹ thuật, lỗi hệ thống & sửa lỗi.",
+    "icon": "⚠️",
+    "color": "#ec4899",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-84"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-86",
+    "name": "86. Nâng cấp Phần mềm, Bảo trì & Cài đặt",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về nâng cấp phần mềm, bảo trì & cài đặt.",
+    "icon": "🔄",
+    "color": "#8b5cf6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-85"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-87",
+    "name": "87. Tự động hóa Quy trình & Trí tuệ Nhân tạo",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về tự động hóa quy trình & trí tuệ nhân tạo.",
+    "icon": "🤖",
+    "color": "#14b8a6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-86"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-88",
+    "name": "88. Bàn Hỗ trợ Kỹ thuật & Hướng dẫn Sử dụng",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về bàn hỗ trợ kỹ thuật & hướng dẫn sử dụng.",
+    "icon": "🎧",
+    "color": "#06b6d4",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-87"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-89",
+    "name": "89. Sao lưu Dữ liệu & Phục hồi Thảm họa",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về sao lưu dữ liệu & phục hồi thảm họa.",
+    "icon": "💾",
+    "color": "#3b82f6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-88"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-90",
+    "name": "90. Tính Tương thích & Tiêu chuẩn Kỹ thuật",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về tính tương thích & tiêu chuẩn kỹ thuật.",
+    "icon": "⚙️",
+    "color": "#84cc16",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-89"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-91",
+    "name": "91. Đặt vé Máy bay, Hãng hàng không & Lịch bay",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về đặt vé máy bay, hãng hàng không & lịch bay.",
+    "icon": "✈️",
+    "color": "#0284c7",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-90"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-92",
+    "name": "92. Hành lý, Thủ tục Sân bay & Cửa Khởi hành",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về hành lý, thủ tục sân bay & cửa khởi hành.",
+    "icon": "🧳",
+    "color": "#6366f1",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-91"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-93",
+    "name": "93. Hoãn chuyến, Hủy chuyến & Bồi thường Vé",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về hoãn chuyến, hủy chuyến & bồi thường vé.",
+    "icon": "⏱️",
+    "color": "#10b981",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-92"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-94",
+    "name": "94. Đặt phòng Khách sạn & Tiện nghi Lưu trú",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về đặt phòng khách sạn & tiện nghi lưu trú.",
+    "icon": "🏨",
+    "color": "#f59e0b",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-93"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-95",
+    "name": "95. Dịch vụ Phòng & Tiện ích Khách sạn",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về dịch vụ phòng & tiện ích khách sạn.",
+    "icon": "🛎️",
+    "color": "#ec4899",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-94"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-96",
+    "name": "96. Thuê xe, Xe đưa đón & Phương tiện Công cộng",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về thuê xe, xe đưa đón & phương tiện công cộng.",
+    "icon": "🚗",
+    "color": "#8b5cf6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-95"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-97",
+    "name": "97. Nhà hàng Ẩm thực, Đặt bàn & Tiệc Doanh nhân",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về nhà hàng ẩm thực, đặt bàn & tiệc doanh nhân.",
+    "icon": "🍽️",
+    "color": "#14b8a6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-96"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-98",
+    "name": "98. Thị thực Nhập cảnh, Hộ chiếu & Xuất nhập cảnh",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về thị thực nhập cảnh, hộ chiếu & xuất nhập cảnh.",
+    "icon": "🛂",
+    "color": "#06b6d4",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-97"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-99",
+    "name": "99. Dịch vụ Khách hàng & Hỗ trợ Khẩn cấp",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về dịch vụ khách hàng & hỗ trợ khẩn cấp.",
+    "icon": "📞",
+    "color": "#3b82f6",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-98"
+    }
+  },
+  {
+    "id": "top-1000-toeic-chặng-100",
+    "name": "100. Công tác Phí, Hóa đơn Quyết toán & Chi trả",
+    "parentId": "top-1000-toeic",
+    "description": "Gồm 10 từ vựng trọng tâm về công tác phí, hóa đơn quyết toán & chi trả.",
+    "icon": "💳",
+    "color": "#84cc16",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "top-1000-toeic-chặng-99"
+    }
+  },
+  {
     "id": "top-1000-core-chặng-1",
     "name": "1. Động từ Hành động Cốt lõi #1",
     "parentId": "top-1000-core",
@@ -1215,6 +2423,7 @@ export const TOPICS = [
   },
   {
     "id": "daily-life-routines",
+    "hidden": true,
     "name": "Đời sống & Thói quen",
     "parentId": null,
     "description": "Thói quen buổi sáng, việc nhà, lịch trình, mua sắm và giấc ngủ hằng ngày.",
@@ -1582,6 +2791,7 @@ export const TOPICS = [
   },
   {
     "id": "food-drink",
+    "hidden": true,
     "name": "Ăn uống & Ẩm thực",
     "parentId": null,
     "description": "Nguyên liệu, phương pháp nấu nướng, hương vị, dụng cụ bếp và văn hóa nhà hàng ẩm thực.",
@@ -1769,6 +2979,7 @@ export const TOPICS = [
   },
   {
     "id": "home-living",
+    "hidden": true,
     "name": "Nhà cửa & Đời sống",
     "parentId": null,
     "description": "Nội thất, phòng ốc, thiết bị điện gia dụng, dọn dẹp nhà cửa và thuê nhà.",
@@ -1932,6 +3143,7 @@ export const TOPICS = [
   },
   {
     "id": "people-relationships",
+    "hidden": true,
     "name": "Con người & Mối quan hệ",
     "parentId": null,
     "description": "Từ vựng toàn diện về gia đình, họ hàng, tình bạn, diện mạo và tính cách con người.",
@@ -2119,6 +3331,7 @@ export const TOPICS = [
   },
   {
     "id": "pets-animals",
+    "hidden": true,
     "name": "Thú Cưng & Động Vật Gần Gũi",
     "parentId": null,
     "description": "Kho từ vựng thiết yếu về các loài thú cưng trong nhà, vật nuôi nông trại và côn trùng quen thuộc hằng ngày.",
@@ -2162,6 +3375,7 @@ export const TOPICS = [
   },
   {
     "id": "health-body",
+    "hidden": true,
     "name": "Sức khỏe & Cơ thể",
     "parentId": null,
     "description": "Các bộ phận cơ thể, triệu chứng bệnh tật, bệnh viện, thuốc men và lối sống lành mạnh.",
@@ -2337,6 +3551,7 @@ export const TOPICS = [
   },
   {
     "id": "communication-feelings",
+    "hidden": true,
     "name": "Giao tiếp & Cảm xúc",
     "parentId": null,
     "description": "Trò chuyện, đối thoại, tranh luận, các cung bậc cảm xúc và ngôn ngữ cơ thể.",
@@ -2524,6 +3739,7 @@ export const TOPICS = [
   },
   {
     "id": "shopping-money",
+    "hidden": true,
     "name": "Mua sắm & Tiền bạc",
     "parentId": null,
     "description": "Mua sắm trực tiếp & online, giá cả, thẻ ngân hàng, tiền tệ, quản lý ngân sách và tài chính.",
@@ -2711,6 +3927,7 @@ export const TOPICS = [
   },
   {
     "id": "transport-directions",
+    "hidden": true,
     "name": "Giao thông & Chỉ đường",
     "parentId": null,
     "description": "Phương tiện giao thông, giao thông công cộng, tàu hỏa, hàng không, luật lái xe, bản đồ và chỉ đường.",
@@ -2898,6 +4115,7 @@ export const TOPICS = [
   },
   {
     "id": "entertainment-hobbies",
+    "hidden": true,
     "name": "Giải trí & Sở thích",
     "parentId": null,
     "description": "Phim ảnh, âm nhạc, sách truyện, trò chơi điện tử, thể thao, nhiếp ảnh, hội họa, kịch nghệ và dã ngoại.",
@@ -3085,6 +4303,7 @@ export const TOPICS = [
   },
   {
     "id": "travel-places",
+    "hidden": true,
     "name": "Du lịch & Địa điểm",
     "parentId": null,
     "description": "Kế hoạch du lịch, khách sạn, thắng cảnh, bãi biển, leo núi, ẩm thực địa phương, kỳ quan và an toàn.",
@@ -3260,6 +4479,7 @@ export const TOPICS = [
   },
   {
     "id": "nature-weather",
+    "hidden": true,
     "name": "Thiên nhiên & Thời tiết",
     "parentId": null,
     "description": "Thời tiết, 4 mùa, thiên tai, động vật, chim muông, cây cối, sông hồ, địa hình, vũ trụ và môi trường.",
@@ -3387,6 +4607,7 @@ export const TOPICS = [
   },
   {
     "id": "education-learning",
+    "hidden": true,
     "name": "Giáo dục & Học tập",
     "parentId": null,
     "description": "Trường học, bậc học, môn học, thi cử, bằng cấp, học bổng, phương pháp tự học và du học.",
@@ -3562,6 +4783,7 @@ export const TOPICS = [
   },
   {
     "id": "work-jobs",
+    "hidden": true,
     "name": "Công việc & Nghề nghiệp",
     "parentId": null,
     "description": "Các ngành nghề, môi trường văn phòng, tuyển dụng, phỏng vấn, lương thưởng, dự án và thăng tiến.",
@@ -3737,6 +4959,7 @@ export const TOPICS = [
   },
   {
     "id": "technology-internet",
+    "hidden": true,
     "name": "Công nghệ & Internet",
     "parentId": null,
     "description": "Máy tính, phần mềm, internet, smartphone, mạng xã hội, an ninh mạng, đám mây, AI và lập trình.",
@@ -3924,6 +5147,7 @@ export const TOPICS = [
   },
   {
     "id": "toeic-b1",
+    "hidden": true,
     "name": "TOEIC B1 - Tiếng Anh Công Sở",
     "parentId": null,
     "description": "Lộ trình 20 chặng từ vựng chuẩn TOEIC 500-750+: Văn phòng, nhân sự, tiếp thị, hợp đồng, tài chính và logistics.",
@@ -4184,6 +5408,7 @@ export const TOPICS = [
   },
   {
     "id": "finance-banking",
+    "hidden": true,
     "name": "Tài chính & Ngân hàng",
     "titleEn": "Finance & Banking Mastery",
     "parentId": null,
@@ -4419,6 +5644,7 @@ export const TOPICS = [
   },
   {
     "id": "society-world",
+    "hidden": true,
     "name": "Xã hội & Thế giới",
     "parentId": null,
     "description": "Quốc gia, chính phủ, luật pháp, cộng đồng, truyền thông, kinh tế, hòa bình, nhân quyền và từ thiện.",

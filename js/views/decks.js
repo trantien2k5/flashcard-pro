@@ -203,7 +203,13 @@ export function renderDecksTab(app) {
       return (a.deck.order ?? 999) - (b.deck.order ?? 999);
     });
 
-    // Cập nhật summary label
+    // Ẩn thanh công cụ lọc/sắp xếp thừa thãi khi chỉ có <= 1 chủ đề
+    const headerBar = tabPane.querySelector('.decks-header-bar');
+    if (headerBar) {
+      headerBar.style.display = allDecks.length > 1 ? '' : 'none';
+    }
+
+    // Cập nhật summary label nếu có
     const countSummary = document.getElementById('decks-count-summary');
     if (countSummary) {
       countSummary.textContent = `Hiển thị ${filtered.length} chủ đề`;
@@ -233,7 +239,9 @@ export function renderDecksTab(app) {
             <h3 class="deck-title">${escapeHTML(englishTitle)}</h3>
             <p class="deck-sub-title">${escapeHTML(vietnameseTitle)}</p>
           </div>
-          <button class="btn-deck-pin ${isPinned ? 'pinned' : ''}" title="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" data-pin-id="${escapeHTML(deck.id)}">📌</button>
+          ${allDecks.length > 1 ? `
+            <button class="btn-deck-pin ${isPinned ? 'pinned' : ''}" title="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" data-pin-id="${escapeHTML(deck.id)}">📌</button>
+          ` : ''}
         </div>
         <div class="deck-card-footer">
           <div class="deck-meta-strip">

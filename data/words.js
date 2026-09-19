@@ -1,7 +1,7 @@
 /**
  * CANONICAL VOCABULARY REPOSITORY - Flashcard English Pro
  * Single Source of Truth (SSOT) cho toàn bộ từ vựng hệ thống
- * Sắp xếp theo thứ tự sư phạm: A1 (Cốt lõi) -> A2 (Mở rộng) -> B1 -> B2
+ * Sắp xếp theo thứ tự sư phạm: A1 (Cốt lõi) -> A2 (Mở rộng) -> B1 -> B2 -> C1
  */
 
 export const LEGACY_ID_MAP = {
@@ -41835,12 +41835,16007 @@ export const WORDS = [
       "society-world-chặng-10"
     ],
     "tags": []
+  },
+  {
+    "id": "toeic-negotiate",
+    "word": "Negotiate",
+    "meaning": "Đàm phán, thương lượng",
+    "ipa": "/nɪˈɡoʊʃieɪt/",
+    "definition": "To have formal discussions with someone in order to reach an agreement.",
+    "example": "The management is negotiating a new contract with union representatives.",
+    "exampleVi": "Ban quản lý đang đàm phán hợp đồng mới với các đại diện công đoàn.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/n/negotiate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-compromise",
+    "word": "Compromise",
+    "meaning": "Thỏa hiệp, nhượng bộ lẫn nhau",
+    "ipa": "/ˈkɑːmprəmaɪz/",
+    "definition": "An agreement in an argument in which the people involved reduce their demands.",
+    "example": "Both parties were willing to compromise to finalize the partnership.",
+    "exampleVi": "Cả hai bên đều sẵn sàng thỏa hiệp để hoàn tất thỏa thuận hợp tác.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/c/compromise.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-consensus",
+    "word": "Consensus",
+    "meaning": "Sự đồng thuận, nhất trí chung",
+    "ipa": "/kənˈsensəs/",
+    "definition": "A generally accepted opinion or decision among a group of people.",
+    "example": "The committee reached a consensus on the proposed budget allocation.",
+    "exampleVi": "Ủy ban đã đạt được sự đồng thuận về việc phân bổ ngân sách đề xuất.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/consensus.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-facilitate",
+    "word": "Facilitate",
+    "meaning": "Tạo điều kiện thuận lợi, thúc đẩy",
+    "ipa": "/fəˈsɪlɪteɪt/",
+    "definition": "To make something possible or easier.",
+    "example": "The new software will facilitate communication between regional branches.",
+    "exampleVi": "Phần mềm mới sẽ tạo điều kiện thuận lợi cho việc liên lạc giữa các chi nhánh khu vực.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/f/facilitate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-collaborate",
+    "word": "Collaborate",
+    "meaning": "Hợp tác, cộng tác làm việc",
+    "ipa": "/kəˈlæbəreɪt/",
+    "definition": "To work with someone else for a special purpose.",
+    "example": "Our design team collaborated with marketing to develop the campaign.",
+    "exampleVi": "Đội ngũ thiết kế của chúng tôi đã hợp tác với bộ phận tiếp thị để phát triển chiến dịch.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/c/collaborate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-consult",
+    "word": "Consult",
+    "meaning": "Tham vấn, hỏi ý kiến chuyên gia",
+    "ipa": "/kənˈsʌlt/",
+    "definition": "To get information or advice from a person with special knowledge.",
+    "example": "Please consult with the legal department before signing the agreement.",
+    "exampleVi": "Vui lòng tham vấn phòng pháp chế trước khi ký thỏa thuận.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/c/consult.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-persuade",
+    "word": "Persuade",
+    "meaning": "Thuyết phục, làm cho tin theo",
+    "ipa": "/pərˈsweɪd/",
+    "definition": "To make someone do or believe something by giving them good reasons.",
+    "example": "The sales rep persuaded the client to purchase the enterprise package.",
+    "exampleVi": "Đại diện bán hàng đã thuyết phục khách hàng mua gói doanh nghiệp.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/p/persuade.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-confirm",
+    "word": "Confirm",
+    "meaning": "Xác nhận, khẳng định lại",
+    "ipa": "/kənˈfɜːrm/",
+    "definition": "To make an arrangement, meeting, or phone call certain.",
+    "example": "I am writing to confirm our appointment on Friday at 2:00 PM.",
+    "exampleVi": "Tôi viết thư này để xác nhận cuộc hẹn của chúng ta vào thứ Sáu lúc 2:00 chiều.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/c/confirm.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-acknowledge",
+    "word": "Acknowledge",
+    "meaning": "Xác nhận đã nhận, công nhận",
+    "ipa": "/əkˈnɑːlɪdʒ/",
+    "definition": "To accept, admit, or recognize something, or confirm receipt.",
+    "example": "Please acknowledge receipt of this email by replying today.",
+    "exampleVi": "Vui lòng xác nhận đã nhận email này bằng cách phản hồi trong hôm nay.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/a/acknowledge.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-clarify",
+    "word": "Clarify",
+    "meaning": "Làm rõ, giải thích tường minh",
+    "ipa": "/ˈklærəfaɪ/",
+    "definition": "To make something clear or easier to understand.",
+    "example": "Could you please clarify the third clause in the contract?",
+    "exampleVi": "Bạn có thể làm rõ điều khoản thứ ba trong hợp đồng được không?",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/c/clarify.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-authorize",
+    "word": "Authorize",
+    "meaning": "Ủy quyền, cho phép chính thức",
+    "ipa": "/ˈɔːθəraɪz/",
+    "definition": "To give official permission for something.",
+    "example": "Only senior executives are authorized to sign checks above $10,000.",
+    "exampleVi": "Chỉ các lãnh đạo cấp cao mới được ủy quyền ký séc trên 10.000 USD.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/a/authorize.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-2"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-endorse",
+    "word": "Endorse",
+    "meaning": "Tán thành, chứng thực, quảng bá",
+    "ipa": "/ɪnˈdɔːrs/",
+    "definition": "To publicly state approval or support for something.",
+    "example": "The board of directors endorsed the CEO's expansion plan.",
+    "exampleVi": "Hội đồng quản trị đã tán thành kế hoạch mở rộng của Tổng Giám đốc.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/e/endorse.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-2"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-propose",
+    "word": "Propose",
+    "meaning": "Đề xuất, kiến nghị",
+    "ipa": "/prəˈpoʊz/",
+    "definition": "To offer or suggest a possible plan or action for consideration.",
+    "example": "The engineering team proposed an innovative method to reduce costs.",
+    "exampleVi": "Nhóm kỹ thuật đã đề xuất một phương pháp đổi mới nhằm giảm chi phí.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/p/propose.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-2"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-recommend",
+    "word": "Recommend",
+    "meaning": "Khuyên bảo, giới thiệu, tiến cử",
+    "ipa": "/ˌrekəˈmend/",
+    "definition": "To advise someone to do something or suggest a good option.",
+    "example": "We highly recommend updating the security protocol immediately.",
+    "exampleVi": "Chúng tôi rất khuyên bạn nên cập nhật giao thức bảo mật ngay lập tức.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/r/recommend.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-2"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-implement",
+    "word": "Implement",
+    "meaning": "Triển khai, thực hiện kế hoạch",
+    "ipa": "/ˈɪmplɪment/",
+    "definition": "To start using a plan or system.",
+    "example": "The company will implement a new remote work policy next month.",
+    "exampleVi": "Công ty sẽ triển khai chính sách làm việc từ xa mới vào tháng tới.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/i/implement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-2"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-designate",
+    "word": "Designate",
+    "meaning": "Chỉ định, bổ nhiệm, quy định",
+    "ipa": "/ˈdezɪɡneɪt/",
+    "definition": "To choose someone or something for a particular purpose.",
+    "example": "Ms. Patel was designated as the team leader for the merger project.",
+    "exampleVi": "Cô Patel được chỉ định làm trưởng nhóm cho dự án sáp nhập.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/d/designate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-2"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-establish",
+    "word": "Establish",
+    "meaning": "Thành lập, thiết lập, tạo dựng",
+    "ipa": "/ɪˈstæblɪʃ/",
+    "definition": "To start a company or organization that will continue for a long time.",
+    "example": "The firm was established in 1995 and has grown steadily since.",
+    "exampleVi": "Doanh nghiệp được thành lập năm 1995 và đã phát triển đều đặn từ đó.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/e/establish.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-2"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-mandate",
+    "word": "Mandate",
+    "meaning": "Bắt buộc, ủy nhiệm, chỉ thị",
+    "ipa": "/ˈmændeɪt/",
+    "definition": "To give official permission or order something to be done.",
+    "example": "Federal regulations mandate safety inspections every six months.",
+    "exampleVi": "Quy định liên bang bắt buộc kiểm tra an toàn sáu tháng một lần.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/m/mandate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-2"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-stipulate",
+    "word": "Stipulate",
+    "meaning": "Quy định rõ, ràng buộc trong điều khoản",
+    "ipa": "/ˈstɪpjuleɪt/",
+    "definition": "To state exactly what must be done as part of an agreement.",
+    "example": "The lease stipulates that rent must be paid on the first of each month.",
+    "exampleVi": "Hợp đồng thuê quy định rõ tiền thuê nhà phải được trả vào ngày mùng 1 hàng tháng.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/s/stipulate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-2"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-launch",
+    "word": "Launch",
+    "meaning": "Khai trương, ra mắt sản phẩm mới",
+    "ipa": "/lɔːntʃ/",
+    "definition": "To begin an activity, or introduce a new product to the public.",
+    "example": "We plan to launch our new product line in the fourth quarter.",
+    "exampleVi": "Chúng tôi dự định ra mắt dòng sản phẩm mới vào quý 4.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/l/launch.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-2"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-evaluate",
+    "word": "Evaluate",
+    "meaning": "Đánh giá, ước lượng giá trị",
+    "ipa": "/ɪˈvæljueɪt/",
+    "definition": "To judge or calculate the quality, importance, or value of something.",
+    "example": "Managers will evaluate employee performance at the end of the year.",
+    "exampleVi": "Các nhà quản lý sẽ đánh giá hiệu suất của nhân viên vào cuối năm.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/e/evaluate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-3"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-assess",
+    "word": "Assess",
+    "meaning": "Định giá, xem xét, thẩm định",
+    "ipa": "/əˈses/",
+    "definition": "To judge or decide the amount, value, quality, or importance of something.",
+    "example": "An external consultant was hired to assess our risk management.",
+    "exampleVi": "Một chuyên gia tư vấn bên ngoài đã được thuê để thẩm định quản trị rủi ro của chúng tôi.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/a/assess.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-3"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-scrutinize",
+    "word": "Scrutinize",
+    "meaning": "Xem xét kỹ lưỡng, săm soi kiểm tra",
+    "ipa": "/ˈskruːtənaɪz/",
+    "definition": "To examine something very carefully in order to discover information.",
+    "example": "Auditors scrutinized the company's financial records for discrepancies.",
+    "exampleVi": "Các kiểm toán viên đã xem xét kỹ lưỡng sổ sách tài chính để tìm sự sai lệch.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/s/scrutinize.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-3"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-inspect",
+    "word": "Inspect",
+    "meaning": "Thanh tra, kiểm tra thực địa",
+    "ipa": "/ɪnˈspekt/",
+    "definition": "To look at something or someone carefully in order to discover information.",
+    "example": "A safety officer inspected the factory floor before opening.",
+    "exampleVi": "Cán bộ an toàn đã thanh tra phân xưởng trước khi bắt đầu hoạt động.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/i/inspect.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-3"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-verify",
+    "word": "Verify",
+    "meaning": "Xác minh, kiểm chứng tính chính xác",
+    "ipa": "/ˈverɪfaɪ/",
+    "definition": "To prove that something exists or is true, or make certain that something is correct.",
+    "example": "Please verify your billing address before submitting the order.",
+    "exampleVi": "Vui lòng xác minh địa chỉ thanh toán trước khi gửi đơn đặt hàng.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/v/verify.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-3"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-monitor",
+    "word": "Monitor",
+    "meaning": "Giám sát, theo dõi liên tục",
+    "ipa": "/ˈmɑːnɪtər/",
+    "definition": "To watch and check a situation carefully for a period of time.",
+    "example": "We use analytics tools to monitor website traffic constantly.",
+    "exampleVi": "Chúng tôi dùng các công cụ phân tích để theo dõi lưu lượng truy cập website liên tục.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/m/monitor.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-3"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-examine",
+    "word": "Examine",
+    "meaning": "Khảo sát, xem xét chi tiết",
+    "ipa": "/ɪɡˈzæmɪn/",
+    "definition": "To look at or consider a person or thing carefully.",
+    "example": "The committee will examine the feasibility of opening a new branch.",
+    "exampleVi": "Ủy ban sẽ khảo sát tính khả thi của việc mở một chi nhánh mới.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/e/examine.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-3"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-analyze",
+    "word": "Analyze",
+    "meaning": "Phân tích dữ liệu, mổ xẻ vấn đề",
+    "ipa": "/ˈænəlaɪz/",
+    "definition": "To study or examine something in detail, in order to understand more about it.",
+    "example": "Our team analyzed customer feedback to improve the user interface.",
+    "exampleVi": "Nhóm chúng tôi đã phân tích phản hồi của khách hàng để cải thiện giao diện người dùng.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/a/analyze.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-3"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-review",
+    "word": "Review",
+    "meaning": "Rà soát lại, duyệt lại, xem xét",
+    "ipa": "/rɪˈvjuː/",
+    "definition": "To think about, explain, or examine a situation or plan again.",
+    "example": "Let's review the quarterly sales figures before the general meeting.",
+    "exampleVi": "Hãy rà soát lại số liệu doanh thu hàng quý trước cuộc họp toàn thể.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/r/review.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-3"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-appraise",
+    "word": "Appraise",
+    "meaning": "Định giá tài sản, đánh giá nhân sự",
+    "ipa": "/əˈpreɪz/",
+    "definition": "To examine someone or something in order to judge their qualities, success, or needs.",
+    "example": "A certified expert was called to appraise the commercial property.",
+    "exampleVi": "Một chuyên gia được cấp chứng chỉ đã được mời để định giá bất động sản thương mại.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/a/appraise.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-3"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-expedite",
+    "word": "Expedite",
+    "meaning": "Xúc tiến, đẩy nhanh tiến độ",
+    "ipa": "/ˈekspədaɪt/",
+    "definition": "To make an action or process happen more quickly.",
+    "example": "We paid an extra fee to expedite the delivery of urgent parts.",
+    "exampleVi": "Chúng tôi đã trả thêm phí để đẩy nhanh tiến độ giao các linh kiện khẩn cấp.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/e/expedite.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-4"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-postpone",
+    "word": "Postpone",
+    "meaning": "Hoãn lại, dời sang ngày khác",
+    "ipa": "/poʊstˈpoʊn/",
+    "definition": "To delay an event and plan or decide that it should happen at a later date or time.",
+    "example": "Due to bad weather, the product demonstration was postponed.",
+    "exampleVi": "Do thời tiết xấu, buổi trình diễn giới thiệu sản phẩm đã bị hoãn lại.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/p/postpone.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-4"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-reschedule",
+    "word": "Reschedule",
+    "meaning": "Sắp xếp lại lịch hẹn, đổi giờ",
+    "ipa": "/ˌriːˈskedʒuːl/",
+    "definition": "To agree on a new date or time for an event.",
+    "example": "I have a conflict, so I need to reschedule our Monday appointment.",
+    "exampleVi": "Tôi bị trùng lịch, vì vậy tôi cần sắp xếp lại cuộc hẹn vào thứ Hai.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/r/reschedule.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-4"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-extend",
+    "word": "Extend",
+    "meaning": "Gia hạn, kéo dài thời gian",
+    "ipa": "/ɪkˈstend/",
+    "definition": "To make something last longer.",
+    "example": "The deadline for scholarship applications has been extended by one week.",
+    "exampleVi": "Hạn chót nộp hồ sơ xin học bổng đã được gia hạn thêm một tuần.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/e/extend.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-4"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-modify",
+    "word": "Modify",
+    "meaning": "Sửa đổi, điều chỉnh nhẹ",
+    "ipa": "/ˈmɑːdɪfaɪ/",
+    "definition": "To change something slightly, usually to improve it or make it more acceptable.",
+    "example": "We modified the original blueprint to comply with city regulations.",
+    "exampleVi": "Chúng tôi đã sửa đổi bản thiết kế ban đầu để tuân thủ quy định thành phố.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/m/modify.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-4"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-adjust",
+    "word": "Adjust",
+    "meaning": "Điều chỉnh cho phù hợp",
+    "ipa": "/əˈdʒʌst/",
+    "definition": "To change something slightly, especially to make it more correct, effective, or suitable.",
+    "example": "Prices were adjusted to reflect the rising cost of raw materials.",
+    "exampleVi": "Giá cả đã được điều chỉnh để phản ánh chi phí nguyên vật liệu tăng cao.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/a/adjust.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-4"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-prioritize",
+    "word": "Prioritize",
+    "meaning": "Ưu tiên, đặt lên hàng đầu",
+    "ipa": "/praɪˈɔːrətaɪz/",
+    "definition": "To decide which tasks or issues are the most important.",
+    "example": "Customer satisfaction must be prioritized above all other goals.",
+    "exampleVi": "Sự hài lòng của khách hàng phải được ưu tiên trên tất cả các mục tiêu khác.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/p/prioritize.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-4"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-accelerate",
+    "word": "Accelerate",
+    "meaning": "Thúc đẩy tăng tốc, làm nhanh hơn",
+    "ipa": "/əkˈseləreɪt/",
+    "definition": "To happen or make something happen sooner or faster.",
+    "example": "The government took measures to accelerate economic growth.",
+    "exampleVi": "Chính phủ đã áp dụng các biện pháp để thúc đẩy tăng tốc tăng trưởng kinh tế.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/a/accelerate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-4"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-suspend",
+    "word": "Suspend",
+    "meaning": "Đình chỉ, tạm ngưng hoạt động",
+    "ipa": "/səˈspend/",
+    "definition": "To stop something from being active, either temporarily or permanently.",
+    "example": "Production was suspended temporarily while maintenance was performed.",
+    "exampleVi": "Hoạt động sản xuất đã bị tạm ngưng trong khi tiến hành bảo trì.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/s/suspend.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-4"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-resume",
+    "word": "Resume",
+    "meaning": "Tiếp tục lại sau khi gián đoạn",
+    "ipa": "/rɪˈzuːm/",
+    "definition": "To start something again after a temporary pause.",
+    "example": "The conference will resume at 2:00 PM following the lunch break.",
+    "exampleVi": "Hội nghị sẽ tiếp tục trở lại lúc 2:00 chiều sau giờ nghỉ trưa.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/r/resume.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-4"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-delegate",
+    "word": "Delegate",
+    "meaning": "Ủy quyền, giao phó trách nhiệm",
+    "ipa": "/ˈdelɪɡeɪt/",
+    "definition": "To give a particular job, duty, right, etc. to someone else.",
+    "example": "An effective leader knows how to delegate tasks to team members.",
+    "exampleVi": "Một nhà lãnh đạo hiệu quả biết cách giao phó nhiệm vụ cho các thành viên trong nhóm.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/d/delegate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-5"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-assign",
+    "word": "Assign",
+    "meaning": "Phân công, chỉ định công việc",
+    "ipa": "/əˈsaɪn/",
+    "definition": "To give a particular job or piece of work to someone.",
+    "example": "The project manager assigned specific modules to each engineer.",
+    "exampleVi": "Trưởng dự án đã phân công các mô-đun cụ thể cho từng kỹ sư.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/a/assign.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-5"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-allocate",
+    "word": "Allocate",
+    "meaning": "Phân bổ nguồn lực, ngân sách",
+    "ipa": "/ˈæləkeɪt/",
+    "definition": "To give something to someone as their share of a total amount.",
+    "example": "The board allocated $2 million for research and development.",
+    "exampleVi": "Hội đồng quản trị đã phân bổ 2 triệu USD cho nghiên cứu và phát triển.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/a/allocate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-5"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-coordinate",
+    "word": "Coordinate",
+    "meaning": "Điều phối, phối hợp nhịp nhàng",
+    "ipa": "/koʊˈɔːrdɪneɪt/",
+    "definition": "To make many different things or people work together effectively.",
+    "example": "She coordinated the logistics for the international summit.",
+    "exampleVi": "Cô ấy đã điều phối công tác hậu cần cho hội nghị thượng đỉnh quốc tế.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/c/coordinate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-5"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-oversee",
+    "word": "Oversee",
+    "meaning": "Giám sát, bao quát tiến độ",
+    "ipa": "/ˌoʊvərˈsiː/",
+    "definition": "To watch or organize a job or an activity to make certain that it is being done correctly.",
+    "example": "The director oversees all operations across the five Asian subsidiaries.",
+    "exampleVi": "Giám đốc giám sát toàn bộ hoạt động tại năm công ty con ở châu Á.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/o/oversee.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-5"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-supervise",
+    "word": "Supervise",
+    "meaning": "Trông nom, hướng dẫn cấp dưới",
+    "ipa": "/ˈsuːpərvaɪz/",
+    "definition": "To watch a person or activity to make certain that everything is done correctly, safely, etc.",
+    "example": "Senior technicians supervise apprentices during their training.",
+    "exampleVi": "Các kỹ thuật viên kỳ cựu hướng dẫn và giám sát các thực tập sinh trong suốt khóa đào tạo.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/s/supervise.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-5"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-administer",
+    "word": "Administer",
+    "meaning": "Quản trị, điều hành công việc",
+    "ipa": "/ədˈmɪnɪstər/",
+    "definition": "To manage or be in charge of the running of a business, organization, etc.",
+    "example": "The human resources division administers the company's pension fund.",
+    "exampleVi": "Bộ phận nhân sự quản trị quỹ hưu trí của công ty.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/a/administer.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-5"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dispatch",
+    "word": "Dispatch",
+    "meaning": "Gửi đi, phái đi nhanh chóng",
+    "ipa": "/dɪˈspætʃ/",
+    "definition": "To send something, especially goods or a message, somewhere for a particular purpose.",
+    "example": "Emergency repair crews were dispatched immediately after the storm.",
+    "exampleVi": "Các đội sửa chữa khẩn cấp đã được phái đi ngay sau cơn bão.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/d/dispatch.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-5"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-instruct",
+    "word": "Instruct",
+    "meaning": "Chỉ dẫn, truyền đạt mệnh lệnh",
+    "ipa": "/ɪnˈstrʌkt/",
+    "definition": "To order or tell someone to do something, especially in a formal way.",
+    "example": "Staff were instructed to back up all client files at the end of each day.",
+    "exampleVi": "Nhân viên được chỉ dẫn sao lưu toàn bộ hồ sơ khách hàng vào cuối mỗi ngày.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/i/instruct.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-5"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-streamline",
+    "word": "Streamline",
+    "meaning": "Tinh gọn hóa, tối giản quy trình",
+    "ipa": "/ˈstriːmlaɪn/",
+    "definition": "To improve the effectiveness of an organization or process by making it simpler.",
+    "example": "The new ERP system streamlined our procurement procedures.",
+    "exampleVi": "Hệ thống ERP mới đã tinh gọn hóa quy trình mua sắm của chúng tôi.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/s/streamline.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-5"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-accomplish",
+    "word": "Accomplish",
+    "meaning": "Hoàn thành xuất sắc mục tiêu",
+    "ipa": "/əˈkɑːmplɪʃ/",
+    "definition": "To finish something successfully or to achieve something.",
+    "example": "Our division accomplished all quarterly sales targets ahead of schedule.",
+    "exampleVi": "Bộ phận chúng tôi đã hoàn thành tất cả các mục tiêu doanh số quý trước thời hạn.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/a/accomplish.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-6"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-achieve",
+    "word": "Achieve",
+    "meaning": "Đạt được, giành được kết quả",
+    "ipa": "/əˈtʃiːv/",
+    "definition": "To succeed in finishing something or reaching an aim, especially after a lot of work or effort.",
+    "example": "The startup achieved profitability within its second year of operation.",
+    "exampleVi": "Công ty khởi nghiệp đã đạt được mức sinh lời ngay trong năm thứ hai hoạt động.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/a/achieve.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-6"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-exceed",
+    "word": "Exceed",
+    "meaning": "Vượt quá, vượt mức mong đợi",
+    "ipa": "/ɪkˈsiːd/",
+    "definition": "To be greater than a number or amount, or to go beyond what is allowed or planned.",
+    "example": "Fourth-quarter earnings exceeded analysts' initial projections.",
+    "exampleVi": "Lợi nhuận quý 4 đã vượt mức dự báo ban đầu của các chuyên gia phân tích.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/e/exceed.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-6"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-surpass",
+    "word": "Surpass",
+    "meaning": "Vượt trội hơn, giỏi hơn hẳn",
+    "ipa": "/sərˈpæs/",
+    "definition": "To do or be better than somebody or something.",
+    "example": "Customer satisfaction ratings surpassed those of all our major competitors.",
+    "exampleVi": "Điểm đánh giá mức độ hài lòng của khách hàng đã vượt trội hơn tất cả các đối thủ cạnh tranh chính.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/s/surpass.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-6"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-fulfill",
+    "word": "Fulfill",
+    "meaning": "Đáp ứng đầy đủ, hoàn thành đơn",
+    "ipa": "/fʊlˈfɪl/",
+    "definition": "To do something that is expected, hoped for, or promised, or to complete an order.",
+    "example": "The warehouse worked overtime to fulfill holiday orders on time.",
+    "exampleVi": "Nhà kho đã tăng ca để hoàn thành các đơn hàng dịp lễ đúng hạn.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/f/fulfill.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-6"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-execute",
+    "word": "Execute",
+    "meaning": "Thực thi, chấp hành kế hoạch",
+    "ipa": "/ˈeksɪkjuːt/",
+    "definition": "To do or perform something, especially in a planned way.",
+    "example": "The marketing strategy was executed flawlessly across all media channels.",
+    "exampleVi": "Chiến lược tiếp thị đã được thực thi hoàn hảo trên mọi kênh truyền thông.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/e/execute.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-6"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-terminate",
+    "word": "Terminate",
+    "meaning": "Chấm dứt, kết thúc hợp đồng",
+    "ipa": "/ˈtɜːrmɪneɪt/",
+    "definition": "To bring to an end or to come to an end.",
+    "example": "The client decided to terminate the service contract due to repeated delays.",
+    "exampleVi": "Khách hàng đã quyết định chấm dứt hợp đồng dịch vụ do sự chậm trễ lặp lại nhiều lần.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/t/terminate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-6"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-finalize",
+    "word": "Finalize",
+    "meaning": "Chốt lại, hoàn tất văn bản cuối",
+    "ipa": "/ˈfaɪnəlaɪz/",
+    "definition": "To make a final and certain decision about a plan, date, etc.",
+    "example": "We hope to finalize the merger agreement by the end of this week.",
+    "exampleVi": "Chúng tôi hy vọng sẽ chốt xong thỏa thuận sáp nhập trước cuối tuần này.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/f/finalize.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-6"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-attain",
+    "word": "Attain",
+    "meaning": "Đạt được đỉnh cao, giành được",
+    "ipa": "/əˈteɪn/",
+    "definition": "To reach or succeed in getting something, especially after a lot of effort.",
+    "example": "The brand attained international recognition after winning the design award.",
+    "exampleVi": "Thương hiệu đã đạt được sự công nhận quốc tế sau khi giành giải thưởng thiết kế.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/a/attain.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-6"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-conclude",
+    "word": "Conclude",
+    "meaning": "Kết luận, ký kết xong xuôi",
+    "ipa": "/kənˈkluːd/",
+    "definition": "To judge or decide something after thinking carefully, or to complete a deal.",
+    "example": "Negotiators successfully concluded a bilateral trade pact.",
+    "exampleVi": "Các nhà đàm phán đã ký kết thành công một hiệp ước thương mại song phương.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/c/conclude.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-6"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-rectify",
+    "word": "Rectify",
+    "meaning": "Khắc phục, sửa chữa sai sót",
+    "ipa": "/ˈrektɪfaɪ/",
+    "definition": "To correct something or make something right.",
+    "example": "We apologize for the billing error and will rectify it immediately.",
+    "exampleVi": "Chúng tôi xin lỗi vì sự cố tính cước và sẽ khắc phục ngay lập tức.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/r/rectify.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-7"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-resolve",
+    "word": "Resolve",
+    "meaning": "Giải quyết triệt để vấn đề",
+    "ipa": "/rɪˈzɑːlv/",
+    "definition": "To solve or end a problem or difficulty.",
+    "example": "The support team resolved the network outage within twenty minutes.",
+    "exampleVi": "Đội hỗ trợ đã giải quyết triệt để sự cố mất mạng trong vòng hai mươi phút.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/r/resolve.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-7"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-address",
+    "word": "Address",
+    "meaning": "Giải quyết, xử lý, chú tâm vào",
+    "ipa": "/əˈdres/",
+    "definition": "To give attention to or deal with a matter or problem.",
+    "example": "The keynote speaker will address concerns regarding data privacy.",
+    "exampleVi": "Diễn giả chính sẽ giải quyết những quan ngại liên quan đến quyền riêng tư dữ liệu.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/a/address.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-7"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-troubleshoot",
+    "word": "Troubleshoot",
+    "meaning": "Tìm và sửa lỗi kỹ thuật",
+    "ipa": "/ˈtrʌblʃuːt/",
+    "definition": "To discover why something does not work effectively and help to solve the problem.",
+    "example": "Our IT specialist helped troubleshoot the server connection issue.",
+    "exampleVi": "Chuyên gia CNTT của chúng tôi đã giúp tìm và sửa lỗi kết nối máy chủ.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/t/troubleshoot.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-7"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-compensate",
+    "word": "Compensate",
+    "meaning": "Đền bù, bồi thường thiệt hại",
+    "ipa": "/ˈkɑːmpenseɪt/",
+    "definition": "To pay someone money in exchange for work or to make up for loss or damage.",
+    "example": "The airline compensated passengers for the extensive flight delay.",
+    "exampleVi": "Hãng hàng không đã bồi thường cho các hành khách vì chuyến bay bị hoãn kéo dài.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/c/compensate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-7"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-reimburse",
+    "word": "Reimburse",
+    "meaning": "Hoàn trả chi phí đã ứng trước",
+    "ipa": "/ˌriːɪmˈbɜːrs/",
+    "definition": "To pay back money to someone who has spent it for you or on company business.",
+    "example": "Submit your travel receipts so the accounting team can reimburse you.",
+    "exampleVi": "Hãy nộp hóa đơn công tác để phòng kế toán có thể hoàn trả chi phí cho bạn.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/r/reimburse.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-7"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-refund",
+    "word": "Refund",
+    "meaning": "Hoàn tiền cho khách hàng",
+    "ipa": "/ˈriːfʌnd/",
+    "definition": "To give someone their money back because they are not satisfied with what they bought.",
+    "example": "If the merchandise arrives damaged, we will issue a full refund.",
+    "exampleVi": "Nếu hàng hóa bị hư hỏng khi giao đến, chúng tôi sẽ hoàn trả toàn bộ tiền.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/r/refund.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-7"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-mitigate",
+    "word": "Mitigate",
+    "meaning": "Giảm thiểu, làm nhẹ bớt rủi ro",
+    "ipa": "/ˈmɪtɪɡeɪt/",
+    "definition": "To make something less harmful, unpleasant, or bad.",
+    "example": "Installing backup generators will mitigate the risk of power outages.",
+    "exampleVi": "Lắp đặt máy phát điện dự phòng sẽ giảm thiểu rủi ro mất điện.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/m/mitigate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-7"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dispute",
+    "word": "Dispute",
+    "meaning": "Tranh chấp, bác bỏ tính xác thực",
+    "ipa": "/dɪˈspjuːt/",
+    "definition": "To disagree with something that someone says, or to argue over ownership.",
+    "example": "The vendor disputed the penalty clause in the late delivery notice.",
+    "exampleVi": "Nhà cung cấp đã tranh chấp điều khoản phạt trong thông báo giao hàng trễ.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/d/dispute.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-7"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-overcome",
+    "word": "Overcome",
+    "meaning": "Vượt qua trở ngại, khó khăn",
+    "ipa": "/ˌoʊvərˈkʌm/",
+    "definition": "To defeat or succeed in controlling or dealing with something.",
+    "example": "With close teamwork, we overcame the supply chain bottleneck.",
+    "exampleVi": "Nhờ tinh thần đồng đội chặt chẽ, chúng tôi đã vượt qua nút thắt cổ chai trong chuỗi cung ứng.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/o/overcome.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-7"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-optimize",
+    "word": "Optimize",
+    "meaning": "Tối ưu hóa hiệu suất",
+    "ipa": "/ˈɑːptɪmaɪz/",
+    "definition": "To make something as good or effective as possible.",
+    "example": "We need to optimize our website for mobile devices to increase sales.",
+    "exampleVi": "Chúng ta cần tối ưu hóa trang web cho thiết bị di động để tăng doanh số.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/o/optimize.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-8"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-enhance",
+    "word": "Enhance",
+    "meaning": "Nâng cao, gia tăng chất lượng",
+    "ipa": "/ɪnˈhæns/",
+    "definition": "To improve the quality, amount, or strength of something.",
+    "example": "The new feature enhances security without slowing down performance.",
+    "exampleVi": "Tính năng mới giúp nâng cao tính bảo mật mà không làm chậm hiệu suất.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/e/enhance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-8"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-upgrade",
+    "word": "Upgrade",
+    "meaning": "Nâng cấp hệ thống, thiết bị",
+    "ipa": "/ˈʌpɡreɪd/",
+    "definition": "To improve the quality or usefulness of something, or get a better version.",
+    "example": "All company laptops will be upgraded with the latest operating system.",
+    "exampleVi": "Toàn bộ máy tính xách tay của công ty sẽ được nâng cấp lên hệ điều hành mới nhất.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/u/upgrade.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-8"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-revamp",
+    "word": "Revamp",
+    "meaning": "Cải tổ, tu sửa toàn diện",
+    "ipa": "/ˌriːˈvæmp/",
+    "definition": "To change or arrange something again, in order to improve it.",
+    "example": "The marketing department completely revamped our brand identity.",
+    "exampleVi": "Phòng tiếp thị đã cải tổ toàn diện hệ thống nhận diện thương hiệu của chúng tôi.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/r/revamp.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-8"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-innovate",
+    "word": "Innovate",
+    "meaning": "Đổi mới, sáng tạo giải pháp",
+    "ipa": "/ˈɪnəveɪt/",
+    "definition": "To introduce changes and new ideas in the way something is done.",
+    "example": "To remain competitive, companies must continually innovate.",
+    "exampleVi": "Để duy trì tính cạnh tranh, các doanh nghiệp phải không ngừng đổi mới sáng tạo.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/i/innovate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-8"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-modernize",
+    "word": "Modernize",
+    "meaning": "Hiện đại hóa cơ sở vật chất",
+    "ipa": "/ˈmɑːdərnaɪz/",
+    "definition": "To make something more modern or suitable for current needs.",
+    "example": "Management allocated funds to modernize the assembly line machinery.",
+    "exampleVi": "Ban quản lý đã phân bổ kinh phí để hiện đại hóa máy móc trên dây chuyền lắp ráp.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/m/modernize.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-8"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-remodel",
+    "word": "Remodel",
+    "meaning": "Tái cấu trúc, sửa đổi thiết kế",
+    "ipa": "/ˌriːˈmɑːdl/",
+    "definition": "To change the structure or appearance of something, especially a room or building.",
+    "example": "The corporate headquarters was remodeled to include open co-working spaces.",
+    "exampleVi": "Trụ sở chính của công ty đã được sửa đổi thiết kế để có thêm không gian làm việc chung mở.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/r/remodel.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-8"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-renovate",
+    "word": "Renovate",
+    "meaning": "Cải tạo, nâng cấp công trình",
+    "ipa": "/ˈrenəveɪt/",
+    "definition": "To repair and improve something, especially a building.",
+    "example": "The hotel was renovated recently and now offers luxury amenities.",
+    "exampleVi": "Khách sạn vừa được cải tạo gần đây và hiện cung cấp các tiện nghi sang trọng.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/r/renovate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-8"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-consolidate",
+    "word": "Consolidate",
+    "meaning": "Hợp nhất, củng cố vị thế",
+    "ipa": "/kənˈsɑːlɪdeɪt/",
+    "definition": "To combine several things, especially businesses, into one effective whole.",
+    "example": "The firm consolidated its customer service desks into one central call center.",
+    "exampleVi": "Công ty đã hợp nhất các quầy chăm sóc khách hàng thành một trung tâm tổng đài tập trung.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/c/consolidate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-8"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-integrate",
+    "word": "Integrate",
+    "meaning": "Tích hợp, gắn kết đồng bộ",
+    "ipa": "/ˈɪntɪɡreɪt/",
+    "definition": "To combine two or more things in order to become more effective.",
+    "example": "The new CRM platform integrates smoothly with our accounting database.",
+    "exampleVi": "Nền tảng CRM mới tích hợp mượt mà với cơ sở dữ liệu kế toán của chúng tôi.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/i/integrate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-8"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-retain",
+    "word": "Retain",
+    "meaning": "Giữ chân nhân tài, duy trì khách hàng",
+    "ipa": "/rɪˈteɪn/",
+    "definition": "To keep or continue to have something.",
+    "example": "Competitive benefit packages help the company retain top talent.",
+    "exampleVi": "Gói phúc lợi cạnh tranh giúp công ty giữ chân được những nhân tài hàng đầu.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/r/retain.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-9"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-attract",
+    "word": "Attract",
+    "meaning": "Thu hút sự chú ý, lôi cuốn khách",
+    "ipa": "/əˈtrækt/",
+    "definition": "To pull or draw someone or something towards them.",
+    "example": "The promotional discount attracted hundreds of new customers.",
+    "exampleVi": "Chương trình chiết khấu khuyến mãi đã thu hút hàng trăm khách hàng mới.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/a/attract.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-9"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-recruit",
+    "word": "Recruit",
+    "meaning": "Tuyển mộ, tuyển chọn nhân sự",
+    "ipa": "/rɪˈkruːt/",
+    "definition": "To persuade someone to work for a company or become a new member of an organization.",
+    "example": "We are actively recruiting bilingual sales managers for the Tokyo office.",
+    "exampleVi": "Chúng tôi đang tích cực tuyển mộ các trưởng phòng kinh doanh song ngữ cho văn phòng Tokyo.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/r/recruit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-9"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-engage",
+    "word": "Engage",
+    "meaning": "Thu hút, tương tác gắn kết",
+    "ipa": "/ɪnˈɡeɪdʒ/",
+    "definition": "To interest someone in something and keep them thinking about it.",
+    "example": "Interactive webinars help engage prospective clients effectively.",
+    "exampleVi": "Các hội thảo trực tuyến tương tác giúp gắn kết các khách hàng tiềm năng một cách hiệu quả.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/e/engage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-9"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cultivate",
+    "word": "Cultivate",
+    "meaning": "Nuôi dưỡng, vun đắp mối quan hệ",
+    "ipa": "/ˈkʌltɪveɪt/",
+    "definition": "To try to develop and improve something, such as a relationship or skill.",
+    "example": "Account executives must cultivate long-term relationships with key accounts.",
+    "exampleVi": "Các chuyên viên phụ trách phải vun đắp mối quan hệ dài hạn với các khách hàng trọng yếu.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/c/cultivate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-9"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-expand",
+    "word": "Expand",
+    "meaning": "Mở rộng quy mô, thị trường",
+    "ipa": "/ɪkˈspænd/",
+    "definition": "To increase in size, number, or importance, or to make something increase.",
+    "example": "The retail chain plans to expand into three neighboring countries.",
+    "exampleVi": "Chuỗi bán lẻ có kế hoạch mở rộng sang ba quốc gia lân cận.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/e/expand.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-9"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-diversify",
+    "word": "Diversify",
+    "meaning": "Đa dạng hóa danh mục đầu tư/sản phẩm",
+    "ipa": "/daɪˈvɜːrsɪfaɪ/",
+    "definition": "To start to include more different types or things.",
+    "example": "Investors are advised to diversify their portfolios to minimize risk.",
+    "exampleVi": "Các nhà đầu tư được khuyên nên đa dạng hóa danh mục đầu tư để giảm thiểu rủi ro.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/d/diversify.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-9"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-penetrate",
+    "word": "Penetrate",
+    "meaning": "Thâm nhập, tiếp cận thị trường mới",
+    "ipa": "/ˈpenətreɪt/",
+    "definition": "To move into or through something, especially a market.",
+    "example": "Our strategy is designed to penetrate the competitive Asian market.",
+    "exampleVi": "Chiến lược của chúng tôi được thiết kế để thâm nhập thị trường châu Á đầy tính cạnh tranh.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/p/penetrate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-9"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dominate",
+    "word": "Dominate",
+    "meaning": "Thống trị, chiếm lĩnh thị phần",
+    "ipa": "/ˈdɑːmɪneɪt/",
+    "definition": "To have control over a place or person, or be the most noticeable feature.",
+    "example": "The tech giant dominates the global smartphone operating system sector.",
+    "exampleVi": "Gã khổng lồ công nghệ chiếm lĩnh hoàn toàn mảng hệ điều hành điện thoại thông minh toàn cầu.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/d/dominate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-9"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-leverage",
+    "word": "Leverage",
+    "meaning": "Tận dụng, phát huy tối đa đòn bẩy",
+    "ipa": "/ˈlevərɪdʒ/",
+    "definition": "To use something that you already have in order to achieve something new or better.",
+    "example": "We can leverage our existing customer base to promote the new app.",
+    "exampleVi": "Chúng ta có thể tận dụng tệp khách hàng hiện tại để quảng bá ứng dụng mới.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/l/leverage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-9"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-comply",
+    "word": "Comply",
+    "meaning": "Tuân thủ đúng quy định, tiêu chuẩn",
+    "ipa": "/kəmˈplaɪ/",
+    "definition": "To act according to an order, set of rules, or request.",
+    "example": "All manufacturing facilities must comply with international safety standards.",
+    "exampleVi": "Mọi cơ sở sản xuất đều phải tuân thủ các tiêu chuẩn an toàn quốc tế.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/c/comply.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-10"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-adhere",
+    "word": "Adhere",
+    "meaning": "Tuân thủ chặt chẽ, gắn chặt với nội quy",
+    "ipa": "/ədˈhɪr/",
+    "definition": "To stick firmly to a rule, agreement, or belief.",
+    "example": "Employees must adhere to the confidentiality guidelines at all times.",
+    "exampleVi": "Nhân viên phải luôn tuân thủ chặt chẽ các hướng dẫn bảo mật thông tin.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/a/adhere.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-10"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-conform",
+    "word": "Conform",
+    "meaning": "Phù hợp, chuẩn hóa theo tiêu chuẩn",
+    "ipa": "/kənˈfɔːrm/",
+    "definition": "To behave according to the usual standards of behavior or specifications.",
+    "example": "The new component conforms precisely to the engineering specifications.",
+    "exampleVi": "Linh kiện mới hoàn toàn phù hợp với các thông số kỹ thuật thiết kế.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/c/conform.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-10"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-obligate",
+    "word": "Obligate",
+    "meaning": "Bắt buộc, ràng buộc trách nhiệm",
+    "ipa": "/ˈɑːblɪɡeɪt/",
+    "definition": "To make someone feel that they must do something, or legally bind them.",
+    "example": "The contract obligates the tenant to maintain the premises in good order.",
+    "exampleVi": "Hợp đồng ràng buộc người thuê nhà phải giữ gìn cơ sở vật chất ở trạng thái tốt.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/o/obligate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-10"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-commit",
+    "word": "Commit",
+    "meaning": "Cam kết, tận tâm cống hiến",
+    "ipa": "/kəˈmɪt/",
+    "definition": "To promise or give your loyalty, time, or money to a particular principle, person, or plan.",
+    "example": "The corporation is committed to reducing its carbon emissions by 50%.",
+    "exampleVi": "Tập đoàn cam kết cắt giảm 50% lượng khí thải carbon.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/c/commit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-10"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-uphold",
+    "word": "Uphold",
+    "meaning": "Duy trì, bảo vệ chuẩn mực/nguyên tắc",
+    "ipa": "/ʌpˈhoʊld/",
+    "definition": "To defend or maintain a principle or law, or say that a decision is correct.",
+    "example": "Our team always upholds the highest standards of professional integrity.",
+    "exampleVi": "Đội ngũ chúng tôi luôn duy trì các chuẩn mực liêm chính nghề nghiệp cao nhất.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/u/uphold.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-10"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-abide",
+    "word": "Abide",
+    "meaning": "Chấp hành, tuân theo luật pháp (abide by)",
+    "ipa": "/əˈbaɪd/",
+    "definition": "To accept or obey an agreement, rule, or decision.",
+    "example": "Both parties agreed to abide by the arbitrator's final decision.",
+    "exampleVi": "Cả hai bên đã đồng ý chấp hành phán quyết cuối cùng của trọng tài viên.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/a/abide.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-10"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-enforce",
+    "word": "Enforce",
+    "meaning": "Thực thi, bắt buộc tuân theo luật",
+    "ipa": "/ɪnˈfɔːrs/",
+    "definition": "To make people obey a rule or law, or make a particular situation happen.",
+    "example": "The security department will strictly enforce the ID badge policy.",
+    "exampleVi": "Phòng an ninh sẽ thực thi nghiêm ngặt chính sách đeo thẻ đeo nhân viên.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/e/enforce.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-10"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-observe",
+    "word": "Observe",
+    "meaning": "Tuân theo quy tắc, quan sát giám sát",
+    "ipa": "/əbˈzɜːrv/",
+    "definition": "To obey a law, rule, or religious custom, or watch carefully.",
+    "example": "Visitors are requested to observe all posted safety precautions.",
+    "exampleVi": "Khách tham quan được yêu cầu tuân theo mọi chỉ dẫn an toàn được niêm yết.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/o/observe.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-10"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-enact",
+    "word": "Enact",
+    "meaning": "Ban hành đạo luật, áp dụng chính sách",
+    "ipa": "/ɪˈnækt/",
+    "definition": "To make a proposal into a law, or put a plan into practice.",
+    "example": "The government enacted new tax legislation to encourage green energy.",
+    "exampleVi": "Chính phủ đã ban hành luật thuế mới nhằm khuyến khích năng lượng xanh.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/e/enact.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-10"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-stationery",
+    "word": "Stationery",
+    "meaning": "Văn phòng phẩm, đồ dùng giấy bút",
+    "ipa": "/ˈsteɪʃəneri/",
+    "definition": "Materials that you need for writing, such as paper, pens, and envelopes.",
+    "example": "Please place an order for office stationery before our supply runs out.",
+    "exampleVi": "Vui lòng đặt mua văn phòng phẩm trước khi nguồn dự trữ của chúng ta cạn kiệt.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/stationery.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-11"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-photocopier",
+    "word": "Photocopier",
+    "meaning": "Máy photocopy, máy sao chụp",
+    "ipa": "/ˈfoʊtoʊkɑːpiər/",
+    "definition": "A machine that makes paper copies of documents.",
+    "example": "The technician came to repair the jammed photocopier on the third floor.",
+    "exampleVi": "Kỹ thuật viên đã đến sửa chiếc máy photocopy bị kẹt giấy ở tầng ba.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/p/photocopier.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-11"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-shredder",
+    "word": "Shredder",
+    "meaning": "Máy hủy tài liệu giấy",
+    "ipa": "/ˈʃredər/",
+    "definition": "A machine that cuts paper into small strips for confidentiality.",
+    "example": "Sensitive documents should always be discarded using the paper shredder.",
+    "exampleVi": "Các tài liệu mật phải luôn được tiêu hủy bằng máy cắt hủy giấy.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/shredder.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-11"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cartridge",
+    "word": "Cartridge",
+    "meaning": "Hộp mực máy in",
+    "ipa": "/ˈkɑːrtrɪdʒ/",
+    "definition": "A container holding ink or toner for use in a printer.",
+    "example": "The laser printer is displaying a warning that the black toner cartridge is low.",
+    "exampleVi": "Máy in laser đang hiển thị cảnh báo hộp mực đen sắp hết.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/cartridge.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-11"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-binder",
+    "word": "Binder",
+    "meaning": "Bìa còng, tập lưu trữ hồ sơ",
+    "ipa": "/ˈbaɪndər/",
+    "definition": "A hard cover for holding loose papers together.",
+    "example": "Keep all monthly expense receipts organized in a three-ring binder.",
+    "exampleVi": "Hãy giữ tất cả hóa đơn chi tiêu hàng tháng gọn gàng trong một bìa còng ba lỗ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/binder.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-11"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-projector",
+    "word": "Projector",
+    "meaning": "Máy chiếu hội trường/phòng họp",
+    "ipa": "/prəˈdʒektər/",
+    "definition": "A device for projecting an image or video onto a screen.",
+    "example": "Connect your laptop to the overhead projector for the slide presentation.",
+    "exampleVi": "Hãy kết nối máy tính xách tay với máy chiếu để bắt đầu bài thuyết trình trình chiếu.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/p/projector.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-11"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-workstation",
+    "word": "Workstation",
+    "meaning": "Khu vực bàn làm việc, máy trạm",
+    "ipa": "/ˈwɜːrksteɪʃn/",
+    "definition": "An area with a desk and computer where one person works.",
+    "example": "Each new employee is provided with an ergonomic chair and a modern workstation.",
+    "exampleVi": "Mỗi nhân viên mới đều được trang bị một chiếc ghế công thái học và một bàn làm việc hiện đại.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/w/workstation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-11"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-clipboard",
+    "word": "Clipboard",
+    "meaning": "Bảng kẹp tài liệu cầm tay",
+    "ipa": "/ˈklɪpbɔːrd/",
+    "definition": "A small board with a clip at the top for holding papers.",
+    "example": "The inventory auditor walked through the aisles with a clipboard in hand.",
+    "exampleVi": "Kiểm toán viên kho đã đi dọc các lối đi với bảng kẹp tài liệu trên tay.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/clipboard.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-11"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dispenser",
+    "word": "Dispenser",
+    "meaning": "Hộp đựng/máy cấp phát tự động",
+    "ipa": "/dɪˈspensər/",
+    "definition": "A machine or container that provides something in fixed amounts.",
+    "example": "Automatic hand sanitizer dispensers are installed at every entrance.",
+    "exampleVi": "Các máy xịt rửa tay tự động được lắp đặt tại mỗi lối vào.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/dispenser.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-11"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-stapler",
+    "word": "Stapler",
+    "meaning": "Dụng cụ dập ghim tài liệu",
+    "ipa": "/ˈsteɪplər/",
+    "definition": "A small device used for joining sheets of paper together with staples.",
+    "example": "Can I borrow your heavy-duty stapler to bind this 50-page report?",
+    "exampleVi": "Tôi có thể mượn chiếc dập ghim loại lớn của bạn để đóng cuốn báo cáo 50 trang này không?",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/s/stapler.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-11"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-memorandum",
+    "word": "Memorandum",
+    "meaning": "Bản ghi nhớ nội bộ, thông tri (memo)",
+    "ipa": "/ˌmeməˈrændəm/",
+    "definition": "A short official note or message sent from one person or department to another.",
+    "example": "The CEO circulated a memorandum regarding the upcoming organizational restructure.",
+    "exampleVi": "Tổng giám đốc đã gửi thông tri nội bộ về đợt tái cơ cấu tổ chức sắp tới.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/memorandum.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-12"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bulletin",
+    "word": "Bulletin",
+    "meaning": "Bản tin ngắn, thông báo nhanh",
+    "ipa": "/ˈbʊlətɪn/",
+    "definition": "A short, official statement giving information about something.",
+    "example": "Please check the staff portal for the latest health and safety bulletin.",
+    "exampleVi": "Vui lòng kiểm tra cổng thông tin nội bộ để xem bản tin an toàn sức khỏe mới nhất.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/bulletin.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-12"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-noticeboard",
+    "word": "Noticeboard",
+    "meaning": "Bảng niêm yết thông báo",
+    "ipa": "/ˈnoʊtɪsbɔːrd/",
+    "definition": "A board on a wall where messages and notices can be fixed.",
+    "example": "The holiday schedule has been pinned to the staff room noticeboard.",
+    "exampleVi": "Lịch nghỉ lễ đã được ghim trên bảng thông báo phòng nhân viên.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/n/noticeboard.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-12"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-agenda",
+    "word": "Agenda",
+    "meaning": "Chương trình nghị sự cuộc họp",
+    "ipa": "/əˈdʒendə/",
+    "definition": "A list of matters to be discussed at a meeting.",
+    "example": "Items on today's agenda include budget approval and project milestones.",
+    "exampleVi": "Các nội dung trong chương trình nghị sự hôm nay gồm duyệt ngân sách và các cột mốc dự án.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/agenda.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-12"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-minutes",
+    "word": "Minutes",
+    "meaning": "Biên bản cuộc họp chính thức",
+    "ipa": "/ˈmɪnɪts/",
+    "definition": "The official written record of what is said and decided at a meeting.",
+    "example": "The secretary will email the meeting minutes to all attendees by tomorrow.",
+    "exampleVi": "Thư ký sẽ gửi biên bản cuộc họp qua email cho tất cả người tham dự trước ngày mai.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/minutes.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-12"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-transcript",
+    "word": "Transcript",
+    "meaning": "Bản ghi chép lại lời thoại",
+    "ipa": "/ˈtrænskrɪpt/",
+    "definition": "A written copy of words that have been spoken.",
+    "example": "A full transcript of the earnings conference call is available online.",
+    "exampleVi": "Toàn văn bản ghi chép cuộc gọi hội nghị công bố lợi nhuận đã có sẵn trên mạng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/transcript.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-12"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-circular",
+    "word": "Circular",
+    "meaning": "Công văn luân chuyển, thông tri",
+    "ipa": "/ˈsɜːrkjələr/",
+    "definition": "An official letter or notice that is sent to many people.",
+    "example": "A circular was distributed to all branch managers outlining the new sales targets.",
+    "exampleVi": "Một công văn đã được gửi đến tất cả các giám đốc chi nhánh nêu rõ mục tiêu bán hàng mới.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/circular.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-12"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-briefing",
+    "word": "Briefing",
+    "meaning": "Buổi họp thông tin ngắn gọn",
+    "ipa": "/ˈbriːfɪŋ/",
+    "definition": "A meeting in which information or instructions are given to people.",
+    "example": "The press secretary held a morning briefing on the corporate acquisition.",
+    "exampleVi": "Người phát ngôn báo chí đã tổ chức một buổi họp báo ngắn buổi sáng về thương vụ thâu tóm.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/briefing.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-12"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-announcement",
+    "word": "Announcement",
+    "meaning": "Thông báo chính thức công khai",
+    "ipa": "/əˈnaʊnsmənt/",
+    "definition": "Something that someone says officially, giving new information.",
+    "example": "The company made an announcement about its plans to build a new factory.",
+    "exampleVi": "Công ty đã đưa ra thông báo về kế hoạch xây dựng một nhà máy mới.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/announcement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-12"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-schedule",
+    "word": "Schedule",
+    "meaning": "Lịch trình, thời gian biểu",
+    "ipa": "/ˈskedʒuːl/",
+    "definition": "A list of planned activities or things to be done showing the times or dates.",
+    "example": "The construction project is running two weeks ahead of schedule.",
+    "exampleVi": "Dự án xây dựng đang tiến hành nhanh hơn lịch trình hai tuần.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/s/schedule.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-12"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-procedure",
+    "word": "Procedure",
+    "meaning": "Quy trình, thủ tục từng bước",
+    "ipa": "/prəˈsiːdʒər/",
+    "definition": "A set of actions which is the official or accepted way of doing something.",
+    "example": "Please follow the standard operating procedure when handling chemical substances.",
+    "exampleVi": "Vui lòng tuân thủ quy trình vận hành tiêu chuẩn khi xử lý các hóa chất.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/procedure.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-13"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-protocol",
+    "word": "Protocol",
+    "meaning": "Giao thức, quy ước chuẩn mực",
+    "ipa": "/ˈproʊtəkɑːl/",
+    "definition": "The official system of rules used on formal occasions or in technical processes.",
+    "example": "The cybersecurity protocol requires two-factor authentication for all logins.",
+    "exampleVi": "Giao thức an ninh mạng yêu cầu xác thực hai yếu tố cho tất cả lượt đăng nhập.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/protocol.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-13"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-guideline",
+    "word": "Guideline",
+    "meaning": "Nguyên tắc hướng dẫn chỉ đạo",
+    "ipa": "/ˈɡaɪdlaɪn/",
+    "definition": "Information intended to advise people on how something should be done.",
+    "example": "The company issued new guidelines on ethical conduct and gift policies.",
+    "exampleVi": "Công ty đã ban hành hướng dẫn mới về hành vi đạo đức và chính sách nhận quà.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/g/guideline.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-13"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-template",
+    "word": "Template",
+    "meaning": "Biểu mẫu mẫu dựng sẵn",
+    "ipa": "/ˈtempleɪt/",
+    "definition": "A document or file with a preset format used as a starting point.",
+    "example": "Use the standardized invoice template provided in the shared drive.",
+    "exampleVi": "Hãy sử dụng biểu mẫu hóa đơn chuẩn được cung cấp trên ổ đĩa dùng chung.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/template.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-13"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-questionnaire",
+    "word": "Questionnaire",
+    "meaning": "Bảng câu hỏi khảo sát thông tin",
+    "ipa": "/ˌkwestʃəˈner/",
+    "definition": "A list of questions that several people are asked so that information can be collected.",
+    "example": "Participants were asked to fill out a brief questionnaire after the seminar.",
+    "exampleVi": "Những người tham gia được yêu cầu điền vào một bảng câu hỏi ngắn sau hội thảo.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/q/questionnaire.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-13"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-requisition",
+    "word": "Requisition",
+    "meaning": "Phiếu yêu cầu cấp phát vật tư",
+    "ipa": "/ˌrekwɪˈzɪʃn/",
+    "definition": "An official request for something, usually for a supply of food, materials, etc.",
+    "example": "Submit a purchase requisition to the finance team for new office monitors.",
+    "exampleVi": "Gửi phiếu yêu cầu mua sắm tới phòng tài chính để mua màn hình văn phòng mới.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/r/requisition.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-13"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-itinerary",
+    "word": "Itinerary",
+    "meaning": "Lịch trình chi tiết chuyến đi",
+    "ipa": "/aɪˈtɪnəreri/",
+    "definition": "A detailed plan or route of a journey.",
+    "example": "The travel agent emailed the complete flight and hotel itinerary to the executive.",
+    "exampleVi": "Đại lý du lịch đã gửi email toàn bộ lịch trình chuyến bay và khách sạn cho vị lãnh đạo.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/i/itinerary.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-13"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-checklist",
+    "word": "Checklist",
+    "meaning": "Danh sách kiểm tra đầu việc",
+    "ipa": "/ˈtʃeklɪst/",
+    "definition": "A list of things that you must do, see, or check.",
+    "example": "The pilot reviewed the pre-flight checklist before takeoff.",
+    "exampleVi": "Phi công đã rà soát lại danh sách kiểm tra trước chuyến bay trước khi cất cánh.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/checklist.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-13"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-handbook",
+    "word": "Handbook",
+    "meaning": "Sổ tay hướng dẫn nhân viên",
+    "ipa": "/ˈhændbʊk/",
+    "definition": "A book that contains instructions or advice about a particular subject.",
+    "example": "Refer to the employee handbook for details on maternity leave benefits.",
+    "exampleVi": "Tham khảo sổ tay nhân viên để biết chi tiết về quyền lợi nghỉ thai sản.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/h/handbook.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-13"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-workflow",
+    "word": "Workflow",
+    "meaning": "Quy trình luồng công việc",
+    "ipa": "/ˈwɜːrkfloʊ/",
+    "definition": "The sequence of industrial, administrative, or other processes through which a piece of work passes.",
+    "example": "Automating routine data entry significantly improved our overall workflow.",
+    "exampleVi": "Việc tự động hóa nhập liệu định kỳ đã cải thiện đáng kể luồng công việc tổng thể của chúng tôi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/w/workflow.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-13"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-archive",
+    "word": "Archive",
+    "meaning": "Kho lưu trữ, tài liệu lưu trữ lâu năm",
+    "ipa": "/ˈɑːrkaɪv/",
+    "definition": "A collection of historical records relating to a place, organization, or family.",
+    "example": "All tax records from the past seven years are stored in the digital archive.",
+    "exampleVi": "Tất cả hồ sơ thuế từ bảy năm qua đều được lưu trữ trong kho lưu trữ kỹ thuật số.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/archive.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-14"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-filing",
+    "word": "Filing",
+    "meaning": "Việc nộp đơn, sắp xếp tài liệu",
+    "ipa": "/ˈfaɪlɪŋ/",
+    "definition": "The activity of putting documents into a file or submitting official papers.",
+    "example": "The quarterly SEC financial filing must be completed by Friday afternoon.",
+    "exampleVi": "Việc nộp hồ sơ tài chính hàng quý cho SEC phải được hoàn thành trước chiều thứ Sáu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/f/filing.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-14"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-confidential",
+    "word": "Confidential",
+    "meaning": "Tuyệt mật, bí mật nội bộ",
+    "ipa": "/ˌkɑːnfɪˈdenʃl/",
+    "definition": "Secret or private, often in a formal, business, or military situation.",
+    "example": "All client financial details must be treated as strictly confidential.",
+    "exampleVi": "Tất cả thông tin tài chính của khách hàng phải được xử lý như tài liệu tuyệt mật.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/c/confidential.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-14"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-classified",
+    "word": "Classified",
+    "meaning": "Được xếp loại bí mật quốc gia/doanh nghiệp",
+    "ipa": "/ˈklæsɪfaɪd/",
+    "definition": "Officially stated to be secret.",
+    "example": "Unauthorized personnel are strictly prohibited from viewing classified research.",
+    "exampleVi": "Nhân sự không có thẩm quyền bị nghiêm cấm xem các nghiên cứu mật.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/c/classified.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-14"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-repository",
+    "word": "Repository",
+    "meaning": "Kho chứa, cơ sở dữ liệu lưu giữ",
+    "ipa": "/rɪˈpɑːzətɔːri/",
+    "definition": "A place where things are stored and can be found, especially information.",
+    "example": "GitHub serves as our primary code repository for all development teams.",
+    "exampleVi": "GitHub đóng vai trò là kho lưu trữ mã nguồn chính cho tất cả các nhóm phát triển.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/r/repository.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-14"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-retrieval",
+    "word": "Retrieval",
+    "meaning": "Sự truy xuất, lấy lại thông tin",
+    "ipa": "/rɪˈtriːvl/",
+    "definition": "The process of finding and bringing back something, such as data.",
+    "example": "The new search engine allows instantaneous retrieval of archived customer emails.",
+    "exampleVi": "Công cụ tìm kiếm mới cho phép truy xuất tức thì các email khách hàng đã lưu trữ.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/r/retrieval.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-14"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dossier",
+    "word": "Dossier",
+    "meaning": "Tập hồ sơ tài liệu mật chi tiết",
+    "ipa": "/ˈdɑːsieɪ/",
+    "definition": "A collection of detailed documents about a particular person or subject.",
+    "example": "Legal counsel prepared a comprehensive dossier for the patent infringement case.",
+    "exampleVi": "Cố vấn pháp lý đã chuẩn bị một tập hồ sơ chi tiết cho vụ kiện vi phạm bằng sáng chế.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/d/dossier.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-14"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-clearance",
+    "word": "Clearance",
+    "meaning": "Sự cấp phép an ninh, thông quan",
+    "ipa": "/ˈklɪrəns/",
+    "definition": "Official permission for something or approval to enter a secure area.",
+    "example": "Contractors must obtain security clearance before entering the server facility.",
+    "exampleVi": "Các nhà thầu phải có giấy phép an ninh trước khi vào phòng máy chủ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/clearance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-14"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-duplicate",
+    "word": "Duplicate",
+    "meaning": "Bản sao y, bản nhân đôi",
+    "ipa": "/ˈduːplɪkət/",
+    "definition": "Being an exact copy of something.",
+    "example": "Please keep a duplicate copy of the signed contract in a fireproof safe.",
+    "exampleVi": "Vui lòng giữ một bản sao của hợp đồng đã ký trong két sắt chống cháy.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/duplicate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-14"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-safeguard",
+    "word": "Safeguard",
+    "meaning": "Biện pháp bảo vệ, phòng ngừa rủi ro",
+    "ipa": "/ˈseɪfɡɑːrd/",
+    "definition": "To protect something from harm, or a measure taken to protect something.",
+    "example": "Encryption is an essential safeguard against unauthorized database access.",
+    "exampleVi": "Mã hóa là một biện pháp bảo vệ thiết yếu chống lại việc truy cập trái phép vào cơ sở dữ liệu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/safeguard.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-14"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-correspondence",
+    "word": "Correspondence",
+    "meaning": "Thư từ giao dịch, việc trao đổi thư tín",
+    "ipa": "/ˌkɔːrəˈspɑːndəns/",
+    "definition": "The action of writing, receiving, and sending letters, especially business ones.",
+    "example": "All formal correspondence with external vendors should be logged in the database.",
+    "exampleVi": "Toàn bộ thư từ giao dịch chính thức với nhà cung cấp bên ngoài cần được ghi vào hệ thống.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/correspondence.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-15"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-recipient",
+    "word": "Recipient",
+    "meaning": "Người nhận thư/gói hàng",
+    "ipa": "/rɪˈsɪpiənt/",
+    "definition": "A person who receives something.",
+    "example": "Make sure the email recipient's address is spelled correctly before clicking send.",
+    "exampleVi": "Hãy đảm bảo địa chỉ người nhận email được viết đúng chính tả trước khi nhấn gửi.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/recipient.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-15"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-addressee",
+    "word": "Addressee",
+    "meaning": "Người được đề tên nhận thư/bưu phẩm",
+    "ipa": "/ˌædreˈsiː/",
+    "definition": "The person to whom a letter, parcel, or email is addressed.",
+    "example": "The courier will deliver the confidential envelope directly to the addressee.",
+    "exampleVi": "Người chuyển phát sẽ giao phong bì mật trực tiếp cho người nhận có tên trên bưu phẩm.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/addressee.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-15"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-enclosure",
+    "word": "Enclosure",
+    "meaning": "Tài liệu đính kèm trong phong bì thư",
+    "ipa": "/ɪnˈkloʊʒər/",
+    "definition": "Something that is put in an envelope along with a letter.",
+    "example": "Please find enclosed our product brochure and updated price list.",
+    "exampleVi": "Vui lòng xem tài liệu đính kèm là cuốn tài liệu giới thiệu sản phẩm và bảng giá mới nhất của chúng tôi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/enclosure.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-15"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-attachment",
+    "word": "Attachment",
+    "meaning": "Tệp đính kèm thư điện tử",
+    "ipa": "/əˈtætʃmənt/",
+    "definition": "A computer file sent with an email message.",
+    "example": "Do not open email attachments from unknown senders to prevent virus infections.",
+    "exampleVi": "Không mở các tệp đính kèm email từ người gửi lạ để phòng tránh nhiễm virus.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/a/attachment.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-15"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-acknowledgment",
+    "word": "Acknowledgment",
+    "meaning": "Giấy/thư báo xác nhận đã nhận",
+    "ipa": "/əkˈnɑːlɪdʒmənt/",
+    "definition": "A letter or email confirming that something has been received.",
+    "example": "We sent an immediate acknowledgment of receipt to all job applicants.",
+    "exampleVi": "Chúng tôi đã gửi thư xác nhận đã nhận hồ sơ ngay lập tức cho mọi ứng viên xin việc.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/acknowledgment.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-15"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-inquiry",
+    "word": "Inquiry",
+    "meaning": "Thư hỏi han, câu hỏi thăm dò thông tin",
+    "ipa": "/ɪnˈkwaɪəri/",
+    "definition": "A question or request for information about someone or something.",
+    "example": "Our customer support team answers dozens of billing inquiries every hour.",
+    "exampleVi": "Đội ngũ hỗ trợ khách hàng của chúng tôi giải đáp hàng chục câu hỏi thắc mắc về cước phí mỗi giờ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/i/inquiry.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-15"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-feedback",
+    "word": "Feedback",
+    "meaning": "Ý kiến phản hồi, đóng góp xây dựng",
+    "ipa": "/ˈfiːdbæk/",
+    "definition": "Information or opinions about something, that can tell you if it is successful or liked.",
+    "example": "Constructive feedback from beta testers helped refine the app before launch.",
+    "exampleVi": "Phản hồi mang tính xây dựng từ những người dùng thử đã giúp hoàn thiện ứng dụng trước khi ra mắt.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/f/feedback.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-15"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-draft",
+    "word": "Draft",
+    "meaning": "Bản dự thảo, bản thảo sơ bộ",
+    "ipa": "/dræft/",
+    "definition": "A piece of text, a formal suggestion, or a drawing in its preliminary form.",
+    "example": "The legal team prepared the first draft of the acquisition contract.",
+    "exampleVi": "Nhóm pháp lý đã chuẩn bị bản dự thảo đầu tiên của hợp đồng thâu tóm.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/draft.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-15"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-salutation",
+    "word": "Salutation",
+    "meaning": "Lời chào mở đầu thư/email",
+    "ipa": "/ˌsæljʊˈteɪʃn/",
+    "definition": "A greeting in words or actions, or the words used at the beginning of a letter.",
+    "example": "Formal business letters typically begin with the salutation 'Dear Mr. Johnson'.",
+    "exampleVi": "Thư kinh doanh trang trọng thường mở đầu bằng lời chào 'Kính gửi ông Johnson'.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/salutation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-15"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cubicle",
+    "word": "Cubicle",
+    "meaning": "Ô ngăn bàn làm việc cá nhân",
+    "ipa": "/ˈkjuːbɪkl/",
+    "definition": "A small, partitioned space, especially in an office with many desks.",
+    "example": "The company transitioned from individual cubicles to an open-plan layout.",
+    "exampleVi": "Công ty đã chuyển từ các ô bàn làm việc cá nhân sang bố cục không gian mở.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/cubicle.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-16"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cafeteria",
+    "word": "Cafeteria",
+    "meaning": "Nhà ăn tự phục vụ công ty",
+    "ipa": "/ˌkæfəˈtɪriə/",
+    "definition": "A restaurant where people choose their food from a counter and carry it to a table.",
+    "example": "Subsidized hot lunches are served daily in the staff cafeteria.",
+    "exampleVi": "Các bữa trưa nóng hổi được trợ giá được phục vụ hàng ngày tại nhà ăn nhân viên.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/cafeteria.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-16"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-auditorium",
+    "word": "Auditorium",
+    "meaning": "Khán phòng, hội trường lớn",
+    "ipa": "/ˌɔːdɪˈtɔːriəm/",
+    "definition": "The part of a theater or hall where the audience sits, or a large building for meetings.",
+    "example": "The annual shareholder meeting was held in the corporate auditorium.",
+    "exampleVi": "Đại hội cổ đông thường niên được tổ chức tại hội trường lớn của tập đoàn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/auditorium.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-16"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-lobby",
+    "word": "Lobby",
+    "meaning": "Tiền sảnh đón tiếp khách",
+    "ipa": "/ˈlɑːbi/",
+    "definition": "A large, open area just inside the entrance of a public building, hotel, or office.",
+    "example": "Visitors must sign in at the security reception desk in the main lobby.",
+    "exampleVi": "Khách thăm phải đăng ký tại quầy lễ tân an ninh ở sảnh chính.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/l/lobby.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-16"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-pantry",
+    "word": "Pantry",
+    "meaning": "Phòng bếp nhỏ/khu pha trà nước văn phòng",
+    "ipa": "/ˈpæntri/",
+    "definition": "A small room or cupboard in an office where snacks, coffee, and tea are kept.",
+    "example": "Free specialty coffee and fresh fruit are available in the floor pantry.",
+    "exampleVi": "Cà phê hảo hạng và trái cây tươi miễn phí luôn có sẵn tại khu pha trà của tầng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/pantry.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-16"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-facility",
+    "word": "Facility",
+    "meaning": "Cơ sở vật chất, nhà xưởng tiện nghi",
+    "ipa": "/fəˈsɪləti/",
+    "definition": "A place, especially including buildings, where a particular activity happens.",
+    "example": "The new manufacturing facility will create over 500 local jobs.",
+    "exampleVi": "Cơ sở sản xuất mới sẽ tạo ra hơn 500 việc làm cho người dân địa phương.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/f/facility.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-16"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-premises",
+    "word": "Premises",
+    "meaning": "Khuôn viên, mặt bằng cơ sở kinh doanh",
+    "ipa": "/ˈpremɪsɪz/",
+    "definition": "The land and buildings owned by someone, especially by a company.",
+    "example": "Smoking is strictly prohibited on all company premises.",
+    "exampleVi": "Hút thuốc bị nghiêm cấm trong toàn bộ khuôn viên công ty.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/premises.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-16"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-venue",
+    "word": "Venue",
+    "meaning": "Địa điểm diễn ra sự kiện/hội nghị",
+    "ipa": "/ˈvenjuː/",
+    "definition": "The place where a public event or meeting happens.",
+    "example": "The convention center downtown was chosen as the venue for the trade expo.",
+    "exampleVi": "Trung tâm hội nghị ở trung tâm thành phố đã được chọn làm địa điểm tổ chức triển lãm thương mại.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/v/venue.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-16"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-lounge",
+    "word": "Lounge",
+    "meaning": "Phòng nghỉ ngơi, phòng chờ thư giãn",
+    "ipa": "/laʊndʒ/",
+    "definition": "A room in a hotel, airport, or club where people can sit and wait or relax.",
+    "example": "First-class passengers can access the executive lounge free of charge.",
+    "exampleVi": "Hành khách hạng nhất có thể sử dụng phòng chờ thương gia miễn phí.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/l/lounge.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-16"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-headquarters",
+    "word": "Headquarters",
+    "meaning": "Trụ sở chính của tập đoàn (HQ)",
+    "ipa": "/ˈhedkwɔːrtərz/",
+    "definition": "The main offices of an organization such as the military, the police, or a business.",
+    "example": "The multinational firm relocated its European headquarters to Frankfurt.",
+    "exampleVi": "Tập đoàn đa quốc gia đã chuyển trụ sở chính châu Âu về Frankfurt.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/h/headquarters.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-16"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-executive",
+    "word": "Executive",
+    "meaning": "Lãnh đạo cấp cao, giám đốc điều hành",
+    "ipa": "/ɪɡˈzekjətɪv/",
+    "definition": "Someone in a high position, especially in business, who makes decisions.",
+    "example": "Senior executives gathered to discuss long-term corporate strategy.",
+    "exampleVi": "Các giám đốc điều hành cấp cao đã tập hợp để thảo luận chiến lược dài hạn của công ty.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/executive.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-17"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-directorate",
+    "word": "Directorate",
+    "meaning": "Ban giám đốc điều hành",
+    "ipa": "/dɪˈrektərət/",
+    "definition": "A group of directors or senior officials who manage an organization.",
+    "example": "The directorate approved the budget expansion for the next fiscal year.",
+    "exampleVi": "Ban giám đốc đã thông qua việc mở rộng ngân sách cho năm tài chính tiếp theo.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/d/directorate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-17"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-hierarchy",
+    "word": "Hierarchy",
+    "meaning": "Hệ thống cấp bậc tổ chức",
+    "ipa": "/ˈhaɪərɑːrki/",
+    "definition": "A system in which people or things are arranged according to their importance.",
+    "example": "The tech startup operates with a flat hierarchy to encourage direct communication.",
+    "exampleVi": "Công ty công nghệ hoạt động theo mô hình cấp bậc phẳng nhằm khuyến khích giao tiếp trực tiếp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/h/hierarchy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-17"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-supervisor",
+    "word": "Supervisor",
+    "meaning": "Người giám sát trực tiếp, quản đốc",
+    "ipa": "/ˈsuːpərvaɪzər/",
+    "definition": "A person whose job is to supervise someone or something.",
+    "example": "Report any equipment malfunctions immediately to your shift supervisor.",
+    "exampleVi": "Hãy báo cáo ngay mọi sự cố máy móc cho người giám sát ca làm việc của bạn.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/supervisor.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-17"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-subordinate",
+    "word": "Subordinate",
+    "meaning": "Cấp dưới, nhân viên dưới quyền",
+    "ipa": "/səˈbɔːrdɪnət/",
+    "definition": "A person who has a less important position than you in an organization.",
+    "example": "A good manager listens to ideas from both peers and subordinates.",
+    "exampleVi": "Một người quản lý giỏi luôn lắng nghe ý kiến từ cả đồng nghiệp ngang cấp lẫn cấp dưới.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/subordinate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-17"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-manager",
+    "word": "Manager",
+    "meaning": "Người quản lý, trưởng phòng",
+    "ipa": "/ˈmænɪdʒər/",
+    "definition": "The person who is responsible for managing an organization or department.",
+    "example": "The human resources manager conducted the final round of interviews.",
+    "exampleVi": "Trưởng phòng nhân sự đã trực tiếp tiến hành vòng phỏng vấn cuối cùng.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/m/manager.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-17"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-officer",
+    "word": "Officer",
+    "meaning": "Viên chức, cán bộ chuyên trách",
+    "ipa": "/ˈɑːfɪsər/",
+    "definition": "A person who has a position of authority in an organization or government.",
+    "example": "The Chief Compliance Officer ensures our practices follow federal law.",
+    "exampleVi": "Giám đốc phụ trách tuân thủ đảm bảo mọi hoạt động của chúng ta tuân theo luật liên bang.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/o/officer.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-17"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-foreman",
+    "word": "Foreman",
+    "meaning": "Đốc công, tổ trưởng công xưởng",
+    "ipa": "/ˈfɔːrmən/",
+    "definition": "A skilled person with experience who is in charge of and watches over other workers.",
+    "example": "The construction foreman checked the steel framework for safety compliance.",
+    "exampleVi": "Tổ trưởng thi công xây dựng đã kiểm tra khung thép để đảm bảo an toàn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/f/foreman.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-17"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-chairperson",
+    "word": "Chairperson",
+    "meaning": "Chủ tịch hội đồng quản trị / chủ tọa",
+    "ipa": "/ˈtʃerpɜːrsn/",
+    "definition": "A person in charge of a meeting or organization.",
+    "example": "The chairperson called the annual general meeting to order at 9:00 AM.",
+    "exampleVi": "Chủ tọa đã tuyên bố khai mạc đại hội thường niên lúc 9 giờ sáng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/chairperson.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-17"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-administrator",
+    "word": "Administrator",
+    "meaning": "Người quản trị hệ thống/hành chính",
+    "ipa": "/ədˈmɪnɪstreɪtər/",
+    "definition": "Someone whose job is to control the operation of a business, organization, or plan.",
+    "example": "Contact the network administrator if you forget your corporate password.",
+    "exampleVi": "Hãy liên hệ với người quản trị mạng nếu bạn quên mật khẩu công ty.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/administrator.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-17"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-timeline",
+    "word": "Timeline",
+    "meaning": "Mốc thời gian tiến độ dự án",
+    "ipa": "/ˈtaɪmlaɪn/",
+    "definition": "A plan that shows how long something should take or when things should happen.",
+    "example": "The project timeline requires us to deliver the initial prototype by June.",
+    "exampleVi": "Tiến độ thời gian dự án đòi hỏi chúng tôi phải bàn giao mẫu thử ban đầu trước tháng Sáu.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/timeline.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-18"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-deadline",
+    "word": "Deadline",
+    "meaning": "Hạn chót, ngày cuối cùng phải xong",
+    "ipa": "/ˈdedlaɪn/",
+    "definition": "A time or day by which something must be done.",
+    "example": "All tax declaration forms must be submitted before the April 15 deadline.",
+    "exampleVi": "Mọi tờ khai thuế phải được nộp trước hạn chót ngày 15 tháng Tư.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/d/deadline.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-18"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-milestone",
+    "word": "Milestone",
+    "meaning": "Cột mốc quan trọng trong lộ trình",
+    "ipa": "/ˈmaɪlstoʊn/",
+    "definition": "An important event in the development or history of something.",
+    "example": "Securing our 1,000th corporate client was a major milestone for our team.",
+    "exampleVi": "Đạt được khách hàng doanh nghiệp thứ 1.000 là một cột mốc trọng đại đối với đội ngũ chúng tôi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/milestone.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-18"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-turnaround",
+    "word": "Turnaround",
+    "meaning": "Thời gian xử lý hoàn tất một đơn hàng/dự án",
+    "ipa": "/ˈtɜːrnəraʊnd/",
+    "definition": "The amount of time that it takes for a piece of work to be completed.",
+    "example": "Our lab offers a 24-hour turnaround time for standard medical tests.",
+    "exampleVi": "Phòng xét nghiệm của chúng tôi cam kết thời gian xử lý 24 giờ cho các xét nghiệm y tế tiêu chuẩn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/turnaround.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-18"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-timeframe",
+    "word": "Timeframe",
+    "meaning": "Khung thời gian dự kiến",
+    "ipa": "/ˈtaɪmfreɪm/",
+    "definition": "A period of days, weeks, months, etc. within which an activity is planned to happen.",
+    "example": "Can this renovation be completed within a three-month timeframe?",
+    "exampleVi": "Việc cải tạo này có thể hoàn thành trong khung thời gian ba tháng không?",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/timeframe.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-18"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-punctual",
+    "word": "Punctual",
+    "meaning": "Đúng giờ, không bao giờ trễ hẹn",
+    "ipa": "/ˈpʌŋktʃuəl/",
+    "definition": "Arriving, doing something, or happening at the expected, correct time.",
+    "example": "Being punctual for client meetings demonstrates professionalism and respect.",
+    "exampleVi": "Đến đúng giờ trong các cuộc gặp khách hàng thể hiện tính chuyên nghiệp và sự tôn trọng.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/p/punctual.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-18"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-interval",
+    "word": "Interval",
+    "meaning": "Khoảng cách thời gian, quãng nghỉ",
+    "ipa": "/ˈɪntərvl/",
+    "definition": "A period between two events or times, or the space between two points.",
+    "example": "Routine safety audits are conducted at regular three-month intervals.",
+    "exampleVi": "Các cuộc kiểm tra an toàn định kỳ được tiến hành theo các quãng cách ba tháng một lần.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/interval.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-18"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-overdue",
+    "word": "Overdue",
+    "meaning": "Quá hạn thanh toán / quá hạn nộp",
+    "ipa": "/ˌoʊvərˈduː/",
+    "definition": "Not having arrived, happened, or been done by the expected time.",
+    "example": "An automatic reminder is sent when an invoice is ten days overdue.",
+    "exampleVi": "Một thông báo nhắc nhở tự động sẽ được gửi khi hóa đơn bị quá hạn mười ngày.",
+    "level": "B1",
+    "pos": "adjective",
+    "img": "assets/images/words/o/overdue.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-18"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-duration",
+    "word": "Duration",
+    "meaning": "Khoảng thời lượng kéo dài",
+    "ipa": "/duˈreɪʃn/",
+    "definition": "The length of time that something lasts.",
+    "example": "Parking permits are valid for the entire duration of the academic conference.",
+    "exampleVi": "Thẻ gửi xe có giá trị trong toàn bộ thời lượng diễn ra hội nghị học thuật.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/duration.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-18"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-lapse",
+    "word": "Lapse",
+    "meaning": "Sự gián đoạn, hết hiệu lực do quá hạn",
+    "ipa": "/læps/",
+    "definition": "A temporary failure, or the ending of an official agreement or policy.",
+    "example": "Do not let your professional liability insurance lapse without renewing.",
+    "exampleVi": "Đừng để bảo hiểm trách nhiệm nghề nghiệp của bạn bị hết hiệu lực mà không gia hạn.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/l/lapse.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-18"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-committee",
+    "word": "Committee",
+    "meaning": "Ủy ban chuyên trách, ban chuyên môn",
+    "ipa": "/kəˈmɪti/",
+    "definition": "A small group of people chosen to represent a larger organization and make decisions.",
+    "example": "The safety committee meets monthly to review workplace injury reports.",
+    "exampleVi": "Ủy ban an toàn họp hàng tháng để xem xét các báo cáo thương tích tại nơi làm việc.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/committee.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-19"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-council",
+    "word": "Council",
+    "meaning": "Hội đồng thành phố / hội đồng quản trị",
+    "ipa": "/ˈkaʊnsl/",
+    "definition": "A group of people elected or chosen to make rules or decisions for an area.",
+    "example": "The city council approved the commercial zoning permit for the new mall.",
+    "exampleVi": "Hội đồng thành phố đã phê duyệt giấy phép quy hoạch thương mại cho trung tâm mua sắm mới.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/council.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-19"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-panel",
+    "word": "Panel",
+    "meaning": "Ban giám khảo, hội đồng chuyên gia",
+    "ipa": "/ˈpænl/",
+    "definition": "A small group of people chosen to give advice, make a decision, or publicly discuss an issue.",
+    "example": "A panel of industry experts will evaluate all architectural competition entries.",
+    "exampleVi": "Một hội đồng gồm các chuyên gia trong ngành sẽ đánh giá tất cả các bài dự thi kiến trúc.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/panel.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-19"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-advisory",
+    "word": "Advisory",
+    "meaning": "Có tính chất tư vấn, cố vấn chiến lược",
+    "ipa": "/ədˈvaɪzəri/",
+    "definition": "Giving advice; an official announcement that gives advice or information.",
+    "example": "The advisory board provides strategic guidance on global market expansion.",
+    "exampleVi": "Hội đồng cố vấn cung cấp định hướng chiến lược về việc mở rộng ra thị trường toàn cầu.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/a/advisory.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-19"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-delegation",
+    "word": "Delegation",
+    "meaning": "Đoàn đại biểu, phái đoàn ngoại giao/thương mại",
+    "ipa": "/ˌdelɪˈɡeɪʃn/",
+    "definition": "A group of delegates chosen to represent a company, country, or organization.",
+    "example": "A trade delegation from Japan visited our factory to discuss supply partnerships.",
+    "exampleVi": "Một phái đoàn thương mại từ Nhật Bản đã đến thăm nhà máy để thảo luận về quan hệ đối tác cung ứng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/delegation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-19"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-trustee",
+    "word": "Trustee",
+    "meaning": "Người được ủy thác quản lý tài sản/quỹ",
+    "ipa": "/trʌˈstiː/",
+    "definition": "A person or organization that holds or manages assets in trust for someone else.",
+    "example": "The board of trustees oversees the university endowment fund.",
+    "exampleVi": "Hội đồng ủy thác giám sát quỹ hiến tặng của trường đại học.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/t/trustee.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-19"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-forum",
+    "word": "Forum",
+    "meaning": "Diễn đàn trao đổi, hội nghị bàn tròn",
+    "ipa": "/ˈfɔːrəm/",
+    "definition": "A situation or meeting in which people can exchange ideas and discuss issues.",
+    "example": "The annual economic forum brings together political leaders and business titans.",
+    "exampleVi": "Diễn đàn kinh tế thường niên quy tụ các nhà lãnh đạo chính trị và các ông trùm kinh doanh.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/f/forum.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-19"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-spokesperson",
+    "word": "Spokesperson",
+    "meaning": "Người phát ngôn đại diện chính thức",
+    "ipa": "/ˈspoʊkspɜːrsn/",
+    "definition": "A person who is chosen to speak officially for a group or organization.",
+    "example": "A company spokesperson denied the rumors of an impending merger.",
+    "exampleVi": "Người phát ngôn của công ty đã bác bỏ những tin đồn về một vụ sáp nhập sắp xảy ra.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/spokesperson.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-19"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-representative",
+    "word": "Representative",
+    "meaning": "Người đại diện thương mại/doanh nghiệp",
+    "ipa": "/ˌreprɪˈzentətɪv/",
+    "definition": "Someone who represents another person or a group, especially in business.",
+    "example": "Our sales representative will visit your office to demonstrate the software.",
+    "exampleVi": "Đại diện bán hàng của chúng tôi sẽ đến văn phòng bạn để trình diễn phần mềm.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/representative.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-19"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-liaison",
+    "word": "Liaison",
+    "meaning": "Người giữ liên lạc, đầu mối phối hợp",
+    "ipa": "/liˈeɪzɑːn/",
+    "definition": "Communication between people or groups who work together, or the person doing this.",
+    "example": "She acts as a liaison between the engineering team and the corporate clients.",
+    "exampleVi": "Cô ấy đóng vai trò là đầu mối liên lạc giữa đội ngũ kỹ thuật và các khách hàng doanh nghiệp.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/l/liaison.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-19"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-regulation",
+    "word": "Regulation",
+    "meaning": "Quy định pháp lý, điều lệ thi hành",
+    "ipa": "/ˌreɡjuˈleɪʃn/",
+    "definition": "An official rule or the act of controlling something.",
+    "example": "Environmental regulations require factories to filter waste before discharge.",
+    "exampleVi": "Các quy định môi trường yêu cầu các nhà máy phải lọc chất thải trước khi xả ra ngoài.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/regulation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-20"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-policy",
+    "word": "Policy",
+    "meaning": "Chính sách, chủ trương của công ty",
+    "ipa": "/ˈpɑːləsi/",
+    "definition": "A set of ideas or a plan of what to do in particular situations.",
+    "example": "The company has a zero-tolerance policy towards workplace discrimination.",
+    "exampleVi": "Công ty có chính sách không khoan nhượng đối với hành vi phân biệt đối xử tại nơi làm việc.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/policy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-20"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-etiquette",
+    "word": "Etiquette",
+    "meaning": "Quy tắc ứng xử, phép lịch sự nơi công sở",
+    "ipa": "/ˈetɪkət/",
+    "definition": "The set of rules or customs that control accepted behavior in social groups.",
+    "example": "Professional email etiquette requires clear subject lines and polite greetings.",
+    "exampleVi": "Quy tắc ứng xử email chuyên nghiệp đòi hỏi tiêu đề rõ ràng và lời chào lịch sự.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/etiquette.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-20"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-standard",
+    "word": "Standard",
+    "meaning": "Tiêu chuẩn kỹ thuật, thước đo chất lượng",
+    "ipa": "/ˈstændərd/",
+    "definition": "A level of quality, achievement, or behavior that is considered acceptable.",
+    "example": "Our products meet the highest ISO quality standards in the manufacturing industry.",
+    "exampleVi": "Sản phẩm của chúng tôi đáp ứng các tiêu chuẩn chất lượng ISO cao nhất trong ngành sản xuất.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/standard.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-20"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-criterion",
+    "word": "Criterion",
+    "meaning": "Tiêu chí đánh giá, chuẩn mực chọn lựa",
+    "ipa": "/kraɪˈtɪriən/",
+    "definition": "A standard by which you judge, decide about, or deal with something.",
+    "example": "Relevant work experience is the primary criterion for this managerial position.",
+    "exampleVi": "Kinh nghiệm làm việc phù hợp là tiêu chí hàng đầu cho vị trí quản lý này.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/criterion.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-20"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-discipline",
+    "word": "Discipline",
+    "meaning": "Kỷ luật, rèn luyện nề nếp",
+    "ipa": "/ˈdɪsəplɪn/",
+    "definition": "Training that makes people more willing to obey or control themselves.",
+    "example": "Maintaining strict financial discipline allowed the company to weather the recession.",
+    "exampleVi": "Việc duy trì kỷ luật tài chính nghiêm ngặt đã giúp công ty vượt qua cuộc suy thoái.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/discipline.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-20"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-orientation",
+    "word": "Orientation",
+    "meaning": "Buổi định hướng, làm quen nhân viên mới",
+    "ipa": "/ˌɔːriənˈteɪʃn/",
+    "definition": "Training or preparation for a new job or activity.",
+    "example": "New hires must attend a mandatory three-day orientation program next week.",
+    "exampleVi": "Nhân viên mới phải tham dự chương trình định hướng bắt buộc kéo dài ba ngày vào tuần tới.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/o/orientation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-20"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-compliance",
+    "word": "Compliance",
+    "meaning": "Sự tuân thủ đúng pháp luật và chính sách",
+    "ipa": "/kəmˈplaɪəns/",
+    "definition": "The act of obeying an order, rule, or request.",
+    "example": "Regular audits ensure strict compliance with federal labor regulations.",
+    "exampleVi": "Các cuộc kiểm toán định kỳ đảm bảo sự tuân thủ nghiêm ngặt các quy định lao động liên bang.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/compliance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-20"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-enforcement",
+    "word": "Enforcement",
+    "meaning": "Sự cưỡng chế, thi hành nghiêm pháp luật",
+    "ipa": "/ɪnˈfɔːrsmənt/",
+    "definition": "The process of making people obey a law or rule.",
+    "example": "Strict enforcement of workplace safety protocols has reduced accidents by 40%.",
+    "exampleVi": "Việc thực thi nghiêm ngặt các giao thức an toàn lao động đã giảm thiểu tai nạn tới 40%.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/enforcement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-20"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-breach",
+    "word": "Breach",
+    "meaning": "Sự vi phạm hợp đồng, xâm phạm bảo mật",
+    "ipa": "/briːtʃ/",
+    "definition": "An act of breaking a law, promise, agreement, or relationship.",
+    "example": "Failing to deliver goods on the agreed date constitutes a material breach of contract.",
+    "exampleVi": "Việc không giao hàng đúng ngày đã thỏa thuận cấu thành hành vi vi phạm hợp đồng nghiêm trọng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/breach.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-20"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-contract",
+    "word": "Contract",
+    "meaning": "Hợp đồng, khế ước ký kết",
+    "ipa": "/ˈkɑːntrækt/",
+    "definition": "A legal document that states and explains a formal agreement between people.",
+    "example": "Both parties signed the five-year service contract yesterday afternoon.",
+    "exampleVi": "Cả hai bên đã ký hợp đồng dịch vụ thời hạn 5 năm vào chiều hôm qua.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/contract.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-21"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-clause",
+    "word": "Clause",
+    "meaning": "Điều khoản trong văn bản pháp lý",
+    "ipa": "/klɔːz/",
+    "definition": "A particular part of a written legal document, such as a contract.",
+    "example": "Please review the termination clause carefully before signing.",
+    "exampleVi": "Vui lòng xem lại kỹ điều khoản chấm dứt hợp đồng trước khi ký.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/clause.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-21"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-provision",
+    "word": "Provision",
+    "meaning": "Quy định dự liệu, điều khoản cung cấp",
+    "ipa": "/prəˈvɪʒn/",
+    "definition": "A statement within an agreement or a law that a particular thing must happen.",
+    "example": "The contract includes a special provision for emergency service calls.",
+    "exampleVi": "Hợp đồng bao gồm một điều khoản đặc biệt dành cho các cuộc gọi dịch vụ khẩn cấp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/provision.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-21"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-stipulation",
+    "word": "Stipulation",
+    "meaning": "Sự quy định rõ ràng, điều kiện đặt ra",
+    "ipa": "/ˌstɪpjuˈleɪʃn/",
+    "definition": "A rule for how something must be done, especially as part of an agreement.",
+    "example": "One key stipulation is that all deliverables must be completed by November.",
+    "exampleVi": "Một quy định then chốt là tất cả sản phẩm bàn giao phải được hoàn tất trước tháng 11.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/s/stipulation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-21"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-covenant",
+    "word": "Covenant",
+    "meaning": "Giao ước pháp lý, cam kết ràng buộc",
+    "ipa": "/ˈkʌvənənt/",
+    "definition": "A formal agreement or promise in a contract and legally binding.",
+    "example": "The non-compete covenant prohibits former employees from soliciting clients.",
+    "exampleVi": "Giao ước chống cạnh tranh cấm cựu nhân viên lôi kéo khách hàng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/covenant.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-21"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-article",
+    "word": "Article",
+    "meaning": "Điều (trong bộ luật hoặc hợp đồng)",
+    "ipa": "/ˈɑːrtɪkl/",
+    "definition": "A separate piece of writing in a law, contract, or magazine.",
+    "example": "Article 4 of the commercial agreement outlines payment milestones.",
+    "exampleVi": "Điều 4 của thỏa thuận thương mại nêu rõ các mốc thanh toán.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/article.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-21"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-annex",
+    "word": "Annex",
+    "meaning": "Phụ lục bổ sung đính kèm hợp đồng",
+    "ipa": "/ˈæneks/",
+    "definition": "An addition to a document, treaty, or contract.",
+    "example": "Refer to Annex B for the detailed pricing schedule of equipment.",
+    "exampleVi": "Tham khảo Phụ lục B để xem bảng giá chi tiết của thiết bị.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/a/annex.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-21"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-appendix",
+    "word": "Appendix",
+    "meaning": "Phụ lục giải thích cuối văn bản",
+    "ipa": "/əˈpendɪks/",
+    "definition": "A separate part at the end of a book or document with additional information.",
+    "example": "Technical blueprints are included in the appendix of the report.",
+    "exampleVi": "Các bản thiết kế kỹ thuật được đính kèm trong phần phụ lục của báo cáo.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/appendix.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-21"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-amendment",
+    "word": "Amendment",
+    "meaning": "Sự sửa đổi, bổ sung điều khoản",
+    "ipa": "/əˈmendmənt/",
+    "definition": "A change or addition to the terms of a contract or government law.",
+    "example": "Both firms signed an amendment extending the project duration by six months.",
+    "exampleVi": "Cả hai công ty đã ký một văn bản sửa đổi gia hạn thời gian dự án thêm sáu tháng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/amendment.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-21"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-preamble",
+    "word": "Preamble",
+    "meaning": "Lời mở đầu, phần giới thiệu hiệp ước",
+    "ipa": "/ˈpriːæmbl/",
+    "definition": "An introduction to a speech or piece of writing, especially the reason for a law.",
+    "example": "The preamble sets out the fundamental mutual intentions of the partnering firms.",
+    "exampleVi": "Phần mở đầu nêu rõ các ý định hợp tác cơ bản của các doanh nghiệp đối tác.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/p/preamble.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-21"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-obligation",
+    "word": "Obligation",
+    "meaning": "Nghĩa vụ pháp lý, bổn phận phải làm",
+    "ipa": "/ˌɑːblɪˈɡeɪʃn/",
+    "definition": "Something that you must do because it is your duty or because of a law.",
+    "example": "The supplier has a legal obligation to replace all defective merchandise.",
+    "exampleVi": "Nhà cung cấp có nghĩa vụ pháp lý phải thay thế mọi hàng hóa bị lỗi.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/o/obligation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-22"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-liability",
+    "word": "Liability",
+    "meaning": "Trách nhiệm pháp lý về bồi thường/nợ nần",
+    "ipa": "/ˌlaɪəˈbɪləti/",
+    "definition": "The fact that someone is legally responsible for something, or debts owed.",
+    "example": "The manufacturer accepted full liability for the product recall costs.",
+    "exampleVi": "Nhà sản xuất đã nhận toàn bộ trách nhiệm pháp lý cho các chi phí thu hồi sản phẩm.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/l/liability.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-22"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-entitlement",
+    "word": "Entitlement",
+    "meaning": "Quyền được hưởng chế độ/lợi ích",
+    "ipa": "/ɪnˈtaɪtlmənt/",
+    "definition": "The official right to have or do something, or the amount that you have a right to.",
+    "example": "Full-time staff have an entitlement to 20 days of paid annual vacation.",
+    "exampleVi": "Nhân viên toàn thời gian có quyền được hưởng 20 ngày nghỉ phép năm có lương.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/entitlement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-22"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-binding",
+    "word": "Binding",
+    "meaning": "Có tính ràng buộc pháp lý bắt buộc",
+    "ipa": "/ˈbaɪndɪŋ/",
+    "definition": "A binding agreement or promise must be kept because it is supported by law.",
+    "example": "Once signed by both parties, this memorandum becomes legally binding.",
+    "exampleVi": "Sau khi được cả hai bên ký kết, bản ghi nhớ này có tính ràng buộc pháp lý.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/b/binding.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-22"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-jurisdiction",
+    "word": "Jurisdiction",
+    "meaning": "Thẩm quyền tài phán của tòa án",
+    "ipa": "/ˌdʒʊrɪsˈdɪkʃn/",
+    "definition": "The official authority to make legal decisions and judgments.",
+    "example": "Any legal disputes arising from this contract will fall under local court jurisdiction.",
+    "exampleVi": "Mọi tranh chấp pháp lý phát sinh từ hợp đồng này sẽ thuộc thẩm quyền của tòa án địa phương.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/j/jurisdiction.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-22"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-enforceability",
+    "word": "Enforceability",
+    "meaning": "Khả năng cưỡng chế thi hành pháp luật",
+    "ipa": "/ɪnˌfɔːrsəˈbɪləti/",
+    "definition": "The quality of being able to be forced to happen or be obeyed.",
+    "example": "Legal counsel reviewed the agreement to ensure its full enforceability in court.",
+    "exampleVi": "Cố vấn pháp lý đã rà soát thỏa thuận để đảm bảo tính thực thi đầy đủ trước tòa.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/e/enforceability.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-22"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-waiver",
+    "word": "Waiver",
+    "meaning": "Sự từ bỏ quyền lợi, giấy khước từ",
+    "ipa": "/ˈweɪvər/",
+    "definition": "An agreement that you do not have to pay or do something, or giving up a legal right.",
+    "example": "Participants must sign a liability waiver before taking part in the test drive.",
+    "exampleVi": "Người tham gia phải ký vào giấy khước từ trách nhiệm trước khi lái thử xe.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/w/waiver.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-22"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-default",
+    "word": "Default",
+    "meaning": "Sự vỡ nợ, không trả nợ/thực hiện nghĩa vụ đúng hạn",
+    "ipa": "/dɪˈfɔːlt/",
+    "definition": "Failure to do something required by law or to repay a loan.",
+    "example": "The bank will seize the collateral if the borrower defaults on the loan.",
+    "exampleVi": "Ngân hàng sẽ tịch thu tài sản thế chấp nếu người vay không trả được nợ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/default.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-22"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-forfeit",
+    "word": "Forfeit",
+    "meaning": "Bị tước quyền, tịch thu tiền cọc",
+    "ipa": "/ˈfɔːrfɪt/",
+    "definition": "To lose the right to do or have something because of breaking a rule.",
+    "example": "If the buyer cancels after 30 days, they will forfeit their initial deposit.",
+    "exampleVi": "Nếu người mua hủy sau 30 ngày, họ sẽ bị mất toàn bộ số tiền đặt cọc ban đầu.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/f/forfeit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-22"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-validity",
+    "word": "Validity",
+    "meaning": "Hiệu lực pháp lý, tính hợp pháp",
+    "ipa": "/vəˈlɪdəti/",
+    "definition": "The state of being officially accepted, legal, or based on truth.",
+    "example": "The international passport must have at least six months of remaining validity.",
+    "exampleVi": "Hộ chiếu quốc tế phải còn thời hạn hiệu lực ít nhất sáu tháng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/v/validity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-22"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-confidentiality",
+    "word": "Confidentiality",
+    "meaning": "Tính bảo mật, sự giữ kín thông tin",
+    "ipa": "/ˌkɑːnfɪˌdenʃiˈæləti/",
+    "definition": "The state of being private or kept secret.",
+    "example": "All staff must sign a confidentiality agreement before accessing the source code.",
+    "exampleVi": "Mọi nhân viên đều phải ký thỏa thuận bảo mật trước khi truy cập mã nguồn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/confidentiality.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-23"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-proprietary",
+    "word": "Proprietary",
+    "meaning": "Thuộc quyền sở hữu độc quyền của công ty",
+    "ipa": "/prəˈpraɪəteri/",
+    "definition": "Relating to owning and having the exclusive legal right to use something.",
+    "example": "The chemical formula is proprietary information protected by trade secret laws.",
+    "exampleVi": "Công thức hóa học là thông tin độc quyền được bảo vệ bởi luật bí mật kinh doanh.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/p/proprietary.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-23"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-patent",
+    "word": "Patent",
+    "meaning": "Bằng sáng chế, chứng nhận phát minh",
+    "ipa": "/ˈpætnt/",
+    "definition": "The official legal right to make or sell an invention for a particular number of years.",
+    "example": "The pharmaceutical firm was granted a patent for its new cancer drug.",
+    "exampleVi": "Công ty dược phẩm đã được cấp bằng sáng chế cho loại thuốc trị ung thư mới của mình.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/patent.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-23"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-copyright",
+    "word": "Copyright",
+    "meaning": "Bản quyền tác giả, quyền sao chép",
+    "ipa": "/ˈkɑːpiraɪt/",
+    "definition": "The legal right to control the production and sale of literature, music, etc.",
+    "example": "Using images without purchasing copyright permissions is strictly illegal.",
+    "exampleVi": "Sử dụng hình ảnh mà không mua bản quyền là hoàn toàn vi phạm pháp luật.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/copyright.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-23"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-trademark",
+    "word": "Trademark",
+    "meaning": "Nhãn hiệu thương mại đã đăng ký",
+    "ipa": "/ˈtreɪdmɑːrk/",
+    "definition": "A name or symbol on a product that shows it was made by a particular company.",
+    "example": "The famous golden arches are a registered trademark worldwide.",
+    "exampleVi": "Biểu tượng mái vòm vàng nổi tiếng là nhãn hiệu thương mại đã được đăng ký trên toàn cầu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/trademark.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-23"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-royalty",
+    "word": "Royalty",
+    "meaning": "Tiền nhuận bút, tiền bản quyền khai thác",
+    "ipa": "/ˈrɔɪəlti/",
+    "definition": "A payment made to a writer, musician, or inventor each time something is sold.",
+    "example": "The author receives a 12% royalty on every textbook copy sold.",
+    "exampleVi": "Tác giả nhận được 12% tiền bản quyền cho mỗi cuốn sách giáo khoa được bán ra.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/royalty.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-23"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-infringement",
+    "word": "Infringement",
+    "meaning": "Sự xâm phạm quyền sở hữu/vi phạm luật",
+    "ipa": "/ɪnˈfrɪndʒmənt/",
+    "definition": "An action that breaks a rule, law, or someone's legal rights.",
+    "example": "The software company filed a lawsuit alleging patent infringement.",
+    "exampleVi": "Công ty phần mềm đã đệ đơn kiện với cáo buộc xâm phạm bằng sáng chế.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/i/infringement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-23"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-license",
+    "word": "License",
+    "meaning": "Giấy phép kinh doanh / bản quyền sử dụng",
+    "ipa": "/ˈlaɪsns/",
+    "definition": "An official document that gives you permission to own, do, or use something.",
+    "example": "We purchased a corporate license allowing 500 simultaneous users.",
+    "exampleVi": "Chúng tôi đã mua bản quyền doanh nghiệp cho phép 500 người dùng đồng thời.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/l/license.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-23"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-non-disclosure",
+    "word": "Non-disclosure",
+    "meaning": "Không tiết lộ, bảo mật thỏa thuận (NDA)",
+    "ipa": "/ˌnɑːndɪsˈkloʊʒər/",
+    "definition": "A legal contract preventing the sharing of confidential information.",
+    "example": "Prospective investors must sign a non-disclosure agreement before seeing financial figures.",
+    "exampleVi": "Các nhà đầu tư tiềm năng phải ký thỏa thuận không tiết lộ trước khi xem số liệu tài chính.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/n/non-disclosure.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-23"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-piracy",
+    "word": "Piracy",
+    "meaning": "Vi phạm bản quyền số, sao chép lậu",
+    "ipa": "/ˈpaɪrəsi/",
+    "definition": "The practice of illegally copying computer programs, movies, music, etc.",
+    "example": "Digital watermarking helps media companies combat online piracy.",
+    "exampleVi": "Đóng dấu bản quyền kỹ thuật số giúp các công ty truyền thông chống lại nạn vi phạm bản quyền trực tuyến.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/piracy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-23"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-indemnity",
+    "word": "Indemnity",
+    "meaning": "Sự bồi thường tổn thất, bảo đảm bồi thường",
+    "ipa": "/ɪnˈdemnəti/",
+    "definition": "Protection against possible damage or loss, or financial compensation.",
+    "example": "The contractor provided an indemnity against any property damage during construction.",
+    "exampleVi": "Nhà thầu đã cung cấp cam kết bồi thường cho bất kỳ thiệt hại tài sản nào trong quá trình xây dựng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/i/indemnity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-24"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-compensation",
+    "word": "Compensation",
+    "meaning": "Khoản tiền đền bù thiệt hại/thù lao",
+    "ipa": "/ˌkɑːmpenˈseɪʃn/",
+    "definition": "Money that is paid to someone in exchange for something that has been lost or damaged.",
+    "example": "Injured workers are entitled to financial compensation under state law.",
+    "exampleVi": "Những công nhân bị thương có quyền nhận tiền bồi thường theo luật của bang.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/compensation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-24"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-damages",
+    "word": "Damages",
+    "meaning": "Tiền bồi thường thiệt hại do tòa phán quyết",
+    "ipa": "/ˈdæmɪdʒɪz/",
+    "definition": "Money that a court orders someone to pay to someone else for harm caused.",
+    "example": "The judge ordered the defendant to pay $1.5 million in punitive damages.",
+    "exampleVi": "Thẩm phán đã ra lệnh cho bị đơn phải trả 1,5 triệu USD tiền bồi thường răn đe.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/damages.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-24"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-insurance",
+    "word": "Insurance",
+    "meaning": "Hợp đồng bảo hiểm tài sản/con người",
+    "ipa": "/ɪnˈʃʊrəns/",
+    "definition": "An agreement in which you pay a company regular money and they pay your costs if you have an accident.",
+    "example": "Commercial property insurance protects the building against fire and storm damage.",
+    "exampleVi": "Bảo hiểm tài sản thương mại bảo vệ tòa nhà chống lại thiệt hại do hỏa hoạn và bão tố.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/i/insurance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-24"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-warranty",
+    "word": "Warranty",
+    "meaning": "Giấy bảo hành sản phẩm",
+    "ipa": "/ˈwɔːrənti/",
+    "definition": "A written promise from a company to repair or replace a product if it breaks.",
+    "example": "All electronic devices come with a standard two-year manufacturer warranty.",
+    "exampleVi": "Tất cả các thiết bị điện tử đều đi kèm với bảo hành nhà sản xuất tiêu chuẩn hai năm.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/w/warranty.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-24"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-guarantee",
+    "word": "Guarantee",
+    "meaning": "Sự bảo đảm chất lượng, cam kết chắc chắn",
+    "ipa": "/ˌɡærənˈtiː/",
+    "definition": "A promise that something will be done or will happen, especially in writing.",
+    "example": "We offer a 30-day money-back guarantee if you are not fully satisfied.",
+    "exampleVi": "Chúng tôi đảm bảo hoàn tiền trong 30 ngày nếu bạn không hoàn toàn hài lòng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/g/guarantee.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-24"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-coverage",
+    "word": "Coverage",
+    "meaning": "Phạm vi bảo hiểm chi trả",
+    "ipa": "/ˈkʌvərɪdʒ/",
+    "definition": "The financial protection that is provided by an insurance policy.",
+    "example": "Make sure your travel insurance includes international medical coverage.",
+    "exampleVi": "Hãy đảm bảo bảo hiểm du lịch của bạn bao gồm phạm vi chi trả y tế quốc tế.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/coverage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-24"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-claimant",
+    "word": "Claimant",
+    "meaning": "Người yêu cầu đòi bảo hiểm/bồi thường",
+    "ipa": "/ˈkleɪmənt/",
+    "definition": "A person who asks for something that they believe belongs to them or that they have a right to.",
+    "example": "The insurance adjuster interviewed the claimant about the car collision.",
+    "exampleVi": "Chuyên viên giám định bảo hiểm đã phỏng vấn người yêu cầu bồi thường về vụ va chạm xe.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/claimant.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-24"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-settlement",
+    "word": "Settlement",
+    "meaning": "Thỏa thuận dàn xếp bồi thường ngoài tòa",
+    "ipa": "/ˈsetlmənt/",
+    "definition": "An official agreement that finishes an argument, or an amount paid.",
+    "example": "The two firms reached a multi-million dollar settlement out of court.",
+    "exampleVi": "Hai công ty đã đạt được một thỏa thuận dàn xếp trị giá hàng triệu USD ngoài tòa án.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/settlement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-24"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-deductible",
+    "word": "Deductible",
+    "meaning": "Mức khấu trừ bảo hiểm tự chi trả",
+    "ipa": "/dɪˈdʌktəbl/",
+    "definition": "An amount of money that you must pay yourself before insurance covers the rest.",
+    "example": "Choosing a higher deductible will lower your monthly auto insurance premium.",
+    "exampleVi": "Chọn mức khấu trừ tự trả cao hơn sẽ làm giảm phí bảo hiểm ô tô hàng tháng của bạn.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/d/deductible.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-24"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dispute-2",
+    "word": "Dispute",
+    "meaning": "Cuộc tranh chấp thương mại",
+    "ipa": "/dɪˈspjuːt/",
+    "definition": "An argument or disagreement, especially an official one between workers and employers.",
+    "example": "The labor dispute between the port operators and dockworkers was resolved.",
+    "exampleVi": "Tranh chấp lao động giữa các đơn vị vận hành cảng và công nhân bốc xếp đã được giải quyết.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/dispute.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-25"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-arbitration",
+    "word": "Arbitration",
+    "meaning": "Sự phân xử của trọng tài thương mại",
+    "ipa": "/ˌɑːrbɪˈtreɪʃn/",
+    "definition": "The process of solving an argument between people by helping them to agree to an acceptable decision.",
+    "example": "Both companies submitted their financial dispute to international commercial arbitration.",
+    "exampleVi": "Cả hai công ty đã đệ trình tranh chấp tài chính lên trọng tài thương mại quốc tế.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/a/arbitration.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-25"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-mediation",
+    "word": "Mediation",
+    "meaning": "Sự hòa giải trung gian",
+    "ipa": "/ˌmiːdiˈeɪʃn/",
+    "definition": "The process of talking to two separate people or groups involved in a disagreement to help them agree.",
+    "example": "Mediation proved successful in settling the boundary disagreement peacefully.",
+    "exampleVi": "Hòa giải trung gian đã chứng minh hiệu quả trong việc giải quyết hòa bình tranh chấp ranh giới.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/mediation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-25"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-grievance",
+    "word": "Grievance",
+    "meaning": "Khiếu nại bất bình của nhân viên",
+    "ipa": "/ˈɡriːvəns/",
+    "definition": "A complaint or a strong feeling that you have been treated unfairly.",
+    "example": "Staff members may file a formal grievance with the human resources department.",
+    "exampleVi": "Các nhân viên có thể nộp đơn khiếu nại chính thức lên phòng nhân sự.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/g/grievance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-25"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-lawsuit",
+    "word": "Lawsuit",
+    "meaning": "Vụ kiện tụng trước tòa án",
+    "ipa": "/ˈlɔːsuːt/",
+    "definition": "A problem taken to a law court by an ordinary person or an organization rather than by the police.",
+    "example": "The company faces a major lawsuit over alleged workplace safety violations.",
+    "exampleVi": "Công ty đang đối mặt với một vụ kiện lớn liên quan đến cáo buộc vi phạm an toàn nơi làm việc.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/l/lawsuit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-25"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-litigation",
+    "word": "Litigation",
+    "meaning": "Quá trình tranh tụng pháp lý",
+    "ipa": "/ˌlɪtɪˈɡeɪʃn/",
+    "definition": "The process of taking a case to a court of law so that a judgment can be made.",
+    "example": "Settling out of court avoids months of costly and stressful litigation.",
+    "exampleVi": "Dàn xếp ngoài tòa giúp tránh được nhiều tháng tranh tụng tốn kém và căng thẳng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/l/litigation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-25"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-plaintiff",
+    "word": "Plaintiff",
+    "meaning": "Nguyên đơn, người đứng đơn kiện",
+    "ipa": "/ˈpleɪntɪf/",
+    "definition": "Someone who makes a legal complaint against someone else in court.",
+    "example": "The plaintiff presented photographic evidence of the structural defect.",
+    "exampleVi": "Nguyên đơn đã xuất trình bằng chứng hình ảnh về lỗi kết cấu công trình.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/p/plaintiff.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-25"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-defendant",
+    "word": "Defendant",
+    "meaning": "Bị đơn, bên bị kiện trước tòa",
+    "ipa": "/dɪˈfendənt/",
+    "definition": "A person in a law court who is accused of having done something illegal.",
+    "example": "The defendant argued that all contractual obligations had been fulfilled on time.",
+    "exampleVi": "Bị đơn lập luận rằng mọi nghĩa vụ hợp đồng đã được hoàn thành đúng hạn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/defendant.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-25"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-verdict",
+    "word": "Verdict",
+    "meaning": "Phán quyết chính thức của bồi thẩm đoàn",
+    "ipa": "/ˈvɜːrdɪkt/",
+    "definition": "An opinion or decision made after judging the facts that are given.",
+    "example": "The jury reached a unanimous verdict in favor of the software developer.",
+    "exampleVi": "Bồi thẩm đoàn đã đưa ra phán quyết nhất trí ủng hộ nhà phát triển phần mềm.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/v/verdict.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-25"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-ruling",
+    "word": "Ruling",
+    "meaning": "Quyết định phán xử của thẩm phán",
+    "ipa": "/ˈruːlɪŋ/",
+    "definition": "A decision that is made by someone in authority, especially a judge.",
+    "example": "The high court issued a ruling halting the unauthorized merger.",
+    "exampleVi": "Tòa án cấp cao đã ban hành phán quyết đình chỉ thương vụ sáp nhập trái phép.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/ruling.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-25"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-renewal",
+    "word": "Renewal",
+    "meaning": "Sự gia hạn hợp đồng, làm mới dịch vụ",
+    "ipa": "/rɪˈnuːəl/",
+    "definition": "The act of making an official document, agreement, or relationship continue for more time.",
+    "example": "Our lease is up for renewal at the end of next month.",
+    "exampleVi": "Hợp đồng thuê nhà của chúng tôi sẽ đến kỳ gia hạn vào cuối tháng tới.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/renewal.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-26"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-termination",
+    "word": "Termination",
+    "meaning": "Sự chấm dứt hợp đồng/việc làm",
+    "ipa": "/ˌtɜːrmɪˈneɪʃn/",
+    "definition": "The act of ending something or the end of something.",
+    "example": "Written notice of termination must be submitted at least 30 days in advance.",
+    "exampleVi": "Thông báo bằng văn bản về việc chấm dứt hợp đồng phải được nộp trước ít nhất 30 ngày.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/termination.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-26"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-expiration",
+    "word": "Expiration",
+    "meaning": "Sự hết hạn hiệu lực",
+    "ipa": "/ˌekspəˈreɪʃn/",
+    "definition": "The end of a period of time, agreement, or official document.",
+    "example": "Please check the expiration date on your credit card before making a purchase.",
+    "exampleVi": "Vui lòng kiểm tra ngày hết hạn trên thẻ tín dụng của bạn trước khi thanh toán.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/expiration.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-26"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-nullify",
+    "word": "Nullify",
+    "meaning": "Vô hiệu hóa, làm mất giá trị pháp lý",
+    "ipa": "/ˈnʌlɪfaɪ/",
+    "definition": "To make a legal agreement or decision have no legal force.",
+    "example": "Any unauthorized alteration will immediately nullify this warranty.",
+    "exampleVi": "Bất kỳ sự sửa đổi trái phép nào cũng sẽ lập tức vô hiệu hóa giấy bảo hành này.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/n/nullify.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-26"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-void",
+    "word": "Void",
+    "meaning": "Không còn hiệu lực, vô giá trị",
+    "ipa": "/vɔɪd/",
+    "definition": "Having no legal effect or authority.",
+    "example": "The contract was declared null and void after evidence of fraud emerged.",
+    "exampleVi": "Hợp đồng đã bị tuyên bố vô hiệu sau khi xuất hiện bằng chứng về hành vi gian lận.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/v/void.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-26"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-breach-2",
+    "word": "Breach",
+    "meaning": "Vi phạm cam kết/hợp đồng",
+    "ipa": "/briːtʃ/",
+    "definition": "To break a law, promise, agreement, or relation.",
+    "example": "Disclosing trade secrets breaches the core confidentiality terms.",
+    "exampleVi": "Tiết lộ bí mật kinh doanh cấu thành hành vi vi phạm các điều khoản bảo mật cốt lõi.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/b/breach.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-26"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-rescind",
+    "word": "Rescind",
+    "meaning": "Hủy bỏ, thu hồi lệnh/thỏa thuận",
+    "ipa": "/rɪˈsɪnd/",
+    "definition": "To officially end a law, take back a decision, or cancel an agreement.",
+    "example": "The board voted to rescind the proposed dividend reduction.",
+    "exampleVi": "Hội đồng quản trị đã bỏ phiếu hủy bỏ đề xuất cắt giảm cổ tức.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/r/rescind.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-26"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cancel",
+    "word": "Cancel",
+    "meaning": "Hủy bỏ đơn hàng/cuộc hẹn",
+    "ipa": "/ˈkænsl/",
+    "definition": "To decide that an organized event will not happen, or stop an order.",
+    "example": "You can cancel your subscription at any time with no penalty fee.",
+    "exampleVi": "Bạn có thể hủy đăng ký gói dịch vụ bất kỳ lúc nào mà không phải chịu phí phạt.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/c/cancel.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-26"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-severance",
+    "word": "Severance",
+    "meaning": "Tiền trợ cấp thôi việc, sự cắt đứt hợp đồng",
+    "ipa": "/ˈsevərəns/",
+    "definition": "Money paid by an employer to an employee whose job the employer has had to bring to an end.",
+    "example": "Laid-off workers received a generous severance package based on years of service.",
+    "exampleVi": "Các công nhân bị sa thải đã nhận được gói trợ cấp thôi việc hậu hĩnh dựa trên số năm cống hiến.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/severance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-26"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-elapse",
+    "word": "Elapse",
+    "meaning": "Trôi qua (thời gian)",
+    "ipa": "/ɪˈlæps/",
+    "definition": "If time elapses, it goes past.",
+    "example": "Two weeks must elapse before the newly registered patent takes full effect.",
+    "exampleVi": "Phải mất hai tuần trôi qua trước khi bằng sáng chế mới đăng ký có hiệu lực đầy đủ.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/e/elapse.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-26"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-partnership",
+    "word": "Partnership",
+    "meaning": "Quan hệ đối tác chiến lược",
+    "ipa": "/ˈpɑːrtnərʃɪp/",
+    "definition": "An agreement between organizations, people, etc. to work together.",
+    "example": "Our technology partnership with Microsoft opened up new global markets.",
+    "exampleVi": "Quan hệ đối tác công nghệ của chúng tôi với Microsoft đã mở ra các thị trường toàn cầu mới.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/partnership.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-27"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-joint-venture",
+    "word": "Joint venture",
+    "meaning": "Doanh nghiệp liên doanh hợp tác",
+    "ipa": "/ˌdʒɔɪnt ˈventʃər/",
+    "definition": "A business or business activity that two or more people or companies work on together.",
+    "example": "The two automakers created a joint venture to develop electric batteries.",
+    "exampleVi": "Hai nhà sản xuất ô tô đã thành lập một liên doanh để phát triển pin xe điện.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/j/joint-venture.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-27"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-franchise",
+    "word": "Franchise",
+    "meaning": "Hình thức nhượng quyền thương mại",
+    "ipa": "/ˈfræntʃaɪz/",
+    "definition": "A right to sell a company's products in a particular area using its brand.",
+    "example": "Opening a fast-food franchise requires substantial upfront capital.",
+    "exampleVi": "Mở một cửa hàng nhượng quyền thức ăn nhanh đòi hỏi số vốn ban đầu đáng kể.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/f/franchise.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-27"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-consortium",
+    "word": "Consortium",
+    "meaning": "Tập đoàn liên minh đấu thầu",
+    "ipa": "/kənˈsɔːrtiəm/",
+    "definition": "An organization of several businesses or banks joining together as a group.",
+    "example": "An international consortium won the contract to build the new seaport.",
+    "exampleVi": "Một liên minh quốc tế đã trúng thầu xây dựng cảng biển mới.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/consortium.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-27"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-affiliate",
+    "word": "Affiliate",
+    "meaning": "Công ty liên kết, đại lý liên kết",
+    "ipa": "/əˈfɪlieɪt/",
+    "definition": "An organization that is connected with or controlled by a larger organization.",
+    "example": "Our regional affiliate handles distribution across Southeast Asia.",
+    "exampleVi": "Công ty liên kết khu vực của chúng tôi phụ trách việc phân phối khắp Đông Nam Á.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/affiliate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-27"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-subsidiary",
+    "word": "Subsidiary",
+    "meaning": "Công ty con (sở hữu >50% vốn)",
+    "ipa": "/səbˈsɪdieri/",
+    "definition": "A company that is owned by a larger company.",
+    "example": "The Japanese holding corporation operates more than fifty subsidiaries globally.",
+    "exampleVi": "Tập đoàn mẹ của Nhật Bản điều hành hơn năm mươi công ty con trên toàn cầu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/subsidiary.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-27"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-alliance",
+    "word": "Alliance",
+    "meaning": "Khối liên minh doanh nghiệp",
+    "ipa": "/əˈlaɪəns/",
+    "definition": "An agreement to work with another organization or group to achieve something.",
+    "example": "Airlines formed a global alliance to share routes and frequent flyer perks.",
+    "exampleVi": "Các hãng hàng không đã thành lập một liên minh toàn cầu để chia sẻ đường bay và ưu đãi tích điểm.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/alliance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-27"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-merge",
+    "word": "Merge",
+    "meaning": "Sáp nhập hai doanh nghiệp làm một",
+    "ipa": "/mɜːrdʒ/",
+    "definition": "To combine or join together, or to cause things to do this.",
+    "example": "The two commercial banks decided to merge to cut administrative costs.",
+    "exampleVi": "Hai ngân hàng thương mại đã quyết định sáp nhập để cắt giảm chi phí quản lý.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/m/merge.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-27"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-acquisition",
+    "word": "Acquisition",
+    "meaning": "Thương vụ thâu tóm, mua lại công ty",
+    "ipa": "/ˌækwɪˈzɪʃn/",
+    "definition": "The act of obtaining something, or a company bought by another company.",
+    "example": "The acquisition of the tech startup cost approximately $80 million.",
+    "exampleVi": "Thương vụ thâu tóm công ty khởi nghiệp công nghệ tiêu tốn khoảng 80 triệu USD.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/acquisition.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-27"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-synergy",
+    "word": "Synergy",
+    "meaning": "Hiệu ứng cộng hưởng, sức mạnh tổng hợp",
+    "ipa": "/ˈsɪnərdʒi/",
+    "definition": "The combined power of a group of things when they are working together.",
+    "example": "The corporate merger created substantial cost-saving synergies across supply chains.",
+    "exampleVi": "Vụ sáp nhập doanh nghiệp đã tạo ra hiệu ứng cộng hưởng tiết kiệm chi phí đáng kể trên các chuỗi cung ứng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/s/synergy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-27"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-negotiation",
+    "word": "Negotiation",
+    "meaning": "Cuộc đàm phán thương lượng",
+    "ipa": "/nɪˌɡoʊʃiˈeɪʃn/",
+    "definition": "The process of discussing something with someone in order to reach an agreement with them.",
+    "example": "Contract negotiations lasted for three weeks before a compromise was reached.",
+    "exampleVi": "Các cuộc đàm phán hợp đồng kéo dài trong ba tuần trước khi đạt được thỏa hiệp.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/n/negotiation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-28"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-concession",
+    "word": "Concession",
+    "meaning": "Sự nhượng bộ trong đàm phán",
+    "ipa": "/kənˈseʃn/",
+    "definition": "Something that is allowed or given up, often in order to end a disagreement.",
+    "example": "Management made a major concession on overtime pay rates to avoid a strike.",
+    "exampleVi": "Ban quản lý đã đưa ra sự nhượng bộ lớn về mức lương làm thêm giờ để tránh đình công.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/concession.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-28"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-compromise-2",
+    "word": "Compromise",
+    "meaning": "Giải pháp thỏa hiệp đôi bên cùng có lợi",
+    "ipa": "/ˈkɑːmprəmaɪz/",
+    "definition": "An agreement in an argument in which the people involved reduce their demands.",
+    "example": "Finding a fair compromise is key to resolving commercial disagreements.",
+    "exampleVi": "Tìm kiếm một giải pháp thỏa hiệp công bằng là chìa khóa để giải quyết các bất đồng thương mại.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/compromise.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-28"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bargaining",
+    "word": "Bargaining",
+    "meaning": "Việc thương lượng giá cả, mặc cả",
+    "ipa": "/ˈbɑːrɡənɪŋ/",
+    "definition": "Discussions between people in order to reach agreement on prices or conditions.",
+    "example": "Collective bargaining between labor unions and owners began this morning.",
+    "exampleVi": "Việc thương lượng tập thể giữa các công đoàn lao động và giới chủ đã bắt đầu sáng nay.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/bargaining.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-28"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-counteroffer",
+    "word": "Counteroffer",
+    "meaning": "Lời đề nghị phản hồi, giá chào ngược lại",
+    "ipa": "/ˈkaʊntərˌɔːfər/",
+    "definition": "An offer made in response to another offer.",
+    "example": "The seller rejected the initial bid and submitted a counteroffer of $450,000.",
+    "exampleVi": "Người bán đã từ chối mức giá đấu ban đầu và đưa ra lời chào giá phản hồi là 450.000 USD.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/counteroffer.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-28"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-impasse",
+    "word": "Impasse",
+    "meaning": "Thế bế tắc, không thể tiến triển",
+    "ipa": "/ˈɪmpæs/",
+    "definition": "A point in a process at which any further progress is impossible.",
+    "example": "Talks reached an impasse when neither side agreed to lower their price demands.",
+    "exampleVi": "Các cuộc đàm phán đã rơi vào thế bế tắc khi không bên nào đồng ý hạ yêu cầu về giá.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/i/impasse.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-28"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-leverage-2",
+    "word": "Leverage",
+    "meaning": "Lợi thế đòn bẩy khi thương lượng",
+    "ipa": "/ˈlevərɪdʒ/",
+    "definition": "Power to influence people and get the results you want.",
+    "example": "Having multiple competing bids gave the client strong leverage during negotiations.",
+    "exampleVi": "Việc có nhiều bên cùng tham gia đấu thầu cạnh tranh đã mang lại cho khách hàng lợi thế đòn bẩy mạnh mẽ trong khi đàm phán.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/l/leverage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-28"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-consensus-2",
+    "word": "Consensus",
+    "meaning": "Sự đồng lòng, nhất trí quan điểm",
+    "ipa": "/kənˈsensəs/",
+    "definition": "A generally accepted opinion or decision among a group of people.",
+    "example": "The executive team reached a consensus regarding the factory expansion timeline.",
+    "exampleVi": "Ban điều hành đã đạt được sự đồng thuận về mốc thời gian mở rộng nhà máy.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/consensus.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-28"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-deadlock",
+    "word": "Deadlock",
+    "meaning": "Tình trạng bế tắc hoàn toàn",
+    "ipa": "/ˈdedlɑːk/",
+    "definition": "A situation in which agreement in an argument cannot be reached.",
+    "example": "A neutral mediator was brought in to break the diplomatic deadlock.",
+    "exampleVi": "Một hòa giải viên trung lập đã được mời đến để phá vỡ tình trạng bế tắc ngoại giao.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/d/deadlock.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-28"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-deal",
+    "word": "Deal",
+    "meaning": "Thỏa thuận giao dịch kinh doanh",
+    "ipa": "/diːl/",
+    "definition": "An agreement or an arrangement, especially in business.",
+    "example": "The real estate firm closed a multi-million-dollar deal on the downtown tower.",
+    "exampleVi": "Công ty bất động sản đã chốt một giao dịch trị giá hàng triệu đô la đối với tòa tháp trung tâm.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/d/deal.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-28"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-notary",
+    "word": "Notary",
+    "meaning": "Công chứng viên có thẩm quyền",
+    "ipa": "/ˈnoʊtəri/",
+    "definition": "An official who has the legal authority to say that documents are correct and genuine.",
+    "example": "The property deed must be signed in the presence of a licensed public notary.",
+    "exampleVi": "Văn tự nhà đất phải được ký trước sự chứng kiến của một công chứng viên được cấp phép.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/n/notary.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-29"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-authenticate",
+    "word": "Authenticate",
+    "meaning": "Xác thực tính thật/chính hãng",
+    "ipa": "/ɔːˈθentɪkeɪt/",
+    "definition": "To prove that something is genuine, true, or real.",
+    "example": "Special software is used to authenticate digital signatures on contracts.",
+    "exampleVi": "Phần mềm đặc biệt được sử dụng để xác thực chữ ký số trên các hợp đồng.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/a/authenticate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-29"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-certify",
+    "word": "Certify",
+    "meaning": "Chứng nhận, cấp giấy chứng chỉ",
+    "ipa": "/ˈsɜːrtɪfaɪ/",
+    "definition": "To say in a formal or official way, usually in writing, that something is true.",
+    "example": "The accountant certified that the financial statements were accurate.",
+    "exampleVi": "Kế toán viên đã chứng nhận rằng các báo cáo tài chính là chính xác.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/c/certify.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-29"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-validate",
+    "word": "Validate",
+    "meaning": "Phê chuẩn, công nhận có giá trị",
+    "ipa": "/ˈvælɪdeɪt/",
+    "definition": "To make something officially acceptable or approved.",
+    "example": "Please enter the activation code to validate your software license.",
+    "exampleVi": "Vui lòng nhập mã kích hoạt để xác nhận bản quyền phần mềm của bạn.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/v/validate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-29"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-attest",
+    "word": "Attest",
+    "meaning": "Làm chứng, xác nhận tính xác thực",
+    "ipa": "/əˈtest/",
+    "definition": "To state with certainty that something is true, or that someone has a quality.",
+    "example": "Two senior witnesses were called to attest the signature on the will.",
+    "exampleVi": "Hai nhân chứng kỳ cựu đã được mời đến để làm chứng cho chữ ký trên bản di chúc.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/a/attest.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-29"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-seal",
+    "word": "Seal",
+    "meaning": "Con dấu niêm phong pháp lý",
+    "ipa": "/siːl/",
+    "definition": "An official mark on a document showing that it has been approved.",
+    "example": "The official contract bears the corporate seal of both enterprises.",
+    "exampleVi": "Hợp đồng chính thức có đóng con dấu pháp nhân của cả hai doanh nghiệp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/seal.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-29"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-credential",
+    "word": "Credential",
+    "meaning": "Bằng cấp, chứng chỉ năng lực hành nghề",
+    "ipa": "/krəˈdenʃl/",
+    "definition": "Documents that prove who you are and what qualifications you have.",
+    "example": "The auditor submitted impressive professional credentials from leading firms.",
+    "exampleVi": "Kiểm toán viên đã xuất trình các chứng chỉ nghề nghiệp ấn tượng từ các công ty hàng đầu.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/credential.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-29"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-affidavit",
+    "word": "Affidavit",
+    "meaning": "Bản tuyên thệ có công chứng trước tòa",
+    "ipa": "/ˌæfəˈdeɪvɪt/",
+    "definition": "A written statement confirmed by oath, for use as evidence in court.",
+    "example": "The witness signed a sworn affidavit detailing the sequence of events.",
+    "exampleVi": "Nhân chứng đã ký một bản tuyên thệ có công chứng nêu chi tiết diễn biến sự việc.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/a/affidavit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-29"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-testimony",
+    "word": "Testimony",
+    "meaning": "Lời khai của nhân chứng trước tòa",
+    "ipa": "/ˈtestɪmoʊni/",
+    "definition": "Spoken or written statements that something is true, especially those given in a court.",
+    "example": "Expert testimony helped clarify the complex technical flaws in the machinery.",
+    "exampleVi": "Lời khai của chuyên gia đã giúp làm rõ những lỗi kỹ thuật phức tạp trong máy móc.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/t/testimony.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-29"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-statute",
+    "word": "Statute",
+    "meaning": "Đạo luật thành văn của nhà nước",
+    "ipa": "/ˈstætʃuːt/",
+    "definition": "A law that has been formally approved and written down.",
+    "example": "Under federal statute, all public corporations must disclose quarterly earnings.",
+    "exampleVi": "Theo luật định liên bang, tất cả các công ty đại chúng đều phải công khai lợi nhuận hàng quý.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/s/statute.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-29"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-procurement",
+    "word": "Procurement",
+    "meaning": "Hoạt động thu mua/mua sắm đấu thầu doanh nghiệp",
+    "ipa": "/prəˈkjʊrmənt/",
+    "definition": "The process of getting supplies for a company or other organization.",
+    "example": "The procurement department negotiates bulk purchase discounts on raw materials.",
+    "exampleVi": "Phòng thu mua đàm phán các mức chiết khấu mua sỉ số lượng lớn đối với nguyên vật liệu.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/p/procurement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-30"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-tender",
+    "word": "Tender",
+    "meaning": "Hồ sơ dự thầu, lời mời thầu công khai",
+    "ipa": "/ˈtendər/",
+    "definition": "A written offer to do a piece of work or supply goods at a stated price.",
+    "example": "The municipality invited private construction companies to submit tenders for the bridge.",
+    "exampleVi": "Chính quyền thành phố đã mời các công ty xây dựng tư nhân nộp hồ sơ dự thầu cho cây cầu.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/t/tender.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-30"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bidding",
+    "word": "Bidding",
+    "meaning": "Việc bỏ giá đấu thầu",
+    "ipa": "/ˈbɪdɪŋ/",
+    "definition": "The act of offering prices, especially for work or at an auction.",
+    "example": "Competitive bidding resulted in a 15% cost reduction for the airport expansion.",
+    "exampleVi": "Việc đấu thầu cạnh tranh đã giúp giảm 15% chi phí cho dự án mở rộng sân bay.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/bidding.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-30"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-quotation",
+    "word": "Quotation",
+    "meaning": "Bảng báo giá dự toán chi phí",
+    "ipa": "/kwoʊˈteɪʃn/",
+    "definition": "The price that a person or company says they will charge to do a piece of work.",
+    "example": "We requested written quotations from three independent logistics contractors.",
+    "exampleVi": "Chúng tôi đã yêu cầu bảng báo giá bằng văn bản từ ba nhà thầu hậu cần độc lập.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/q/quotation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-30"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-proposal",
+    "word": "Proposal",
+    "meaning": "Bản đề xuất kế hoạch/dự án kinh doanh",
+    "ipa": "/prəˈpoʊzl/",
+    "definition": "A suggestion, sometimes a written one, for people to consider and decide on.",
+    "example": "The design agency submitted a creative marketing proposal for the product launch.",
+    "exampleVi": "Công ty thiết kế đã gửi một bản đề xuất tiếp thị sáng tạo cho đợt ra mắt sản phẩm.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/proposal.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-30"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-contractor",
+    "word": "Contractor",
+    "meaning": "Nhà thầu xây dựng/dịch vụ",
+    "ipa": "/ˈkɑːntræktər/",
+    "definition": "A person or company that is paid to do a particular job, especially in building.",
+    "example": "The general contractor managed dozens of specialized sub-teams on the site.",
+    "exampleVi": "Tổng thầu đã quản lý hàng chục nhóm phụ chuyên biệt trên công trường.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/contractor.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-30"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-subcontractor",
+    "word": "Subcontractor",
+    "meaning": "Nhà thầu phụ được giao việc",
+    "ipa": "/ˌsʌbˈkɑːntræktər/",
+    "definition": "A person or company that does part of a job for another contractor.",
+    "example": "Electrical wiring was outsourced to a certified local subcontractor.",
+    "exampleVi": "Hệ thống dây điện đã được giao cho một nhà thầu phụ địa phương được cấp chứng chỉ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/subcontractor.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-30"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-specification",
+    "word": "Specification",
+    "meaning": "Thông số quy cách kỹ thuật (spec)",
+    "ipa": "/ˌspesɪfɪˈkeɪʃn/",
+    "definition": "A detailed description of how something should be done, made, or what it should contain.",
+    "example": "The metal casing was manufactured strictly according to client specifications.",
+    "exampleVi": "Vỏ kim loại được sản xuất nghiêm ngặt theo các thông số kỹ thuật của khách hàng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/specification.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-30"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-vendor",
+    "word": "Vendor",
+    "meaning": "Nhà cung cấp hàng hóa/dịch vụ",
+    "ipa": "/ˈvendər/",
+    "definition": "A person or company that sells something, especially in business-to-business trade.",
+    "example": "Our IT department selected a new vendor for cloud storage solutions.",
+    "exampleVi": "Phòng CNTT của chúng tôi đã chọn một nhà cung cấp mới cho các giải pháp lưu trữ đám mây.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/v/vendor.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-30"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-solicitation",
+    "word": "Solicitation",
+    "meaning": "Sự mời thầu, kêu gọi chào hàng",
+    "ipa": "/səˌlɪsɪˈteɪʃn/",
+    "definition": "The act of asking for something from someone, especially business bids.",
+    "example": "The agency published a formal solicitation for public relations consultancy.",
+    "exampleVi": "Cơ quan đã công bố lời mời thầu chính thức cho dịch vụ tư vấn quan hệ công chúng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/s/solicitation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-30"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-recruitment",
+    "word": "Recruitment",
+    "meaning": "Hoạt động tuyển dụng nhân sự",
+    "ipa": "/rɪˈkruːtmənt/",
+    "definition": "The process of finding people to work for a company or become a new member.",
+    "example": "The firm launched a nationwide recruitment campaign for software engineers.",
+    "exampleVi": "Công ty đã phát động một chiến dịch tuyển dụng kỹ sư phần mềm trên toàn quốc.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/recruitment.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-31"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-candidate",
+    "word": "Candidate",
+    "meaning": "Ứng viên ứng tuyển vị trí",
+    "ipa": "/ˈkændɪdət/",
+    "definition": "A person who is competing to get a job or elected position.",
+    "example": "We interviewed five strong candidates for the regional sales manager role.",
+    "exampleVi": "Chúng tôi đã phỏng vấn năm ứng viên xuất sắc cho vị trí trưởng phòng kinh doanh khu vực.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/candidate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-31"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-applicant",
+    "word": "Applicant",
+    "meaning": "Người nộp hồ sơ xin việc",
+    "ipa": "/ˈæplɪkənt/",
+    "definition": "A person who officially applies for something, especially for a job.",
+    "example": "Over two hundred applicants applied for the administrative assistant vacancy.",
+    "exampleVi": "Hơn hai trăm người đã nộp đơn cho vị trí trợ lý hành chính còn trống.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/applicant.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-31"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-vacancy",
+    "word": "Vacancy",
+    "meaning": "Vị trí tuyển dụng còn trống",
+    "ipa": "/ˈveɪkənsi/",
+    "definition": "A space or position that is available to be used or filled.",
+    "example": "The accounting department currently has two vacancies for senior auditors.",
+    "exampleVi": "Phòng kế toán hiện có hai vị trí tuyển dụng còn trống cho kiểm toán viên cấp cao.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/v/vacancy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-31"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-headcount",
+    "word": "Headcount",
+    "meaning": "Tổng số lượng nhân sự biên chế",
+    "ipa": "/ˈhedkaʊnt/",
+    "definition": "The total number of people who are employed by a company or organization.",
+    "example": "Management decided to freeze headcount growth during the economic downturn.",
+    "exampleVi": "Ban quản lý đã quyết định đóng băng việc tăng biên chế trong thời kỳ suy thoái kinh tế.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/h/headcount.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-31"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-talent",
+    "word": "Talent",
+    "meaning": "Nhân tài, người có năng lực xuất chúng",
+    "ipa": "/ˈtælənt/",
+    "definition": "People with a natural ability or skill to do something well.",
+    "example": "Tech companies compete aggressively to attract top engineering talent.",
+    "exampleVi": "Các công ty công nghệ cạnh tranh gay gắt để thu hút những nhân tài kỹ thuật hàng đầu.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/talent.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-31"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-scout",
+    "word": "Scout",
+    "meaning": "Săn lùng nhân sự, tìm kiếm tài năng",
+    "ipa": "/skaʊt/",
+    "definition": "To look for people who are very good at something in order to employ them.",
+    "example": "Executive recruiters scouted potential leadership talent from rival firms.",
+    "exampleVi": "Các chuyên gia săn đầu người đã tìm kiếm những tài năng lãnh đạo tiềm năng từ các công ty đối thủ.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/s/scout.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-31"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-hire",
+    "word": "Hire",
+    "meaning": "Thuê dụng, tuyển vào làm việc",
+    "ipa": "/ˈhaɪər/",
+    "definition": "To employ someone or pay someone to do a particular job.",
+    "example": "We plan to hire ten seasonal workers to handle peak holiday logistics.",
+    "exampleVi": "Chúng tôi dự định thuê mười nhân công thời vụ để xử lý hậu cần cao điểm dịp lễ.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/h/hire.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-31"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-prospect",
+    "word": "Prospect",
+    "meaning": "Ứng viên triển vọng, cơ hội tương lai",
+    "ipa": "/ˈprɑːspekt/",
+    "definition": "A person who might be chosen for a job, or the possibility of future success.",
+    "example": "The young intern is considered an excellent prospect for a permanent role.",
+    "exampleVi": "Cậu thực tập sinh trẻ được xem là một ứng viên đầy triển vọng cho vị trí chính thức.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/prospect.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-31"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-staffing",
+    "word": "Staffing",
+    "meaning": "Công tác bố trí nhân sự",
+    "ipa": "/ˈstæfɪŋ/",
+    "definition": "The process of finding the right workers for a particular organization.",
+    "example": "The hospital addressed staffing shortages by hiring traveling nurses.",
+    "exampleVi": "Bệnh viện đã giải quyết tình trạng thiếu hụt nhân sự bằng cách thuê các y tá lưu động.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/staffing.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-31"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-resume-2",
+    "word": "Resume",
+    "meaning": "Bản sơ yếu lý lịch tóm tắt (CV)",
+    "ipa": "/ˈrezəmeɪ/",
+    "definition": "A short written description of your education, qualifications, and previous jobs.",
+    "example": "Make sure your resume highlights quantifiable achievements in past roles.",
+    "exampleVi": "Hãy đảm bảo sơ yếu lý lịch của bạn làm nổi bật các thành tích có thể định lượng ở các vị trí trước.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/resume.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-32"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-portfolio",
+    "word": "Portfolio",
+    "meaning": "Hồ sơ năng lực, tập tác phẩm mẫu",
+    "ipa": "/pɔːrtˈfoʊlioʊ/",
+    "definition": "A collection of drawings, documents, etc. that represent a person's work.",
+    "example": "The graphic designer showcased an impressive portfolio of mobile UI designs.",
+    "exampleVi": "Nhà thiết kế đồ họa đã giới thiệu một hồ sơ năng lực ấn tượng về các thiết kế giao diện di động.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/portfolio.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-32"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cover-letter",
+    "word": "Cover letter",
+    "meaning": "Thư xin việc, thư ngỏ ứng tuyển",
+    "ipa": "/ˈkʌvər letər/",
+    "definition": "A letter that you send with a resume giving more information about yourself.",
+    "example": "A personalized cover letter explains why you are the ideal fit for the company.",
+    "exampleVi": "Một bức thư xin việc mang dấu ấn cá nhân giải thích lý do tại sao bạn là người phù hợp lý tưởng cho công ty.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/cover-letter.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-32"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-recommendation",
+    "word": "Recommendation",
+    "meaning": "Thư giới thiệu, sự tiến cử",
+    "ipa": "/ˌrekəmenˈdeɪʃn/",
+    "definition": "A letter written by someone who knows you describing your abilities.",
+    "example": "She submitted two strong letters of recommendation from her former supervisors.",
+    "exampleVi": "Cô ấy đã nộp hai bức thư giới thiệu đắc lực từ các quản lý cũ của mình.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/recommendation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-32"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-reference",
+    "word": "Reference",
+    "meaning": "Người xác nhận thông tin/thư tham khảo",
+    "ipa": "/ˈrefrəns/",
+    "definition": "A person who knows you and who is willing to describe your character and ability.",
+    "example": "Prospective employers will contact your professional references before making an offer.",
+    "exampleVi": "Các nhà tuyển dụng tiềm năng sẽ liên hệ với người xác nhận thông tin của bạn trước khi đưa ra đề nghị công việc.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/reference.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-32"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-qualification",
+    "word": "Qualification",
+    "meaning": "Bằng cấp, năng lực chuyên môn đủ điều kiện",
+    "ipa": "/ˌkwɑːlɪfɪˈkeɪʃn/",
+    "definition": "An official record showing that you have finished a training course or have skills.",
+    "example": "Candidates must hold an advanced qualification in financial engineering.",
+    "exampleVi": "Các ứng viên phải có bằng cấp chuyên môn nâng cao về kỹ thuật tài chính.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/q/qualification.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-32"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-transcript-2",
+    "word": "Transcript",
+    "meaning": "Bảng điểm đại học chính thức",
+    "ipa": "/ˈtrænskrɪpt/",
+    "definition": "An official record of the courses a student has taken and grades received.",
+    "example": "Recent graduates must attach their certified academic transcripts with their application.",
+    "exampleVi": "Sinh viên mới tốt nghiệp phải đính kèm bảng điểm học tập có chứng thực cùng hồ sơ ứng tuyển.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/transcript.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-32"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-certificate",
+    "word": "Certificate",
+    "meaning": "Chứng chỉ hoàn thành khóa đào tạo",
+    "ipa": "/sərˈtɪfɪkət/",
+    "definition": "An official document that states that information on it is true.",
+    "example": "He received a certificate in project management after passing the PMP exam.",
+    "exampleVi": "Anh ấy đã nhận được chứng chỉ quản lý dự án sau khi vượt qua kỳ thi PMP.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/certificate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-32"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-proficiency",
+    "word": "Proficiency",
+    "meaning": "Sự thành thạo, trình độ điêu luyện",
+    "ipa": "/prəˈfɪʃnsi/",
+    "definition": "The fact of having great skill and experience in a particular area.",
+    "example": "The job requires high proficiency in both written and spoken English.",
+    "exampleVi": "Công việc đòi hỏi sự thành thạo cao cả về tiếng Anh viết lẫn tiếng Anh giao tiếp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/proficiency.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-32"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-expertise",
+    "word": "Expertise",
+    "meaning": "Kiến thức chuyên môn sâu",
+    "ipa": "/ˌekspɜːrˈtiːz/",
+    "definition": "A high level of knowledge or skill in a particular subject or activity.",
+    "example": "Her expertise in tax law proved invaluable during the international acquisition.",
+    "exampleVi": "Chuyên môn sâu của cô ấy về luật thuế đã chứng tỏ giá trị vô giá trong thương vụ thâu tóm quốc tế.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/expertise.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-32"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-interview",
+    "word": "Interview",
+    "meaning": "Buổi phỏng vấn xin việc",
+    "ipa": "/ˈɪntərvjuː/",
+    "definition": "A meeting in which someone asks you questions to see if you are suitable for a job.",
+    "example": "The hiring panel conducted behavioral interviews with the top three candidates.",
+    "exampleVi": "Hội đồng tuyển dụng đã tiến hành các buổi phỏng vấn hành vi với ba ứng viên hàng đầu.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/i/interview.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-33"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-shortlist",
+    "word": "Shortlist",
+    "meaning": "Danh sách rút gọn các ứng viên xuất sắc",
+    "ipa": "/ˈʃɔːrtlɪst/",
+    "definition": "A list of people who have been judged the most suitable for a job from all applicants.",
+    "example": "Only candidates on the shortlist will be invited to the technical assessment.",
+    "exampleVi": "Chỉ những ứng viên trong danh sách rút gọn mới được mời tham gia bài đánh giá kỹ thuật.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/shortlist.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-33"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-screening",
+    "word": "Screening",
+    "meaning": "Quá trình sàng lọc hồ sơ ban đầu",
+    "ipa": "/ˈskriːnɪŋ/",
+    "definition": "The process of testing or examining someone or something to discover if suitable.",
+    "example": "The HR specialist conducts a ten-minute phone screening with every applicant.",
+    "exampleVi": "Chuyên viên nhân sự tiến hành cuộc gọi sàng lọc mười phút qua điện thoại với mỗi ứng viên.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/screening.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-33"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-probation",
+    "word": "Probation",
+    "meaning": "Thời gian thử việc",
+    "ipa": "/proʊˈbeɪʃn/",
+    "definition": "A period of time at the start of a new job when you are watched and tested.",
+    "example": "New employees are placed on a three-month probation period before receiving benefits.",
+    "exampleVi": "Nhân viên mới sẽ trải qua thời gian thử việc ba tháng trước khi được nhận các chế độ phúc lợi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/probation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-33"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-assessment",
+    "word": "Assessment",
+    "meaning": "Bài đánh giá năng lực, sự thẩm định",
+    "ipa": "/əˈsesmənt/",
+    "definition": "The act of judging or deciding the amount, value, quality, or importance of something.",
+    "example": "All applicants must complete an online cognitive skills assessment.",
+    "exampleVi": "Tất cả ứng viên phải hoàn thành một bài đánh giá kỹ năng nhận thức trực tuyến.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/assessment.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-33"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-competence",
+    "word": "Competence",
+    "meaning": "Năng lực, khả năng làm việc đạt chuẩn",
+    "ipa": "/ˈkɑːmpɪtəns/",
+    "definition": "The ability to do something well or to a satisfactory standard.",
+    "example": "The candidate demonstrated exceptional competence in data analytics.",
+    "exampleVi": "Ứng viên đã thể hiện năng lực xuất sắc trong lĩnh vực phân tích dữ liệu.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/competence.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-33"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-aptitude",
+    "word": "Aptitude",
+    "meaning": "Năng khiếu bẩm sinh, khả năng tiếp thu nhanh",
+    "ipa": "/ˈæptɪtuːd/",
+    "definition": "A natural ability or skill in a particular area.",
+    "example": "The aptitude test measures logical reasoning and problem-solving speed.",
+    "exampleVi": "Bài kiểm tra năng khiếu đo lường tư duy logic và tốc độ giải quyết vấn đề.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/aptitude.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-33"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-potential",
+    "word": "Potential",
+    "meaning": "Tiềm năng phát triển trong tương lai",
+    "ipa": "/pəˈtenʃl/",
+    "definition": "Someone's or something's ability to develop, achieve, or succeed.",
+    "example": "We hire recent graduates who show great leadership potential.",
+    "exampleVi": "Chúng tôi tuyển dụng các sinh viên mới tốt nghiệp thể hiện tiềm năng lãnh đạo lớn.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/potential.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-33"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-vetting",
+    "word": "Vetting",
+    "meaning": "Sự xác minh lý lịch kỹ lưỡng",
+    "ipa": "/ˈvetɪŋ/",
+    "definition": "The process of finding out about someone before you employ them to make sure safe.",
+    "example": "Thorough background vetting is required for positions handling client finances.",
+    "exampleVi": "Việc xác minh lý lịch kỹ lưỡng là bắt buộc đối với các vị trí xử lý tài chính khách hàng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/v/vetting.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-33"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-onboarding",
+    "word": "Onboarding",
+    "meaning": "Quy trình tiếp nhận và hội nhập nhân viên mới",
+    "ipa": "/ˈɑːnbɔːrdɪŋ/",
+    "definition": "The process of integrating a new employee into an organization.",
+    "example": "A comprehensive onboarding program helps new hires become productive faster.",
+    "exampleVi": "Chương trình tiếp nhận toàn diện giúp nhân viên mới làm việc hiệu quả nhanh hơn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/o/onboarding.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-33"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-salary",
+    "word": "Salary",
+    "meaning": "Lương cố định hàng tháng/năm",
+    "ipa": "/ˈsæləri/",
+    "definition": "A fixed amount of money agreed every year as pay for an employee.",
+    "example": "The base salary is reviewed annually based on individual and company performance.",
+    "exampleVi": "Mức lương cơ bản được xem xét hàng năm dựa trên hiệu suất cá nhân và công ty.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/s/salary.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-34"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-wage",
+    "word": "Wage",
+    "meaning": "Tiền công trả theo giờ/ngày/tuần",
+    "ipa": "/weɪdʒ/",
+    "definition": "A particular amount of money that is paid, usually every week or hour.",
+    "example": "The minimum hourly wage was increased to meet the rising cost of living.",
+    "exampleVi": "Mức lương tối thiểu theo giờ đã được tăng lên để đáp ứng chi phí sinh hoạt tăng cao.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/w/wage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-34"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-remuneration",
+    "word": "Remuneration",
+    "meaning": "Tổng gói thù lao chi trả công việc",
+    "ipa": "/rɪˌmjuːnəˈreɪʃn/",
+    "definition": "Payment for work or services.",
+    "example": "Executive remuneration includes base pay, stock options, and performance bonuses.",
+    "exampleVi": "Thù lao của ban lãnh đạo bao gồm lương cơ bản, quyền mua cổ phiếu và thưởng hiệu suất.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/r/remuneration.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-34"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-compensation-2",
+    "word": "Compensation",
+    "meaning": "Khoản đãi ngộ, tổng thu nhập",
+    "ipa": "/ˌkɑːmpenˈseɪʃn/",
+    "definition": "The combination of money and other benefits that an employee receives for work.",
+    "example": "Our firm offers a highly competitive compensation package.",
+    "exampleVi": "Công ty chúng tôi đưa ra gói đãi ngộ có tính cạnh tranh rất cao.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/compensation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-34"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-payroll",
+    "word": "Payroll",
+    "meaning": "Bảng lương công ty, tổng quỹ lương",
+    "ipa": "/ˈpeɪroʊl/",
+    "definition": "A list of the employees of a company showing the amount of money paid to them.",
+    "example": "Salaries are processed automatically through the direct deposit payroll system.",
+    "exampleVi": "Tiền lương được xử lý tự động qua hệ thống trả lương chuyển khoản trực tiếp.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/payroll.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-34"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-hourly-rate",
+    "word": "Hourly rate",
+    "meaning": "Mức thù lao tính theo giờ",
+    "ipa": "/ˌaʊərli ˈreɪt/",
+    "definition": "The amount of money paid per hour of work.",
+    "example": "Freelance consultants charge an hourly rate of $150.",
+    "exampleVi": "Các chuyên gia tư vấn tự do tính mức thù lao 150 USD mỗi giờ làm việc.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/h/hourly-rate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-34"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-stipend",
+    "word": "Stipend",
+    "meaning": "Khoản trợ cấp thực tập/học bổng",
+    "ipa": "/ˈstaɪpend/",
+    "definition": "A particular amount of money that is paid regularly to someone to cover costs.",
+    "example": "Summer interns receive a monthly living stipend and subsidized transportation.",
+    "exampleVi": "Thực tập sinh mùa hè nhận được khoản trợ cấp sinh hoạt hàng tháng và hỗ trợ đi lại.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/stipend.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-34"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-commission",
+    "word": "Commission",
+    "meaning": "Tiền hoa hồng theo doanh số bán hàng",
+    "ipa": "/kəˈmɪʃn/",
+    "definition": "An amount of money that is paid to somebody for selling goods, which increases with more sold.",
+    "example": "Real estate agents earn a 3% commission on every property sold.",
+    "exampleVi": "Môi giới bất động sản kiếm được 3% tiền hoa hồng trên mỗi bất động sản bán được.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/commission.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-34"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bonus",
+    "word": "Bonus",
+    "meaning": "Tiền thưởng nóng, tiền thưởng thành tích",
+    "ipa": "/ˈboʊnəs/",
+    "definition": "An extra amount of money that is given to you as a present or reward for good work.",
+    "example": "All sales staff received an end-of-year bonus for surpassing annual quotas.",
+    "exampleVi": "Toàn bộ nhân viên kinh doanh đã nhận được tiền thưởng cuối năm vì vượt chỉ tiêu năm.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/bonus.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-34"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-incentive",
+    "word": "Incentive",
+    "meaning": "Khoản khuyến khích, động lực thúc đẩy",
+    "ipa": "/ɪnˈsentɪv/",
+    "definition": "Something that encourages a person to do something or work harder.",
+    "example": "The company introduced financial incentives to motivate the research team.",
+    "exampleVi": "Công ty đã áp dụng các khoản đãi ngộ tài chính để tạo động lực cho nhóm nghiên cứu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/incentive.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-34"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-benefits",
+    "word": "Benefits",
+    "meaning": "Các chế độ phúc lợi ngoài lương",
+    "ipa": "/ˈbenɪfɪts/",
+    "definition": "Things such as medical insurance that employees receive in addition to money.",
+    "example": "Standard employee benefits include dental care, life insurance, and a gym pass.",
+    "exampleVi": "Phúc lợi nhân viên tiêu chuẩn bao gồm chăm sóc nha khoa, bảo hiểm nhân thọ và thẻ tập gym.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/benefits.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-35"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-allowance",
+    "word": "Allowance",
+    "meaning": "Tiền phụ cấp xăng xe/ăn trưa/điện thoại",
+    "ipa": "/əˈlaʊəns/",
+    "definition": "An amount of money given regularly, often for a specific purpose.",
+    "example": "Field engineers receive a monthly transportation allowance.",
+    "exampleVi": "Kỹ sư hiện trường nhận được phụ cấp đi lại hàng tháng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/allowance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-35"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-perk",
+    "word": "Perk",
+    "meaning": "Đặc quyền, bổng lộc công việc",
+    "ipa": "/pɜːrk/",
+    "definition": "An advantage or something extra, such as money or goods, that you are given for work.",
+    "example": "Free gourmet snacks and flexible hours are popular perks at tech startups.",
+    "exampleVi": "Đồ ăn nhẹ hảo hạng miễn phí và giờ giấc linh hoạt là những bổng lộc phổ biến tại các công ty công nghệ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/perk.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-35"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-pension",
+    "word": "Pension",
+    "meaning": "Lương hưu, quỹ hưu trí bảo hiểm",
+    "ipa": "/ˈpenʃn/",
+    "definition": "An amount of money paid regularly by a company to a person who has retired.",
+    "example": "Both the employer and employee contribute monthly to the retirement pension plan.",
+    "exampleVi": "Cả người sử dụng lao động và người lao động đều đóng góp hàng tháng vào quỹ hưu trí.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/pension.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-35"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-healthcare",
+    "word": "Healthcare",
+    "meaning": "Dịch vụ chăm sóc sức khỏe y tế",
+    "ipa": "/ˈhelθker/",
+    "definition": "The set of services provided by a country or an organization for treating the sick.",
+    "example": "Comprehensive healthcare coverage extends to spouses and dependent children.",
+    "exampleVi": "Gói bảo hiểm chăm sóc sức khỏe toàn diện bao gồm cả vợ/chồng và con phụ thuộc.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/h/healthcare.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-35"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-subsidy",
+    "word": "Subsidy",
+    "meaning": "Khoản tiền trợ cấp, hỗ trợ kinh phí",
+    "ipa": "/ˈsʌbsədi/",
+    "definition": "Money given as part of the cost of something, to help or encourage it to happen.",
+    "example": "The government provides a green energy subsidy to businesses installing solar panels.",
+    "exampleVi": "Chính phủ cung cấp khoản trợ cấp năng lượng xanh cho các doanh nghiệp lắp đặt pin mặt trời.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/subsidy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-35"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-severance-2",
+    "word": "Severance",
+    "meaning": "Trợ cấp thôi việc khi chấm dứt hợp đồng",
+    "ipa": "/ˈsevərəns/",
+    "definition": "Pay and benefits, employees receive when their employment is ended.",
+    "example": "He negotiated a six-month severance payout before stepping down as director.",
+    "exampleVi": "Ông đã đàm phán một khoản chi trả trợ cấp thôi việc sáu tháng trước khi rời chức giám đốc.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/severance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-35"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-entitlement-2",
+    "word": "Entitlement",
+    "meaning": "Quyền lợi được hưởng theo quy chế",
+    "ipa": "/ɪnˈtaɪtlmənt/",
+    "definition": "Something that you have a right to do or have.",
+    "example": "Check your contract to confirm your annual vacation entitlement.",
+    "exampleVi": "Hãy kiểm tra hợp đồng để xác nhận quyền lợi về ngày nghỉ phép hàng năm của bạn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/entitlement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-35"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-reimbursement",
+    "word": "Reimbursement",
+    "meaning": "Sự thanh toán hoàn tiền chi phí công",
+    "ipa": "/ˌriːɪmˈbɜːrsmənt/",
+    "definition": "The act of paying back money that someone has spent on company business.",
+    "example": "Submit the flight receipts for prompt travel expense reimbursement.",
+    "exampleVi": "Hãy nộp hóa đơn chuyến bay để được hoàn trả chi phí công tác nhanh chóng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/reimbursement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-35"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-gratuity",
+    "word": "Gratuity",
+    "meaning": "Tiền thưởng phụ cấp thâm niên/tiền boa",
+    "ipa": "/ɡrəˈtuːəti/",
+    "definition": "An extra amount of money given to someone for service, or upon retirement.",
+    "example": "Long-serving staff receive a tax-free retirement gratuity upon departure.",
+    "exampleVi": "Nhân viên gắn bó lâu năm nhận được một khoản phụ cấp thâm niên hưu trí miễn thuế khi nghỉ việc.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/g/gratuity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-35"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-annual-leave",
+    "word": "Annual leave",
+    "meaning": "Kỳ nghỉ phép năm có hưởng lương",
+    "ipa": "/ˌænjuəl ˈliːv/",
+    "definition": "A paid number of days each year that an employee is allowed to be away from work.",
+    "example": "Employees must request annual leave at least two weeks in advance.",
+    "exampleVi": "Nhân viên phải xin nghỉ phép năm trước ít nhất hai tuần.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/annual-leave.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-36"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-sick-leave",
+    "word": "Sick leave",
+    "meaning": "Nghỉ phép do ốm đau/sức khỏe",
+    "ipa": "/ˈsɪk liːv/",
+    "definition": "Time away from work because of illness, during which you are still paid.",
+    "example": "A medical doctor's note is required for sick leave exceeding two consecutive days.",
+    "exampleVi": "Cần có giấy xác nhận của bác sĩ đối với các đợt nghỉ ốm vượt quá hai ngày liên tiếp.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/sick-leave.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-36"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-maternity-leave",
+    "word": "Maternity leave",
+    "meaning": "Nghỉ phép chế độ thai sản",
+    "ipa": "/məˈtɜːrnəti liːv/",
+    "definition": "A period in which a woman is legally allowed to be absent from work for childbirth.",
+    "example": "The company offers six months of fully paid maternity leave to new mothers.",
+    "exampleVi": "Công ty cung cấp sáu tháng nghỉ thai sản hưởng nguyên lương cho các bà mẹ mới sinh.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/m/maternity-leave.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-36"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-absenteeism",
+    "word": "Absenteeism",
+    "meaning": "Tình trạng trốn việc, vắng mặt không lý do",
+    "ipa": "/ˌæbsənˈtiːɪzəm/",
+    "definition": "A situation in which people are not at work when they should be.",
+    "example": "High absenteeism rates significantly decreased factory productivity last quarter.",
+    "exampleVi": "Tỷ lệ vắng mặt không lý do cao đã làm giảm đáng kể năng suất của nhà máy trong quý vừa qua.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/a/absenteeism.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-36"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-punctuality",
+    "word": "Punctuality",
+    "meaning": "Tính đúng giờ, tác phong chuẩn mực",
+    "ipa": "/ˌpʌŋktʃuˈæləti/",
+    "definition": "The habit of arriving, doing things, or happening at the expected time.",
+    "example": "Management places great value on teamwork and strict punctuality.",
+    "exampleVi": "Ban quản lý đánh giá rất cao tinh thần làm việc nhóm và tác phong luôn đúng giờ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/punctuality.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-36"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-attendance",
+    "word": "Attendance",
+    "meaning": "Sự hiện diện đi làm, điểm danh chuyên cần",
+    "ipa": "/əˈtendəns/",
+    "definition": "The fact of being at an event or place, such as work or school.",
+    "example": "Staff with perfect annual attendance were rewarded with cash bonuses.",
+    "exampleVi": "Những nhân viên đi làm chuyên cần cả năm đã được thưởng tiền mặt.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/attendance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-36"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-sabbatical",
+    "word": "Sabbatical",
+    "meaning": "Kỳ nghỉ phép dài hạn để nghiên cứu/nghỉ ngơi",
+    "ipa": "/səˈbætɪkl/",
+    "definition": "A period of time when college teachers or executives are allowed to study or travel.",
+    "example": "The senior professor took a one-year sabbatical to write a textbook.",
+    "exampleVi": "Vị giáo sư kỳ cựu đã nghỉ phép một năm để viết một cuốn sách giáo khoa.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/s/sabbatical.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-36"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-day-off",
+    "word": "Day-off",
+    "meaning": "Ngày nghỉ làm việc định kỳ",
+    "ipa": "/ˌdeɪ ˈɔːf/",
+    "definition": "A day when you do not work.",
+    "example": "Sunday is my designated day-off to spend time with my family.",
+    "exampleVi": "Chủ nhật là ngày nghỉ làm việc theo lịch của tôi để dành thời gian cho gia đình.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/d/day-off.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-36"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-overtime",
+    "word": "Overtime",
+    "meaning": "Giờ làm thêm, tiền làm ngoài giờ",
+    "ipa": "/ˈoʊvərtaɪm/",
+    "definition": "Time spent working after the usual time needed in a job.",
+    "example": "Employees working overtime during weekends receive double pay.",
+    "exampleVi": "Nhân viên làm thêm giờ vào cuối tuần nhận được mức lương gấp đôi.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/o/overtime.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-36"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-shift",
+    "word": "Shift",
+    "meaning": "Ca làm việc (ca sáng/ca đêm)",
+    "ipa": "/ʃɪft/",
+    "definition": "A period of time worked by a group of workers who start when another group finishes.",
+    "example": "Manufacturing plant workers rotate between day and night shifts.",
+    "exampleVi": "Công nhân nhà máy sản xuất luân phiên giữa ca ngày và ca đêm.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/shift.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-36"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-orientation-2",
+    "word": "Orientation",
+    "meaning": "Chương trình định hướng hội nhập nhân viên",
+    "ipa": "/ˌɔːriənˈteɪʃn/",
+    "definition": "Training or information that you are given before starting a new job.",
+    "example": "The orientation session covers IT systems, security policies, and benefits.",
+    "exampleVi": "Buổi định hướng bao gồm hệ thống CNTT, chính sách bảo mật và phúc lợi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/o/orientation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-37"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-workshop",
+    "word": "Workshop",
+    "meaning": "Buổi hội thảo tập huấn thực hành",
+    "ipa": "/ˈwɜːrkʃɑːp/",
+    "definition": "A meeting at which a group of people discuss or do practical work on a topic.",
+    "example": "We held a two-day workshop on modern digital marketing analytics.",
+    "exampleVi": "Chúng tôi đã tổ chức một buổi tập huấn hai ngày về phân tích tiếp thị kỹ thuật số hiện đại.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/w/workshop.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-37"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-coaching",
+    "word": "Coaching",
+    "meaning": "Hoạt động kèm cặp, huấn luyện kỹ năng",
+    "ipa": "/ˈkoʊtʃɪŋ/",
+    "definition": "The act of giving someone training or advice to help them develop skills.",
+    "example": "Executive coaching helped the newly appointed CEO refine communication skills.",
+    "exampleVi": "Hoạt động huấn luyện lãnh đạo đã giúp vị Tổng Giám đốc mới bổ nhiệm hoàn thiện kỹ năng giao tiếp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/coaching.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-37"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-seminar",
+    "word": "Seminar",
+    "meaning": "Hội thảo chuyên đề học thuật/chuyên môn",
+    "ipa": "/ˈsemɪnɑːr/",
+    "definition": "An occasion when a teacher or expert and a group of people discuss a topic.",
+    "example": "Financial analysts attended a seminar on international tax reforms.",
+    "exampleVi": "Các chuyên gia phân tích tài chính đã tham dự một hội thảo chuyên đề về cải cách thuế quốc tế.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/seminar.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-37"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-mentoring",
+    "word": "Mentoring",
+    "meaning": "Sự cố vấn dìu dắt của người đi trước",
+    "ipa": "/ˈmentɔːrɪŋ/",
+    "definition": "The practice of helping and giving advice to a younger or less experienced person.",
+    "example": "Our mentoring program pairs junior developers with seasoned software architects.",
+    "exampleVi": "Chương trình cố vấn của chúng tôi ghép đôi các lập trình viên trẻ với các kiến trúc sư phần mềm dày dạn kinh nghiệm.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/mentoring.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-37"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-training",
+    "word": "Training",
+    "meaning": "Hoạt động đào tạo, huấn luyện nghiệp vụ",
+    "ipa": "/ˈtreɪnɪŋ/",
+    "definition": "The process of learning the skills you need to do a particular job or activity.",
+    "example": "All customer service agents undergo mandatory software training.",
+    "exampleVi": "Tất cả các đại diện dịch vụ khách hàng đều phải trải qua khóa đào tạo phần mềm bắt buộc.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/t/training.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-37"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-apprenticeship",
+    "word": "Apprenticeship",
+    "meaning": "Chế độ học việc có người kèm",
+    "ipa": "/əˈprentɪsʃɪp/",
+    "definition": "A period of time working for an employer to learn the skills needed for a job.",
+    "example": "He completed a four-year apprenticeship as a licensed industrial electrician.",
+    "exampleVi": "Anh ấy đã hoàn thành khóa học việc bốn năm để trở thành thợ điện công nghiệp được cấp phép.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/apprenticeship.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-37"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-curriculum",
+    "word": "Curriculum",
+    "meaning": "Chương trình khung đào tạo",
+    "ipa": "/kəˈrɪkjələm/",
+    "definition": "The subjects comprising a course of study in a school, college, or training program.",
+    "example": "The corporate training curriculum was updated to include AI tools.",
+    "exampleVi": "Khung chương trình đào tạo của công ty đã được cập nhật để bổ sung các công cụ AI.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/curriculum.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-37"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-skillset",
+    "word": "Skillset",
+    "meaning": "Bộ kỹ năng chuyên môn tổng hợp",
+    "ipa": "/ˈskɪlset/",
+    "definition": "The range of skills that someone has and can use in their job.",
+    "example": "Data visualization and Python programming are essential for this skillset.",
+    "exampleVi": "Trực quan hóa dữ liệu và lập trình Python là những kỹ năng thiết yếu trong bộ kỹ năng này.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/skillset.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-37"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-upskill",
+    "word": "Upskill",
+    "meaning": "Nâng cao tay nghề, bồi dưỡng kỹ năng mới",
+    "ipa": "/ˌʌpˈskɪl/",
+    "definition": "To learn new skills or to teach workers new skills.",
+    "example": "The company invests heavily to upskill its workforce in cloud technologies.",
+    "exampleVi": "Công ty đầu tư mạnh mẽ để nâng cao kỹ năng cho lực lượng lao động trong các công nghệ đám mây.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/u/upskill.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-37"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-appraisal",
+    "word": "Appraisal",
+    "meaning": "Sự đánh giá định kỳ thành tích công việc",
+    "ipa": "/əˈpreɪzl/",
+    "definition": "An examination of the value, condition, or qualities of something or someone.",
+    "example": "Annual performance appraisals determine salary increases and promotions.",
+    "exampleVi": "Các đợt đánh giá hiệu suất hàng năm quyết định việc tăng lương và thăng chức.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/appraisal.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-38"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-evaluation",
+    "word": "Evaluation",
+    "meaning": "Sự thẩm định, đánh giá kết quả",
+    "ipa": "/ɪˌvæljuˈeɪʃn/",
+    "definition": "The process of judging or calculating the quality, importance, or value of something.",
+    "example": "Peer evaluations provide useful feedback from daily working partners.",
+    "exampleVi": "Đánh giá từ đồng nghiệp mang lại những phản hồi hữu ích từ các đối tác làm việc hàng ngày.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/evaluation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-38"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-promotion",
+    "word": "Promotion",
+    "meaning": "Sự thăng tiến lên chức vụ cao hơn",
+    "ipa": "/prəˈmoʊʃn/",
+    "definition": "The act of raising someone to a higher or more important position or rank.",
+    "example": "Her exceptional sales figures earned her a promotion to regional director.",
+    "exampleVi": "Doanh số bán hàng xuất sắc đã giúp cô ấy được thăng chức lên giám đốc khu vực.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/promotion.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-38"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-advancement",
+    "word": "Advancement",
+    "meaning": "Sự tiến bộ và phát triển nghề nghiệp",
+    "ipa": "/ədˈvænsmənt/",
+    "definition": "The development or improvement of something, or career growth.",
+    "example": "The company offers clear pathways for professional advancement.",
+    "exampleVi": "Công ty mở ra các lộ trình rõ ràng cho sự phát triển thăng tiến nghề nghiệp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/advancement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-38"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-recognition",
+    "word": "Recognition",
+    "meaning": "Sự công nhận, tôn vinh đóng góp",
+    "ipa": "/ˌrekəɡˈnɪʃn/",
+    "definition": "Agreement that something is true or legal, or appreciation for effort.",
+    "example": "He received an award in recognition of ten years of dedicated service.",
+    "exampleVi": "Anh ấy đã nhận được phần thưởng để ghi nhận mười năm cống hiến tận tụy.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/recognition.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-38"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-merit",
+    "word": "Merit",
+    "meaning": "Công lao xứng đáng, sự xuất sắc",
+    "ipa": "/ˈmerɪt/",
+    "definition": "The quality of being good and deserving praise, or worthiness.",
+    "example": "Bonuses are awarded strictly on merit rather than seniority.",
+    "exampleVi": "Tiền thưởng được trao hoàn toàn dựa trên thành tích xứng đáng chứ không dựa vào thâm niên.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/merit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-38"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-distinction",
+    "word": "Distinction",
+    "meaning": "Sự xuất sắc vượt trội, điểm ưu tú",
+    "ipa": "/dɪˈstɪŋkʃn/",
+    "definition": "Excellence that sets someone or something apart from others.",
+    "example": "She graduated with distinction from the executive MBA program.",
+    "exampleVi": "Cô ấy đã tốt nghiệp loại xuất sắc từ chương trình Thạc sĩ Quản trị Kinh doanh cấp cao.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/distinction.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-38"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-achievement",
+    "word": "Achievement",
+    "meaning": "Thành tựu, chiến tích đạt được",
+    "ipa": "/əˈtʃiːvmənt/",
+    "definition": "Something very good and difficult that you have succeeded in doing.",
+    "example": "Winning the innovation prize was a proud achievement for our design lab.",
+    "exampleVi": "Đoạt giải thưởng đổi mới là một thành tựu đáng tự hào của phòng thiết kế chúng tôi.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/achievement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-38"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-benchmark",
+    "word": "Benchmark",
+    "meaning": "Tiêu chuẩn đối sánh đo lường thành tích",
+    "ipa": "/ˈbentʃmɑːrk/",
+    "definition": "A standard against which other things can be judged.",
+    "example": "Our customer satisfaction score serves as the industry benchmark.",
+    "exampleVi": "Điểm hài lòng của khách hàng của chúng tôi đóng vai trò là tiêu chuẩn đối sánh của toàn ngành.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/benchmark.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-38"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-tenure",
+    "word": "Tenure",
+    "meaning": "Thâm niên công tác, nhiệm kỳ giữ chức",
+    "ipa": "/ˈtenjər/",
+    "definition": "The period of time during which someone holds an important job.",
+    "example": "During her five-year tenure as CEO, company revenues tripled.",
+    "exampleVi": "Trong suốt nhiệm kỳ năm năm làm Tổng Giám đốc của cô ấy, doanh thu công ty đã tăng gấp ba lần.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/t/tenure.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-38"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-resignation",
+    "word": "Resignation",
+    "meaning": "Sự từ chức, đơn xin thôi việc",
+    "ipa": "/ˌrezɪɡˈneɪʃn/",
+    "definition": "The act of telling your employer that you are leaving your job.",
+    "example": "The financial director submitted his formal letter of resignation this morning.",
+    "exampleVi": "Giám đốc tài chính đã nộp đơn từ chức chính thức vào sáng nay.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/resignation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-39"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dismissal",
+    "word": "Dismissal",
+    "meaning": "Sự sa thải, đuổi việc do vi phạm",
+    "ipa": "/dɪsˈmɪsl/",
+    "definition": "The situation in which an employer officially makes someone leave their job.",
+    "example": "Repeated safety violations led to the employee's immediate dismissal.",
+    "exampleVi": "Việc vi phạm an toàn lặp lại nhiều lần đã dẫn đến việc nhân viên bị sa thải ngay lập tức.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/dismissal.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-39"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-lay-off",
+    "word": "Lay-off",
+    "meaning": "Đợt cắt giảm nhân sự do kinh tế khó khăn",
+    "ipa": "/ˈleɪ ɔːf/",
+    "definition": "An occasion when a company stops employing someone, sometimes temporarily, because of no work.",
+    "example": "The auto manufacturer announced the lay-off of 500 factory workers.",
+    "exampleVi": "Hãng sản xuất ô tô đã công bố đợt sa thải 500 công nhân nhà máy.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/l/lay-off.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-39"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-termination-2",
+    "word": "Termination",
+    "meaning": "Sự chấm dứt hợp đồng lao động",
+    "ipa": "/ˌtɜːrmɪˈneɪʃn/",
+    "definition": "The act of ending someone's employment.",
+    "example": "Wrongful termination lawsuits can be costly for corporate employers.",
+    "exampleVi": "Các vụ kiện chấm dứt hợp đồng lao động trái pháp luật có thể gây tốn kém lớn cho người sử dụng lao động.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/termination.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-39"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-redundant",
+    "word": "Redundant",
+    "meaning": "Bị tinh giản biên chế (dư thừa vị trí)",
+    "ipa": "/rɪˈdʌndənt/",
+    "definition": "Having lost your job because your employer no longer needs you.",
+    "example": "Two hundred office workers were made redundant following the merger.",
+    "exampleVi": "Hai trăm nhân viên văn phòng đã bị tinh giản biên chế sau vụ sáp nhập.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/r/redundant.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-39"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-turnover",
+    "word": "Turnover",
+    "meaning": "Tỷ lệ luân chuyển nhân sự nghỉ việc",
+    "ipa": "/ˈtɜːrnoʊvər/",
+    "definition": "The rate at which employees leave a company and are replaced by new people.",
+    "example": "Improving working conditions helped reduce employee turnover by 15%.",
+    "exampleVi": "Cải thiện điều kiện làm việc đã giúp giảm 15% tỷ lệ nhân viên nghỉ việc.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/turnover.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-39"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-notice-period",
+    "word": "Notice period",
+    "meaning": "Thời gian báo trước khi nghỉ việc",
+    "ipa": "/ˈnoʊtɪs pɪriəd/",
+    "definition": "The period between telling your employer you are leaving and the day you finish.",
+    "example": "Standard employment contracts require a four-week notice period.",
+    "exampleVi": "Hợp đồng lao động tiêu chuẩn yêu cầu thời gian báo trước bốn tuần.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/n/notice-period.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-39"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-exit-interview",
+    "word": "Exit interview",
+    "meaning": "Buổi phỏng vấn thôi việc (tìm hiểu nguyên nhân)",
+    "ipa": "/ˈeɡzɪt ɪntərvjuː/",
+    "definition": "An interview with an employee who is leaving to find out their reasons.",
+    "example": "The HR specialist noted constructive feedback during the exit interview.",
+    "exampleVi": "Chuyên viên nhân sự đã ghi nhận những phản hồi mang tính xây dựng trong buổi phỏng vấn thôi việc.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/exit-interview.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-39"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-retiree",
+    "word": "Retiree",
+    "meaning": "Người đã về hưu",
+    "ipa": "/rɪˌtaɪəˈriː/",
+    "definition": "A person who has stopped working because of having reached a certain age.",
+    "example": "The company offers lifetime medical discounts to all its retirees.",
+    "exampleVi": "Công ty cung cấp các ưu đãi y tế trọn đời cho tất cả những người về hưu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/retiree.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-39"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-retirement",
+    "word": "Retirement",
+    "meaning": "Sự nghỉ hưu, tuổi hưu",
+    "ipa": "/rɪˈtaɪərmənt/",
+    "definition": "The act of leaving your job and stopping working, usually because of age.",
+    "example": "We organized a farewell party to celebrate his upcoming retirement.",
+    "exampleVi": "Chúng tôi đã tổ chức một bữa tiệc chia tay để chúc mừng đợt nghỉ hưu sắp tới của ông.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/retirement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-39"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-work-ethic",
+    "word": "Work ethic",
+    "meaning": "Đạo đức nghề nghiệp, tinh thần làm việc chăm chỉ",
+    "ipa": "/ˈwɜːrk eθɪk/",
+    "definition": "The belief that work is morally good and that there is great value in working hard.",
+    "example": "Her strong work ethic and attention to detail earned her rapid promotions.",
+    "exampleVi": "Đạo đức nghề nghiệp vững vàng và sự cẩn thận tỉ mỉ đã giúp cô ấy thăng tiến nhanh chóng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/w/work-ethic.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-40"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-morale",
+    "word": "Morale",
+    "meaning": "Tinh thần, khí thế làm việc của tập thể",
+    "ipa": "/məˈræl/",
+    "definition": "The amount of confidence felt by a person or group of people.",
+    "example": "Company team-building retreats help boost employee morale significantly.",
+    "exampleVi": "Các chuyến dã ngoại gắn kết đội ngũ của công ty giúp nâng cao đáng kể tinh thần nhân viên.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/morale.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-40"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-engagement",
+    "word": "Engagement",
+    "meaning": "Sự gắn kết, tâm huyết với tổ chức",
+    "ipa": "/ɪnˈɡeɪdʒmənt/",
+    "definition": "The feeling of being involved in and passionate about work.",
+    "example": "High employee engagement correlates with greater productivity and client satisfaction.",
+    "exampleVi": "Sự gắn kết cao của nhân viên tương quan mật thiết với năng suất và sự hài lòng của khách hàng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/engagement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-40"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-team-building",
+    "word": "Team building",
+    "meaning": "Hoạt động xây dựng tinh thần đồng đội",
+    "ipa": "/ˈtiːm bɪldɪŋ/",
+    "definition": "Activities to encourage people to work well together as a team.",
+    "example": "Our department scheduled an outdoor team building session for Friday afternoon.",
+    "exampleVi": "Bộ phận chúng tôi đã lên lịch một buổi hoạt động gắn kết ngoài trời vào chiều thứ Sáu.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/team-building.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-40"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-diversity",
+    "word": "Diversity",
+    "meaning": "Sự đa dạng về văn hóa/nguồn gốc nhân sự",
+    "ipa": "/daɪˈvɜːrsəti/",
+    "definition": "The fact of many different types of things or people being included in something.",
+    "example": "Workplace diversity brings varied perspectives and innovative problem-solving.",
+    "exampleVi": "Sự đa dạng tại nơi làm việc mang lại những góc nhìn phong phú và giải pháp sáng tạo.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/diversity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-40"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-inclusivity",
+    "word": "Inclusivity",
+    "meaning": "Tính hòa nhập, không phân biệt đối xử",
+    "ipa": "/ˌɪnkluːˈsɪvəti/",
+    "definition": "The quality of including many different types of people and treating them fairly.",
+    "example": "Our leadership promotes inclusivity across all levels of the organization.",
+    "exampleVi": "Ban lãnh đạo thúc đẩy tính hòa nhập trên mọi cấp độ của tổ chức.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/inclusivity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-40"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-collaboration",
+    "word": "Collaboration",
+    "meaning": "Sự cộng tác, hợp lực làm việc",
+    "ipa": "/kəˌlæbəˈreɪʃn/",
+    "definition": "The situation of two or more people working together to create or achieve the same thing.",
+    "example": "Close collaboration between sales and product teams led to a smooth launch.",
+    "exampleVi": "Sự cộng tác chặt chẽ giữa nhóm kinh doanh và nhóm sản phẩm đã dẫn đến một đợt ra mắt suôn sẻ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/collaboration.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-40"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-camaraderie",
+    "word": "Camaraderie",
+    "meaning": "Tình đồng chí, tình bạn gắn bó giữa đồng nghiệp",
+    "ipa": "/ˌkæməˈrɑːdəri/",
+    "definition": "A feeling of friendliness among people who work together or share an experience.",
+    "example": "There is a genuine sense of camaraderie among the engineers in the lab.",
+    "exampleVi": "Có một tinh thần đồng đội gắn bó chân thành giữa các kỹ sư trong phòng thí nghiệm.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/camaraderie.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-40"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-motivation",
+    "word": "Motivation",
+    "meaning": "Động lực thúc đẩy làm việc",
+    "ipa": "/ˌmoʊtɪˈveɪʃn/",
+    "definition": "Enthusiasm for doing something, or the need or reason for doing something.",
+    "example": "Recognition and autonomy are strong sources of internal motivation.",
+    "exampleVi": "Sự ghi nhận và quyền tự chủ là những nguồn động lực nội tại mạnh mẽ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/m/motivation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-40"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-leadership",
+    "word": "Leadership",
+    "meaning": "Năng lực lãnh đạo, phong cách dẫn dắt",
+    "ipa": "/ˈliːdərʃɪp/",
+    "definition": "The set of characteristics that make a good leader, or the position of a leader.",
+    "example": "Under visionary leadership, the company expanded into ten new countries.",
+    "exampleVi": "Dưới sự dẫn dắt nhìn xa trông rộng, công ty đã mở rộng sang mười quốc gia mới.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/l/leadership.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-40"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-demographic",
+    "word": "Demographic",
+    "meaning": "Số liệu nhân khẩu học của đối tượng khách hàng",
+    "ipa": "/ˌdeməˈɡræfɪk/",
+    "definition": "A section of the population that shares similar characteristics like age or income.",
+    "example": "Our mobile gaming app targets the 18 to 25 age demographic.",
+    "exampleVi": "Ứng dụng trò chơi di động của chúng tôi nhắm vào nhóm nhân khẩu học từ 18 đến 25 tuổi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/demographic.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-41"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-segment",
+    "word": "Segment",
+    "meaning": "Phân khúc thị trường mục tiêu",
+    "ipa": "/ˈseɡmənt/",
+    "definition": "One of the parts that something is divided into, such as customer groups.",
+    "example": "Luxury electric vehicles represent a rapidly growing market segment.",
+    "exampleVi": "Xe điện hạng sang đại diện cho một phân khúc thị trường đang phát triển nhanh chóng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/segment.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-41"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-target-audience",
+    "word": "Target audience",
+    "meaning": "Khán giả/tệp khách hàng mục tiêu",
+    "ipa": "/ˌtɑːrɡɪt ˈɔːdiəns/",
+    "definition": "The group of people that a film, program, or advertisement is aimed at.",
+    "example": "The television commercial was tailored specifically to appeal to our target audience.",
+    "exampleVi": "Quảng cáo truyền hình được thiết kế riêng để thu hút tệp khách hàng mục tiêu của chúng tôi.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/target-audience.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-41"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-niche",
+    "word": "Niche",
+    "meaning": "Thị trường ngách chuyên biệt",
+    "ipa": "/niːʃ/",
+    "definition": "A job, position, or market that is very suitable for a small, specialized group.",
+    "example": "The bakery found a profitable niche producing organic gluten-free pastries.",
+    "exampleVi": "Tiệm bánh đã tìm thấy một thị trường ngách sinh lời chuyên sản xuất bánh ngọt hữu cơ không chứa gluten.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/n/niche.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-41"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-consumer",
+    "word": "Consumer",
+    "meaning": "Người tiêu dùng cuối cùng",
+    "ipa": "/kənˈsuːmər/",
+    "definition": "A person who buys goods or services for their own use.",
+    "example": "Rising inflation has caused consumers to cut back on non-essential spending.",
+    "exampleVi": "Lạm phát gia tăng đã khiến người tiêu dùng cắt giảm chi tiêu cho những mặt hàng không thiết yếu.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/consumer.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-41"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-trend",
+    "word": "Trend",
+    "meaning": "Xu hướng tiêu dùng/thị trường mới",
+    "ipa": "/trend/",
+    "definition": "A general development or change in a situation or in the way that people behave.",
+    "example": "Current market trends indicate a strong shift toward sustainable packaging.",
+    "exampleVi": "Các xu hướng thị trường hiện tại cho thấy sự chuyển dịch mạnh mẽ sang bao bì thân thiện với môi trường.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/trend.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-41"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-insight",
+    "word": "Insight",
+    "meaning": "Sự thấu hiểu sâu sắc tâm lý khách hàng",
+    "ipa": "/ˈɪnsaɪt/",
+    "definition": "A clear, deep, and sometimes sudden understanding of a complicated problem or situation.",
+    "example": "Customer surveys provided valuable insights into user satisfaction.",
+    "exampleVi": "Các cuộc khảo sát khách hàng đã mang lại những góc nhìn sâu sắc quý giá về sự hài lòng của người dùng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/insight.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-41"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-survey",
+    "word": "Survey",
+    "meaning": "Cuộc khảo sát lấy ý kiến số đông",
+    "ipa": "/ˈsɜːrveɪ/",
+    "definition": "An examination of opinions, behaviour, etc., made by asking people questions.",
+    "example": "According to a recent consumer survey, 85% prefer shopping online.",
+    "exampleVi": "Theo một cuộc khảo sát người tiêu dùng gần đây, 85% thích mua sắm trực tuyến.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/survey.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-41"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-focus-group",
+    "word": "Focus group",
+    "meaning": "Nhóm tập trung thử nghiệm sản phẩm",
+    "ipa": "/ˈfoʊkəs ɡruːp/",
+    "definition": "A group of people brought together to discuss what they think about something.",
+    "example": "We tested the new soda flavor with a focus group before mass production.",
+    "exampleVi": "Chúng tôi đã thử nghiệm hương vị nước ngọt mới với một nhóm tập trung trước khi sản xuất hàng loạt.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/f/focus-group.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-41"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-analytics",
+    "word": "Analytics",
+    "meaning": "Số liệu phân tích hành vi người dùng",
+    "ipa": "/ˌænəˈlɪtɪks/",
+    "definition": "The information resulting from the systematic analysis of data or statistics.",
+    "example": "Web analytics show that product page visits increased by 40% after the redesign.",
+    "exampleVi": "Số liệu phân tích web cho thấy lượt truy cập trang sản phẩm đã tăng 40% sau khi thiết kế lại.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/analytics.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-41"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-campaign",
+    "word": "Campaign",
+    "meaning": "Chiến dịch quảng bá/tiếp thị",
+    "ipa": "/kæmˈpeɪn/",
+    "definition": "A planned series of activities that are intended to achieve a particular result.",
+    "example": "Our social media ad campaign reached over two million active users.",
+    "exampleVi": "Chiến dịch quảng cáo trên mạng xã hội của chúng tôi đã tiếp cận hơn hai triệu người dùng hoạt động.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/campaign.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-42"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-commercial",
+    "word": "Commercial",
+    "meaning": "Đoạn phim quảng cáo truyền hình/radio",
+    "ipa": "/kəˈmɜːrʃl/",
+    "definition": "An advertisement on television or radio.",
+    "example": "The company spent $5 million on a 30-second Super Bowl commercial.",
+    "exampleVi": "Công ty đã chi 5 triệu USD cho một đoạn quảng cáo 30 giây trong trận Siêu cúp Bóng bầu dục.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/commercial.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-42"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-billboard",
+    "word": "Billboard",
+    "meaning": "Biển quảng cáo tấm lớn ngoài trời",
+    "ipa": "/ˈbɪlbɔːrd/",
+    "definition": "A very large board in suitable outdoor places on which advertisements are shown.",
+    "example": "Eye-catching billboards were placed along major highway intersections.",
+    "exampleVi": "Các biển quảng cáo bắt mắt được đặt dọc các giao lộ đường cao tốc lớn.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/billboard.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-42"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-advertisement",
+    "word": "Advertisement",
+    "meaning": "Mẩu tin quảng cáo sản phẩm",
+    "ipa": "/ˌædvərˈtaɪzmənt/",
+    "definition": "A picture, short film, song, etc. that tries to persuade people to buy a product.",
+    "example": "We placed a full-page color advertisement in the national business daily.",
+    "exampleVi": "Chúng tôi đã đăng một mẩu quảng cáo màu nguyên trang trên nhật báo kinh doanh quốc gia.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/a/advertisement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-42"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-broadcast",
+    "word": "Broadcast",
+    "meaning": "Phát sóng chương trình trên đài/TV",
+    "ipa": "/ˈbrɔːdkæst/",
+    "definition": "To send out a program on television or radio.",
+    "example": "The live interview with the CEO was broadcast across fifty news stations.",
+    "exampleVi": "Buổi phỏng vấn trực tiếp với Tổng Giám đốc đã được phát sóng trên năm mươi đài truyền hình tin tức.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/b/broadcast.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-42"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-promotion-2",
+    "word": "Promotion",
+    "meaning": "Chương trình xúc tiến bán hàng",
+    "ipa": "/prəˈmoʊʃn/",
+    "definition": "Activities to advertise something and make it popular or successful.",
+    "example": "The weekend summer promotion offers a free tote bag with every purchase.",
+    "exampleVi": "Chương trình khuyến mãi mùa hè cuối tuần tặng kèm một túi vải miễn phí cho mỗi đơn hàng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/promotion.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-42"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-endorsement",
+    "word": "Endorsement",
+    "meaning": "Sự chứng thực của người nổi tiếng",
+    "ipa": "/ɪnˈdɔːrsmənt/",
+    "definition": "The act of saying that you approve of or support something, or a celebrity ad.",
+    "example": "Celebrity endorsements helped make the sports shoe brand an instant hit.",
+    "exampleVi": "Sự chứng thực của những người nổi tiếng đã giúp thương hiệu giày thể thao trở thành cơn sốt tức thì.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/endorsement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-42"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-publicity",
+    "word": "Publicity",
+    "meaning": "Sự đưa tin quảng bá của công chúng/báo chí",
+    "ipa": "/pʌbˈlɪsəti/",
+    "definition": "The activity of making certain that someone or something attracts a lot of interest.",
+    "example": "The product launch generated tremendous positive publicity in national magazines.",
+    "exampleVi": "Đợt ra mắt sản phẩm đã tạo ra sự đưa tin quảng bá tích cực to lớn trên các tạp chí quốc gia.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/publicity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-42"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-press-release",
+    "word": "Press release",
+    "meaning": "Thông cáo báo chí gửi truyền thông",
+    "ipa": "/ˈpres rɪliːs/",
+    "definition": "A public statement given to the press to publish if they wish.",
+    "example": "The corporate communications team issued a press release about the acquisition.",
+    "exampleVi": "Đội ngũ truyền thông doanh nghiệp đã phát đi một thông cáo báo chí về thương vụ thâu tóm.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/press-release.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-42"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-slogan",
+    "word": "Slogan",
+    "meaning": "Khẩu hiệu thương mại dễ nhớ",
+    "ipa": "/ˈsloʊɡən/",
+    "definition": "A short easily remembered phrase, especially one used to advertise an idea or product.",
+    "example": "Nike's famous slogan 'Just Do It' is recognized across the world.",
+    "exampleVi": "Khẩu hiệu nổi tiếng 'Just Do It' của Nike được nhận biết trên toàn thế giới.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/slogan.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-42"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-brochure",
+    "word": "Brochure",
+    "meaning": "Cuốn sách nhỏ quảng cáo giới thiệu sản phẩm",
+    "ipa": "/broʊˈʃʊr/",
+    "definition": "A type of small magazine that contains pictures and information on a product or company.",
+    "example": "The sales agent handed out colorful travel brochures to prospective vacationers.",
+    "exampleVi": "Nhân viên bán hàng đã phát các cuốn tài liệu du lịch đầy màu sắc cho các du khách tiềm năng.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/brochure.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-43"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-flyer",
+    "word": "Flyer",
+    "meaning": "Tờ rơi quảng cáo phát tay",
+    "ipa": "/ˈflaɪər/",
+    "definition": "A small piece of printed paper advertising an event or product.",
+    "example": "Volunteers distributed flyers promoting the grand opening of the fitness club.",
+    "exampleVi": "Các tình nguyện viên đã phát tờ rơi quảng bá ngày khai trương của câu lạc bộ thể hình.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/f/flyer.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-43"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-pamphlet",
+    "word": "Pamphlet",
+    "meaning": "Tập tài liệu mỏng tuyên truyền/hướng dẫn",
+    "ipa": "/ˈpæmflət/",
+    "definition": "A thin book with only a few pages that gives information about something.",
+    "example": "The bank published a helpful pamphlet explaining basic retirement planning.",
+    "exampleVi": "Ngân hàng đã xuất bản một cuốn tài liệu mỏng hữu ích giải thích về kế hoạch hưu trí cơ bản.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/pamphlet.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-43"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-leaflet",
+    "word": "Leaflet",
+    "meaning": "Tờ bướm thông tin gấp gọn",
+    "ipa": "/ˈliːflət/",
+    "definition": "A piece of paper that gives you information or advertises something.",
+    "example": "A health awareness leaflet was mailed to every household in the district.",
+    "exampleVi": "Một tờ bướm nâng cao nhận thức sức khỏe đã được gửi thư đến từng hộ gia đình trong quận.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/l/leaflet.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-43"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-catalogue",
+    "word": "Catalogue",
+    "meaning": "Danh mục các mặt hàng trưng bày/bán",
+    "ipa": "/ˈkætəlɔːɡ/",
+    "definition": "A book with a list of all the goods that you can buy from a shop or company.",
+    "example": "Browse our online spring fashion catalogue to see the latest arrivals.",
+    "exampleVi": "Hãy xem danh mục thời trang mùa xuân trực tuyến của chúng tôi để cập nhật các mẫu mới nhất.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/catalogue.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-43"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-banner",
+    "word": "Banner",
+    "meaning": "Băng rôn, biểu ngữ quảng cáo lớn",
+    "ipa": "/ˈbænər/",
+    "definition": "A long piece of cloth or digital ad containing a slogan or design.",
+    "example": "A massive promotional banner was hung across the main entrance of the mall.",
+    "exampleVi": "Một biểu ngữ quảng cáo khổng lồ được treo ngang lối vào chính của trung tâm thương mại.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/banner.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-43"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-poster",
+    "word": "Poster",
+    "meaning": "Áp phích quảng cáo dán tường",
+    "ipa": "/ˈpoʊstər/",
+    "definition": "A large printed picture or notice put on a wall, in order to decorate or advertise.",
+    "example": "Movie posters were placed in high-traffic subway corridors.",
+    "exampleVi": "Các áp phích phim được đặt ở các hành lang tàu điện ngầm đông người qua lại.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/p/poster.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-43"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-newsletter",
+    "word": "Newsletter",
+    "meaning": "Bản tin định kỳ gửi qua email",
+    "ipa": "/ˈnuːzletər/",
+    "definition": "A printed or electronic report containing news of an organization sent regularly to members.",
+    "example": "Subscribe to our weekly email newsletter for exclusive discount codes.",
+    "exampleVi": "Hãy đăng ký nhận bản tin email hàng tuần của chúng tôi để nhận các mã giảm giá độc quyền.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/n/newsletter.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-43"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-prospectus",
+    "word": "Prospectus",
+    "meaning": "Bản cáo bạch tài chính của doanh nghiệp",
+    "ipa": "/prəˈspektəs/",
+    "definition": "A document giving details of a company's business activities when offering shares.",
+    "example": "Investors carefully studied the company's IPO prospectus before buying shares.",
+    "exampleVi": "Các nhà đầu tư đã nghiên cứu kỹ bản cáo bạch IPO của công ty trước khi mua cổ phiếu.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/p/prospectus.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-43"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-signage",
+    "word": "Signage",
+    "meaning": "Hệ thống biển hiệu chỉ dẫn/quảng cáo",
+    "ipa": "/ˈsaɪnɪdʒ/",
+    "definition": "All the signs that advertise a business, show directions, etc.",
+    "example": "Clear digital signage directs passengers to baggage claim and connecting gates.",
+    "exampleVi": "Hệ thống biển báo điện tử rõ ràng hướng dẫn hành khách đến nơi nhận hành lý và các cửa nối chuyến.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/signage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-43"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-branding",
+    "word": "Branding",
+    "meaning": "Hoạt động xây dựng thương hiệu",
+    "ipa": "/ˈbrændɪŋ/",
+    "definition": "The activity of connecting a product with a particular name or symbol.",
+    "example": "Consistent branding across social platforms builds strong consumer trust.",
+    "exampleVi": "Việc xây dựng thương hiệu nhất quán trên các nền tảng xã hội tạo dựng niềm tin vững chắc của người tiêu dùng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/branding.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-44"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-logo",
+    "word": "Logo",
+    "meaning": "Biểu trưng, biểu tượng đại diện thương hiệu",
+    "ipa": "/ˈloʊɡoʊ/",
+    "definition": "A design or symbol used by a company to advertise its products.",
+    "example": "The corporate logo was redesigned with sleek modern typography.",
+    "exampleVi": "Biểu trưng của tập đoàn đã được thiết kế lại với phong cách chữ hiện đại đẹp mắt.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/l/logo.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-44"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-reputation",
+    "word": "Reputation",
+    "meaning": "Danh tiếng, uy tín trên thị trường",
+    "ipa": "/ˌrepjuˈteɪʃn/",
+    "definition": "The general opinion that people have about someone or something.",
+    "example": "The hotel enjoys an outstanding reputation for five-star customer service.",
+    "exampleVi": "Khách sạn sở hữu danh tiếng vượt trội về dịch vụ khách hàng chuẩn năm sao.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/reputation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-44"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-identity",
+    "word": "Identity",
+    "meaning": "Bản sắc nhận diện thương hiệu",
+    "ipa": "/aɪˈdentəti/",
+    "definition": "The qualities that make someone or something different from other things.",
+    "example": "A strong visual identity helps a business stand out in a crowded market.",
+    "exampleVi": "Một hệ thống nhận diện thị giác mạnh mẽ giúp doanh nghiệp nổi bật trong một thị trường đông đúc.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/i/identity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-44"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-tagline",
+    "word": "Tagline",
+    "meaning": "Khẩu hiệu phụ, câu định vị thương hiệu",
+    "ipa": "/ˈtæɡlaɪn/",
+    "definition": "A short, easily remembered phrase that a company uses to describe its product.",
+    "example": "The airline's memorable tagline emphasizes comfort and punctuality.",
+    "exampleVi": "Câu khẩu hiệu định vị dễ nhớ của hãng hàng không nhấn mạnh sự thoải mái và đúng giờ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/tagline.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-44"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-prestige",
+    "word": "Prestige",
+    "meaning": "Uy thế, sự danh giá của thương hiệu",
+    "ipa": "/preˈstiːʒ/",
+    "definition": "Respect and admiration given to someone or something because of high quality or success.",
+    "example": "Winning the international design award added to the automaker's global prestige.",
+    "exampleVi": "Giành giải thưởng thiết kế quốc tế đã làm tăng thêm sự danh giá toàn cầu của hãng ô tô.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/prestige.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-44"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-goodwill",
+    "word": "Goodwill",
+    "meaning": "Lợi thế thương mại vô hình của doanh nghiệp",
+    "ipa": "/ˌɡʊdˈwɪl/",
+    "definition": "The value of a company's good reputation and customer relations in financial accounts.",
+    "example": "The purchase price included $5 million for corporate goodwill and brand loyalty.",
+    "exampleVi": "Giá mua đã bao gồm 5 triệu USD cho lợi thế thương mại và lòng trung thành với thương hiệu của công ty.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/g/goodwill.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-44"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-trademark-2",
+    "word": "Trademark",
+    "meaning": "Nhãn hiệu đã đăng ký bảo hộ độc quyền",
+    "ipa": "/ˈtreɪdmɑːrk/",
+    "definition": "A name or symbol on a product that cannot be used by any other company.",
+    "example": "Unauthorized reproduction of this trademark will result in legal action.",
+    "exampleVi": "Việc sao chép trái phép nhãn hiệu này sẽ dẫn đến hành động pháp lý.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/trademark.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-44"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-credibility",
+    "word": "Credibility",
+    "meaning": "Độ tin cậy, tính xác thực cao",
+    "ipa": "/ˌkredəˈbɪləti/",
+    "definition": "The fact that someone can be believed or trusted.",
+    "example": "Publishing transparent audit reports bolstered the firm's financial credibility.",
+    "exampleVi": "Việc công bố các báo cáo kiểm toán minh bạch đã củng cố độ tin cậy tài chính của công ty.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/credibility.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-44"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-positioning",
+    "word": "Positioning",
+    "meaning": "Sự định vị sản phẩm trên thị trường",
+    "ipa": "/pəˈzɪʃənɪŋ/",
+    "definition": "The way that a product or service is presented to the market to appeal to buyers.",
+    "example": "Market positioning as an eco-friendly option attracted environmentally conscious youth.",
+    "exampleVi": "Việc định vị thị trường là lựa chọn thân thiện với môi trường đã thu hút giới trẻ có ý thức bảo vệ môi trường.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/positioning.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-44"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-ambassador",
+    "word": "Ambassador",
+    "meaning": "Đại sứ thương hiệu đại diện",
+    "ipa": "/æmˈbæsədər/",
+    "definition": "A person who represents, promotes, or speaks for an organization or product.",
+    "example": "The tennis champion signed a five-year contract as global brand ambassador.",
+    "exampleVi": "Nhà vô địch quần vợt đã ký hợp đồng 5 năm làm đại sứ thương hiệu toàn cầu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/ambassador.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-45"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-spokesperson-2",
+    "word": "Spokesperson",
+    "meaning": "Người phát ngôn chính thức trước báo giới",
+    "ipa": "/ˈspoʊkspɜːrsn/",
+    "definition": "A person chosen to speak officially for a group or organization.",
+    "example": "The spokesperson announced a major technological breakthrough during the press call.",
+    "exampleVi": "Người phát ngôn đã công bố một đột phá công nghệ lớn trong cuộc họp báo.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/spokesperson.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-45"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-sponsorship",
+    "word": "Sponsorship",
+    "meaning": "Hợp đồng tài trợ cho sự kiện/tổ chức",
+    "ipa": "/ˈspɑːnsərʃɪp/",
+    "definition": "Money that is given, usually by a company, to support a person, organization, or activity.",
+    "example": "Corporate sponsorship of the marathon boosted brand visibility among runners.",
+    "exampleVi": "Sự tài trợ của doanh nghiệp cho giải chạy việt dã đã nâng cao mức độ nhận biết thương hiệu trong giới chạy bộ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/sponsorship.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-45"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-patron",
+    "word": "Patron",
+    "meaning": "Khách hàng quen thuộc / nhà bảo trợ nghệ thuật",
+    "ipa": "/ˈpeɪtrən/",
+    "definition": "A person who gives financial or other support to a person, organization, or store.",
+    "example": "We appreciate our loyal patrons who have supported our restaurant for decades.",
+    "exampleVi": "Chúng tôi tri ân những khách hàng quen trung thành đã ủng hộ nhà hàng suốt nhiều thập kỷ qua.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/patron.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-45"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-influencer",
+    "word": "Influencer",
+    "meaning": "Người có tầm ảnh hưởng trên mạng xã hội",
+    "ipa": "/ˈɪnfluənsər/",
+    "definition": "A person who is paid by a company to show and describe its products on social media.",
+    "example": "Beauty brands frequently partner with micro-influencers to review skincare items.",
+    "exampleVi": "Các thương hiệu làm đẹp thường xuyên hợp tác với những người có tầm ảnh hưởng nhỏ để đánh giá mỹ phẩm.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/i/influencer.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-45"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-affiliate-2",
+    "word": "Affiliate",
+    "meaning": "Đối tác tiếp thị liên kết hoa hồng",
+    "ipa": "/əˈfɪlieɪt/",
+    "definition": "A person or company that earns a commission by promoting another company's products.",
+    "example": "Bloggers earn money as affiliates when readers click and buy through their links.",
+    "exampleVi": "Các blogger kiếm tiền với tư cách là đối tác tiếp thị liên kết khi người đọc nhấp vào và mua hàng qua liên kết của họ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/affiliate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-45"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-endorsement-2",
+    "word": "Endorsement",
+    "meaning": "Sự chứng thực khuyên dùng sản phẩm",
+    "ipa": "/ɪnˈdɔːrsmənt/",
+    "definition": "A public statement saying that you like or use a particular product.",
+    "example": "Athlete endorsements continue to drive billions in athletic apparel sales.",
+    "exampleVi": "Sự chứng thực của các vận động viên tiếp tục thúc đẩy hàng tỷ đô la doanh số trang phục thể thao.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/endorsement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-45"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-collaboration-2",
+    "word": "Collaboration",
+    "meaning": "Sự hợp tác đồng sáng tạo giữa hai thương hiệu",
+    "ipa": "/kəˌlæbəˈreɪʃn/",
+    "definition": "The situation of two or more people or companies working together.",
+    "example": "The limited-edition sneaker was a collaboration between Adidas and a designer.",
+    "exampleVi": "Mẫu giày thể thao phiên bản giới hạn là sản phẩm hợp tác giữa Adidas và một nhà thiết kế.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/collaboration.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-45"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-alliance-2",
+    "word": "Alliance",
+    "meaning": "Liên minh tiếp thị đa ngành",
+    "ipa": "/əˈlaɪəns/",
+    "definition": "A group of countries, political parties, or businesses that work together.",
+    "example": "The retail alliance allows customers to earn points across multiple department stores.",
+    "exampleVi": "Liên minh bán lẻ cho phép khách hàng tích điểm trên nhiều trung tâm thương mại khác nhau.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/alliance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-45"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-benefactor",
+    "word": "Benefactor",
+    "meaning": "Nhà hảo tâm, người bảo trợ tài chính",
+    "ipa": "/ˈbenɪfæktər/",
+    "definition": "Someone who gives money or other help to a person or an organization.",
+    "example": "An anonymous corporate benefactor donated $1 million to the science museum.",
+    "exampleVi": "Một nhà hảo tâm doanh nghiệp ẩn danh đã quyên góp 1 triệu USD cho bảo tàng khoa học.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/b/benefactor.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-45"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-retail",
+    "word": "Retail",
+    "meaning": "Ngành bán lẻ trực tiếp tới người tiêu dùng",
+    "ipa": "/ˈriːteɪl/",
+    "definition": "The activity of selling goods to the public, usually in shops.",
+    "example": "The retail sector saw a dramatic increase in holiday shopping revenue.",
+    "exampleVi": "Ngành bán lẻ đã chứng kiến sự gia tăng đột biến về doanh thu mua sắm dịp lễ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/retail.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-46"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-wholesale",
+    "word": "Wholesale",
+    "meaning": "Bán buôn, bán sỉ số lượng lớn",
+    "ipa": "/ˈhoʊlseɪl/",
+    "definition": "The business of selling goods in large quantities and at other than retail prices.",
+    "example": "We purchase raw organic coffee beans at wholesale prices directly from farmers.",
+    "exampleVi": "Chúng tôi mua hạt cà phê hữu cơ thô với giá bán buôn trực tiếp từ nông dân.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/w/wholesale.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-46"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-distributor",
+    "word": "Distributor",
+    "meaning": "Nhà phân phối độc quyền theo vùng",
+    "ipa": "/dɪˈstrɪbjətər/",
+    "definition": "A person or organization that supplies goods to shops and other businesses.",
+    "example": "Our authorized distributor in Canada manages over thirty retail outlets.",
+    "exampleVi": "Nhà phân phối được ủy quyền của chúng tôi tại Canada quản lý hơn ba mươi điểm bán lẻ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/distributor.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-46"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dealership",
+    "word": "Dealership",
+    "meaning": "Đại lý phân phối xe hơi/máy móc",
+    "ipa": "/ˈdiːlərʃɪp/",
+    "definition": "A business that has permission to sell products from a particular company, especially cars.",
+    "example": "The local auto dealership is hosting a special clearance event this weekend.",
+    "exampleVi": "Đại lý ô tô địa phương đang tổ chức sự kiện xả hàng đặc biệt vào cuối tuần này.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/dealership.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-46"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-outlet",
+    "word": "Outlet",
+    "meaning": "Cửa hàng bán lẻ trực tiếp / cửa hàng xả kho",
+    "ipa": "/ˈaʊtlet/",
+    "definition": "A shop that is one of many owned by a particular company and that sells the goods which the company has produced.",
+    "example": "The fashion brand operates over fifty outlet stores across the country.",
+    "exampleVi": "Thương hiệu thời trang vận hành hơn năm mươi cửa hàng bán lẻ trên toàn quốc.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/o/outlet.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-46"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-showroom",
+    "word": "Showroom",
+    "meaning": "Phòng trưng bày sản phẩm mẫu",
+    "ipa": "/ˈʃoʊruːm/",
+    "definition": "A large shop in which goods for sale, such as cars or furniture, are displayed.",
+    "example": "Customers can visit our downtown showroom to test the smart home devices.",
+    "exampleVi": "Khách hàng có thể ghé thăm phòng trưng bày ở trung tâm để trải nghiệm các thiết bị nhà thông minh.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/showroom.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-46"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-vendor-2",
+    "word": "Vendor",
+    "meaning": "Người bán hàng, nhà cung ứng",
+    "ipa": "/ˈvendər/",
+    "definition": "Someone who is selling something.",
+    "example": "Street food vendors must maintain strict hygiene standards to keep their permits.",
+    "exampleVi": "Những người bán thức ăn đường phố phải duy trì các tiêu chuẩn vệ sinh nghiêm ngặt để giữ giấy phép.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/v/vendor.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-46"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-merchant",
+    "word": "Merchant",
+    "meaning": "Thương nhân kinh doanh buôn bán",
+    "ipa": "/ˈmɜːrtʃənt/",
+    "definition": "A person whose job is to buy and sell products in large amounts, especially by trading with other countries.",
+    "example": "Wine merchants import premium vintages directly from French vineyards.",
+    "exampleVi": "Các thương nhân buôn rượu vang nhập khẩu các niên vụ rượu cao cấp trực tiếp từ các vườn nho của Pháp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/merchant.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-46"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-merchandise",
+    "word": "Merchandise",
+    "meaning": "Hàng hóa bày bán trong cửa hàng",
+    "ipa": "/ˈmɜːrtʃəndaɪs/",
+    "definition": "Goods that are bought and sold.",
+    "example": "All seasonal merchandise is currently marked down by 50%.",
+    "exampleVi": "Tất cả hàng hóa theo mùa hiện đang được giảm giá 50%.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/m/merchandise.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-46"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-consignment",
+    "word": "Consignment",
+    "meaning": "Lô hàng gửi bán, hàng ký gửi",
+    "ipa": "/kənˈsaɪnmənt/",
+    "definition": "An amount of goods that is sent somewhere, or selling goods on behalf of someone.",
+    "example": "The gallery accepts paintings on consignment, taking a 20% commission upon sale.",
+    "exampleVi": "Phòng tranh nhận tranh theo hình thức ký gửi, thu 20% hoa hồng khi bán được.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/consignment.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-46"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-discount",
+    "word": "Discount",
+    "meaning": "Khoản giảm giá, chiết khấu phần trăm",
+    "ipa": "/ˈdɪskaʊnt/",
+    "definition": "A reduction in the usual price.",
+    "example": "Members receive an exclusive 10% discount on all online orders.",
+    "exampleVi": "Hội viên nhận được mức giảm giá 10% độc quyền cho tất cả các đơn hàng trực tuyến.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/d/discount.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-47"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-rebate",
+    "word": "Rebate",
+    "meaning": "Khoản hoàn tiền sau khi mua hàng",
+    "ipa": "/ˈriːbeɪt/",
+    "definition": "An amount of money that is returned to you, especially by the government, for a tax or product purchase.",
+    "example": "Customers who purchase an energy-efficient refrigerator qualify for a $100 rebate.",
+    "exampleVi": "Khách hàng mua tủ lạnh tiết kiệm năng lượng đủ điều kiện nhận khoản hoàn tiền 100 USD.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/rebate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-47"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-voucher",
+    "word": "Voucher",
+    "meaning": "Phiếu mua hàng, phiếu giảm giá tiền mặt",
+    "ipa": "/ˈvaʊtʃər/",
+    "definition": "A printed piece of paper or digital code used to pay for goods.",
+    "example": "Here is a $20 gift voucher to spend on your next restaurant meal.",
+    "exampleVi": "Đây là phiếu quà tặng 20 USD để chi tiêu cho bữa ăn nhà hàng tiếp theo của bạn.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/v/voucher.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-47"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-coupon",
+    "word": "Coupon",
+    "meaning": "Phiếu giảm giá cắt ra từ báo/ứng dụng",
+    "ipa": "/ˈkuːpɑːn/",
+    "definition": "A piece of paper or electronic code that can be used to get something without paying for it, or at a reduced price.",
+    "example": "Clip this newspaper coupon to receive buy-one-get-one-free admission.",
+    "exampleVi": "Hãy cắt phiếu giảm giá trên báo này để nhận vé vào cửa mua một tặng một.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/coupon.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-47"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-concession-2",
+    "word": "Concession",
+    "meaning": "Giá vé ưu đãi (cho sinh viên, người cao tuổi)",
+    "ipa": "/kənˈseʃn/",
+    "definition": "A reduction in the usual price of something, made available to students, seniors, etc.",
+    "example": "Senior citizens and students are entitled to a travel fare concession.",
+    "exampleVi": "Người cao tuổi và sinh viên có quyền được hưởng mức giá vé ưu đãi khi đi lại.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/concession.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-47"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-mark-down",
+    "word": "Mark-down",
+    "meaning": "Sự hạ giá bán để thanh lý hàng",
+    "ipa": "/ˈmɑːrkdaʊn/",
+    "definition": "A reduction in the price of something.",
+    "example": "End-of-season mark-downs attract large crowds of bargain hunters.",
+    "exampleVi": "Những đợt hạ giá cuối mùa thu hút rất đông những người săn hàng giá rẻ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/mark-down.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-47"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-loyalty-program",
+    "word": "Loyalty program",
+    "meaning": "Chương trình khách hàng thân thiết",
+    "ipa": "/ˈlɔɪəlti ˈproʊɡræm/",
+    "definition": "A marketing scheme that encourages customers to continue to shop at a business.",
+    "example": "Joining our loyalty program allows you to accumulate points for free flights.",
+    "exampleVi": "Tham gia chương trình khách hàng thân thiết cho phép bạn tích điểm để đổi các chuyến bay miễn phí.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/l/loyalty-program.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-47"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-redeem",
+    "word": "Redeem",
+    "meaning": "Quy đổi điểm tích lũy thành quà/tiền",
+    "ipa": "/rɪˈdiːm/",
+    "definition": "To exchange something such as shares, points, or a voucher for money or goods.",
+    "example": "You can redeem your accumulated reward points for gift cards online.",
+    "exampleVi": "Bạn có thể quy đổi điểm thưởng tích lũy lấy thẻ quà tặng trực tuyến.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/r/redeem.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-47"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-clearance-2",
+    "word": "Clearance",
+    "meaning": "Đợt xả kho hàng tồn thanh lý giá rẻ",
+    "ipa": "/ˈklɪrəns/",
+    "definition": "An occasion when goods are sold cheaply in order to get rid of them quickly.",
+    "example": "Visit our clearance section for up to 70% off discontinued electronics.",
+    "exampleVi": "Hãy ghé thăm khu vực xả kho của chúng tôi để giảm giá tới 70% các thiết bị điện tử ngừng sản xuất.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/clearance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-47"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-complimentary",
+    "word": "Complimentary",
+    "meaning": "Miễn phí đính kèm dịch vụ (được mời)",
+    "ipa": "/ˌkɑːmplɪˈmentri/",
+    "definition": "Given free of charge, especially by a business.",
+    "example": "Guests enjoy complimentary Wi-Fi and daily breakfast during their hotel stay.",
+    "exampleVi": "Khách lưu trú được sử dụng Wi-Fi và bữa sáng hàng ngày hoàn toàn miễn phí trong suốt thời gian ở khách sạn.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/c/complimentary.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-47"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-pricing",
+    "word": "Pricing",
+    "meaning": "Chiến lược định giá sản phẩm",
+    "ipa": "/ˈpraɪsɪŋ/",
+    "definition": "The process of deciding how much to charge for something.",
+    "example": "Competitive pricing helped the new smartphone gain rapid market adoption.",
+    "exampleVi": "Mức giá cạnh tranh đã giúp chiếc điện thoại thông minh mới nhanh chóng chiếm lĩnh thị trường.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/pricing.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-48"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-revenue",
+    "word": "Revenue",
+    "meaning": "Doanh thu tổng trước khi trừ chi phí",
+    "ipa": "/ˈrevənuː/",
+    "definition": "The money that a government receives from taxes or that an organization, etc. receives from business.",
+    "example": "Annual revenue increased by 25% due to strong overseas demand.",
+    "exampleVi": "Doanh thu hàng năm đã tăng 25% nhờ nhu cầu mạnh mẽ từ thị trường nước ngoài.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/revenue.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-48"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-turnover-2",
+    "word": "Turnover",
+    "meaning": "Doanh số luân chuyển trong kỳ",
+    "ipa": "/ˈtɜːrnoʊvər/",
+    "definition": "The amount of money that a company receives in a particular period from goods or services.",
+    "example": "The retail chain reported an annual turnover of $1.2 billion.",
+    "exampleVi": "Chuỗi bán lẻ đã báo cáo doanh số hàng năm đạt 1,2 tỷ USD.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/turnover.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-48"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-mark-up",
+    "word": "Mark-up",
+    "meaning": "Tỷ lệ cộng thêm vào giá vốn để có lãi",
+    "ipa": "/ˈmɑːrkʌp/",
+    "definition": "The amount by which the price of something is increased before it is sold again.",
+    "example": "Retailers typically apply a 40% mark-up on imported cosmetics.",
+    "exampleVi": "Các nhà bán lẻ thường áp dụng mức tăng giá 40% so với giá vốn đối với mỹ phẩm nhập khẩu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/mark-up.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-48"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-competitive-edge",
+    "word": "Competitive edge",
+    "meaning": "Lợi thế cạnh tranh vượt trội",
+    "ipa": "/kəmˈpetətɪv edʒ/",
+    "definition": "An advantage that a company has over its competitors.",
+    "example": "Superior customer support gives our software firm a distinct competitive edge.",
+    "exampleVi": "Dịch vụ hỗ trợ khách hàng vượt trội mang lại cho công ty phần mềm của chúng tôi một lợi thế cạnh tranh rõ rệt.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/competitive-edge.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-48"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-market-share",
+    "word": "Market share",
+    "meaning": "Thị phần chiếm lĩnh trong ngành",
+    "ipa": "/ˈmɑːrkɪt ʃer/",
+    "definition": "The number of products that a company sells compared, with the number sold by other companies.",
+    "example": "The brand captured a 35% market share in the electric scooter sector.",
+    "exampleVi": "Thương hiệu đã chiếm được 35% thị phần trong mảng xe tay ga điện.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/market-share.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-48"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-sales-volume",
+    "word": "Sales volume",
+    "meaning": "Sản lượng bán ra (số lượng đơn vị)",
+    "ipa": "/ˈseɪlz vɑːljuːm/",
+    "definition": "The number of items sold during a particular period.",
+    "example": "Discounting prices led to higher sales volume but lower profit margins.",
+    "exampleVi": "Việc giảm giá đã dẫn đến sản lượng bán ra cao hơn nhưng biên lợi nhuận lại thấp hơn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/sales-volume.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-48"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-margin",
+    "word": "Margin",
+    "meaning": "Biên độ lợi nhuận kinh doanh",
+    "ipa": "/ˈmɑːrdʒɪn/",
+    "definition": "The amount by which revenue from sales exceeds costs in a business.",
+    "example": "Luxury goods typically enjoy much higher profit margins than basic commodities.",
+    "exampleVi": "Hàng xa xỉ thường có biên lợi nhuận cao hơn nhiều so với các mặt hàng thiết yếu cơ bản.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/margin.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-48"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-gross",
+    "word": "Gross",
+    "meaning": "Tổng thu nhập trước thuế/chi phí",
+    "ipa": "/ɡroʊs/",
+    "definition": "A total amount of money before taxes or other costs are taken away.",
+    "example": "The company reported gross earnings of $500,000 before operating expenses.",
+    "exampleVi": "Công ty đã báo cáo tổng thu nhập 500.000 USD trước khi trừ các chi phí hoạt động.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/g/gross.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-48"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-net",
+    "word": "Net",
+    "meaning": "Thực nhận/lợi nhuận ròng sau trừ hết phí",
+    "ipa": "/net/",
+    "definition": "The amount left after taxes, costs, etc. have been paid.",
+    "example": "Net profit after taxes rose to $3.2 million this quarter.",
+    "exampleVi": "Lợi nhuận ròng sau thuế đã tăng lên 3,2 triệu USD trong quý này.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/n/net.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-48"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-lead",
+    "word": "Lead",
+    "meaning": "Đầu mối khách hàng tiềm năng",
+    "ipa": "/liːd/",
+    "definition": "A piece of information or contact that may result in a sale or business deal.",
+    "example": "The marketing webinar generated over 500 qualified sales leads.",
+    "exampleVi": "Hội thảo trực tuyến tiếp thị đã tạo ra hơn 500 đầu mối khách hàng tiềm năng chất lượng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/l/lead.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-49"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-prospect-2",
+    "word": "Prospect",
+    "meaning": "Khách hàng có khả năng mua hàng cao",
+    "ipa": "/ˈprɑːspekt/",
+    "definition": "A person who might choose to buy something from a company.",
+    "example": "Sales reps follow up with prospective clients within 24 hours of inquiry.",
+    "exampleVi": "Các đại diện kinh doanh liên hệ lại với các khách hàng tiềm năng trong vòng 24 giờ sau khi nhận được yêu cầu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/prospect.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-49"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-conversion-rate",
+    "word": "Conversion rate",
+    "meaning": "Tỷ lệ chuyển đổi khách truy cập thành người mua",
+    "ipa": "/kənˈvɜːrʒn reɪt/",
+    "definition": "The percentage of visitors to a website who make a purchase or take action.",
+    "example": "Optimizing the checkout button increased our online conversion rate by 3%.",
+    "exampleVi": "Tối ưu hóa nút thanh toán đã làm tăng tỷ lệ chuyển đổi trực tuyến của chúng tôi thêm 3%.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/conversion-rate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-49"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-pipeline",
+    "word": "Pipeline",
+    "meaning": "Quy trình đường ống bán hàng dự kiến",
+    "ipa": "/ˈpaɪplaɪn/",
+    "definition": "A plan or system that is being developed or that is waiting to be dealt with.",
+    "example": "We have five multi-million dollar contracts currently in the sales pipeline.",
+    "exampleVi": "Chúng tôi hiện có năm hợp đồng trị giá hàng triệu đô la đang trong quy trình bán hàng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/pipeline.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-49"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-client",
+    "word": "Client",
+    "meaning": "Khách hàng sử dụng dịch vụ chuyên nghiệp",
+    "ipa": "/ˈklaɪənt/",
+    "definition": "A person who receives help or services from a professional person.",
+    "example": "The law firm represents high-profile corporate clients worldwide.",
+    "exampleVi": "Công ty luật đại diện cho các khách hàng doanh nghiệp tầm cỡ trên toàn thế giới.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/client.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-49"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-buyer",
+    "word": "Buyer",
+    "meaning": "Người mua hàng, chuyên viên thu mua",
+    "ipa": "/ˈbaɪər/",
+    "definition": "A person who buys something, or someone whose job is to choose goods to sell.",
+    "example": "The department store buyer selected the autumn fashion collection in Paris.",
+    "exampleVi": "Chuyên viên thu mua của trung tâm thương mại đã lựa chọn bộ sưu tập thời trang mùa thu tại Paris.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/buyer.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-49"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-patron-2",
+    "word": "Patron",
+    "meaning": "Khách quen thường xuyên lui tới",
+    "ipa": "/ˈpeɪtrən/",
+    "definition": "A person who uses a particular shop, restaurant, hotel, etc.",
+    "example": "The cafe offers a stamp card rewarding regular patrons with free drinks.",
+    "exampleVi": "Quán cà phê có thẻ tích điểm tặng đồ uống miễn phí cho các khách quen.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/patron.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-49"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-acquisition-2",
+    "word": "Acquisition",
+    "meaning": "Việc thu hút và có thêm khách hàng mới",
+    "ipa": "/ˌækwɪˈzɪʃn/",
+    "definition": "The process of getting new customers for a business.",
+    "example": "Digital ad spending is focused heavily on customer acquisition this quarter.",
+    "exampleVi": "Chi tiêu quảng cáo kỹ thuật số đang tập trung mạnh vào việc thu hút khách hàng mới trong quý này.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/acquisition.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-49"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-retention",
+    "word": "Retention",
+    "meaning": "Tỷ lệ giữ chân khách hàng tiếp tục mua",
+    "ipa": "/rɪˈtenʃn/",
+    "definition": "The ability of a company to keep its customers or employees.",
+    "example": "Providing prompt post-sale support dramatically improves customer retention.",
+    "exampleVi": "Cung cấp dịch vụ hỗ trợ sau bán hàng nhanh chóng giúp cải thiện đáng kể tỷ lệ giữ chân khách hàng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/retention.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-49"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-loyalty",
+    "word": "Loyalty",
+    "meaning": "Lòng trung thành với thương hiệu",
+    "ipa": "/ˈlɔɪəlti/",
+    "definition": "The quality of being loyal, or continuing to buy a particular product.",
+    "example": "Brand loyalty remains high even when competitors lower their prices.",
+    "exampleVi": "Lòng trung thành với thương hiệu vẫn duy trì ở mức cao ngay cả khi các đối thủ cạnh tranh hạ giá.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/l/loyalty.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-49"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-questionnaire-2",
+    "word": "Questionnaire",
+    "meaning": "Bảng câu hỏi đánh giá dịch vụ",
+    "ipa": "/ˌkwestʃəˈner/",
+    "definition": "A list of questions that several people are asked so that information can be collected.",
+    "example": "Hotel guests are invited to complete a short questionnaire at checkout.",
+    "exampleVi": "Khách lưu trú khách sạn được mời hoàn thành một bảng câu hỏi ngắn khi trả phòng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/q/questionnaire.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-50"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-satisfaction",
+    "word": "Satisfaction",
+    "meaning": "Mức độ hài lòng của khách hàng",
+    "ipa": "/ˌsætɪsˈfækʃn/",
+    "definition": "A pleasant feeling which you get when you receive something you wanted.",
+    "example": "Our primary objective is achieving 100% customer satisfaction.",
+    "exampleVi": "Mục tiêu hàng đầu của chúng tôi là đạt được sự hài lòng 100% của khách hàng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/satisfaction.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-50"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-feedback-2",
+    "word": "Feedback",
+    "meaning": "Ý kiến phản hồi đóng góp",
+    "ipa": "/ˈfiːdbæk/",
+    "definition": "Information or opinions about how well someone is doing work or how good a product is.",
+    "example": "We appreciate your honest feedback to help us enhance our service.",
+    "exampleVi": "Chúng tôi đánh giá cao những phản hồi trung thực của bạn để giúp chúng tôi nâng cao chất lượng dịch vụ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/f/feedback.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-50"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-rating",
+    "word": "Rating",
+    "meaning": "Điểm đánh giá số sao (1-5 sao)",
+    "ipa": "/ˈreɪtɪŋ/",
+    "definition": "A measurement of how good, popular, or important someone or something is.",
+    "example": "The restaurant maintains a 4.8-star rating on leading travel review sites.",
+    "exampleVi": "Nhà hàng duy trì mức đánh giá 4,8 sao trên các trang đánh giá du lịch hàng đầu.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/rating.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-50"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-testimonial",
+    "word": "Testimonial",
+    "meaning": "Lời nhận xét chứng thực khen ngợi từ khách",
+    "ipa": "/ˌtestɪˈmoʊniəl/",
+    "definition": "A statement about the character or qualities of someone or something.",
+    "example": "Client testimonials on the homepage highlight our reliable technical support.",
+    "exampleVi": "Những lời chứng thực của khách hàng trên trang chủ làm nổi bật dịch vụ hỗ trợ kỹ thuật đáng tin cậy của chúng tôi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/testimonial.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-50"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-complaint",
+    "word": "Complaint",
+    "meaning": "Lời phàn nàn, khiếu nại về chất lượng",
+    "ipa": "/kəmˈpleɪnt/",
+    "definition": "A statement that something is wrong or not satisfactory.",
+    "example": "The manager personally resolved the customer's complaint regarding food temperature.",
+    "exampleVi": "Người quản lý đã trực tiếp giải quyết lời phàn nàn của khách hàng về nhiệt độ thức ăn.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/complaint.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-50"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-grievance-2",
+    "word": "Grievance",
+    "meaning": "Mối bất bình sâu sắc cần giải quyết",
+    "ipa": "/ˈɡriːvəns/",
+    "definition": "A complaint or a strong feeling that you have been treated unfairly.",
+    "example": "A dedicated hotline allows consumers to voice grievances directly to management.",
+    "exampleVi": "Đường dây nóng chuyên dụng cho phép người tiêu dùng trực tiếp bày tỏ những bức xúc tới ban quản lý.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/g/grievance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-50"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-review-2",
+    "word": "Review",
+    "meaning": "Bài đánh giá trải nghiệm thực tế",
+    "ipa": "/rɪˈvjuː/",
+    "definition": "A report in a newspaper, magazine, or online that gives an opinion about something.",
+    "example": "Read online product reviews before making a major electronics purchase.",
+    "exampleVi": "Hãy đọc các bài đánh giá sản phẩm trực tuyến trước khi mua một thiết bị điện tử có giá trị lớn.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/r/review.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-50"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-poll",
+    "word": "Poll",
+    "meaning": "Cuộc thăm dò ý kiến nhanh",
+    "ipa": "/poʊl/",
+    "definition": "A study in which people are asked for their opinions about a subject.",
+    "example": "An online poll revealed that 70% of commuters prefer remote work options.",
+    "exampleVi": "Một cuộc thăm dò trực tuyến cho thấy 70% người đi làm thích các lựa chọn làm việc từ xa hơn.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/poll.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-50"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-resolution",
+    "word": "Resolution",
+    "meaning": "Sự giải quyết thỏa đáng khiếu nại",
+    "ipa": "/ˌrezəˈluːʃn/",
+    "definition": "An official decision that is made after a problem or dispute.",
+    "example": "Prompt resolution of customer inquiries prevents negative online reviews.",
+    "exampleVi": "Việc giải quyết nhanh chóng các thắc mắc của khách hàng sẽ ngăn ngừa những đánh giá tiêu cực trên mạng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/resolution.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-50"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-purchase-order",
+    "word": "Purchase order",
+    "meaning": "Đơn đặt hàng chính thức (PO)",
+    "ipa": "/ˈpɜːrtʃəs ˈɔːrdər/",
+    "definition": "An official document that a buyer sends to a seller, stating the goods or services requested.",
+    "example": "The warehouse will not dispatch merchandise without a signed purchase order.",
+    "exampleVi": "Nhà kho sẽ không xuất hàng nếu không có đơn đặt hàng đã ký.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/purchase-order.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-51"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-invoice",
+    "word": "Invoice",
+    "meaning": "Hóa đơn yêu cầu thanh toán tiền hàng",
+    "ipa": "/ˈɪnvɔɪs/",
+    "definition": "A list of things provided or work done together with their cost, sent to a customer for payment.",
+    "example": "Payment is due within thirty days from the invoice date.",
+    "exampleVi": "Hạn thanh toán là trong vòng ba mươi ngày kể từ ngày lập hóa đơn.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/i/invoice.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-51"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-billing",
+    "word": "Billing",
+    "meaning": "Việc xuất hóa đơn tính cước định kỳ",
+    "ipa": "/ˈbɪlɪŋ/",
+    "definition": "The process of sending someone a bill requesting payment.",
+    "example": "Contact our customer billing department if you notice an unexpected charge.",
+    "exampleVi": "Hãy liên hệ với bộ phận tính cước khách hàng nếu bạn nhận thấy một khoản phí bất thường.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/billing.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-51"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-receipt",
+    "word": "Receipt",
+    "meaning": "Biên nhận, hóa đơn đã thu tiền",
+    "ipa": "/rɪˈsiːt/",
+    "definition": "A piece of paper that proves that you have received goods or that you have paid for something.",
+    "example": "Keep your purchase receipt in case you need to exchange the item later.",
+    "exampleVi": "Hãy giữ lại biên lai mua hàng phòng trường hợp bạn cần đổi hàng sau này.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/r/receipt.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-51"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-voucher-2",
+    "word": "Voucher",
+    "meaning": "Chứng từ chi, phiếu thanh toán",
+    "ipa": "/ˈvaʊtʃər/",
+    "definition": "A document that can be used to pay for particular goods or services, or proves payment.",
+    "example": "The accounting clerk logged the travel expense voucher in the ledger.",
+    "exampleVi": "Nhân viên kế toán đã ghi nhận chứng từ chi phí công tác vào sổ cái.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/v/voucher.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-51"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-consignment-2",
+    "word": "Consignment",
+    "meaning": "Lô hàng vận chuyển theo đơn",
+    "ipa": "/kənˈsaɪnmənt/",
+    "definition": "An amount of goods that is sent somewhere by truck, ship, or plane.",
+    "example": "The latest consignment of imported electronics arrived at the harbor today.",
+    "exampleVi": "Lô hàng điện tử nhập khẩu mới nhất đã cập cảng ngày hôm nay.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/consignment.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-51"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-packing-list",
+    "word": "Packing list",
+    "meaning": "Phiếu kê khai chi tiết đóng gói hàng hóa",
+    "ipa": "/ˈpækɪŋ lɪst/",
+    "definition": "A document that lists the items contained in a package or shipment.",
+    "example": "Customs officials checked the boxes against the itemized packing list.",
+    "exampleVi": "Các nhân viên hải quan đã kiểm tra các thùng hàng đối chiếu với phiếu kê khai đóng gói.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/packing-list.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-51"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-manifest",
+    "word": "Manifest",
+    "meaning": "Bản kê khai toàn bộ hàng hóa trên tàu/máy bay",
+    "ipa": "/ˈmænɪfest/",
+    "definition": "A list of people and goods carried on a ship, plane, or truck.",
+    "example": "The captain presented the cargo manifest to the port authority inspector.",
+    "exampleVi": "Thuyền trưởng đã xuất trình bản kê khai hàng hóa cho thanh tra cảng vụ.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/m/manifest.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-51"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-requisition-2",
+    "word": "Requisition",
+    "meaning": "Phiếu đề xuất mua sắm hàng hóa",
+    "ipa": "/ˌrekwɪˈzɪʃn/",
+    "definition": "An official request for materials or equipment to be bought for work.",
+    "example": "The department head approved the requisition for ten new laser printers.",
+    "exampleVi": "Trưởng phòng đã phê duyệt phiếu đề xuất mua mười máy in laser mới.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/r/requisition.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-51"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bill",
+    "word": "Bill",
+    "meaning": "Hóa đơn thanh toán tiền dịch vụ/ăn uống",
+    "ipa": "/bɪl/",
+    "definition": "A request for payment of money owed, or the piece of paper on which it is written.",
+    "example": "Could we please have the bill for our dinner table?",
+    "exampleVi": "Làm ơn cho chúng tôi xin hóa đơn thanh toán bàn ăn tối?",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/bill.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-51"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-inventory",
+    "word": "Inventory",
+    "meaning": "Hàng tồn kho, việc kiểm kê hàng hóa",
+    "ipa": "/ˈɪnvəntɔːri/",
+    "definition": "A detailed list of all the things in a place, or the goods in a shop or warehouse.",
+    "example": "The retail store conducts a complete inventory count at the end of every quarter.",
+    "exampleVi": "Cửa hàng bán lẻ tiến hành kiểm kê toàn bộ hàng tồn kho vào cuối mỗi quý.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/i/inventory.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-52"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-stock",
+    "word": "Stock",
+    "meaning": "Lượng hàng dự trữ sẵn có trong kho",
+    "ipa": "/stɑːk/",
+    "definition": "The amount of money or goods that a store or company has available to sell.",
+    "example": "We currently have over 500 units of this laptop model in stock.",
+    "exampleVi": "Chúng tôi hiện có hơn 500 chiếc mẫu máy tính xách tay này còn hàng trong kho.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/s/stock.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-52"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-storage",
+    "word": "Storage",
+    "meaning": "Hoạt động lưu kho, kho chứa đồ",
+    "ipa": "/ˈstɔːrɪdʒ/",
+    "definition": "The putting and keeping of things in a special place for use in the future.",
+    "example": "Perishable foods must be kept in temperature-controlled cold storage.",
+    "exampleVi": "Thực phẩm dễ hỏng phải được bảo quản trong kho lạnh có kiểm soát nhiệt độ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/storage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-52"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-warehouse",
+    "word": "Warehouse",
+    "meaning": "Nhà kho chứa hàng hóa quy mô lớn",
+    "ipa": "/ˈwerhaʊs/",
+    "definition": "A large building for storing things before they are sold, used, or sent out to stores.",
+    "example": "The central distribution warehouse spans over 50,000 square meters.",
+    "exampleVi": "Nhà kho phân phối trung tâm rộng hơn 50.000 mét vuông.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/w/warehouse.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-52"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-depot",
+    "word": "Depot",
+    "meaning": "Kho tập kết hàng hóa trung chuyển",
+    "ipa": "/ˈdiːpoʊ/",
+    "definition": "A building where supplies, vehicles, or goods are stored.",
+    "example": "Delivery vans are loaded every morning at the regional courier depot.",
+    "exampleVi": "Các xe tải giao hàng được chất hàng vào mỗi buổi sáng tại kho tập kết bưu kiện khu vực.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/depot.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-52"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-pallet",
+    "word": "Pallet",
+    "meaning": "Tấm nâng/kệ gỗ kê hàng",
+    "ipa": "/ˈpælət/",
+    "definition": "A flat wooden or plastic structure on which heavy goods are put so they can be moved easily.",
+    "example": "Forklift operators moved the wooden pallets into the designated loading bay.",
+    "exampleVi": "Những người điều khiển xe nâng đã di chuyển các tấm kệ gỗ vào khu vực bốc xếp được chỉ định.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/pallet.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-52"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-rack",
+    "word": "Rack",
+    "meaning": "Giá kệ sắt xếp hàng nhiều tầng",
+    "ipa": "/ræk/",
+    "definition": "A framework, typically with rails, bars, or pegs, for holding or storing things.",
+    "example": "Heavy boxes are stored on steel racks along the warehouse walls.",
+    "exampleVi": "Các thùng hàng nặng được cất trên các giá kệ thép dọc theo tường nhà kho.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/rack.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-52"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-surplus",
+    "word": "Surplus",
+    "meaning": "Lượng hàng tồn dư thừa, số dư",
+    "ipa": "/ˈsɜːrpləs/",
+    "definition": "An amount that is more than is needed.",
+    "example": "The store offered deep discounts to clear surplus winter clothing inventory.",
+    "exampleVi": "Cửa hàng đã giảm giá sâu để thanh lý lượng hàng tồn kho quần áo mùa đông dư thừa.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/surplus.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-52"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-shortfall",
+    "word": "Shortfall",
+    "meaning": "Sự thiếu hụt hàng hóa so với nhu cầu",
+    "ipa": "/ˈʃɔːrtfɔːl/",
+    "definition": "A failure to reach an amount or standard that was expected or needed.",
+    "example": "A sudden supply chain disruption caused a severe shortfall of microchips.",
+    "exampleVi": "Sự gián đoạn chuỗi cung ứng đột ngột đã gây ra sự thiếu hụt nghiêm trọng vi mạch.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/shortfall.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-52"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-replenish",
+    "word": "Replenish",
+    "meaning": "Bổ sung, châm thêm hàng vào kho",
+    "ipa": "/rɪˈplenɪʃ/",
+    "definition": "To fill something up again with supplies or goods.",
+    "example": "Store staff worked through the night to replenish empty shelves after Black Friday.",
+    "exampleVi": "Nhân viên cửa hàng đã làm việc xuyên đêm để bổ sung hàng lên các kệ trống sau ngày Thứ Sáu Đen.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/r/replenish.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-52"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-packaging",
+    "word": "Packaging",
+    "meaning": "Bao bì, vật liệu đóng gói bảo vệ",
+    "ipa": "/ˈpækɪdʒɪŋ/",
+    "definition": "The materials in which objects are wrapped before being sold.",
+    "example": "We switched to biodegradable packaging to reduce plastic waste.",
+    "exampleVi": "Chúng tôi đã chuyển sang bao bì phân hủy sinh học để giảm rác thải nhựa.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/packaging.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-53"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-crate",
+    "word": "Crate",
+    "meaning": "Kiện hàng khung gỗ/nhựa đựng đồ nặng",
+    "ipa": "/kreɪt/",
+    "definition": "A large box made of wood, plastic, or metal, used for carrying or storing goods.",
+    "example": "Fragile wine bottles are transported in protective wooden crates.",
+    "exampleVi": "Những chai rượu vang dễ vỡ được vận chuyển trong các kiện hàng khung gỗ bảo vệ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/crate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-53"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-carton",
+    "word": "Carton",
+    "meaning": "Thùng các-tông đựng hàng hóa",
+    "ipa": "/ˈkɑːrtn/",
+    "definition": "A box made of cardboard in which drinks or goods are sold.",
+    "example": "Each shipping carton contains twenty individually wrapped retail boxes.",
+    "exampleVi": "Mỗi thùng các-tông vận chuyển chứa hai mươi hộp bán lẻ được bọc riêng biệt.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/carton.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-53"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-container",
+    "word": "Container",
+    "meaning": "Thùng công-ten-nơ vận tải đường biển",
+    "ipa": "/kənˈteɪnər/",
+    "definition": "A very large metal box used for transporting large amounts of goods on ships, trains, etc.",
+    "example": "The cargo ship can carry up to 10,000 standard shipping containers.",
+    "exampleVi": "Tàu chở hàng có thể chở tới 10.000 thùng công-ten-nơ tiêu chuẩn.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/container.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-53"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-barcode",
+    "word": "Barcode",
+    "meaning": "Mã vạch quét thông tin sản phẩm",
+    "ipa": "/ˈbɑːrkoʊd/",
+    "definition": "A small pattern of black and white lines printed on an item that has information read by a computer.",
+    "example": "The cashier scanned the barcode on the price tag to check out the groceries.",
+    "exampleVi": "Thu ngân đã quét mã vạch trên nhãn giá để thanh toán đồ tạp hóa.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/barcode.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-53"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-label",
+    "word": "Label",
+    "meaning": "Nhãn mác hàng hóa ghi chú thông tin",
+    "ipa": "/ˈleɪbl/",
+    "definition": "A piece of paper or other material that gives you information about the object attached to.",
+    "example": "Warning labels must indicate if the package contains hazardous materials.",
+    "exampleVi": "Các nhãn cảnh báo phải ghi rõ nếu kiện hàng có chứa vật liệu nguy hiểm.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/l/label.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-53"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-fragile",
+    "word": "Fragile",
+    "meaning": "Dễ vỡ, cần nhẹ tay khi bốc xếp",
+    "ipa": "/ˈfrædʒl/",
+    "definition": "Easily broken, damaged, or destroyed.",
+    "example": "Boxes marked 'Fragile' should be handled with extreme care during transit.",
+    "exampleVi": "Các thùng hàng có ghi 'Dễ vỡ' cần được bốc xếp cực kỳ cẩn thận trong quá trình vận chuyển.",
+    "level": "B1",
+    "pos": "adjective",
+    "img": "assets/images/words/f/fragile.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-53"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-seal-2",
+    "word": "Seal",
+    "meaning": "Niêm phong kẹp chì chống bóc mở",
+    "ipa": "/siːl/",
+    "definition": "To close something tightly so that nothing can enter or escape, or an official stamp.",
+    "example": "Check that the tamper-evident security seal on the container is intact.",
+    "exampleVi": "Hãy kiểm tra xem niêm phong an ninh chống bóc mở trên công-ten-nơ còn nguyên vẹn hay không.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/seal.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-53"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-wrap",
+    "word": "Wrap",
+    "meaning": "Gói bọc màng bảo vệ xung quanh",
+    "ipa": "/ræp/",
+    "definition": "To cover or surround something with paper, cloth, or other material.",
+    "example": "Workers wrapped the electronics in bubble plastic before boxing.",
+    "exampleVi": "Công nhân đã bọc các thiết bị điện tử trong màng xốp hơi trước khi đóng hộp.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/w/wrap.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-53"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bundle",
+    "word": "Bundle",
+    "meaning": "Bó hàng, kiện hàng gom chung",
+    "ipa": "/ˈbʌndl/",
+    "definition": "A number of things that have been tied together for carrying or storing.",
+    "example": "The cables were neatly tied into bundles of twenty for easy installation.",
+    "exampleVi": "Các dây cáp được buộc gọn gàng thành từng bó hai mươi sợi để dễ lắp đặt.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/bundle.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-53"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-freight",
+    "word": "Freight",
+    "meaning": "Cước phí vận chuyển hàng hóa, hàng chở",
+    "ipa": "/freɪt/",
+    "definition": "Goods, but not passengers, that are carried from one place to another, by ship, aircraft, train, or truck.",
+    "example": "Air freight is significantly more expensive than ocean freight but much faster.",
+    "exampleVi": "Cước vận tải hàng không đắt hơn nhiều so với vận tải đường biển nhưng nhanh hơn rất nhiều.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/f/freight.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-54"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cargo",
+    "word": "Cargo",
+    "meaning": "Hàng hóa chuyên chở trên tàu bay/thuyền",
+    "ipa": "/ˈkɑːrɡoʊ/",
+    "definition": "The goods carried by a ship, aircraft, or other large vehicle.",
+    "example": "The cargo plane transported twenty tons of emergency medical supplies.",
+    "exampleVi": "Máy bay chở hàng đã vận chuyển hai mươi tấn vật tư y tế khẩn cấp.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/cargo.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-54"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-haulage",
+    "word": "Haulage",
+    "meaning": "Dịch vụ vận chuyển hàng đường bộ bằng xe tải",
+    "ipa": "/ˈhɔːlɪdʒ/",
+    "definition": "The business of moving things by road or railway, or the cost of doing this.",
+    "example": "We contracted a local haulage firm to deliver gravel to the construction site.",
+    "exampleVi": "Chúng tôi đã ký hợp đồng với một công ty vận tải đường bộ địa phương để chở sỏi đến công trường.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/h/haulage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-54"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-carrier",
+    "word": "Carrier",
+    "meaning": "Công ty vận tải chuyên nghiệp (hãng tàu/hàng không)",
+    "ipa": "/ˈkæriər/",
+    "definition": "A company that operates aircraft, ships, or buses to transport goods or people.",
+    "example": "FedEx is one of the world's largest express parcel carriers.",
+    "exampleVi": "FedEx là một trong những hãng vận chuyển bưu kiện chuyển phát nhanh lớn nhất thế giới.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/carrier.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-54"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-courier",
+    "word": "Courier",
+    "meaning": "Người/dịch vụ chuyển phát nhanh thư từ, bưu phẩm",
+    "ipa": "/ˈkʊriər/",
+    "definition": "A person or company that takes messages, letters, or packages from one place to another.",
+    "example": "The urgent legal contract was sent via motorcycle courier across town.",
+    "exampleVi": "Hợp đồng pháp lý khẩn đã được gửi qua dịch vụ chuyển phát nhanh bằng xe máy khắp thành phố.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/courier.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-54"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-shipment",
+    "word": "Shipment",
+    "meaning": "Lô hàng được xuất đi giao",
+    "ipa": "/ˈʃɪpmənt/",
+    "definition": "A large amount of goods sent together to a place, or the act of sending them.",
+    "example": "Track your international shipment online using the 12-digit tracking number.",
+    "exampleVi": "Theo dõi lô hàng quốc tế của bạn trực tuyến bằng mã số vận đơn 12 chữ số.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/shipment.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-54"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dispatch-2",
+    "word": "Dispatch",
+    "meaning": "Việc gửi hàng đi, xuất phát đơn hàng",
+    "ipa": "/dɪˈspætʃ/",
+    "definition": "The act of sending someone or something somewhere for a particular purpose.",
+    "example": "Orders placed before 2:00 PM are guaranteed for same-day dispatch.",
+    "exampleVi": "Các đơn hàng đặt trước 2:00 chiều được đảm bảo xuất hàng gửi đi ngay trong ngày.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/dispatch.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-54"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-transit",
+    "word": "Transit",
+    "meaning": "Quá trình đang trên đường vận chuyển",
+    "ipa": "/ˈtrænzɪt/",
+    "definition": "The movement of goods or people from one place to another.",
+    "example": "Goods damaged in transit will be replaced free of charge by the insurer.",
+    "exampleVi": "Hàng hóa bị hư hỏng trong quá trình vận chuyển sẽ được bên bảo hiểm đổi mới miễn phí.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/transit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-54"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-fleet",
+    "word": "Fleet",
+    "meaning": "Đội xe tải / đội tàu thuyền của công ty",
+    "ipa": "/fliːt/",
+    "definition": "A group of ships, or all the vehicles in a company, which move together or are operated as a unit.",
+    "example": "The grocery chain operates a fleet of two hundred refrigerated delivery trucks.",
+    "exampleVi": "Chuỗi siêu thị thực phẩm vận hành một đội gồm hai trăm xe tải giao hàng đông lạnh.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/f/fleet.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-54"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-delivery",
+    "word": "Delivery",
+    "meaning": "Sự giao hàng tận nơi cho khách",
+    "ipa": "/dɪˈlɪvəri/",
+    "definition": "The act of taking goods, letters, parcels, etc. to people's houses or places of work.",
+    "example": "Standard domestic delivery takes three to five business days.",
+    "exampleVi": "Thời gian giao hàng tiêu chuẩn trong nước mất từ ba đến năm ngày làm việc.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/d/delivery.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-54"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-harbor",
+    "word": "Harbor",
+    "meaning": "Bến cảng nơi tàu thuyền neo đậu",
+    "ipa": "/ˈhɑːrbər/",
+    "definition": "An area of water next to the coast, protected by water walls, where ships are safe.",
+    "example": "Dozens of cargo container ships are anchored outside the busy harbor.",
+    "exampleVi": "Hàng chục tàu chở công-ten-nơ đang neo đậu bên ngoài bến cảng tấp nập.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/h/harbor.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-55"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-terminal",
+    "word": "Terminal",
+    "meaning": "Nhà ga hành khách sân bay / bến cảng bốc dỡ",
+    "ipa": "/ˈtɜːrmɪnl/",
+    "definition": "The area or building at a station, airport, or port that is used by passengers or cargo.",
+    "example": "International departures leave from Terminal 3 on the upper level.",
+    "exampleVi": "Các chuyến bay quốc tế khởi hành từ Nhà ga số 3 ở tầng trên.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/terminal.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-55"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dock",
+    "word": "Dock",
+    "meaning": "Bến tàu bốc dỡ hàng hóa",
+    "ipa": "/dɑːk/",
+    "definition": "An area of water in a port that can be closed off and in which ships are loaded, repaired, etc.",
+    "example": "The freighter was moored at dock 14 to unload industrial machinery.",
+    "exampleVi": "Tàu chở hàng đã được neo tại bến số 14 để bốc dỡ máy móc công nghiệp.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/dock.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-55"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-hub",
+    "word": "Hub",
+    "meaning": "Trung tâm trung chuyển cốt lõi",
+    "ipa": "/hʌb/",
+    "definition": "The central and most active part or place of an organization, network, etc.",
+    "example": "Singapore serves as a premier aviation and logistics hub in Asia.",
+    "exampleVi": "Singapore đóng vai trò là trung tâm hàng không và hậu cần hàng đầu ở châu Á.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/h/hub.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-55"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-port",
+    "word": "Port",
+    "meaning": "Cảng biển giao thương quốc tế",
+    "ipa": "/pɔːrt/",
+    "definition": "A town or city with a harbor where ships load and unload goods or passengers.",
+    "example": "The port of Rotterdam is the largest maritime trade port in Europe.",
+    "exampleVi": "Cảng Rotterdam là cảng thương mại hàng hải lớn nhất ở châu Âu.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/p/port.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-55"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-airway",
+    "word": "Airway",
+    "meaning": "Đường bay hàng không quy định",
+    "ipa": "/ˈerweɪ/",
+    "definition": "A regular route along which aircraft fly.",
+    "example": "Commercial pilots must strictly follow assigned international airways.",
+    "exampleVi": "Các phi công thương mại phải tuân thủ nghiêm ngặt các đường bay quốc tế được chỉ định.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/airway.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-55"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-runway",
+    "word": "Runway",
+    "meaning": "Đường băng cất/hạ cánh của máy bay",
+    "ipa": "/ˈrʌnweɪ/",
+    "definition": "A long, level piece of ground with a hard surface for aircraft to take off and land.",
+    "example": "The airport opened a second runway to reduce flight congestion.",
+    "exampleVi": "Sân bay đã mở đường băng thứ hai để giảm thiểu tình trạng ùn tắc chuyến bay.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/runway.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-55"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-berth",
+    "word": "Berth",
+    "meaning": "Chỗ đậu tàu tại cầu cảng / giường nằm trên tàu",
+    "ipa": "/bɜːrθ/",
+    "definition": "A bed on a boat or train, or a place where a ship can tie up.",
+    "example": "The cruise liner secured a berth at the downtown passenger terminal.",
+    "exampleVi": "Tàu du lịch đã cập bến tại một vị trí đậu ở nhà ga hành khách trung tâm.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/berth.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-55"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-quay",
+    "word": "Quay",
+    "meaning": "Bờ kè bốc dỡ hàng tại bến cảng",
+    "ipa": "/kiː/",
+    "definition": "A long structure, usually built of stone, where boats can be tied up to take on and off their goods.",
+    "example": "Large cranes along the quay loaded iron ore onto the bulk carrier.",
+    "exampleVi": "Những cần cẩu lớn dọc bờ kè đã bốc quặng sắt lên tàu chở hàng rời.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/q/quay.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-55"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-loading-bay",
+    "word": "Loading bay",
+    "meaning": "Khu vực cửa bốc dỡ hàng của xe tải",
+    "ipa": "/ˈloʊdɪŋ beɪ/",
+    "definition": "An area in a factory or store where trucks are loaded and unloaded.",
+    "example": "Delivery drivers must back their trucks into loading bay number 4.",
+    "exampleVi": "Các tài xế giao hàng phải lùi xe tải vào cửa bốc dỡ số 4.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/l/loading-bay.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-55"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-customs",
+    "word": "Customs",
+    "meaning": "Cơ quan hải quan, trạm kiểm soát nhập cảnh",
+    "ipa": "/ˈkʌstəmz/",
+    "definition": "The place at a port, airport, or border where travelers' bags are examined for illegal goods.",
+    "example": "All arriving international passengers must pass through customs inspection.",
+    "exampleVi": "Tất cả hành khách quốc tế đến nơi đều phải đi qua trạm kiểm tra hải quan.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/customs.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-56"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-clearance-3",
+    "word": "Clearance",
+    "meaning": "Sự thông quan hàng hóa xuất nhập khẩu",
+    "ipa": "/ˈklɪrəns/",
+    "definition": "Official permission for a plane to take off or land, or for goods to enter a country.",
+    "example": "The shipment was held at the border pending phytosanitary customs clearance.",
+    "exampleVi": "Lô hàng đã bị giữ lại ở biên giới chờ thủ tục thông quan kiểm dịch thực vật.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/clearance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-56"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-tariff",
+    "word": "Tariff",
+    "meaning": "Thuế quan nhập khẩu áp lên hàng ngoại",
+    "ipa": "/ˈtærɪf/",
+    "definition": "A tax that a government charges on goods that enter or leave their country.",
+    "example": "The government imposed a 15% tariff on imported steel products.",
+    "exampleVi": "Chính phủ đã áp mức thuế quan 15% đối với các sản phẩm thép nhập khẩu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/tariff.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-56"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-duty",
+    "word": "Duty",
+    "meaning": "Thuế nhập khẩu / thuế tiêu thụ đặc biệt",
+    "ipa": "/ˈduːti/",
+    "definition": "A tax paid on goods that are brought into a country.",
+    "example": "Duty-free shops allow international travelers to buy perfume without local sales tax.",
+    "exampleVi": "Các cửa hàng miễn thuế cho phép du khách quốc tế mua nước hoa mà không phải trả thuế bán hàng địa phương.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/duty.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-56"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-declaration",
+    "word": "Declaration",
+    "meaning": "Tờ khai hải quan hàng hóa/hành lý",
+    "ipa": "/ˌdekləˈreɪʃn/",
+    "definition": "An official written statement, especially one giving information to customs.",
+    "example": "Travelers must complete a currency declaration form if carrying over $10,000.",
+    "exampleVi": "Du khách phải điền vào tờ khai tiền tệ nếu mang theo trên 10.000 USD.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/declaration.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-56"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-excise",
+    "word": "Excise",
+    "meaning": "Thuế tiêu thụ đặc biệt (rượu, thuốc lá, xăng)",
+    "ipa": "/ˈeksaɪz/",
+    "definition": "A tax on some goods made, sold, or used within a country, such as alcohol or tobacco.",
+    "example": "The government raised the excise tax on luxury vehicles.",
+    "exampleVi": "Chính phủ đã tăng thuế tiêu thụ đặc biệt đối với các loại xe hơi sang trọng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/e/excise.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-56"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-inspection",
+    "word": "Inspection",
+    "meaning": "Hoạt động thanh tra kiểm tra hàng hóa",
+    "ipa": "/ɪnˈspekʃn/",
+    "definition": "The act of looking at something carefully, or an official visit of checking.",
+    "example": "The cargo passed agricultural inspection with no pest contamination detected.",
+    "exampleVi": "Lô hàng đã vượt qua đợt kiểm tra nông nghiệp mà không phát hiện dấu hiệu sâu bệnh.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/i/inspection.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-56"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-embargo",
+    "word": "Embargo",
+    "meaning": "Lệnh cấm vận thương mại với quốc gia khác",
+    "ipa": "/ɪmˈbɑːrɡoʊ/",
+    "definition": "An official order to stop trade with another country.",
+    "example": "The United Nations imposed a strict arms embargo on the conflict zone.",
+    "exampleVi": "Liên Hợp Quốc đã áp đặt lệnh cấm vận vũ khí nghiêm ngặt đối với vùng chiến sự.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/e/embargo.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-56"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-quota",
+    "word": "Quota",
+    "meaning": "Hạn ngạch xuất nhập khẩu cho phép",
+    "ipa": "/ˈkwoʊtə/",
+    "definition": "A fixed, limited amount or number that is officially allowed.",
+    "example": "The country exceeded its annual import quota for dairy products.",
+    "exampleVi": "Quốc gia này đã vượt quá hạn ngạch nhập khẩu hàng năm đối với các sản phẩm từ sữa.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/q/quota.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-56"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-exemption",
+    "word": "Exemption",
+    "meaning": "Sự miễn trừ thuế/quy định đặc biệt",
+    "ipa": "/ɪɡˈzempʃn/",
+    "definition": "Special permission not to have to obey a rule or pay a tax.",
+    "example": "Medical devices imported for humanitarian aid receive full tax exemption.",
+    "exampleVi": "Các thiết bị y tế nhập khẩu cho mục đích viện trợ nhân đạo được miễn thuế hoàn toàn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/exemption.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-56"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bill-of-lading",
+    "word": "Bill of lading",
+    "meaning": "Vận đơn đường biển chính thức (B/L)",
+    "ipa": "/ˌbɪl əv ˈleɪdɪŋ/",
+    "definition": "A document that gives details of a shipment of goods and serves as a title receipt.",
+    "example": "The buyer presents the original bill of lading to claim the cargo at the port.",
+    "exampleVi": "Người mua xuất trình vận đơn gốc để nhận hàng tại cảng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/b/bill-of-lading.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-57"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-airway-bill",
+    "word": "Airway bill",
+    "meaning": "Vận đơn hàng không (AWB)",
+    "ipa": "/ˈerweɪ bɪl/",
+    "definition": "A document issued by an international airline that gives details of goods sent by air.",
+    "example": "The airway bill number allows real-time tracking of the express parcel.",
+    "exampleVi": "Mã số vận đơn hàng không cho phép theo dõi bưu kiện chuyển phát nhanh theo thời gian thực.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/a/airway-bill.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-57"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-certificate-of-origin",
+    "word": "Certificate of origin",
+    "meaning": "Giấy chứng nhận xuất xứ hàng hóa (C/O)",
+    "ipa": "/sərˈtɪfɪkət əv ˈɔːrɪdʒɪn/",
+    "definition": "A document declaring in which country a commodity or good was manufactured.",
+    "example": "A certified certificate of origin is required to benefit from free trade tariffs.",
+    "exampleVi": "Cần có giấy chứng nhận xuất xứ có xác thực để được hưởng thuế suất ưu đãi hiệp định thương mại tự do.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/certificate-of-origin.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-57"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-waybill",
+    "word": "Waybill",
+    "meaning": "Phiếu gửi hàng, vận đơn kèm kiện",
+    "ipa": "/ˈweɪbɪl/",
+    "definition": "A list of goods with details of where they are going, carried with them.",
+    "example": "The truck driver signed the waybill upon delivering the furniture.",
+    "exampleVi": "Tài xế xe tải đã ký vào phiếu gửi hàng sau khi bàn giao đồ nội thất.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/w/waybill.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-57"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-export-license",
+    "word": "Export license",
+    "meaning": "Giấy phép xuất khẩu của cơ quan chức năng",
+    "ipa": "/ˈekspɔːrt ˈlaɪsns/",
+    "definition": "A government document that authorizes the export of specific goods.",
+    "example": "Firms exporting dual-use technology must obtain a federal export license.",
+    "exampleVi": "Các công ty xuất khẩu công nghệ lưỡng dụng phải có giấy phép xuất khẩu của liên bang.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/export-license.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-57"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-import-permit",
+    "word": "Import permit",
+    "meaning": "Giấy phép nhập khẩu chính thức",
+    "ipa": "/ˈɪmpɔːrt ˈpɜːrmɪt/",
+    "definition": "A legal document issued by a government authorizing the importation of goods.",
+    "example": "Live plant shipments require a valid agricultural import permit.",
+    "exampleVi": "Các lô hàng thực vật sống đòi hỏi phải có giấy phép nhập khẩu nông nghiệp hợp lệ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/import-permit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-57"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-docket",
+    "word": "Docket",
+    "meaning": "Biên nhận giao hàng có ký nhận",
+    "ipa": "/ˈdɑːkɪt/",
+    "definition": "A document showing that goods have been delivered or work has been done.",
+    "example": "The warehouse manager signed the delivery docket and kept a copy.",
+    "exampleVi": "Người quản lý kho đã ký vào biên nhận giao hàng và giữ lại một bản sao.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/d/docket.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-57"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-delivery-note",
+    "word": "Delivery note",
+    "meaning": "Phiếu giao hàng gửi kèm đơn",
+    "ipa": "/dɪˈlɪvəri noʊt/",
+    "definition": "A document sent with goods that shows details about them.",
+    "example": "Please verify that the items in the box match the attached delivery note.",
+    "exampleVi": "Vui lòng xác nhận rằng các mặt hàng trong hộp khớp với phiếu giao hàng đính kèm.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/delivery-note.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-57"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-letter-of-credit",
+    "word": "Letter of credit",
+    "meaning": "Thư tín dụng thanh toán ngân hàng (L/C)",
+    "ipa": "/ˌletər əv ˈkredɪt/",
+    "definition": "A letter from a bank guaranteeing that a buyer's payment to a seller will be received on time.",
+    "example": "The exporter agreed to ship the cargo upon receipt of an irrevocable letter of credit.",
+    "exampleVi": "Nhà xuất khẩu đã đồng ý giao hàng sau khi nhận được thư tín dụng không thể hủy ngang.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/l/letter-of-credit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-57"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-commercial-invoice",
+    "word": "Commercial invoice",
+    "meaning": "Hóa đơn thương mại quốc tế",
+    "ipa": "/kəˈmɜːrʃl ˈɪnvɔɪs/",
+    "definition": "A legal document between the exporter and the buyer that details the goods sold and amount due.",
+    "example": "Customs duties are calculated based on the declared values in the commercial invoice.",
+    "exampleVi": "Thuế hải quan được tính toán dựa trên giá trị đã khai báo trong hóa đơn thương mại.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/commercial-invoice.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-57"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-tracking",
+    "word": "Tracking",
+    "meaning": "Hoạt động theo dõi hành trình đơn hàng",
+    "ipa": "/ˈtrækɪŋ/",
+    "definition": "The act of following the progress or movements of someone or something.",
+    "example": "Customers receive an SMS tracking link as soon as their order leaves the facility.",
+    "exampleVi": "Khách hàng nhận được liên kết theo dõi qua tin nhắn SMS ngay khi đơn hàng rời khỏi kho.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/tracking.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-58"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-transit-time",
+    "word": "Transit time",
+    "meaning": "Thời gian vận chuyển từ kho đến tay khách",
+    "ipa": "/ˈtrænzɪt taɪm/",
+    "definition": "The time it takes for a shipment to be moved from its point of origin to its destination.",
+    "example": "Ocean shipping has an average transit time of 21 days from Shanghai to Los Angeles.",
+    "exampleVi": "Vận tải đường biển có thời gian vận chuyển trung bình 21 ngày từ Thượng Hải đến Los Angeles.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/transit-time.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-58"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-real-time",
+    "word": "Real-time",
+    "meaning": "Thời gian thực, cập nhật tức thì",
+    "ipa": "/ˌriːəl ˈtaɪm/",
+    "definition": "Occurring immediately as an event happens.",
+    "example": "GPS sensors provide real-time location updates for refrigerated container trucks.",
+    "exampleVi": "Cảm biến GPS cung cấp cập nhật vị trí theo thời gian thực cho các xe tải công-ten-nơ đông lạnh.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/r/real-time.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-58"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-destination",
+    "word": "Destination",
+    "meaning": "Điểm đến cuối cùng của chuyến hàng",
+    "ipa": "/ˌdestɪˈneɪʃn/",
+    "definition": "The place where someone or something is going.",
+    "example": "The package is scheduled to reach its final destination by 5:00 PM today.",
+    "exampleVi": "Kiện hàng dự kiến sẽ đến điểm đến cuối cùng trước 5:00 chiều hôm nay.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/destination.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-58"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-route",
+    "word": "Route",
+    "meaning": "Tuyến đường vận chuyển đã định",
+    "ipa": "/ruːt/",
+    "definition": "A particular way or direction between places.",
+    "example": "The logistics software optimizes delivery routes to minimize fuel consumption.",
+    "exampleVi": "Phần mềm hậu cần tối ưu hóa các tuyến đường giao hàng để giảm thiểu mức tiêu thụ nhiên liệu.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/r/route.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-58"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-eta",
+    "word": "ETA",
+    "meaning": "Thời gian dự kiến đến nơi (Estimated Time of Arrival)",
+    "ipa": "/ˌiː tiː ˈeɪ/",
+    "definition": "Estimated Time of Arrival; the time you expect a flight, ship, or parcel to arrive.",
+    "example": "Due to heavy fog, the cargo plane's ETA was pushed back by two hours.",
+    "exampleVi": "Do sương mù dày đặc, thời gian dự kiến hạ cánh của máy bay chở hàng đã bị lùi lại hai tiếng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/eta.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-58"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dispatch-3",
+    "word": "Dispatch",
+    "meaning": "Gửi xuất kho, khởi hành đơn",
+    "ipa": "/dɪˈspætʃ/",
+    "definition": "To send goods or a vehicle to a destination.",
+    "example": "Our warehouse dispatched 5,000 packages within the first four hours of business.",
+    "exampleVi": "Nhà kho của chúng tôi đã xuất đi 5.000 kiện hàng trong vòng bốn giờ làm việc đầu tiên.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/d/dispatch.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-58"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-in-transit",
+    "word": "In-transit",
+    "meaning": "Đang trên đường vận chuyển di chuyển",
+    "ipa": "/ɪn ˈtrænzɪt/",
+    "definition": "In the process of being transported from one place to another.",
+    "example": "The tracking portal shows that your package is currently in-transit across Ohio.",
+    "exampleVi": "Cổng thông tin theo dõi cho thấy kiện hàng của bạn hiện đang trên đường vận chuyển qua bang Ohio.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "assets/images/words/i/in-transit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-58"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-carrier-2",
+    "word": "Carrier",
+    "meaning": "Đơn vị vận chuyển đảm nhận",
+    "ipa": "/ˈkæriər/",
+    "definition": "A company that transports goods from one place to another.",
+    "example": "Please check the carrier website to verify whether a signature is required.",
+    "exampleVi": "Vui lòng kiểm tra trang web của đơn vị vận chuyển để xác nhận xem có cần chữ ký khi nhận hàng hay không.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/carrier.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-58"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-proof-of-delivery",
+    "word": "Proof of delivery",
+    "meaning": "Bằng chứng đã giao hàng (chữ ký/ảnh)",
+    "ipa": "/pruːf əv dɪˈlɪvəri/",
+    "definition": "Verification that a shipment has been received, such as a recipient's signature or photo.",
+    "example": "The courier took a photograph of the doorstep parcel as proof of delivery.",
+    "exampleVi": "Người giao hàng đã chụp ảnh kiện hàng trước cửa nhà để làm bằng chứng đã giao hàng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/proof-of-delivery.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-58"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-delay",
+    "word": "Delay",
+    "meaning": "Sự chậm trễ, hoãn lại tiến độ",
+    "ipa": "/dɪˈleɪ/",
+    "definition": "The situation in which you have to wait longer than expected for something to happen.",
+    "example": "Bad weather caused a 48-hour shipping delay across the Atlantic.",
+    "exampleVi": "Thời tiết xấu đã gây ra sự chậm trễ giao hàng 48 giờ trên khắp Đại Tây Dương.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/d/delay.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-59"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-damage",
+    "word": "Damage",
+    "meaning": "Hư hại, tổn thất đối với hàng hóa",
+    "ipa": "/ˈdæmɪdʒ/",
+    "definition": "Physical harm that impairs the value, usefulness, or normal function of something.",
+    "example": "Inspect the exterior carton for water damage before signing the delivery receipt.",
+    "exampleVi": "Hãy kiểm tra bên ngoài thùng các-tông xem có bị ngấm nước hư hại không trước khi ký nhận hàng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/damage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-59"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-breakage",
+    "word": "Breakage",
+    "meaning": "Đồ bị vỡ hỏng trong lúc chở",
+    "ipa": "/ˈbreɪkɪdʒ/",
+    "definition": "The act of breaking something, or things that have been broken.",
+    "example": "Special shock-absorbing foam was used to prevent glass breakage during transit.",
+    "exampleVi": "Mút xốp giảm chấn đặc biệt đã được sử dụng để ngăn ngừa đồ thủy tinh bị vỡ khi vận chuyển.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/breakage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-59"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-loss",
+    "word": "Loss",
+    "meaning": "Tổn thất mất mát hàng hóa",
+    "ipa": "/lɔːs/",
+    "definition": "The fact that you no longer have something or have less of something.",
+    "example": "Maritime insurance covers total cargo loss in the event of a shipwreck.",
+    "exampleVi": "Bảo hiểm hàng hải chi trả cho tổn thất toàn bộ hàng hóa trong trường hợp đắm tàu.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/l/loss.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-59"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-claim",
+    "word": "Claim",
+    "meaning": "Đơn yêu cầu bảo hiểm bồi thường",
+    "ipa": "/kleɪm/",
+    "definition": "A written request to an insurance company for payment for damage, loss, or injury.",
+    "example": "The retailer filed an insurance claim for $50,000 worth of stolen electronics.",
+    "exampleVi": "Nhà bán lẻ đã nộp đơn yêu cầu bảo hiểm bồi thường cho số thiết bị điện tử bị đánh cắp trị giá 50.000 USD.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/claim.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-59"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-compensation-3",
+    "word": "Compensation",
+    "meaning": "Tiền đền bù thỏa đáng cho tổn thất",
+    "ipa": "/ˌkɑːmpenˈseɪʃn/",
+    "definition": "Money that is paid to someone in exchange for something that has been lost or damaged.",
+    "example": "The airline provided cash compensation to passengers whose bags were lost.",
+    "exampleVi": "Hãng hàng không đã bồi thường tiền mặt cho những hành khách bị thất lạc hành lý.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/compensation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-59"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-penalty",
+    "word": "Penalty",
+    "meaning": "Tiền phạt vi phạm tiến độ/hợp đồng",
+    "ipa": "/ˈpenəlti/",
+    "definition": "A punishment for breaking a rule, law, or legal agreement, especially money paid.",
+    "example": "The contractor incurs a daily penalty of $1,000 for late building completion.",
+    "exampleVi": "Nhà thầu phải chịu mức phạt 1.000 USD mỗi ngày nếu hoàn thành công trình chậm tiến độ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/penalty.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-59"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-defect",
+    "word": "Defect",
+    "meaning": "Khuyết tật, lỗi kỹ thuật của sản phẩm",
+    "ipa": "/ˈdiːfekt/",
+    "definition": "A fault or problem in something that spoils it or causes it not to work correctly.",
+    "example": "The automaker initiated a vehicle recall to fix a steering column defect.",
+    "exampleVi": "Hãng ô tô đã tiến hành đợt thu hồi xe để khắc phục lỗi ở trục lái.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/defect.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-59"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-refund-2",
+    "word": "Refund",
+    "meaning": "Sự hoàn trả lại tiền mua",
+    "ipa": "/ˈriːfʌnd/",
+    "definition": "An amount of money that is given back to you, especially because you returned a product.",
+    "example": "If the delivered item is defective, you are entitled to a 100% money refund.",
+    "exampleVi": "Nếu sản phẩm được giao bị lỗi, bạn có quyền được hoàn lại 100% số tiền.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/r/refund.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-59"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-discrepancy",
+    "word": "Discrepancy",
+    "meaning": "Sự sai lệch giữa số lượng thực và chứng từ",
+    "ipa": "/dɪˈskrepənsi/",
+    "definition": "A difference between two things that should be the same, such as numbers.",
+    "example": "The auditor found a discrepancy between the physical inventory and the digital records.",
+    "exampleVi": "Kiểm toán viên phát hiện sự sai lệch giữa lượng hàng tồn kho thực tế và sổ sách điện tử.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/discrepancy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-59"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-supply-chain",
+    "word": "Supply chain",
+    "meaning": "Chuỗi cung ứng toàn diện từ nguồn tới tiêu dùng",
+    "ipa": "/səˈplaɪ tʃeɪn/",
+    "definition": "The system of people and organizations involved in getting a product to a customer.",
+    "example": "Global supply chain bottlenecks delayed the delivery of auto semiconductors.",
+    "exampleVi": "Tình trạng nghẽn cổ chai chuỗi cung ứng toàn cầu đã làm chậm tiến độ giao chất bán dẫn ô tô.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/supply-chain.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-60"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-logistics",
+    "word": "Logistics",
+    "meaning": "Hoạt động hậu cần, kho vận và giao nhận",
+    "ipa": "/ləˈdʒɪstɪks/",
+    "definition": "The practical organization that is needed to make a complicated plan successful.",
+    "example": "Efficient logistics management reduced our overall warehouse holding costs by 18%.",
+    "exampleVi": "Quản lý hậu cần hiệu quả đã giúp giảm 18% chi phí lưu kho tổng thể của chúng tôi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/l/logistics.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-60"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-fulfillment",
+    "word": "Fulfillment",
+    "meaning": "Quy trình xử lý đơn hàng từ đóng gói đến giao",
+    "ipa": "/fʊlˈfɪlmənt/",
+    "definition": "The process of receiving, packing, and sending out orders to customers.",
+    "example": "Amazon operates robotic fulfillment centers that process thousands of orders per hour.",
+    "exampleVi": "Amazon vận hành các trung tâm hoàn tất đơn hàng tự động hóa xử lý hàng nghìn đơn mỗi giờ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/f/fulfillment.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-60"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-procurement-2",
+    "word": "Procurement",
+    "meaning": "Hoạt động thu mua chiến lược của doanh nghiệp",
+    "ipa": "/prəˈkjʊrmənt/",
+    "definition": "The process of buying supplies, materials, or equipment for a company.",
+    "example": "The procurement director negotiated volume discounts on raw steel purchases.",
+    "exampleVi": "Giám đốc thu mua đã đàm phán mức chiết khấu theo số lượng khi mua thép thô.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/p/procurement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-60"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-distributor-2",
+    "word": "Distributor",
+    "meaning": "Nhà phân phối sỉ",
+    "ipa": "/dɪˈstrɪbjətər/",
+    "definition": "A person or company that supplies goods to shops and other businesses.",
+    "example": "We signed an agreement with the largest beverage distributor in the Midwest.",
+    "exampleVi": "Chúng tôi đã ký thỏa thuận với nhà phân phối đồ uống lớn nhất khu vực Trung Tây.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/distributor.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-60"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-outsourcing",
+    "word": "Outsourcing",
+    "meaning": "Thuê ngoài dịch vụ / gia công bên ngoài",
+    "ipa": "/ˈaʊtsɔːrsɪŋ/",
+    "definition": "A situation in which a company employs another organization to do work rather than own staff.",
+    "example": "Outsourcing customer call centers to overseas agencies reduced operational overhead.",
+    "exampleVi": "Việc thuê ngoài các trung tâm tổng đài khách hàng cho các đối tác nước ngoài đã cắt giảm chi phí vận hành.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/o/outsourcing.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-60"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-lead-time",
+    "word": "Lead time",
+    "meaning": "Thời gian chờ từ lúc đặt hàng đến khi nhận",
+    "ipa": "/ˈliːd taɪm/",
+    "definition": "The time between the start and the completion of a production or ordering process.",
+    "example": "Custom-made office furniture has an estimated manufacturing lead time of four weeks.",
+    "exampleVi": "Đồ nội thất văn phòng đặt làm theo yêu cầu có thời gian sản xuất chờ đợi ước tính là bốn tuần.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/l/lead-time.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-60"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bottleneck",
+    "word": "Bottleneck",
+    "meaning": "Nút thắt cổ chai làm đình trệ quy trình",
+    "ipa": "/ˈbɑːtlnek/",
+    "definition": "A place in a process where delays occur and slow down the entire system.",
+    "example": "Automating the packing stage eliminated a major bottleneck in the factory line.",
+    "exampleVi": "Tự động hóa khâu đóng gói đã loại bỏ một nút thắt cổ chai lớn trên dây chuyền nhà máy.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/bottleneck.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-60"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-freight-forwarder",
+    "word": "Freight forwarder",
+    "meaning": "Đại lý giao nhận vận tải quốc tế",
+    "ipa": "/ˈfreɪt ˌfɔːrwərdər/",
+    "definition": "A person or company that organizes shipments for individuals or corporations.",
+    "example": "Our freight forwarder handles all customs documentation and sea cargo booking.",
+    "exampleVi": "Đại lý giao nhận của chúng tôi xử lý toàn bộ giấy tờ hải quan và đặt chỗ hàng hải.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/f/freight-forwarder.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-60"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-consolidation",
+    "word": "Consolidation",
+    "meaning": "Sự gom nhiều đơn hàng nhỏ thành lô lớn",
+    "ipa": "/kənˌsɑːlɪˈdeɪʃn/",
+    "definition": "The act of combining several things, especially small freight shipments, into one.",
+    "example": "Cargo consolidation lowers transportation costs for small business exporters.",
+    "exampleVi": "Việc gom hàng lẻ giúp hạ thấp chi phí vận chuyển cho các nhà xuất khẩu doanh nghiệp nhỏ.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/consolidation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-60"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-financial-statement",
+    "word": "Financial statement",
+    "meaning": "Báo cáo tài chính doanh nghiệp",
+    "ipa": "/faɪˌnænʃl ˈsteɪtmənt/",
+    "definition": "A report that gives financial information about a company, including revenue and expenses.",
+    "example": "Independent auditors verified the accuracy of the year-end financial statement.",
+    "exampleVi": "Các kiểm toán viên độc lập đã xác minh tính chính xác của báo cáo tài chính cuối năm.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/f/financial-statement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-61"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-income-statement",
+    "word": "Income statement",
+    "meaning": "Báo cáo kết quả hoạt động kinh doanh (P&L)",
+    "ipa": "/ˈɪnkʌm ˌsteɪtmənt/",
+    "definition": "A financial statement showing a company's revenues and expenses over a period.",
+    "example": "The income statement revealed a 30% increase in operating profits.",
+    "exampleVi": "Báo cáo kết quả kinh doanh cho thấy mức tăng 30% lợi nhuận hoạt động.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/income-statement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-61"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-balance-sheet",
+    "word": "Balance sheet",
+    "meaning": "Bảng cân đối kế toán (Tài sản - Nợ - Vốn)",
+    "ipa": "/ˈbæləns ʃiːt/",
+    "definition": "A financial statement that shows a company's assets, liabilities, and equity.",
+    "example": "A strong balance sheet with zero debt helped the firm secure bank loans easily.",
+    "exampleVi": "Bảng cân đối kế toán lành mạnh không có nợ đã giúp công ty dễ dàng vay vốn ngân hàng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/balance-sheet.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-61"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cash-flow",
+    "word": "Cash flow",
+    "meaning": "Dòng tiền mặt luân chuyển vào ra",
+    "ipa": "/ˈkæʃ floʊ/",
+    "definition": "The total amount of money being transferred into and out of a business.",
+    "example": "Managing positive cash flow is crucial for the survival of early-stage startups.",
+    "exampleVi": "Quản lý dòng tiền dương là điều tối quan trọng đối với sự sống còn của các công ty khởi nghiệp giai đoạn đầu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/cash-flow.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-61"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-revenue-2",
+    "word": "Revenue",
+    "meaning": "Tổng doanh thu bán hàng và dịch vụ",
+    "ipa": "/ˈrevənuː/",
+    "definition": "The income generated from sale of goods or services, or by a government from taxes.",
+    "example": "Online subscription revenue reached record highs during the fourth quarter.",
+    "exampleVi": "Doanh thu từ dịch vụ đăng ký trực tuyến đạt mức cao kỷ lục trong quý 4.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/revenue.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-61"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-turnover-3",
+    "word": "Turnover",
+    "meaning": "Doanh số tổng trong chu kỳ kinh doanh",
+    "ipa": "/ˈtɜːrnoʊvər/",
+    "definition": "The amount of business done in a period, or the speed at which stock is sold.",
+    "example": "Annual corporate turnover exceeded five hundred million dollars.",
+    "exampleVi": "Doanh số doanh nghiệp hàng năm đã vượt mốc năm trăm triệu đô la.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/turnover.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-61"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-gross-profit",
+    "word": "Gross profit",
+    "meaning": "Lợi nhuận gộp (Doanh thu - Giá vốn)",
+    "ipa": "/ˌɡroʊs ˈprɑːfɪt/",
+    "definition": "A company's profit from selling goods or services, before deducting other costs.",
+    "example": "Gross profit margins expanded by 4% due to cheaper component sourcing.",
+    "exampleVi": "Biên lợi nhuận gộp đã tăng thêm 4% nhờ việc tìm nguồn cung ứng linh kiện rẻ hơn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/g/gross-profit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-61"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-net-income",
+    "word": "Net income",
+    "meaning": "Thu nhập ròng sau khi trừ hết chi phí và thuế",
+    "ipa": "/ˌnet ˈɪnkʌm/",
+    "definition": "The total earnings or profit of a company after all costs and taxes have been paid.",
+    "example": "Net income for the full year stood at a healthy $45 million.",
+    "exampleVi": "Thu nhập ròng cho cả năm đạt mức khả quan là 45 triệu USD.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/n/net-income.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-61"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-fiscal-year",
+    "word": "Fiscal year",
+    "meaning": "Năm tài chính / niên độ kế toán (FY)",
+    "ipa": "/ˌfɪskl ˈjɪr/",
+    "definition": "A year as reckoned for taxing or accounting purposes.",
+    "example": "Our corporate fiscal year ends on September 30 rather than December 31.",
+    "exampleVi": "Năm tài chính của tập đoàn chúng tôi kết thúc vào ngày 30 tháng 9 thay vì ngày 31 tháng 12.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/f/fiscal-year.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-61"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-audit",
+    "word": "Audit",
+    "meaning": "Hoạt động kiểm toán sổ sách tài chính",
+    "ipa": "/ˈɔːdɪt/",
+    "definition": "An official examination of the accounts of a business or other organization.",
+    "example": "The external audit confirmed that all financial records were fully compliant.",
+    "exampleVi": "Cuộc kiểm toán bên ngoài đã xác nhận rằng tất cả sổ sách tài chính đều tuân thủ đầy đủ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/audit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-61"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-expense",
+    "word": "Expense",
+    "meaning": "Khoản chi phí phát sinh",
+    "ipa": "/ɪkˈspens/",
+    "definition": "The money that you spend on something, or cost incurred.",
+    "example": "Travel expenses will be reimbursed upon submitting original receipts.",
+    "exampleVi": "Chi phí đi lại sẽ được hoàn trả sau khi nộp hóa đơn gốc.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/e/expense.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-62"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-expenditure",
+    "word": "Expenditure",
+    "meaning": "Khoản chi tiêu ngân sách lớn",
+    "ipa": "/ɪkˈspendɪtʃər/",
+    "definition": "The total amount of money that a government or person spends on something.",
+    "example": "Capital expenditure on new factory machinery amounted to $12 million.",
+    "exampleVi": "Chi tiêu vốn cho máy móc nhà máy mới lên tới 12 triệu USD.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/expenditure.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-62"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-budget",
+    "word": "Budget",
+    "meaning": "Ngân sách dự trù chi tiêu",
+    "ipa": "/ˈbʌdʒɪt/",
+    "definition": "A plan to show how much money a person or organization will earn and spend.",
+    "example": "The advertising campaign was executed well within the allocated budget.",
+    "exampleVi": "Chiến dịch quảng cáo đã được thực hiện rất tốt trong phạm vi ngân sách được phân bổ.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/budget.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-62"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-deduction",
+    "word": "Deduction",
+    "meaning": "Khoản khấu trừ thuế/lương hợp pháp",
+    "ipa": "/dɪˈdʌkʃn/",
+    "definition": "The calculation of taking away an amount or a part of something, or money taken away.",
+    "example": "Charitable donations qualify for a tax deduction on your annual return.",
+    "exampleVi": "Các khoản quyên góp từ thiện đủ điều kiện để được khấu trừ thuế trên tờ khai hàng năm của bạn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/deduction.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-62"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-overhead",
+    "word": "Overhead",
+    "meaning": "Chi phí cố định duy trì văn phòng (điện, nước, thuê nhà)",
+    "ipa": "/ˈoʊvərhed/",
+    "definition": "The regular and necessary costs, such as rent and heating, that are involved in operating a business.",
+    "example": "Switching to remote work reduced office overhead costs by 35%.",
+    "exampleVi": "Chuyển sang làm việc từ xa đã giúp giảm 35% chi phí vận hành văn phòng cố định.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/o/overhead.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-62"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-depreciation",
+    "word": "Depreciation",
+    "meaning": "Sự khấu hao giá trị tài sản cố định theo thời gian",
+    "ipa": "/dɪˌpriːʃiˈeɪʃn/",
+    "definition": "The loss of value of an asset over time due to wear and tear.",
+    "example": "The accounting team calculates annual depreciation on all company delivery vehicles.",
+    "exampleVi": "Phòng kế toán tính toán mức khấu hao hàng năm đối với tất cả các xe giao hàng của công ty.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/d/depreciation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-62"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-amortization",
+    "word": "Amortization",
+    "meaning": "Sự phân bổ dần chi phí/khấu hao tài sản vô hình",
+    "ipa": "/ˌæmɔːrtəˈzeɪʃn/",
+    "definition": "The reduction in the value of an intangible asset over time in accounts.",
+    "example": "The amortization of the patent was scheduled across a ten-year lifespan.",
+    "exampleVi": "Việc khấu hao bằng sáng chế đã được lên kế hoạch trong thời gian mười năm.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/a/amortization.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-62"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-allowance-2",
+    "word": "Allowance",
+    "meaning": "Khoản dự phòng tổn thất / phụ cấp",
+    "ipa": "/əˈlaʊəns/",
+    "definition": "Money set aside in accounting for doubtful debts, or a specific expense grant.",
+    "example": "The bank maintained a generous allowance for loan losses during the crisis.",
+    "exampleVi": "Ngân hàng đã duy trì một khoản dự phòng rủi ro cho vay lớn trong thời kỳ khủng hoảng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/allowance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-62"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-allocation",
+    "word": "Allocation",
+    "meaning": "Sự phân bổ nguồn vốn/tài nguyên",
+    "ipa": "/ˌæləˈkeɪʃn/",
+    "definition": "The act of giving someone their share of a total amount, or funds set aside.",
+    "example": "Resource allocation prioritized urgent software bug fixes over new features.",
+    "exampleVi": "Việc phân bổ nguồn lực đã ưu tiên sửa lỗi phần mềm khẩn cấp hơn là phát triển tính năng mới.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/allocation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-62"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-disbursement",
+    "word": "Disbursement",
+    "meaning": "Sự giải ngân chi tiền theo tiến độ",
+    "ipa": "/dɪsˈbɜːrsmənt/",
+    "definition": "The act of paying out money, especially from an official fund.",
+    "example": "The final loan disbursement will occur upon structural inspection approval.",
+    "exampleVi": "Đợt giải ngân khoản vay cuối cùng sẽ diễn ra sau khi được phê duyệt kiểm tra kết cấu.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/d/disbursement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-62"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-asset",
+    "word": "Asset",
+    "meaning": "Tài sản có giá trị của doanh nghiệp",
+    "ipa": "/ˈæset/",
+    "definition": "A useful or valuable quality, skill, or person; or something that is owned.",
+    "example": "Real estate and patents represent the firm's most valuable long-term assets.",
+    "exampleVi": "Bất động sản và các bằng sáng chế đại diện cho những tài sản dài hạn có giá trị nhất của công ty.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/asset.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-63"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-liability-2",
+    "word": "Liability",
+    "meaning": "Khoản nợ phải trả, nghĩa vụ tài chính",
+    "ipa": "/ˌlaɪəˈbɪləti/",
+    "definition": "The amount of money that a person or company owes.",
+    "example": "Total liabilities were reduced through the early repayment of bank bonds.",
+    "exampleVi": "Tổng các khoản nợ phải trả đã giảm nhờ việc thanh toán sớm trái phiếu ngân hàng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/l/liability.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-63"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-equity",
+    "word": "Equity",
+    "meaning": "Vốn chủ sở hữu, giá trị thuần tài sản",
+    "ipa": "/ˈekwəti/",
+    "definition": "The value of a company, divided into many equal parts owned by shareholders.",
+    "example": "The founders retained a 60% equity stake in the enterprise.",
+    "exampleVi": "Các nhà sáng lập đã giữ lại 60% cổ phần vốn chủ sở hữu trong doanh nghiệp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/equity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-63"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-capital",
+    "word": "Capital",
+    "meaning": "Vốn đầu tư kinh doanh ban đầu",
+    "ipa": "/ˈkæpɪtl/",
+    "definition": "Money and possessions, especially that can be used to produce more wealth.",
+    "example": "The venture raised $10 million in venture capital to fund expansion.",
+    "exampleVi": "Dự án đã huy động được 10 triệu USD vốn đầu tư mạo hiểm để tài trợ cho việc mở rộng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/capital.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-63"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-liquidity",
+    "word": "Liquidity",
+    "meaning": "Tính thanh khoản, khả năng đổi ra tiền mặt nhanh",
+    "ipa": "/lɪˈkwɪdəti/",
+    "definition": "The fact of being available in the form of money, rather than investments.",
+    "example": "Maintaining high liquidity allows the company to handle unforeseen emergencies.",
+    "exampleVi": "Duy trì tính thanh khoản cao cho phép công ty xử lý các trường hợp khẩn cấp bất ngờ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/l/liquidity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-63"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-solvency",
+    "word": "Solvency",
+    "meaning": "Khả năng thanh toán nợ nần đúng hạn",
+    "ipa": "/ˈsɑːlvənsi/",
+    "definition": "The ability to pay all the money that you owe.",
+    "example": "Regulators tested the solvency of commercial banks under stress scenarios.",
+    "exampleVi": "Các cơ quan quản lý đã kiểm tra khả năng thanh toán của các ngân hàng thương mại dưới các kịch bản căng thẳng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/s/solvency.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-63"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-collateral",
+    "word": "Collateral",
+    "meaning": "Tài sản thế chấp để vay tiền",
+    "ipa": "/kəˈlætərəl/",
+    "definition": "Valuable property owned by someone who wants to borrow money, that they agree will become the property of the bank if not repaid.",
+    "example": "He pledged his commercial warehouse as collateral for the business loan.",
+    "exampleVi": "Ông đã thế chấp nhà kho thương mại của mình làm tài sản bảo đảm cho khoản vay kinh doanh.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/collateral.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-63"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-deficit",
+    "word": "Deficit",
+    "meaning": "Sự thâm hụt ngân sách / lỗ vốn",
+    "ipa": "/ˈdefɪsɪt/",
+    "definition": "The total amount by which money, etc. is too small, or spending exceeds income.",
+    "example": "The trade deficit narrowed significantly as manufactured exports surged.",
+    "exampleVi": "Thâm hụt thương mại đã thu hẹp đáng kể khi xuất khẩu hàng chế tạo tăng vọt.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/deficit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-63"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-debt",
+    "word": "Debt",
+    "meaning": "Khoản tiền vay nợ phải trả",
+    "ipa": "/det/",
+    "definition": "Something, especially money, that is owed to someone else.",
+    "example": "The company successfully restructured its corporate debt with creditors.",
+    "exampleVi": "Công ty đã tái cơ cấu thành công các khoản nợ doanh nghiệp với các chủ nợ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/debt.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-63"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-solvent",
+    "word": "Solvent",
+    "meaning": "Có đủ khả năng trả nợ (không phá sản)",
+    "ipa": "/ˈsɑːlvənt/",
+    "definition": "Having enough money to pay all the money that is owed to other people.",
+    "example": "Strong sales kept the small manufacturing business solvent during the downturn.",
+    "exampleVi": "Doanh số bán hàng mạnh mẽ đã giúp doanh nghiệp sản xuất nhỏ duy trì khả năng thanh toán trong thời kỳ suy thoái.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/s/solvent.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-63"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-transaction",
+    "word": "Transaction",
+    "meaning": "Giao dịch chuyển tiền/thanh toán ngân hàng",
+    "ipa": "/trænˈzækʃn/",
+    "definition": "An occasion when someone buys or sells something, or when money is exchanged.",
+    "example": "Online banking transactions are protected by end-to-end encryption.",
+    "exampleVi": "Các giao dịch ngân hàng trực tuyến được bảo vệ bằng mã hóa đầu cuối.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/transaction.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-64"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-deposit",
+    "word": "Deposit",
+    "meaning": "Tiền gửi vào tài khoản ngân hàng / tiền đặt cọc",
+    "ipa": "/dɪˈpɑːzɪt/",
+    "definition": "To put money into a bank account, or an initial down payment.",
+    "example": "You can deposit checks instantly using our mobile banking application.",
+    "exampleVi": "Bạn có thể gửi séc vào tài khoản ngay lập tức bằng ứng dụng ngân hàng di động của chúng tôi.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/d/deposit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-64"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-withdrawal",
+    "word": "Withdrawal",
+    "meaning": "Hành động rút tiền mặt khỏi tài khoản",
+    "ipa": "/wɪðˈdrɔːəl/",
+    "definition": "The act of taking money out of an account, or taking back something.",
+    "example": "There is a daily cash withdrawal limit of $1,000 at all ATMs.",
+    "exampleVi": "Có hạn mức rút tiền mặt hàng ngày là 1.000 USD tại tất cả các cây ATM.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/w/withdrawal.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-64"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-wire-transfer",
+    "word": "Wire transfer",
+    "meaning": "Chuyển khoản điện tử qua hệ thống ngân hàng",
+    "ipa": "/ˈwaɪər trænsfɜːr/",
+    "definition": "An electronic transfer of funds across a network administered by banks.",
+    "example": "International wire transfers usually take one to three business days to clear.",
+    "exampleVi": "Chuyển tiền điện tử quốc tế thường mất từ một đến ba ngày làm việc để hoàn tất.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/w/wire-transfer.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-64"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-remittance",
+    "word": "Remittance",
+    "meaning": "Tiền chuyển kiều hối / tiền thanh toán",
+    "ipa": "/rɪˈmɪtns/",
+    "definition": "An amount of money sent to someone as payment, or sent to family abroad.",
+    "example": "Please include the invoice number with your remittance to avoid delays.",
+    "exampleVi": "Vui lòng ghi kèm số hóa đơn cùng với khoản tiền thanh toán để tránh chậm trễ.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/r/remittance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-64"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-overdraft",
+    "word": "Overdraft",
+    "meaning": "Sự thấu chi (rút quá số dư trong tài khoản)",
+    "ipa": "/ˈoʊvərdræft/",
+    "definition": "An amount of money that a customer with a bank account is temporarily allowed to owe to the bank.",
+    "example": "The bank charges a $25 fee for every unauthorized account overdraft.",
+    "exampleVi": "Ngân hàng tính phí 25 USD cho mỗi lần thấu chi tài khoản không được cấp phép.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/o/overdraft.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-64"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-statement",
+    "word": "Statement",
+    "meaning": "Bản sao kê giao dịch hàng tháng",
+    "ipa": "/ˈsteɪtmənt/",
+    "definition": "A record of the amounts of money paid into and taken out of a bank account.",
+    "example": "Check your monthly credit card statement for any fraudulent transactions.",
+    "exampleVi": "Hãy kiểm tra bản sao kê thẻ tín dụng hàng tháng để tìm các giao dịch gian lận nếu có.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/s/statement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-64"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-balance",
+    "word": "Balance",
+    "meaning": "Số dư tài khoản hiện có",
+    "ipa": "/ˈbæləns/",
+    "definition": "The amount of money that is in a bank account at a particular time.",
+    "example": "You can check your remaining account balance via mobile banking 24/7.",
+    "exampleVi": "Bạn có thể kiểm tra số dư tài khoản còn lại của mình qua ngân hàng di động 24/7.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/balance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-64"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-account",
+    "word": "Account",
+    "meaning": "Tài khoản thanh toán ngân hàng",
+    "ipa": "/əˈkaʊnt/",
+    "definition": "An arrangement with a bank to keep your money there and take it out when you need to.",
+    "example": "She opened a corporate checking account for her new consulting firm.",
+    "exampleVi": "Cô ấy đã mở một tài khoản vãng lai doanh nghiệp cho công ty tư vấn mới của mình.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/a/account.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-64"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-ledger",
+    "word": "Ledger",
+    "meaning": "Sổ cái kế toán ghi chép thu chi",
+    "ipa": "/ˈledʒər/",
+    "definition": "A book or other collection of financial accounts of a particular type.",
+    "example": "All sales receipts must be recorded immediately in the general ledger.",
+    "exampleVi": "Tất cả các biên lai bán hàng phải được ghi nhận ngay vào sổ cái chung.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/l/ledger.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-64"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-credit",
+    "word": "Credit",
+    "meaning": "Tín dụng, hạn mức vay tiền ngân hàng",
+    "ipa": "/ˈkredɪt/",
+    "definition": "An agreement that allows you to pay for something after you receive it, or loan.",
+    "example": "Having a good credit history makes it easier to qualify for a business loan.",
+    "exampleVi": "Có lịch sử tín dụng tốt giúp việc đủ điều kiện vay vốn kinh doanh trở nên dễ dàng hơn.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/credit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-65"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-loan",
+    "word": "Loan",
+    "meaning": "Khoản vay tiền mặt ngân hàng",
+    "ipa": "/loʊn/",
+    "definition": "An amount of money that is borrowed, often from a bank, and has to be paid back.",
+    "example": "The entrepreneur secured a $250,000 small business startup loan.",
+    "exampleVi": "Doanh nhân này đã đảm bảo được một khoản vay khởi nghiệp doanh nghiệp nhỏ trị giá 250.000 USD.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/l/loan.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-65"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-mortgage",
+    "word": "Mortgage",
+    "meaning": "Khoản vay thế chấp mua bất động sản",
+    "ipa": "/ˈmɔːrɡɪdʒ/",
+    "definition": "An agreement that allows you to borrow money from a bank, especially in order to buy a house.",
+    "example": "They took out a 30-year fixed-rate mortgage to purchase their warehouse.",
+    "exampleVi": "Họ đã vay một khoản thế chấp lãi suất cố định 30 năm để mua nhà kho.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/m/mortgage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-65"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-interest-rate",
+    "word": "Interest rate",
+    "meaning": "Mức lãi suất vay / gửi tiết kiệm",
+    "ipa": "/ˈɪntrəst reɪt/",
+    "definition": "The interest percent that a bank charges when you borrow money, or pays when you keep money there.",
+    "example": "The central bank lowered benchmark interest rates to stimulate investment.",
+    "exampleVi": "Ngân hàng trung ương đã hạ lãi suất cơ bản để kích thích đầu tư.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/i/interest-rate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-65"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-principal",
+    "word": "Principal",
+    "meaning": "Số tiền vốn gốc vay (chưa tính lãi)",
+    "ipa": "/ˈprɪnsəpl/",
+    "definition": "An amount of money that is lent or invested, on which interest is paid.",
+    "example": "Monthly mortgage payments reduce both the principal and the interest.",
+    "exampleVi": "Các khoản thanh toán thế chấp hàng tháng giúp giảm cả tiền gốc lẫn tiền lãi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/principal.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-65"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-installment",
+    "word": "Installment",
+    "meaning": "Khoản tiền trả góp định kỳ",
+    "ipa": "/ɪnˈstɔːlmənt/",
+    "definition": "One of several equal payments made over a period of time until something is paid for.",
+    "example": "You can pay for the industrial equipment in twelve monthly installments.",
+    "exampleVi": "Bạn có thể thanh toán cho thiết bị công nghiệp thành mười hai đợt trả góp hàng tháng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/installment.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-65"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-maturity",
+    "word": "Maturity",
+    "meaning": "Ngày đáo hạn của hợp đồng vay/trái phiếu",
+    "ipa": "/məˈtʃʊrəti/",
+    "definition": "The time when an investment or insurance policy becomes finished or ready to be paid.",
+    "example": "The government bond will reach maturity in ten years.",
+    "exampleVi": "Trái phiếu chính phủ sẽ đến ngày đáo hạn trong mười năm tới.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/maturity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-65"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-default-2",
+    "word": "Default",
+    "meaning": "Sự vỡ nợ, mất khả năng trả lãi/gốc",
+    "ipa": "/dɪˈfɔːlt/",
+    "definition": "To fail to do something, such as pay a debt, that you legally have to do.",
+    "example": "Failing to pay the bond interest will cause the borrower to default.",
+    "exampleVi": "Việc không trả lãi trái phiếu sẽ khiến bên đi vay bị coi là vỡ nợ.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/d/default.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-65"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-creditworthiness",
+    "word": "Creditworthiness",
+    "meaning": "Mức độ uy tín tín dụng đáng tin cậy",
+    "ipa": "/ˈkredɪtˌwɜːrðinəs/",
+    "definition": "The state of being suitable to receive credit, because you are likely to pay back.",
+    "example": "Lenders check bank statements to assess the borrower's creditworthiness.",
+    "exampleVi": "Các bên cho vay kiểm tra sao kê ngân hàng để đánh giá mức độ uy tín tín dụng của người vay.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/creditworthiness.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-65"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-underwriter",
+    "word": "Underwriter",
+    "meaning": "Chuyên viên thẩm định rủi ro cho vay/bảo hiểm",
+    "ipa": "/ˈʌndərraɪtər/",
+    "definition": "A person or company that assesses and accepts risk for a fee, especially in loans or IPOs.",
+    "example": "The loan underwriter reviewed the applicant's tax returns and assets.",
+    "exampleVi": "Chuyên viên thẩm định khoản vay đã xem xét các tờ khai thuế và tài sản của người nộp đơn.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/u/underwriter.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-65"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-investment",
+    "word": "Investment",
+    "meaning": "Khoản tiền đầu tư sinh lời",
+    "ipa": "/ɪnˈvestmənt/",
+    "definition": "The act of putting money, effort, time, etc. into something to make a profit.",
+    "example": "Investing in automated manufacturing proved to be a highly profitable decision.",
+    "exampleVi": "Đầu tư vào sản xuất tự động hóa đã chứng tỏ là một quyết định sinh lời rất cao.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/i/investment.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-66"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-stock-2",
+    "word": "Stock",
+    "meaning": "Cổ phiếu doanh nghiệp trên sàn",
+    "ipa": "/stɑːk/",
+    "definition": "Part of the ownership of a company that people have as an investment.",
+    "example": "Tech stocks rose sharply following positive quarterly earnings reports.",
+    "exampleVi": "Cổ phiếu công nghệ đã tăng mạnh sau các báo cáo lợi nhuận hàng quý tích cực.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/stock.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-66"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-share",
+    "word": "Share",
+    "meaning": "Cổ phần sở hữu trong công ty",
+    "ipa": "/ʃer/",
+    "definition": "One of the equal parts that the ownership of a company is divided into.",
+    "example": "She bought 500 shares of the renewable energy company.",
+    "exampleVi": "Cô ấy đã mua 500 cổ phần của công ty năng lượng tái tạo.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/share.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-66"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bond",
+    "word": "Bond",
+    "meaning": "Trái phiếu nợ do doanh nghiệp/nhà nước phát hành",
+    "ipa": "/bɑːnd/",
+    "definition": "An official paper given by the government or a company to show that you lent them money.",
+    "example": "Corporate bonds offer a fixed annual interest payment to investors.",
+    "exampleVi": "Trái phiếu doanh nghiệp mang lại khoản chi trả lãi cố định hàng năm cho các nhà đầu tư.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/bond.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-66"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dividend",
+    "word": "Dividend",
+    "meaning": "Cổ tức chia cho cổ đông từ lợi nhuận",
+    "ipa": "/ˈdɪvɪdend/",
+    "definition": "An amount of the profits that a company pays to people who own shares in it.",
+    "example": "The board voted to increase the quarterly cash dividend by 8%.",
+    "exampleVi": "Hội đồng quản trị đã bỏ phiếu tăng cổ tức bằng tiền mặt hàng quý thêm 8%.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/dividend.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-66"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-yield",
+    "word": "Yield",
+    "meaning": "Lợi suất đầu tư phần trăm thực tế",
+    "ipa": "/jiːld/",
+    "definition": "An amount such as a profit or interest that you get from an investment.",
+    "example": "High-yield dividend funds attract conservative retirement investors.",
+    "exampleVi": "Các quỹ cổ tức có lợi suất cao thu hút các nhà đầu tư hưu trí thận trọng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/y/yield.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-66"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-portfolio-2",
+    "word": "Portfolio",
+    "meaning": "Danh mục các khoản đầu tư nắm giữ",
+    "ipa": "/pɔːrtˈfoʊlioʊ/",
+    "definition": "A collection of company shares and other investments that are owned by a person.",
+    "example": "Financial advisers recommend diversifying your stock portfolio.",
+    "exampleVi": "Các cố vấn tài chính khuyên bạn nên đa dạng hóa danh mục đầu tư cổ phiếu của mình.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/portfolio.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-66"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-shareholder",
+    "word": "Shareholder",
+    "meaning": "Cổ đông nắm giữ cổ phần công ty",
+    "ipa": "/ˈʃerhoʊldər/",
+    "definition": "A person who owns shares in a company and therefore gets part of the company's profits.",
+    "example": "Shareholders gathered at the annual general meeting to vote on new board directors.",
+    "exampleVi": "Các cổ đông đã tập hợp tại đại hội thường niên để bỏ phiếu bầu các thành viên hội đồng quản trị mới.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/shareholder.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-66"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-venture-capital",
+    "word": "Venture capital",
+    "meaning": "Vốn đầu tư mạo hiểm cho startup",
+    "ipa": "/ˈventʃər ˈkæpɪtl/",
+    "definition": "Money that is invested or is available for investment in a new business.",
+    "example": "The biotechnology startup secured $15 million in Series A venture capital.",
+    "exampleVi": "Công ty khởi nghiệp công nghệ sinh học đã nhận được 15 triệu USD vốn đầu tư mạo hiểm Vòng A.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/v/venture-capital.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-66"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-stakeholder",
+    "word": "Stakeholder",
+    "meaning": "Bên liên quan (nhân viên, khách, cổ đông)",
+    "ipa": "/ˈsteɪkhoʊldər/",
+    "definition": "A person such as an employee, customer, or citizen who is involved with an organization.",
+    "example": "Corporate management must balance the interests of all key stakeholders.",
+    "exampleVi": "Ban quản lý doanh nghiệp phải cân bằng lợi ích của tất cả các bên liên quan trọng yếu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/stakeholder.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-66"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-audit-2",
+    "word": "Audit",
+    "meaning": "Cuộc kiểm toán tài chính độc lập",
+    "ipa": "/ˈɔːdɪt/",
+    "definition": "An official examination of the accounts of a business or other organization.",
+    "example": "The financial regulator mandated an emergency audit of the bank's reserves.",
+    "exampleVi": "Cơ quan quản lý tài chính đã yêu cầu kiểm toán khẩn cấp các khoản dự trữ của ngân hàng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/audit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-67"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-accounting",
+    "word": "Accounting",
+    "meaning": "Nghiệp vụ kế toán, hạch toán sổ sách",
+    "ipa": "/əˈkaʊntɪŋ/",
+    "definition": "The skill or activity of keeping and checking the financial records of a company.",
+    "example": "Cloud-based accounting software simplifies invoicing and tax preparation.",
+    "exampleVi": "Phần mềm kế toán nền tảng đám mây giúp đơn giản hóa việc lập hóa đơn và khai thuế.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/accounting.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-67"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-auditor",
+    "word": "Auditor",
+    "meaning": "Kiểm toán viên chuyên nghiệp",
+    "ipa": "/ˈɔːdɪtər/",
+    "definition": "A person who is trained to do an official examination of a company's financial records.",
+    "example": "The independent auditor confirmed that there was no evidence of financial mismanagement.",
+    "exampleVi": "Kiểm toán viên độc lập đã xác nhận rằng không có bằng chứng nào về việc quản lý tài chính yếu kém.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/auditor.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-67"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bookkeeper",
+    "word": "Bookkeeper",
+    "meaning": "Nhân viên ghi chép sổ sách kế toán",
+    "ipa": "/ˈbʊkkiːpər/",
+    "definition": "Someone whose job is to keep a record of the financial accounts of a business.",
+    "example": "The bookkeeper reconciles bank statements with daily store cash receipts.",
+    "exampleVi": "Nhân viên kế toán đối chiếu các bản sao kê ngân hàng với các biên lai tiền mặt hàng ngày của cửa hàng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/bookkeeper.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-67"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-tax-return",
+    "word": "Tax return",
+    "meaning": "Tờ khai báo thuế nộp hàng năm",
+    "ipa": "/ˈtæks rɪtɜːrn/",
+    "definition": "A form that some people must fill in to give information about how much they have earned.",
+    "example": "All corporate tax returns must be filed electronically before April 15.",
+    "exampleVi": "Tất cả các tờ khai thuế doanh nghiệp phải được nộp điện tử trước ngày 15 tháng 4.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/tax-return.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-67"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-tax-exemption",
+    "word": "Tax exemption",
+    "meaning": "Sự miễn thuế theo quy định ưu đãi",
+    "ipa": "/ˈtæks ɪɡzempʃn/",
+    "definition": "Permission not to pay tax, or a reduction in the amount of tax that you have to pay.",
+    "example": "Non-profit research institutes enjoy full tax exemption on donations received.",
+    "exampleVi": "Các viện nghiên cứu phi lợi nhuận được miễn thuế hoàn toàn đối với các khoản quyên góp nhận được.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/tax-exemption.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-67"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-scrutiny",
+    "word": "Scrutiny",
+    "meaning": "Sự soi xét, kiểm tra kỹ càng gắt gao",
+    "ipa": "/ˈskruːtəni/",
+    "definition": "The careful and detailed examination of something in order to get information about it.",
+    "example": "Public companies face intense public scrutiny regarding executive bonuses.",
+    "exampleVi": "Các công ty đại chúng phải đối mặt với sự giám sát chặt chẽ của công chúng liên quan đến tiền thưởng của ban lãnh đạo.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/s/scrutiny.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-67"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-reconciliation",
+    "word": "Reconciliation",
+    "meaning": "Sự đối chiếu khớp số liệu kế toán",
+    "ipa": "/ˌrekənsɪliˈeɪʃn/",
+    "definition": "The process of making two numbers or accounts agree with each other.",
+    "example": "Monthly bank reconciliation ensures that no fraudulent transactions go unnoticed.",
+    "exampleVi": "Việc đối chiếu ngân hàng hàng tháng đảm bảo rằng không có giao dịch gian lận nào bị bỏ sót.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/r/reconciliation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-67"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-compliance-2",
+    "word": "Compliance",
+    "meaning": "Sự tuân thủ các chuẩn mực kế toán",
+    "ipa": "/kəmˈplaɪəns/",
+    "definition": "The act of obeying an order, rule, or request.",
+    "example": "The company maintains strict compliance with International Financial Reporting Standards.",
+    "exampleVi": "Công ty duy trì sự tuân thủ nghiêm ngặt các Chuẩn mực Báo cáo Tài chính Quốc tế.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/compliance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-67"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-disallow",
+    "word": "Disallow",
+    "meaning": "Bác bỏ, không chấp nhận chi phí trừ thuế",
+    "ipa": "/ˌdɪsəˈlaʊ/",
+    "definition": "To not allow something, especially because a rule has been broken.",
+    "example": "The tax authority disallowed claims for personal luxury travel expenses.",
+    "exampleVi": "Cơ quan thuế đã bác bỏ các yêu cầu khấu trừ chi phí cho các chuyến du lịch xa xỉ cá nhân.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/d/disallow.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-67"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-foreign-exchange",
+    "word": "Foreign exchange",
+    "meaning": "Thị trường ngoại hối (Forex / FX)",
+    "ipa": "/ˌfɔːrən ɪksˈtʃeɪndʒ/",
+    "definition": "The system by which the money of one country is exchanged for that of another.",
+    "example": "International corporations use foreign exchange hedging to protect against currency losses.",
+    "exampleVi": "Các tập đoàn quốc tế sử dụng nghiệp vụ phòng ngừa rủi ro ngoại hối để bảo vệ khỏi các tổn thất do biến động tiền tệ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/f/foreign-exchange.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-68"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-currency",
+    "word": "Currency",
+    "meaning": "Tiền tệ lưu hành của một quốc gia",
+    "ipa": "/ˈkɜːrənsi/",
+    "definition": "The money that is used in a particular country at a particular time.",
+    "example": "The euro is the official currency used across twenty European nations.",
+    "exampleVi": "Đồng euro là đồng tiền chính thức được sử dụng tại hai mươi quốc gia châu Âu.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/currency.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-68"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-exchange-rate",
+    "word": "Exchange rate",
+    "meaning": "Tỷ giá hối đoái quy đổi tiền tệ",
+    "ipa": "/ɪksˈtʃeɪndʒ reɪt/",
+    "definition": "The rate at which the money of one country can be changed for that of another.",
+    "example": "A favorable exchange rate made traveling to Japan more affordable for tourists.",
+    "exampleVi": "Tỷ giá hối đoái thuận lợi đã giúp việc du lịch đến Nhật Bản trở nên vừa túi tiền hơn đối với du khách.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/e/exchange-rate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-68"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-fluctuation",
+    "word": "Fluctuation",
+    "meaning": "Sự biến động dao động lên xuống",
+    "ipa": "/ˌflʌktʃuˈeɪʃn/",
+    "definition": "A change in a price, amount, or level, or the process of changing.",
+    "example": "Exporters suffered due to constant fluctuations in raw material prices.",
+    "exampleVi": "Các nhà xuất khẩu bị ảnh hưởng do sự biến động liên tục của giá nguyên vật liệu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/f/fluctuation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-68"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-inflation",
+    "word": "Inflation",
+    "meaning": "Tình trạng lạm phát (giá cả leo thang)",
+    "ipa": "/ɪnˈfleɪʃn/",
+    "definition": "A general, continuous increase in prices in an economy.",
+    "example": "Central banks raised interest rates to combat rising consumer price inflation.",
+    "exampleVi": "Các ngân hàng trung ương đã tăng lãi suất để chống lại tình trạng lạm phát giá tiêu dùng đang gia tăng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/inflation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-68"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-deflation",
+    "word": "Deflation",
+    "meaning": "Sự giảm phát (giá cả tụt giảm do suy thoái)",
+    "ipa": "/ˌdiːˈfleɪʃn/",
+    "definition": "A reduction of the amount of money in an economy, causing prices to fall.",
+    "example": "Economic deflation led consumers to delay purchases in anticipation of lower prices.",
+    "exampleVi": "Tình trạng giảm phát kinh tế đã khiến người tiêu dùng trì hoãn việc mua sắm để chờ giá giảm thêm.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/d/deflation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-68"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-recession",
+    "word": "Recession",
+    "meaning": "Cuộc suy thoái kinh tế tạm thời",
+    "ipa": "/rɪˈseʃn/",
+    "definition": "A period when the economy of a country is not successful and business activity slows.",
+    "example": "Many small businesses closed down during the deep economic recession.",
+    "exampleVi": "Nhiều doanh nghiệp nhỏ đã phải đóng cửa trong cuộc suy thoái kinh tế sâu sắc.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/recession.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-68"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-devaluation",
+    "word": "Devaluation",
+    "meaning": "Sự phá giá đồng tiền có chủ đích",
+    "ipa": "/ˌdiːvæljuˈeɪʃn/",
+    "definition": "The reduction of the value of a currency in comparison with other currencies.",
+    "example": "The government announced a 10% currency devaluation to boost exports.",
+    "exampleVi": "Chính phủ đã công bố mức phá giá 10% đồng tiền để thúc đẩy xuất khẩu.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/d/devaluation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-68"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-index",
+    "word": "Index",
+    "meaning": "Chỉ số chứng khoán / chỉ số giá tiêu dùng (CPI)",
+    "ipa": "/ˈɪndeks/",
+    "definition": "A system of numbers used for comparing values, costs, etc. with a standard.",
+    "example": "The consumer price index rose by 3.2% over the previous twelve months.",
+    "exampleVi": "Chỉ số giá tiêu dùng đã tăng 3,2% trong vòng mười hai tháng qua.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/index.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-68"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-volatility",
+    "word": "Volatility",
+    "meaning": "Độ biến động mạnh khó lường của thị trường",
+    "ipa": "/ˌvɑːləˈtɪləti/",
+    "definition": "The quality of changing suddenly and unexpectedly, especially for markets.",
+    "example": "Geopolitical tensions caused high volatility in global crude oil markets.",
+    "exampleVi": "Căng thẳng địa chính trị đã gây ra sự biến động cao trên thị trường dầu thô toàn cầu.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/v/volatility.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-68"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-merger",
+    "word": "Merger",
+    "meaning": "Sự sáp nhập hai tập đoàn lớn",
+    "ipa": "/ˈmɜːrdʒər/",
+    "definition": "An occasion when two or more companies join together to form a larger company.",
+    "example": "The telecom merger created the largest mobile network operator in the country.",
+    "exampleVi": "Vụ sáp nhập viễn thông đã tạo ra nhà mạng di động lớn nhất trong cả nước.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/merger.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-69"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-acquisition-3",
+    "word": "Acquisition",
+    "meaning": "Thương vụ thâu tóm mua lại đối thủ",
+    "ipa": "/ˌækwɪˈzɪʃn/",
+    "definition": "The buying of one company by another company.",
+    "example": "The software giant announced the acquisition of an artificial intelligence startup.",
+    "exampleVi": "Gã khổng lồ phần mềm đã công bố thương vụ thâu tóm một công ty khởi nghiệp trí tuệ nhân tạo.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/acquisition.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-69"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-takeover",
+    "word": "Takeover",
+    "meaning": "Sự tiếp quản quyền kiểm soát công ty",
+    "ipa": "/ˈteɪkoʊvər/",
+    "definition": "The act of taking control of a company by buying more of its shares than anyone else.",
+    "example": "The hostile takeover bid was successfully rejected by the board of directors.",
+    "exampleVi": "Nỗ lực thâu tóm thù địch đã bị hội đồng quản trị bác bỏ thành công.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/takeover.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-69"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dividend-2",
+    "word": "Dividend",
+    "meaning": "Cổ tức tiền mặt định kỳ",
+    "ipa": "/ˈdɪvɪdend/",
+    "definition": "An amount of profits that a company pays to people who own shares.",
+    "example": "Investors received a quarterly dividend payout of $0.75 per share.",
+    "exampleVi": "Các nhà đầu tư đã nhận được khoản chi trả cổ tức hàng quý là 0,75 USD trên mỗi cổ phiếu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/dividend.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-69"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-ipo",
+    "word": "IPO",
+    "meaning": "Lần phát hành cổ phiếu đầu tiên ra công chúng (Initial Public Offering)",
+    "ipa": "/ˌaɪ piː ˈoʊ/",
+    "definition": "The first sale of a company's shares to the public.",
+    "example": "The fintech firm raised over $2 billion during its highly anticipated Wall Street IPO.",
+    "exampleVi": "Công ty công nghệ tài chính đã huy động được hơn 2 tỷ USD trong đợt phát hành cổ phiếu lần đầu ra công chúng rất được mong đợi trên Phố Wall.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/ipo.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-69"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-valuation",
+    "word": "Valuation",
+    "meaning": "Sự định giá tổng thể giá trị công ty",
+    "ipa": "/ˌvæljuˈeɪʃn/",
+    "definition": "The act of deciding how much money something is worth, or the worth itself.",
+    "example": "The startup achieved a unicorn valuation of over $1 billion after funding.",
+    "exampleVi": "Công ty khởi nghiệp đã đạt mức định giá kỳ lân trên 1 tỷ USD sau vòng gọi vốn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/v/valuation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-69"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-roi",
+    "word": "ROI",
+    "meaning": "Tỷ suất hoàn vốn đầu tư (Return on Investment)",
+    "ipa": "/ˌɑːr oʊ ˈaɪ/",
+    "definition": "Return on Investment; the profit made on an investment compared to its cost.",
+    "example": "Investing in cloud automation yielded an impressive 200% ROI in two years.",
+    "exampleVi": "Đầu tư vào tự động hóa đám mây đã mang lại tỷ suất hoàn vốn ấn tượng 200% trong hai năm.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/roi.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-69"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-stake",
+    "word": "Stake",
+    "meaning": "Cổ phần tỷ lệ sở hữu nắm giữ",
+    "ipa": "/steɪk/",
+    "definition": "A share or financial involvement in something such as a business.",
+    "example": "The sovereign wealth fund acquired a 15% minority stake in the airline.",
+    "exampleVi": "Quỹ đầu tư quốc gia đã mua 15% cổ phần thiểu số trong hãng hàng không.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/stake.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-69"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-conglomerate",
+    "word": "Conglomerate",
+    "meaning": "Tập đoàn kinh tế đa ngành khổng lồ",
+    "ipa": "/kənˈɡlɑːmərət/",
+    "definition": "A very large company that consists of several smaller businesses in different sectors.",
+    "example": "The South Korean conglomerate produces electronics, ships, and pharmaceuticals.",
+    "exampleVi": "Tập đoàn đa ngành của Hàn Quốc sản xuất đồ điện tử, đóng tàu và dược phẩm.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/conglomerate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-69"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-buyout",
+    "word": "Buyout",
+    "meaning": "Thương vụ mua đứt toàn bộ cổ phần để nắm quyền",
+    "ipa": "/ˈbaɪaʊt/",
+    "definition": "The purchase of a controlling share in a company, its product lines, or assets.",
+    "example": "Management completed a leveraged buyout to take the corporation private.",
+    "exampleVi": "Ban điều hành đã hoàn tất thương vụ mua lại bằng vốn vay để đưa tập đoàn về sở hữu tư nhân.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/b/buyout.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-69"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-liquidity-2",
+    "word": "Liquidity",
+    "meaning": "Năng lực thanh khoản sẵn có tiền mặt",
+    "ipa": "/lɪˈkwɪdəti/",
+    "definition": "The fact of being available in the form of money, rather than investments.",
+    "example": "The central bank injected liquidity into the financial system to ease lending.",
+    "exampleVi": "Ngân hàng trung ương đã bơm thanh khoản vào hệ thống tài chính để nới lỏng cho vay.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/l/liquidity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-70"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-insolvency",
+    "word": "Insolvency",
+    "meaning": "Tình trạng mất khả năng thanh toán nợ",
+    "ipa": "/ɪnˈsɑːlvənsi/",
+    "definition": "The condition of not having enough money to pay debts.",
+    "example": "The commercial airline filed for insolvency after fuel costs soared.",
+    "exampleVi": "Hãng hàng không thương mại đã nộp đơn xin tuyên bố mất khả năng thanh toán sau khi giá nhiên liệu tăng vọt.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/i/insolvency.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-70"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bankruptcy",
+    "word": "Bankruptcy",
+    "meaning": "Tình trạng phá sản doanh nghiệp chính thức",
+    "ipa": "/ˈbæŋkrəptsi/",
+    "definition": "A situation in which a business or a person becomes unable to pay debts.",
+    "example": "The retail giant emerged from Chapter 11 bankruptcy after restructuring.",
+    "exampleVi": "Gã khổng lồ bán lẻ đã thoát khỏi tình trạng phá sản theo Chương 11 sau khi tái cơ cấu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/bankruptcy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-70"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-liquidation",
+    "word": "Liquidation",
+    "meaning": "Sự thanh lý tài sản để trả nợ giải thể",
+    "ipa": "/ˌlɪkwɪˈdeɪʃn/",
+    "definition": "The process of selling all the assets of a company in order to pay its debts.",
+    "example": "Creditors received 30 cents on the dollar following the firm's liquidation.",
+    "exampleVi": "Các chủ nợ đã nhận được 30 xu trên mỗi đô la sau khi thanh lý tài sản của công ty.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/l/liquidation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-70"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-restructuring",
+    "word": "Restructuring",
+    "meaning": "Hoạt động tái cấu trúc tổ chức và tài chính",
+    "ipa": "/ˌriːˈstrʌktʃərɪŋ/",
+    "definition": "The process of organizing a business in a different way to make it more effective.",
+    "example": "Corporate restructuring involved closing unprofitable foreign branches.",
+    "exampleVi": "Tái cơ cấu doanh nghiệp bao gồm việc đóng cửa các chi nhánh nước ngoài không có lãi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/restructuring.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-70"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bailout",
+    "word": "Bailout",
+    "meaning": "Gói cứu trợ tài chính khẩn cấp từ chính phủ",
+    "ipa": "/ˈbeɪlaʊt/",
+    "definition": "An act of giving financial assistance to a failing business or economy to save it from collapse.",
+    "example": "The government approved a $20 billion financial bailout package for major banks.",
+    "exampleVi": "Chính phủ đã thông qua gói cứu trợ tài chính 20 tỷ USD cho các ngân hàng lớn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/bailout.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-70"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-solvency-2",
+    "word": "Solvency",
+    "meaning": "Mức độ an toàn tài chính đủ trả nợ",
+    "ipa": "/ˈsɑːlvənsi/",
+    "definition": "The ability to pay all the money that you owe.",
+    "example": "Insurance regulators monitor solvency ratios to protect policyholders.",
+    "exampleVi": "Các cơ quan quản lý bảo hiểm giám sát các tỷ lệ khả năng thanh toán để bảo vệ người mua bảo hiểm.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/s/solvency.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-70"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-credit-rating",
+    "word": "Credit rating",
+    "meaning": "Điểm xếp hạng tín nhiệm doanh nghiệp (AAA, BBB...)",
+    "ipa": "/ˈkredɪt ˈreɪtɪŋ/",
+    "definition": "A calculation of the ability of a person or company to pay debts based on past record.",
+    "example": "Moody's upgraded the corporation's credit rating to investment grade AAA.",
+    "exampleVi": "Moody's đã nâng xếp hạng tín nhiệm của tập đoàn lên mức hạng đầu tư AAA.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/credit-rating.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-70"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-rehabilitation",
+    "word": "Rehabilitation",
+    "meaning": "Sự phục hồi hoạt động kinh doanh sau khủng hoảng",
+    "ipa": "/ˌriːhəˌbɪlɪˈteɪʃn/",
+    "definition": "The process of returning something to a good condition or healthy operation.",
+    "example": "The corporate rehabilitation plan returned the airline to profitability in two years.",
+    "exampleVi": "Kế hoạch phục hồi doanh nghiệp đã đưa hãng hàng không trở lại có lãi trong vòng hai năm.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/r/rehabilitation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-70"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-deficit-2",
+    "word": "Deficit",
+    "meaning": "Số tiền thiếu hụt, mức lỗ lũy kế",
+    "ipa": "/ˈdefɪsɪt/",
+    "definition": "The amount by which an amount of money is smaller than it should be.",
+    "example": "Operating deficits were covered using emergency reserve funds.",
+    "exampleVi": "Các khoản thâm hụt hoạt động đã được bù đắp bằng quỹ dự phòng khẩn cấp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/deficit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-70"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-governance",
+    "word": "Governance",
+    "meaning": "Hoạt động quản trị doanh nghiệp minh bạch",
+    "ipa": "/ˈɡʌvərnəns/",
+    "definition": "The way that organizations or countries are managed at the highest level.",
+    "example": "Good corporate governance protects the rights of minority shareholders.",
+    "exampleVi": "Quản trị doanh nghiệp tốt giúp bảo vệ quyền lợi của các cổ đông thiểu số.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/g/governance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-71"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-ceo",
+    "word": "CEO",
+    "meaning": "Tổng Giám đốc điều hành (Chief Executive Officer)",
+    "ipa": "/ˌsiː iː ˈoʊ/",
+    "definition": "Chief Executive Officer; the person who has the most important job in a company.",
+    "example": "The CEO outlined the five-year strategic vision during the town hall.",
+    "exampleVi": "Tổng Giám đốc điều hành đã vạch ra tầm nhìn chiến lược 5 năm trong buổi họp toàn thể công ty.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/ceo.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-71"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-board-of-directors",
+    "word": "Board of directors",
+    "meaning": "Hội đồng quản trị đại diện cổ đông",
+    "ipa": "/ˌbɔːrd əv dɪˈrektərz/",
+    "definition": "The group of people who are chosen to manage a company.",
+    "example": "The board of directors appointed a new chief technology officer.",
+    "exampleVi": "Hội đồng quản trị đã bổ nhiệm một giám đốc công nghệ mới.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/board-of-directors.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-71"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-chairperson-2",
+    "word": "Chairperson",
+    "meaning": "Chủ tịch hội đồng quản trị",
+    "ipa": "/ˈtʃerpɜːrsn/",
+    "definition": "The person in charge of a meeting or organization.",
+    "example": "The chairperson called for a formal vote on the proposed dividend increase.",
+    "exampleVi": "Chủ tịch hội đồng quản trị đã kêu gọi bỏ phiếu chính thức về đề xuất tăng cổ tức.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/chairperson.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-71"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-shareholder-2",
+    "word": "Shareholder",
+    "meaning": "Cổ đông tham gia biểu quyết",
+    "ipa": "/ˈʃerhoʊldər/",
+    "definition": "A person who owns shares in a company.",
+    "example": "Over 90% of shareholders voted in favor of the international merger.",
+    "exampleVi": "Hơn 90% cổ đông đã bỏ phiếu ủng hộ thương vụ sáp nhập quốc tế.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/shareholder.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-71"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-executive-2",
+    "word": "Executive",
+    "meaning": "Cán bộ quản lý cấp cao",
+    "ipa": "/ɪɡˈzekjətɪv/",
+    "definition": "A person who has a senior management position in a business organization.",
+    "example": "Compensation for top executives is tied directly to stock performance.",
+    "exampleVi": "Thù lao cho các lãnh đạo cấp cao gắn liền trực tiếp với kết quả giá cổ phiếu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/executive.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-71"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-presidency",
+    "word": "Presidency",
+    "meaning": "Nhiệm kỳ chủ tịch, chức vụ chủ tịch",
+    "ipa": "/ˈprezɪdənsi/",
+    "definition": "The position or period of being president.",
+    "example": "During her presidency, the firm doubled its market share in Europe.",
+    "exampleVi": "Trong nhiệm kỳ chủ tịch của bà, công ty đã nhân đôi thị phần tại châu Âu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/presidency.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-71"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-leadership-2",
+    "word": "Leadership",
+    "meaning": "Sự dẫn dắt chỉ đạo tài tình",
+    "ipa": "/ˈliːdərʃɪp/",
+    "definition": "The position or fact of being the leader, or ability to lead.",
+    "example": "Strong leadership was essential in guiding the company through the pandemic.",
+    "exampleVi": "Năng lực lãnh đạo vững vàng là điều thiết yếu để dẫn dắt công ty vượt qua đại dịch.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/l/leadership.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-71"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-accountability",
+    "word": "Accountability",
+    "meaning": "Trách nhiệm giải trình trước cổ đông/pháp luật",
+    "ipa": "/əˌkaʊntəˈbɪləti/",
+    "definition": "The fact of being responsible for what you do and having to explain it.",
+    "example": "Transparent financial reporting ensures full accountability to the public.",
+    "exampleVi": "Báo cáo tài chính minh bạch đảm bảo trách nhiệm giải trình đầy đủ trước công chúng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/a/accountability.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-71"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-oversight",
+    "word": "Oversight",
+    "meaning": "Sự giám sát quản lý cấp cao",
+    "ipa": "/ˈoʊvərsaɪt/",
+    "definition": "Responsibility for seeing that something is done correctly and safely.",
+    "example": "The audit committee provides independent oversight of financial records.",
+    "exampleVi": "Ủy ban kiểm toán thực hiện sự giám sát độc lập đối với các sổ sách tài chính.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/o/oversight.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-71"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-strategy",
+    "word": "Strategy",
+    "meaning": "Chiến lược kinh doanh dài hạn",
+    "ipa": "/ˈstrætədʒi/",
+    "definition": "A detailed plan for achieving success in situations such as business or politics.",
+    "example": "Our international strategy focuses on establishing local distribution partnerships.",
+    "exampleVi": "Chiến lược quốc tế của chúng tôi tập trung vào việc thiết lập các mối quan hệ đối tác phân phối tại địa phương.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/strategy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-72"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-objective",
+    "word": "Objective",
+    "meaning": "Mục tiêu cụ thể cần đạt được",
+    "ipa": "/əbˈdʒektɪv/",
+    "definition": "Something that you plan to do or achieve.",
+    "example": "The main objective of the campaign is to increase app downloads by 50%.",
+    "exampleVi": "Mục tiêu chính của chiến dịch là tăng 50% lượt tải ứng dụng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/o/objective.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-72"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-milestone-2",
+    "word": "Milestone",
+    "meaning": "Cột mốc đánh dấu bước tiến quan trọng",
+    "ipa": "/ˈmaɪlstoʊn/",
+    "definition": "An important event in the development or history of something.",
+    "example": "Reaching 10 million registered users was a major milestone for our platform.",
+    "exampleVi": "Đạt mốc 10 triệu người dùng đăng ký là một cột mốc quan trọng đối với nền tảng của chúng tôi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/milestone.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-72"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-initiative",
+    "word": "Initiative",
+    "meaning": "Sáng kiến, kế hoạch hành động mới",
+    "ipa": "/ɪˈnɪʃətɪv/",
+    "definition": "A new plan or process to achieve something or solve a problem.",
+    "example": "The company launched a green initiative to eliminate single-use plastics.",
+    "exampleVi": "Công ty đã phát động một sáng kiến xanh nhằm loại bỏ đồ nhựa dùng một lần.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/initiative.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-72"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-vision",
+    "word": "Vision",
+    "meaning": "Tầm nhìn định hướng tương lai",
+    "ipa": "/ˈvɪʒn/",
+    "definition": "An idea or mental image of what something should be like in the future.",
+    "example": "The founder shared his vision of making clean energy accessible to all.",
+    "exampleVi": "Người sáng lập đã chia sẻ tầm nhìn của mình về việc làm cho năng lượng sạch có thể tiếp cận được với tất cả mọi người.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/v/vision.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-72"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-roadmap",
+    "word": "Roadmap",
+    "meaning": "Lộ trình phát triển sản phẩm/dự án",
+    "ipa": "/ˈroʊdmæp/",
+    "definition": "A plan for how something will happen or develop in the future.",
+    "example": "The software engineering roadmap details all feature releases for 2027.",
+    "exampleVi": "Lộ trình kỹ thuật phần mềm nêu chi tiết tất cả các bản phát hành tính năng cho năm 2027.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/roadmap.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-72"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-benchmark-2",
+    "word": "Benchmark",
+    "meaning": "Chuẩn mực tiêu chuẩn để so sánh đánh giá",
+    "ipa": "/ˈbentʃmɑːrk/",
+    "definition": "A standard against which other things can be judged or measured.",
+    "example": "The new processor set a performance benchmark for the semiconductor industry.",
+    "exampleVi": "Bộ vi xử lý mới đã thiết lập một chuẩn mực hiệu suất cho ngành công nghiệp bán dẫn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/benchmark.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-72"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-forecast",
+    "word": "Forecast",
+    "meaning": "Dự báo tình hình kinh doanh/doanh số",
+    "ipa": "/ˈfɔːrkæst/",
+    "definition": "A statement of what is judged likely to happen in the future, especially business.",
+    "example": "Financial analysts updated their revenue forecast following strong holiday sales.",
+    "exampleVi": "Các chuyên gia phân tích tài chính đã cập nhật dự báo doanh thu sau doanh số bán hàng mạnh mẽ dịp lễ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/f/forecast.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-72"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-projection",
+    "word": "Projection",
+    "meaning": "Dự phóng số liệu tài chính tương lai",
+    "ipa": "/prəˈdʒekʃn/",
+    "definition": "A calculation or guess about the future based on information you have now.",
+    "example": "Five-year economic projections suggest steady growth in renewable energy demand.",
+    "exampleVi": "Dự phóng kinh tế năm năm cho thấy sự tăng trưởng ổn định về nhu cầu năng lượng tái tạo.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/projection.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-72"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-feasibility",
+    "word": "Feasibility",
+    "meaning": "Tính khả thi của dự án đầu tư",
+    "ipa": "/ˌfiːzəˈbɪləti/",
+    "definition": "The possibility that can be made, done, or achieved, or is reasonable.",
+    "example": "Engineers conducted a comprehensive feasibility study before building the dam.",
+    "exampleVi": "Các kỹ sư đã tiến hành nghiên cứu tính khả thi toàn diện trước khi xây dựng con đập.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/f/feasibility.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-72"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-productivity",
+    "word": "Productivity",
+    "meaning": "Năng suất làm việc, hiệu quả tạo ra sản phẩm",
+    "ipa": "/ˌproʊdʌkˈtɪvəti/",
+    "definition": "The rate at which a person, company, or country produces goods.",
+    "example": "Modern ergonomic workstations contributed to an increase in employee productivity.",
+    "exampleVi": "Các bàn làm việc công thái học hiện đại đã góp phần làm tăng năng suất của nhân viên.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/productivity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-73"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-efficiency",
+    "word": "Efficiency",
+    "meaning": "Hiệu suất hoạt động (tiết kiệm thời gian, chi phí)",
+    "ipa": "/ɪˈfɪʃnsi/",
+    "definition": "The good use of time and energy in a way that does not waste any.",
+    "example": "Automating invoice processing improved operational efficiency by 30%.",
+    "exampleVi": "Tự động hóa xử lý hóa đơn đã cải thiện hiệu suất hoạt động thêm 30%.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/efficiency.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-73"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-output",
+    "word": "Output",
+    "meaning": "Sản lượng đầu ra của nhà máy",
+    "ipa": "/ˈaʊtpʊt/",
+    "definition": "An amount of something produced by a person, machine, factory, country, etc.",
+    "example": "Daily manufacturing output rose to 2,000 electric vehicles per day.",
+    "exampleVi": "Sản lượng sản xuất hàng ngày đã tăng lên 2.000 xe điện mỗi ngày.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/o/output.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-73"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-throughput",
+    "word": "Throughput",
+    "meaning": "Khối lượng xử lý thông qua hệ thống trong một đơn vị thời gian",
+    "ipa": "/ˈθruːpʊt/",
+    "definition": "The amount of work, data, etc. that is dealt with by a system in a period of time.",
+    "example": "Upgrading the network switches doubled the data throughput of the servers.",
+    "exampleVi": "Nâng cấp các bộ chuyển mạch mạng đã tăng gấp đôi lượng dữ liệu xử lý thông qua của các máy chủ.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/t/throughput.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-73"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-streamlined",
+    "word": "Streamlined",
+    "meaning": "Được tinh gọn, loại bỏ rườm rà",
+    "ipa": "/ˈstriːmlaɪnd/",
+    "definition": "Improved in a way that makes something simpler, more efficient, and effective.",
+    "example": "The company implemented a streamlined onboarding process for new recruits.",
+    "exampleVi": "Công ty đã triển khai quy trình tiếp nhận nhân viên mới tinh gọn và hiệu quả.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/s/streamlined.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-73"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bottleneck-2",
+    "word": "Bottleneck",
+    "meaning": "Điểm nghẽn gây chậm trễ toàn bộ chuỗi",
+    "ipa": "/ˈbɑːtlnek/",
+    "definition": "A problem that delays progress, especially at one stage of a process.",
+    "example": "The lack of shipping containers created a severe global supply bottleneck.",
+    "exampleVi": "Tình trạng thiếu thùng công-ten-nơ vận chuyển đã tạo ra một điểm nghẽn nguồn cung toàn cầu nghiêm trọng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/bottleneck.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-73"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-optimization",
+    "word": "Optimization",
+    "meaning": "Sự tối ưu hóa hiệu quả",
+    "ipa": "/ˌɑːptɪməˈzeɪʃn/",
+    "definition": "The process of making something as good or effective as possible.",
+    "example": "Search engine optimization helped boost organic website visits significantly.",
+    "exampleVi": "Tối ưu hóa công cụ tìm kiếm đã giúp tăng đáng kể lượt truy cập trang web tự nhiên.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/o/optimization.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-73"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-leverage-3",
+    "word": "Leverage",
+    "meaning": "Sức mạnh đòn bẩy để tạo kết quả lớn",
+    "ipa": "/ˈlevərɪdʒ/",
+    "definition": "Power to influence people and get the results you want, or financial leverage.",
+    "example": "We can leverage our global brand recognition to enter emerging markets.",
+    "exampleVi": "Chúng ta có thể tận dụng mức độ nhận biết thương hiệu toàn cầu để thâm nhập các thị trường mới nổi.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/l/leverage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-73"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-synergy-2",
+    "word": "Synergy",
+    "meaning": "Sự cộng hưởng sức mạnh giữa các bộ phận",
+    "ipa": "/ˈsɪnərdʒi/",
+    "definition": "The combined power of a group of things when working together, greater than parts alone.",
+    "example": "There is strong cross-departmental synergy between marketing and sales.",
+    "exampleVi": "Có một sự cộng hưởng mạnh mẽ giữa các phòng ban giữa bộ phận tiếp thị và bán hàng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/s/synergy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-73"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-capacity",
+    "word": "Capacity",
+    "meaning": "Công suất tối đa có thể sản xuất/chứa",
+    "ipa": "/kəˈpæsəti/",
+    "definition": "The total amount that can be contained or produced.",
+    "example": "The factory is currently running at 95% of its total operational capacity.",
+    "exampleVi": "Nhà máy hiện đang hoạt động ở mức 95% tổng công suất vận hành.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/capacity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-73"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-conference",
+    "word": "Conference",
+    "meaning": "Hội nghị quy mô lớn chuyên ngành",
+    "ipa": "/ˈkɑːnfərəns/",
+    "definition": "An event, sometimes on a few days, at which there is a group of talks on a subject.",
+    "example": "Over five thousand delegates attended the international medical conference.",
+    "exampleVi": "Hơn năm nghìn đại biểu đã tham dự hội nghị y khoa quốc tế.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/conference.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-74"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-convention",
+    "word": "Convention",
+    "meaning": "Đại hội thường niên, hội chợ thương mại lớn",
+    "ipa": "/kənˈvenʃn/",
+    "definition": "A large formal meeting of people who do a particular job or have a similar interest.",
+    "example": "The annual comic and gaming convention was held at the exhibition center.",
+    "exampleVi": "Đại hội truyện tranh và trò chơi thường niên được tổ chức tại trung tâm triển lãm.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/convention.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-74"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-seminar-2",
+    "word": "Seminar",
+    "meaning": "Hội thảo chuyên đề thực hành",
+    "ipa": "/ˈsemɪnɑːr/",
+    "definition": "An occasion when a teacher or expert and a group of people discuss a topic.",
+    "example": "The financial planner hosted a weekend seminar on investment strategies.",
+    "exampleVi": "Chuyên gia hoạch định tài chính đã tổ chức một hội thảo cuối tuần về các chiến lược đầu tư.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/seminar.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-74"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-symposium",
+    "word": "Symposium",
+    "meaning": "Hội nghị chuyên đề học thuật cấp cao",
+    "ipa": "/sɪmˈpoʊziəm/",
+    "definition": "An occasion at which people who have great knowledge of a subject meet to have discussions.",
+    "example": "Scientists gathered for an international symposium on renewable energy storage.",
+    "exampleVi": "Các nhà khoa học đã tập hợp tại một hội nghị chuyên đề quốc tế về lưu trữ năng lượng tái tạo.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/s/symposium.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-74"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-forum-2",
+    "word": "Forum",
+    "meaning": "Diễn đàn bàn luận công khai",
+    "ipa": "/ˈfɔːrəm/",
+    "definition": "A situation or meeting in which people can exchange ideas and discuss issues.",
+    "example": "The CEO was invited to speak at the World Economic Forum in Davos.",
+    "exampleVi": "Tổng Giám đốc điều hành đã được mời phát biểu tại Diễn đàn Kinh tế Thế giới ở Davos.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/f/forum.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-74"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-plenary",
+    "word": "Plenary",
+    "meaning": "Phiên họp toàn thể hội nghị",
+    "ipa": "/ˈpliːnəri/",
+    "definition": "A plenary meeting of an organization is one that all members must attend.",
+    "example": "The conference opens on Monday morning with a general plenary session.",
+    "exampleVi": "Hội nghị khai mạc vào sáng thứ Hai với một phiên họp toàn thể chung.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/p/plenary.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-74"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-workshop-2",
+    "word": "Workshop",
+    "meaning": "Buổi hội thảo tập huấn kỹ năng",
+    "ipa": "/ˈwɜːrkʃɑːp/",
+    "definition": "A meeting at which a group of people discuss or do practical work on a topic.",
+    "example": "Participants practiced public speaking during the afternoon workshop.",
+    "exampleVi": "Những người tham gia đã thực hành kỹ năng nói trước công chúng trong buổi tập huấn chiều.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/w/workshop.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-74"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-colloquium",
+    "word": "Colloquium",
+    "meaning": "Hội đàm học thuật, thảo luận nhóm chuyên gia",
+    "ipa": "/kəˈloʊkwiəm/",
+    "definition": "A formal meeting in which people have discussions about a particular subject.",
+    "example": "The university hosted a colloquium on international commercial arbitration.",
+    "exampleVi": "Trường đại học đã tổ chức một cuộc hội đàm về trọng tài thương mại quốc tế.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/colloquium.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-74"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-summit",
+    "word": "Summit",
+    "meaning": "Hội nghị thượng đỉnh của các nhà lãnh đạo",
+    "ipa": "/ˈsʌmɪt/",
+    "definition": "An important formal meeting between leaders of governments from countries.",
+    "example": "Global leaders reached a historic climate accord at the environmental summit.",
+    "exampleVi": "Các nhà lãnh đạo toàn cầu đã đạt được thỏa thuận lịch sử về khí hậu tại hội nghị thượng đỉnh môi trường.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/summit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-74"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-panel-2",
+    "word": "Panel",
+    "meaning": "Hội đồng tọa đàm chuyên gia",
+    "ipa": "/ˈpænl/",
+    "definition": "A small group of people chosen to give advice, or publicly discuss an issue.",
+    "example": "A panel of industry leaders discussed the future of artificial intelligence.",
+    "exampleVi": "Một hội đồng gồm các nhà lãnh đạo trong ngành đã thảo luận về tương lai của trí tuệ nhân tạo.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/panel.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-74"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-venue-2",
+    "word": "Venue",
+    "meaning": "Địa điểm tổ chức sự kiện/hội nghị",
+    "ipa": "/ˈvenjuː/",
+    "definition": "The place where a public event or meeting happens.",
+    "example": "The newly built downtown arena is the premier venue for concerts and expos.",
+    "exampleVi": "Nhà thi đấu mới xây ở trung tâm là địa điểm hàng đầu cho các buổi hòa nhạc và triển lãm.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/v/venue.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-75"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-auditorium-2",
+    "word": "Auditorium",
+    "meaning": "Khán phòng lớn có ghế bậc thang",
+    "ipa": "/ˌɔːdɪˈtɔːriəm/",
+    "definition": "The part of a theater, or hall where the audience sits, or a large building for meetings.",
+    "example": "The opening ceremony filled the university's 2,000-seat auditorium.",
+    "exampleVi": "Lễ khai mạc đã lấp đầy khán phòng 2.000 chỗ ngồi của trường đại học.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/auditorium.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-75"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-conference-hall",
+    "word": "Conference hall",
+    "meaning": "Hội trường hội nghị chuyên dụng",
+    "ipa": "/ˈkɑːnfərəns hɔːl/",
+    "definition": "A large room in a hotel or convention center used for formal meetings.",
+    "example": "The main conference hall is equipped with high-definition projectors and translation headsets.",
+    "exampleVi": "Hội trường hội nghị chính được trang bị máy chiếu độ nét cao và tai nghe phiên dịch.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/conference-hall.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-75"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-lobby-2",
+    "word": "Lobby",
+    "meaning": "Khu vực tiền sảnh đón khách",
+    "ipa": "/ˈlɑːbi/",
+    "definition": "A large open area just inside the entrance of a public building or hotel.",
+    "example": "Registration desks were set up in the hotel lobby for arriving guests.",
+    "exampleVi": "Các bàn đăng ký được thiết lập tại sảnh khách sạn để đón tiếp khách đến nơi.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/l/lobby.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-75"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-booth",
+    "word": "Booth",
+    "meaning": "Gian hàng triển lãm giới thiệu sản phẩm",
+    "ipa": "/buːθ/",
+    "definition": "A small temporary structure used for selling goods, exhibiting things, etc.",
+    "example": "Over two hundred tech companies booked exhibition booths at the trade show.",
+    "exampleVi": "Hơn hai trăm công ty công nghệ đã đặt các gian hàng triển lãm tại hội chợ thương mại.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/booth.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-75"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-exhibition-center",
+    "word": "Exhibition center",
+    "meaning": "Trung tâm triển lãm quốc tế",
+    "ipa": "/ˌeksɪˈbɪʃn ˈsentər/",
+    "definition": "A large building designed for holding trade fairs and large public events.",
+    "example": "The annual motor expo takes place at the national exhibition center.",
+    "exampleVi": "Triển lãm ô tô thường niên diễn ra tại trung tâm triển lãm quốc gia.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/e/exhibition-center.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-75"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-premises-2",
+    "word": "Premises",
+    "meaning": "Khuôn viên cơ sở tòa nhà",
+    "ipa": "/ˈpremɪsɪz/",
+    "definition": "The land and buildings owned by someone, especially by a company.",
+    "example": "Security personnel patrol the convention premises 24 hours a day.",
+    "exampleVi": "Nhân viên an ninh tuần tra khuôn viên trung tâm hội nghị 24 giờ một ngày.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/premises.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-75"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-banquet-hall",
+    "word": "Banquet hall",
+    "meaning": "Đại sảnh tiệc chiêu đãi",
+    "ipa": "/ˈbæŋkwɪt hɔːl/",
+    "definition": "A large room in a hotel or restaurant where formal meals for many people can be held.",
+    "example": "The gala dinner was hosted in the hotel's grand banquet hall.",
+    "exampleVi": "Bữa tiệc dạ hội trang trọng được tổ chức tại đại sảnh tiệc của khách sạn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/banquet-hall.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-75"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-seating-capacity",
+    "word": "Seating capacity",
+    "meaning": "Sức chứa số chỗ ngồi",
+    "ipa": "/ˈsiːtɪŋ kəˈpæsəti/",
+    "definition": "The total number of people who can be seated in a room, vehicle, or stadium.",
+    "example": "The conference center has a maximum seating capacity of 3,500 people.",
+    "exampleVi": "Trung tâm hội nghị có sức chứa tối đa 3.500 người ngồi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/seating-capacity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-75"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-facility-2",
+    "word": "Facility",
+    "meaning": "Cơ sở vật chất tiện nghi",
+    "ipa": "/fəˈsɪləti/",
+    "definition": "A place, especially including buildings, where a particular activity happens.",
+    "example": "The convention center offers state-of-the-art multimedia facilities.",
+    "exampleVi": "Trung tâm hội nghị cung cấp các cơ sở vật chất đa phương tiện tối tân.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/f/facility.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-75"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-keynote-speaker",
+    "word": "Keynote speaker",
+    "meaning": "Diễn giả chính phát biểu khai mạc",
+    "ipa": "/ˈkiːnoʊt ˈspiːkər/",
+    "definition": "The main speaker at a conference who gives the opening or most important address.",
+    "example": "The Nobel laureate was invited as the keynote speaker at the science congress.",
+    "exampleVi": "Nhà khoa học đoạt giải Nobel đã được mời làm diễn giả chính tại đại hội khoa học.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/k/keynote-speaker.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-76"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-guest-of-honor",
+    "word": "Guest of honor",
+    "meaning": "Vị khách quý danh dự của sự kiện",
+    "ipa": "/ˌɡest əv ˈɑːnər/",
+    "definition": "The most important person who has been invited to a social occasion.",
+    "example": "The minister of trade attended the gala dinner as the guest of honor.",
+    "exampleVi": "Bộ trưởng thương mại đã tham dự bữa tiệc dạ hội với tư cách là khách mời danh dự.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/g/guest-of-honor.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-76"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-attendee",
+    "word": "Attendee",
+    "meaning": "Người tham dự sự kiện/hội nghị",
+    "ipa": "/əˌtenˈdiː/",
+    "definition": "Someone who goes to an event, meeting, or course.",
+    "example": "Each conference attendee received a complimentary welcome pack and badge.",
+    "exampleVi": "Mỗi người tham dự hội nghị đều nhận được một túi quà chào mừng và thẻ đeo miễn phí.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/attendee.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-76"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-participant",
+    "word": "Participant",
+    "meaning": "Người tham gia tích cực vào hoạt động",
+    "ipa": "/pɑːrˈtɪsɪpənt/",
+    "definition": "A person who takes part in or becomes involved in an activity.",
+    "example": "Workshop participants formed small groups to solve case studies.",
+    "exampleVi": "Những người tham gia buổi tập huấn đã thành lập các nhóm nhỏ để giải quyết các tình huống thực tế.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/participant.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-76"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-delegate-2",
+    "word": "Delegate",
+    "meaning": "Đại biểu đại diện đoàn tham dự",
+    "ipa": "/ˈdelɪɡət/",
+    "definition": "A person chosen or elected by a group to represent them at a meeting.",
+    "example": "Delegates from over eighty countries voted on the international treaty.",
+    "exampleVi": "Các đại biểu từ hơn tám mươi quốc gia đã bỏ phiếu về hiệp ước quốc tế.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/delegate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-76"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-moderator",
+    "word": "Moderator",
+    "meaning": "Người điều phối, chủ trì buổi tọa đàm",
+    "ipa": "/ˈmɑːdəreɪtər/",
+    "definition": "Someone who makes certain that a formal discussion happens without problems.",
+    "example": "The panel moderator kept the debate focused and managed audience questions.",
+    "exampleVi": "Người điều phối buổi tọa đàm đã giữ cho cuộc thảo luận tập trung và quản lý các câu hỏi của khán giả.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/moderator.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-76"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-presenter",
+    "word": "Presenter",
+    "meaning": "Người thuyết trình báo cáo đề tài",
+    "ipa": "/prɪˈzentər/",
+    "definition": "Someone who introduces a television show, or gives a formal presentation.",
+    "example": "The presenter used interactive slides to illustrate market trends.",
+    "exampleVi": "Người thuyết trình đã sử dụng các trang trình chiếu tương tác để minh họa các xu hướng thị trường.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/presenter.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-76"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-audience",
+    "word": "Audience",
+    "meaning": "Khán thính giả lắng nghe",
+    "ipa": "/ˈɔːdiəns/",
+    "definition": "The group of people together in one place to watch or listen to a play, speech, etc.",
+    "example": "The speaker captivated the audience with humorous real-world anecdotes.",
+    "exampleVi": "Diễn giả đã thu hút khán giả bằng những giai thoại thực tế hài hước.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/a/audience.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-76"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-panelist",
+    "word": "Panelist",
+    "meaning": "Thành viên ban tọa đàm chuyên môn",
+    "ipa": "/ˈpænəlɪst/",
+    "definition": "A member of a panel of people who discuss topics in front of an audience.",
+    "example": "The panelists shared practical insights on green supply chain management.",
+    "exampleVi": "Các thành viên ban tọa đàm đã chia sẻ những hiểu biết thực tế về quản lý chuỗi cung ứng xanh.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/panelist.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-76"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-host",
+    "word": "Host",
+    "meaning": "Đơn vị chủ trì đăng cai tổ chức",
+    "ipa": "/hoʊst/",
+    "definition": "A person or organization that provides the space and other things necessary for a special event.",
+    "example": "Japan will host the next Asia-Pacific economic leadership conference.",
+    "exampleVi": "Nhật Bản sẽ đăng cai tổ chức hội nghị lãnh đạo kinh tế châu Á - Thái Bình Dương tiếp theo.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/h/host.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-76"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-agenda-2",
+    "word": "Agenda",
+    "meaning": "Chương trình nghị sự các nội dung cuộc họp",
+    "ipa": "/əˈdʒendə/",
+    "definition": "A list of matters to be discussed at a meeting.",
+    "example": "The first item on the morning agenda is the adoption of annual financial reports.",
+    "exampleVi": "Nội dung đầu tiên trong chương trình nghị sự buổi sáng là việc thông qua các báo cáo tài chính hàng năm.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/agenda.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-77"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-itinerary-2",
+    "word": "Itinerary",
+    "meaning": "Lịch trình chi tiết theo từng khung giờ",
+    "ipa": "/aɪˈtɪnəreri/",
+    "definition": "A detailed plan or route of a journey or conference program.",
+    "example": "Delegates can check the full conference itinerary on the mobile app.",
+    "exampleVi": "Các đại biểu có thể kiểm tra toàn bộ lịch trình hội nghị trên ứng dụng di động.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/i/itinerary.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-77"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-schedule-2",
+    "word": "Schedule",
+    "meaning": "Lịch trình diễn thuyết thời gian biểu",
+    "ipa": "/ˈskedʒuːl/",
+    "definition": "A list of planned activities or things to be done showing the times or dates.",
+    "example": "The speaker schedule was adjusted to accommodate delayed international flights.",
+    "exampleVi": "Lịch trình diễn giả đã được điều chỉnh để phù hợp với các chuyến bay quốc tế bị hoãn.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/s/schedule.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-77"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-proceedings",
+    "word": "Proceedings",
+    "meaning": "Kỷ yếu tập hợp các bài báo khoa học hội nghị",
+    "ipa": "/proʊˈsiːdɪŋz/",
+    "definition": "A published report of the discussions and papers from a conference.",
+    "example": "The full conference proceedings will be published online next month.",
+    "exampleVi": "Toàn văn kỷ yếu hội nghị sẽ được xuất bản trực tuyến vào tháng tới.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/p/proceedings.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-77"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-handout",
+    "word": "Handout",
+    "meaning": "Tài liệu phát tay tóm tắt bài giảng",
+    "ipa": "/ˈhændaʊt/",
+    "definition": "A document given to students or people attending a talk, containing summarized information.",
+    "example": "The speaker distributed printed handouts before starting the lecture.",
+    "exampleVi": "Diễn giả đã phát các tài liệu phát tay trước khi bắt đầu bài thuyết giảng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/h/handout.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-77"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-brochure-2",
+    "word": "Brochure",
+    "meaning": "Sách giới thiệu sự kiện và nhà tài trợ",
+    "ipa": "/broʊˈʃʊr/",
+    "definition": "A thin book giving information or advertising something.",
+    "example": "The conference brochure lists all participating corporate sponsors and booths.",
+    "exampleVi": "Tài liệu giới thiệu hội nghị liệt kê tất cả các nhà tài trợ doanh nghiệp và gian hàng tham gia.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/brochure.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-77"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-badge",
+    "word": "Badge",
+    "meaning": "Thẻ đeo tên đại biểu dự sự kiện",
+    "ipa": "/bædʒ/",
+    "definition": "A small piece of metal, plastic, or cloth bearing information, worn to show identity.",
+    "example": "Please wear your attendee name badge at all times for security access.",
+    "exampleVi": "Vui lòng luôn đeo thẻ tên người tham dự của bạn để được cấp quyền ra vào an ninh.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/badge.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-77"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-registration",
+    "word": "Registration",
+    "meaning": "Thủ tục đăng ký ghi danh tham dự",
+    "ipa": "/ˌredʒɪˈstreɪʃn/",
+    "definition": "The act of recording a name or information on an official list.",
+    "example": "Early bird conference registration closes at midnight on Friday.",
+    "exampleVi": "Thời hạn đăng ký hội nghị sớm sẽ kết thúc vào nửa đêm thứ Sáu.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/registration.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-77"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-timetable",
+    "word": "Timetable",
+    "meaning": "Bảng giờ giấc chi tiết từng phiên họp",
+    "ipa": "/ˈtaɪmteɪbl/",
+    "definition": "A detailed plan showing when events or activities will happen.",
+    "example": "Check the seminar timetable for room allocations and breakout sessions.",
+    "exampleVi": "Hãy kiểm tra thời khóa biểu hội thảo để biết phân bổ phòng và các phiên thảo luận nhóm nhỏ.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/t/timetable.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-77"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-syllabus",
+    "word": "Syllabus",
+    "meaning": "Đề cương tóm tắt nội dung khóa học/tập huấn",
+    "ipa": "/ˈsɪləbəs/",
+    "definition": "A plan showing the subjects or books to be studied in a particular course.",
+    "example": "The training syllabus was revised to incorporate new cloud security modules.",
+    "exampleVi": "Đề cương đào tạo đã được sửa đổi để bổ sung các mô-đun an ninh đám mây mới.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/syllabus.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-77"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-banquet",
+    "word": "Banquet",
+    "meaning": "Đại tiệc chiêu đãi trang trọng",
+    "ipa": "/ˈbæŋkwɪt/",
+    "definition": "A large formal meal for many people, often followed by speeches in honour of someone.",
+    "example": "The closing banquet will feature a seven-course dinner and live music.",
+    "exampleVi": "Tiệc chiêu đãi bế mạc sẽ có bữa tối bảy món và biểu diễn nhạc sống.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/banquet.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-78"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-reception",
+    "word": "Reception",
+    "meaning": "Tiệc tiếp tân đón khách giao lưu",
+    "ipa": "/rɪˈsepʃn/",
+    "definition": "A formal party at which important people are welcomed.",
+    "example": "An opening cocktail reception allows delegates to network in a relaxed setting.",
+    "exampleVi": "Buổi tiệc cocktail tiếp tân khai mạc cho phép các đại biểu kết nối giao lưu trong một không gian thư thái.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/reception.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-78"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-catering",
+    "word": "Catering",
+    "meaning": "Dịch vụ cung cấp tiệc ăn uống trọn gói",
+    "ipa": "/ˈkeɪtərɪŋ/",
+    "definition": "Any job making or serving food for large numbers of people at events.",
+    "example": "A gourmet catering company provided organic lunch boxes for all participants.",
+    "exampleVi": "Một công ty cung cấp dịch vụ ăn uống cao cấp đã chuẩn bị các hộp cơm trưa hữu cơ cho tất cả người tham gia.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/catering.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-78"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-refreshment",
+    "word": "Refreshment",
+    "meaning": "Đồ ăn nhẹ và nước giải khát giữa giờ",
+    "ipa": "/rɪˈfreʃmənt/",
+    "definition": "Food and drinks, especially at a meeting or event.",
+    "example": "Complimentary coffee, tea, and light refreshments are served during the break.",
+    "exampleVi": "Cà phê, trà và đồ ăn nhẹ miễn phí được phục vụ trong giờ giải lao.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/refreshment.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-78"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-networking",
+    "word": "Networking",
+    "meaning": "Hoạt động kết nối thiết lập mạng lưới quan hệ",
+    "ipa": "/ˈnetwɜːrkɪŋ/",
+    "definition": "The activity of meeting people who might be useful to know, especially for your job.",
+    "example": "Trade conferences offer unparalleled opportunities for professional networking.",
+    "exampleVi": "Các hội nghị thương mại mang lại những cơ hội tuyệt vời để kết nối mạng lưới quan hệ nghề nghiệp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/n/networking.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-78"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-gala-dinner",
+    "word": "Gala dinner",
+    "meaning": "Dạ tiệc tối hoành tráng kết hợp vinh danh",
+    "ipa": "/ˌɡɑːlə ˈdɪnər/",
+    "definition": "A formal dinner celebrating an event, often including entertainment and awards.",
+    "example": "The industry achievement awards will be presented during the gala dinner.",
+    "exampleVi": "Các giải thưởng thành tựu trong ngành sẽ được trao trong đêm dạ tiệc tối.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/g/gala-dinner.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-78"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-hospitality",
+    "word": "Hospitality",
+    "meaning": "Sự hiếu khách, dịch vụ đón tiếp chu đáo",
+    "ipa": "/ˌhɑːspɪˈtæləti/",
+    "definition": "The act of being friendly and welcoming to guests and visitors.",
+    "example": "We thank our hosts for their exceptional hospitality during our stay in Tokyo.",
+    "exampleVi": "Chúng tôi xin cảm ơn các đơn vị chủ nhà vì lòng hiếu khách đặc biệt trong suốt thời gian chúng tôi ở Tokyo.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/h/hospitality.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-78"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-buffet",
+    "word": "Buffet",
+    "meaning": "Bữa tiệc tự chọn nhiều món",
+    "ipa": "/bəˈfeɪ/",
+    "definition": "A meal where people serve themselves from dishes on a table.",
+    "example": "A hot and cold lunch buffet is included with the conference pass.",
+    "exampleVi": "Bữa tiệc trưa tự chọn nóng và lạnh được bao gồm trong vé tham dự hội nghị.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/buffet.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-78"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-toast",
+    "word": "Toast",
+    "meaning": "Lời chúc mừng nâng ly",
+    "ipa": "/toʊst/",
+    "definition": "An expression of good wishes or respect in which a group of people drink together.",
+    "example": "The CEO proposed a toast to celebrate the successful joint venture.",
+    "exampleVi": "Tổng Giám đốc điều hành đã nâng ly chúc mừng sự hợp tác liên doanh thành công.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/toast.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-78"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cocktail",
+    "word": "Cocktail",
+    "meaning": "Đồ uống cocktail trong tiệc nhẹ",
+    "ipa": "/ˈkɑːkteɪl/",
+    "definition": "An alcoholic drink consisting of a spirit or spirits mixed with other ingredients.",
+    "example": "Join us for evening cocktails on the rooftop terrace following the final talk.",
+    "exampleVi": "Hãy tham gia cùng chúng tôi thưởng thức cocktail buổi tối trên sân thượng sau bài nói chuyện cuối cùng.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/cocktail.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-78"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-meeting",
+    "word": "Meeting",
+    "meaning": "Cuộc họp bàn công việc",
+    "ipa": "/ˈmiːtɪŋ/",
+    "definition": "A planned occasion when people come together to discuss something.",
+    "example": "The weekly department meeting is scheduled for every Monday at 9:00 AM.",
+    "exampleVi": "Cuộc họp phòng ban hàng tuần được lên lịch vào mỗi thứ Hai lúc 9 giờ sáng.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/m/meeting.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-79"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-brainstorming",
+    "word": "Brainstorming",
+    "meaning": "Hoạt động động não tìm ý tưởng mới",
+    "ipa": "/ˈbreɪnstɔːrmɪŋ/",
+    "definition": "An activity in which people suggest a lot of ideas very quickly on a problem.",
+    "example": "The creative team held a productive brainstorming session for the new campaign.",
+    "exampleVi": "Nhóm sáng tạo đã tổ chức một buổi động não tìm ý tưởng hiệu quả cho chiến dịch mới.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/brainstorming.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-79"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-minutes-2",
+    "word": "Minutes",
+    "meaning": "Biên bản ghi lại nội dung cuộc họp",
+    "ipa": "/ˈmɪnɪts/",
+    "definition": "The official written record of what is said and decided at a meeting.",
+    "example": "The administrative assistant typed and circulated the meeting minutes to all attendees.",
+    "exampleVi": "Trợ lý hành chính đã đánh máy và gửi biên bản cuộc họp tới tất cả những người tham dự.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/minutes.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-79"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-quorum",
+    "word": "Quorum",
+    "meaning": "Số lượng đại biểu tối thiểu để cuộc họp hợp lệ",
+    "ipa": "/ˈkwɔːrəm/",
+    "definition": "The smallest number of people who must be at a meeting before decisions can be made.",
+    "example": "A quorum was reached with eight of the ten board members present in person.",
+    "exampleVi": "Đã đủ số lượng đại biểu tối thiểu với tám trong số mười thành viên hội đồng quản trị có mặt trực tiếp.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/q/quorum.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-79"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-adjourn",
+    "word": "Adjourn",
+    "meaning": "Tuyên bố hoãn/kết thúc phiên họp",
+    "ipa": "/əˈdʒɜːrn/",
+    "definition": "To have a pause or finish a meeting with the intention of continuing it later.",
+    "example": "The chairperson adjourned the board meeting until 2:00 PM tomorrow.",
+    "exampleVi": "Chủ tọa đã tuyên bố tạm hoãn cuộc họp hội đồng quản trị cho đến 2:00 chiều ngày mai.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/a/adjourn.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-79"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-motion",
+    "word": "Motion",
+    "meaning": "Đề xuất kiến nghị chính thức để biểu quyết",
+    "ipa": "/ˈmoʊʃn/",
+    "definition": "A formal suggestion made, discussed, and voted on at a meeting.",
+    "example": "The director put forward a motion to increase the emergency reserve fund.",
+    "exampleVi": "Giám đốc đã đưa ra một kiến nghị chính thức nhằm tăng quỹ dự phòng khẩn cấp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/motion.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-79"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-consensus-3",
+    "word": "Consensus",
+    "meaning": "Sự nhất trí, đồng thuận hoàn toàn",
+    "ipa": "/kənˈsensəs/",
+    "definition": "A generally accepted opinion or decision among a group of people.",
+    "example": "After extensive debate, the committee reached a consensus on the new budget.",
+    "exampleVi": "Sau cuộc tranh luận sâu rộng, ủy ban đã đạt được sự đồng thuận về ngân sách mới.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/consensus.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-79"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-unanimous",
+    "word": "Unanimous",
+    "meaning": "Nhất trí 100%, không ai phản đối",
+    "ipa": "/juˈnænɪməs/",
+    "definition": "In complete agreement or showing that everyone in a group agrees.",
+    "example": "The board reached a unanimous decision to approve the foreign factory acquisition.",
+    "exampleVi": "Hội đồng quản trị đã đạt được quyết định nhất trí 100% về việc phê duyệt mua lại nhà máy ở nước ngoài.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/u/unanimous.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-79"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-resolution-2",
+    "word": "Resolution",
+    "meaning": "Nghị quyết chính thức được thông qua",
+    "ipa": "/ˌrezəˈluːʃn/",
+    "definition": "An official decision that is made after a group or organization has voted.",
+    "example": "The shareholders passed a resolution authorizing the issuance of new stock.",
+    "exampleVi": "Các cổ đông đã thông qua nghị quyết cho phép phát hành cổ phiếu mới.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/resolution.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-79"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-briefing-2",
+    "word": "Briefing",
+    "meaning": "Buổi tóm tắt thông tin chỉ thị nhanh",
+    "ipa": "/ˈbriːfɪŋ/",
+    "definition": "A meeting in which information or instructions are given to people.",
+    "example": "The security team received a morning briefing before the VIP delegation arrived.",
+    "exampleVi": "Đội an ninh đã nhận được một buổi tóm tắt chỉ thị vào buổi sáng trước khi phái đoàn VIP đến nơi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/briefing.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-79"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-innovation",
+    "word": "Innovation",
+    "meaning": "Sự đổi mới, sáng kiến cải tiến",
+    "ipa": "/ˌɪnəˈveɪʃn/",
+    "definition": "A new idea or method, or the use of new ideas and methods.",
+    "example": "Continuous technological innovation is essential for staying ahead of competitors.",
+    "exampleVi": "Đổi mới công nghệ liên tục là điều thiết yếu để luôn đi trước các đối thủ cạnh tranh.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/innovation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-80"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-disruption",
+    "word": "Disruption",
+    "meaning": "Sự đột phá làm thay đổi hoàn toàn cục diện thị trường",
+    "ipa": "/dɪsˈrʌpʃn/",
+    "definition": "An action that changes the traditional way an industry or market works.",
+    "example": "Digital streaming caused massive disruption to the traditional film distribution model.",
+    "exampleVi": "Truyền phát kỹ thuật số đã gây ra sự xáo trộn mang tính đột phá lớn đối với mô hình phân phối phim truyền thống.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/disruption.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-80"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-pioneer",
+    "word": "Pioneer",
+    "meaning": "Người tiên phong mở đường",
+    "ipa": "/ˌpaɪəˈnɪr/",
+    "definition": "A person who is one of the first people to do something or develop an idea.",
+    "example": "The company was a pioneer in developing commercially viable electric aircraft.",
+    "exampleVi": "Công ty là đơn vị tiên phong trong việc phát triển máy bay điện có tính khả thi về mặt thương mại.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/pioneer.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-80"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-overhaul",
+    "word": "Overhaul",
+    "meaning": "Cuộc đại tu, cải tổ toàn bộ hệ thống",
+    "ipa": "/ˈoʊvərhɔːl/",
+    "definition": "The act of completely examining and repairing or improving something.",
+    "example": "Management ordered a complete overhaul of the company's cybersecurity protocols.",
+    "exampleVi": "Ban quản lý đã yêu cầu một cuộc đại tu toàn diện các giao thức an ninh mạng của công ty.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/o/overhaul.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-80"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-transformation",
+    "word": "Transformation",
+    "meaning": "Sự chuyển đổi căn bản toàn diện (chuyển đổi số)",
+    "ipa": "/ˌtrænsfərˈmeɪʃn/",
+    "definition": "A complete change in the appearance or character of something.",
+    "example": "Digital transformation helped the traditional bank offer 24/7 mobile services.",
+    "exampleVi": "Chuyển đổi số đã giúp ngân hàng truyền thống cung cấp các dịch vụ di động 24/7.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/transformation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-80"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-reorganization",
+    "word": "Reorganization",
+    "meaning": "Sự tái tổ chức lại bộ máy nhân sự",
+    "ipa": "/riːˌɔːrɡənaɪˈzeɪʃn/",
+    "definition": "The act of organizing something in a new and different way.",
+    "example": "The corporate reorganization merged regional sales teams into one unified division.",
+    "exampleVi": "Việc tái cơ cấu doanh nghiệp đã hợp nhất các nhóm kinh doanh khu vực thành một bộ phận thống nhất.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/reorganization.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-80"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-entrepreneurship",
+    "word": "Entrepreneurship",
+    "meaning": "Tinh thần khởi nghiệp, kinh doanh sáng tạo",
+    "ipa": "/ˌɑːntrəprəˈnɜːrʃɪp/",
+    "definition": "The skill, ability, and willingness to take financial risks in order to make a profit.",
+    "example": "The university incubator fosters student entrepreneurship through seed grants.",
+    "exampleVi": "Vườn ươm của trường đại học thúc đẩy tinh thần khởi nghiệp của sinh viên thông qua các khoản tài trợ vốn hạt giống.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/entrepreneurship.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-80"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-breakthrough",
+    "word": "Breakthrough",
+    "meaning": "Bước đột phá khoa học/công nghệ",
+    "ipa": "/ˈbreɪkθruː/",
+    "definition": "An important discovery or event that helps to improve a situation or solve a problem.",
+    "example": "Researchers announced a major scientific breakthrough in solar cell efficiency.",
+    "exampleVi": "Các nhà nghiên cứu đã công bố một bước đột phá khoa học lớn về hiệu suất pin mặt trời.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/breakthrough.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-80"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-modernize-2",
+    "word": "Modernize",
+    "meaning": "Hiện đại hóa quy trình làm việc",
+    "ipa": "/ˈmɑːdərnaɪz/",
+    "definition": "To make something more modern or suitable for current needs.",
+    "example": "We invested $5 million to modernize our warehouse logistics with autonomous robots.",
+    "exampleVi": "Chúng tôi đã đầu tư 5 triệu USD để hiện đại hóa dịch vụ hậu cần kho bãi của mình bằng robot tự hành.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/m/modernize.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-80"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-pivot",
+    "word": "Pivot",
+    "meaning": "Chuyển hướng chiến lược kinh doanh sang mô hình mới",
+    "ipa": "/ˈpɪvət/",
+    "definition": "To change the direction or strategy of a business to adapt to new conditions.",
+    "example": "The tech startup pivoted from hardware manufacturing to cloud software services.",
+    "exampleVi": "Công ty công nghệ đã chuyển hướng chiến lược từ sản xuất phần cứng sang dịch vụ phần mềm đám mây.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/p/pivot.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-80"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-software",
+    "word": "Software",
+    "meaning": "Phần mềm máy tính, chương trình ứng dụng",
+    "ipa": "/ˈsɔːftwer/",
+    "definition": "The instructions that control what a computer does; computer programs.",
+    "example": "All company computers run proprietary inventory tracking software.",
+    "exampleVi": "Tất cả các máy tính của công ty đều chạy phần mềm theo dõi hàng tồn kho độc quyền.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/s/software.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-81"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-application",
+    "word": "Application",
+    "meaning": "Ứng dụng di động/máy tính (app)",
+    "ipa": "/ˌæplɪˈkeɪʃn/",
+    "definition": "A computer program that is designed for a particular purpose.",
+    "example": "The mobile banking application allows seamless instant fund transfers.",
+    "exampleVi": "Ứng dụng ngân hàng di động cho phép chuyển tiền tức thì vô cùng mượt mà.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/a/application.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-81"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-platform",
+    "word": "Platform",
+    "meaning": "Nền tảng kỹ thuật số kết nối dịch vụ",
+    "ipa": "/ˈplætfɔːrm/",
+    "definition": "A system or surface that enables technology or software to operate.",
+    "example": "Our e-commerce platform supports over one million daily active shoppers.",
+    "exampleVi": "Nền tảng thương mại điện tử của chúng tôi hỗ trợ hơn một triệu người mua sắm hoạt động hàng ngày.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/platform.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-81"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-interface",
+    "word": "Interface",
+    "meaning": "Giao diện người dùng (UI)",
+    "ipa": "/ˈɪntərfeɪs/",
+    "definition": "A connection between two pieces of electronic equipment, or human and computer.",
+    "example": "The intuitive user interface makes it easy for novices to navigate the system.",
+    "exampleVi": "Giao diện người dùng trực quan giúp những người mới sử dụng dễ dàng điều hướng hệ thống.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/interface.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-81"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-database",
+    "word": "Database",
+    "meaning": "Cơ sở dữ liệu lưu trữ thông tin",
+    "ipa": "/ˈdeɪtəbeɪs/",
+    "definition": "A large amount of information stored in a computer system so that it can be looked at easily.",
+    "example": "Customer records are securely encrypted within our central database.",
+    "exampleVi": "Hồ sơ khách hàng được mã hóa an toàn trong cơ sở dữ liệu trung tâm của chúng tôi.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/database.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-81"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-algorithm",
+    "word": "Algorithm",
+    "meaning": "Thuật toán xử lý và tính toán dữ liệu",
+    "ipa": "/ˈælɡərɪðəm/",
+    "definition": "A set of mathematical instructions or rules that, especially if given to a computer, will help to calculate an answer.",
+    "example": "Search algorithms rank web pages based on relevance and user engagement.",
+    "exampleVi": "Các thuật toán tìm kiếm xếp hạng các trang web dựa trên mức độ liên quan và sự tương tác của người dùng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/algorithm.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-81"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-codebase",
+    "word": "Codebase",
+    "meaning": "Toàn bộ kho mã nguồn của phần mềm",
+    "ipa": "/ˈkoʊdbeɪs/",
+    "definition": "The complete collection of source code used to build a software system.",
+    "example": "The engineering team refactored the legacy codebase to improve performance.",
+    "exampleVi": "Đội ngũ kỹ thuật đã tái cấu trúc lại kho mã nguồn cũ để cải thiện hiệu suất.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/codebase.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-81"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-plug-in",
+    "word": "Plug-in",
+    "meaning": "Phần mềm bổ trợ gắn thêm tính năng",
+    "ipa": "/ˈplʌɡ ɪn/",
+    "definition": "A small piece of software that adds a specific feature to a larger program.",
+    "example": "Install the security plug-in to enable two-factor authentication in your browser.",
+    "exampleVi": "Hãy cài đặt phần mềm bổ trợ bảo mật để bật xác thực hai yếu tố trong trình duyệt của bạn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/plug-in.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-81"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-framework",
+    "word": "Framework",
+    "meaning": "Khung kiến trúc lập trình phát triển",
+    "ipa": "/ˈfreɪmwɜːrk/",
+    "definition": "A supporting structure around which other parts are built, or a software framework.",
+    "example": "The web application was built using a modern open-source JavaScript framework.",
+    "exampleVi": "Ứng dụng web được xây dựng bằng một khung JavaScript mã nguồn mở hiện đại.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/f/framework.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-81"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-middleware",
+    "word": "Middleware",
+    "meaning": "Phần mềm trung gian kết nối các hệ thống",
+    "ipa": "/ˈmɪdlwer/",
+    "definition": "Software that acts as a bridge between an operating system and applications.",
+    "example": "Enterprise middleware facilitates data exchange between banking legacy databases.",
+    "exampleVi": "Phần mềm trung gian doanh nghiệp tạo điều kiện thuận lợi cho việc trao đổi dữ liệu giữa các cơ sở dữ liệu cũ của ngân hàng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/m/middleware.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-81"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-hardware",
+    "word": "Hardware",
+    "meaning": "Phần cứng máy tính, thiết bị vật lý",
+    "ipa": "/ˈhɑːrdwer/",
+    "definition": "The physical and electronic parts of a computer, rather than the programs.",
+    "example": "The IT department will replace outdated server hardware this weekend.",
+    "exampleVi": "Phòng CNTT sẽ thay thế phần cứng máy chủ lỗi thời vào cuối tuần này.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/h/hardware.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-82"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-server",
+    "word": "Server",
+    "meaning": "Máy chủ lưu trữ và xử lý dữ liệu mạng",
+    "ipa": "/ˈsɜːrvər/",
+    "definition": "A central computer from which other computers get information.",
+    "example": "Dedicated backup servers ensure 99.99% system uptime for clients.",
+    "exampleVi": "Các máy chủ dự phòng chuyên dụng đảm bảo thời gian hoạt động của hệ thống 99,99% cho khách hàng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/server.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-82"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-mainframe",
+    "word": "Mainframe",
+    "meaning": "Máy tính trung tâm cỡ lớn cho doanh nghiệp",
+    "ipa": "/ˈmeɪnfreɪm/",
+    "definition": "A large and powerful computer that supports many other computers simultaneously.",
+    "example": "Financial institutions rely on secure mainframes to process millions of transactions daily.",
+    "exampleVi": "Các tổ chức tài chính dựa vào các máy tính lớn an toàn để xử lý hàng triệu giao dịch mỗi ngày.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/mainframe.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-82"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-peripheral",
+    "word": "Peripheral",
+    "meaning": "Thiết bị ngoại vi (bàn phím, chuột, máy in)",
+    "ipa": "/pəˈrɪfərəl/",
+    "definition": "A piece of equipment that is connected to a computer, such as a printer or mouse.",
+    "example": "Wireless peripherals reduce desk clutter in the modern open office.",
+    "exampleVi": "Các thiết bị ngoại vi không dây giúp giảm bớt sự lộn xộn trên bàn làm việc trong văn phòng mở hiện đại.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/p/peripheral.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-82"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cpu",
+    "word": "CPU",
+    "meaning": "Bộ vi xử lý trung tâm của máy tính",
+    "ipa": "/ˌsiː piː ˈjuː/",
+    "definition": "Central Processing Unit; the brain of a computer that performs instructions.",
+    "example": "The new laptop features a high-efficiency multi-core CPU.",
+    "exampleVi": "Chiếc máy tính xách tay mới sở hữu bộ vi xử lý trung tâm đa lõi hiệu suất cao.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/cpu.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-82"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-hard-drive",
+    "word": "Hard drive",
+    "meaning": "Ổ đĩa cứng lưu trữ dữ liệu",
+    "ipa": "/ˈhɑːrd draɪv/",
+    "definition": "A disk on which a large amount of information can be stored and used by a computer.",
+    "example": "Always store duplicate backups on an external encrypted hard drive.",
+    "exampleVi": "Luôn lưu trữ các bản sao dự phòng trên một ổ đĩa cứng ngoài đã được mã hóa.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/h/hard-drive.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-82"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-monitor-2",
+    "word": "Monitor",
+    "meaning": "Màn hình hiển thị máy tính",
+    "ipa": "/ˈmɑːnɪtər/",
+    "definition": "A screen that shows books, words, or pictures from a computer.",
+    "example": "Software developers typically work with dual 27-inch high-resolution monitors.",
+    "exampleVi": "Các nhà phát triển phần mềm thường làm việc với màn hình kép 27 inch độ phân giải cao.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/m/monitor.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-82"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-memory",
+    "word": "Memory",
+    "meaning": "Bộ nhớ RAM truy xuất tạm thời của máy",
+    "ipa": "/ˈmeməri/",
+    "definition": "The part of a computer in which information or programs are stored.",
+    "example": "Adding 16GB of RAM memory improved video rendering speed significantly.",
+    "exampleVi": "Bổ sung 16GB bộ nhớ RAM đã cải thiện đáng kể tốc độ kết xuất video.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/m/memory.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-82"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-router",
+    "word": "Router",
+    "meaning": "Bộ định tuyến phát sóng mạng Wi-Fi/Internet",
+    "ipa": "/ˈraʊtər/",
+    "definition": "A piece of electronic equipment that connects computer networks to the internet.",
+    "example": "The IT technician reset the office Wi-Fi router to resolve connectivity drops.",
+    "exampleVi": "Kỹ thuật viên CNTT đã khởi động lại bộ định tuyến Wi-Fi văn phòng để giải quyết tình trạng rớt mạng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/router.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-82"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-modem",
+    "word": "Modem",
+    "meaning": "Thiết bị giải mã tín hiệu mạng",
+    "ipa": "/ˈmoʊdem/",
+    "definition": "An electronic device that allows one computer to send information to another through telephone or cable lines.",
+    "example": "Fiber-optic modems provide gigabit internet speeds for corporate headquarters.",
+    "exampleVi": "Bộ giải mã cáp quang cung cấp tốc độ internet gigabit cho trụ sở chính của công ty.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/m/modem.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-82"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-network",
+    "word": "Network",
+    "meaning": "Mạng lưới máy tính kết nối liên thông",
+    "ipa": "/ˈnetwɜːrk/",
+    "definition": "A system of interconnected computers, people, or communications.",
+    "example": "All workstations are connected via a high-speed corporate local network.",
+    "exampleVi": "Tất cả các máy trạm đều được kết nối qua mạng cục bộ nội bộ tốc độ cao của công ty.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/n/network.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-83"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-telecommunication",
+    "word": "Telecommunication",
+    "meaning": "Ngành viễn thông truyền thông tin từ xa",
+    "ipa": "/ˌtelɪkəˌmjuːnɪˈkeɪʃn/",
+    "definition": "The communication of information using technology such as phone lines, radio, or satellites.",
+    "example": "Global telecommunication infrastructure enables instant cross-border video meetings.",
+    "exampleVi": "Cơ sở hạ tầng viễn thông toàn cầu cho phép các cuộc họp video xuyên biên giới diễn ra tức thì.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/telecommunication.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-83"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bandwidth",
+    "word": "Bandwidth",
+    "meaning": "Băng thông đường truyền mạng dữ liệu",
+    "ipa": "/ˈbændwɪdθ/",
+    "definition": "The amount of information that can be sent through a connection at one time.",
+    "example": "Streaming high-definition video conferences requires substantial internet bandwidth.",
+    "exampleVi": "Việc truyền phát các hội nghị truyền hình độ nét cao đòi hỏi băng thông internet đáng kể.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/bandwidth.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-83"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cloud-computing",
+    "word": "Cloud computing",
+    "meaning": "Điện toán đám mây lưu trữ trực tuyến",
+    "ipa": "/ˌklaʊd kəmˈpjuːtɪŋ/",
+    "definition": "The practice of using a network of remote servers hosted on the Internet to store, manage, and process data.",
+    "example": "Migrating to cloud computing reduced local server maintenance expenses by 40%.",
+    "exampleVi": "Chuyển sang điện toán đám mây đã giúp giảm 40% chi phí bảo trì máy chủ cục bộ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/cloud-computing.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-83"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-server-farm",
+    "word": "Server farm",
+    "meaning": "Trại máy chủ quy mô lớn của trung tâm dữ liệu",
+    "ipa": "/ˈsɜːrvər fɑːrm/",
+    "definition": "A collection of computer servers usually maintained by an enterprise to supply server functionality.",
+    "example": "The tech giant built a massive server farm powered entirely by renewable solar energy.",
+    "exampleVi": "Gã khổng lồ công nghệ đã xây dựng một trung tâm máy chủ khổng lồ chạy hoàn toàn bằng năng lượng mặt trời tái tạo.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/server-farm.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-83"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-intranet",
+    "word": "Intranet",
+    "meaning": "Mạng nội bộ riêng tư của một tổ chức",
+    "ipa": "/ˈɪntrənet/",
+    "definition": "A private network of computers that is accessible only to staff of that organization.",
+    "example": "Company policies and holiday schedules are posted on the employee intranet portal.",
+    "exampleVi": "Các chính sách công ty và lịch nghỉ lễ được đăng trên cổng thông tin mạng nội bộ nhân viên.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/intranet.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-83"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-lan",
+    "word": "LAN",
+    "meaning": "Mạng cục bộ văn phòng (Local Area Network)",
+    "ipa": "/læn/",
+    "definition": "Local Area Network; a computer network that covers a small area like an office.",
+    "example": "Printers and file servers are shared across the office LAN.",
+    "exampleVi": "Máy in và máy chủ tệp được chia sẻ trên toàn bộ mạng cục bộ LAN văn phòng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/l/lan.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-83"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-broadband",
+    "word": "Broadband",
+    "meaning": "Đường truyền internet băng thông rộng",
+    "ipa": "/ˈbrɔːdbænd/",
+    "definition": "A fast internet connection that does not use telephone lines.",
+    "example": "High-speed fiber broadband is essential for remote work productivity.",
+    "exampleVi": "Internet băng thông rộng cáp quang tốc độ cao là điều thiết yếu cho năng suất làm việc từ xa.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/broadband.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-83"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-infrastructure",
+    "word": "Infrastructure",
+    "meaning": "Cơ sở hạ tầng kỹ thuật nền tảng",
+    "ipa": "/ˈɪnfrəstrʌktʃər/",
+    "definition": "The basic systems and services, such as transport and power supplies, that a company uses.",
+    "example": "Investing in IT infrastructure ensures long-term business scalability.",
+    "exampleVi": "Đầu tư vào cơ sở hạ tầng CNTT đảm bảo khả năng mở rộng kinh doanh lâu dài.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/infrastructure.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-83"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-connectivity",
+    "word": "Connectivity",
+    "meaning": "Khả năng kết nối mạng thông suốt",
+    "ipa": "/ˌkɑːnekˈtɪvəti/",
+    "definition": "The ability of a computer, program to connect to the internet or other computers.",
+    "example": "Remote offices require reliable satellite internet connectivity.",
+    "exampleVi": "Các văn phòng ở xa đòi hỏi khả năng kết nối internet vệ tinh đáng tin cậy.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/connectivity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-83"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cybersecurity",
+    "word": "Cybersecurity",
+    "meaning": "An ninh mạng chống tin tặc",
+    "ipa": "/ˈsaɪbərsɪkjʊrəti/",
+    "definition": "The state of being protected against the criminal or unauthorized use of electronic data.",
+    "example": "Companies spend billions annually on advanced cybersecurity defenses.",
+    "exampleVi": "Các công ty chi hàng tỷ đô la mỗi năm cho các hệ thống phòng thủ an ninh mạng tiên tiến.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/cybersecurity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-84"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-encryption",
+    "word": "Encryption",
+    "meaning": "Sự mã hóa dữ liệu thành mật mã",
+    "ipa": "/ɪnˈkrɪpʃn/",
+    "definition": "The process of changing electronic information into a secret code that people cannot read.",
+    "example": "End-to-end encryption prevents unauthorized interception of confidential emails.",
+    "exampleVi": "Mã hóa đầu cuối ngăn chặn việc nghe lén trái phép các email bảo mật.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/encryption.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-84"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-firewall",
+    "word": "Firewall",
+    "meaning": "Tường lửa ngăn chặn xâm nhập mạng",
+    "ipa": "/ˈfaɪərwɔːl/",
+    "definition": "A system designed to prevent unauthorized access to or from a private computer network.",
+    "example": "The corporate network firewall blocks suspicious external IP addresses.",
+    "exampleVi": "Tường lửa mạng doanh nghiệp chặn các địa chỉ IP bên ngoài đáng ngờ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/f/firewall.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-84"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-authentication",
+    "word": "Authentication",
+    "meaning": "Sự xác thực danh tính người dùng",
+    "ipa": "/ɔːˌθentɪˈkeɪʃn/",
+    "definition": "The process of proving that a user or document is genuine and authorized.",
+    "example": "Two-factor authentication requires both a password and a phone verification code.",
+    "exampleVi": "Xác thực hai yếu tố đòi hỏi cả mật khẩu và mã xác minh qua điện thoại.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/authentication.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-84"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-authorization",
+    "word": "Authorization",
+    "meaning": "Sự cấp quyền truy cập tài nguyên",
+    "ipa": "/ˌɔːθərəˈzeɪʃn/",
+    "definition": "Official permission for something to happen, or the act of giving permission.",
+    "example": "Only senior executives have administrative authorization to access payroll data.",
+    "exampleVi": "Chỉ các lãnh đạo cấp cao mới có quyền quản trị để truy cập dữ liệu bảng lương.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/authorization.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-84"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-malware",
+    "word": "Malware",
+    "meaning": "Phần mềm độc hại (virus, trojan, spyware)",
+    "ipa": "/ˈmælwer/",
+    "definition": "Computer software designed to damage or gain unauthorized access to computer systems.",
+    "example": "Antivirus scans detected and quarantined malicious malware on the workstation.",
+    "exampleVi": "Các đợt quét chống virus đã phát hiện và cách ly phần mềm độc hại nguy hiểm trên máy trạm.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/malware.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-84"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-antivirus",
+    "word": "Antivirus",
+    "meaning": "Phần mềm diệt virus máy tính",
+    "ipa": "/ˌæntiˈvaɪrəs/",
+    "definition": "Software designed to detect and destroy computer viruses.",
+    "example": "Keep your antivirus definitions updated daily to guard against new threats.",
+    "exampleVi": "Hãy cập nhật dữ liệu phần mềm diệt virus hàng ngày để phòng vệ trước các mối đe dọa mới.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/antivirus.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-84"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-phishing",
+    "word": "Phishing",
+    "meaning": "Hành vi lừa đảo qua mạng giả mạo email",
+    "ipa": "/ˈfɪʃɪŋ/",
+    "definition": "An attempt to trick someone into giving information over the internet, such as passwords.",
+    "example": "Staff underwent training to recognize fraudulent phishing emails asking for credentials.",
+    "exampleVi": "Nhân viên đã trải qua khóa đào tạo để nhận biết các email lừa đảo giả mạo yêu cầu cung cấp thông tin đăng nhập.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/phishing.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-84"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-breach-3",
+    "word": "Breach",
+    "meaning": "Vụ rò rỉ dữ liệu an ninh nghiêm trọng",
+    "ipa": "/briːtʃ/",
+    "definition": "An act of breaking a law, or an occasion when an unauthorized person gets access to computer data.",
+    "example": "The corporation notified customers immediately after discovering a data security breach.",
+    "exampleVi": "Tập đoàn đã thông báo ngay cho khách hàng sau khi phát hiện một vụ xâm phạm an ninh dữ liệu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/breach.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-84"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-privacy",
+    "word": "Privacy",
+    "meaning": "Quyền riêng tư cá nhân và dữ liệu",
+    "ipa": "/ˈpraɪvəsi/",
+    "definition": "The state of being alone, or the right to keep personal matters and relationships secret.",
+    "example": "Our strict data privacy policy complies fully with international GDPR regulations.",
+    "exampleVi": "Chính sách bảo mật dữ liệu nghiêm ngặt của chúng tôi tuân thủ đầy đủ các quy định GDPR quốc tế.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/privacy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-84"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-glitch",
+    "word": "Glitch",
+    "meaning": "Sự cố trục trặc kỹ thuật nhỏ tạm thời",
+    "ipa": "/ɡlɪtʃ/",
+    "definition": "A small problem or fault that prevents something from working successfully.",
+    "example": "A temporary software glitch caused prices to display incorrectly for ten minutes.",
+    "exampleVi": "Một trục trặc phần mềm tạm thời đã khiến giá hiển thị không chính xác trong mười phút.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/g/glitch.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-85"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bug",
+    "word": "Bug",
+    "meaning": "Lỗi mã nguồn trong chương trình phần mềm",
+    "ipa": "/bʌɡ/",
+    "definition": "A mistake or problem in a computer program.",
+    "example": "Developers released an emergency patch to fix a critical login bug.",
+    "exampleVi": "Các nhà phát triển đã phát hành bản vá khẩn cấp để sửa lỗi đăng nhập nghiêm trọng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/bug.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-85"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-malfunction",
+    "word": "Malfunction",
+    "meaning": "Sự cố hỏng hóc máy móc thiết bị",
+    "ipa": "/ˌmælˈfʌŋkʃn/",
+    "definition": "To fail to work or operate normally, or a failure to function correctly.",
+    "example": "The assembly line halted due to a hydraulic sensor malfunction.",
+    "exampleVi": "Dây chuyền lắp ráp bị tạm dừng do sự cố hỏng hóc cảm biến thủy lực.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/malfunction.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-85"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-outage",
+    "word": "Outage",
+    "meaning": "Sự cố mất điện / sập mạng diện rộng",
+    "ipa": "/ˈaʊtɪdʒ/",
+    "definition": "A period when a service, such as electricity or internet, is not available.",
+    "example": "Severe lightning storms caused a three-hour power outage across the city.",
+    "exampleVi": "Những cơn bão sét dữ dội đã gây ra sự cố mất điện kéo dài ba giờ trên toàn thành phố.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/o/outage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-85"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-downtime",
+    "word": "Downtime",
+    "meaning": "Thời gian hệ thống ngừng hoạt động để sửa",
+    "ipa": "/ˈdaʊntaɪm/",
+    "definition": "The time during which a machine or computer is not working.",
+    "example": "Server maintenance was scheduled at 3:00 AM to minimize business downtime.",
+    "exampleVi": "Bảo trì máy chủ được lên lịch vào lúc 3:00 sáng để giảm thiểu thời gian gián đoạn kinh doanh.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/downtime.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-85"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-troubleshoot-2",
+    "word": "Troubleshoot",
+    "meaning": "Dò tìm và khắc phục sự cố kỹ thuật",
+    "ipa": "/ˈtrʌblʃuːt/",
+    "definition": "To discover why something does not work effectively and help to solve the problem.",
+    "example": "The helpdesk technician guided the user to troubleshoot the printer connection.",
+    "exampleVi": "Kỹ thuật viên bàn trợ giúp đã hướng dẫn người dùng dò tìm và khắc phục lỗi kết nối máy in.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/t/troubleshoot.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-85"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-diagnostic",
+    "word": "Diagnostic",
+    "meaning": "Hoạt động chẩn đoán lỗi phần cứng/mềm",
+    "ipa": "/ˌdaɪəɡˈnɑːstɪk/",
+    "definition": "Identifying a disease or fault from its symptoms, or diagnostic tests.",
+    "example": "Run a full hardware diagnostic check before replacing the motherboard.",
+    "exampleVi": "Hãy chạy kiểm tra chẩn đoán toàn bộ phần cứng trước khi thay thế bo mạch chủ.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/diagnostic.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-85"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-debug",
+    "word": "Debug",
+    "meaning": "Gỡ lỗi, rà soát sửa mã nguồn lập trình",
+    "ipa": "/ˌdiːˈbʌɡ/",
+    "definition": "To look for and remove mistakes in a computer program.",
+    "example": "Software engineers spent the weekend debugging the mobile payment gateway.",
+    "exampleVi": "Các kỹ sư phần mềm đã dành cả cuối tuần để gỡ lỗi cổng thanh toán di động.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/d/debug.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-85"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-patch",
+    "word": "Patch",
+    "meaning": "Bản vá lỗi phần mềm cập nhật bảo mật",
+    "ipa": "/pætʃ/",
+    "definition": "A piece of software designed to fix problems with or update a computer program.",
+    "example": "Install the latest security patch to protect against ransomware attacks.",
+    "exampleVi": "Hãy cài đặt bản vá bảo mật mới nhất để phòng vệ trước các cuộc tấn công của mã độc tống tiền.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/patch.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-85"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-crash",
+    "word": "Crash",
+    "meaning": "Sự cố sập nguồn/treo cứng ứng dụng",
+    "ipa": "/kræʃ/",
+    "definition": "If a computer or system crashes, it suddenly stops working.",
+    "example": "The application crashed unexpectedly when processing large video files.",
+    "exampleVi": "Ứng dụng đã bị sập bất ngờ khi đang xử lý các tệp video dung lượng lớn.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/c/crash.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-85"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-maintenance",
+    "word": "Maintenance",
+    "meaning": "Hoạt động bảo trì bảo dưỡng định kỳ",
+    "ipa": "/ˈmeɪntənəns/",
+    "definition": "The work needed to keep a road, building, machine, or software in good condition.",
+    "example": "Routine database maintenance is performed every Sunday evening.",
+    "exampleVi": "Bảo trì cơ sở dữ liệu định kỳ được thực hiện vào mỗi tối Chủ Nhật.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/m/maintenance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-86"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-upgrade-2",
+    "word": "Upgrade",
+    "meaning": "Nâng cấp lên phiên bản cao cấp/mới hơn",
+    "ipa": "/ˈʌpɡreɪd/",
+    "definition": "To improve the quality or usefulness of something, or get a better version.",
+    "example": "The corporation upgraded all workstations with faster solid-state drives.",
+    "exampleVi": "Tập đoàn đã nâng cấp tất cả các máy trạm bằng các ổ cứng thể rắn tốc độ nhanh hơn.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/u/upgrade.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-86"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-update",
+    "word": "Update",
+    "meaning": "Bản cập nhật thông tin/tính năng mới",
+    "ipa": "/ˈʌpdeɪt/",
+    "definition": "An act of bringing something up to date, or latest news/features.",
+    "example": "Software updates include bug fixes and improved battery management.",
+    "exampleVi": "Các bản cập nhật phần mềm bao gồm các bản sửa lỗi và cải thiện khả năng quản lý pin.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/u/update.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-86"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-overhaul-2",
+    "word": "Overhaul",
+    "meaning": "Cuộc đại tu, thay mới toàn bộ",
+    "ipa": "/ˈoʊvərhɔːl/",
+    "definition": "To completely examine and repair or change something.",
+    "example": "Engineers overhauled the legacy payment processing architecture.",
+    "exampleVi": "Các kỹ sư đã đại tu toàn bộ kiến trúc xử lý thanh toán cũ.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/o/overhaul.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-86"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-restore",
+    "word": "Restore",
+    "meaning": "Khôi phục lại dữ liệu/trạng thái ban đầu",
+    "ipa": "/rɪˈstɔːr/",
+    "definition": "To bring back something to its former condition or place.",
+    "example": "We can restore the database from yesterday's automatic cloud backup snapshot.",
+    "exampleVi": "Chúng tôi có thể khôi phục lại cơ sở dữ liệu từ bản chụp sao lưu đám mây tự động của ngày hôm qua.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/r/restore.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-86"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-migration",
+    "word": "Migration",
+    "meaning": "Quá trình di chuyển dữ liệu sang hệ thống mới",
+    "ipa": "/maɪˈɡreɪʃn/",
+    "definition": "The process of moving from one computer system, website, or software to another.",
+    "example": "The migration of customer records to the new CRM took three days.",
+    "exampleVi": "Việc di chuyển hồ sơ khách hàng sang hệ thống CRM mới đã mất ba ngày.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/migration.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-86"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-rollout",
+    "word": "Rollout",
+    "meaning": "Đợt triển khai ra mắt tính năng cho người dùng",
+    "ipa": "/ˈroʊlaʊt/",
+    "definition": "The act of making a new product, service, or system available for the first time.",
+    "example": "The nationwide rollout of the 5G network will be completed by year-end.",
+    "exampleVi": "Đợt triển khai mạng 5G trên toàn quốc sẽ được hoàn thành trước cuối năm.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/rollout.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-86"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-configuration",
+    "word": "Configuration",
+    "meaning": "Cấu hình thiết lập thông số hệ thống",
+    "ipa": "/kənˌfɪɡjəˈreɪʃn/",
+    "definition": "The particular arrangement or pattern of a group of related things.",
+    "example": "The default firewall configuration allows standard web traffic through port 443.",
+    "exampleVi": "Cấu hình tường lửa mặc định cho phép lưu lượng web tiêu chuẩn qua cổng 443.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/configuration.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-86"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-deployment",
+    "word": "Deployment",
+    "meaning": "Sự đưa phần mềm lên môi trường chạy thực tế",
+    "ipa": "/dɪˈplɔɪmənt/",
+    "definition": "The action of putting a software system or change into effective operation.",
+    "example": "Automated testing guarantees error-free production code deployment.",
+    "exampleVi": "Kiểm thử tự động đảm bảo việc đưa mã nguồn lên môi trường chạy thực tế không có lỗi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/deployment.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-86"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-backup",
+    "word": "Backup",
+    "meaning": "Bản sao lưu dự phòng dữ liệu an toàn",
+    "ipa": "/ˈbækʌp/",
+    "definition": "A copy of information held on a computer that is stored for safety.",
+    "example": "Always make an offsite backup of your essential business files.",
+    "exampleVi": "Hãy luôn tạo một bản sao lưu dự phòng ở vị trí an toàn khác cho các tệp kinh doanh thiết yếu của bạn.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/backup.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-86"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-automation",
+    "word": "Automation",
+    "meaning": "Tự động hóa các khâu thủ công bằng máy móc",
+    "ipa": "/ˌɔːtəˈmeɪʃn/",
+    "definition": "The use of machines and computers that can operate without needing human control.",
+    "example": "Warehouse automation doubled order fulfillment speed while reducing labor costs.",
+    "exampleVi": "Tự động hóa nhà kho đã tăng gấp đôi tốc độ hoàn tất đơn hàng trong khi giảm chi phí lao động.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/automation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-87"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-artificial-intelligence",
+    "word": "Artificial intelligence",
+    "meaning": "Trí tuệ nhân tạo thông minh (AI)",
+    "ipa": "/ˌɑːrtɪˈfɪʃl ɪnˈtelɪdʒəns/",
+    "definition": "Computer technology that simulates human intelligence and problem-solving.",
+    "example": "Artificial intelligence algorithms detect fraudulent banking transactions in milliseconds.",
+    "exampleVi": "Các thuật toán trí tuệ nhân tạo phát hiện các giao dịch ngân hàng gian lận trong vài phần nghìn giây.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/artificial-intelligence.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-87"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-machine-learning",
+    "word": "Machine learning",
+    "meaning": "Học máy, máy tự học từ dữ liệu lớn",
+    "ipa": "/məˈʃiːn ˈlɜːrnɪŋ/",
+    "definition": "The process by which computers learn from data and improve without being programmed.",
+    "example": "Recommendation systems use machine learning to suggest relevant products.",
+    "exampleVi": "Các hệ thống gợi ý sử dụng học máy để đề xuất các sản phẩm liên quan.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/m/machine-learning.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-87"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-big-data",
+    "word": "Big data",
+    "meaning": "Tập dữ liệu lớn khổng lồ đa chiều",
+    "ipa": "/ˌbɪɡ ˈdeɪtə/",
+    "definition": "Very large sets of data that can be analyzed to reveal patterns and trends.",
+    "example": "Retailers analyze big data to predict seasonal consumer buying habits.",
+    "exampleVi": "Các nhà bán lẻ phân tích dữ liệu lớn để dự đoán thói quen mua sắm theo mùa của người tiêu dùng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/big-data.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-87"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-analytics-2",
+    "word": "Analytics",
+    "meaning": "Công cụ phân tích và trực quan hóa dữ liệu",
+    "ipa": "/ˌænəˈlɪtɪks/",
+    "definition": "A process of using computer software to examine data and find trends.",
+    "example": "Predictive analytics helps manufacturing plants anticipate equipment breakdowns.",
+    "exampleVi": "Phân tích dự đoán giúp các nhà máy sản xuất lường trước các hỏng hóc máy móc.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/analytics.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-87"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-algorithm-2",
+    "word": "Algorithm",
+    "meaning": "Quy tắc thuật toán chỉ đạo",
+    "ipa": "/ˈælɡərɪðəm/",
+    "definition": "A list of rules and instructions used by a computer to calculate an answer.",
+    "example": "The routing algorithm calculates the fastest delivery path in traffic.",
+    "exampleVi": "Thuật toán định tuyến tính toán đường giao hàng nhanh nhất trong điều kiện giao thông.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/algorithm.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-87"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-robotics",
+    "word": "Robotics",
+    "meaning": "Ngành khoa học chế tạo robot tự động",
+    "ipa": "/roʊˈbɑːtɪks/",
+    "definition": "The science of making and using robots.",
+    "example": "Advancements in robotics revolutionized automotive assembly lines.",
+    "exampleVi": "Những tiến bộ trong ngành chế tạo robot đã cách mạng hóa các dây chuyền lắp ráp ô tô.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/robotics.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-87"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-smart-system",
+    "word": "Smart system",
+    "meaning": "Hệ thống thông minh tự thích ứng",
+    "ipa": "/ˈsmɑːrt ˈsɪstəm/",
+    "definition": "A system that incorporates sensing, actuation, and control functions.",
+    "example": "Smart building systems optimize heating and lighting to conserve energy.",
+    "exampleVi": "Các hệ thống tòa nhà thông minh tối ưu hóa việc sưởi ấm và chiếu sáng để tiết kiệm năng lượng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/smart-system.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-87"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-iot",
+    "word": "IoT",
+    "meaning": "Internet vạn vật kết nối thiết bị thông minh",
+    "ipa": "/ˌaɪ oʊ ˈtiː/",
+    "definition": "Internet of Things; interconnected devices communicating data online.",
+    "example": "IoT sensors monitor soil moisture and temperature in smart agriculture.",
+    "exampleVi": "Các cảm biến Internet vạn vật theo dõi độ ẩm và nhiệt độ của đất trong nông nghiệp thông minh.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/iot.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-87"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-digitization",
+    "word": "Digitization",
+    "meaning": "Quá trình số hóa tài liệu giấy tờ",
+    "ipa": "/ˌdɪdʒɪtəˈzeɪʃn/",
+    "definition": "The conversion of text, pictures, or sound into a digital form.",
+    "example": "The digitization of medical records improved patient data accessibility.",
+    "exampleVi": "Việc số hóa hồ sơ y tế đã cải thiện khả năng tiếp cận dữ liệu của bệnh nhân.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/digitization.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-87"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-helpdesk",
+    "word": "Helpdesk",
+    "meaning": "Bộ phận bàn hỗ trợ kỹ thuật khách hàng",
+    "ipa": "/ˈhelpdesk/",
+    "definition": "A service that gives people help with using computer hardware and software.",
+    "example": "Call the internal IT helpdesk at extension 404 if your computer locks up.",
+    "exampleVi": "Hãy gọi cho bàn hỗ trợ CNTT nội bộ theo số máy lẻ 404 nếu máy tính của bạn bị khóa cứng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/h/helpdesk.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-88"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-technical-support",
+    "word": "Technical support",
+    "meaning": "Dịch vụ hỗ trợ kỹ thuật chuyên môn",
+    "ipa": "/ˌteknɪkl səˈpɔːrt/",
+    "definition": "Help and advice provided by a company to people who use its computers, software, etc.",
+    "example": "Our premium package includes 24/7 dedicated technical support.",
+    "exampleVi": "Gói cao cấp của chúng tôi bao gồm dịch vụ hỗ trợ kỹ thuật chuyên dụng 24/7.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/technical-support.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-88"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-troubleshooting",
+    "word": "Troubleshooting",
+    "meaning": "Quy trình xử lý sự cố từng bước",
+    "ipa": "/ˈtrʌblʃuːtɪŋ/",
+    "definition": "Discovering why something does not work effectively and making suggestions about how to solve.",
+    "example": "Follow the troubleshooting guide in the manual before calling a technician.",
+    "exampleVi": "Hãy làm theo hướng dẫn xử lý sự cố trong sách hướng dẫn trước khi gọi kỹ thuật viên.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/troubleshooting.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-88"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-user-manual",
+    "word": "User manual",
+    "meaning": "Sách cẩm nang hướng dẫn sử dụng",
+    "ipa": "/ˈjuːzər ˈmænjuəl/",
+    "definition": "A book that gives you practical instructions about how to use a machine.",
+    "example": "The user manual includes safety instructions and wiring diagrams.",
+    "exampleVi": "Sách hướng dẫn sử dụng bao gồm các chỉ dẫn an toàn và sơ đồ đi dây.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/u/user-manual.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-88"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-faq",
+    "word": "FAQ",
+    "meaning": "Các câu hỏi thường gặp và giải đáp (Frequently Asked Questions)",
+    "ipa": "/ˌef eɪ ˈkjuː/",
+    "definition": "Frequently Asked Questions; a list of common questions with answers.",
+    "example": "Check the online FAQ section for instant answers to billing queries.",
+    "exampleVi": "Hãy kiểm tra phần câu hỏi thường gặp trực tuyến để nhận câu trả lời tức thì cho các thắc mắc về cước phí.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/f/faq.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-88"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-hotline",
+    "word": "Hotline",
+    "meaning": "Đường dây nóng hỗ trợ khẩn cấp",
+    "ipa": "/ˈhɑːtlaɪn/",
+    "definition": "A telephone line that gives quick and direct access to information or help.",
+    "example": "The bank operates a 24-hour toll-free emergency hotline for lost credit cards.",
+    "exampleVi": "Ngân hàng vận hành đường dây nóng khẩn cấp miễn cước 24 giờ cho các trường hợp mất thẻ tín dụng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/h/hotline.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-88"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-ticket",
+    "word": "Ticket",
+    "meaning": "Phiếu yêu cầu hỗ trợ kỹ thuật được lập",
+    "ipa": "/ˈtɪkɪt/",
+    "definition": "An official request or record of an issue submitted to a support system.",
+    "example": "Submit a support ticket and a technician will respond within two hours.",
+    "exampleVi": "Hãy gửi một phiếu yêu cầu hỗ trợ và kỹ thuật viên sẽ phản hồi trong vòng hai giờ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/ticket.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-88"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-remote-access",
+    "word": "Remote access",
+    "meaning": "Quyền truy cập điều khiển máy tính từ xa",
+    "ipa": "/rɪˈmoʊt ˈækses/",
+    "definition": "The ability to get access to a computer or a network from a different place.",
+    "example": "With your permission, the technician used remote access to configure the printer.",
+    "exampleVi": "Với sự cho phép của bạn, kỹ thuật viên đã sử dụng quyền truy cập từ xa để cấu hình máy in.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/remote-access.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-88"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-technician",
+    "word": "Technician",
+    "meaning": "Kỹ thuật viên chuyên trách sửa máy",
+    "ipa": "/tekˈnɪʃn/",
+    "definition": "A worker trained with special skills, especially in science or engineering.",
+    "example": "A certified technician inspected the cooling system in the server room.",
+    "exampleVi": "Một kỹ thuật viên có chứng chỉ đã kiểm tra hệ thống làm mát trong phòng máy chủ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/technician.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-88"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-resolution-3",
+    "word": "Resolution",
+    "meaning": "Sự xử lý dứt điểm khiếu nại/sự cố",
+    "ipa": "/ˌrezəˈluːʃn/",
+    "definition": "The act of finding a promising solution to a problem.",
+    "example": "First-contact resolution rate is a key metric for evaluating helpdesk efficiency.",
+    "exampleVi": "Tỷ lệ xử lý dứt điểm ngay từ lần liên hệ đầu tiên là thước đo then chốt để đánh giá hiệu quả của bàn trợ giúp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/resolution.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-88"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-backup-2",
+    "word": "Backup",
+    "meaning": "Bản sao lưu phòng ngừa mất dữ liệu",
+    "ipa": "/ˈbækʌp/",
+    "definition": "A copy of information held on a computer that is stored separately.",
+    "example": "Automated daily backups protect financial records against system failure.",
+    "exampleVi": "Các bản sao lưu tự động hàng ngày bảo vệ hồ sơ tài chính chống lại sự cố hệ thống.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/backup.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-89"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-redundancy",
+    "word": "Redundancy",
+    "meaning": "Hệ thống dự phòng kép chạy song song",
+    "ipa": "/rɪˈdʌndənsi/",
+    "definition": "A situation in which something has a duplicate part to continue operating if one fails.",
+    "example": "Data centers use power redundancy so servers stay online during blackouts.",
+    "exampleVi": "Các trung tâm dữ liệu sử dụng nguồn điện dự phòng kép để các máy chủ duy trì hoạt động trong thời gian mất điện.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/r/redundancy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-89"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-data-recovery",
+    "word": "Data recovery",
+    "meaning": "Quá trình phục hồi lại dữ liệu bị mất",
+    "ipa": "/ˈdeɪtə rɪˌkʌvəri/",
+    "definition": "The process of restoring data that has been lost, corrupted, or deleted.",
+    "example": "Specialist data recovery software retrieved all lost project spreadsheets.",
+    "exampleVi": "Phần mềm phục hồi dữ liệu chuyên dụng đã lấy lại toàn bộ các bảng tính dự án bị mất.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/data-recovery.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-89"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-contingency-plan",
+    "word": "Contingency plan",
+    "meaning": "Kế hoạch dự phòng đối phó tình huống khẩn",
+    "ipa": "/kənˈtɪndʒənsi plæn/",
+    "definition": "A plan that is made for dealing with an emergency or emergency situation.",
+    "example": "The firm implemented its disaster contingency plan following the flood.",
+    "exampleVi": "Công ty đã thực hiện kế hoạch dự phòng thảm họa sau trận lũ lụt.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/contingency-plan.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-89"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-archive-2",
+    "word": "Archive",
+    "meaning": "Kho lưu trữ tài liệu vĩnh viễn an toàn",
+    "ipa": "/ˈɑːrkaɪv/",
+    "definition": "To store electronic data in a place where it can be kept for a long time.",
+    "example": "Inactive customer accounts are archived automatically after three years.",
+    "exampleVi": "Các tài khoản khách hàng không hoạt động sẽ tự động được lưu trữ sau ba năm.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/a/archive.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-89"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-failover",
+    "word": "Failover",
+    "meaning": "Cơ chế tự động chuyển sang máy chủ phụ khi máy chính hỏng",
+    "ipa": "/ˈfeɪloʊvər/",
+    "definition": "An automated backup operation in which a standby system takes over.",
+    "example": "Instant failover prevented any service interruption during the database crash.",
+    "exampleVi": "Cơ chế chuyển đổi dự phòng tức thì đã ngăn ngừa mọi sự gián đoạn dịch vụ trong lúc sập cơ sở dữ liệu.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/f/failover.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-89"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-disaster-recovery",
+    "word": "Disaster recovery",
+    "meaning": "Quy trình phục hồi hệ thống sau thảm họa",
+    "ipa": "/dɪˈzæstər rɪˌkʌvəri/",
+    "definition": "A documented process or set of procedures to recover and protect IT infrastructure.",
+    "example": "The enterprise conducts annual disaster recovery drills to ensure preparedness.",
+    "exampleVi": "Doanh nghiệp tiến hành diễn tập phục hồi thảm họa hàng năm để đảm bảo tính sẵn sàng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/d/disaster-recovery.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-89"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cloud-backup",
+    "word": "Cloud backup",
+    "meaning": "Bản sao lưu trực tuyến trên máy chủ đám mây",
+    "ipa": "/ˈklaʊd ˈbækʌp/",
+    "definition": "The process of sending a copy of data to an offsite server over the internet.",
+    "example": "Cloud backup allows employees to retrieve lost files from any computer worldwide.",
+    "exampleVi": "Sao lưu đám mây cho phép nhân viên lấy lại các tệp bị mất từ bất kỳ máy tính nào trên toàn thế giới.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/cloud-backup.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-89"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-restore-point",
+    "word": "Restore point",
+    "meaning": "Điểm mốc thời gian khôi phục hệ thống",
+    "ipa": "/rɪˈstɔːr pɔɪnt/",
+    "definition": "A saved state of a computer's system files and settings at a particular time.",
+    "example": "Create a system restore point before installing major software updates.",
+    "exampleVi": "Hãy tạo một điểm mốc khôi phục hệ thống trước khi cài đặt các bản cập nhật phần mềm lớn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/restore-point.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-89"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-snapshot",
+    "word": "Snapshot",
+    "meaning": "Bản chụp nhanh toàn bộ trạng thái dữ liệu tại một thời điểm",
+    "ipa": "/ˈsnæpʃɑːt/",
+    "definition": "A copy of a computer system's state at a particular point in time.",
+    "example": "Hourly snapshots make it easy to roll back unauthorized database changes.",
+    "exampleVi": "Các bản chụp trạng thái hàng giờ giúp dễ dàng hoàn tác các thay đổi cơ sở dữ liệu trái phép.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/snapshot.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-89"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-compatibility",
+    "word": "Compatibility",
+    "meaning": "Tính tương thích giữa các hệ điều hành/thiết bị",
+    "ipa": "/kəmˌpætəˈbɪləti/",
+    "definition": "The ability of machines, computers, or systems to work together without problems.",
+    "example": "Check hardware compatibility before upgrading to the new 64-bit operating system.",
+    "exampleVi": "Hãy kiểm tra tính tương thích của phần cứng trước khi nâng cấp lên hệ điều hành 64-bit mới.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/compatibility.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-90"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-integration",
+    "word": "Integration",
+    "meaning": "Sự tích hợp liên thông các hệ thống phần mềm",
+    "ipa": "/ˌɪntɪˈɡreɪʃn/",
+    "definition": "The action or process of combining two or more things into a single effective unit.",
+    "example": "Seamless integration between the CRM and inventory database saves hours of work.",
+    "exampleVi": "Việc tích hợp liền mạch giữa CRM và cơ sở dữ liệu hàng tồn kho giúp tiết kiệm nhiều giờ làm việc.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/integration.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-90"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-interoperability",
+    "word": "Interoperability",
+    "meaning": "Khả năng tương tác hoạt động xuyên suốt giữa các nền tảng",
+    "ipa": "/ˌɪntərˌɑːpərəˈbɪləti/",
+    "definition": "The ability of computer systems or software to exchange and make use of information.",
+    "example": "Open standards foster interoperability among healthcare software vendors.",
+    "exampleVi": "Các tiêu chuẩn mở thúc đẩy khả năng tương tác giữa các nhà cung cấp phần mềm chăm sóc sức khỏe.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/i/interoperability.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-90"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-standard-2",
+    "word": "Standard",
+    "meaning": "Chuẩn mực kỹ thuật được quốc tế công nhận",
+    "ipa": "/ˈstændərd/",
+    "definition": "A level of quality or attainment, or an agreed specification.",
+    "example": "All wireless equipment adheres strictly to Wi-Fi 6 international standards.",
+    "exampleVi": "Tất cả các thiết bị không dây đều tuân thủ nghiêm ngặt các tiêu chuẩn quốc tế Wi-Fi 6.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/standard.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-90"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-specification-2",
+    "word": "Specification",
+    "meaning": "Bản thông số quy cách kỹ thuật chi tiết",
+    "ipa": "/ˌspesɪfɪˈkeɪʃn/",
+    "definition": "A detailed description of how something should be made, or what it should contain.",
+    "example": "The new battery meets all rigorous military temperature specifications.",
+    "exampleVi": "Loại pin mới đáp ứng tất cả các thông số kỹ thuật nhiệt độ quân sự khắt khe.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/s/specification.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-90"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-protocol-2",
+    "word": "Protocol",
+    "meaning": "Giao thức truyền thông mạng",
+    "ipa": "/ˈproʊtəkɑːl/",
+    "definition": "A set of rules for the exchange of data between computers.",
+    "example": "HTTPS is the standard secure communication protocol used on the modern web.",
+    "exampleVi": "HTTPS là giao thức truyền thông an toàn tiêu chuẩn được sử dụng trên web hiện đại.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/protocol.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-90"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-parameter",
+    "word": "Parameter",
+    "meaning": "Tham số kỹ thuật, giới hạn thông số",
+    "ipa": "/pəˈræmɪtər/",
+    "definition": "A set of facts or a fixed limit that establishes how something should be done.",
+    "example": "Adjust the search parameters to narrow down query results by date and file size.",
+    "exampleVi": "Điều chỉnh các tham số tìm kiếm để thu hẹp kết quả truy vấn theo ngày và dung lượng tệp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/parameter.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-90"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-criterion-2",
+    "word": "Criterion",
+    "meaning": "Tiêu chí thẩm định đạt yêu cầu",
+    "ipa": "/kraɪˈtɪriən/",
+    "definition": "A standard by which you judge, decide about, or deal with something.",
+    "example": "High data security is the essential criterion for choosing our cloud host.",
+    "exampleVi": "Bảo mật dữ liệu cao là tiêu chí thiết yếu để lựa chọn nhà cung cấp dịch vụ lưu trữ đám mây của chúng tôi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/criterion.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-90"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-benchmark-3",
+    "word": "Benchmark",
+    "meaning": "Điểm kiểm chuẩn hiệu năng thiết bị",
+    "ipa": "/ˈbentʃmɑːrk/",
+    "definition": "A test used to measure and compare the performance of hardware or software.",
+    "example": "The new graphics card scored top marks on independent gaming benchmarks.",
+    "exampleVi": "Card đồ họa mới đạt điểm cao nhất trong các bài kiểm chuẩn hiệu năng chơi game độc lập.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/benchmark.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-90"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-configuration-2",
+    "word": "Configuration",
+    "meaning": "Sự cấu hình, thiết lập hệ thống",
+    "ipa": "/kənˌfɪɡjəˈreɪʃn/",
+    "definition": "An arrangement of parts or elements in a particular form, figure, or combination.",
+    "example": "Save your custom network configuration before restarting the router.",
+    "exampleVi": "Hãy lưu cấu hình mạng tùy chỉnh của bạn trước khi khởi động lại bộ định tuyến.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/configuration.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-90"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-flight-reservation",
+    "word": "Flight reservation",
+    "meaning": "Sự đặt chỗ chuyến bay trước",
+    "ipa": "/flaɪt ˌrezərˈveɪʃn/",
+    "definition": "An arrangement to have a seat held for you on an airplane.",
+    "example": "You can modify your flight reservation online up to 24 hours prior to departure.",
+    "exampleVi": "Bạn có thể chỉnh sửa việc đặt chỗ chuyến bay trực tuyến trước giờ khởi hành tối đa 24 giờ.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/f/flight-reservation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-91"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-boarding-pass",
+    "word": "Boarding pass",
+    "meaning": "Thẻ lên máy bay qua cửa an ninh",
+    "ipa": "/ˈbɔːrdɪŋ pæs/",
+    "definition": "A card that a passenger must have to be allowed to get on an aircraft.",
+    "example": "Download your mobile boarding pass to your smartphone for express gate access.",
+    "exampleVi": "Hãy tải thẻ lên máy bay di động về điện thoại thông minh để qua cửa khởi hành nhanh chóng.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/boarding-pass.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-91"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-airline",
+    "word": "Airline",
+    "meaning": "Hãng hàng không vận chuyển hành khách",
+    "ipa": "/ˈerlaɪn/",
+    "definition": "A business that operates regular services for carrying passengers and goods by aircraft.",
+    "example": "Singapore Airlines was voted the world's best international airline.",
+    "exampleVi": "Singapore Airlines đã được bình chọn là hãng hàng không quốc tế tốt nhất thế giới.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/a/airline.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-91"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-itinerary-3",
+    "word": "Itinerary",
+    "meaning": "Lịch trình bay chi tiết gồm giờ bay, số hiệu",
+    "ipa": "/aɪˈtɪnəreri/",
+    "definition": "A detailed plan of a journey, including flight times and layovers.",
+    "example": "The corporate travel desk emailed the business flight itinerary to the executive.",
+    "exampleVi": "Bộ phận phụ trách công tác của công ty đã gửi email lịch trình chuyến bay công tác cho vị lãnh đạo.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/i/itinerary.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-91"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-departure",
+    "word": "Departure",
+    "meaning": "Giờ khởi hành, chuyến bay cất cánh",
+    "ipa": "/dɪˈpɑːrtʃər/",
+    "definition": "The fact of a person or vehicle, especially a plane or train, leaving somewhere.",
+    "example": "Please proceed to Gate 12 for the on-time departure of Flight 402.",
+    "exampleVi": "Vui lòng di chuyển đến Cửa số 12 để chuẩn bị cho chuyến bay số hiệu 402 khởi hành đúng giờ.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/d/departure.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-91"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-arrival",
+    "word": "Arrival",
+    "meaning": "Sự hạ cánh, giờ đến nơi",
+    "ipa": "/əˈraɪvl/",
+    "definition": "The fact of arriving somewhere, or a flight that has reached destination.",
+    "example": "Our estimated time of arrival in London Heathrow is 6:45 AM local time.",
+    "exampleVi": "Thời gian dự kiến đến London Heathrow của chúng tôi là 6:45 sáng theo giờ địa phương.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/a/arrival.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-91"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-terminal-2",
+    "word": "Terminal",
+    "meaning": "Nhà ga sân bay quốc tế/nội địa",
+    "ipa": "/ˈtɜːrmɪnl/",
+    "definition": "A large building at an airport where passengers arrive and leave.",
+    "example": "Shuttle trains connect Terminal 1 with Terminal 2 every five minutes.",
+    "exampleVi": "Các chuyến tàu con thoi kết nối Nhà ga 1 với Nhà ga 2 cứ năm phút một chuyến.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/terminal.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-91"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-layover",
+    "word": "Layover",
+    "meaning": "Thời gian dừng quá cảnh chờ đổi máy bay",
+    "ipa": "/ˈleɪoʊvər/",
+    "definition": "A short stay in a place that you make while you are on a longer journey to somewhere else.",
+    "example": "We have a three-hour layover in Dubai before catching our connecting flight.",
+    "exampleVi": "Chúng tôi có thời gian quá cảnh ba giờ ở Dubai trước khi bắt chuyến bay nối chuyến.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/l/layover.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-91"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-direct-flight",
+    "word": "Direct flight",
+    "meaning": "Chuyến bay thẳng không cần quá cảnh",
+    "ipa": "/dəˈrekt flaɪt/",
+    "definition": "A flight between two places with no change of aircraft.",
+    "example": "Business travelers prefer direct flights to save valuable travel time.",
+    "exampleVi": "Những người đi công tác thích các chuyến bay thẳng hơn để tiết kiệm thời gian đi lại quý báu.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/direct-flight.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-91"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-airfare",
+    "word": "Airfare",
+    "meaning": "Giá tiền vé máy bay",
+    "ipa": "/ˈerfer/",
+    "definition": "The price of a journey by plane.",
+    "example": "Booking flights several months in advance helps secure the lowest airfare.",
+    "exampleVi": "Đặt vé máy bay trước vài tháng giúp bạn có được mức giá vé máy bay thấp nhất.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/airfare.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-91"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-baggage",
+    "word": "Baggage",
+    "meaning": "Hành lý xách tay và ký gửi",
+    "ipa": "/ˈbæɡɪdʒ/",
+    "definition": "All the bags and suitcases that you take with you when you travel.",
+    "example": "Check your ticket conditions for allowed checked baggage weight limits.",
+    "exampleVi": "Hãy kiểm tra các điều kiện trên vé của bạn để biết giới hạn trọng lượng hành lý ký gửi được phép.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/baggage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-92"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-luggage",
+    "word": "Luggage",
+    "meaning": "Hành lý, vali túi xách",
+    "ipa": "/ˈlʌɡɪdʒ/",
+    "definition": "The bags, suitcases, etc. that contain your possessions when you are travelling.",
+    "example": "Keep valuable electronics and passports in your carry-on luggage.",
+    "exampleVi": "Hãy giữ các thiết bị điện tử có giá trị và hộ chiếu trong hành lý xách tay của bạn.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/l/luggage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-92"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-check-in",
+    "word": "Check-in",
+    "meaning": "Thủ tục làm thủ tục nhận vé và gửi hành lý",
+    "ipa": "/ˈtʃek ɪn/",
+    "definition": "The place at an airport where you show your ticket so that you can be told where to sit.",
+    "example": "Passengers are advised to arrive at the airport check-in counter two hours before flight.",
+    "exampleVi": "Hành khách được khuyên nên đến quầy làm thủ tục tại sân bay trước giờ bay hai tiếng.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/check-in.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-92"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-customs-2",
+    "word": "Customs",
+    "meaning": "Khu vực kiểm tra hải quan xuất nhập cảnh",
+    "ipa": "/ˈkʌstəmz/",
+    "definition": "The place at a port, airport, or border where travelers' bags are examined.",
+    "example": "Declare all commercial goods and food items at the airport customs desk.",
+    "exampleVi": "Hãy khai báo tất cả hàng hóa thương mại và thực phẩm tại bàn hải quan sân bay.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/customs.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-92"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-security-checkpoint",
+    "word": "Security checkpoint",
+    "meaning": "Cổng soi chiếu kiểm tra an ninh sân bay",
+    "ipa": "/sɪˈkjʊrəti ˈtʃekpɔɪnt/",
+    "definition": "A barrier where security officers check passengers and their luggage.",
+    "example": "Remove laptops and metal items before passing through the security checkpoint.",
+    "exampleVi": "Hãy bỏ máy tính xách tay và các vật dụng kim loại ra ngoài trước khi đi qua cổng soi chiếu an ninh.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/security-checkpoint.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-92"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-baggage-claim",
+    "word": "Baggage claim",
+    "meaning": "Khu vực băng chuyền nhận lại hành lý ký gửi",
+    "ipa": "/ˈbæɡɪdʒ kleɪm/",
+    "definition": "The area in an airport where arriving passengers collect luggage.",
+    "example": "Proceed down to the baggage claim hall to pick up your checked suitcases.",
+    "exampleVi": "Hãy đi xuống sảnh nhận hành lý để lấy các vali ký gửi của bạn.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/baggage-claim.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-92"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-excess-baggage",
+    "word": "Excess baggage",
+    "meaning": "Hành lý quá cước trọng lượng quy định",
+    "ipa": "/ˌekses ˈbæɡɪdʒ/",
+    "definition": "Luggage that weighs more than the allowed limit, for which you must pay extra.",
+    "example": "You will be charged $50 for excess baggage exceeding the 23kg limit.",
+    "exampleVi": "Bạn sẽ bị tính phí 50 USD cho hành lý quá cước vượt quá giới hạn 23kg.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/excess-baggage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-92"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-transit-2",
+    "word": "Transit",
+    "meaning": "Khu vực trung chuyển hành khách quá cảnh",
+    "ipa": "/ˈtrænzɪt/",
+    "definition": "The movement of goods or people from one place to another, or waiting between flights.",
+    "example": "Passengers in transit can relax in the duty-free lounge without leaving the airport.",
+    "exampleVi": "Hành khách quá cảnh có thể thư giãn trong phòng chờ miễn thuế mà không cần rời sân bay.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/t/transit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-92"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-boarding-gate",
+    "word": "Boarding gate",
+    "meaning": "Cửa khởi hành lên máy bay",
+    "ipa": "/ˈbɔːrdɪŋ ɡeɪt/",
+    "definition": "The gate where passengers get on the airplane.",
+    "example": "Boarding gate 45 will close precisely fifteen minutes before scheduled takeoff.",
+    "exampleVi": "Cửa khởi hành số 45 sẽ đóng chính xác mười lăm phút trước giờ cất cánh theo lịch trình.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/boarding-gate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-92"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-carousel",
+    "word": "Carousel",
+    "meaning": "Băng chuyền hành lý quay vòng",
+    "ipa": "/ˌkærəˈsel/",
+    "definition": "A moving circular belt from which you collect your luggage at an airport.",
+    "example": "Luggage from Flight UA880 will be delivered on baggage carousel 3.",
+    "exampleVi": "Hành lý từ Chuyến bay UA880 sẽ được trả trên băng chuyền số 3.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/carousel.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-92"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-delay-2",
+    "word": "Delay",
+    "meaning": "Sự chậm chuyến, hoãn giờ bay",
+    "ipa": "/dɪˈleɪ/",
+    "definition": "A period of time by which something is late or postponed.",
+    "example": "Due to heavy air traffic, our flight experienced a 45-minute delay.",
+    "exampleVi": "Do lưu lượng không lưu đông đúc, chuyến bay của chúng tôi đã bị hoãn 45 phút.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/d/delay.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-93"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cancellation",
+    "word": "Cancellation",
+    "meaning": "Sự hủy bỏ chuyến bay do thời tiết/sự cố",
+    "ipa": "/ˌkænsəˈleɪʃn/",
+    "definition": "The act of deciding that an organized event or flight will not happen.",
+    "example": "Snowstorms across the northeast caused widespread flight cancellations.",
+    "exampleVi": "Bão tuyết trên khắp vùng đông bắc đã gây ra tình trạng hủy chuyến bay diện rộng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/cancellation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-93"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-rescheduled",
+    "word": "Rescheduled",
+    "meaning": "Được đổi lại lịch bay sang giờ khác",
+    "ipa": "/ˌriːˈskedʒuːld/",
+    "definition": "Planned or arranged for a different date or time.",
+    "example": "The morning departure was rescheduled to 4:00 PM due to mechanical repairs.",
+    "exampleVi": "Chuyến bay buổi sáng đã được đổi lịch sang 4:00 chiều do sửa chữa máy móc.",
+    "level": "B1",
+    "pos": "adjective",
+    "img": "assets/images/words/r/rescheduled.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-93"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-diverted",
+    "word": "Diverted",
+    "meaning": "Bị chuyển hướng hạ cánh xuống sân bay khác",
+    "ipa": "/daɪˈvɜːrtɪd/",
+    "definition": "Caused something or someone to change direction.",
+    "example": "Due to a closed runway, incoming flights were diverted to a neighboring airport.",
+    "exampleVi": "Do đường băng bị đóng cửa, các chuyến bay đến đã bị chuyển hướng sang một sân bay lân cận.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/d/diverted.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-93"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-compensation-4",
+    "word": "Compensation",
+    "meaning": "Khoản tiền bồi thường hủy chuyến/trễ chuyến",
+    "ipa": "/ˌkɑːmpenˈseɪʃn/",
+    "definition": "Money paid to someone to make up for loss, inconvenience, or damage.",
+    "example": "Under European passenger rights, travelers receive €600 compensation for major flight delays.",
+    "exampleVi": "Theo luật quyền hành khách châu Âu, du khách được nhận 600 euro tiền bồi thường cho các chuyến bay bị trễ nghiêm trọng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/compensation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-93"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-stranded",
+    "word": "Stranded",
+    "meaning": "Bị mắc kẹt lại sân bay không thể đi tiếp",
+    "ipa": "/ˈstrændɪd/",
+    "definition": "Unable to leave somewhere because of a problem such as not having any transport.",
+    "example": "Hundreds of travelers were stranded overnight when all flights were grounded.",
+    "exampleVi": "Hàng trăm du khách đã bị mắc kẹt qua đêm khi toàn bộ các chuyến bay bị cấm cất cánh.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/s/stranded.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-93"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-refund-3",
+    "word": "Refund",
+    "meaning": "Khoản tiền hoàn vé khi hủy chuyến",
+    "ipa": "/ˈriːfʌnd/",
+    "definition": "An amount of money that is given back to you when you return a ticket.",
+    "example": "The airline issued a full cash refund for the cancelled transatlantic ticket.",
+    "exampleVi": "Hãng hàng không đã hoàn trả toàn bộ tiền mặt cho tấm vé bay qua Đại Tây Dương bị hủy.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/r/refund.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-93"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-alternative",
+    "word": "Alternative",
+    "meaning": "Lựa chọn chuyến bay thay thế khác",
+    "ipa": "/ɔːlˈtɜːrnətɪv/",
+    "definition": "An alternative plan or method is one that you can use if you do not want to use another one.",
+    "example": "Gate agents booked passengers onto alternative morning flights with partner airlines.",
+    "exampleVi": "Các nhân viên cửa khẩu đã đặt chỗ cho hành khách lên các chuyến bay sáng thay thế của các hãng hàng không đối tác.",
+    "level": "B1",
+    "pos": "adjective",
+    "img": "assets/images/words/a/alternative.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-93"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-reimbursement-2",
+    "word": "Reimbursement",
+    "meaning": "Sự hoàn lại chi phí khách sạn/ăn uống phát sinh",
+    "ipa": "/ˌriːɪmˈbɜːrsmənt/",
+    "definition": "The act of paying back money that someone has spent.",
+    "example": "Keep your hotel food receipts for airline reimbursement claims.",
+    "exampleVi": "Hãy giữ lại hóa đơn ăn uống khách sạn để nộp đơn yêu cầu hãng hàng không hoàn trả tiền.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/reimbursement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-93"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-meal-voucher",
+    "word": "Meal voucher",
+    "meaning": "Phiếu ăn uống miễn phí do hãng cấp khi trễ",
+    "ipa": "/ˈmiːl ˌvaʊtʃər/",
+    "definition": "A voucher given to delayed passengers allowing them to purchase food.",
+    "example": "The airline distributed $25 meal vouchers to all delayed passengers.",
+    "exampleVi": "Hãng hàng không đã phát phiếu ăn uống trị giá 25 USD cho tất cả các hành khách bị trễ chuyến.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/m/meal-voucher.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-93"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-accommodation",
+    "word": "Accommodation",
+    "meaning": "Chỗ ở lưu trú khách sạn/khu nghỉ dưỡng",
+    "ipa": "/əˌkɑːməˈdeɪʃn/",
+    "definition": "A place to live, work, or stay in, especially temporary lodging for travelers.",
+    "example": "Corporate travel policies specify four-star hotel accommodation for executives.",
+    "exampleVi": "Quy định công tác của công ty chỉ định khách sạn bốn sao làm chỗ lưu trú cho các giám đốc.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/accommodation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-94"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-hotel-reservation",
+    "word": "Hotel reservation",
+    "meaning": "Việc đặt phòng khách sạn trước",
+    "ipa": "/hoʊˈtel ˌrezərˈveɪʃn/",
+    "definition": "An arrangement to have a hotel room held for your arrival.",
+    "example": "Show your passport and booking confirmation number to retrieve your hotel reservation.",
+    "exampleVi": "Xuất trình hộ chiếu và mã xác nhận đặt phòng để nhận phòng khách sạn của bạn.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/h/hotel-reservation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-94"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-suite",
+    "word": "Suite",
+    "meaning": "Phòng khách sạn cao cấp gồm phòng khách và ngủ",
+    "ipa": "/swiːt/",
+    "definition": "A set of connected rooms, especially in a hotel.",
+    "example": "The executive suite features a private balcony overlooking the bay.",
+    "exampleVi": "Phòng tổng thống cao cấp có ban công riêng nhìn ra vịnh.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/s/suite.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-94"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-amenities",
+    "word": "Amenities",
+    "meaning": "Các tiện nghi của khách sạn (hồ bơi, gym, spa)",
+    "ipa": "/əˈmenətiz/",
+    "definition": "Features that belong to a building, hotel, or area that make it pleasant or easy to live in.",
+    "example": "Hotel amenities include an infinity swimming pool, fitness spa, and sauna.",
+    "exampleVi": "Các tiện nghi của khách sạn bao gồm hồ bơi vô cực, spa thể hình và phòng xông hơi.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/amenities.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-94"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-housekeeping",
+    "word": "Housekeeping",
+    "meaning": "Bộ phận dọn phòng và vệ sinh khách sạn",
+    "ipa": "/ˈhaʊskiːpɪŋ/",
+    "definition": "The department that cleans and provides service in a hotel or organization.",
+    "example": "Hang the 'Do Not Disturb' sign on your door if you do not require housekeeping.",
+    "exampleVi": "Hãy treo biển 'Xin Đừng Làm Phiền' trước cửa nếu bạn không cần dọn phòng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/h/housekeeping.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-94"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-concierge",
+    "word": "Concierge",
+    "meaning": "Nhân viên hỗ trợ tư vấn và đặt dịch vụ khách sạn",
+    "ipa": "/kɑːnˈsiːerʒ/",
+    "definition": "A hotel employee whose job is to assist guests by booking tours, making dinner reservations, etc.",
+    "example": "The concierge booked theater tickets and arranged private airport transport.",
+    "exampleVi": "Nhân viên hướng dẫn khách sạn đã đặt vé xem kịch và thu xếp xe đưa đón sân bay riêng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/concierge.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-94"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-front-desk",
+    "word": "Front desk",
+    "meaning": "Quầy lễ tân đón tiếp khách",
+    "ipa": "/ˈfrʌnt desk/",
+    "definition": "The reception desk in a hotel where guests register when they arrive.",
+    "example": "Leave your room key card at the front desk when checking out.",
+    "exampleVi": "Hãy để lại thẻ chìa khóa phòng tại quầy lễ tân khi làm thủ tục trả phòng.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/f/front-desk.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-94"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-check-in-2",
+    "word": "Check-in",
+    "meaning": "Thủ tục nhận phòng khách sạn",
+    "ipa": "/ˈtʃek ɪn/",
+    "definition": "The act of reporting one's arrival at a hotel.",
+    "example": "Standard hotel check-in time begins at 3:00 PM.",
+    "exampleVi": "Giờ làm thủ tục nhận phòng khách sạn tiêu chuẩn bắt đầu lúc 3:00 chiều.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/check-in.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-94"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-check-out",
+    "word": "Check-out",
+    "meaning": "Thủ tục thanh toán và trả phòng khách sạn",
+    "ipa": "/ˈtʃek aʊt/",
+    "definition": "The time when you must leave a hotel room, or the act of paying the bill.",
+    "example": "Late check-out is available upon request for premium reward members.",
+    "exampleVi": "Khách hàng hội viên cao cấp có thể yêu cầu dịch vụ trả phòng muộn.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/check-out.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-94"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-occupancy",
+    "word": "Occupancy",
+    "meaning": "Tỷ lệ lấp đầy phòng khách sạn",
+    "ipa": "/ˈɑːkjəpənsi/",
+    "definition": "The percentage of rooms that are used in a hotel.",
+    "example": "The resort reached 100% room occupancy during the peak holiday season.",
+    "exampleVi": "Khu nghỉ dưỡng đã đạt tỷ lệ lấp đầy 100% số phòng trong mùa lễ cao điểm.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/o/occupancy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-94"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-room-service",
+    "word": "Room service",
+    "meaning": "Dịch vụ phục vụ đồ ăn tận phòng khách",
+    "ipa": "/ˈruːm sɜːrvɪs/",
+    "definition": "A service provided by a hotel, by which food and drinks can be sent to a guest's room.",
+    "example": "We ordered hot soup and sandwiches from 24-hour room service.",
+    "exampleVi": "Chúng tôi đã gọi súp nóng và bánh mì kẹp từ dịch vụ phục vụ phòng 24 giờ.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/r/room-service.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-95"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-minibar",
+    "word": "Minibar",
+    "meaning": "Tủ lạnh nhỏ chứa đồ uống có tính phí trong phòng",
+    "ipa": "/ˈmɪnibɑːr/",
+    "definition": "A small fridge in a hotel room with drinks and snacks in it for which guests pay.",
+    "example": "Bottled spring water and sodas in the minibar are restocked every morning.",
+    "exampleVi": "Nước suối đóng chai và nước ngọt trong tủ lạnh nhỏ được bổ sung vào mỗi buổi sáng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/m/minibar.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-95"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-complimentary-2",
+    "word": "Complimentary",
+    "meaning": "Được phục vụ miễn phí không tính tiền",
+    "ipa": "/ˌkɑːmplɪˈmentri/",
+    "definition": "Free of charge, provided as a gift or courtesy.",
+    "example": "Guests receive a complimentary buffet breakfast and bottled water daily.",
+    "exampleVi": "Khách được phục vụ bữa sáng tự chọn và nước đóng chai miễn phí hàng ngày.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/c/complimentary.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-95"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-wi-fi",
+    "word": "Wi-Fi",
+    "meaning": "Mạng internet không dây tốc độ cao",
+    "ipa": "/ˈwaɪ faɪ/",
+    "definition": "A system for connecting electronic devices to the internet without wires.",
+    "example": "High-speed wireless Wi-Fi is available throughout the entire hotel property.",
+    "exampleVi": "Mạng internet không dây tốc độ cao phủ sóng toàn bộ khuôn viên khách sạn.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/w/wi-fi.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-95"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-fitness-center",
+    "word": "Fitness center",
+    "meaning": "Phòng tập thể dục thể hình khách sạn",
+    "ipa": "/ˈfɪtnəs ˈsentər/",
+    "definition": "A place where people go to exercise using weights and exercise machines.",
+    "example": "The 24-hour fitness center features treadmills and free weights.",
+    "exampleVi": "Phòng tập thể dục mở cửa 24 giờ có máy chạy bộ và tạ tay tự do.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/f/fitness-center.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-95"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-laundry",
+    "word": "Laundry",
+    "meaning": "Dịch vụ giặt ủi quần áo khách sạn",
+    "ipa": "/ˈlɔːndri/",
+    "definition": "The business of washing and ironing clothes.",
+    "example": "Same-day laundry service is available for clothes handed in before 9:00 AM.",
+    "exampleVi": "Dịch vụ giặt ủi lấy ngay trong ngày áp dụng cho quần áo được gửi trước 9:00 sáng.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/l/laundry.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-95"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dry-cleaning",
+    "word": "Dry cleaning",
+    "meaning": "Dịch vụ giặt khô đồ cao cấp (áo vest, váy dạ hội)",
+    "ipa": "/ˌdraɪ ˈkliːnɪŋ/",
+    "definition": "The process of cleaning clothes with chemical solvents instead of water.",
+    "example": "The business executive sent his wool suit out for express dry cleaning.",
+    "exampleVi": "Vị giám đốc đã gửi bộ vest len của mình đi giặt khô hỏa tốc.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/dry-cleaning.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-95"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-wake-up-call",
+    "word": "Wake-up call",
+    "meaning": "Cuộc gọi báo thức buổi sáng từ lễ tân",
+    "ipa": "/ˈweɪk ʌp kɔːl/",
+    "definition": "A telephone call that you arrange to receive from hotel reception to wake you up.",
+    "example": "I requested a wake-up call for 5:30 AM to catch my early morning flight.",
+    "exampleVi": "Tôi đã yêu cầu cuộc gọi báo thức lúc 5:30 sáng để kịp chuyến bay sớm.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/w/wake-up-call.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-95"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-valet",
+    "word": "Valet",
+    "meaning": "Dịch vụ đỗ xe hộ / người phục vụ hành lý",
+    "ipa": "/væˈleɪ/",
+    "definition": "A person who parks your car for you at a hotel or restaurant.",
+    "example": "Hand your car keys to the valet parking attendant at the hotel entrance.",
+    "exampleVi": "Hãy giao chìa khóa xe của bạn cho nhân viên dịch vụ đỗ xe hộ tại lối vào khách sạn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/v/valet.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-95"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bellboy",
+    "word": "Bellboy",
+    "meaning": "Nhân viên xách hành lý lên phòng",
+    "ipa": "/ˈbelbɔɪ/",
+    "definition": "A person in a hotel employed to carry luggage and attend to guests.",
+    "example": "The bellboy carried our heavy suitcases directly to our tenth-floor room.",
+    "exampleVi": "Nhân viên hành lý đã xách các vali nặng của chúng tôi lên tận phòng tầng mười.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/bellboy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-95"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-car-rental",
+    "word": "Car rental",
+    "meaning": "Dịch vụ thuê xe tự lái/có lái",
+    "ipa": "/ˈkɑːr ˌrentl/",
+    "definition": "The business of renting automobiles for short periods of time.",
+    "example": "Book your airport car rental in advance to secure an economy sedan.",
+    "exampleVi": "Hãy đặt thuê xe tại sân bay trước để đảm bảo có được một chiếc sedan tiết kiệm.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/car-rental.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-96"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-shuttle-bus",
+    "word": "Shuttle bus",
+    "meaning": "Xe buýt đưa đón tuyến cố định miễn phí",
+    "ipa": "/ˈʃʌtl bʌs/",
+    "definition": "A bus that travels regularly between two places, such as an airport and a hotel.",
+    "example": "A complimentary shuttle bus runs between the airport and the hotel every twenty minutes.",
+    "exampleVi": "Xe buýt đưa đón miễn phí chạy giữa sân bay và khách sạn cứ hai mươi phút một chuyến.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/s/shuttle-bus.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-96"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-taxi",
+    "word": "Taxi",
+    "meaning": "Xe taxi chở khách theo đồng hồ",
+    "ipa": "/ˈtæksi/",
+    "definition": "A car with a driver that you pay to take you somewhere.",
+    "example": "Take a licensed taxi from the official airport terminal taxi rank.",
+    "exampleVi": "Hãy bắt taxi có giấy phép từ bến đỗ taxi chính thức tại nhà ga sân bay.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/t/taxi.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-96"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-subway",
+    "word": "Subway",
+    "meaning": "Hệ thống tàu điện ngầm đô thị",
+    "ipa": "/ˈsʌbweɪ/",
+    "definition": "An underground electric railway system in a city.",
+    "example": "Taking the subway is the fastest way to travel across downtown Manhattan.",
+    "exampleVi": "Đi tàu điện ngầm là cách nhanh nhất để di chuyển khắp trung tâm Manhattan.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/s/subway.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-96"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-commuter-train",
+    "word": "Commuter train",
+    "meaning": "Tàu điện ngoại ô chở người đi làm",
+    "ipa": "/kəˈmjuːtər treɪn/",
+    "definition": "A train that carries people between their homes in suburbs and work in a city.",
+    "example": "Thousands of office workers ride the commuter train every weekday morning.",
+    "exampleVi": "Hàng nghìn nhân viên văn phòng đi tàu điện ngoại ô vào mỗi sáng các ngày trong tuần.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/commuter-train.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-96"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-public-transit",
+    "word": "Public transit",
+    "meaning": "Hệ thống giao thông công cộng (xe buýt, tàu)",
+    "ipa": "/ˈpʌblɪk ˈtrænzɪt/",
+    "definition": "Buses, trains, subways, etc. that are available for everyone to use.",
+    "example": "The city invested heavily to expand its green public transit network.",
+    "exampleVi": "Thành phố đã đầu tư mạnh mẽ để mở rộng mạng lưới giao thông công cộng xanh.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/p/public-transit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-96"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-limousine",
+    "word": "Limousine",
+    "meaning": "Xe ô tô hạng sang đưa đón VIP",
+    "ipa": "/ˈlɪməziːn/",
+    "definition": "A large, expensive, and comfortable car, usually driven by a chauffeur.",
+    "example": "An executive limousine was dispatched to pick up the keynote speaker from the airport.",
+    "exampleVi": "Một chiếc xe hạng sang đã được phái đi để đón diễn giả chính từ sân bay.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/l/limousine.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-96"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-chauffeur",
+    "word": "Chauffeur",
+    "meaning": "Tài xế riêng chuyên nghiệp",
+    "ipa": "/ʃoʊˈfɜːr/",
+    "definition": "Someone whose job is to drive a car for a rich or important person.",
+    "example": "The corporate chauffeur drove the board members to the summit venue.",
+    "exampleVi": "Tài xế riêng của công ty đã lái xe đưa các thành viên hội đồng quản trị đến địa điểm diễn ra hội nghị.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/chauffeur.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-96"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-toll-booth",
+    "word": "Toll booth",
+    "meaning": "Trạm thu phí cầu đường cao tốc",
+    "ipa": "/ˈtoʊl buːθ/",
+    "definition": "A small building by the side of a road where you pay money to use a bridge or road.",
+    "example": "Electronic toll passes allow cars to pass through toll booths without stopping.",
+    "exampleVi": "Thẻ thu phí điện tử cho phép ô tô đi qua các trạm thu phí mà không cần dừng lại.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/toll-booth.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-96"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-expressway",
+    "word": "Expressway",
+    "meaning": "Đường cao tốc nhiều làn xe",
+    "ipa": "/ɪkˈspresweɪ/",
+    "definition": "A wide highway that is built for fast travel over long distances.",
+    "example": "The new expressway cut travel time between the capital and the airport in half.",
+    "exampleVi": "Tuyến đường cao tốc mới đã cắt giảm một nửa thời gian di chuyển giữa thủ đô và sân bay.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/e/expressway.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-96"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-dining",
+    "word": "Dining",
+    "meaning": "Hoạt động ăn uống ẩm thực nhà hàng",
+    "ipa": "/ˈdaɪnɪŋ/",
+    "definition": "The activity of eating a meal, especially in a restaurant.",
+    "example": "The hotel features an award-winning fine dining restaurant on the 30th floor.",
+    "exampleVi": "Khách sạn có một nhà hàng ẩm thực cao cấp từng đoạt giải thưởng ở tầng 30.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/dining.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-97"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-cuisine",
+    "word": "Cuisine",
+    "meaning": "Phong cách ẩm thực, nghệ thuật nấu nướng",
+    "ipa": "/kwɪˈziːn/",
+    "definition": "A style of cooking, especially of a particular country or establishment.",
+    "example": "The conference delegates enjoyed authentic Mediterranean cuisine at dinner.",
+    "exampleVi": "Các đại biểu tham dự hội nghị đã thưởng thức ẩm thực Địa Trung Hải đích thực trong bữa tối.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/cuisine.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-97"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-reservation",
+    "word": "Reservation",
+    "meaning": "Sự đặt chỗ trước bàn ăn nhà hàng",
+    "ipa": "/ˌrezərˈveɪʃn/",
+    "definition": "An arrangement in which something such as a table at a restaurant is kept for you.",
+    "example": "I made a dinner reservation for four at the seafood bistro for 7:30 PM.",
+    "exampleVi": "Tôi đã đặt bàn ăn tối cho bốn người tại quán hải sản lúc 7:30 tối.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/r/reservation.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-97"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-menu",
+    "word": "Menu",
+    "meaning": "Thực đơn món ăn và giá cả",
+    "ipa": "/ˈmenjuː/",
+    "definition": "A list of the food and drinks that you can order in a restaurant.",
+    "example": "The server presented the seasonal menu and explained the chef's specials.",
+    "exampleVi": "Người phục vụ đã xuất trình thực đơn theo mùa và giải thích các món đặc biệt của đầu bếp.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/m/menu.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-97"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-banquet-2",
+    "word": "Banquet",
+    "meaning": "Bữa tiệc chiêu đãi doanh nghiệp thịnh soạn",
+    "ipa": "/ˈbæŋkwɪt/",
+    "definition": "A large formal meal for many people, often followed by speeches.",
+    "example": "The corporate banquet was held in the hotel's crystal chandelier ballroom.",
+    "exampleVi": "Bữa tiệc chiêu đãi của công ty được tổ chức tại phòng khiêu vũ đèn chùm pha lê của khách sạn.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/b/banquet.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-97"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-bill-2",
+    "word": "Bill",
+    "meaning": "Phiếu tính tiền bữa ăn",
+    "ipa": "/bɪl/",
+    "definition": "A request for payment of money owed, or piece of paper showing food eaten.",
+    "example": "Ask the waiter for the bill once everyone has finished their dessert.",
+    "exampleVi": "Hãy yêu cầu người phục vụ đưa hóa đơn tính tiền sau khi mọi người đã dùng xong món tráng miệng.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/bill.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-97"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-tip",
+    "word": "Tip",
+    "meaning": "Tiền boa thưởng cho nhân viên phục vụ",
+    "ipa": "/tɪp/",
+    "definition": "An extra amount of money that you give to a waiter or driver to thank them.",
+    "example": "It is customary to leave a 15% to 20% tip for good restaurant service.",
+    "exampleVi": "Để lại tiền boa từ 15% đến 20% là thông lệ cho dịch vụ nhà hàng tốt.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/t/tip.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-97"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-appetizer",
+    "word": "Appetizer",
+    "meaning": "Món khai vị nhẹ đầu bữa",
+    "ipa": "/ˈæpɪtaɪzər/",
+    "definition": "A small amount of food eaten before a meal, or the first part of a meal.",
+    "example": "We shared a platter of grilled calamari and bruschetta as an appetizer.",
+    "exampleVi": "Chúng tôi đã cùng thưởng thức một đĩa mực nướng và bánh mì nướng tỏi làm món khai vị.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/appetizer.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-97"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-beverage",
+    "word": "Beverage",
+    "meaning": "Đồ uống giải khát các loại",
+    "ipa": "/ˈbevərɪdʒ/",
+    "definition": "A drink of any type, especially one other than water.",
+    "example": "Complimentary hot and cold beverages are served throughout the meeting.",
+    "exampleVi": "Đồ uống nóng và lạnh miễn phí được phục vụ trong suốt cuộc họp.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/b/beverage.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-97"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-entree",
+    "word": "Entree",
+    "meaning": "Món ăn chính của bữa ăn (Main course)",
+    "ipa": "/ˈɑːntreɪ/",
+    "definition": "The main dish of a meal, especially in a restaurant.",
+    "example": "For the entree, diners can choose between grilled salmon or prime ribeye steak.",
+    "exampleVi": "Đối với món chính, thực khách có thể chọn giữa cá hồi nướng hoặc bít tết sườn bò thượng hạng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/entree.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-97"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-passport",
+    "word": "Passport",
+    "meaning": "Hộ chiếu xuất nhập cảnh quốc tế",
+    "ipa": "/ˈpæspɔːrt/",
+    "definition": "An official document issued by a government certifying identity and citizenship for travel.",
+    "example": "Ensure your passport is valid for at least six months beyond your travel dates.",
+    "exampleVi": "Hãy đảm bảo hộ chiếu của bạn còn hạn ít nhất sáu tháng sau ngày đi lại của bạn.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/p/passport.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-98"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-visa",
+    "word": "Visa",
+    "meaning": "Thị thực nhập cảnh do đại sứ quán cấp",
+    "ipa": "/ˈviːzə/",
+    "definition": "An official mark in a passport giving permission to enter, leave, or stay in a country.",
+    "example": "Business travelers must obtain a multi-entry commercial visa before departure.",
+    "exampleVi": "Những người đi công tác phải có thị thực thương mại nhập cảnh nhiều lần trước khi khởi hành.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/v/visa.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-98"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-immigration",
+    "word": "Immigration",
+    "meaning": "Cơ quan quản lý xuất nhập cảnh cửa khẩu",
+    "ipa": "/ˌɪmɪˈɡreɪʃn/",
+    "definition": "The place at an airport or border where government officials check travelers.",
+    "example": "Present your passport and return flight ticket to the border immigration officer.",
+    "exampleVi": "Hãy xuất trình hộ chiếu và vé máy bay khứ hồi cho nhân viên xuất nhập cảnh biên giới.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/i/immigration.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-98"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-embassy",
+    "word": "Embassy",
+    "meaning": "Đại sứ quán ngoại giao quốc gia",
+    "ipa": "/ˈembəsi/",
+    "definition": "The group of officials who represent their government in a foreign country, or building.",
+    "example": "Submit your visa application directly to the Japanese embassy consulate.",
+    "exampleVi": "Hãy nộp đơn xin thị thực của bạn trực tiếp cho lãnh sự quán đại sứ quán Nhật Bản.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/e/embassy.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-98"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-consulate",
+    "word": "Consulate",
+    "meaning": "Lãnh sự quán phụ trách dịch vụ công dân",
+    "ipa": "/ˈkɑːnsələt/",
+    "definition": "The office where a consul works, helping citizens traveling in a foreign country.",
+    "example": "Contact the nearest consulate immediately if your travel passport is stolen.",
+    "exampleVi": "Hãy liên hệ ngay với lãnh sự quán gần nhất nếu hộ chiếu của bạn bị đánh cắp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/consulate.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-98"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-entry-permit",
+    "word": "Entry permit",
+    "meaning": "Giấy phép nhập cảnh hợp pháp",
+    "ipa": "/ˈentri ˈpɜːrmɪt/",
+    "definition": "An official document allowing someone to enter a particular country or area.",
+    "example": "A temporary business entry permit was issued for the duration of the conference.",
+    "exampleVi": "Giấy phép nhập cảnh thương mại tạm thời đã được cấp cho thời gian diễn ra hội nghị.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/e/entry-permit.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-98"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-declaration-form",
+    "word": "Declaration form",
+    "meaning": "Tờ khai báo hàng hóa xuất nhập cảnh",
+    "ipa": "/ˌdekləˈreɪʃn fɔːrm/",
+    "definition": "An official form that travelers fill in to state goods or currency being brought in.",
+    "example": "Fill out the customs declaration form provided by the cabin crew on the plane.",
+    "exampleVi": "Hãy điền vào tờ khai hải quan được tiếp viên hàng không cung cấp trên máy bay.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/declaration-form.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-98"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-customs-officer",
+    "word": "Customs officer",
+    "meaning": "Sĩ quan hải quan kiểm tra hành lý",
+    "ipa": "/ˈkʌstəmz ˈɔːfɪsər/",
+    "definition": "A government official whose job is to check goods entering a country.",
+    "example": "The customs officer stamped the arrival document and cleared the luggage.",
+    "exampleVi": "Sĩ quan hải quan đã đóng dấu vào giấy tờ nhập cảnh và cho thông quan hành lý.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/customs-officer.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-98"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-validity-2",
+    "word": "Validity",
+    "meaning": "Thời hạn còn giá trị sử dụng của hộ chiếu",
+    "ipa": "/vəˈlɪdəti/",
+    "definition": "The state of being officially acceptable or legal during an active period.",
+    "example": "The validity of the business visa extends for ninety days from the date of issue.",
+    "exampleVi": "Thời hạn hiệu lực của thị thực công tác kéo dài chín mươi ngày kể từ ngày cấp.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/v/validity.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-98"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-renewal-2",
+    "word": "Renewal",
+    "meaning": "Thủ tục gia hạn hộ chiếu/thị thực hết hạn",
+    "ipa": "/rɪˈnuːəl/",
+    "definition": "The act of making an official document or agreement continue for more time.",
+    "example": "Apply for passport renewal six months before the official expiration date.",
+    "exampleVi": "Hãy nộp đơn xin gia hạn hộ chiếu sáu tháng trước ngày hết hạn chính thức.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/renewal.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-98"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-customer-service",
+    "word": "Customer service",
+    "meaning": "Bộ phận chăm sóc và hỗ trợ khách hàng",
+    "ipa": "/ˈkʌstəmər ˈsɜːrvɪs/",
+    "definition": "The assistance and advice provided by a company to people who buy or use its products.",
+    "example": "Our customer service team is available 24/7 to answer travel inquiries.",
+    "exampleVi": "Đội ngũ chăm sóc khách hàng của chúng tôi phục vụ 24/7 để giải đáp các thắc mắc về đi lại.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/customer-service.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-99"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-helpline",
+    "word": "Helpline",
+    "meaning": "Đường dây điện thoại hỗ trợ tư vấn",
+    "ipa": "/ˈhelplaɪn/",
+    "definition": "A telephone service providing help with problems, advice, or information.",
+    "example": "Dial the emergency helpline number for roadside breakdown assistance.",
+    "exampleVi": "Hãy quay số đường dây trợ giúp khẩn cấp để được hỗ trợ sự cố xe trên đường.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/h/helpline.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-99"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-emergency",
+    "word": "Emergency",
+    "meaning": "Tình huống khẩn cấp bất ngờ",
+    "ipa": "/iˈmɜːrdʒənsi/",
+    "definition": "Something dangerous or serious, such as an accident, that happens suddenly.",
+    "example": "In case of medical emergency, dial emergency services immediately.",
+    "exampleVi": "Trong trường hợp khẩn cấp về y tế, hãy quay số dịch vụ cấp cứu ngay lập tức.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/e/emergency.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-99"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-assistance",
+    "word": "Assistance",
+    "meaning": "Sự trợ giúp, giúp đỡ khi gặp khó khăn",
+    "ipa": "/əˈsɪstəns/",
+    "definition": "Help, especially money, resources, or physical support.",
+    "example": "Airport staff provide wheelchair assistance for elderly passengers.",
+    "exampleVi": "Nhân viên sân bay cung cấp dịch vụ hỗ trợ xe lăn cho các hành khách lớn tuổi.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/a/assistance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-99"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-lost-and-found",
+    "word": "Lost and found",
+    "meaning": "Phòng quản lý đồ thất lạc tại sân bay/khách sạn",
+    "ipa": "/ˌlɔːst ən ˈfaʊnd/",
+    "definition": "A place where items that people have lost are stored until the owners claim them.",
+    "example": "Inquire at the airport lost and found office if your coat was left behind.",
+    "exampleVi": "Hãy hỏi tại văn phòng quản lý đồ thất lạc ở sân bay nếu áo khoác của bạn bị bỏ quên.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/l/lost-and-found.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-99"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-first-aid",
+    "word": "First aid",
+    "meaning": "Dịch vụ sơ cứu y tế ban đầu",
+    "ipa": "/ˌfɜːrst ˈeɪd/",
+    "definition": "Basic medical treatment that is given to someone as soon as they are injured or ill.",
+    "example": "The flight attendant administered first aid to a passenger feeling faint.",
+    "exampleVi": "Tiếp viên hàng không đã tiến hành sơ cứu ban đầu cho một hành khách cảm thấy choáng váng.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/f/first-aid.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-99"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-liaison-2",
+    "word": "Liaison",
+    "meaning": "Cán bộ đầu mối liên lạc hỗ trợ khách",
+    "ipa": "/liˈeɪzɑːn/",
+    "definition": "A person whose job is to facilitate communication and cooperation between groups.",
+    "example": "The corporate travel liaison coordinated hotel bookings for all VIP executives.",
+    "exampleVi": "Đầu mối liên lạc phụ trách công tác đã điều phối việc đặt phòng khách sạn cho tất cả các giám đốc VIP.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/l/liaison.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-99"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-roadside-assistance",
+    "word": "Roadside assistance",
+    "meaning": "Dịch vụ cứu hộ giao thông khẩn cấp trên đường",
+    "ipa": "/ˈroʊdsaɪd əˈsɪstəns/",
+    "definition": "A service that helps drivers whose vehicles have broken down on the road.",
+    "example": "Car rental packages include complimentary 24/7 roadside assistance.",
+    "exampleVi": "Các gói thuê xe bao gồm dịch vụ cứu hộ giao thông khẩn cấp 24/7 miễn phí.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/r/roadside-assistance.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-99"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-operator",
+    "word": "Operator",
+    "meaning": "Nhân viên trực tổng đài điện thoại",
+    "ipa": "/ˈɑːpəreɪtər/",
+    "definition": "Someone who helps to connect telephone calls.",
+    "example": "Press zero to speak directly with an English-speaking customer service operator.",
+    "exampleVi": "Nhấn phím không để nói chuyện trực tiếp với nhân viên trực tổng đài chăm sóc khách hàng nói tiếng Anh.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/o/operator.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-99"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-concierge-2",
+    "word": "Concierge",
+    "meaning": "Dịch vụ trợ lý khách hàng cá nhân hóa",
+    "ipa": "/kɑːnˈsiːerʒ/",
+    "definition": "A service that makes arrangements or reservations for travelers or credit card holders.",
+    "example": "The premium credit card includes access to a global 24/7 concierge desk.",
+    "exampleVi": "Thẻ tín dụng cao cấp bao gồm quyền truy cập vào bàn dịch vụ trợ lý cá nhân toàn cầu 24/7.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/c/concierge.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-99"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-travel-expenses",
+    "word": "Travel expenses",
+    "meaning": "Chi phí công tác đi lại (vé máy bay, khách sạn, ăn uống)",
+    "ipa": "/ˈtrævl ɪkˌspensɪz/",
+    "definition": "Costs incurred during travel on business, including flights, hotels, and meals.",
+    "example": "Employees must submit an itemized report for all travel expenses within 14 days.",
+    "exampleVi": "Nhân viên phải nộp báo cáo chi tiết cho tất cả các chi phí công tác trong vòng 14 ngày.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/t/travel-expenses.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-100"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-per-diem",
+    "word": "Per diem",
+    "meaning": "Khoản tiền phụ cấp công tác phí hàng ngày cố định",
+    "ipa": "/pər ˈdiːəm/",
+    "definition": "An allowance or payment made for each day, especially for travel meals and incidental costs.",
+    "example": "Staff traveling to London receive a standard per diem allowance of £75 for meals.",
+    "exampleVi": "Nhân viên đi công tác đến London nhận được mức phụ cấp công tác phí hàng ngày tiêu chuẩn 75 bảng Anh cho tiền ăn.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/p/per-diem.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-100"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-expense-report",
+    "word": "Expense report",
+    "meaning": "Báo cáo quyết toán chi phí công tác",
+    "ipa": "/ɪkˈspens rɪˌpɔːrt/",
+    "definition": "A form on which an employee lists business expenses to be reimbursed.",
+    "example": "Attach all original itemized receipts to your monthly expense report.",
+    "exampleVi": "Hãy đính kèm tất cả các hóa đơn chi tiết gốc vào báo cáo quyết toán chi phí hàng tháng của bạn.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/e/expense-report.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-100"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-reimbursement-3",
+    "word": "Reimbursement",
+    "meaning": "Khoản tiền hoàn trả chi phí công tác",
+    "ipa": "/ˌriːɪmˈbɜːrsmənt/",
+    "definition": "The act of paying back money spent by an employee on company business.",
+    "example": "Reimbursement payments will be deposited directly into your bank account on Friday.",
+    "exampleVi": "Các khoản chi trả hoàn tiền sẽ được chuyển thẳng vào tài khoản ngân hàng của bạn vào thứ Sáu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/r/reimbursement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-100"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-itemized-receipt",
+    "word": "Itemized receipt",
+    "meaning": "Hóa đơn liệt kê chi tiết từng món đồ/dịch vụ",
+    "ipa": "/ˈaɪtəmaɪzd rɪˌsiːt/",
+    "definition": "A receipt that lists each item bought and its individual price separately.",
+    "example": "The accounting department requires an itemized receipt rather than a credit card slip.",
+    "exampleVi": "Phòng kế toán yêu cầu hóa đơn liệt kê chi tiết thay vì chỉ phiếu quẹt thẻ tín dụng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/i/itemized-receipt.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-100"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-corporate-card",
+    "word": "Corporate card",
+    "meaning": "Thẻ tín dụng doanh nghiệp cấp cho nhân viên",
+    "ipa": "/ˈkɔːrpərət kɑːrd/",
+    "definition": "A credit card issued to an employee for paying company business expenses.",
+    "example": "Charge all client entertainment dinners to your assigned corporate card.",
+    "exampleVi": "Hãy quẹt tất cả các bữa ăn tiếp đãi khách hàng vào thẻ doanh nghiệp được cấp cho bạn.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/corporate-card.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-100"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-claim-2",
+    "word": "Claim",
+    "meaning": "Yêu cầu thanh toán tiền công tác",
+    "ipa": "/kleɪm/",
+    "definition": "A formal request for money that you believe you are entitled to.",
+    "example": "Submit your mileage claim before the end of the payroll cycle.",
+    "exampleVi": "Hãy nộp yêu cầu thanh toán chi phí xăng xe trước khi chu kỳ tính lương kết thúc.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/c/claim.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-100"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-petty-cash",
+    "word": "Petty cash",
+    "meaning": "Quỹ tiền mặt nhỏ tại văn phòng cho chi tiêu lặt vặt",
+    "ipa": "/ˌpeti ˈkæʃ/",
+    "definition": "A small amount of cash kept in an office for small daily payments.",
+    "example": "Taxi fares under $20 can be reimbursed immediately from office petty cash.",
+    "exampleVi": "Tiền cước taxi dưới 20 USD có thể được thanh toán hoàn lại ngay từ quỹ tiền mặt nhỏ của văn phòng.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/petty-cash.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-100"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-voucher-3",
+    "word": "Voucher",
+    "meaning": "Phiếu chi tiền có chữ ký duyệt",
+    "ipa": "/ˈvaʊtʃər/",
+    "definition": "A piece of paper that can be used to pay for something or proves an authorized payment.",
+    "example": "The finance manager signed the payment voucher for the conference booth rental.",
+    "exampleVi": "Giám đốc tài chính đã ký phiếu chi tiền cho khoản thuê gian hàng hội nghị.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/v/voucher.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-100"
+    ],
+    "tags": []
+  },
+  {
+    "id": "toeic-disbursement-2",
+    "word": "Disbursement",
+    "meaning": "Sự giải ngân thanh toán chi phí của phòng tài chính",
+    "ipa": "/dɪsˈbɜːrsmənt/",
+    "definition": "The payment of money from a fund or account.",
+    "example": "Travel reimbursement disbursements are processed on the 15th and 30th of each month.",
+    "exampleVi": "Việc giải ngân hoàn trả chi phí công tác được xử lý vào ngày 15 và 30 hàng tháng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/d/disbursement.webp",
+    "topicIds": [
+      "top-1000-toeic-chặng-100"
+    ],
+    "tags": []
   }
 ];
 
-export const WORDS_MAP = new Map();
-for (const word of WORDS) {
-  if (word && word.id) {
-    WORDS_MAP.set(word.id, word);
-  }
-}
+export const WORDS_MAP = new Map(WORDS.map(w => [w.id, w]));
