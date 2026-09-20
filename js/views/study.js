@@ -111,16 +111,24 @@ export function renderStudyOverlayShell() {
 
               <!-- Cụm Từ Vựng & Phát Âm Bản Xứ -->
               <div class="card-word-info">
+                <!-- Nút phát âm loa đẹp nằm trên từ tiếng Anh -->
+                <button class="card-sound-btn fc-sound-btn" id="btn-audio-speaker" type="button" title="Phát âm từ vựng" aria-label="Phát âm từ vựng">
+                  <svg class="speaker-svg-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path class="speaker-wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    <path class="speaker-wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                  </svg>
+                  <span class="sound-wave-bars">
+                    <span></span><span></span><span></span>
+                  </span>
+                </button>
+
+                <!-- Từ vựng tiếng Anh -->
                 <h2 class="card-word-title fc-title" id="card-front-word">...</h2>
                 
-                <div class="card-phonetic-row">
+                <!-- Phiên âm IPA nằm dưới từ tiếng Anh -->
+                <div class="card-phonetic-wrap" id="card-front-phonetic-wrap">
                   <span class="card-word-phonetic fc-phonetic" id="card-front-phonetic" style="display: none;">/ ... /</span>
-                  <button class="card-sound-btn fc-sound-btn" id="btn-audio-speaker" type="button" title="Phát âm từ vựng" aria-label="Phát âm từ vựng">
-                    <span class="sound-wave-icon">
-                      <span></span><span></span><span></span>
-                    </span>
-                    <span class="sound-btn-text">Phát âm</span>
-                  </button>
                 </div>
               </div>
 
