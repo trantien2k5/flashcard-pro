@@ -14,7 +14,7 @@
   flex-direction: column;
   gap: 14px;
   width: 100%;
-  max-width: 540px;
+  max-width: 640px;
   margin: 0 auto;
   box-sizing: border-box;
   padding-bottom: 24px;
@@ -28,30 +28,13 @@
   min-width: 0;
 }
 
-.stats-col-left,
-.stats-col-right {
+.stats-col-main {
   display: flex;
   flex-direction: column;
   gap: 14px;
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
-}
-
-@media (min-width: 1024px) {
-  .stats-bento-container {
-    max-width: 100%;
-    margin: 0;
-  }
-
-  .stats-main-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 18px;
-    align-items: start;
-    min-width: 0;
-    width: 100%;
-  }
 }
 
 /* 1. Top Hero Stats Header (Clean Unboxed iOS Style) */

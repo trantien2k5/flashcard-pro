@@ -1,14 +1,22 @@
 /**
- * Review View - World-Class Bento Grid Dashboard Architecture
+ * Review View - Daily Review Center & Study Activity Heatmap
+ * Tối ưu hóa tinh gọn:
+ * 1. Nhiệm vụ hôm nay (4 chỉ số tập trung + Nút Hero Action)
+ * 2. Dự báo lịch ôn 7 ngày (Thiết kế thông minh, trực quan, tối ưu & hiện đại)
+ * 3. Lịch học tập theo ngày (Bảng ô vuông Heatmap tháng & ma trận năm)
  */
 
 import { StorageManager } from '../services/storage.js';
 import { State, isCardDue } from '../core/fsrs.js';
-import { MASTERY_STABILITY_THRESHOLD } from '../config.js';
 import { StatsManager } from '../core/stats.js';
 import { getLocalDateKey, escapeHTML } from '../utils.js';
 import { showToast } from './components.js';
 import { speak } from '../services/audio.js';
+
+let _currentYear = new Date().getFullYear();
+let _currentMonth = new Date().getMonth() + 1; // 1 - 12
+let _viewMode = 'month'; // 'month' | 'year'
+let _cachedApp = null;
 
 export function renderReviewShell(container) {
   if (!container) return;
@@ -37,266 +45,434 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 2-Column Responsive Dashboard Grid (Left: Hero & Forecast, Right: Trend & Memory) -->
-        <div class="review-main-grid">
-          <!-- CỘT TRÁI: NHIỆM VỤ HÔM NAY & DỰ BÁO LỊCH ÔN -->
-          <div class="review-col-left">
-            <!-- 2. Bento Hero Card: Nhiệm Vụ Hôm Nay -->
-            <div class="bento-section-group bento-group-hero">
-              <div class="section-group-header">
-                <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
-                  <span class="section-group-title">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                      <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
-                    </svg>
-                    NHIỆM VỤ HÔM NAY
-                  </span>
-                  <span class="hero-goal-ratio-pill" id="home-goal-ratio">0/10 từ</span>
+        <!-- 2. Bento Hero Card: Nhiệm Vụ Hôm Nay -->
+        <div class="bento-section-group bento-group-hero">
+          <div class="section-group-header">
+            <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+              <span class="section-group-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+                </svg>
+                NHIỆM VỤ HÔM NAY
+              </span>
+              <span class="hero-goal-ratio-pill" id="home-goal-ratio">0/10 từ</span>
+            </div>
+            <span class="section-group-hint">Chỉ số tập trung và tiến độ mục tiêu ngày</span>
+          </div>
+
+          <div class="bento-card bento-hero-card">
+            <!-- 4 Khối chỉ số 2 Cột (2x2 Quad Grid) -->
+            <div class="hero-quad-grid">
+              <!-- Card 1: Cần ôn ngay -->
+              <div class="quad-tile tile-due" id="box-home-due">
+                <div class="quad-tile-top">
+                  <span class="quad-icon-badge">📥</span>
+                  <span class="quad-label">CẦN ÔN TẬP</span>
                 </div>
-                <span class="section-group-hint">Chỉ số tập trung và tiến độ mục tiêu ngày</span>
+                <div class="quad-num-wrap">
+                  <span class="quad-number" id="home-due-val">0</span>
+                  <span class="quad-unit">từ</span>
+                </div>
+                <span class="quad-sub-hint" id="home-due-hint">Ưu tiên ôn trước</span>
               </div>
 
-              <div class="bento-card bento-hero-card">
-                <!-- 4 Khối chỉ số 2 Cột (2x2 Quad Grid) -->
-                <div class="hero-quad-grid">
-                  <!-- Card 1: Cần ôn ngay -->
-                  <div class="quad-tile tile-due" id="box-home-due">
-                    <div class="quad-tile-top">
-                      <span class="quad-icon-badge">📥</span>
-                      <span class="quad-label">CẦN ÔN TẬP</span>
-                    </div>
-                    <div class="quad-num-wrap">
-                      <span class="quad-number" id="home-due-val">0</span>
-                      <span class="quad-unit">từ</span>
-                    </div>
-                    <span class="quad-sub-hint" id="home-due-hint">Ưu tiên ôn trước</span>
-                  </div>
-
-                  <!-- Card 2: Đã học hôm nay -->
-                  <div class="quad-tile tile-new" id="box-home-new">
-                    <div class="quad-tile-top">
-                      <span class="quad-icon-badge">✨</span>
-                      <span class="quad-label">ĐÃ HỌC HÔM NAY</span>
-                    </div>
-                    <div class="quad-num-wrap">
-                      <span class="quad-number" id="home-new-today-val">0/10</span>
-                      <span class="quad-unit">từ</span>
-                    </div>
-                    <span class="quad-sub-hint" id="home-goal-hint">Chỉ tiêu: 10 từ</span>
-                  </div>
-
-                  <!-- Card 3: Thời gian học -->
-                  <div class="quad-tile tile-time" id="box-home-time">
-                    <div class="quad-tile-top">
-                      <span class="quad-icon-badge">⏱️</span>
-                      <span class="quad-label">THỜI GIAN HỌC</span>
-                    </div>
-                    <div class="quad-num-wrap">
-                      <span class="quad-number" id="home-study-timer">0p</span>
-                    </div>
-                    <span class="quad-sub-hint">Tập trung hôm nay</span>
-                  </div>
-
-                  <!-- Card 4: Tỉ lệ nhớ tốt -->
-                  <div class="quad-tile tile-retention" id="box-home-retention">
-                    <div class="quad-tile-top">
-                      <span class="quad-icon-badge">🧠</span>
-                      <span class="quad-label">TỈ LỆ NHỚ TỐT</span>
-                    </div>
-                    <div class="quad-num-wrap">
-                      <span class="quad-number" id="home-retention-rate">100%</span>
-                    </div>
-                    <span class="quad-sub-hint" id="home-retention-hint">Trí nhớ xuất sắc 🌟</span>
-                  </div>
+              <!-- Card 2: Đã học hôm nay -->
+              <div class="quad-tile tile-new" id="box-home-new">
+                <div class="quad-tile-top">
+                  <span class="quad-icon-badge">✨</span>
+                  <span class="quad-label">ĐÃ HỌC HÔM NAY</span>
                 </div>
-
-                <!-- Nút Hành Động Chính (Hero CTA) -->
-                <button class="btn-hero-action" id="btn-home-hero-cta">
-                  <svg class="action-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <polygon points="5 3 19 12 5 21 5 3"/>
-                  </svg>
-                  <span id="home-hero-cta-text">Ôn 0 từ ngay</span>
-                </button>
-
-                <!-- Dòng thông tin ước tính & chuỗi -->
-                <div class="hero-meta-hint">
-                  <span id="home-estimated-time">⏱️ Khoảng 0 phút</span>
-                  <span class="hint-sep">•</span>
-                  <span id="home-streak-hint">Học hôm nay để giữ chuỗi 🔥</span>
+                <div class="quad-num-wrap">
+                  <span class="quad-number" id="home-new-today-val">0/10</span>
+                  <span class="quad-unit">từ</span>
                 </div>
+                <span class="quad-sub-hint" id="home-goal-hint">Chỉ tiêu: 10 từ</span>
+              </div>
+
+              <!-- Card 3: Thời gian học -->
+              <div class="quad-tile tile-time" id="box-home-time">
+                <div class="quad-tile-top">
+                  <span class="quad-icon-badge">⏱️</span>
+                  <span class="quad-label">THỜI GIAN HỌC</span>
+                </div>
+                <div class="quad-num-wrap">
+                  <span class="quad-number" id="home-study-timer">0p</span>
+                </div>
+                <span class="quad-sub-hint">Tập trung hôm nay</span>
+              </div>
+
+              <!-- Card 4: Tỉ lệ nhớ tốt -->
+              <div class="quad-tile tile-retention" id="box-home-retention">
+                <div class="quad-tile-top">
+                  <span class="quad-icon-badge">🧠</span>
+                  <span class="quad-label">TỈ LỆ NHỚ TỐT</span>
+                </div>
+                <div class="quad-num-wrap">
+                  <span class="quad-number" id="home-retention-rate">100%</span>
+                </div>
+                <span class="quad-sub-hint" id="home-retention-hint">Trí nhớ xuất sắc 🌟</span>
               </div>
             </div>
 
-            <!-- 3. Lịch Ôn Tập 7 Ngày -->
-            <div class="bento-section-group bento-group-forecast">
-              <div class="section-group-header">
-                <div style="display:flex; align-items:center; justify-content:space-between; width:100%; gap:8px;">
-                  <span class="section-group-title">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                      <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-                      <line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
-                    </svg>
-                    DỰ BÁO LỊCH ÔN 7 NGÀY TỚI
-                  </span>
-                  <div style="display:flex; align-items:center; gap:6px;">
-                    <span class="bento-badge-forecast" id="home-forecast-total">0 từ / 7 ngày</span>
-                    <button type="button" class="btn-open-calendar-modal" id="btn-open-calendar-modal" title="Xem lịch tháng chi tiết" aria-label="Mở lịch tháng">
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                      </svg>
-                      <span>Lịch tháng ↗</span>
-                    </button>
-                  </div>
-                </div>
-                <span class="section-group-hint">Số lượng thẻ đến hạn theo ngày (Chạm để mở lịch chi tiết)</span>
+            <!-- Nút Hành Động Chính (Hero CTA) -->
+            <button class="btn-hero-action" id="btn-home-hero-cta">
+              <svg class="action-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+              <span id="home-hero-cta-text">Ôn 0 từ ngay</span>
+            </button>
+
+            <!-- Dòng thông tin ước tính & chuỗi -->
+            <div class="hero-meta-hint">
+              <span id="home-estimated-time">⏱️ Khoảng 0 phút</span>
+              <span class="hint-sep">•</span>
+              <span id="home-streak-hint">Học hôm nay để giữ chuỗi 🔥</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. DỰ BÁO LỊCH ÔN 7 NGÀY (Thiết kế Hiện Đại, Trực Quan & Tối Ưu) -->
+        <div class="bento-section-group bento-group-forecast">
+          <div class="section-group-header">
+            <div style="display:flex; align-items:center; justify-content:space-between; width:100%; gap:8px;">
+              <span class="section-group-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                  <line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
+                </svg>
+                DỰ BÁO LỊCH ÔN 7 NGÀY TỚI
+              </span>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <span class="bento-badge-forecast" id="home-forecast-total">0 từ / 7 ngày</span>
+                <button type="button" class="btn-open-calendar-modal" id="btn-open-calendar-modal" title="Xem lịch tháng chi tiết" aria-label="Mở lịch tháng">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <span>Lịch tháng ↗</span>
+                </button>
               </div>
-              <div class="bento-card bento-forecast-card">
-                <div class="forecast-capsules-grid" id="home-review-forecast"></div>
+            </div>
+            <span class="section-group-hint">Dự báo khối lượng từ vựng đến hạn cần ôn theo từng ngày</span>
+          </div>
+
+          <div class="bento-card bento-forecast-card">
+            <div class="forecast-capsules-grid" id="home-review-forecast"></div>
+          </div>
+        </div>
+
+        <!-- 4. LỊCH HỌC TẬP THEO NGÀY (Activity Heatmap Tháng & Ma trận Năm) -->
+        <div class="bento-section-group" id="journal-main-container">
+          <div class="section-group-header">
+            <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+              <span class="section-group-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                LỊCH HỌC TẬP THEO NGÀY
+              </span>
+              
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div class="journal-view-toggle">
+                  <button type="button" class="btn-toggle-mode active" data-mode="month" id="btn-mode-month">Tháng</button>
+                  <button type="button" class="btn-toggle-mode" data-mode="year" id="btn-mode-year">Năm</button>
+                </div>
+                <div class="journal-legend">
+                  <span>Ít</span>
+                  <span class="legend-cell heat-0"></span>
+                  <span class="legend-cell heat-1"></span>
+                  <span class="legend-cell heat-2"></span>
+                  <span class="legend-cell heat-3"></span>
+                  <span class="legend-cell heat-4"></span>
+                  <span>Nhiều</span>
+                </div>
+              </div>
+            </div>
+            <span class="section-group-hint">Chạm hoặc di chuột vào ô bất kỳ để xem nhanh chi tiết</span>
+          </div>
+
+          <!-- Month Navigation Header & Month Metrics -->
+          <div class="inset-grouped-card" style="padding: 10px 12px; margin-bottom: 8px;">
+            <div class="journal-month-nav-row">
+              <button type="button" class="btn-journal-nav" id="btn-journal-prev" title="Tháng trước">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              
+              <div class="journal-period-info">
+                <span class="period-title" id="journal-period-title">Tháng ${_currentMonth}, ${_currentYear}</span>
+                <button type="button" class="btn-journal-today" id="btn-journal-today">Hôm nay</button>
+              </div>
+
+              <button type="button" class="btn-journal-nav" id="btn-journal-next" title="Tháng sau">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+
+            <!-- 4 Hộp Hiệu Suất Tháng (P&L Mini Cards) -->
+            <div class="journal-pnl-grid" style="margin-top: 8px;">
+              <div class="pnl-stat-box pnl-profit">
+                <div class="pnl-box-header">
+                  <span class="pnl-box-icon">📚</span>
+                  <span class="pnl-box-label">TỔNG TỪ ĐÃ HỌC</span>
+                </div>
+                <div class="pnl-box-val" id="journal-pnl-total">+0</div>
+                <span class="pnl-box-sub" id="journal-pnl-active-days">0/0 ngày học</span>
+              </div>
+
+              <div class="pnl-stat-box pnl-winrate">
+                <div class="pnl-box-header">
+                  <span class="pnl-box-icon">🎯</span>
+                  <span class="pnl-box-label">TỶ LỆ NHỚ TỐT</span>
+                </div>
+                <div class="pnl-box-val" id="journal-pnl-winrate">0%</div>
+                <span class="pnl-box-sub">Tỉ lệ phản xạ Good/Easy</span>
+              </div>
+
+              <div class="pnl-stat-box pnl-streak">
+                <div class="pnl-box-header">
+                  <span class="pnl-box-icon">🔥</span>
+                  <span class="pnl-box-label">CHUỖI KỶ LỤC</span>
+                </div>
+                <div class="pnl-box-val" id="journal-pnl-streak">0<span class="pnl-unit">ngày</span></div>
+                <span class="pnl-box-sub">Chuỗi dài nhất tháng</span>
+              </div>
+
+              <div class="pnl-stat-box pnl-time">
+                <div class="pnl-box-header">
+                  <span class="pnl-box-icon">⏱️</span>
+                  <span class="pnl-box-label">THỜI GIAN</span>
+                </div>
+                <div class="pnl-box-val" id="journal-pnl-time">0<span class="pnl-unit">phút</span></div>
+                <span class="pnl-box-sub">Thời gian tập trung</span>
               </div>
             </div>
           </div>
 
-          <!-- CỘT PHẢI: PHONG ĐỘ 7 NGÀY & HÀNH TRÌNH TỪ VỰNG -->
-          <div class="review-col-right">
-            <!-- 4. Bento Trend Card: Biểu Đồ Phong Độ 7 Ngày -->
-            <div class="bento-section-group bento-group-trend">
-              <div class="section-group-header">
-                <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
-                  <span class="section-group-title">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
-                    </svg>
-                    PHONG ĐỘ 7 NGÀY QUA
-                  </span>
-                  <span class="trend-delta-pill" id="home-trend-delta">✨ 0 lượt ôn tuần này</span>
-                </div>
-                <span class="section-group-hint">Số lượng từ vựng ôn tập mỗi ngày (T2 ➔ CN)</span>
+          <!-- Month Calendar Heatmap (7-Column Activity Grid) -->
+          <div class="stats-section-group" id="journal-month-section">
+            <div class="inset-grouped-card journal-calendar-wrapper">
+              <!-- 7-Day Header -->
+              <div class="calendar-weekdays-row">
+                <span class="weekday-cell">T2</span>
+                <span class="weekday-cell">T3</span>
+                <span class="weekday-cell">T4</span>
+                <span class="weekday-cell">T5</span>
+                <span class="weekday-cell">T6</span>
+                <span class="weekday-cell">T7</span>
+                <span class="weekday-cell sun">CN</span>
               </div>
 
-              <div class="bento-card bento-trend-card">
-                <!-- Dynamic SVG Area Sparkline Chart -->
-                <div class="trend-chart-wrapper" id="home-trend-chart-box"></div>
+              <!-- Calendar Grid Cells -->
+              <div class="calendar-grid-cells" id="journal-calendar-grid"></div>
+            </div>
+          </div>
 
-                <!-- Sub Row: Thống kê nhịp độ tinh gọn -->
-                <div class="trend-sub-row">
-                  <div class="trend-stat-meta">
-                    <span class="meta-item">⚡ Trung bình: <strong id="trend-avg-val">0</strong> từ/ngày</span>
-                    <span class="meta-sep">•</span>
-                    <span class="meta-item">Tổng tuần: <strong id="trend-total-val">0</strong> từ</span>
-                  </div>
-                </div>
-              </div>
+          <!-- Year Matrix Grid (Hidden in Month Mode) -->
+          <div class="stats-section-group" id="journal-year-section" style="display: none;">
+            <div class="section-group-header">
+              <span class="section-group-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="9"/></svg>
+                TỔNG QUAN 12 THÁNG TRONG NĂM
+              </span>
+              <span class="section-group-hint">Số từ vựng tích lũy và số ngày học theo từng tháng</span>
             </div>
 
-            <!-- 5. Hành Trình Từ Vựng & Tiếp Tục Học -->
-            <div class="bento-section-group bento-group-memory">
-              <div class="section-group-header">
-                <span class="section-group-title">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
-                  </svg>
-                  HÀNH TRÌNH TỪ VỰNG & HỌC TIẾP
-                </span>
-                <span class="section-group-hint">Tiến độ làm chủ kho 2.500+ từ vựng tiếng Anh</span>
-              </div>
-
-              <div class="bento-card bento-memory-card">
-                <!-- Mastery Progress Strip -->
-                <div class="memory-mastery-strip">
-                  <div class="mastery-text-row">
-                    <span>Đã làm chủ: <strong id="home-mastery-count">0</strong> / <strong id="home-total-count">0</strong> từ</span>
-                    <span class="mastery-pct-badge" id="home-mastery-pct">0%</span>
-                  </div>
-                  <div class="memory-mastery-bar-bg">
-                    <div class="memory-mastery-bar-fill" id="home-mastery-bar" style="width: 0%;"></div>
-                  </div>
-                </div>
-
-                <div class="memory-badges-grid">
-                  <div class="memory-badge-item badge-mastered" title="Độ bền Stability ≥ 30 ngày (Nhớ sâu)">
-                    <div class="memory-badge-icon">💎</div>
-                    <div class="memory-badge-info">
-                      <span class="memory-badge-count" id="m-count-mastered">0</span>
-                      <span class="memory-badge-lbl">Nhớ sâu</span>
-                    </div>
-                  </div>
-                  <div class="memory-badge-item badge-learning" title="Đang trong chu kỳ lặp lại ngắt quãng">
-                    <div class="memory-badge-icon">🌱</div>
-                    <div class="memory-badge-info">
-                      <span class="memory-badge-count" id="m-count-learning">0</span>
-                      <span class="memory-badge-lbl">Đang nhớ</span>
-                    </div>
-                  </div>
-                  <div class="memory-badge-item badge-new" title="Từ mới trong kho chưa học">
-                    <div class="memory-badge-icon">📖</div>
-                    <div class="memory-badge-info">
-                      <span class="memory-badge-count" id="m-count-new">0</span>
-                      <span class="memory-badge-lbl">Chưa học</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Nút Tiếp tục chủ đề gần nhất -->
-                <div class="home-resume-deck-row" id="home-recent-deck-wrap">
-                  <div class="resume-deck-left">
-                    <span class="resume-deck-hint">TIẾP TỤC CHỦ ĐỀ:</span>
-                    <strong class="resume-deck-name" id="home-recent-deck-name">Top 1000 từ cốt lõi</strong>
-                  </div>
-                  <button type="button" class="btn-resume-deck-action" id="btn-home-resume-deck">
-                    <span>Học tiếp</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
-                  </button>
-                </div>
-              </div>
+            <div class="inset-grouped-card" style="padding: 14px 16px;">
+              <div class="year-matrix-grid" id="journal-year-grid"></div>
             </div>
           </div>
         </div>
 
       </div>
+
+      <!-- Floating Day Popover Tooltip Container -->
+      <div id="day-popover-tooltip" class="day-popover-tooltip" style="display: none;"></div>
     `;
+
+    setupJournalEvents(container);
+  }
+}
+
+function setupJournalEvents(container) {
+  const btnPrev = container.querySelector('#btn-journal-prev');
+  const btnNext = container.querySelector('#btn-journal-next');
+  const btnToday = container.querySelector('#btn-journal-today');
+  const btnMonth = container.querySelector('#btn-mode-month');
+  const btnYear = container.querySelector('#btn-mode-year');
+
+  if (btnPrev) {
+    btnPrev.onclick = () => {
+      hideDayPopover();
+      if (_viewMode === 'month') {
+        _currentMonth--;
+        if (_currentMonth < 1) {
+          _currentMonth = 12;
+          _currentYear--;
+        }
+      } else {
+        _currentYear--;
+      }
+      if (_cachedApp) renderReviewTab(_cachedApp);
+    };
+  }
+
+  if (btnNext) {
+    btnNext.onclick = () => {
+      hideDayPopover();
+      if (_viewMode === 'month') {
+        _currentMonth++;
+        if (_currentMonth > 12) {
+          _currentMonth = 1;
+          _currentYear++;
+        }
+      } else {
+        _currentYear++;
+      }
+      if (_cachedApp) renderReviewTab(_cachedApp);
+    };
+  }
+
+  if (btnToday) {
+    btnToday.onclick = () => {
+      hideDayPopover();
+      const now = new Date();
+      _currentYear = now.getFullYear();
+      _currentMonth = now.getMonth() + 1;
+      if (_cachedApp) renderReviewTab(_cachedApp);
+    };
+  }
+
+  if (btnMonth && btnYear) {
+    btnMonth.onclick = () => {
+      hideDayPopover();
+      _viewMode = 'month';
+      btnMonth.classList.add('active');
+      btnYear.classList.remove('active');
+      const secMonth = container.querySelector('#journal-month-section');
+      const secYear = container.querySelector('#journal-year-section');
+      if (secMonth) secMonth.style.display = 'flex';
+      if (secYear) secYear.style.display = 'none';
+      if (_cachedApp) renderReviewTab(_cachedApp);
+    };
+
+    btnYear.onclick = () => {
+      hideDayPopover();
+      _viewMode = 'year';
+      btnYear.classList.add('active');
+      btnMonth.classList.remove('active');
+      const secMonth = container.querySelector('#journal-month-section');
+      const secYear = container.querySelector('#journal-year-section');
+      if (secMonth) secMonth.style.display = 'none';
+      if (secYear) secYear.style.display = 'flex';
+      if (_cachedApp) renderReviewTab(_cachedApp);
+    };
+  }
+
+  // Dismiss popover on global click/touch outside
+  if (!container._popoverBound) {
+    container._popoverBound = true;
+    document.addEventListener('pointerdown', (e) => {
+      if (!e.target.closest('.calendar-day-cell') && !e.target.closest('.day-popover-tooltip')) {
+        hideDayPopover();
+      }
+    });
+    window.addEventListener('scroll', () => hideDayPopover(), { passive: true });
+  }
+}
+
+function showDayPopover(cell, dayObj) {
+  const tooltip = document.getElementById('day-popover-tooltip');
+  if (!tooltip || !cell || !dayObj) return;
+
+  const parts = dayObj.dateKey.split('-');
+  const formatted = `${parts[2]}/${parts[1]}/${parts[0]}`;
+  const dateTitle = dayObj.isToday ? `Hôm nay (${formatted})` : `Ngày ${formatted}`;
+
+  tooltip.innerHTML = `
+    <div class="popover-header">
+      <span class="popover-date">📅 ${dateTitle}</span>
+      <span class="popover-badge-total">${dayObj.count > 0 ? '+' + dayObj.count + ' từ' : '0 từ'}</span>
+    </div>
+    <div class="popover-body">
+      <div class="popover-item">
+        <span>📚 Từ mới học:</span>
+        <strong>+${dayObj.newCount} từ</strong>
+      </div>
+      <div class="popover-item">
+        <span>🔄 Ôn tập lại:</span>
+        <strong>${dayObj.reviewCount} từ</strong>
+      </div>
+      <div class="popover-item">
+        <span>🎯 Độ ghi nhớ:</span>
+        <strong>${dayObj.retention}%</strong>
+      </div>
+      <div class="popover-item">
+        <span>⏱️ Thời gian:</span>
+        <strong>${dayObj.minutes} phút</strong>
+      </div>
+    </div>
+  `;
+
+  tooltip.style.display = 'flex';
+
+  const rect = cell.getBoundingClientRect();
+  const popWidth = tooltip.offsetWidth || 230;
+  const popHeight = tooltip.offsetHeight || 120;
+
+  let left = rect.left + (rect.width / 2) - (popWidth / 2);
+  if (left < 10) left = 10;
+  if (left + popWidth > window.innerWidth - 10) left = window.innerWidth - popWidth - 10;
+
+  let top = rect.top - popHeight - 8;
+  if (top < 10) {
+    top = rect.bottom + 8;
+  }
+
+  tooltip.style.left = `${left}px`;
+  tooltip.style.top = `${top}px`;
+
+  requestAnimationFrame(() => {
+    tooltip.classList.add('active');
+  });
+}
+
+function hideDayPopover() {
+  const tooltip = document.getElementById('day-popover-tooltip');
+  if (tooltip) {
+    tooltip.classList.remove('active');
+    setTimeout(() => {
+      if (!tooltip.classList.contains('active')) {
+        tooltip.style.display = 'none';
+      }
+    }, 180);
   }
 }
 
 export function renderReviewTab(app) {
   try {
+    _cachedApp = app;
     const container = document.getElementById('tab-review') || document.getElementById('tab-home');
     if (!container) return;
     renderReviewShell(container);
 
     const allCards = app.deckManager.getAllCards();
-    const cardStates = StorageManager.getAllCardStates();
     const now = new Date();
-    const totalCards = allCards.length;
 
     // 1. Phân loại từ vựng & Cấp độ thành tựu FSRS
-    let masteredCount = 0; // S >= MASTERY_STABILITY_THRESHOLD
-    let learningCount = 0; // 3d <= S < 21d
-    let newCount = 0;      // Chưa học
     let learnedCount = 0;
     let goodMemoryCount = 0;
     let dueCount = 0;
 
     for (const card of allCards) {
       const state = StorageManager.getCardState(card.id);
-      if (!state || state.state === State.New || state.state === 0) {
-        newCount++;
-      } else {
+      if (state && state.state !== State.New && state.state !== 0) {
         learnedCount++;
         if (isCardDue(state, now)) {
           dueCount++;
         }
         const s = state.stability || 0;
-        if (s >= MASTERY_STABILITY_THRESHOLD) {
-          masteredCount++;
+        if (s >= 3) {
           goodMemoryCount++;
-        } else if (s >= 3) {
-          learningCount++;
-          goodMemoryCount++;
-        } else {
-          learningCount++;
         }
       }
     }
@@ -330,33 +506,8 @@ export function renderReviewTab(app) {
       }
     }
 
-    // Cập nhật 3 Mini Badges & Thanh Mastery Progress
-    const elMMastered = document.getElementById('m-count-mastered');
-    if (elMMastered) elMMastered.textContent = masteredCount.toLocaleString('vi-VN');
-
-    const elMLearning = document.getElementById('m-count-learning');
-    if (elMLearning) elMLearning.textContent = learningCount.toLocaleString('vi-VN');
-
-    const elMNew = document.getElementById('m-count-new');
-    if (elMNew) elMNew.textContent = newCount.toLocaleString('vi-VN');
-
-    const totalMastered = masteredCount + learningCount;
-    const masteryPct = totalCards > 0 ? Math.round((totalMastered / totalCards) * 100) : 0;
-
-    const elMasteryCount = document.getElementById('home-mastery-count');
-    if (elMasteryCount) elMasteryCount.textContent = totalMastered.toLocaleString('vi-VN');
-
-    const elTotalCount = document.getElementById('home-total-count');
-    if (elTotalCount) elTotalCount.textContent = totalCards.toLocaleString('vi-VN');
-
-    const elMasteryPct = document.getElementById('home-mastery-pct');
-    if (elMasteryPct) elMasteryPct.textContent = `${masteryPct}%`;
-
-    const elMasteryBar = document.getElementById('home-mastery-bar');
-    if (elMasteryBar) elMasteryBar.style.width = `${masteryPct}%`;
-
     // 2. Mục tiêu hôm nay & Nhật ký học
-    const dailyGoal = Number(app.settings.dailyNewLimit) || 10;
+    const dailyGoal = Number(app.settings?.dailyNewLimit) || 10;
     const studyQueue = app.deckManager.getStudyQueue(null, app.settings);
     const queueDue = studyQueue.totalDue !== undefined ? studyQueue.totalDue : dueCount;
 
@@ -403,9 +554,6 @@ export function renderReviewTab(app) {
 
     const elGoalPct = document.getElementById('home-goal-pct');
     if (elGoalPct) elGoalPct.textContent = `${goalPct}%`;
-
-    const elGoalBar = document.getElementById('home-goal-bar-fill');
-    if (elGoalBar) elGoalBar.style.width = `${goalPct}%`;
 
     // D. Từ cần ôn ngay & Đã học hôm nay
     const elDueVal = document.getElementById('home-due-val');
@@ -475,7 +623,7 @@ export function renderReviewTab(app) {
       }
     }
 
-    // F. Lịch Ôn Tập 7 Ngày Tới
+    // 3. DỰ BÁO LỊCH ÔN 7 NGÀY TỚI (Redesigned Modern Forecast)
     const forecastContainer = document.getElementById('home-review-forecast');
     const forecastTotalBadge = document.getElementById('home-forecast-total');
 
@@ -504,7 +652,7 @@ export function renderReviewTab(app) {
       }
 
       let totalWeekDue = 0;
-      const maxForecast = Math.max(...forecastCounts, 8);
+      const maxForecast = Math.max(...forecastCounts, 1);
       forecastContainer.innerHTML = '';
 
       for (let i = 0; i < 7; i++) {
@@ -515,10 +663,10 @@ export function renderReviewTab(app) {
 
         const dayName = dayNames[d.getDay()];
         const label = i === 0 ? 'H.nay' : (i === 1 ? 'Mai' : dayName);
-        const barHeightPct = count > 0 ? Math.min(100, Math.max(25, Math.round((count / maxForecast) * 100))) : 8;
+        const barWidthPct = count > 0 ? Math.min(100, Math.max(15, Math.round((count / maxForecast) * 100))) : 0;
 
-        let loadTag = 'Trống';
-        let loadClass = 'load-empty';
+        let loadTag = 'Nghỉ';
+        let loadClass = 'load-zero';
         if (count > 25) {
           loadTag = 'Cao';
           loadClass = 'load-high';
@@ -531,19 +679,21 @@ export function renderReviewTab(app) {
         }
 
         const itemEl = document.createElement('div');
-        itemEl.className = `forecast-capsule ${i === 0 ? 'is-today' : ''} ${count > 0 ? 'has-due' : 'is-empty'}`;
-        itemEl.title = `${label} (${d.getDate()}/${d.getMonth() + 1}): ${count} từ cần ôn (Tải ${loadTag}). Chạm để mở lịch tháng!`;
-        itemEl.style.cursor = 'pointer';
+        itemEl.className = `forecast-smart-capsule ${i === 0 ? 'is-today' : ''} ${count > 0 ? 'has-due' : 'is-zero'}`;
+        itemEl.title = `${label} (${d.getDate()}/${d.getMonth() + 1}): ${count} từ cần ôn (${loadTag}). Chạm để xem chi tiết!`;
 
         itemEl.innerHTML = `
-          <div class="capsule-top-row">
-            <span class="capsule-day">${label}</span>
-            <span class="capsule-date-sub">${d.getDate()}</span>
+          <div class="smart-capsule-header">
+            <span class="smart-capsule-day">${label}</span>
+            <span class="smart-capsule-date">${d.getDate()}/${d.getMonth() + 1}</span>
           </div>
-          <div class="capsule-bar-track">
-            <div class="capsule-bar-fill ${count > 0 ? 'fill-active ' + loadClass : ''}" style="height: ${barHeightPct}%;"></div>
+          <div class="smart-capsule-body">
+            <span class="smart-capsule-count ${count > 0 ? 'count-active' : ''}">${count}</span>
+            <span class="smart-capsule-tag ${loadClass}">${loadTag}</span>
           </div>
-          <span class="capsule-count ${count > 0 ? 'has-count' : ''}">${count}</span>
+          <div class="smart-capsule-meter">
+            <div class="smart-meter-fill ${count > 0 ? 'fill-active ' + loadClass : ''}" style="width: ${barWidthPct}%;"></div>
+          </div>
         `;
 
         itemEl.onclick = () => {
@@ -565,122 +715,124 @@ export function renderReviewTab(app) {
       }
     }
 
-    // H. Biểu Đồ Phong Độ 7 Ngày Qua
-    const elTrendDelta = document.getElementById('home-trend-delta');
-    const chartBox = document.getElementById('home-trend-chart-box');
-    const elAvgVal = document.getElementById('trend-avg-val');
-    const elTotalVal = document.getElementById('trend-total-val');
-
-    const studyLogs = StorageManager.getStudyLogs();
-    const weeklyData = StatsManager.getWeeklyProgress(studyLogs);
-
-    let weekTotalCount = 0;
-    const counts = weeklyData.map(d => {
-      weekTotalCount += d.count;
-      return d.count;
-    });
-    const avgCount = Math.round(weekTotalCount / 7);
-
-    if (elAvgVal) elAvgVal.textContent = avgCount;
-    if (elTotalVal) elTotalVal.textContent = weekTotalCount;
-
-    if (elTrendDelta) {
-      elTrendDelta.textContent = `✨ ${weekTotalCount} lượt ôn tuần này`;
+    // 4. LỊCH HỌC TẬP THEO NGÀY (Render Bảng Ô Vuông Heatmap & P&L Tháng)
+    const periodTitle = container.querySelector('#journal-period-title');
+    if (periodTitle) {
+      if (_viewMode === 'month') {
+        periodTitle.textContent = `Tháng ${_currentMonth}, ${_currentYear}`;
+      } else {
+        periodTitle.textContent = `Năm ${_currentYear}`;
+      }
     }
 
-    if (chartBox) {
-      const w = 320;
-      const h = 48;
-      const padX = 14;
-      const padY = 8;
-      const maxVal = Math.max(...counts, 5);
+    const monthData = StatsManager.getMonthJournalData(_currentYear, _currentMonth);
 
-      const points = weeklyData.map((d, i) => {
-        const x = padX + (i / 6) * (w - 2 * padX);
-        const y = h - padY - (d.count / maxVal) * (h - 2 * padY);
-        return { x, y, count: d.count, dayName: d.dayName, isToday: d.isToday };
+    // 4 Hộp Hiệu Suất Tháng
+    const pnlTotal = container.querySelector('#journal-pnl-total');
+    const pnlWinrate = container.querySelector('#journal-pnl-winrate');
+    const pnlActiveDays = container.querySelector('#journal-pnl-active-days');
+    const pnlStreak = container.querySelector('#journal-pnl-streak');
+    const pnlTime = container.querySelector('#journal-pnl-time');
+
+    if (pnlTotal) pnlTotal.textContent = `+${monthData.monthTotalWords}`;
+    if (pnlWinrate) pnlWinrate.textContent = `${monthData.winRate}%`;
+    if (pnlActiveDays) pnlActiveDays.textContent = `${monthData.activeDaysCount}/${monthData.elapsedDays} ngày học`;
+    if (pnlStreak) pnlStreak.innerHTML = `${monthData.maxStreakInMonth}<span class="pnl-unit">ngày</span>`;
+
+    const hours = Math.floor(monthData.monthTotalMinutes / 60);
+    const mins = monthData.monthTotalMinutes % 60;
+    const timeStr = hours > 0 
+      ? `${hours}<span class="pnl-unit">g</span> ${mins}<span class="pnl-unit">p</span>` 
+      : `${mins}<span class="pnl-unit">phút</span>`;
+    if (pnlTime) pnlTime.innerHTML = timeStr;
+
+    // Render Bảng Lịch Ô Vuông 7 Cột
+    const grid = container.querySelector('#journal-calendar-grid');
+    if (grid) {
+      grid.innerHTML = '';
+      const frag = document.createDocumentFragment();
+
+      for (let i = 0; i < monthData.firstDayOfWeek; i++) {
+        const padCell = document.createElement('div');
+        padCell.className = 'calendar-day-cell cell-empty-padding';
+        frag.appendChild(padCell);
+      }
+
+      monthData.days.forEach(dayObj => {
+        const cell = document.createElement('button');
+        cell.type = 'button';
+        cell.className = `calendar-day-cell heat-${dayObj.heatLevel} ${dayObj.isToday ? 'is-today' : ''} ${dayObj.isFuture ? 'is-future' : ''}`;
+        cell.dataset.dateKey = dayObj.dateKey;
+
+        const countText = dayObj.count > 0 ? `+${dayObj.count}` : (dayObj.isFuture ? '' : '0');
+
+        cell.innerHTML = `
+          <div class="day-cell-top">
+            <span class="day-number">${dayObj.day}</span>
+            ${dayObj.isToday ? '<span class="today-dot"></span>' : ''}
+          </div>
+          <div class="day-cell-bottom">
+            <span class="day-pnl-text">${countText}</span>
+          </div>
+        `;
+
+        if (!dayObj.isFuture) {
+          cell.addEventListener('mouseenter', () => showDayPopover(cell, dayObj));
+          cell.addEventListener('mouseleave', () => hideDayPopover());
+          cell.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showDayPopover(cell, dayObj);
+          });
+        }
+
+        frag.appendChild(cell);
       });
 
-      let pathD = `M ${points[0].x.toFixed(1)} ${points[0].y.toFixed(1)}`;
-      for (let i = 0; i < points.length - 1; i++) {
-        const p0 = points[i];
-        const p1 = points[i + 1];
-        const cpx1 = (p0.x + (p1.x - p0.x) / 2).toFixed(1);
-        const cpy1 = p0.y.toFixed(1);
-        const cpx2 = cpx1;
-        const cpy2 = p1.y.toFixed(1);
-        pathD += ` C ${cpx1} ${cpy1}, ${cpx2} ${cpy2}, ${p1.x.toFixed(1)} ${p1.y.toFixed(1)}`;
-      }
-
-      const areaD = `${pathD} L ${points[6].x.toFixed(1)} ${h} L ${points[0].x.toFixed(1)} ${h} Z`;
-
-      const dotsSvg = points.map((p) => `
-        <g class="chart-point-group" title="${p.dayName}: ${p.count} từ">
-          <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${p.isToday ? '3.8' : '2.8'}" class="chart-dot ${p.isToday ? 'dot-today' : ''} ${p.count > 0 ? 'dot-active' : ''}"/>
-          ${p.count > 0 ? `<text x="${p.x.toFixed(1)}" y="${Math.max(7, p.y - 5).toFixed(1)}" class="chart-val-txt" text-anchor="middle">${p.count}</text>` : ''}
-        </g>
-      `).join('');
-
-      const axisSvg = points.map(p => `
-        <span class="chart-axis-label ${p.isToday ? 'is-today' : ''}">${p.dayName}</span>
-      `).join('');
-
-      chartBox.innerHTML = `
-        <div class="trend-sparkline-box">
-          <svg viewBox="0 0 ${w} ${h}" class="trend-svg-chart" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="trendGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#10b981" stop-opacity="0.32"/>
-                <stop offset="100%" stop-color="#10b981" stop-opacity="0.0"/>
-              </linearGradient>
-            </defs>
-            <path d="${areaD}" fill="url(#trendGrad)"/>
-            <path d="${pathD}" fill="none" stroke="#10b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="trend-spark-line"/>
-            ${dotsSvg}
-          </svg>
-        </div>
-        <div class="trend-axis-row">
-          ${axisSvg}
-        </div>
-      `;
+      grid.appendChild(frag);
     }
 
-    // I. Thanh Lối Tắt Chủ Đề Gần Đây
-    const allDecks = app.deckManager.getAllDecks();
-    let recentDeck = null;
-    let maxStudyTime = 0;
+    // Render Ma Trận 12 Tháng Năm
+    const yearGrid = container.querySelector('#journal-year-grid');
+    if (yearGrid) {
+      yearGrid.innerHTML = '';
+      const yearData = StatsManager.getYearJournalData(_currentYear);
+      const fragYear = document.createDocumentFragment();
 
-    for (const deck of allDecks) {
-      const dStats = app.deckManager.getDeckStats(deck.id);
-      if (dStats && dStats.lastStudiedTime && dStats.lastStudiedTime > maxStudyTime) {
-        maxStudyTime = dStats.lastStudiedTime;
-        recentDeck = deck;
-      }
-    }
+      yearData.months.forEach(mObj => {
+        const mCard = document.createElement('div');
+        mCard.className = `year-month-card ${mObj.isCurrentMonth ? 'is-current' : ''}`;
+        mCard.innerHTML = `
+          <div class="year-month-header">
+            <span class="year-month-name">${mObj.monthName}</span>
+            <span class="year-month-words">${mObj.wordsCount > 0 ? '+' + mObj.wordsCount : '0'}</span>
+          </div>
+          <div class="year-month-bar">
+            <div class="year-month-bar-fill" style="width: ${mObj.wordsCount > 0 ? Math.min(100, Math.max(8, Math.round((mObj.wordsCount / (yearData.maxMonthWords || 1)) * 100))) : 0}%;"></div>
+          </div>
+          <div class="year-month-footer">
+            <span>${mObj.activeDays} ngày học</span>
+            <span>${mObj.minutes}p</span>
+          </div>
+        `;
 
-    if (!recentDeck && allDecks.length > 0) {
-      const top1000 = allDecks.find(d => d.id === 'top-1000-core-words');
-      recentDeck = top1000 || allDecks[0];
-    }
+        mCard.onclick = () => {
+          _currentMonth = mObj.month;
+          _viewMode = 'month';
+          const btnMonth = container.querySelector('#btn-mode-month');
+          const btnYear = container.querySelector('#btn-mode-year');
+          if (btnMonth) btnMonth.classList.add('active');
+          if (btnYear) btnYear.classList.remove('active');
+          const secMonth = container.querySelector('#journal-month-section');
+          const secYear = container.querySelector('#journal-year-section');
+          if (secMonth) secMonth.style.display = 'flex';
+          if (secYear) secYear.style.display = 'none';
+          renderReviewTab(app);
+        };
 
-    const elDeckName = document.getElementById('home-recent-deck-name');
-    if (elDeckName && recentDeck) {
-      elDeckName.textContent = recentDeck.name || recentDeck.title || 'Top 1000 từ cốt lõi';
-    }
+        fragYear.appendChild(mCard);
+      });
 
-    const btnResumeDeck = document.getElementById('btn-home-resume-deck');
-    if (btnResumeDeck && recentDeck) {
-      btnResumeDeck.onclick = () => {
-        try {
-          if (typeof app.openSubtopicsPage === 'function') {
-            app.openSubtopicsPage(recentDeck.id);
-          } else {
-            app.startStudySession(recentDeck.id, null);
-          }
-        } catch (err) {
-          console.error('Lỗi mở chủ đề:', err);
-        }
-      };
+      yearGrid.appendChild(fragYear);
     }
 
   } catch (err) {
@@ -688,114 +840,119 @@ export function renderReviewTab(app) {
   }
 }
 
-let _calSelectedDate = new Date();
-let _calViewingYear = _calSelectedDate.getFullYear();
-let _calViewingMonth = _calSelectedDate.getMonth();
-
 /**
- * Mở Modal Lịch Tháng Dự Báo Ôn Tập FSRS-6 Toàn Diện
+ * Mở Modal Lịch Tháng Dự Báo Chi Tiết
  */
-export function openCalendarForecastModal(app, targetDate = new Date()) {
-  let modal = document.getElementById('calendar-forecast-modal');
+let _calViewingYear = new Date().getFullYear();
+let _calViewingMonth = new Date().getMonth(); // 0-indexed
+let _calSelectedDate = new Date();
+
+export function openCalendarForecastModal(app, initialDate = new Date()) {
+  let modal = document.getElementById('calendar-forecast-modal-overlay');
   if (!modal) {
     modal = document.createElement('div');
-    modal.id = 'calendar-forecast-modal';
+    modal.id = 'calendar-forecast-modal-overlay';
     modal.className = 'calendar-forecast-modal-overlay';
     document.body.appendChild(modal);
   }
 
-  _calSelectedDate = targetDate instanceof Date ? targetDate : new Date(targetDate);
+  _calSelectedDate = new Date(initialDate);
   _calViewingYear = _calSelectedDate.getFullYear();
   _calViewingMonth = _calSelectedDate.getMonth();
 
   const renderModalContent = () => {
-    const allCards = app.deckManager ? app.deckManager.getAllCards() : [];
-    
-    // Thu thập danh sách thẻ đến hạn cho từng ngày
-    // key: "YYYY-MM-DD" -> Array of { card, state }
+    const monthNames = [
+      'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
+      'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'
+    ];
+
+    const today = new Date();
+    const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    const selectedDateKey = `${_calSelectedDate.getFullYear()}-${String(_calSelectedDate.getMonth() + 1).padStart(2, '0')}-${String(_calSelectedDate.getDate()).padStart(2, '0')}`;
+
+    const allCards = app.deckManager?.getAllCards() || [];
     const monthDueMap = new Map();
-    const todayObj = new Date();
-    const todayKey = getLocalDateKey(todayObj);
 
-    for (const card of allCards) {
-      const state = StorageManager.getCardState(card.id);
-      if (state && state.state !== State.New && state.state !== 0 && state.due) {
-        const dueDate = new Date(state.due);
-        if (!isNaN(dueDate.getTime())) {
-          let cardDueKey = '';
-          if (state.scheduled_days >= 1) {
-            cardDueKey = `${dueDate.getFullYear()}-${String(dueDate.getMonth() + 1).padStart(2, '0')}-${String(dueDate.getDate()).padStart(2, '0')}`;
-          } else {
-            // Intraday step (< 1 ngày)
-            cardDueKey = todayKey;
-          }
+    const startOfMonth = new Date(_calViewingYear, _calViewingMonth, 1);
+    const endOfMonth = new Date(_calViewingYear, _calViewingMonth + 1, 0);
+    const daysInMonth = endOfMonth.getDate();
 
-          // Thẻ quá hạn từ các ngày trước được gom vào hôm nay
-          if (cardDueKey < todayKey && isCardDue(state, todayObj)) {
-            cardDueKey = todayKey;
-          }
-
-          if (!monthDueMap.has(cardDueKey)) {
-            monthDueMap.set(cardDueKey, []);
-          }
-          monthDueMap.get(cardDueKey).push({ card, state });
-        }
-      }
-    }
-
-    // Tính toán thống kê tháng
-    let monthTotalDue = 0;
-    let daysWithReviews = 0;
-    let maxDueInSingleDay = 0;
-
-    const daysInMonth = new Date(_calViewingYear, _calViewingMonth + 1, 0).getDate();
     for (let day = 1; day <= daysInMonth; day++) {
       const dateKey = `${_calViewingYear}-${String(_calViewingMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-      const count = (monthDueMap.get(dateKey) || []).length;
+      monthDueMap.set(dateKey, []);
+    }
+
+    allCards.forEach(card => {
+      const state = StorageManager.getCardState(card.id);
+      if (state && state.due && state.state !== State.New && state.state !== 0) {
+        const dueDate = new Date(state.due);
+        if (dueDate.getFullYear() === _calViewingYear && dueDate.getMonth() === _calViewingMonth) {
+          const day = dueDate.getDate();
+          const dateKey = `${_calViewingYear}-${String(_calViewingMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+          if (monthDueMap.has(dateKey)) {
+            monthDueMap.get(dateKey).push({ card, state });
+          }
+        }
+      }
+    });
+
+    let totalMonthDue = 0;
+    let maxDueInSingleDay = 0;
+    let daysWithReviews = 0;
+
+    monthDueMap.forEach(cardsList => {
+      const count = cardsList.length;
+      totalMonthDue += count;
       if (count > 0) {
-        monthTotalDue += count;
         daysWithReviews++;
         if (count > maxDueInSingleDay) maxDueInSingleDay = count;
       }
-    }
+    });
 
-    // Tính offset các ngày đầu tuần (Thứ 2 đến Chủ nhật)
-    const firstDayIndex = new Date(_calViewingYear, _calViewingMonth, 1).getDay(); // 0 = CN, 1 = T2 ...
-    const startDayOffset = (firstDayIndex + 6) % 7; // 0 = T2, 6 = CN
-    const prevMonthDays = new Date(_calViewingYear, _calViewingMonth, 0).getDate();
+    const firstDayIndex = startOfMonth.getDay();
+    const startDayOffset = (firstDayIndex === 0 ? 6 : firstDayIndex - 1);
+    const prevMonthEnd = new Date(_calViewingYear, _calViewingMonth, 0);
+    const prevMonthDays = prevMonthEnd.getDate();
 
-    const selectedDateKey = `${_calSelectedDate.getFullYear()}-${String(_calSelectedDate.getMonth() + 1).padStart(2, '0')}-${String(_calSelectedDate.getDate()).padStart(2, '0')}`;
-
-    // Render Khung Modal
     modal.innerHTML = `
-      <div class="calendar-forecast-dialog" role="dialog" aria-modal="true" aria-labelledby="cal-modal-title">
-        <!-- 1. Modal Header -->
+      <div class="calendar-forecast-dialog">
+        <!-- 1. Header Dialog & Close -->
         <div class="cal-modal-header">
-          <div class="cal-header-title-group">
-            <span class="cal-icon-badge">📅</span>
-            <div>
-              <h3 class="cal-modal-title" id="cal-modal-title">Lịch Ôn Tập Chi Tiết</h3>
-              <p class="cal-modal-subtitle">Thống kê & Dự báo phân bổ trí nhớ FSRS-6</p>
+          <div class="cal-modal-title-wrap">
+            <span class="cal-modal-icon">📅</span>
+            <div class="cal-modal-titles">
+              <h3 class="cal-modal-title">Lịch Dự Báo Ôn Tập</h3>
+              <p class="cal-modal-sub">Dự báo theo thuật toán FSRS-6</p>
             </div>
           </div>
-          <button class="btn-cal-close" id="btn-close-cal-modal" title="Đóng (Esc)" aria-label="Đóng">✕</button>
+          <button class="btn-cal-modal-close" id="btn-close-cal-modal" title="Đóng (Esc)" aria-label="Đóng">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18M6 6l12 12"/>
+            </svg>
+          </button>
         </div>
 
-        <!-- 2. Month Navigation Toolbar -->
-        <div class="cal-month-nav-bar">
-          <div class="cal-nav-controls">
-            <button class="btn-cal-arrow" id="btn-cal-prev-month" title="Tháng trước">◀</button>
-            <span class="cal-current-month-text">Tháng ${_calViewingMonth + 1}, ${_calViewingYear}</span>
-            <button class="btn-cal-arrow" id="btn-cal-next-month" title="Tháng sau">▶</button>
+        <!-- 2. Navigation Tháng & Năm -->
+        <div class="cal-nav-bar">
+          <button class="btn-cal-nav" id="btn-cal-prev-month" title="Tháng trước">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          
+          <div class="cal-nav-center">
+            <span class="cal-nav-month">${monthNames[_calViewingMonth]} ${_calViewingYear}</span>
+            <button class="btn-cal-today-jump" id="btn-cal-today-jump">Hôm nay</button>
           </div>
-          <button class="btn-cal-today-jump" id="btn-cal-today-jump">Về hôm nay</button>
+
+          <button class="btn-cal-nav" id="btn-cal-next-month" title="Tháng sau">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
         </div>
 
-        <!-- 3. Monthly Summary Meta Bar -->
-        <div class="cal-summary-strip">
+        <!-- 3. Mini Summary Pills -->
+        <div class="cal-summary-pills">
           <div class="cal-summary-pill">
-            <span class="cal-sum-label">Tổng lượt ôn:</span>
-            <strong class="cal-sum-val">${monthTotalDue} từ</strong>
+            <span class="cal-sum-label">Tổng ôn tháng:</span>
+            <strong class="cal-sum-val">${totalMonthDue} từ</strong>
           </div>
           <div class="cal-summary-pill">
             <span class="cal-sum-label">Ngày có bài:</span>
