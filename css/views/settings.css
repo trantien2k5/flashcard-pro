@@ -481,6 +481,8 @@
   flex-direction: column;
   gap: 2px;
   padding: 0 4px 2px 6px;
+  text-align: left;
+  width: 100%;
 }
 
 .section-group-title {
@@ -491,7 +493,10 @@
   color: var(--text-primary);
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  text-align: left;
   gap: 6px;
+  margin: 0;
 }
 
 [data-theme="light"] .section-group-title {

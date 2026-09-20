@@ -130,6 +130,8 @@
   gap: 8px;
   margin-bottom: 5px;
   padding: 0 2px;
+  text-align: left;
+  width: 100%;
 }
 
 .section-group-title {
@@ -139,8 +141,11 @@
   color: var(--text-primary);
   display: inline-flex;
   align-items: center;
+  justify-content: flex-start;
+  text-align: left;
   gap: 6px;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .section-header-actions {
