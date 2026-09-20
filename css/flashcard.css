@@ -500,9 +500,9 @@
 }
 
 .card-word-title {
-  font-size: clamp(2.2rem, 4.8vw, 3rem);
+  font-size: clamp(2.6rem, 7vw, 3.6rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
   color: var(--text-primary);
   margin: 0;
   line-height: 1.15;
@@ -513,20 +513,20 @@
   color: #0f172a;
 }
 
-.card-word-title.word-len-md { font-size: clamp(1.8rem, 3.8vw, 2.3rem); }
-.card-word-title.word-len-lg { font-size: clamp(1.45rem, 3vw, 1.85rem); }
-.card-word-title.word-len-xl { font-size: clamp(1.2rem, 2.4vw, 1.5rem); }
+.card-word-title.word-len-md { font-size: clamp(2.15rem, 5.8vw, 2.8rem); }
+.card-word-title.word-len-lg { font-size: clamp(1.75rem, 4.6vw, 2.25rem); }
+.card-word-title.word-len-xl { font-size: clamp(1.45rem, 3.8vw, 1.85rem); }
 
 .card-phonetic-row {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .card-word-phonetic {
-  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-size: clamp(1.15rem, 3.2vw, 1.35rem);
   color: #a5b4fc;
   font-weight: 600;
   font-family: var(--font-mono, monospace);
@@ -541,9 +541,9 @@
   background: rgba(99, 102, 241, 0.15);
   border: 1px solid rgba(99, 102, 241, 0.35);
   color: #c7d2fe;
-  padding: 6px 14px;
+  padding: 8px 18px;
   border-radius: 99px;
-  font-size: 0.84rem;
+  font-size: 0.92rem;
   font-weight: 700;
   cursor: pointer;
   display: inline-flex;
@@ -776,7 +776,7 @@
 }
 
 .card-back-meaning {
-  font-size: clamp(1.7rem, 3.6vw, 2.35rem);
+  font-size: clamp(2.3rem, 6vw, 3.2rem);
   font-weight: 800;
   color: #34d399;
   line-height: 1.25;
@@ -789,17 +789,17 @@
 }
 
 .card-back-meaning.meaning-len-lg {
-  font-size: clamp(1.35rem, 2.7vw, 1.7rem);
+  font-size: clamp(1.75rem, 4.8vw, 2.35rem);
 }
 
 .card-back-def-box {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
   border-radius: 14px;
-  padding: 10px 16px;
+  padding: 12px 18px;
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -810,15 +810,15 @@
 }
 
 .def-icon-quote {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 1;
   color: var(--primary, #6366f1);
   font-family: serif;
 }
 
 .card-back-def {
-  font-size: clamp(0.86rem, 1.8vh, 0.96rem);
-  line-height: 1.45;
+  font-size: clamp(1.0rem, 2.4vw, 1.15rem);
+  line-height: 1.5;
   color: #cbd5e1;
   text-align: left;
   flex: 1;
@@ -834,7 +834,7 @@
   border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
   border-left: 4px solid var(--primary, #6366f1);
   border-radius: 14px;
-  padding: clamp(10px, 1.8vh, 14px) clamp(12px, 2vw, 18px);
+  padding: clamp(12px, 2vh, 16px) clamp(14px, 2.2vw, 20px);
   text-align: left;
   box-sizing: border-box;
 }
@@ -853,7 +853,7 @@
 }
 
 .example-label {
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-muted, #94a3b8);
@@ -880,8 +880,8 @@
   color: var(--text-primary);
   font-weight: 600;
   font-style: italic;
-  font-size: clamp(0.86rem, 1.8vh, 0.94rem);
-  line-height: 1.45;
+  font-size: clamp(1.02rem, 2.5vw, 1.18rem);
+  line-height: 1.5;
 }
 
 [data-theme="light"] .card-example-en {
@@ -903,10 +903,10 @@
 
 .card-example-vi {
   display: block;
-  font-size: clamp(0.82rem, 1.6vh, 0.88rem);
+  font-size: clamp(0.92rem, 2.2vw, 1.05rem);
   font-weight: 500;
   color: var(--text-muted, #94a3b8);
-  line-height: 1.4;
+  line-height: 1.45;
   margin-top: 6px;
 }
 
@@ -1514,25 +1514,51 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 520px) {
   .study-body-wrapper {
-    padding: 6px 12px 14px 12px;
+    padding: 6px 10px 12px 10px;
     gap: 8px;
   }
   
   .flashcard-stage {
-    height: clamp(340px, 55vh, 440px);
+    height: clamp(360px, 58vh, 460px);
   }
 
   .flashcard-face {
-    padding: 12px;
-    border-radius: 20px;
+    padding: 16px 14px;
+    border-radius: 22px;
   }
 
   .card-word-title {
-    font-size: clamp(1.8rem, 6.5vw, 2.3rem);
+    font-size: clamp(2.35rem, 8.5vw, 3.1rem);
+  }
+
+  .card-word-title.word-len-md { font-size: clamp(1.95rem, 7vw, 2.45rem); }
+  .card-word-title.word-len-lg { font-size: clamp(1.6rem, 5.8vw, 2.05rem); }
+  .card-word-title.word-len-xl { font-size: clamp(1.35rem, 4.8vw, 1.7rem); }
+
+  .card-word-phonetic {
+    font-size: clamp(1.1rem, 4.2vw, 1.3rem);
   }
 
   .card-back-meaning {
-    font-size: clamp(1.4rem, 5vw, 1.85rem);
+    font-size: clamp(2.1rem, 7.5vw, 2.85rem);
+  }
+
+  .card-back-meaning.meaning-len-lg {
+    font-size: clamp(1.65rem, 5.5vw, 2.1rem);
+  }
+
+  .card-back-def {
+    font-size: 1.02rem;
+    line-height: 1.48;
+  }
+
+  .card-example-en {
+    font-size: 1.04rem;
+    line-height: 1.48;
+  }
+
+  .card-example-vi {
+    font-size: 0.94rem;
   }
 
   .study-summary-dialog {
@@ -1569,10 +1595,10 @@
   }
 
   .card-word-title {
-    font-size: clamp(2.4rem, 3.4vw, 3.1rem);
+    font-size: clamp(2.7rem, 3.8vw, 3.6rem);
   }
 
   .card-back-meaning {
-    font-size: clamp(1.85rem, 2.8vw, 2.5rem);
+    font-size: clamp(2.35rem, 3.2vw, 3.2rem);
   }
 }
