@@ -1,9 +1,8 @@
 /**
- * Review View - Daily Review Center & Study Activity Heatmap
- * Tối ưu hóa tinh gọn:
- * 1. Nhiệm vụ hôm nay (4 chỉ số tập trung + Nút Hero Action)
- * 2. Dự báo lịch ôn 7 ngày (Thiết kế thông minh, trực quan, tối ưu & hiện đại)
- * 3. Lịch học tập theo ngày (Bảng ô vuông Heatmap tháng & ma trận năm)
+ * Review View - Clean, High-Value Daily Review Center & Calendar Heatmap
+ * 1. Nhiệm vụ hôm nay (4 chỉ số cốt lõi + Nút hành động chính)
+ * 2. Dự báo lịch ôn 7 ngày (Gọn gàng, thanh lịch, tinh tế)
+ * 3. Lịch học tập theo ngày (Bảng ô vuông Heatmap trực quan, không rườm rà)
  */
 
 import { StorageManager } from '../services/storage.js';
@@ -45,23 +44,20 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 2. Bento Hero Card: Nhiệm Vụ Hôm Nay -->
+        <!-- 2. Khối 1: Nhiệm Vụ Hôm Nay -->
         <div class="bento-section-group bento-group-hero">
           <div class="section-group-header">
-            <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
-              <span class="section-group-title">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                  <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
-                </svg>
-                NHIỆM VỤ HÔM NAY
-              </span>
-              <span class="hero-goal-ratio-pill" id="home-goal-ratio">0/10 từ</span>
-            </div>
-            <span class="section-group-hint">Chỉ số tập trung và tiến độ mục tiêu ngày</span>
+            <span class="section-group-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+              </svg>
+              NHIỆM VỤ HÔM NAY
+            </span>
+            <span class="hero-goal-ratio-pill" id="home-goal-ratio">0/10 từ</span>
           </div>
 
           <div class="bento-card bento-hero-card">
-            <!-- 4 Khối chỉ số 2 Cột (2x2 Quad Grid) -->
+            <!-- 4 Khối chỉ số 2 Cột (2x2 Grid) -->
             <div class="hero-quad-grid">
               <!-- Card 1: Cần ôn ngay -->
               <div class="quad-tile tile-due" id="box-home-due">
@@ -131,31 +127,22 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 3. DỰ BÁO LỊCH ÔN 7 NGÀY (Thiết kế Hiện Đại, Trực Quan & Tối Ưu) -->
+        <!-- 3. Khối 2: Dự Báo Lịch Ôn 7 Ngày (Minimalist & Crisp) -->
         <div class="bento-section-group bento-group-forecast">
           <div class="section-group-header">
-            <div style="display:flex; align-items:center; justify-content:space-between; width:100%; gap:8px;">
-              <span class="section-group-title">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-                  <line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
-                </svg>
-                DỰ BÁO LỊCH ÔN 7 NGÀY TỚI
-              </span>
-              <div style="display:flex; align-items:center; gap:6px;">
-                <span class="bento-badge-forecast" id="home-forecast-total">0 từ / 7 ngày</span>
-                <button type="button" class="btn-open-calendar-modal" id="btn-open-calendar-modal" title="Xem lịch tháng chi tiết" aria-label="Mở lịch tháng">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                  </svg>
-                  <span>Lịch tháng ↗</span>
-                </button>
-              </div>
+            <span class="section-group-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                <line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
+              </svg>
+              DỰ BÁO LỊCH ÔN 7 NGÀY
+            </span>
+            <div class="section-header-actions">
+              <span class="bento-badge-forecast" id="home-forecast-total">0 từ / 7 ngày</span>
+              <button type="button" class="btn-open-calendar-modal" id="btn-open-calendar-modal" title="Xem lịch chi tiết">
+                <span>Lịch tháng ↗</span>
+              </button>
             </div>
-            <span class="section-group-hint">Dự báo khối lượng từ vựng đến hạn cần ôn theo từng ngày</span>
           </div>
 
           <div class="bento-card bento-forecast-card">
@@ -163,36 +150,34 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 4. LỊCH HỌC TẬP THEO NGÀY (Activity Heatmap Tháng & Ma trận Năm) -->
+        <!-- 4. Khối 3: Lịch Học Tập Theo Ngày (Trực Tiếp Heatmap, Bỏ Khối Thừa) -->
         <div class="bento-section-group" id="journal-main-container">
           <div class="section-group-header">
-            <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
-              <span class="section-group-title">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-                LỊCH HỌC TẬP THEO NGÀY
-              </span>
-              
-              <div style="display:flex; align-items:center; gap:8px;">
-                <div class="journal-view-toggle">
-                  <button type="button" class="btn-toggle-mode active" data-mode="month" id="btn-mode-month">Tháng</button>
-                  <button type="button" class="btn-toggle-mode" data-mode="year" id="btn-mode-year">Năm</button>
-                </div>
-                <div class="journal-legend">
-                  <span>Ít</span>
-                  <span class="legend-cell heat-0"></span>
-                  <span class="legend-cell heat-1"></span>
-                  <span class="legend-cell heat-2"></span>
-                  <span class="legend-cell heat-3"></span>
-                  <span class="legend-cell heat-4"></span>
-                  <span>Nhiều</span>
-                </div>
+            <span class="section-group-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+              LỊCH HỌC TẬP THEO NGÀY
+            </span>
+            
+            <div class="section-header-actions">
+              <div class="journal-view-toggle">
+                <button type="button" class="btn-toggle-mode active" data-mode="month" id="btn-mode-month">Tháng</button>
+                <button type="button" class="btn-toggle-mode" data-mode="year" id="btn-mode-year">Năm</button>
+              </div>
+              <div class="journal-legend">
+                <span>Ít</span>
+                <span class="legend-cell heat-0"></span>
+                <span class="legend-cell heat-1"></span>
+                <span class="legend-cell heat-2"></span>
+                <span class="legend-cell heat-3"></span>
+                <span class="legend-cell heat-4"></span>
+                <span>Nhiều</span>
               </div>
             </div>
-            <span class="section-group-hint">Chạm hoặc di chuột vào ô bất kỳ để xem nhanh chi tiết</span>
           </div>
 
-          <!-- Month Navigation Header & Month Metrics -->
-          <div class="inset-grouped-card" style="padding: 10px 12px; margin-bottom: 8px;">
+          <!-- Calendar Wrapper (Compact Card) -->
+          <div class="bento-card journal-calendar-card" id="journal-month-section">
+            <!-- Navigation Header -->
             <div class="journal-month-nav-row">
               <button type="button" class="btn-journal-nav" id="btn-journal-prev" title="Tháng trước">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
@@ -208,78 +193,29 @@ export function renderReviewShell(container) {
               </button>
             </div>
 
-            <!-- 4 Hộp Hiệu Suất Tháng (P&L Mini Cards) -->
-            <div class="journal-pnl-grid" style="margin-top: 8px;">
-              <div class="pnl-stat-box pnl-profit">
-                <div class="pnl-box-header">
-                  <span class="pnl-box-icon">📚</span>
-                  <span class="pnl-box-label">TỔNG TỪ ĐÃ HỌC</span>
-                </div>
-                <div class="pnl-box-val" id="journal-pnl-total">+0</div>
-                <span class="pnl-box-sub" id="journal-pnl-active-days">0/0 ngày học</span>
-              </div>
-
-              <div class="pnl-stat-box pnl-winrate">
-                <div class="pnl-box-header">
-                  <span class="pnl-box-icon">🎯</span>
-                  <span class="pnl-box-label">TỶ LỆ NHỚ TỐT</span>
-                </div>
-                <div class="pnl-box-val" id="journal-pnl-winrate">0%</div>
-                <span class="pnl-box-sub">Tỉ lệ phản xạ Good/Easy</span>
-              </div>
-
-              <div class="pnl-stat-box pnl-streak">
-                <div class="pnl-box-header">
-                  <span class="pnl-box-icon">🔥</span>
-                  <span class="pnl-box-label">CHUỖI KỶ LỤC</span>
-                </div>
-                <div class="pnl-box-val" id="journal-pnl-streak">0<span class="pnl-unit">ngày</span></div>
-                <span class="pnl-box-sub">Chuỗi dài nhất tháng</span>
-              </div>
-
-              <div class="pnl-stat-box pnl-time">
-                <div class="pnl-box-header">
-                  <span class="pnl-box-icon">⏱️</span>
-                  <span class="pnl-box-label">THỜI GIAN</span>
-                </div>
-                <div class="pnl-box-val" id="journal-pnl-time">0<span class="pnl-unit">phút</span></div>
-                <span class="pnl-box-sub">Thời gian tập trung</span>
-              </div>
+            <!-- 7-Day Header -->
+            <div class="calendar-weekdays-row">
+              <span class="weekday-cell">T2</span>
+              <span class="weekday-cell">T3</span>
+              <span class="weekday-cell">T4</span>
+              <span class="weekday-cell">T5</span>
+              <span class="weekday-cell">T6</span>
+              <span class="weekday-cell">T7</span>
+              <span class="weekday-cell sun">CN</span>
             </div>
-          </div>
 
-          <!-- Month Calendar Heatmap (7-Column Activity Grid) -->
-          <div class="stats-section-group" id="journal-month-section">
-            <div class="inset-grouped-card journal-calendar-wrapper">
-              <!-- 7-Day Header -->
-              <div class="calendar-weekdays-row">
-                <span class="weekday-cell">T2</span>
-                <span class="weekday-cell">T3</span>
-                <span class="weekday-cell">T4</span>
-                <span class="weekday-cell">T5</span>
-                <span class="weekday-cell">T6</span>
-                <span class="weekday-cell">T7</span>
-                <span class="weekday-cell sun">CN</span>
-              </div>
+            <!-- Calendar Grid Cells -->
+            <div class="calendar-grid-cells" id="journal-calendar-grid"></div>
 
-              <!-- Calendar Grid Cells -->
-              <div class="calendar-grid-cells" id="journal-calendar-grid"></div>
+            <!-- Submeta summary bar -->
+            <div class="journal-cal-summary-strip" id="journal-cal-summary">
+              <span id="journal-cal-summary-text">Tháng này: <strong>+0</strong> từ • <strong>0</strong> ngày học</span>
             </div>
           </div>
 
           <!-- Year Matrix Grid (Hidden in Month Mode) -->
-          <div class="stats-section-group" id="journal-year-section" style="display: none;">
-            <div class="section-group-header">
-              <span class="section-group-title">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="9"/></svg>
-                TỔNG QUAN 12 THÁNG TRONG NĂM
-              </span>
-              <span class="section-group-hint">Số từ vựng tích lũy và số ngày học theo từng tháng</span>
-            </div>
-
-            <div class="inset-grouped-card" style="padding: 14px 16px;">
-              <div class="year-matrix-grid" id="journal-year-grid"></div>
-            </div>
+          <div class="bento-card" id="journal-year-section" style="display: none;">
+            <div class="year-matrix-grid" id="journal-year-grid"></div>
           </div>
         </div>
 
@@ -623,7 +559,7 @@ export function renderReviewTab(app) {
       }
     }
 
-    // 3. DỰ BÁO LỊCH ÔN 7 NGÀY TỚI (Redesigned Modern Forecast)
+    // 3. DỰ BÁO LỊCH ÔN 7 NGÀY TỚI (Minimalist & Crisp)
     const forecastContainer = document.getElementById('home-review-forecast');
     const forecastTotalBadge = document.getElementById('home-forecast-total');
 
@@ -665,34 +601,27 @@ export function renderReviewTab(app) {
         const label = i === 0 ? 'H.nay' : (i === 1 ? 'Mai' : dayName);
         const barWidthPct = count > 0 ? Math.min(100, Math.max(15, Math.round((count / maxForecast) * 100))) : 0;
 
-        let loadTag = 'Nghỉ';
         let loadClass = 'load-zero';
         if (count > 25) {
-          loadTag = 'Cao';
           loadClass = 'load-high';
         } else if (count > 10) {
-          loadTag = 'Vừa';
           loadClass = 'load-med';
         } else if (count > 0) {
-          loadTag = 'Nhẹ';
           loadClass = 'load-low';
         }
 
         const itemEl = document.createElement('div');
-        itemEl.className = `forecast-smart-capsule ${i === 0 ? 'is-today' : ''} ${count > 0 ? 'has-due' : 'is-zero'}`;
-        itemEl.title = `${label} (${d.getDate()}/${d.getMonth() + 1}): ${count} từ cần ôn (${loadTag}). Chạm để xem chi tiết!`;
+        itemEl.className = `forecast-smart-card ${i === 0 ? 'is-today' : ''} ${count > 0 ? 'has-due' : 'is-zero'}`;
+        itemEl.title = `${label} (${d.getDate()}/${d.getMonth() + 1}): ${count} từ cần ôn. Chạm để xem chi tiết!`;
 
         itemEl.innerHTML = `
-          <div class="smart-capsule-header">
-            <span class="smart-capsule-day">${label}</span>
-            <span class="smart-capsule-date">${d.getDate()}/${d.getMonth() + 1}</span>
+          <div class="fc-card-header">
+            <span class="fc-card-day">${label}</span>
+            <span class="fc-card-date">${d.getDate()}/${d.getMonth() + 1}</span>
           </div>
-          <div class="smart-capsule-body">
-            <span class="smart-capsule-count ${count > 0 ? 'count-active' : ''}">${count}</span>
-            <span class="smart-capsule-tag ${loadClass}">${loadTag}</span>
-          </div>
-          <div class="smart-capsule-meter">
-            <div class="smart-meter-fill ${count > 0 ? 'fill-active ' + loadClass : ''}" style="width: ${barWidthPct}%;"></div>
+          <div class="fc-card-count ${count > 0 ? 'count-active ' + loadClass : ''}">${count}</div>
+          <div class="fc-card-bar">
+            <div class="fc-bar-fill ${count > 0 ? 'fill-active ' + loadClass : ''}" style="width: ${barWidthPct}%;"></div>
           </div>
         `;
 
@@ -715,7 +644,7 @@ export function renderReviewTab(app) {
       }
     }
 
-    // 4. LỊCH HỌC TẬP THEO NGÀY (Render Bảng Ô Vuông Heatmap & P&L Tháng)
+    // 4. LỊCH HỌC TẬP THEO NGÀY (Render Bảng Ô Vuông Heatmap & Summary Strip)
     const periodTitle = container.querySelector('#journal-period-title');
     if (periodTitle) {
       if (_viewMode === 'month') {
@@ -727,24 +656,11 @@ export function renderReviewTab(app) {
 
     const monthData = StatsManager.getMonthJournalData(_currentYear, _currentMonth);
 
-    // 4 Hộp Hiệu Suất Tháng
-    const pnlTotal = container.querySelector('#journal-pnl-total');
-    const pnlWinrate = container.querySelector('#journal-pnl-winrate');
-    const pnlActiveDays = container.querySelector('#journal-pnl-active-days');
-    const pnlStreak = container.querySelector('#journal-pnl-streak');
-    const pnlTime = container.querySelector('#journal-pnl-time');
-
-    if (pnlTotal) pnlTotal.textContent = `+${monthData.monthTotalWords}`;
-    if (pnlWinrate) pnlWinrate.textContent = `${monthData.winRate}%`;
-    if (pnlActiveDays) pnlActiveDays.textContent = `${monthData.activeDaysCount}/${monthData.elapsedDays} ngày học`;
-    if (pnlStreak) pnlStreak.innerHTML = `${monthData.maxStreakInMonth}<span class="pnl-unit">ngày</span>`;
-
-    const hours = Math.floor(monthData.monthTotalMinutes / 60);
-    const mins = monthData.monthTotalMinutes % 60;
-    const timeStr = hours > 0 
-      ? `${hours}<span class="pnl-unit">g</span> ${mins}<span class="pnl-unit">p</span>` 
-      : `${mins}<span class="pnl-unit">phút</span>`;
-    if (pnlTime) pnlTime.innerHTML = timeStr;
+    // Summary Strip
+    const calSummaryText = container.querySelector('#journal-cal-summary-text');
+    if (calSummaryText) {
+      calSummaryText.innerHTML = `Tháng này: <strong>+${monthData.monthTotalWords}</strong> từ • <strong>${monthData.activeDaysCount}/${monthData.elapsedDays}</strong> ngày học • <strong>${monthData.winRate}%</strong> nhớ tốt`;
+    }
 
     // Render Bảng Lịch Ô Vuông 7 Cột
     const grid = container.querySelector('#journal-calendar-grid');
