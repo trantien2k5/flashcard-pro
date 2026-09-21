@@ -123,35 +123,41 @@
 /* ==========================================================================
    Section Group Header & Actions
    ========================================================================== */
-.section-group-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.section-group-header,
+.bento-section-group .section-group-header {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
   gap: 8px;
   margin-bottom: 5px;
-  padding: 0 2px;
-  text-align: left;
+  padding: 0 4px;
+  text-align: left !important;
   width: 100%;
+  box-sizing: border-box;
 }
 
-.section-group-title {
+.section-group-title,
+.bento-section-group .section-group-title {
   font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.04em;
   color: var(--text-primary);
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: left;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
   gap: 6px;
   text-transform: uppercase;
-  margin: 0;
+  margin: 0 !important;
 }
 
-.section-header-actions {
+.section-header-actions,
+.bento-section-group .section-header-actions {
   display: flex;
   align-items: center;
   gap: 6px;
+  margin-left: auto;
 }
 
 .hero-goal-ratio-pill {
@@ -163,6 +169,7 @@
   background: rgba(99, 102, 241, 0.12);
   border: 1px solid rgba(99, 102, 241, 0.25);
   color: var(--primary);
+  margin-left: auto;
 }
 
 /* ==========================================================================
