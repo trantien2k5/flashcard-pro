@@ -355,16 +355,35 @@ export class DeckManager {
         const rawSubtopics = Array.isArray(deck.subtopics) ? deck.subtopics : (Array.isArray(deck.subcategories) ? deck.subcategories : []);
         const userProgress = StorageManager.getUserProgress();
         const unlockedCards = [];
+        let prevDone = true;
+
         for (let i = 0; i < rawSubtopics.length; i++) {
           const subObj = rawSubtopics[i];
           const subId = typeof subObj === 'object' ? (subObj.id || `${deck.id}-${i}`) : `${deck.id}-${i}`;
-          const isLocked = !TopicRepository.isSubtopicUnlocked(
-            typeof subObj === 'object' ? subObj : { id: subId, unlockRule: i === 0 ? null : { type: 'completeSubtopic', subtopicId: rawSubtopics[i - 1]?.id } },
-            userProgress
-          );
-          if (!isLocked) {
-            unlockedCards.push(...this.getSubtopicCards(deckId, subObj));
+          const subCards = this.getSubtopicCards(deckId, subObj);
+
+          // Kiểm tra xem phần này đã học xong chưa
+          const isCardsLearned = subCards.length > 0 && subCards.every(c => {
+            const s = StorageManager.getCardState(c.id);
+            return s && s.state !== State.New && s.state !== 0;
+          });
+          const isSubRecorded = StorageManager.isSubtopicCompleted(subId) || 
+            (typeof subObj === 'object' && subObj.id && StorageManager.isSubtopicCompleted(subObj.id));
+          const thisSubDone = isCardsLearned || isSubRecorded;
+
+          let isUnlocked = (i === 0) || prevDone;
+          if (!isUnlocked) {
+            const unlockRule = typeof subObj === 'object' && subObj.unlockRule 
+              ? subObj.unlockRule 
+              : { type: 'completeSubtopic', subtopicId: rawSubtopics[i - 1]?.id || `${deck.id}-${i - 1}` };
+            isUnlocked = TopicRepository.isSubtopicUnlocked({ id: subId, unlockRule }, userProgress);
           }
+
+          if (isUnlocked) {
+            unlockedCards.push(...subCards);
+          }
+
+          prevDone = thisSubDone;
         }
         targetCards = unlockedCards.length > 0 ? unlockedCards : this.getCardsByDeckId(deckId);
       } else {

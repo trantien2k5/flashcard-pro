@@ -392,7 +392,17 @@ export class TopicRepository {
     const completed = userProgress.completedSubtopics || [];
     if (subtopic.unlockRule.type === 'completeSubtopic') {
       const requiredId = subtopic.unlockRule.subtopicId;
-      return completed.includes(requiredId);
+      if (!requiredId) return true;
+      if (completed.includes(requiredId)) return true;
+
+      // So khớp linh hoạt định dạng ID hoặc tên
+      const cleanReq = String(requiredId).toLowerCase().replace(/[\s\-_]+/g, '');
+      return completed.some(id => {
+        if (!id) return false;
+        if (id === requiredId) return true;
+        const cleanId = String(id).toLowerCase().replace(/[\s\-_]+/g, '');
+        return cleanReq === cleanId || cleanReq.endsWith(cleanId) || cleanId.endsWith(cleanReq);
+      });
     }
 
     return true;

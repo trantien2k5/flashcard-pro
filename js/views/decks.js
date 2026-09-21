@@ -461,6 +461,8 @@ export function renderSubtopicsPage(app, deckId) {
       subtopicsContainer.innerHTML = '';
       const frag = document.createDocumentFragment();
 
+      let prevSubDone = true;
+
       for (let i = 0; i < rawSubtopics.length; i++) {
         const subObj = rawSubtopics[i];
         const subName = typeof subObj === 'object' ? (subObj.name || subObj.id) : String(subObj);
@@ -487,13 +489,27 @@ export function renderSubtopicsPage(app, deckId) {
         const icon = (typeof subObj === 'object' && subObj.icon) ? subObj.icon : getSubtopicIcon(subObj || subName, deck.icon || '📖', i);
         const subColor = (typeof subObj === 'object' && subObj.color) ? safeColor(subObj.color) : getSubtopicColor(subObj || subName, deckColor, i);
 
+        // Nếu phần này đã học xong, tự động đồng bộ tất cả các định dạng ID vào completedSubtopics
+        if (isSubDone) {
+          StorageManager.completeSubtopic(subId);
+          if (typeof subObj === 'object' && subObj.id) StorageManager.completeSubtopic(subObj.id);
+          if (subName) StorageManager.completeSubtopic(subName);
+          StorageManager.completeSubtopic(`${deck.id}-${i}`);
+        }
+
         let isUnlocked = true;
         if (isProgressive && i > 0) {
           const unlockRule = typeof subObj === 'object' && subObj.unlockRule 
             ? subObj.unlockRule 
             : { type: 'completeSubtopic', subtopicId: rawSubtopics[i - 1]?.id || `${deck.id}-${i - 1}` };
-          isUnlocked = TopicRepository.isSubtopicUnlocked({ id: subId, unlockRule }, userProgress);
+          
+          // Mở khóa nếu: phần trước đó đã xong (100% từ đã học) HOẶC đã được ghi nhận trong completedSubtopics
+          isUnlocked = prevSubDone || TopicRepository.isSubtopicUnlocked({ id: subId, unlockRule }, userProgress);
         }
+
+        // Cập nhật trạng thái hoàn thành để xét mở khóa cho phần tiếp theo
+        prevSubDone = isSubDone || StorageManager.isSubtopicCompleted(subId) || 
+                      (typeof subObj === 'object' && subObj.id && StorageManager.isSubtopicCompleted(subObj.id));
 
         const card = document.createElement('div');
         card.className = `subtopic-card-btn ${!isUnlocked ? 'locked' : ''} ${isSubDone ? 'completed' : ''}`;

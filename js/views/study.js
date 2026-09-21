@@ -983,20 +983,31 @@ export function handleStudyFinish(app, sessionStats) {
     if (overlay) overlay.classList.remove('active');
     scrollToTop();
 
-    if (app.currentStudyContext && app.currentStudyContext.deckId && app.currentStudyContext.subtopic) {
+    if (app.currentStudyContext && app.currentStudyContext.deckId) {
       const deckId = app.currentStudyContext.deckId;
-      const subtopic = app.currentStudyContext.subtopic;
-      const subCards = app.deckManager?.getSubtopicCards(deckId, subtopic) || [];
-      const allLearned = subCards.length > 0 && subCards.every(c => {
-        const s = StorageManager.getCardState(c.id);
-        return s && s.state !== State.New && s.state !== 0;
-      });
+      const deck = app.deckManager?.getDeckById(deckId);
+      const rawSubtopics = deck ? (Array.isArray(deck.subtopics) ? deck.subtopics : (Array.isArray(deck.subcategories) ? deck.subcategories : [])) : [];
 
-      if (allLearned) {
-        const subId = typeof subtopic === 'object' ? (subtopic.id || `${deckId}-${subtopic.name}`) : `${deckId}-${subtopic}`;
-        StorageManager.completeSubtopic(subId);
-        if (typeof subtopic === 'string') {
-          StorageManager.completeSubtopic(subtopic);
+      // Kiểm tra tất cả subtopics của deck để tự động đánh dấu hoàn thành nếu 100% thẻ đã học
+      for (let idx = 0; idx < rawSubtopics.length; idx++) {
+        const sObj = rawSubtopics[idx];
+        const sName = typeof sObj === 'object' ? (sObj.name || sObj.id) : String(sObj);
+        const sId = typeof sObj === 'object' ? (sObj.id || `${deckId}-${idx}`) : `${deckId}-${idx}`;
+        const sCards = app.deckManager?.getSubtopicCards(deckId, sObj) || [];
+
+        const allLearned = sCards.length > 0 && sCards.every(c => {
+          const s = StorageManager.getCardState(c.id);
+          return s && s.state !== State.New && s.state !== 0;
+        });
+
+        if (allLearned) {
+          StorageManager.completeSubtopic(sId);
+          if (typeof sObj === 'object' && sObj.id) StorageManager.completeSubtopic(sObj.id);
+          if (sName) {
+            StorageManager.completeSubtopic(sName);
+            StorageManager.completeSubtopic(`${deckId}-${sName}`);
+          }
+          StorageManager.completeSubtopic(`${deckId}-${idx}`);
         }
       }
     }
