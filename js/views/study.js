@@ -47,38 +47,52 @@ export function renderStudyOverlayShell() {
 
   if (!overlay.querySelector('.study-header-bar')) {
     overlay.innerHTML = `
-      <!-- Ambient study background glow -->
-      <div class="study-ambient-glow" id="study-ambient-glow"></div>
+      <!-- 1. Top Ultra-thin 2px Progress Line (Browser Loading Style) -->
+      <div class="study-progress-line-track">
+        <div id="study-progress-bar-fill" class="study-progress-line-fill" style="width: 0%;"></div>
+      </div>
 
-      <!-- Top Header Navigation & Progress -->
+      <!-- 2. Minimalist Header -->
       <header class="study-header-bar">
         <div class="study-header-inner">
           <button id="btn-study-close" class="btn-study-exit" title="Thoát phiên học (Esc)" aria-label="Đóng phiên học">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 6 6 18M6 6l12 12"/>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
 
-          <div class="study-top-bar">
-            <div class="study-progress-track-wrapper">
-              <div class="study-progress-track">
-                <div id="study-progress-bar-fill" class="study-progress-bar-fill" style="width: 0%;"></div>
-              </div>
-            </div>
-
-            <div class="study-progress-counter" id="study-progress-text" title="Tiến độ phiên học">
+          <!-- Middle Progress Counter -->
+          <div class="study-header-center">
+            <span class="study-progress-counter" id="study-progress-text" title="Tiến độ học">
               <span class="counter-num">0</span><span class="counter-sep">/</span><span class="counter-total">0</span>
-            </div>
+            </span>
           </div>
 
-          <!-- Nút 3 Chấm: Tùy chọn hiển thị trường dữ liệu & Tiện ích nhanh -->
-          <button id="btn-study-menu" class="btn-study-menu" title="Tùy chọn hiển thị (Menu 3 chấm)" aria-label="Tùy chọn hiển thị">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="1.5"/>
-              <circle cx="19" cy="12" r="1.5"/>
-              <circle cx="5" cy="12" r="1.5"/>
-            </svg>
-          </button>
+          <!-- Right Actions (Dark/Light Toggle + 3 Dots Menu) -->
+          <div class="study-header-right">
+            <button id="btn-study-theme" class="btn-study-icon" title="Chuyển chế độ Sáng / Tối" aria-label="Đổi giao diện">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            </button>
+
+            <button id="btn-study-menu" class="btn-study-icon" title="Tùy chọn hiển thị" aria-label="Tùy chọn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="1.5"/>
+                <circle cx="19" cy="12" r="1.5"/>
+                <circle cx="5" cy="12" r="1.5"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -89,64 +103,54 @@ export function renderStudyOverlayShell() {
             
             <!-- ================= MẶT TRƯỚC (FRONT FACE) ================= -->
             <div class="flashcard-face face-front">
-              <!-- Top Header Meta: Trạng thái FSRS & Số lần học -->
+              <!-- Top Minimal Status Badge -->
               <div class="card-top-bar">
                 <div class="card-status-badge state-new" id="card-front-status-badge">
                   <span class="status-dot"></span>
                   <span class="status-text" id="card-front-status-text">Từ mới</span>
                 </div>
-                <div class="card-reps-badge" id="card-front-reps-badge" title="Số lần ôn tập từ này">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
-                  </svg>
-                  <span class="reps-text" id="card-front-reps-text">0 lần học</span>
+                <div class="card-reps-badge" id="card-front-reps-badge" style="display: none;">
+                  <span class="reps-text" id="card-front-reps-text">0</span>
                 </div>
               </div>
 
               <!-- Hình ảnh minh họa (Mặc định ẩn, bật qua 3 chấm) -->
               <div class="card-image-container" id="card-front-img-container" style="display: none;">
                 <img id="card-front-img" class="fc-image" alt="Visual representation" />
-                <div class="image-gradient-overlay"></div>
               </div>
 
-              <!-- Cụm Từ Vựng & Phát Âm Bản Xứ -->
-              <div class="card-word-info">
-                <!-- Nút phát âm loa đẹp nằm trên từ tiếng Anh -->
-                <button class="card-sound-btn fc-sound-btn" id="btn-audio-speaker" type="button" title="Phát âm từ vựng" aria-label="Phát âm từ vựng">
-                  <svg class="speaker-svg-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                    <path class="speaker-wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                    <path class="speaker-wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-                  </svg>
-                  <span class="sound-wave-bars">
-                    <span></span><span></span><span></span>
-                  </span>
-                </button>
-
-                <!-- Từ vựng tiếng Anh -->
+              <!-- Cụm Từ Vựng Chính Giữa (One-Focus Clean Layout) -->
+              <div class="card-word-center">
+                <!-- Từ vựng tiếng Anh to, rõ, font hiện đại -->
                 <h2 class="card-word-title fc-title" id="card-front-word">...</h2>
                 
-                <!-- Phiên âm IPA nằm dưới từ tiếng Anh -->
-                <div class="card-phonetic-wrap" id="card-front-phonetic-wrap">
-                  <span class="card-word-phonetic fc-phonetic" id="card-front-phonetic" style="display: none;">/ ... /</span>
+                <!-- Phiên âm IPA + Loại từ + Nút loa nhỏ tinh tế -->
+                <div class="card-meta-row" id="card-front-meta-row">
+                  <span class="card-word-phonetic fc-phonetic" id="card-front-phonetic">/ ... /</span>
+                  <span class="card-pos-inline" id="card-front-pos"></span>
+                  <button class="card-sound-btn-inline" id="btn-audio-speaker" type="button" title="Phát âm" aria-label="Phát âm">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    </svg>
+                  </button>
                 </div>
               </div>
 
-              <!-- Footer Gợi Ý Thao Tác Lật Thẻ (Ẩn/Hiện qua cài đặt) -->
-              <div class="card-hint-flip" id="card-front-hint" style="display: none;">
-                <span class="hint-touch">👆 Chạm để xem đáp án</span>
-                <span class="hint-mouse">Chạm hoặc nhấn Space để xem đáp án</span>
+              <!-- Footer Gợi Ý Thao Tác Lật Thẻ -->
+              <div class="card-bottom-bar" id="card-front-hint">
+                <span class="card-hint-text">Chạm hoặc nhấn Space để xem đáp án</span>
               </div>
             </div>
 
             <!-- ================= MẶT SAU (BACK FACE) ================= -->
             <div class="flashcard-face face-back">
-              <!-- Top Header Meta: Từ gốc & Badges loại từ -->
+              <!-- Top Context: Từ gốc tiếng Anh & Loa mini -->
               <div class="card-top-bar">
-                <div class="card-back-word-context" title="Từ gốc tiếng Anh">
+                <div class="card-back-context-word">
                   <span class="back-word-label" id="card-back-word-context-text">...</span>
                   <button class="btn-card-audio-mini" id="btn-audio-speaker-back" type="button" title="Nghe lại phát âm" aria-label="Nghe lại phát âm">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                       <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                       <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                     </svg>
@@ -158,24 +162,22 @@ export function renderStudyOverlayShell() {
                 </div>
               </div>
 
-              <!-- Nội dung Nghĩa & Các trường bổ trợ -->
-              <div class="card-back-content">
-                <!-- Khối Nghĩa Tiếng Việt Chủ Đạo -->
+              <!-- Nội dung Nghĩa & Ví dụ Ngữ cảnh -->
+              <div class="card-back-center">
+                <!-- Nghĩa Tiếng Việt Chủ Đạo -->
                 <div class="card-meaning-hero">
-                  <div class="card-meaning-tag">NGHĨA TIẾNG VIỆT</div>
-                  <div class="card-back-meaning fc-meaning" id="card-back-meaning">...</div>
+                  <h3 class="card-back-meaning fc-meaning" id="card-back-meaning">...</h3>
                 </div>
 
-                <!-- Khối Định nghĩa Tiếng Anh (Mặc định ẩn, bật qua 3 chấm) -->
+                <!-- Định nghĩa Tiếng Anh (Mặc định ẩn, bật qua 3 chấm) -->
                 <div class="card-back-def-box" id="card-back-def-box" style="display: none;">
-                  <div class="def-icon-quote">“</div>
-                  <div class="card-back-def fc-def" id="card-back-def">...</div>
+                  <p class="card-back-def fc-def" id="card-back-def">...</p>
                 </div>
 
-                <!-- Khối Câu ví dụ & Bản dịch (Mặc định ẩn, bật qua 3 chấm) -->
+                <!-- Câu ví dụ tiếng Anh (Italic) & Bản dịch mờ bên dưới -->
                 <div class="card-back-example fc-example" id="card-back-example-box" style="display: none;">
-                  <div class="example-header-row">
-                    <span class="example-label">Ví dụ ngữ cảnh</span>
+                  <div class="example-quote-row">
+                    <p class="card-example-en" id="card-back-example">...</p>
                     <button class="btn-example-audio" id="btn-example-audio" type="button" title="Đọc câu ví dụ" aria-label="Phát âm câu ví dụ">
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -183,67 +185,62 @@ export function renderStudyOverlayShell() {
                       </svg>
                     </button>
                   </div>
-                  <div class="card-example-en" id="card-back-example">...</div>
-                  <div class="card-example-vi" id="card-back-example-vi">...</div>
+                  <p class="card-example-vi" id="card-back-example-vi">...</p>
                 </div>
               </div>
 
-              <!-- Footer Gợi Ý Thao Tác Lật Lại (Ẩn/Hiện qua cài đặt) -->
-              <div class="card-hint-flip" id="card-back-hint" style="display: none;">
-                <span class="hint-touch">👆 Chạm thẻ để lật lại</span>
-                <span class="hint-mouse">Chạm hoặc nhấn Space để lật lại</span>
+              <!-- Footer Gợi Ý Thao Tác Lật Lại -->
+              <div class="card-bottom-bar" id="card-back-hint">
+                <span class="card-hint-text">Chạm để lật lại</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Cụm Nút Điều Khiển Gần Thẻ (Nút Lật khi mặt trước / 4 Nút Đánh giá khi mặt sau) -->
+        <!-- Cụm Nút Điều Khiển Gần Thẻ -->
         <div class="study-bottom-controls" id="study-controls-wrapper">
           
           <!-- 1. Nút Lật Thẻ Xem Đáp Án khi ở Mặt Trước -->
           <div id="front-flip-control" class="front-flip-control visible">
-            <button class="btn-main-flip" id="btn-main-flip" type="button" title="Lật thẻ xem đáp án">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
+            <button class="btn-main-flip" id="btn-main-flip" type="button" title="Lật thẻ (Phím Space)">
               <span>Xem đáp án</span>
             </button>
           </div>
 
-          <!-- 2. Cụm 4 Nút Đánh Giá FSRS khi ở Mặt Sau -->
+          <!-- 2. Cụm 4 Nút Đánh Giá Anki/FSRS: Clean Outline / Ghost Buttons -->
           <div id="fsrs-buttons-container" class="fsrs-buttons-grid">
-            <button class="btn-fsrs-rating again" data-rating="1" title="Quên">
+            <button class="btn-fsrs-rating again" data-rating="1" title="Lại (Phím 1)">
               <div class="fsrs-btn-top">
-                <span class="fsrs-rating-icon">✕</span>
-                <span class="fsrs-rating-title">Quên</span>
+                <span class="fsrs-rating-title">Lại</span>
               </div>
               <span class="fsrs-badge-interval" id="interval-again">1m</span>
             </button>
 
-            <button class="btn-fsrs-rating hard" data-rating="2" title="Khó">
+            <button class="btn-fsrs-rating hard" data-rating="2" title="Khó (Phím 2)">
               <div class="fsrs-btn-top">
-                <span class="fsrs-rating-icon">⚡</span>
                 <span class="fsrs-rating-title">Khó</span>
               </div>
               <span class="fsrs-badge-interval" id="interval-hard">10m</span>
             </button>
 
-            <button class="btn-fsrs-rating good" data-rating="3" title="Nhớ">
+            <button class="btn-fsrs-rating good" data-rating="3" title="Tốt (Phím 3)">
               <div class="fsrs-btn-top">
-                <span class="fsrs-rating-icon">✓</span>
-                <span class="fsrs-rating-title">Nhớ</span>
+                <span class="fsrs-rating-title">Tốt</span>
               </div>
               <span class="fsrs-badge-interval" id="interval-good">1d</span>
             </button>
 
-            <button class="btn-fsrs-rating easy" data-rating="4" title="Dễ">
+            <button class="btn-fsrs-rating easy" data-rating="4" title="Dễ (Phím 4)">
               <div class="fsrs-btn-top">
-                <span class="fsrs-rating-icon">★</span>
                 <span class="fsrs-rating-title">Dễ</span>
               </div>
               <span class="fsrs-badge-interval" id="interval-easy">4d</span>
             </button>
+          </div>
+
+          <!-- Dòng chữ nhỏ mờ thanh lịch ở chân trang -->
+          <div class="study-footer-shortcuts">
+            <span>Space: Lật thẻ &nbsp;•&nbsp; 1 - 4: Chấm điểm</span>
           </div>
         </div>
       </main>
@@ -413,6 +410,18 @@ export function setupStudyControls(app) {
       });
     }
 
+    const btnTheme = document.getElementById('btn-study-theme');
+    if (btnTheme) {
+      btnTheme.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const currentTheme = app.settings?.theme || 'dark';
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        if (app.settings) app.settings.theme = nextTheme;
+        app.applyTheme(nextTheme);
+        StorageManager.saveSettings(app.settings);
+      });
+    }
+
     // Mở / Đóng Drawer 3 chấm
     const openDrawer = () => {
       syncCheckboxesFromPrefs();
@@ -471,6 +480,7 @@ export function setupStudyControls(app) {
 
     flashcardEl.addEventListener('click', (e) => {
       if (
+        e.target.closest('.card-sound-btn-inline') ||
         e.target.closest('.card-sound-btn') || 
         e.target.closest('#btn-audio-speaker') || 
         e.target.closest('#btn-audio-speaker-back') || 
@@ -710,6 +720,7 @@ function getStudyDom() {
     imgEl: document.getElementById('card-front-img'),
     badgesBackWrap: document.getElementById('card-back-badges-wrap'),
     posBack: document.getElementById('card-pos-badge-back'),
+    posFront: document.getElementById('card-front-pos'),
     cefrBadgeBack: document.getElementById('card-cefr-badge-back'),
     wordFront: document.getElementById('card-front-word'),
     wordBackContext: document.getElementById('card-back-word-context-text'),
@@ -906,6 +917,11 @@ export function handleCardChange(app, card, progress) {
 
     if (dom.phoneticFront) {
       dom.phoneticFront.textContent = card.phonetic || card.ipa || '';
+    }
+
+    if (dom.posFront) {
+      dom.posFront.textContent = card.pos ? `(${card.pos.toLowerCase()})` : '';
+      dom.posFront.style.display = card.pos ? 'inline-block' : 'none';
     }
 
     if (dom.posBack) {
