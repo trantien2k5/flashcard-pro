@@ -103,14 +103,17 @@ export function renderStudyOverlayShell() {
             
             <!-- ================= MẶT TRƯỚC (FRONT FACE) ================= -->
             <div class="flashcard-face face-front">
-              <!-- Top Minimal Status Badge -->
+              <!-- Top Minimal Status Badge & Top-Right POS Badge -->
               <div class="card-top-bar">
                 <div class="card-status-badge state-new" id="card-front-status-badge">
                   <span class="status-dot"></span>
                   <span class="status-text" id="card-front-status-text">Từ mới</span>
                 </div>
-                <div class="card-reps-badge" id="card-front-reps-badge" style="display: none;">
-                  <span class="reps-text" id="card-front-reps-text">0</span>
+                <div class="card-front-top-right">
+                  <span class="card-pos-pill" id="card-front-pos"></span>
+                  <div class="card-reps-badge" id="card-front-reps-badge" style="display: none;">
+                    <span class="reps-text" id="card-front-reps-text">0</span>
+                  </div>
                 </div>
               </div>
 
@@ -121,25 +124,27 @@ export function renderStudyOverlayShell() {
 
               <!-- Cụm Từ Vựng Chính Giữa (One-Focus Clean Layout) -->
               <div class="card-word-center">
+                <!-- Nút loa dời lên đầu từ tiếng Anh sinh động, bắt mắt -->
+                <button class="card-speaker-hero" id="btn-audio-speaker" type="button" title="Phát âm từ vựng" aria-label="Phát âm">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                  </svg>
+                </button>
+
                 <!-- Từ vựng tiếng Anh to, rõ, font hiện đại -->
                 <h2 class="card-word-title fc-title" id="card-front-word">...</h2>
                 
-                <!-- Phiên âm IPA + Loại từ + Nút loa nhỏ tinh tế -->
+                <!-- Phiên âm IPA -->
                 <div class="card-meta-row" id="card-front-meta-row">
                   <span class="card-word-phonetic fc-phonetic" id="card-front-phonetic">/ ... /</span>
-                  <span class="card-pos-inline" id="card-front-pos"></span>
-                  <button class="card-sound-btn-inline" id="btn-audio-speaker" type="button" title="Phát âm" aria-label="Phát âm">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                    </svg>
-                  </button>
                 </div>
               </div>
 
               <!-- Footer Gợi Ý Thao Tác Lật Thẻ -->
               <div class="card-bottom-bar" id="card-front-hint">
-                <span class="card-hint-text">Chạm hoặc nhấn Space để xem đáp án</span>
+                <span class="card-hint-text">Chạm để xem đáp án</span>
               </div>
             </div>
 
@@ -150,9 +155,10 @@ export function renderStudyOverlayShell() {
                 <div class="card-back-context-word">
                   <span class="back-word-label" id="card-back-word-context-text">...</span>
                   <button class="btn-card-audio-mini" id="btn-audio-speaker-back" type="button" title="Nghe lại phát âm" aria-label="Nghe lại phát âm">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                       <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                       <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
                     </svg>
                   </button>
                 </div>
@@ -179,7 +185,7 @@ export function renderStudyOverlayShell() {
                   <div class="example-quote-row">
                     <p class="card-example-en" id="card-back-example">...</p>
                     <button class="btn-example-audio" id="btn-example-audio" type="button" title="Đọc câu ví dụ" aria-label="Phát âm câu ví dụ">
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                         <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                       </svg>
@@ -202,12 +208,12 @@ export function renderStudyOverlayShell() {
           
           <!-- 1. Nút Lật Thẻ Xem Đáp Án khi ở Mặt Trước -->
           <div id="front-flip-control" class="front-flip-control visible">
-            <button class="btn-main-flip" id="btn-main-flip" type="button" title="Lật thẻ (Phím Space)">
+            <button class="btn-main-flip" id="btn-main-flip" type="button" title="Lật thẻ xem nghĩa">
               <span>Xem đáp án</span>
             </button>
           </div>
 
-          <!-- 2. Cụm 4 Nút Đánh Giá Anki/FSRS: Clean Outline / Ghost Buttons -->
+          <!-- 2. Cụm 4 Nút Đánh Giá Anki/FSRS: Vibrant Solid Tint -->
           <div id="fsrs-buttons-container" class="fsrs-buttons-grid">
             <button class="btn-fsrs-rating again" data-rating="1" title="Lại (Phím 1)">
               <div class="fsrs-btn-top">
@@ -236,11 +242,6 @@ export function renderStudyOverlayShell() {
               </div>
               <span class="fsrs-badge-interval" id="interval-easy">4d</span>
             </button>
-          </div>
-
-          <!-- Dòng chữ nhỏ mờ thanh lịch ở chân trang -->
-          <div class="study-footer-shortcuts">
-            <span>Space: Lật thẻ &nbsp;•&nbsp; 1 - 4: Chấm điểm</span>
           </div>
         </div>
       </main>
@@ -920,8 +921,8 @@ export function handleCardChange(app, card, progress) {
     }
 
     if (dom.posFront) {
-      dom.posFront.textContent = card.pos ? `(${card.pos.toLowerCase()})` : '';
-      dom.posFront.style.display = card.pos ? 'inline-block' : 'none';
+      dom.posFront.textContent = card.pos ? card.pos.toLowerCase() : '';
+      dom.posFront.style.display = card.pos ? 'inline-flex' : 'none';
     }
 
     if (dom.posBack) {

@@ -526,28 +526,60 @@ export class StatsManager {
 
   /**
    * Lấy dữ liệu 12 tháng trong năm (Year Overview)
+   * @param {number} year - Năm (vd: 2026)
    */
-  static getYearlyJournalData(year) {
+  static getYearJournalData(year) {
     const months = [];
     let yearTotalWords = 0;
     let yearActiveDays = 0;
     let yearTotalMinutes = 0;
+    let maxMonthWords = 0;
+
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const currentMonth = today.getMonth() + 1;
 
     for (let m = 1; m <= 12; m++) {
       const data = this.getMonthJournalData(year, m);
-      yearTotalWords += data.monthTotalWords;
-      yearActiveDays += data.activeDaysCount;
-      yearTotalMinutes += data.monthTotalMinutes;
-      months.push(data);
+      const isCurrentMonth = (year === currentYear && m === currentMonth);
+      const wordsCount = data.monthTotalWords || 0;
+      const activeDays = data.activeDaysCount || 0;
+      const minutes = data.monthTotalMinutes || 0;
+
+      if (wordsCount > maxMonthWords) {
+        maxMonthWords = wordsCount;
+      }
+
+      yearTotalWords += wordsCount;
+      yearActiveDays += activeDays;
+      yearTotalMinutes += minutes;
+
+      months.push({
+        ...data,
+        month: m,
+        monthName: `Tháng ${m}`,
+        isCurrentMonth,
+        wordsCount,
+        activeDays,
+        minutes
+      });
     }
 
     return {
       year,
       months,
+      maxMonthWords,
       yearTotalWords,
       yearActiveDays,
       yearTotalMinutes
     };
+  }
+
+  /**
+   * Alias cho getYearJournalData để đảm bảo tương thích ngược
+   */
+  static getYearlyJournalData(year) {
+    return this.getYearJournalData(year);
   }
 }
 
