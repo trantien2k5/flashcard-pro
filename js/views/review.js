@@ -44,7 +44,7 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 2. Khối 1: Nhiệm Vụ Hôm Nay -->
+        <!-- 2. Khối 1: Nhiệm Vụ Hôm Nay (Unboxed Modern Bento Grid) -->
         <div class="bento-section-group bento-group-hero">
           <div class="section-group-header">
             <span class="section-group-title">
@@ -56,62 +56,62 @@ export function renderReviewShell(container) {
             <span class="hero-goal-ratio-pill" id="home-goal-ratio">0/10 từ</span>
           </div>
 
-          <div class="bento-card bento-hero-card">
-            <!-- 4 Khối chỉ số 2 Cột (2x2 Grid) -->
-            <div class="hero-quad-grid">
-              <!-- Card 1: Cần ôn ngay -->
-              <div class="quad-tile tile-due" id="box-home-due">
-                <div class="quad-tile-top">
-                  <span class="quad-icon-badge">📥</span>
-                  <span class="quad-label">CẦN ÔN TẬP</span>
-                </div>
-                <div class="quad-num-wrap">
-                  <span class="quad-number" id="home-due-val">0</span>
-                  <span class="quad-unit">từ</span>
-                </div>
-                <span class="quad-sub-hint" id="home-due-hint">Ưu tiên ôn trước</span>
+          <!-- 4 Khối chỉ số 2 Cột (2x2 Grid) - Trực tiếp, không lồng card -->
+          <div class="hero-quad-grid">
+            <!-- Card 1: Cần ôn ngay -->
+            <div class="quad-tile tile-due" id="box-home-due">
+              <div class="quad-tile-top">
+                <span class="quad-icon-badge">📥</span>
+                <span class="quad-label">CẦN ÔN TẬP</span>
               </div>
-
-              <!-- Card 2: Đã học hôm nay -->
-              <div class="quad-tile tile-new" id="box-home-new">
-                <div class="quad-tile-top">
-                  <span class="quad-icon-badge">✨</span>
-                  <span class="quad-label">ĐÃ HỌC HÔM NAY</span>
-                </div>
-                <div class="quad-num-wrap">
-                  <span class="quad-number" id="home-new-today-val">0/10</span>
-                  <span class="quad-unit">từ</span>
-                </div>
-                <span class="quad-sub-hint" id="home-goal-hint">Chỉ tiêu: 10 từ</span>
+              <div class="quad-num-wrap">
+                <span class="quad-number" id="home-due-val">0</span>
+                <span class="quad-unit">từ</span>
               </div>
-
-              <!-- Card 3: Thời gian học -->
-              <div class="quad-tile tile-time" id="box-home-time">
-                <div class="quad-tile-top">
-                  <span class="quad-icon-badge">⏱️</span>
-                  <span class="quad-label">THỜI GIAN HỌC</span>
-                </div>
-                <div class="quad-num-wrap">
-                  <span class="quad-number" id="home-study-timer">0p</span>
-                </div>
-                <span class="quad-sub-hint">Tập trung hôm nay</span>
-              </div>
-
-              <!-- Card 4: Từ đã thuộc (Tầng 4 & 5 FSRS) -->
-              <div class="quad-tile tile-retention" id="box-home-retention">
-                <div class="quad-tile-top">
-                  <span class="quad-icon-badge">💎</span>
-                  <span class="quad-label">TỪ ĐÃ THUỘC</span>
-                </div>
-                <div class="quad-num-wrap">
-                  <span class="quad-number" id="home-retention-rate">0</span>
-                  <span class="quad-unit">từ</span>
-                </div>
-                <span class="quad-sub-hint" id="home-retention-hint">Tầng 4 & 5 FSRS</span>
-              </div>
+              <span class="quad-sub-hint" id="home-due-hint">Ưu tiên ôn trước</span>
             </div>
 
-            <!-- Nút Hành Động Chính (Hero CTA) -->
+            <!-- Card 2: Đã học hôm nay -->
+            <div class="quad-tile tile-new" id="box-home-new">
+              <div class="quad-tile-top">
+                <span class="quad-icon-badge">✨</span>
+                <span class="quad-label">ĐÃ HỌC HÔM NAY</span>
+              </div>
+              <div class="quad-num-wrap">
+                <span class="quad-number" id="home-new-today-val">0/10</span>
+                <span class="quad-unit">từ</span>
+              </div>
+              <span class="quad-sub-hint" id="home-goal-hint">Chỉ tiêu: 10 từ</span>
+            </div>
+
+            <!-- Card 3: Thời gian học -->
+            <div class="quad-tile tile-time" id="box-home-time">
+              <div class="quad-tile-top">
+                <span class="quad-icon-badge">⏱️</span>
+                <span class="quad-label">THỜI GIAN HỌC</span>
+              </div>
+              <div class="quad-num-wrap">
+                <span class="quad-number" id="home-study-timer">0p</span>
+              </div>
+              <span class="quad-sub-hint">Tập trung hôm nay</span>
+            </div>
+
+            <!-- Card 4: Từ đã thuộc (Tầng 4 & 5 FSRS) -->
+            <div class="quad-tile tile-retention" id="box-home-retention">
+              <div class="quad-tile-top">
+                <span class="quad-icon-badge">💎</span>
+                <span class="quad-label">TỪ ĐÃ THUỘC</span>
+              </div>
+              <div class="quad-num-wrap">
+                <span class="quad-number" id="home-retention-rate">0</span>
+                <span class="quad-unit">từ</span>
+              </div>
+              <span class="quad-sub-hint" id="home-retention-hint">Tầng 4 & 5 FSRS</span>
+            </div>
+          </div>
+
+          <!-- Nút Hành Động Chính & Dòng Ước Tính -->
+          <div class="hero-action-container">
             <button class="btn-hero-action" id="btn-home-hero-cta">
               <svg class="action-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <polygon points="5 3 19 12 5 21 5 3"/>
@@ -119,7 +119,6 @@ export function renderReviewShell(container) {
               <span id="home-hero-cta-text">Ôn 0 từ ngay</span>
             </button>
 
-            <!-- Dòng thông tin ước tính & chuỗi -->
             <div class="hero-meta-hint">
               <span id="home-estimated-time">⏱️ Khoảng 0 phút</span>
               <span class="hint-sep">•</span>
@@ -128,7 +127,7 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 3. Khối 2: Dự Báo Lịch Ôn 7 Ngày (Minimalist & Crisp) -->
+        <!-- 3. Khối 2: Dự Báo Lịch Ôn 7 Ngày (Unboxed Dải Capsule) -->
         <div class="bento-section-group bento-group-forecast">
           <div class="section-group-header">
             <span class="section-group-title">
@@ -146,9 +145,7 @@ export function renderReviewShell(container) {
             </div>
           </div>
 
-          <div class="bento-card bento-forecast-card">
-            <div class="forecast-capsules-grid" id="home-review-forecast"></div>
-          </div>
+          <div class="forecast-capsules-grid" id="home-review-forecast"></div>
         </div>
 
         <!-- 4. Khối 3: Lịch Học Tập Theo Ngày (Trực Tiếp Heatmap, Bỏ Khối Thừa) -->
