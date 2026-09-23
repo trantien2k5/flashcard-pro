@@ -418,7 +418,7 @@ export function showToast(message, type = 'info', duration = 3000) {
 
   setTimeout(() => {
     toast.style.opacity = '0';
-    toast.style.transform = 'translateY(-12px) scale(0.95)';
+    toast.style.transform = 'translateY(8px) scale(0.96)';
     setTimeout(() => toast.remove(), 300);
   }, duration);
 }
