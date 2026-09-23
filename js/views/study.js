@@ -126,7 +126,6 @@ export function renderStudyOverlayShell() {
                     <span class="leech-icon">⚠️</span>
                     <span class="leech-text">Khó nhớ</span>
                   </div>
-                  <span class="card-pos-pill" id="card-front-pos"></span>
                   <div class="card-reps-badge" id="card-front-reps-badge" style="display: none;">
                     <span class="reps-text" id="card-front-reps-text">0</span>
                   </div>
@@ -324,7 +323,7 @@ export function renderStudyOverlayShell() {
             <label class="pref-item">
               <div class="pref-info">
                 <span class="pref-label">🏷️ Loại từ (POS)</span>
-                <span class="pref-sub">Hiển thị nhãn Danh từ, Động từ... (Noun, Verb)</span>
+                <span class="pref-sub">Hiển thị nhãn Danh từ, Động từ... ở mặt sau</span>
               </div>
               <input type="checkbox" id="pref-toggle-pos" class="toggle-checkbox">
             </label>
@@ -836,7 +835,6 @@ function getStudyDom() {
     imgEl: document.getElementById('card-front-img'),
     badgesBackWrap: document.getElementById('card-back-badges-wrap'),
     posBack: document.getElementById('card-pos-badge-back'),
-    posFront: document.getElementById('card-front-pos'),
     cefrBadgeBack: document.getElementById('card-cefr-badge-back'),
     wordFront: document.getElementById('card-front-word'),
     wordBackContext: document.getElementById('card-back-word-context-text'),
@@ -892,11 +890,7 @@ function applyFieldVisibility(prefs, card) {
     dom.phoneticFront.style.display = prefs.showPhonetic ? 'inline-block' : 'none';
   }
 
-  // Loại từ (Part of speech) & Cấp độ CEFR độc lập
-  if (dom.posFront) {
-    dom.posFront.style.display = (prefs.showPos && card.pos) ? 'inline-flex' : 'none';
-  }
-
+  // Loại từ (Part of speech) & Cấp độ CEFR độc lập ở mặt sau
   if (dom.posBack) {
     dom.posBack.style.display = (prefs.showPos && card.pos) ? 'inline-block' : 'none';
   }
@@ -1067,11 +1061,6 @@ export function handleCardChange(app, card, progress) {
 
     if (dom.phoneticFront) {
       dom.phoneticFront.textContent = card.phonetic || card.ipa || '';
-    }
-
-    if (dom.posFront) {
-      dom.posFront.textContent = card.pos ? card.pos.toLowerCase() : '';
-      dom.posFront.style.display = card.pos ? 'inline-flex' : 'none';
     }
 
     if (dom.posBack) {
