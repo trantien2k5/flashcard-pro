@@ -25,7 +25,7 @@ export const MASTERY_STABILITY_THRESHOLD = 21; // Ngưỡng thành thạo thốn
 export const DEFAULT_SETTINGS = {
   requestRetention: 0.90, // 90% target retention
   dailyNewLimit: 10,
-  dailyReviewLimit: 50,
+  dailyReviewLimit: 20,
   autoPronounce: true,
   speechRate: 0.9,
   speechVoice: 'en-US',

@@ -103,13 +103,15 @@ export class StudySession {
     unlockAudioContext();
     this.updateSettings();
     
-    // Đảm bảo không bao giờ bị trùng lặp thẻ trong hàng đợi ban đầu
+    // Đảm bảo không bao giờ bị trùng lặp thẻ trong hàng đợi ban đầu & Giới hạn tối đa 20 thẻ/phiên
     const seenQueueIds = new Set();
     this.queue = [];
-    for (const c of (queue || [])) {
+    const rawQueue = Array.isArray(queue) ? queue : [];
+    for (const c of rawQueue) {
       if (c && c.id && !seenQueueIds.has(c.id)) {
         seenQueueIds.add(c.id);
         this.queue.push(c);
+        if (this.queue.length >= 20) break; // Giới hạn tối đa 20 thẻ mỗi phiên học
       }
     }
     this.totalCards = this.queue.length;
@@ -303,21 +305,16 @@ export class StudySession {
       });
     }
 
-    // Cập nhật thống kê phiên học
+    // Cập nhật thống kê và tiến độ hoàn thành phiên học
     if (rating === Rating.Again) this.sessionStats.again++;
     else if (rating === Rating.Hard) this.sessionStats.hard++;
     else if (rating === Rating.Good) this.sessionStats.good++;
     else if (rating === Rating.Easy) this.sessionStats.easy++;
     this.sessionStats.reviewedCount++;
 
-    // Nếu chọn Again (Quên) trong lúc học, thêm thẻ vào cuối hàng đợi để ôn lại ngay (KHÔNG tăng tiến độ)
-    if (rating === Rating.Again) {
-      const repeatCard = { ...this.currentCard, fsrsState: nextState };
-      this.queue.push(repeatCard);
-    } else {
-      // Đã nhớ (Hard, Good, Easy) -> Tăng tiến độ hoàn thành
-      this.completedCount = (this.completedCount || 0) + 1;
-    }
+    // Thẻ chạy bình thường qua từ tiếp theo (không lặp lại trong phiên hiện tại).
+    // Trạng thái đã được lưu (due = now + 1m) để tự động xuất hiện ở phiên ôn tới.
+    this.completedCount = (this.completedCount || 0) + 1;
 
     this.currentIndex++;
     return this.loadCurrentCard();

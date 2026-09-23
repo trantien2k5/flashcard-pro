@@ -89,10 +89,10 @@ export function renderSettingsTabShell(container) {
                 <span class="setting-desc">Số thẻ tối đa mỗi lần bắt đầu ôn tập</span>
               </div>
               <select id="setting-review-limit" class="setting-select">
-                <option value="20">20 từ</option>
-                <option value="50">50 từ (Chuẩn)</option>
-                <option value="100">100 từ</option>
-                <option value="200">200 từ</option>
+                <option value="10">10 từ</option>
+                <option value="20" selected>20 từ (Chuẩn - Khuyên dùng)</option>
+                <option value="30">30 từ</option>
+                <option value="50">50 từ</option>
               </select>
             </div>
 
