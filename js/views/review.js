@@ -97,16 +97,17 @@ export function renderReviewShell(container) {
                 <span class="quad-sub-hint">Tập trung hôm nay</span>
               </div>
 
-              <!-- Card 4: Tỉ lệ nhớ tốt -->
+              <!-- Card 4: Từ đã thuộc (Tầng 4 & 5 FSRS) -->
               <div class="quad-tile tile-retention" id="box-home-retention">
                 <div class="quad-tile-top">
-                  <span class="quad-icon-badge">🧠</span>
-                  <span class="quad-label">TỈ LỆ NHỚ TỐT</span>
+                  <span class="quad-icon-badge">💎</span>
+                  <span class="quad-label">TỪ ĐÃ THUỘC</span>
                 </div>
                 <div class="quad-num-wrap">
-                  <span class="quad-number" id="home-retention-rate">100%</span>
+                  <span class="quad-number" id="home-retention-rate">0</span>
+                  <span class="quad-unit">từ</span>
                 </div>
-                <span class="quad-sub-hint" id="home-retention-hint">Trí nhớ xuất sắc 🌟</span>
+                <span class="quad-sub-hint" id="home-retention-hint">Tầng 4 & 5 FSRS</span>
               </div>
             </div>
 
@@ -331,16 +332,12 @@ function showDayPopover(cell, dayObj) {
     </div>
     <div class="popover-body">
       <div class="popover-item">
-        <span>📚 Từ mới học:</span>
-        <strong>+${dayObj.newCount} từ</strong>
+        <span>📚 Từ đã học:</span>
+        <strong>+${dayObj.count} từ</strong>
       </div>
       <div class="popover-item">
-        <span>🔄 Ôn tập lại:</span>
-        <strong>${dayObj.reviewCount} từ</strong>
-      </div>
-      <div class="popover-item">
-        <span>🎯 Độ ghi nhớ:</span>
-        <strong>${dayObj.retention}%</strong>
+        <span>💎 Từ đã thuộc:</span>
+        <strong>${dayObj.masteredCount || 0} từ</strong>
       </div>
       <div class="popover-item">
         <span>⏱️ Thời gian:</span>
@@ -396,26 +393,26 @@ export function renderReviewTab(app) {
 
     // 1. Phân loại từ vựng & Cấp độ thành tựu FSRS
     let learnedCount = 0;
-    let goodMemoryCount = 0;
+    let masteredCount = 0; // Tầng 4 & 5 (Stability >= 14 ngày) VÀ CHƯA ĐẾN HẠN ÔN (!isDue)
     let dueCount = 0;
 
     for (const card of allCards) {
       const state = StorageManager.getCardState(card.id);
-      if (state && state.state !== State.New && state.state !== 0) {
+      if (state && state.state !== State.New && state.state !== 0 && !state.suspended) {
         learnedCount++;
-        if (isCardDue(state, now)) {
+        const isDue = isCardDue(state, now);
+        if (isDue) {
           dueCount++;
         }
-        const s = state.stability || 0;
-        if (s >= 3) {
-          goodMemoryCount++;
+        const s = Number(state.stability) || 0;
+        // Tầng 4 & 5: S >= 14 ngày. Nếu tới hạn ôn (isDue) thì không tính vào (tự động tuột xuống cho đến khi ôn tập lại)
+        if (s >= 14 && !isDue) {
+          masteredCount++;
         }
       }
     }
 
-    const retentionRate = learnedCount > 0 ? Math.round((goodMemoryCount / learnedCount) * 100) : 100;
-
-    // Cập nhật Timer & Retention Rate trong 4 Card
+    // Cập nhật Timer & Từ Đã Thuộc trong 4 Card
     const elTimer = document.getElementById('home-study-timer');
     if (elTimer) {
       const todaySecs = StorageManager.getTodayStudySeconds();
@@ -428,17 +425,15 @@ export function renderReviewTab(app) {
 
     const elRetention = document.getElementById('home-retention-rate');
     if (elRetention) {
-      elRetention.textContent = `${retentionRate}%`;
+      elRetention.textContent = masteredCount;
     }
 
     const elRetentionHint = document.getElementById('home-retention-hint');
     if (elRetentionHint) {
-      if (retentionRate >= 90) {
-        elRetentionHint.textContent = 'Trí nhớ xuất sắc 🌟';
-      } else if (retentionRate >= 75) {
-        elRetentionHint.textContent = 'Độ nhớ rất tốt 👍';
+      if (masteredCount > 0) {
+        elRetentionHint.textContent = 'Tầng 4 & 5 • Bền vững 🛡️';
       } else {
-        elRetentionHint.textContent = 'Cần ôn thêm 📖';
+        elRetentionHint.textContent = 'Độ bền ≥ 14 ngày';
       }
     }
 
@@ -659,7 +654,7 @@ export function renderReviewTab(app) {
     // Summary Strip
     const calSummaryText = container.querySelector('#journal-cal-summary-text');
     if (calSummaryText) {
-      calSummaryText.innerHTML = `Tháng này: <strong>+${monthData.monthTotalWords}</strong> từ • <strong>${monthData.activeDaysCount}/${monthData.elapsedDays}</strong> ngày học • <strong>${monthData.winRate}%</strong> nhớ tốt`;
+      calSummaryText.innerHTML = `Tháng này: <strong>+${monthData.monthTotalWords}</strong> từ đã học • <strong>${monthData.monthMasteredWords || 0}</strong> từ đã thuộc • <strong>${monthData.activeDaysCount}/${monthData.elapsedDays}</strong> ngày học`;
     }
 
     // Render Bảng Lịch Ô Vuông 7 Cột

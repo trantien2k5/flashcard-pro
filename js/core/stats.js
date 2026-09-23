@@ -404,6 +404,7 @@ export class StatsManager {
     const currentDay = today.getDate();
 
     // Map ngày (YYYY-MM-DD) -> thống kê
+    const cardStates = StorageManager.getAllCardStates() || {};
     const dailyMap = Object.create(null);
     for (let d = 1; d <= daysInMonth; d++) {
       const dateKey = `${year}-${String(month).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
@@ -413,6 +414,7 @@ export class StatsManager {
         wordsLearned: new Set(),
         wordsReviewed: new Set(),
         memorizedWords: new Set(),
+        masteredWords: new Set(),
         goodReviews: 0,
         totalReviews: 0,
         studySeconds: 0,
@@ -453,12 +455,24 @@ export class StatsManager {
           } else if (log.rating === Rating.Hard) {
             item.goodReviews += 0.5;
           }
+
+          // Tầng 4 & 5 FSRS: Độ bền stability >= 14 ngày (Từ đã thuộc)
+          const stab = Number(log.stability) || Number(log.scheduledDays) || 0;
+          if (stab >= 14 || (log.newState === State.Review && stab >= 14)) {
+            item.masteredWords.add(cardId);
+          } else if (log.rating === Rating.Good || log.rating === Rating.Easy) {
+            const curState = cardStates[cardId];
+            if (curState && Number(curState.stability) >= 14) {
+              item.masteredWords.add(cardId);
+            }
+          }
         }
       }
     }
 
     // Tổng hợp danh sách ngày trong tháng
     const days = [];
+    const monthMasteredSet = new Set();
     let monthTotalWords = 0;
     let activeDaysCount = 0;
     let monthTotalSeconds = 0;
@@ -477,6 +491,8 @@ export class StatsManager {
       const count = totalCount;
       const retention = item.totalReviews > 0 ? Math.round((item.goodReviews / item.totalReviews) * 100) : (count > 0 ? 100 : 0);
       
+      item.masteredWords.forEach(w => monthMasteredSet.add(w));
+
       monthTotalWords += count;
       monthTotalSeconds += item.studySeconds;
       monthTotalReviews += item.totalReviews;
@@ -505,6 +521,7 @@ export class StatsManager {
         newCount: item.wordsLearned.size,
         reviewCount: item.wordsReviewed.size,
         memorizedCount: item.memorizedWords.size,
+        masteredCount: item.masteredWords.size,
         totalReviews: item.totalReviews,
         retention,
         minutes: Math.round(item.studySeconds / 60),
@@ -525,6 +542,7 @@ export class StatsManager {
       firstDayOfWeek, // Số ô trống cần pad trước ngày 1 (0..6)
       days,
       monthTotalWords,
+      monthMasteredWords: monthMasteredSet.size,
       activeDaysCount,
       elapsedDays,
       winRate,
