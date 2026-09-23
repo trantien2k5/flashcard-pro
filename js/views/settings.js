@@ -349,11 +349,18 @@ export function setupSettingsUI(app) {
     }
 
     if (autoSpeechToggle) {
-      autoSpeechToggle.checked = app.settings.autoPronounce !== false;
+      autoSpeechToggle.checked = app.settings.autoPronounce === true;
       autoSpeechToggle.addEventListener('change', (e) => {
         try {
           app.settings.autoPronounce = e.target.checked;
           saveAppSettings(app);
+          try {
+            const raw = localStorage.getItem('study_display_prefs');
+            const prefs = raw ? JSON.parse(raw) : {};
+            prefs.autoplayAudio = e.target.checked;
+            localStorage.setItem('study_display_prefs', JSON.stringify(prefs));
+          } catch (e2) {}
+          if (app.studySession) app.studySession.updateSettings();
         } catch (err) {
           console.error('Lỗi cập nhật autoSpeechToggle:', err);
         }

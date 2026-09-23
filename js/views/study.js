@@ -17,7 +17,9 @@ const DEFAULT_STUDY_PREFS = {
   showPhonetic: false,
   showDefinition: false,
   showExample: false,
-  showBadges: false,
+  showExampleVi: false,
+  showPos: false,
+  showCefr: false,
   autoplayAudio: false,
   showHint: false
 };
@@ -25,7 +27,17 @@ const DEFAULT_STUDY_PREFS = {
 export function getStudyPrefs() {
   try {
     const raw = localStorage.getItem('study_display_prefs');
-    if (raw) return { ...DEFAULT_STUDY_PREFS, ...JSON.parse(raw) };
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed.showBadges !== undefined) {
+        if (parsed.showPos === undefined) parsed.showPos = !!parsed.showBadges;
+        if (parsed.showCefr === undefined) parsed.showCefr = !!parsed.showBadges;
+      }
+      if (parsed.showExample !== undefined && parsed.showExampleVi === undefined) {
+        parsed.showExampleVi = !!parsed.showExample;
+      }
+      return { ...DEFAULT_STUDY_PREFS, ...parsed };
+    }
   } catch (e) {}
   return { ...DEFAULT_STUDY_PREFS };
 }
@@ -295,18 +307,34 @@ export function renderStudyOverlayShell() {
 
             <label class="pref-item">
               <div class="pref-info">
-                <span class="pref-label">💬 Câu ví dụ & Dịch câu</span>
-                <span class="pref-sub">Hiển thị câu văn ngữ cảnh thực tế</span>
+                <span class="pref-label">💬 Câu ví dụ tiếng Anh</span>
+                <span class="pref-sub">Hiển thị câu ví dụ ngữ cảnh ở mặt sau</span>
               </div>
               <input type="checkbox" id="pref-toggle-example" class="toggle-checkbox">
             </label>
 
             <label class="pref-item">
               <div class="pref-info">
-                <span class="pref-label">🏷️ Loại từ & Cấp độ CEFR</span>
-                <span class="pref-sub">Hiển thị nhãn Noun, Verb, A1, B1...</span>
+                <span class="pref-label">🇻🇳 Dịch câu ví dụ</span>
+                <span class="pref-sub">Hiển thị bản dịch tiếng Việt của câu ví dụ</span>
               </div>
-              <input type="checkbox" id="pref-toggle-badges" class="toggle-checkbox">
+              <input type="checkbox" id="pref-toggle-example-vi" class="toggle-checkbox">
+            </label>
+
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🏷️ Loại từ (POS)</span>
+                <span class="pref-sub">Hiển thị nhãn Danh từ, Động từ... (Noun, Verb)</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-pos" class="toggle-checkbox">
+            </label>
+
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🎯 Cấp độ CEFR</span>
+                <span class="pref-sub">Hiển thị huy hiệu cấp độ (A1, A2, B1, B2...)</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-cefr" class="toggle-checkbox">
             </label>
 
             <label class="pref-item">
@@ -383,7 +411,9 @@ export function setupStudyControls(app) {
     const togglePhonetic = document.getElementById('pref-toggle-phonetic');
     const toggleDef = document.getElementById('pref-toggle-definition');
     const toggleEx = document.getElementById('pref-toggle-example');
-    const toggleBadges = document.getElementById('pref-toggle-badges');
+    const toggleExVi = document.getElementById('pref-toggle-example-vi');
+    const togglePos = document.getElementById('pref-toggle-pos');
+    const toggleCefr = document.getElementById('pref-toggle-cefr');
     const toggleAutoplay = document.getElementById('pref-toggle-autoplay');
     const toggleHint = document.getElementById('pref-toggle-hint');
 
@@ -397,22 +427,34 @@ export function setupStudyControls(app) {
       if (togglePhonetic) togglePhonetic.checked = !!p.showPhonetic;
       if (toggleDef) toggleDef.checked = !!p.showDefinition;
       if (toggleEx) toggleEx.checked = !!p.showExample;
-      if (toggleBadges) toggleBadges.checked = !!p.showBadges;
-      if (toggleAutoplay) toggleAutoplay.checked = !!p.autoplayAudio;
+      if (toggleExVi) toggleExVi.checked = !!p.showExampleVi;
+      if (togglePos) togglePos.checked = !!p.showPos;
+      if (toggleCefr) toggleCefr.checked = !!p.showCefr;
+      if (toggleAutoplay) toggleAutoplay.checked = (app.settings?.autoPronounce === true) || !!p.autoplayAudio;
       if (toggleHint) toggleHint.checked = !!p.showHint;
     };
 
     const updatePrefFromCheckbox = () => {
+      const isAutoplay = !!toggleAutoplay?.checked;
       const p = {
         showImage: !!toggleImg?.checked,
         showPhonetic: !!togglePhonetic?.checked,
         showDefinition: !!toggleDef?.checked,
         showExample: !!toggleEx?.checked,
-        showBadges: !!toggleBadges?.checked,
-        autoplayAudio: !!toggleAutoplay?.checked,
+        showExampleVi: !!toggleExVi?.checked,
+        showPos: !!togglePos?.checked,
+        showCefr: !!toggleCefr?.checked,
+        autoplayAudio: isAutoplay,
         showHint: !!toggleHint?.checked
       };
       saveStudyPrefs(p);
+      if (app.settings) {
+        app.settings.autoPronounce = isAutoplay;
+        StorageManager.saveSettings(app.settings);
+      }
+      if (app.studySession) {
+        app.studySession.updateSettings();
+      }
       if (app.studySession?.currentCard) {
         applyFieldVisibility(p, app.studySession.currentCard);
       }
@@ -420,7 +462,7 @@ export function setupStudyControls(app) {
 
     syncCheckboxesFromPrefs();
 
-    [toggleImg, togglePhonetic, toggleDef, toggleEx, toggleBadges, toggleAutoplay, toggleHint].forEach(cb => {
+    [toggleImg, togglePhonetic, toggleDef, toggleEx, toggleExVi, togglePos, toggleCefr, toggleAutoplay, toggleHint].forEach(cb => {
       if (cb) {
         cb.addEventListener('change', updatePrefFromCheckbox);
       }
@@ -429,6 +471,13 @@ export function setupStudyControls(app) {
     if (btnResetPrefs) {
       btnResetPrefs.addEventListener('click', () => {
         saveStudyPrefs(DEFAULT_STUDY_PREFS);
+        if (app.settings) {
+          app.settings.autoPronounce = false;
+          StorageManager.saveSettings(app.settings);
+        }
+        if (app.studySession) {
+          app.studySession.updateSettings();
+        }
         syncCheckboxesFromPrefs();
         if (app.studySession?.currentCard) {
           applyFieldVisibility(DEFAULT_STUDY_PREFS, app.studySession.currentCard);
@@ -843,17 +892,46 @@ function applyFieldVisibility(prefs, card) {
     dom.phoneticFront.style.display = prefs.showPhonetic ? 'inline-block' : 'none';
   }
 
-  if (dom.badgesBackWrap) {
-    dom.badgesBackWrap.style.display = prefs.showBadges ? 'inline-flex' : 'none';
+  // Loại từ (Part of speech) & Cấp độ CEFR độc lập
+  if (dom.posFront) {
+    dom.posFront.style.display = (prefs.showPos && card.pos) ? 'inline-flex' : 'none';
   }
 
+  if (dom.posBack) {
+    dom.posBack.style.display = (prefs.showPos && card.pos) ? 'inline-block' : 'none';
+  }
+
+  if (dom.cefrBadgeBack) {
+    const cefrVal = card.cefr || card.level;
+    dom.cefrBadgeBack.style.display = (prefs.showCefr && cefrVal) ? 'inline-block' : 'none';
+  }
+
+  if (dom.badgesBackWrap) {
+    const hasAnyBadge = (prefs.showPos && card.pos) || (prefs.showCefr && (card.cefr || card.level));
+    dom.badgesBackWrap.style.display = hasAnyBadge ? 'inline-flex' : 'none';
+  }
+
+  // Định nghĩa tiếng Anh
   const defText = card.definition || card.def || '';
   if (dom.defBoxBack) {
     dom.defBoxBack.style.display = (prefs.showDefinition && defText) ? 'flex' : 'none';
   }
 
+  // Câu ví dụ tiếng Anh & Bản dịch tiếng Việt độc lập
+  const hasExampleEn = !!(prefs.showExample && card.example);
+  const hasExampleVi = !!(prefs.showExampleVi && card.exampleVi);
+
+  if (dom.exBack) {
+    const quoteRow = dom.exBack.closest('.example-quote-row') || dom.exBack;
+    quoteRow.style.display = hasExampleEn ? 'flex' : 'none';
+  }
+
+  if (dom.exViBack) {
+    dom.exViBack.style.display = hasExampleVi ? 'block' : 'none';
+  }
+
   if (dom.exBoxBack) {
-    dom.exBoxBack.style.display = (prefs.showExample && card.example) ? 'block' : 'none';
+    dom.exBoxBack.style.display = (hasExampleEn || hasExampleVi) ? 'block' : 'none';
   }
 
   if (dom.hintFront) {
@@ -1043,13 +1121,6 @@ export function handleCardChange(app, card, progress) {
 
     // Áp dụng bật/tắt trường hiển thị theo preferences
     applyFieldVisibility(prefs, card);
-
-    // Tự động phát âm nếu được bật
-    if (prefs.autoplayAudio && card.word) {
-      setTimeout(() => {
-        speak(card.word, { cardObj: card });
-      }, 100);
-    }
 
     // Cập nhật FSRS Dynamic Intervals trên 4 nút
     if (card.previews) {

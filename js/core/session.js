@@ -87,7 +87,16 @@ export class StudySession {
   }
 
   updateSettings(settings = null) {
-    this.settings = getCurrentSettings(settings || this.settings);
+    this.settings = { ...getCurrentSettings(settings || this.settings) };
+    try {
+      const raw = localStorage.getItem('study_display_prefs');
+      if (raw) {
+        const p = JSON.parse(raw);
+        if (typeof p.autoplayAudio === 'boolean') {
+          this.settings.autoPronounce = p.autoplayAudio;
+        }
+      }
+    } catch (e) {}
     this.fsrs = new FSRS({
       requestRetention: this.settings?.requestRetention || 0.90,
       enableFuzz: this.settings?.enableFuzz !== false,
@@ -232,8 +241,9 @@ export class StudySession {
       this._autoSpeakTimer = null;
     }
 
-    // Tự động phát âm ngay khi chuyển sang thẻ mới (mặt trước)
-    if (this.currentCard && this.currentCard.word && this.settings.autoPronounce !== false) {
+    // Tự động phát âm ngay khi chuyển sang thẻ mới (mặt trước) - CHỈ PHÁT KHI BẬT
+    const isAutoplay = this.settings?.autoPronounce === true;
+    if (this.currentCard && this.currentCard.word && isAutoplay) {
       const cardToSpeak = this.currentCard;
       this._autoSpeakTimer = setTimeout(() => {
         if (this.currentCard && this.currentCard.id === cardToSpeak.id && !this.isFlipped) {
