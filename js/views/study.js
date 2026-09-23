@@ -9,7 +9,87 @@ import { showConfirm } from './components.js';
 import { globalStudyTimer } from '../core/stats.js';
 import { unlockAudioContext, preloadCardImage } from '../core/session.js';
 import { escapeHTML, formatCleanInterval, scrollToTop } from '../utils.js';
-import { onAudioPlayStateChange, speak } from '../services/audio.js';
+import { onAudioPlayStateChange, speak, speakVi, stopAudio } from '../services/audio.js';
+
+// ==========================================
+// CẤU HÌNH TỰ ĐỘNG HỌC (AUTO-PLAY CONFIG & PREFS)
+// ==========================================
+export const DEFAULT_AUTOPLAY_CONFIG = {
+  frontDelaySec: 3.0,     // Giây dừng ở mặt trước để suy nghĩ
+  backDelaySec: 2.5,      // Giây dừng ở mặt sau để tiếp thu
+  speakVi: true,          // Phát âm nghĩa tiếng Việt ở mặt sau
+  loopList: false         // Tự động lặp lại vô tận khi hết danh sách
+};
+
+export function getAutoPlayPrefs() {
+  try {
+    const raw = localStorage.getItem('study_autoplay_prefs');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      return {
+        frontDelaySec: typeof parsed.frontDelaySec === 'number' ? parsed.frontDelaySec : DEFAULT_AUTOPLAY_CONFIG.frontDelaySec,
+        backDelaySec: typeof parsed.backDelaySec === 'number' ? parsed.backDelaySec : DEFAULT_AUTOPLAY_CONFIG.backDelaySec,
+        speakVi: parsed.speakVi !== undefined ? !!parsed.speakVi : DEFAULT_AUTOPLAY_CONFIG.speakVi,
+        loopList: parsed.loopList !== undefined ? !!parsed.loopList : DEFAULT_AUTOPLAY_CONFIG.loopList
+      };
+    }
+  } catch (e) {}
+  return { ...DEFAULT_AUTOPLAY_CONFIG };
+}
+
+export function saveAutoPlayPrefs(prefs) {
+  try {
+    localStorage.setItem('study_autoplay_prefs', JSON.stringify(prefs));
+  } catch (e) {}
+}
+
+let _isAutoPlaying = false;
+let _autoPlayTimer = null;
+
+export function isAutoPlayActive() {
+  return _isAutoPlaying;
+}
+
+export function updateAutoPlayUI(isPlaying) {
+  const btnAutoplay = document.getElementById('btn-study-autoplay');
+  if (btnAutoplay) {
+    if (isPlaying) {
+      btnAutoplay.classList.add('active');
+    } else {
+      btnAutoplay.classList.remove('active');
+    }
+    const playIcon = btnAutoplay.querySelector('.icon-autoplay-play');
+    const pauseIcon = btnAutoplay.querySelector('.icon-autoplay-pause');
+    if (playIcon) playIcon.style.display = isPlaying ? 'none' : 'block';
+    if (pauseIcon) pauseIcon.style.display = isPlaying ? 'block' : 'none';
+  }
+
+  const btnAction = document.getElementById('btn-autoplay-main-action');
+  if (btnAction) {
+    if (isPlaying) {
+      btnAction.className = 'btn-autoplay-main-action is-pause';
+      btnAction.innerHTML = `
+        <span class="action-icon">⏸️</span>
+        <span class="action-text">Tạm dừng tự động học</span>
+      `;
+    } else {
+      btnAction.className = 'btn-autoplay-main-action is-start';
+      btnAction.innerHTML = `
+        <span class="action-icon">▶️</span>
+        <span class="action-text">Bắt đầu tự động học</span>
+      `;
+    }
+  }
+}
+
+export function stopAutoPlay() {
+  _isAutoPlaying = false;
+  if (_autoPlayTimer) {
+    clearTimeout(_autoPlayTimer);
+    _autoPlayTimer = null;
+  }
+  updateAutoPlayUI(false);
+}
 
 // Cấu hình hiển thị trường dữ liệu mặc định (Tối giản tối đa)
 const DEFAULT_STUDY_PREFS = {
@@ -81,8 +161,18 @@ export function renderStudyOverlayShell() {
             </span>
           </div>
 
-          <!-- Right Actions (Dark/Light Toggle + 3 Dots Menu) -->
+          <!-- Right Actions (Auto-Play + Dark/Light Toggle + 3 Dots Menu) -->
           <div class="study-header-right">
+            <button id="btn-study-autoplay" class="btn-study-icon btn-study-autoplay" title="Tự động lật thẻ & học rảnh tay" aria-label="Tự động học">
+              <svg class="icon-autoplay-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 4 20 12 6 20 6 4"></polygon>
+              </svg>
+              <svg class="icon-autoplay-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+              </svg>
+            </button>
+
             <button id="btn-study-theme" class="btn-study-icon" title="Chuyển chế độ Sáng / Tối" aria-label="Đổi giao diện">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="5"></circle>
@@ -170,7 +260,7 @@ export function renderStudyOverlayShell() {
                 <div class="card-back-context-word">
                   <span class="back-word-label" id="card-back-word-context-text">...</span>
                   <button class="btn-card-audio-mini" id="btn-audio-speaker-back" type="button" title="Nghe lại phát âm" aria-label="Nghe lại phát âm">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                       <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                       <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                       <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
@@ -197,15 +287,17 @@ export function renderStudyOverlayShell() {
 
                 <!-- Câu ví dụ tiếng Anh (Italic) & Bản dịch mờ bên dưới -->
                 <div class="card-back-example fc-example" id="card-back-example-box" style="display: none;">
-                  <div class="example-quote-row">
-                    <p class="card-example-en" id="card-back-example">...</p>
+                  <div class="example-top-header" id="example-top-header">
+                    <span class="example-label-tag">Ví dụ</span>
                     <button class="btn-example-audio" id="btn-example-audio" type="button" title="Đọc câu ví dụ" aria-label="Phát âm câu ví dụ">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                         <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
                       </svg>
                     </button>
                   </div>
+                  <p class="card-example-en" id="card-back-example">...</p>
                   <p class="card-example-vi" id="card-back-example-vi">...</p>
                 </div>
               </div>
@@ -314,7 +406,7 @@ export function renderStudyOverlayShell() {
 
             <label class="pref-item">
               <div class="pref-info">
-                <span class="pref-label">🇻🇳 Dịch câu ví dụ</span>
+                <span class="pref-label"><svg class="flag-icon-vn" width="18" height="12" viewBox="0 0 30 20" fill="none"><rect width="30" height="20" rx="2" fill="#DA251D"/><polygon points="15,4 16.545,8.755 21.548,8.755 17.501,11.695 19.046,16.45 15,13.51 10.954,16.45 12.499,11.695 8.452,8.755 13.455,8.755" fill="#FFFF00"/></svg> Dịch câu ví dụ</span>
                 <span class="pref-sub">Hiển thị bản dịch tiếng Việt của câu ví dụ</span>
               </div>
               <input type="checkbox" id="pref-toggle-example-vi" class="toggle-checkbox">
@@ -376,6 +468,80 @@ export function renderStudyOverlayShell() {
           <div class="prefs-footer">
             <button type="button" class="btn-reset-prefs" id="btn-reset-prefs">
               🔄 Khôi phục tối giản mặc định
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Drawer / Modal Tùy chỉnh Tự động học (Auto-Play) -->
+      <div class="study-autoplay-modal" id="study-autoplay-modal">
+        <div class="study-autoplay-backdrop" id="study-autoplay-backdrop"></div>
+        <div class="study-autoplay-content">
+          <div class="autoplay-modal-header">
+            <div class="autoplay-title-wrap">
+              <span class="autoplay-modal-icon">⚡</span>
+              <h3 class="autoplay-modal-title">Tự động học (Auto-Play)</h3>
+            </div>
+            <button class="btn-autoplay-modal-close" id="btn-autoplay-modal-close" title="Đóng bảng cài đặt" aria-label="Đóng">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+
+          <p class="autoplay-modal-desc">Học rảnh tay: tự động phát âm tiếng Anh, chờ suy nghĩ, lật thẻ và đọc nghĩa tiếng Việt theo nhịp điệu của bạn.</p>
+
+          <div class="autoplay-settings-list">
+            <!-- 1. Delay mặt trước -->
+            <div class="autoplay-setting-item">
+              <div class="autoplay-setting-info">
+                <span class="autoplay-setting-label">⏱️ Chờ suy nghĩ (Mặt trước)</span>
+                <span class="autoplay-setting-sub">Thời gian dừng để nhớ từ trước khi lật</span>
+              </div>
+              <div class="stepper-wrap">
+                <button class="btn-stepper" id="btn-front-delay-minus" type="button" title="Giảm 0.5s" aria-label="Giảm">−</button>
+                <span class="stepper-value" id="val-front-delay">3.0s</span>
+                <button class="btn-stepper" id="btn-front-delay-plus" type="button" title="Tăng 0.5s" aria-label="Tăng">+</button>
+              </div>
+            </div>
+
+            <!-- 2. Delay mặt sau -->
+            <div class="autoplay-setting-item">
+              <div class="autoplay-setting-info">
+                <span class="autoplay-setting-label">📖 Chờ tiếp thu (Mặt sau)</span>
+                <span class="autoplay-setting-sub">Thời gian xem nghĩa trước khi sang từ mới</span>
+              </div>
+              <div class="stepper-wrap">
+                <button class="btn-stepper" id="btn-back-delay-minus" type="button" title="Giảm 0.5s" aria-label="Giảm">−</button>
+                <span class="stepper-value" id="val-back-delay">2.5s</span>
+                <button class="btn-stepper" id="btn-back-delay-plus" type="button" title="Tăng 0.5s" aria-label="Tăng">+</button>
+              </div>
+            </div>
+
+            <!-- 3. Phát âm tiếng Việt -->
+            <label class="autoplay-setting-item clickable">
+              <div class="autoplay-setting-info">
+                <span class="autoplay-setting-label"><svg class="flag-icon-vn" width="18" height="12" viewBox="0 0 30 20" fill="none"><rect width="30" height="20" rx="2" fill="#DA251D"/><polygon points="15,4 16.545,8.755 21.548,8.755 17.501,11.695 19.046,16.45 15,13.51 10.954,16.45 12.499,11.695 8.452,8.755 13.455,8.755" fill="#FFFF00"/></svg> Đọc nghĩa Tiếng Việt</span>
+                <span class="autoplay-setting-sub">Tự động phát âm bản dịch tiếng Việt ở mặt sau</span>
+              </div>
+              <input type="checkbox" id="toggle-autoplay-speak-vi" class="toggle-checkbox">
+            </label>
+
+            <!-- 4. Lặp vô tận -->
+            <label class="autoplay-setting-item clickable">
+              <div class="autoplay-setting-info">
+                <span class="autoplay-setting-label">🔁 Lặp lại khi hết thẻ</span>
+                <span class="autoplay-setting-sub">Tự động quay lại từ đầu khi kết thúc danh sách</span>
+              </div>
+              <input type="checkbox" id="toggle-autoplay-loop" class="toggle-checkbox">
+            </label>
+          </div>
+
+          <!-- Nút bắt đầu / tạm dừng lớn -->
+          <div class="autoplay-modal-footer">
+            <button id="btn-autoplay-main-action" class="btn-autoplay-main-action is-start" type="button">
+              <span class="action-icon">▶️</span>
+              <span class="action-text">Bắt đầu tự động học</span>
             </button>
           </div>
         </div>
@@ -711,10 +877,199 @@ export function setupStudyControls(app) {
       });
     }
 
+    // Cỗ máy điều phối Auto-Play theo nhịp sinh học tùy chỉnh
+    const triggerAutoPlayStep = () => {
+      if (!_isAutoPlaying || !app.studySession || !app.studySession.isActive) return;
+      const currentCard = app.studySession.currentCard;
+      if (!currentCard) {
+        stopAutoPlay();
+        return;
+      }
+
+      if (_autoPlayTimer) {
+        clearTimeout(_autoPlayTimer);
+        _autoPlayTimer = null;
+      }
+
+      const prefs = getAutoPlayPrefs();
+      const isFlipped = app.studySession.isFlipped;
+
+      if (!isFlipped) {
+        // --- BƯỚC 1: MẶT TRƯỚC (Đọc Tiếng Anh -> Chờ não suy nghĩ -> Lật thẻ) ---
+        speak(currentCard.word, {
+          cardObj: currentCard,
+          onEnd: () => {
+            if (!_isAutoPlaying || app.studySession?.currentCard?.id !== currentCard.id) return;
+            const frontMs = Math.max(500, Math.round((prefs.frontDelaySec || 3.0) * 1000));
+            _autoPlayTimer = setTimeout(() => {
+              if (!_isAutoPlaying || app.studySession?.currentCard?.id !== currentCard.id) return;
+              if (!app.studySession.isFlipped) {
+                triggerFlip();
+              }
+              triggerAutoPlayStep();
+            }, frontMs);
+          }
+        });
+      } else {
+        // --- BƯỚC 2: MẶT SAU (Đọc Tiếng Việt nếu bật -> Chờ tiếp thu -> Sang thẻ kế tiếp) ---
+        const onBackFinished = () => {
+          if (!_isAutoPlaying || app.studySession?.currentCard?.id !== currentCard.id) return;
+          const backMs = Math.max(500, Math.round((prefs.backDelaySec || 2.5) * 1000));
+          _autoPlayTimer = setTimeout(() => {
+            if (!_isAutoPlaying || app.studySession?.currentCard?.id !== currentCard.id) return;
+            
+            // Kiểm tra xem đã đến thẻ cuối cùng trong hàng đợi chưa
+            const isLastCard = app.studySession.currentIndex >= (app.studySession.queue.length - 1);
+            if (isLastCard && prefs.loopList) {
+              safeRateCard(Rating.Good);
+              setTimeout(() => {
+                if (_isAutoPlaying && app.studySession?.queue?.length) {
+                  app.studySession.currentIndex = 0;
+                  app.studySession.loadCurrentCard();
+                }
+              }, 300);
+            } else {
+              safeRateCard(Rating.Good);
+            }
+          }, backMs);
+        };
+
+        if (prefs.speakVi && currentCard.meaning) {
+          speakVi(currentCard.meaning, onBackFinished);
+        } else {
+          onBackFinished();
+        }
+      }
+    };
+
+    app._studyTriggerAutoPlay = triggerAutoPlayStep;
+
+    // Quản lý Modal Cài Đặt Tự Động Học (Auto-Play Modal)
+    const modalAutoplay = document.getElementById('study-autoplay-modal');
+    const modalAutoplayBackdrop = document.getElementById('study-autoplay-backdrop');
+    const btnCloseAutoplayModal = document.getElementById('btn-autoplay-modal-close');
+    const btnAutoplay = document.getElementById('btn-study-autoplay');
+    const btnMainAction = document.getElementById('btn-autoplay-main-action');
+
+    const btnFrontMinus = document.getElementById('btn-front-delay-minus');
+    const btnFrontPlus = document.getElementById('btn-front-delay-plus');
+    const valFrontDelay = document.getElementById('val-front-delay');
+
+    const btnBackMinus = document.getElementById('btn-back-delay-minus');
+    const btnBackPlus = document.getElementById('btn-back-delay-plus');
+    const valBackDelay = document.getElementById('val-back-delay');
+
+    const toggleSpeakVi = document.getElementById('toggle-autoplay-speak-vi');
+    const toggleLoop = document.getElementById('toggle-autoplay-loop');
+
+    let currentAutoPrefs = getAutoPlayPrefs();
+
+    const syncAutoplayInputs = () => {
+      currentAutoPrefs = getAutoPlayPrefs();
+      if (valFrontDelay) valFrontDelay.textContent = `${currentAutoPrefs.frontDelaySec.toFixed(1)}s`;
+      if (valBackDelay) valBackDelay.textContent = `${currentAutoPrefs.backDelaySec.toFixed(1)}s`;
+      if (toggleSpeakVi) toggleSpeakVi.checked = !!currentAutoPrefs.speakVi;
+      if (toggleLoop) toggleLoop.checked = !!currentAutoPrefs.loopList;
+      updateAutoPlayUI(_isAutoPlaying);
+    };
+
+    syncAutoplayInputs();
+
+    const openAutoplayModal = () => {
+      syncAutoplayInputs();
+      if (modalAutoplay) modalAutoplay.classList.add('active');
+    };
+
+    const closeAutoplayModal = () => {
+      if (modalAutoplay) modalAutoplay.classList.remove('active');
+    };
+
+    if (btnAutoplay) {
+      btnAutoplay.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openAutoplayModal();
+      });
+    }
+
+    if (btnCloseAutoplayModal) {
+      btnCloseAutoplayModal.addEventListener('click', closeAutoplayModal);
+    }
+    if (modalAutoplayBackdrop) {
+      modalAutoplayBackdrop.addEventListener('click', closeAutoplayModal);
+    }
+
+    // Steppers mặt trước
+    if (btnFrontMinus) {
+      btnFrontMinus.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentAutoPrefs.frontDelaySec = Math.max(1.0, Math.round((currentAutoPrefs.frontDelaySec - 0.5) * 10) / 10);
+        saveAutoPlayPrefs(currentAutoPrefs);
+        syncAutoplayInputs();
+      });
+    }
+    if (btnFrontPlus) {
+      btnFrontPlus.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentAutoPrefs.frontDelaySec = Math.min(10.0, Math.round((currentAutoPrefs.frontDelaySec + 0.5) * 10) / 10);
+        saveAutoPlayPrefs(currentAutoPrefs);
+        syncAutoplayInputs();
+      });
+    }
+
+    // Steppers mặt sau
+    if (btnBackMinus) {
+      btnBackMinus.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentAutoPrefs.backDelaySec = Math.max(1.0, Math.round((currentAutoPrefs.backDelaySec - 0.5) * 10) / 10);
+        saveAutoPlayPrefs(currentAutoPrefs);
+        syncAutoplayInputs();
+      });
+    }
+    if (btnBackPlus) {
+      btnBackPlus.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentAutoPrefs.backDelaySec = Math.min(10.0, Math.round((currentAutoPrefs.backDelaySec + 0.5) * 10) / 10);
+        saveAutoPlayPrefs(currentAutoPrefs);
+        syncAutoplayInputs();
+      });
+    }
+
+    // Toggles
+    if (toggleSpeakVi) {
+      toggleSpeakVi.addEventListener('change', () => {
+        currentAutoPrefs.speakVi = toggleSpeakVi.checked;
+        saveAutoPlayPrefs(currentAutoPrefs);
+      });
+    }
+    if (toggleLoop) {
+      toggleLoop.addEventListener('change', () => {
+        currentAutoPrefs.loopList = toggleLoop.checked;
+        saveAutoPlayPrefs(currentAutoPrefs);
+      });
+    }
+
+    // Nút Bắt đầu / Tạm dừng lớn trong popup
+    if (btnMainAction) {
+      btnMainAction.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (_isAutoPlaying) {
+          stopAutoPlay();
+          app.showToast('⏸️ Đã tạm dừng tự động học', 'info', 1500);
+        } else {
+          _isAutoPlaying = true;
+          updateAutoPlayUI(true);
+          closeAutoplayModal();
+          app.showToast('▶️ Đang tự động lật thẻ & học rảnh tay', 'success', 2000);
+          triggerAutoPlayStep();
+        }
+      });
+    }
+
     // Đóng phiên học với Custom Confirmation
     if (btnClose) {
       btnClose.addEventListener('click', async () => {
         try {
+          stopAutoPlay();
           const stats = app.studySession.sessionStats;
           const reviewed = stats.reviewedCount || 0;
           const confirmed = await showConfirm({
@@ -915,9 +1270,13 @@ function applyFieldVisibility(prefs, card) {
   const hasExampleEn = !!(prefs.showExample && card.example);
   const hasExampleVi = !!(prefs.showExampleVi && card.exampleVi);
 
+  const topHeader = dom.exBoxBack?.querySelector('#example-top-header') || dom.exBoxBack?.querySelector('.example-top-header');
+  if (topHeader) {
+    topHeader.style.display = hasExampleEn ? 'flex' : 'none';
+  }
+
   if (dom.exBack) {
-    const quoteRow = dom.exBack.closest('.example-quote-row') || dom.exBack;
-    quoteRow.style.display = hasExampleEn ? 'flex' : 'none';
+    dom.exBack.style.display = hasExampleEn ? 'block' : 'none';
   }
 
   if (dom.exViBack) {
@@ -925,7 +1284,7 @@ function applyFieldVisibility(prefs, card) {
   }
 
   if (dom.exBoxBack) {
-    dom.exBoxBack.style.display = (hasExampleEn || hasExampleVi) ? 'block' : 'none';
+    dom.exBoxBack.style.display = (hasExampleEn || hasExampleVi) ? 'flex' : 'none';
   }
 
   if (dom.hintFront) {
@@ -1118,6 +1477,19 @@ export function handleCardChange(app, card, progress) {
       if (dom.iGood) dom.iGood.textContent = formatCleanInterval(card.previews[Rating.Good]?.intervalText, '1d');
       if (dom.iEasy) dom.iEasy.textContent = formatCleanInterval(card.previews[Rating.Easy]?.intervalText, '4d');
     }
+
+    // Kích hoạt bước tiếp theo nếu đang chạy Auto-Play
+    if (_isAutoPlaying) {
+      if (_autoPlayTimer) {
+        clearTimeout(_autoPlayTimer);
+        _autoPlayTimer = null;
+      }
+      setTimeout(() => {
+        if (_isAutoPlaying && app._studyTriggerAutoPlay) {
+          app._studyTriggerAutoPlay();
+        }
+      }, 100);
+    }
   } catch (err) {
     console.error('Lỗi trong handleCardChange:', err);
   }
@@ -1125,6 +1497,7 @@ export function handleCardChange(app, card, progress) {
 
 export function handleStudyFinish(app, sessionStats) {
   try {
+    stopAutoPlay();
     app.studySession?.stopAudio();
     globalStudyTimer.endSession();
     const overlay = document.getElementById('study-overlay');

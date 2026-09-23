@@ -40,17 +40,17 @@ export function renderStatsTabShell(container) {
           <div class="stats-col-main">
             <!-- 2. KHỐI 1: NĂNG LỰC TRÍ NHỚ THẬT (FSRS-6 COGNITIVE CAPACITY) -->
             <div class="stats-section-group">
-              <div class="section-group-header">
-                <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
-                  <span class="section-group-title">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <div class="stats-section-header">
+                <div class="stats-section-top-row">
+                  <span class="stats-section-title">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                       <circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/>
                     </svg>
                     NĂNG LỰC TRÍ NHỚ THẬT
                   </span>
                   <span class="stats-accuracy-pill" id="stats-header-accuracy">🧠 Khả năng nhớ: 0%</span>
                 </div>
-                <span class="section-group-hint">Chỉ số toán học FSRS phản ánh trực tiếp khả năng lưu giữ từ vựng trong não</span>
+                <p class="stats-section-hint">Chỉ số toán học FSRS phản ánh trực tiếp khả năng lưu giữ từ vựng trong não</p>
               </div>
 
               <div class="journal-pnl-grid cognitive-quad-grid">
@@ -98,17 +98,17 @@ export function renderStatsTabShell(container) {
 
             <!-- 3. KHỐI 2: THÁP 5 TẦNG TRÍ NHỚ FSRS-6 (MEMORY STABILITY PYRAMID) -->
             <div class="stats-section-group">
-              <div class="section-group-header">
-                <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
-                  <span class="section-group-title">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <div class="stats-section-header">
+                <div class="stats-section-top-row">
+                  <span class="stats-section-title">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                       <polygon points="12 2 2 22 22 22"/>
                     </svg>
                     THÁP 5 TẦNG ĐỘ BỀN TRÍ NHỚ
                   </span>
                   <span class="bento-badge-forecast" id="stats-pyramid-total">0 từ đã học</span>
                 </div>
-                <span class="section-group-hint">Phân loại từ vựng theo thời gian lưu trữ trong trí nhớ dài hạn</span>
+                <p class="stats-section-hint">Phân loại từ vựng theo thời gian lưu trữ trong trí nhớ dài hạn</p>
               </div>
 
               <div class="inset-grouped-card memory-pyramid-card">
@@ -203,17 +203,17 @@ export function renderStatsTabShell(container) {
 
             <!-- 4. KHỐI 3: PHÂN TÍCH PHẢN XẠ & TỈ LỆ PHỤC HỒI (RECALL REFLEX QUALITY) -->
             <div class="stats-section-group">
-              <div class="section-group-header">
-                <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
-                  <span class="section-group-title">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <div class="stats-section-header">
+                <div class="stats-section-top-row">
+                  <span class="stats-section-title">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                       <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
                     </svg>
                     CHẤT LƯỢNG PHẢN XẠ & PHỤC HỒI
                   </span>
                   <span class="bento-badge-forecast" id="stats-total-reviews-badge">0 lượt ôn</span>
                 </div>
-                <span class="section-group-hint">Tỉ lệ lựa chọn 4 mức độ nhớ và tốc độ phục hồi khi quên</span>
+                <p class="stats-section-hint">Tỉ lệ lựa chọn 4 mức độ nhớ và tốc độ phục hồi khi quên</p>
               </div>
 
               <div class="inset-grouped-card reflex-quality-card">

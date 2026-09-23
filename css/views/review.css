@@ -122,7 +122,7 @@
 /* ==========================================================================
    Section Group Header & Actions
    ========================================================================== */
-.section-group-header,
+#tab-review .section-group-header,
 .bento-section-group .section-group-header {
   display: flex !important;
   flex-direction: row !important;
@@ -136,7 +136,7 @@
   box-sizing: border-box;
 }
 
-.section-group-title,
+#tab-review .section-group-title,
 .bento-section-group .section-group-title {
   font-size: 0.74rem;
   font-weight: 700;

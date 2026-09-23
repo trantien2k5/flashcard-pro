@@ -407,6 +407,70 @@ export function speak(text, options = {}) {
   speakTTS(cleanText, accent, lang, speechRate, onEnd);
 }
 
+/**
+ * Phát âm Tiếng Việt (Web Speech API vi-VN)
+ */
+export function speakVi(text, onEnd = null) {
+  if (!text || typeof text !== 'string') {
+    if (onEnd) onEnd();
+    return;
+  }
+  const cleanText = text.trim();
+  if (!cleanText) {
+    if (onEnd) onEnd();
+    return;
+  }
+
+  if (typeof window === 'undefined' || !window.speechSynthesis) {
+    if (onEnd) onEnd();
+    return;
+  }
+
+  try {
+    unlockAudioContext();
+    if (window.speechSynthesis.paused) {
+      window.speechSynthesis.resume();
+    }
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    utterance.lang = 'vi-VN';
+    utterance.rate = 0.95;
+    utterance.pitch = 1.0;
+
+    // Tìm voice tiếng Việt nếu có
+    const voices = window.speechSynthesis.getVoices();
+    if (voices && voices.length > 0) {
+      const viVoice = voices.find(v => (v.lang || '').toLowerCase().startsWith('vi') || (v.name || '').toLowerCase().includes('vietnam') || (v.name || '').toLowerCase().includes('vietnamese'));
+      if (viVoice) utterance.voice = viVoice;
+    }
+
+    let isFinished = false;
+    const finish = () => {
+      if (isFinished) return;
+      isFinished = true;
+      if (onEnd) onEnd();
+    };
+
+    utterance.onend = finish;
+    utterance.onerror = () => finish();
+
+    // Safety timeout in case speechSynthesis.onend does not fire (browser edge cases)
+    const timeoutDuration = Math.max(1600, cleanText.length * 100);
+    const safetyTimer = setTimeout(finish, timeoutDuration);
+
+    utterance.onend = () => {
+      clearTimeout(safetyTimer);
+      finish();
+    };
+
+    window.speechSynthesis.speak(utterance);
+  } catch (e) {
+    console.warn('Lỗi speakVi:', e);
+    if (onEnd) onEnd();
+  }
+}
+
 export const AudioService = {
   unlockAudioContext,
   initVoiceCache,
@@ -415,6 +479,7 @@ export const AudioService = {
   getNativeAudioUrls,
   onAudioPlayStateChange,
   speak,
+  speakVi,
   speakTTS,
   stopAudio
 };
