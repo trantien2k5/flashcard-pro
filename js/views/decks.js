@@ -847,11 +847,15 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
         pageItems.forEach((card, index) => {
           const status = getCardStatus(card);
           const state = StorageManager.getCardState(card.id);
+          const isSuspended = Boolean(state && state.suspended === true);
+          const isLeech = Boolean(state && (state.isLeech === true || (state.lapses && state.lapses >= 6)));
           const row = document.createElement('div');
-          row.className = `word-item-card status-${status}`;
+          row.className = `word-item-card status-${status} ${isSuspended ? 'is-suspended' : ''}`;
 
           let statusTag = '<span class="word-status-tag status-new">Chưa học</span>';
-          if (status === 'due') {
+          if (isSuspended) {
+            statusTag = '<span class="word-status-tag status-suspended">⏸️ Tạm dừng</span>';
+          } else if (status === 'due') {
             statusTag = '<span class="word-status-tag status-due">Cần ôn</span>';
           } else if (status === 'done') {
             statusTag = `<span class="word-status-tag status-done">Thuần thục · S: ${state?.stability?.toFixed(1) || '21'}d</span>`;
@@ -867,6 +871,7 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
                 ${card.phonetic ? `<span class="word-phonetic">${escapeHTML(card.phonetic)}</span>` : ''}
                 ${card.pos ? `<span class="word-pos">${escapeHTML(card.pos)}</span>` : ''}
                 ${card.cefr ? `<span class="word-cefr ${card.cefr.toLowerCase()}">${card.cefr}</span>` : ''}
+                ${isLeech ? `<span class="word-leech-pill" title="Thẻ khó nhớ (lapses ≥ 6)">⚠️ Leech</span>` : ''}
               </div>
               <div class="word-status-col">${statusTag}</div>
             </div>
@@ -884,8 +889,14 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
               <button class="btn-word-audio" data-word="${escapeHTML(card.word)}" title="Phát âm">
                 🔊 Nghe từ
               </button>
-              <button class="btn-word-study-single" data-id="${escapeHTML(card.id)}">
+              <button class="btn-word-study-single" data-id="${escapeHTML(card.id)}" title="Bắt đầu học riêng từ này">
                 ⚡ Học từ này
+              </button>
+              <button class="btn-word-toggle-suspend ${isSuspended ? 'active' : ''}" data-id="${escapeHTML(card.id)}" title="${isSuspended ? 'Mở lại thẻ này để ôn tập' : 'Tạm dừng thẻ này'}">
+                ${isSuspended ? '▶️ Mở lại' : '⏸️ Tạm dừng'}
+              </button>
+              <button class="btn-word-reset-card" data-id="${escapeHTML(card.id)}" title="Đặt lại tiến độ về Từ mới">
+                🔄 Đặt lại
               </button>
             </div>
           `;
@@ -901,6 +912,36 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
             e.stopPropagation();
             app.startStudySession(deckId, null, [card]);
           };
+
+          const btnSuspend = row.querySelector('.btn-word-toggle-suspend');
+          if (btnSuspend) {
+            btnSuspend.onclick = (e) => {
+              e.stopPropagation();
+              const nowSuspended = StorageManager.toggleCardSuspended(card.id);
+              app.showToast(nowSuspended ? `⏸️ Đã tạm dừng thẻ "${card.word}"` : `▶️ Đã mở lại thẻ "${card.word}"`, 'info');
+              renderFilteredWords();
+            };
+          }
+
+          const btnReset = row.querySelector('.btn-word-reset-card');
+          if (btnReset) {
+            btnReset.onclick = async (e) => {
+              e.stopPropagation();
+              const { showConfirm } = await import('./components.js');
+              const confirmed = await showConfirm({
+                title: 'Đặt lại tiến độ từ vựng?',
+                message: `Bạn có chắc muốn xóa toàn bộ lịch sử học của từ "${card.word}" và đưa về trạng thái Từ mới?`,
+                confirmText: 'Đặt lại',
+                type: 'danger',
+                icon: '🔄'
+              });
+              if (confirmed) {
+                StorageManager.resetCardProgress(card.id);
+                app.showToast(`🔄 Đã đặt lại từ "${card.word}" về Từ mới`, 'success');
+                renderFilteredWords();
+              }
+            };
+          }
 
           frag.appendChild(row);
         });

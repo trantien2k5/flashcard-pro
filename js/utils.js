@@ -77,11 +77,20 @@ export function formatCleanInterval(text, fallback = '1d') {
 
 /**
  * Lấy khóa ngày dạng YYYY-MM-DD theo giờ địa phương của thiết bị (chống lệch múi giờ UTC)
+ * @param {Date|string|number} date
+ * @param {number} rolloverHour - Giờ bắt đầu ngày mới (mặc định 0, chuẩn Anki là 4)
  */
-export function getLocalDateKey(date = new Date()) {
+export function getLocalDateKey(date = new Date(), rolloverHour = 0) {
   if (!date) return '';
-  const d = (date instanceof Date) ? date : new Date(date);
+  const d = (date instanceof Date) ? new Date(date.getTime()) : new Date(date);
   if (isNaN(d.getTime())) return '';
+  
+  // Nếu có cấu hình giờ chuyển ngày (ví dụ 4:00 AM) và thời gian trước 4:00 AM, tính là ngày hôm trước
+  const rHour = Number(rolloverHour) || 0;
+  if (rHour > 0 && d.getHours() < rHour) {
+    d.setDate(d.getDate() - 1);
+  }
+
   const year = d.getFullYear();
   const month = String(d.getMonth() + 1).padStart(2, '0');
   const day = String(d.getDate()).padStart(2, '0');

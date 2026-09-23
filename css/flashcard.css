@@ -298,6 +298,31 @@
   line-height: 1.2;
 }
 
+.card-leech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.76rem;
+  font-weight: 750;
+  padding: 3px 8px;
+  border-radius: 99px;
+  background: rgba(245, 158, 11, 0.14);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  animation: pulseLeech 2s infinite ease-in-out;
+}
+
+[data-theme="dark"] .card-leech-badge {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.45);
+}
+
+@keyframes pulseLeech {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.82; transform: scale(0.97); }
+}
+
 [data-theme="dark"] .card-pos-pill {
   background: rgba(255, 255, 255, 0.08);
   color: #94a3b8;
@@ -1007,6 +1032,77 @@
 
 .toggle-checkbox:checked::before {
   transform: translateX(18px);
+}
+
+/* Thao Tác Thẻ Hiện Tại trong Drawer */
+.prefs-card-actions-section {
+  margin: 14px 0 16px 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+}
+
+.prefs-section-subtitle {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin: 0 0 10px 0;
+}
+
+.prefs-actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.btn-study-card-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--bg-tertiary, #1e293b);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+[data-theme="light"] .btn-study-card-action {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.btn-study-card-action:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: var(--primary, #6366f1);
+  transform: translateY(-1px);
+}
+
+.btn-study-card-action .action-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.btn-study-card-action .action-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.btn-study-card-action .action-title {
+  font-size: 0.84rem;
+  font-weight: 750;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.btn-study-card-action .action-desc {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.2;
 }
 
 .prefs-footer {

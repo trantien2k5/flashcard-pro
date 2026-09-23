@@ -176,47 +176,53 @@
    ========================================================================== */
 .bento-card {
   background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 12px 14px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   box-sizing: border-box;
 }
 
 [data-theme="light"] .bento-card {
   background: #ffffff;
-  border-color: #e2e8f0;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  border-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
 }
 
 .hero-quad-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
+  gap: 8px;
 }
 
 .quad-tile {
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 9px 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 64px;
   box-sizing: border-box;
-  transition: border-color 0.15s ease;
+  transition: all 0.15s ease;
 }
 
 .quad-tile:hover {
-  border-color: rgba(99, 102, 241, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(99, 102, 241, 0.25);
 }
 
 [data-theme="light"] .quad-tile {
   background: #f8fafc;
-  border-color: #e2e8f0;
+  border-color: transparent;
+}
+
+[data-theme="light"] .quad-tile:hover {
+  background: #f1f5f9;
+  border-color: rgba(99, 102, 241, 0.2);
 }
 
 .quad-tile-top {
@@ -381,10 +387,10 @@
 }
 
 .forecast-smart-card {
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border);
-  border-radius: 8px; /* Refined modern radius */
-  padding: 6px 3px 5px 3px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 6px 4px 5px 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -400,20 +406,25 @@
 
 [data-theme="light"] .forecast-smart-card {
   background: #f8fafc;
-  border-color: #e2e8f0;
+  border-color: transparent;
 }
 
 .forecast-smart-card:hover {
   transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   z-index: 2;
+}
+
+[data-theme="light"] .forecast-smart-card:hover {
+  background: #f1f5f9;
 }
 
 /* Today highlight */
 .forecast-smart-card.is-today {
   border-color: var(--primary);
-  background: rgba(99, 102, 241, 0.1);
-  box-shadow: 0 0 0 1.5px var(--primary);
+  background: rgba(99, 102, 241, 0.12);
+  box-shadow: 0 0 0 1px var(--primary);
 }
 
 [data-theme="light"] .forecast-smart-card.is-today {

@@ -61,8 +61,13 @@ function getCurrentSettings(baseSettings = null) {
 export class StudySession {
   constructor(options = {}) {
     this.deckManager = options.deckManager;
-    this.fsrs = new FSRS({ requestRetention: options.settings?.requestRetention || 0.90 });
     this.settings = options.settings || StorageManager.getSettings();
+    this.fsrs = new FSRS({
+      requestRetention: this.settings?.requestRetention || 0.90,
+      enableFuzz: this.settings?.enableFuzz !== false,
+      leechThreshold: this.settings?.leechThreshold || 6,
+      leechAction: this.settings?.leechAction || 'tag'
+    });
     this.onFinish = options.onFinish || (() => {});
     this.onCardChange = options.onCardChange || (() => {});
 
@@ -83,7 +88,12 @@ export class StudySession {
 
   updateSettings(settings = null) {
     this.settings = getCurrentSettings(settings || this.settings);
-    this.fsrs = new FSRS({ requestRetention: this.settings?.requestRetention || 0.90 });
+    this.fsrs = new FSRS({
+      requestRetention: this.settings?.requestRetention || 0.90,
+      enableFuzz: this.settings?.enableFuzz !== false,
+      leechThreshold: this.settings?.leechThreshold || 6,
+      leechAction: this.settings?.leechAction || 'tag'
+    });
   }
 
   /**
@@ -270,7 +280,11 @@ export class StudySession {
 
     const now = new Date();
     const oldState = this.currentCard.fsrsState;
-    const nextState = this.fsrs.calculateNextState(oldState, rating, now);
+    const nextState = this.fsrs.calculateNextState(oldState, rating, now, {
+      enableFuzz: this.settings?.enableFuzz !== false,
+      leechThreshold: this.settings?.leechThreshold || 6,
+      leechAction: this.settings?.leechAction || 'tag'
+    });
 
     // Lưu trạng thái thẻ
     if (shouldPersist) {
@@ -307,6 +321,32 @@ export class StudySession {
 
     this.currentIndex++;
     return this.loadCurrentCard();
+  }
+
+  /**
+   * Tạm dừng thẻ hiện tại và chuyển sang thẻ tiếp theo
+   */
+  suspendCurrentCard() {
+    if (!this.currentCard) return null;
+    const cardId = this.currentCard.id;
+    StorageManager.suspendCard(cardId);
+    
+    // Loại bỏ mọi bản sao của thẻ này còn sót lại trong queue
+    this.queue = this.queue.filter((c, idx) => idx <= this.currentIndex || c.id !== cardId);
+    this.currentIndex++;
+    return this.loadCurrentCard();
+  }
+
+  /**
+   * Đặt lại tiến độ thẻ hiện tại về New
+   */
+  resetCurrentCard() {
+    if (!this.currentCard) return null;
+    const cardId = this.currentCard.id;
+    const resetState = StorageManager.resetCardProgress(cardId);
+    this.currentCard.fsrsState = resetState;
+    this.currentCard.previews = this.fsrs.preview(resetState, new Date());
+    return this.currentCard;
   }
 
   /**

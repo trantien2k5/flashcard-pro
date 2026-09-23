@@ -34,11 +34,19 @@ export class StatsManager {
 
     let lapsedCardsCount = 0;
     let recoveredCardsCount = 0;
+    let leechCount = 0;
+    let suspendedCount = 0;
 
     // Quét toàn bộ thẻ đã lưu trạng thái trong bộ nhớ
     const states = Object.values(cardStates);
     for (let i = 0; i < states.length; i++) {
       const state = states[i];
+      if (state && state.suspended === true) {
+        suspendedCount++;
+      }
+      if (state && (state.isLeech === true || (state.lapses && state.lapses >= 6))) {
+        leechCount++;
+      }
       if (!state || state.state === State.New || state.state === 0) {
         continue;
       }
@@ -150,6 +158,8 @@ export class StatsManager {
       firstTryAccuracy,
       recoveryRate,
       lapsedCardsCount,
+      leechCount,
+      suspendedCount,
       score,
       rank,
       streak

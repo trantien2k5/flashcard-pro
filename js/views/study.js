@@ -110,6 +110,10 @@ export function renderStudyOverlayShell() {
                   <span class="status-text" id="card-front-status-text">Từ mới</span>
                 </div>
                 <div class="card-front-top-right">
+                  <div class="card-leech-badge" id="card-front-leech-badge" style="display: none;" title="Thẻ khó nhớ (Leech)">
+                    <span class="leech-icon">⚠️</span>
+                    <span class="leech-text">Khó nhớ</span>
+                  </div>
                   <span class="card-pos-pill" id="card-front-pos"></span>
                   <div class="card-reps-badge" id="card-front-reps-badge" style="display: none;">
                     <span class="reps-text" id="card-front-reps-text">0</span>
@@ -322,6 +326,26 @@ export function renderStudyOverlayShell() {
             </label>
           </div>
 
+          <div class="prefs-card-actions-section">
+            <h4 class="prefs-section-subtitle">Thao tác thẻ hiện tại</h4>
+            <div class="prefs-actions-grid">
+              <button type="button" class="btn-study-card-action" id="btn-action-suspend-card" title="Tạm ngưng học từ này">
+                <span class="action-icon">⏸️</span>
+                <div class="action-text">
+                  <span class="action-title">Tạm dừng thẻ</span>
+                  <span class="action-desc">Ẩn khỏi hàng đợi ôn tập</span>
+                </div>
+              </button>
+              <button type="button" class="btn-study-card-action" id="btn-action-reset-card" title="Học lại từ này từ đầu">
+                <span class="action-icon">🔄</span>
+                <div class="action-text">
+                  <span class="action-title">Đặt lại tiến độ</span>
+                  <span class="action-desc">Xóa lịch sử về Từ mới</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
           <div class="prefs-footer">
             <button type="button" class="btn-reset-prefs" id="btn-reset-prefs">
               🔄 Khôi phục tối giản mặc định
@@ -363,7 +387,8 @@ export function setupStudyControls(app) {
     const toggleAutoplay = document.getElementById('pref-toggle-autoplay');
     const toggleHint = document.getElementById('pref-toggle-hint');
 
-    if (!overlay || !flashcardEl) return;
+    if (!overlay || !flashcardEl || overlay._controlsBound) return;
+    overlay._controlsBound = true;
 
     // Khởi tạo trạng thái checkbox theo Preferences hiện tại
     const syncCheckboxesFromPrefs = () => {
@@ -440,6 +465,47 @@ export function setupStudyControls(app) {
     }
     if (btnCloseDrawer) btnCloseDrawer.addEventListener('click', closeDrawer);
     if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+
+    // Thao tác Thẻ: Tạm dừng (Suspend)
+    const btnActionSuspend = document.getElementById('btn-action-suspend-card');
+    if (btnActionSuspend) {
+      btnActionSuspend.addEventListener('click', () => {
+        if (!app.studySession?.currentCard) return;
+        const cardWord = app.studySession.currentCard.word || 'từ vựng';
+        closeDrawer();
+        app.studySession.suspendCurrentCard();
+        app.showToast(`⏸️ Đã tạm dừng thẻ "${cardWord}"`, 'info');
+      });
+    }
+
+    // Thao tác Thẻ: Đặt lại tiến độ (Reset to New)
+    const btnActionReset = document.getElementById('btn-action-reset-card');
+    if (btnActionReset) {
+      btnActionReset.addEventListener('click', async () => {
+        if (!app.studySession?.currentCard) return;
+        const cardWord = app.studySession.currentCard.word || 'từ vựng';
+        const confirmed = await showConfirm({
+          title: 'Đặt lại tiến độ từ vựng?',
+          message: `Bạn có chắc muốn xóa lịch sử học và đưa từ "${cardWord}" về trạng thái Từ mới không?`,
+          confirmText: 'Đặt lại',
+          type: 'danger',
+          icon: '🔄'
+        });
+        if (confirmed) {
+          closeDrawer();
+          app.studySession.resetCurrentCard();
+          if (app.studySession.currentCard) {
+            handleCardChange(app, app.studySession.currentCard, {
+              index: app.studySession.currentIndex,
+              completed: app.studySession.completedCount,
+              total: app.studySession.totalCards || app.studySession.queue.length,
+              remaining: app.studySession.queue.length - app.studySession.currentIndex
+            });
+          }
+          app.showToast(`🔄 Đã đặt lại từ "${cardWord}" về Từ mới`, 'success');
+        }
+      });
+    }
 
     // Lắng nghe trạng thái phát âm thanh
     onAudioPlayStateChange((isPlaying) => {
@@ -743,6 +809,7 @@ function getStudyDom() {
     btnExampleAudio: document.getElementById('btn-example-audio'),
     statusBadgeFront: document.getElementById('card-front-status-badge'),
     statusTextFront: document.getElementById('card-front-status-text'),
+    leechBadgeFront: document.getElementById('card-front-leech-badge'),
     repsBadgeFront: document.getElementById('card-front-reps-badge'),
     repsTextFront: document.getElementById('card-front-reps-text')
   };
@@ -860,12 +927,16 @@ export function handleCardChange(app, card, progress) {
     }
 
     const repsText = repsCount === 0 ? '0 lần học' : `${repsCount} lần học`;
+    const isLeech = Boolean(cardState.isLeech === true || (cardState.lapses && cardState.lapses >= (app.settings?.leechThreshold || 6)));
 
     if (dom.statusBadgeFront) {
       dom.statusBadgeFront.className = `card-status-badge ${stateClass}`;
     }
     if (dom.statusTextFront) {
       dom.statusTextFront.textContent = stateText;
+    }
+    if (dom.leechBadgeFront) {
+      dom.leechBadgeFront.style.display = isLeech ? 'inline-flex' : 'none';
     }
     if (dom.repsTextFront) {
       dom.repsTextFront.textContent = repsText;
@@ -878,7 +949,7 @@ export function handleCardChange(app, card, progress) {
         dom.imgEl.onerror = () => {
           if (dom.imgContainer) dom.imgContainer.style.display = 'none';
         };
-        dom.imgEl.decoding = 'sync';
+        dom.imgEl.decoding = 'async';
         dom.imgEl.loading = 'eager';
         dom.imgEl.src = imgSrc;
       } else {

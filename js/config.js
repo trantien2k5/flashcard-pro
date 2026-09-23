@@ -30,7 +30,11 @@ export const DEFAULT_SETTINGS = {
   speechRate: 0.9,
   speechVoice: 'en-US',
   audioAccent: 'us', // 'us' (Anh - Mỹ) or 'uk' (Anh - Anh)
-  theme: 'light'
+  theme: 'light',
+  enableFuzz: true, // Chống dồn lịch ôn tập (FSRS Fuzz Factor)
+  leechThreshold: 6, // Số lần quên để tính là thẻ khó (Leech)
+  leechAction: 'tag', // 'tag' (gắn nhãn) hoặc 'suspend' (tự động tạm dừng)
+  rolloverHour: 4 // Mốc bắt đầu ngày mới lúc 04:00 AM (chuẩn Anki)
 };
 
 export const Rating = Object.freeze({
@@ -48,13 +52,14 @@ export const State = Object.freeze({
 });
 
 export const DEFAULT_FSRS_PARAMS = {
-  // 19 parameters of standard FSRS-6
+  // 21 parameters of full FSRS-6 standard
   w: [
     0.40255, 1.18385, 3.173, 15.69105,
     7.1949, 0.5345, 1.4604, 0.0046,
     1.54575, 0.1192, 1.01925,
     1.9395, 0.11, 0.29605, 0.22695,
-    0.5698, 2.85535, 0.50495, 0.49505
+    0.5698, 2.85535, 0.50495, 0.49505,
+    0.28, 0.12
   ],
   requestRetention: 0.90,
   maximumInterval: 36500

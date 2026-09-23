@@ -240,7 +240,7 @@ export class DeckManager {
   }
 
   /**
-   * Lấy danh sách thẻ tới hạn cần ôn tập
+   * Lấy danh sách thẻ tới hạn cần ôn tập (Bỏ qua thẻ bị tạm dừng)
    */
   getDueCards(deckId = null) {
     const allDeckCards = deckId ? (this.deckCardsMap.get(deckId) || []) : this.allCards;
@@ -249,6 +249,7 @@ export class DeckManager {
 
     for (const card of allDeckCards) {
       const state = StorageManager.getCardState(card.id);
+      if (state && state.suspended === true) continue; // Bỏ qua thẻ đã tạm dừng
       if (isCardDue(state, now)) {
         dueCards.push({
           ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
@@ -260,7 +261,7 @@ export class DeckManager {
   }
 
   /**
-   * Tính toán thống kê tiến độ học của một bộ thẻ (New, Learning, Review, Mastered)
+   * Tính toán thống kê tiến độ học của một bộ thẻ (New, Learning, Review, Mastered, Leech, Suspended)
    */
   getDeckStats(deckId) {
     const rev = StorageManager.getStateRevision();
@@ -275,7 +276,7 @@ export class DeckManager {
 
     const deck = this.getDeckById(deckId);
     if (!deck) {
-      const empty = { total: 0, newCount: 0, learningCount: 0, reviewCount: 0, masteredCount: 0, dueCount: 0, progressPercent: 0 };
+      const empty = { total: 0, newCount: 0, learningCount: 0, reviewCount: 0, masteredCount: 0, dueCount: 0, leechCount: 0, suspendedCount: 0, progressPercent: 0 };
       return empty;
     }
 
@@ -288,11 +289,19 @@ export class DeckManager {
     let reviewCount = 0;
     let dueCount = 0;
     let masteredCount = 0;
+    let leechCount = 0;
+    let suspendedCount = 0;
     let lastStudiedTime = 0;
 
     for (let i = 0; i < cards.length; i++) {
       const card = cards[i];
       const state = StorageManager.getCardState(card.id);
+      if (state && state.suspended === true) {
+        suspendedCount++;
+      }
+      if (state && state.isLeech === true) {
+        leechCount++;
+      }
       if (!state || state.state === State.New || state.state === 0) {
         newCount++;
       } else {
@@ -302,13 +311,13 @@ export class DeckManager {
         }
         if (state.state === State.Learning || state.state === State.Relearning) {
           learningCount++;
-          if (isCardDue(state, now)) dueCount++;
+          if (isCardDue(state, now) && !state.suspended) dueCount++;
         } else if (state.state === State.Review) {
           reviewCount++;
           if (state.stability >= MASTERY_STABILITY_THRESHOLD) {
             masteredCount++;
           }
-          if (isCardDue(state, now)) dueCount++;
+          if (isCardDue(state, now) && !state.suspended) dueCount++;
         }
       }
     }
@@ -320,6 +329,8 @@ export class DeckManager {
       reviewCount,
       masteredCount,
       dueCount,
+      leechCount,
+      suspendedCount,
       lastStudiedTime,
       progressPercent: cards.length > 0 ? Math.round(((cards.length - newCount) / cards.length) * 100) : 0
     };
@@ -414,6 +425,11 @@ export class DeckManager {
       const hydratedCard = this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card;
       const state = StorageManager.getCardState(card.id);
 
+      // Bỏ qua thẻ đã tạm dừng (Suspended)
+      if (state && state.suspended === true) {
+        continue;
+      }
+
       if (!state || state.state === State.New || state.state === 0) {
         newCards.push({ ...hydratedCard, fsrsState: state || FSRS.createEmptyCard(card.id) });
       } else if (isCardDue(state, now)) {
@@ -429,10 +445,11 @@ export class DeckManager {
     // 2. Tính hạn mức từ mới và thẻ đến hạn
     let maxNew = Number(settings.dailyNewLimit) || 10;
     let maxReview = Number(settings.dailyReviewLimit) || 50;
+    const rolloverHour = Number(settings.rolloverHour) || 0;
 
     const logs = StorageManager.getStudyLogs();
-    const todayKey = getLocalDateKey();
-    const todayLogs = logs.filter(l => l.timestamp && getLocalDateKey(l.timestamp) === todayKey);
+    const todayKey = getLocalDateKey(now, rolloverHour);
+    const todayLogs = logs.filter(l => l.timestamp && getLocalDateKey(l.timestamp, rolloverHour) === todayKey);
 
     const newCardsStudiedToday = todayLogs.filter(l => 
       l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))

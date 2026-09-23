@@ -95,6 +95,53 @@ export function renderSettingsTabShell(container) {
                 <option value="200">200 từ</option>
               </select>
             </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <span class="setting-title">Chống dồn lịch ôn (Fuzz Factor)</span>
+                <span class="setting-desc">Làm mờ ngẫu nhiên khoảng cách ôn để tránh dồn thẻ cùng ngày</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="setting-enable-fuzz" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <span class="setting-title">Mốc bắt đầu ngày mới</span>
+                <span class="setting-desc">Học sau nửa đêm vẫn tính cho ngày hôm trước</span>
+              </div>
+              <select id="setting-rollover-hour" class="setting-select">
+                <option value="0">00:00 (Nửa đêm)</option>
+                <option value="3">03:00 Sáng</option>
+                <option value="4" selected>04:00 Sáng (Chuẩn Anki)</option>
+                <option value="5">05:00 Sáng</option>
+              </select>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <span class="setting-title">Ngưỡng phát hiện từ khó (Leech)</span>
+                <span class="setting-desc">Số lần bấm Quên (Again) để coi là từ khó</span>
+              </div>
+              <select id="setting-leech-threshold" class="setting-select">
+                <option value="4">4 lần quên</option>
+                <option value="6" selected>6 lần quên (Khuyên dùng)</option>
+                <option value="8">8 lần quên (Chuẩn Anki)</option>
+              </select>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <span class="setting-title">Xử lý khi gặp từ khó</span>
+                <span class="setting-desc">Hành động tự động khi đạt ngưỡng Leech</span>
+              </div>
+              <select id="setting-leech-action" class="setting-select">
+                <option value="tag">⚠️ Gắn cờ cảnh báo (Tiếp tục học)</option>
+                <option value="suspend">⏸️ Tự động tạm dừng thẻ</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -244,6 +291,59 @@ export function setupSettingsUI(app) {
           app.refreshAllViews();
         } catch (err) {
           console.error('Lỗi cập nhật reviewLimitSelect:', err);
+        }
+      });
+    }
+
+    const enableFuzzToggle = document.getElementById('setting-enable-fuzz');
+    if (enableFuzzToggle) {
+      enableFuzzToggle.checked = app.settings.enableFuzz !== false;
+      enableFuzzToggle.addEventListener('change', (e) => {
+        try {
+          app.settings.enableFuzz = e.target.checked;
+          saveAppSettings(app);
+        } catch (err) {
+          console.error('Lỗi cập nhật enableFuzzToggle:', err);
+        }
+      });
+    }
+
+    const rolloverHourSelect = document.getElementById('setting-rollover-hour');
+    if (rolloverHourSelect) {
+      rolloverHourSelect.value = String(app.settings.rolloverHour !== undefined ? app.settings.rolloverHour : 4);
+      rolloverHourSelect.addEventListener('change', (e) => {
+        try {
+          app.settings.rolloverHour = parseInt(e.target.value, 10);
+          saveAppSettings(app);
+          app.refreshAllViews();
+        } catch (err) {
+          console.error('Lỗi cập nhật rolloverHourSelect:', err);
+        }
+      });
+    }
+
+    const leechThresholdSelect = document.getElementById('setting-leech-threshold');
+    if (leechThresholdSelect) {
+      leechThresholdSelect.value = String(app.settings.leechThreshold || 6);
+      leechThresholdSelect.addEventListener('change', (e) => {
+        try {
+          app.settings.leechThreshold = parseInt(e.target.value, 10);
+          saveAppSettings(app);
+        } catch (err) {
+          console.error('Lỗi cập nhật leechThresholdSelect:', err);
+        }
+      });
+    }
+
+    const leechActionSelect = document.getElementById('setting-leech-action');
+    if (leechActionSelect) {
+      leechActionSelect.value = app.settings.leechAction || 'tag';
+      leechActionSelect.addEventListener('change', (e) => {
+        try {
+          app.settings.leechAction = e.target.value;
+          saveAppSettings(app);
+        } catch (err) {
+          console.error('Lỗi cập nhật leechActionSelect:', err);
         }
       });
     }

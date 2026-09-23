@@ -381,6 +381,95 @@ export class StorageManager {
     }
   }
 
+  /**
+   * Tạm dừng thẻ (Suspend) - ẩn khỏi hàng đợi ôn tập
+   */
+  static suspendCard(cardId) {
+    if (!cardId) return null;
+    let state = this.getCardState(cardId);
+    if (!state) {
+      state = {
+        id: cardId,
+        due: new Date().toISOString(),
+        stability: 0,
+        difficulty: 0,
+        elapsed_days: 0,
+        scheduled_days: 0,
+        reps: 0,
+        lapses: 0,
+        state: 0, // State.New
+        last_review: null,
+        suspended: true,
+        isLeech: false,
+        history: []
+      };
+    } else {
+      state = { ...state, suspended: true };
+    }
+    this.saveCardState(state);
+    return state;
+  }
+
+  /**
+   * Bỏ tạm dừng thẻ (Unsuspend)
+   */
+  static unsuspendCard(cardId) {
+    if (!cardId) return null;
+    let state = this.getCardState(cardId);
+    if (!state) return null;
+    state = { ...state, suspended: false };
+    this.saveCardState(state);
+    return state;
+  }
+
+  /**
+   * Đảo trạng thái tạm dừng của thẻ
+   */
+  static toggleCardSuspended(cardId) {
+    if (!cardId) return false;
+    const state = this.getCardState(cardId);
+    if (state && state.suspended) {
+      this.unsuspendCard(cardId);
+      return false;
+    } else {
+      this.suspendCard(cardId);
+      return true;
+    }
+  }
+
+  /**
+   * Đặt lại tiến độ thẻ về từ mới hoàn toàn (Reset / Forget)
+   */
+  static resetCardProgress(cardId) {
+    if (!cardId) return null;
+    const emptyState = {
+      id: cardId,
+      due: new Date().toISOString(),
+      stability: 0,
+      difficulty: 0,
+      elapsed_days: 0,
+      scheduled_days: 0,
+      reps: 0,
+      lapses: 0,
+      state: 0, // State.New
+      last_review: null,
+      suspended: false,
+      isLeech: false,
+      history: []
+    };
+    this.saveCardState(emptyState);
+    return emptyState;
+  }
+
+  /**
+   * Kiểm tra xem thẻ có đang bị tạm dừng hay không
+   */
+  static isCardSuspended(cardId) {
+    if (!cardId) return false;
+    const state = this.getCardState(cardId);
+    return Boolean(state && state.suspended === true);
+  }
+
   static logReview(reviewEvent) {
     try {
       const logs = this.getStudyLogs();
