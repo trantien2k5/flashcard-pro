@@ -31,9 +31,14 @@ export const LEARNING_PHASES = [
 ];
 
 export const TOPIC_CATEGORIES = {
-  FOUNDATION: "Foundation",
-  INDEPENDENT: "Independent",
-  EXTENSION: "Extension"
+  FOUNDATION: "daily",
+  DAILY: "daily",
+  EXPLORE: "explore",
+  CAREER: "career",
+  TOEIC: "toeic",
+  FINANCE: "finance",
+  INDEPENDENT: "explore",
+  EXTENSION: "career"
 };
 
 export const CEFR_LEVELS = [

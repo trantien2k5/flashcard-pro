@@ -75,8 +75,10 @@ export const STABILITY_TIERS = [
 
 export const DECK_ENGLISH_NAMES = {
   'top-1000-core': 'Top 1000 Essential Core Words',
+  'top-1000-toeic': '1000 Essential TOEIC Words',
   'daily-life-routines': 'Daily Life & Routines',
   'people-relationships': 'People & Relationships',
+  'pets-animals': 'Pets & Familiar Animals',
   'communication-feelings': 'Communication & Feelings',
   'food-drink': 'Food & Drink',
   'home-living': 'Home & Living',
@@ -90,8 +92,8 @@ export const DECK_ENGLISH_NAMES = {
   'technology-internet': 'Technology & Internet',
   'nature-weather': 'Nature & Weather',
   'society-world': 'Society & World',
-  'toeic-b1': 'TOEIC B1 Business',
-  'finance-banking': 'Finance & Banking',
+  'toeic-b1': 'TOEIC B1 Business Communication',
+  'finance-banking': 'Finance & Banking Mastery',
   'advanced-academic-ielts': 'Advanced Academic & IELTS'
 };
 

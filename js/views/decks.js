@@ -23,9 +23,12 @@ function savePinnedDecks() {
 }
 
 export const DECK_CATEGORY_MAP = {
+  'top-1000-core': 'daily',
+  'top-1000-toeic': 'toeic',
   'toeic-b1': 'toeic',
   'daily-life-routines': 'daily',
   'people-relationships': 'daily',
+  'pets-animals': 'daily',
   'communication-feelings': 'daily',
   'food-drink': 'daily',
   'home-living': 'daily',
@@ -38,7 +41,8 @@ export const DECK_CATEGORY_MAP = {
   'travel-places': 'explore',
   'entertainment-hobbies': 'explore',
   'nature-weather': 'explore',
-  'society-world': 'explore'
+  'society-world': 'explore',
+  'finance-banking': 'finance'
 };
 
 export function getDeckCategory(deck) {
