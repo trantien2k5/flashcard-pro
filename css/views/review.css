@@ -857,9 +857,9 @@
 }
 
 /* ==========================================================================
-   4. Comprehension Power Meter Bento Card
+   4. Milestone Roadmap Board: Bảng Mục Tiêu & Lộ Trình 8 Chặng Chia Nhỏ
    ========================================================================== */
-.review-comprehension-card {
+.review-milestones-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 18px;
@@ -871,32 +871,32 @@
   box-sizing: border-box;
 }
 
-[data-theme="light"] .review-comprehension-card {
+[data-theme="light"] .review-milestones-card {
   background: #ffffff;
   border-color: rgba(0, 0, 0, 0.08);
   box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
 }
 
-.comprehension-header {
+.milestones-card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
 }
 
-.comprehension-header-left {
+.milestones-header-left {
   display: flex;
   align-items: center;
   gap: 10px;
   min-width: 0;
 }
 
-.comprehension-icon-badge {
+.milestones-icon-badge {
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.15));
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+  border: 1px solid rgba(99, 102, 241, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -904,21 +904,21 @@
   flex-shrink: 0;
 }
 
-.comprehension-title-wrap {
+.milestones-title-wrap {
   display: flex;
   flex-direction: column;
   gap: 1px;
 }
 
-.comprehension-tag {
+.milestones-tag {
   font-size: 0.6rem;
   font-weight: 800;
   letter-spacing: 0.05em;
-  color: #10b981;
+  color: var(--primary);
   text-transform: uppercase;
 }
 
-.comprehension-rank-title {
+.milestones-main-title {
   font-size: 0.9rem;
   font-weight: 800;
   color: var(--text-primary);
@@ -926,74 +926,331 @@
   line-height: 1.25;
 }
 
-.comprehension-score-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+.milestones-header-right {
   flex-shrink: 0;
 }
 
-.comprehension-pct {
-  font-size: 1.2rem;
+.milestone-stage-pill {
+  font-size: 0.7rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  padding: 3px 9px;
+  border-radius: 99px;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: var(--primary);
+}
+
+/* Active Stage Highlight Card */
+.active-stage-card {
+  background: var(--bg-secondary);
+  border: 1.5px solid rgba(99, 102, 241, 0.25);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.06), transparent);
+}
+
+[data-theme="light"] .active-stage-card {
+  background: #f8fafc;
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.active-stage-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.active-stage-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.active-stage-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.active-stage-names {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.active-stage-level {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #f59e0b;
+}
+
+.active-stage-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.active-stage-pct {
+  font-size: 1.15rem;
   font-weight: 900;
   font-family: var(--font-mono);
-  color: #10b981;
-  line-height: 1;
+  color: var(--primary);
+  flex-shrink: 0;
 }
 
-.comprehension-pct-sub {
-  font-size: 0.62rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-}
-
-.comprehension-bar-track {
+.active-stage-track {
   width: 100%;
-  height: 8px;
+  height: 7px;
   background: var(--bg-tertiary);
   border-radius: 99px;
   overflow: hidden;
   border: 1px solid var(--border);
 }
 
-.comprehension-bar-fill {
+.active-stage-fill {
   height: 100%;
   border-radius: 99px;
-  background: linear-gradient(90deg, #10b981, #06b6d4, #6366f1);
+  background: linear-gradient(90deg, var(--primary), #818cf8);
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.comprehension-impact-box {
-  background: var(--bg-secondary);
+.active-stage-benefit-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 10px;
   border-radius: 10px;
-  padding: 9px 12px;
+  background: var(--bg-card);
   border: 1px dashed var(--border);
 }
 
-[data-theme="light"] .comprehension-impact-box {
-  background: #f8fafc;
+[data-theme="light"] .active-stage-benefit-box {
+  background: #ffffff;
 }
 
-.comprehension-impact-desc {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  margin: 0;
-  line-height: 1.35;
-}
-
-.comprehension-next-milestone {
+.benefit-row {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.74rem;
-  font-weight: 700;
-  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+  color: var(--text-primary);
 }
 
-.milestone-icon {
-  font-size: 0.85rem;
+.benefit-icon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.benefit-sub-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.72rem;
+  flex-wrap: wrap;
+}
+
+.benefit-gain {
+  color: #10b981;
+  font-weight: 700;
+}
+
+[data-theme="light"] .benefit-gain {
+  color: #059669;
+}
+
+.benefit-estimate {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* Expand / Collapse Button */
+.milestones-expand-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn-toggle-milestones {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 6px 14px;
+  font-size: 0.72rem;
+  font-weight: 750;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.16s ease;
+  touch-action: manipulation;
+}
+
+.btn-toggle-milestones:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--primary);
+}
+
+.toggle-icon {
+  transition: transform 0.2s ease;
+}
+
+/* 8 Stages List */
+.milestones-stages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+  animation: stagesFadeIn 0.2s ease;
+}
+
+@keyframes stagesFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.milestone-stage-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  transition: all 0.16s ease;
+}
+
+[data-theme="light"] .milestone-stage-item {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.milestone-stage-item.stage-completed {
+  border-color: rgba(16, 185, 129, 0.25);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.milestone-stage-item.stage-current {
+  border-color: rgba(99, 102, 241, 0.35);
+  background: rgba(99, 102, 241, 0.06);
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.2);
+}
+
+.milestone-stage-item.stage-locked {
+  opacity: 0.65;
+}
+
+.stage-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.stage-item-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  width: 26px;
+  text-align: center;
+}
+
+.stage-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.stage-item-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.stage-item-title {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stage-item-target {
+  font-size: 0.68rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.stage-item-benefit {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stage-item-track {
+  width: 100%;
+  height: 4px;
+  background: var(--bg-tertiary);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-top: 3px;
+}
+
+.stage-item-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #10b981, var(--primary));
+}
+
+.stage-item-right {
+  flex-shrink: 0;
+}
+
+.stage-status-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+.badge-done {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-current {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--primary);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.badge-locked {
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
 }
 
 /* ==========================================================================

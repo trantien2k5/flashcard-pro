@@ -154,33 +154,63 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 3. Comprehension Power Meter Bento Card (Thước Đo Tỷ Lệ Hiểu Tiếng Anh Thực Tế) -->
-        <div class="review-comprehension-card">
-          <div class="comprehension-header">
-            <div class="comprehension-header-left">
-              <div class="comprehension-icon-badge" id="comprehension-badge-icon">🌱</div>
-              <div class="comprehension-title-wrap">
-                <span class="comprehension-tag">NĂNG LỰC HIỂU THỰC TẾ (OXFORD 3000)</span>
-                <h3 class="comprehension-rank-title" id="comprehension-rank-title">Mầm Non Ngôn Ngữ</h3>
+        <!-- 3. Milestone Roadmap Board: Bảng Mục Tiêu & Lộ Trình 8 Chặng Chia Nhỏ -->
+        <div class="review-milestones-card" id="review-milestones-card">
+          <div class="milestones-card-header">
+            <div class="milestones-header-left">
+              <div class="milestones-icon-badge">🎯</div>
+              <div class="milestones-title-wrap">
+                <span class="milestones-tag">BẢNG MỤC TIÊU CHIA NHỎ</span>
+                <h3 class="milestones-main-title" id="milestone-board-title">Lộ trình 8 chặng khả thi</h3>
               </div>
             </div>
-            <div class="comprehension-score-badge">
-              <span class="comprehension-pct" id="comprehension-pct-val">0%</span>
-              <span class="comprehension-pct-sub">đọc hiểu</span>
+            <div class="milestones-header-right">
+              <span class="milestone-stage-pill" id="milestone-stage-pill">Chặng 1/8</span>
             </div>
           </div>
 
-          <div class="comprehension-bar-track">
-            <div class="comprehension-bar-fill" id="comprehension-bar-fill" style="width: 0%;"></div>
+          <!-- Active Stage Highlight Box -->
+          <div class="active-stage-card" id="active-stage-card">
+            <div class="active-stage-top">
+              <div class="active-stage-badge">
+                <span class="active-stage-icon" id="active-stage-icon">🌱</span>
+                <div class="active-stage-names">
+                  <span class="active-stage-level" id="active-stage-level">CẤP ĐỘ 1 • ĐANG CHINH PHỤC</span>
+                  <h4 class="active-stage-title" id="active-stage-title">Khởi Động Nhanh (30 từ)</h4>
+                </div>
+              </div>
+              <span class="active-stage-pct" id="active-stage-pct">0%</span>
+            </div>
+
+            <div class="active-stage-track">
+              <div class="active-stage-fill" id="active-stage-fill" style="width: 0%;"></div>
+            </div>
+
+            <div class="active-stage-benefit-box">
+              <div class="benefit-row">
+                <span class="benefit-icon">🔓</span>
+                <span class="benefit-text" id="active-stage-benefit">Phản xạ chào hỏi, làm quen & cảm ơn cơ bản</span>
+              </div>
+              <div class="benefit-sub-row">
+                <span class="benefit-gain" id="active-stage-gain">📈 Đạt ~18% từ vựng căn bản</span>
+                <span class="benefit-estimate" id="active-stage-estimate">⏱️ Còn 30 từ (~3 ngày)</span>
+              </div>
+            </div>
           </div>
 
-          <div class="comprehension-impact-box">
-            <p class="comprehension-impact-desc" id="comprehension-impact-desc">Đang phân tích năng lực hiểu thực tế...</p>
+          <!-- Toggle View All 8 Stages -->
+          <div class="milestones-expand-wrap">
+            <button type="button" class="btn-toggle-milestones" id="btn-toggle-milestones">
+              <span id="toggle-milestones-text">Xem chi tiết 8 chặng mục tiêu</span>
+              <svg class="toggle-icon" id="toggle-milestones-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
           </div>
 
-          <div class="comprehension-next-milestone" id="comprehension-next-row">
-            <span class="milestone-icon">🎯</span>
-            <span class="milestone-text" id="comprehension-next-text">Mục tiêu tiếp theo: Chạm mốc 50 từ</span>
+          <!-- 8 Stages List (Collapsible) -->
+          <div class="milestones-stages-list" id="milestones-stages-list" style="display: none;">
+            <!-- Dynamically populated 8 stages -->
           </div>
         </div>
 
@@ -493,30 +523,114 @@ export function renderReviewTab(app) {
       });
     }
 
-    // F. Render Thước Đo Tỷ Lệ Hiểu Tiếng Anh Thực Tế (Comprehension Power Meter)
-    const comprehension = StatsManager.getComprehensionPower(learnedCount);
-    const elCompIcon = document.getElementById('comprehension-badge-icon');
-    if (elCompIcon) elCompIcon.textContent = comprehension.badgeIcon;
+    // F. Render Bảng Lộ Trình Mục Tiêu 8 Chặng Chia Nhỏ (Milestone Roadmap Board)
+    const roadmap = StatsManager.getMilestoneRoadmap(learnedCount, dailyGoal);
+    const activeStage = roadmap.activeStage;
 
-    const elCompRank = document.getElementById('comprehension-rank-title');
-    if (elCompRank) elCompRank.textContent = `${comprehension.rankTitle} (${comprehension.count} từ)`;
+    const elStagePill = document.getElementById('milestone-stage-pill');
+    if (elStagePill) {
+      elStagePill.textContent = `Chặng ${activeStage.id}/${roadmap.totalStages}`;
+    }
 
-    const elCompPct = document.getElementById('comprehension-pct-val');
-    if (elCompPct) elCompPct.textContent = `${comprehension.percent}%`;
+    const elActiveIcon = document.getElementById('active-stage-icon');
+    if (elActiveIcon) elActiveIcon.textContent = activeStage.icon;
 
-    const elCompFill = document.getElementById('comprehension-bar-fill');
-    if (elCompFill) elCompFill.style.width = `${comprehension.percent}%`;
+    const elActiveLevel = document.getElementById('active-stage-level');
+    if (elActiveLevel) {
+      elActiveLevel.textContent = `${activeStage.badge.toUpperCase()} • ${activeStage.isCompleted ? 'ĐÃ HOÀN THÀNH 🏆' : 'ĐANG CHINH PHỤC ⚡'}`;
+    }
 
-    const elCompDesc = document.getElementById('comprehension-impact-desc');
-    if (elCompDesc) elCompDesc.textContent = comprehension.impactDesc;
+    const elActiveTitle = document.getElementById('active-stage-title');
+    if (elActiveTitle) {
+      elActiveTitle.textContent = `${activeStage.title} (${activeStage.targetWords} từ)`;
+    }
 
-    const elCompNext = document.getElementById('comprehension-next-text');
-    if (elCompNext) {
-      if (comprehension.wordsNeededForNext > 0) {
-        elCompNext.textContent = `Mục tiêu tiếp theo: Chạm mốc ${comprehension.nextMilestone} từ (còn ${comprehension.wordsNeededForNext} từ)`;
+    const elActivePct = document.getElementById('active-stage-pct');
+    if (elActivePct) {
+      elActivePct.textContent = `${activeStage.progressPct}%`;
+    }
+
+    const elActiveFill = document.getElementById('active-stage-fill');
+    if (elActiveFill) {
+      elActiveFill.style.width = `${activeStage.progressPct}%`;
+    }
+
+    const elActiveBenefit = document.getElementById('active-stage-benefit');
+    if (elActiveBenefit) {
+      elActiveBenefit.textContent = activeStage.realBenefit;
+    }
+
+    const elActiveGain = document.getElementById('active-stage-gain');
+    if (elActiveGain) {
+      elActiveGain.textContent = `📈 Mở khóa: ${activeStage.comprehensionGain}`;
+    }
+
+    const elActiveEstimate = document.getElementById('active-stage-estimate');
+    if (elActiveEstimate) {
+      if (activeStage.isCompleted) {
+        elActiveEstimate.textContent = `🎉 Đã chinh phục trọn vẹn mốc này!`;
       } else {
-        elCompNext.textContent = `Đã chinh phục trọn vẹn toàn bộ 2.582 từ vựng Oxford Pro! 👑`;
+        elActiveEstimate.textContent = `⏱️ Còn ${activeStage.wordsRemaining} từ (~${activeStage.daysEstimate} ngày học nhẹ nhàng)`;
       }
+    }
+
+    // Toggle 8 Chặng chi tiết
+    const btnToggleMilestones = document.getElementById('btn-toggle-milestones');
+    const elStagesList = document.getElementById('milestones-stages-list');
+    const elToggleText = document.getElementById('toggle-milestones-text');
+    const elToggleArrow = document.getElementById('toggle-milestones-arrow');
+
+    if (btnToggleMilestones && elStagesList) {
+      btnToggleMilestones.onclick = () => {
+        const isHidden = elStagesList.style.display === 'none';
+        if (isHidden) {
+          elStagesList.style.display = 'flex';
+          if (elToggleText) elToggleText.textContent = 'Thu gọn 8 chặng mục tiêu';
+          if (elToggleArrow) elToggleArrow.style.transform = 'rotate(180deg)';
+        } else {
+          elStagesList.style.display = 'none';
+          if (elToggleText) elToggleText.textContent = 'Xem chi tiết 8 chặng mục tiêu';
+          if (elToggleArrow) elToggleArrow.style.transform = 'rotate(0deg)';
+        }
+      };
+
+      // Populate 8 Stage Cards
+      elStagesList.innerHTML = roadmap.milestones.map(m => {
+        let statusBadge = '';
+        let cardClass = 'stage-locked';
+
+        if (m.isCompleted) {
+          cardClass = 'stage-completed';
+          statusBadge = `<span class="stage-status-badge badge-done">✓ Đã đạt</span>`;
+        } else if (m.isCurrent) {
+          cardClass = 'stage-current';
+          statusBadge = `<span class="stage-status-badge badge-current">⚡ Đang học (${m.progressPct}%)</span>`;
+        } else {
+          cardClass = 'stage-locked';
+          statusBadge = `<span class="stage-status-badge badge-locked">🔒 Còn ${m.wordsRemaining} từ</span>`;
+        }
+
+        return `
+          <div class="milestone-stage-item ${cardClass}">
+            <div class="stage-item-left">
+              <span class="stage-item-icon">${m.icon}</span>
+              <div class="stage-item-info">
+                <div class="stage-item-title-row">
+                  <span class="stage-item-title">Chặng ${m.id}: ${escapeHTML(m.title)}</span>
+                  <span class="stage-item-target">${m.targetWords} từ</span>
+                </div>
+                <span class="stage-item-benefit">${escapeHTML(m.realBenefit)}</span>
+                <div class="stage-item-track">
+                  <div class="stage-item-fill" style="width: ${m.progressPct}%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="stage-item-right">
+              ${statusBadge}
+            </div>
+          </div>
+        `;
+      }).join('');
     }
 
     // G. Bệnh Án Từ Vựng (Weak Word Drill)

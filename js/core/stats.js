@@ -376,6 +376,154 @@ export class StatsManager {
   }
 
   /**
+   * Tính toán Bảng Lộ Trình Mục Tiêu Chia Nhỏ (Milestone Roadmap Board)
+   * Giúp người học theo dõi tiến độ từng chặng ngắn hạn khả thi, rõ ràng và có động lực cao.
+   */
+  static getMilestoneRoadmap(learnedCount = 0, dailyGoal = 10) {
+    const count = Math.max(0, Number(learnedCount) || 0);
+    const speed = Math.max(1, Number(dailyGoal) || 10);
+
+    const stagesConfig = [
+      {
+        id: 1,
+        title: 'Khởi Động Nhanh',
+        targetWords: 30,
+        icon: '🌱',
+        badge: 'Cấp độ 1',
+        realBenefit: 'Phản xạ chào hỏi, làm quen & cảm ơn cơ bản',
+        comprehensionGain: '~18% từ vựng căn bản',
+        studyTip: 'Mỗi ngày 10 từ, chỉ 3 ngày là cán đích!'
+      },
+      {
+        id: 2,
+        title: 'Nền Tảng Giao Tiếp',
+        targetWords: 75,
+        icon: '🥪',
+        badge: 'Cấp độ 2',
+        realBenefit: 'Tự tin gọi món nhà hàng, mua sắm & hỏi giá cả',
+        comprehensionGain: '~30% tình huống ăn uống & mua sắm',
+        studyTip: 'Chạm mốc 75 từ giúp bạn không còn bỡ ngỡ khi ra ngoài!'
+      },
+      {
+        id: 3,
+        title: 'Sinh Tồn Du Lịch',
+        targetWords: 150,
+        icon: '✈️',
+        badge: 'Cấp độ 3 (A1)',
+        realBenefit: 'Hỏi đường, thủ tục sân bay, khách sạn & bắt xe',
+        comprehensionGain: '~45% giao tiếp du lịch nước ngoài',
+        studyTip: 'Chìa khóa để tự tin đi du lịch tự túc không sợ lạc!'
+      },
+      {
+        id: 4,
+        title: 'Hội Thoại Đời Sống',
+        targetWords: 300,
+        icon: '🚀',
+        badge: 'Cấp độ 4 (A2)',
+        realBenefit: 'Hiểu 65% vlog Youtube, chat mạng xã hội & kể chuyện',
+        comprehensionGain: '~65% hội thoại đời sống thường nhật',
+        studyTip: 'Mốc chuyển mình lớn nhất! Bạn sẽ nhận ra từ vựng ở khắp mọi nơi.'
+      },
+      {
+        id: 5,
+        title: 'Tự Tin Xem Phim',
+        targetWords: 500,
+        icon: '🎬',
+        badge: 'Cấp độ 5 (B1-)',
+        realBenefit: 'Xem sitcom, video ngắn Youtube có phụ đề tiếng Anh',
+        comprehensionGain: '~75% từ vựng phim ảnh phổ thông',
+        studyTip: 'Bắt đầu nghe hiểu ngữ cảnh tự nhiên mà không cần dịch từng chữ.'
+      },
+      {
+        id: 6,
+        title: 'Công Sở & Email',
+        targetWords: 800,
+        icon: '💼',
+        badge: 'Cấp độ 6 (B1+)',
+        realBenefit: 'Đọc viết email công việc, tham gia họp nhóm đơn giản',
+        comprehensionGain: '~82% tiếng Anh văn phòng & trao đổi công việc',
+        studyTip: 'Nền tảng vững chắc để làm việc trong môi trường đa quốc gia.'
+      },
+      {
+        id: 7,
+        title: 'Lưu Loát & Phỏng Vấn',
+        targetWords: 1400,
+        icon: '🎯',
+        badge: 'Cấp độ 7 (B2)',
+        realBenefit: 'Phỏng vấn xin việc, thuyết trình & tranh luận tự tin',
+        comprehensionGain: '~90% giao tiếp chuyên nghiệp & học thuật cơ bản',
+        studyTip: 'Đạt ngưỡng tự do ngôn ngữ, suy nghĩ trực tiếp bằng tiếng Anh.'
+      },
+      {
+        id: 8,
+        title: 'Chuyên Gia Ngôn Ngữ',
+        targetWords: 2582,
+        icon: '👑',
+        badge: 'Cấp độ 8 (C1/C2)',
+        realBenefit: 'Đọc báo chí chuyên ngành, làm chủ toàn bộ kho Oxford Pro',
+        comprehensionGain: '~96% toàn bộ văn bản tiếng Anh thế giới',
+        studyTip: 'Chinh phục đỉnh cao tri thức tiếng Anh toàn diện!'
+      }
+    ];
+
+    let currentStageIndex = 0;
+    for (let i = 0; i < stagesConfig.length; i++) {
+      if (count < stagesConfig[i].targetWords) {
+        currentStageIndex = i;
+        break;
+      }
+      if (i === stagesConfig.length - 1) {
+        currentStageIndex = i;
+      }
+    }
+
+    const milestones = stagesConfig.map((stage, idx) => {
+      const prevTarget = idx > 0 ? stagesConfig[idx - 1].targetWords : 0;
+      const isCompleted = count >= stage.targetWords;
+      const isCurrent = idx === currentStageIndex && !isCompleted;
+      const isLocked = idx > currentStageIndex;
+
+      let progressPct = 0;
+      if (isCompleted) {
+        progressPct = 100;
+      } else if (isCurrent) {
+        const stageSpan = stage.targetWords - prevTarget;
+        const stageProgress = Math.max(0, count - prevTarget);
+        progressPct = Math.min(99, Math.max(0, Math.round((stageProgress / stageSpan) * 100)));
+      } else {
+        progressPct = 0;
+      }
+
+      const wordsRemaining = Math.max(0, stage.targetWords - count);
+      const daysEstimate = wordsRemaining > 0 ? Math.ceil(wordsRemaining / speed) : 0;
+
+      return {
+        ...stage,
+        isCompleted,
+        isCurrent,
+        isLocked,
+        progressPct,
+        wordsRemaining,
+        daysEstimate,
+        status: isCompleted ? 'completed' : (isCurrent ? 'current' : 'locked')
+      };
+    });
+
+    const activeStage = milestones[currentStageIndex] || milestones[0];
+    const completedStagesCount = milestones.filter(m => m.isCompleted).length;
+
+    return {
+      milestones,
+      activeStage,
+      completedStagesCount,
+      totalStages: milestones.length,
+      currentLearnedCount: count,
+      dailyGoal: speed,
+      overallProgressPct: Math.round((count / 2582) * 100)
+    };
+  }
+
+  /**
    * Tính toán trạng thái 3 Nhiệm Vụ Nhỏ Hôm Nay (Daily 3-Step Micro-Quests)
    */
   static getDailyMicroQuests(allLogs = [], studyQueue = {}, dailyNewGoal = 10) {
