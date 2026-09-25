@@ -190,11 +190,10 @@ export function renderQuizOverlayShell() {
       <main class="quiz-main-stage">
         <div class="quiz-question-card" id="quiz-question-card">
           <!-- Floating Reflex Result Badge -->
-          <div class="quiz-reflex-toast" id="quiz-reflex-toast">⚡ Siêu tốc (+Easy)</div>
+          <div class="quiz-reflex-toast" id="quiz-reflex-toast">⚡ Siêu tốc</div>
 
-          <!-- Meta badges row -->
+          <!-- Meta badges row (POS & CEFR only, no FSRS label) -->
           <div class="quiz-meta-pills-row">
-            <span class="quiz-mode-pill">Trắc Nghiệm FSRS</span>
             <span class="quiz-badge-pos" id="quiz-badge-pos">VERB</span>
             <span class="quiz-badge-cefr" id="quiz-badge-cefr">B1</span>
           </div>
@@ -206,7 +205,7 @@ export function renderQuizOverlayShell() {
           <div class="quiz-ipa-row">
             <span class="quiz-ipa-text" id="quiz-ipa-text">/ wɜːrd /</span>
             <button type="button" class="btn-quiz-speaker" id="btn-quiz-speaker" title="Nghe phát âm" aria-label="Phát âm">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
                 <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
               </svg>
@@ -219,6 +218,16 @@ export function renderQuizOverlayShell() {
         <!-- 3. 4 Options Bento Grid -->
         <div class="quiz-options-grid" id="quiz-options-grid">
           <!-- Options dynamic injected -->
+        </div>
+
+        <!-- 4. Manual Advance Action Bar (No Auto-Advance) -->
+        <div class="quiz-action-bar" id="quiz-action-bar" style="display: none;">
+          <button type="button" class="btn-quiz-next" id="btn-quiz-next">
+            <span id="quiz-next-label">Tiếp tục (Space ↵)</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </button>
         </div>
       </main>
     </div>
@@ -248,7 +257,14 @@ function setupQuizEvents() {
     };
   }
 
-  // Phím tắt bàn phím 1, 2, 3, 4 hoặc A, B, C, D và R để nghe lại
+  const btnNext = document.getElementById('btn-quiz-next');
+  if (btnNext) {
+    btnNext.onclick = () => {
+      advanceQuizQuestion();
+    };
+  }
+
+  // Phím tắt bàn phím 1, 2, 3, 4 hoặc A, B, C, D; Space / Enter để tiếp tục; R để nghe lại
   window.addEventListener('keydown', (e) => {
     const overlay = document.getElementById('quiz-overlay');
     if (!overlay || !overlay.classList.contains('active')) return;
@@ -267,7 +283,14 @@ function setupQuizEvents() {
       return;
     }
 
-    if (_isAnswerLocked) return;
+    // Khi đã trả lời xong, bấm Space hoặc Enter để sang câu tiếp theo
+    if (_isAnswerLocked) {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        advanceQuizQuestion();
+      }
+      return;
+    }
 
     let targetIdx = -1;
     if (e.key === '1' || e.key.toLowerCase() === 'a') targetIdx = 0;
@@ -283,6 +306,11 @@ function setupQuizEvents() {
       }
     }
   });
+}
+
+function advanceQuizQuestion() {
+  _quizIndex++;
+  loadQuizQuestion(_quizIndex);
 }
 
 /**
@@ -392,13 +420,10 @@ function loadQuizQuestion(index) {
   const elCefr = document.getElementById('quiz-badge-cefr');
   const elToast = document.getElementById('quiz-reflex-toast');
   const btnSpeaker = document.getElementById('btn-quiz-speaker');
-  const elModePill = document.querySelector('.quiz-mode-pill');
+  const actionBar = document.getElementById('quiz-action-bar');
 
-  const cardState = StorageManager.getCardState(card.id);
-  const isNewCard = !cardState || cardState.state === State.New || cardState.state === 0;
-
-  if (elModePill) {
-    elModePill.textContent = isNewCard ? '✨ TỪ MỚI • FSRS' : '⚡ ÔN TẬP • FSRS';
+  if (actionBar) {
+    actionBar.style.display = 'none';
   }
 
   if (elWord) elWord.textContent = card.word || '...';
@@ -569,11 +594,19 @@ function handleOptionSelected(selectedTile, selectedOpt, card, allOptions) {
     toast.className = `quiz-reflex-toast ${toastClass} show`;
   }
 
-  // 4. Tự động chuyển câu tiếp theo sau 1.1s
-  setTimeout(() => {
-    _quizIndex++;
-    loadQuizQuestion(_quizIndex);
-  }, 1100);
+  // 4. Hiển thị nút "Tiếp tục" thủ công (Không tự động nhảy câu)
+  const actionBar = document.getElementById('quiz-action-bar');
+  const nextLabel = document.getElementById('quiz-next-label');
+  const isLast = _quizIndex + 1 >= _quizQueue.length;
+
+  if (nextLabel) {
+    nextLabel.textContent = isLast ? 'Xem Kết Quả (Space ↵)' : 'Tiếp tục (Space ↵)';
+  }
+
+  if (actionBar) {
+    actionBar.style.display = 'flex';
+    actionBar.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 }
 
 /**
