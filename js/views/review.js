@@ -1,20 +1,20 @@
-/**
- * Review View - Clean, High-Value Daily Review Center with Deep Personalization
- * 1. Header: Trạng thái, Chuỗi ngày học & Khung giờ vàng nhận thức
- * 2. Nhiệm vụ hôm nay: 4 chỉ số cốt lõi (Cần ôn tập, Đã học hôm nay, Thời gian học, Từ đã thuộc)
- * 3. Chế độ Chống Quá Tải Nhận Thức (Adaptive Backlog Protection)
- * 4. Bệnh Án Từ Vựng (Weak Word Drill - Luyện tập cấp cứu từ hay quên)
- * 5. Cụm nút hành động Twin Action: Ôn/Học Thẻ 3D & Trắc Nghiệm FSRS Smart Quiz
- * 6. Lối tắt nhanh: Duyệt 16 Chủ đề & Phân tích FSRS-6
- */
-
 import { StorageManager } from '../services/storage.js';
 import { State, isCardDue } from '../core/fsrs.js';
 import { StatsManager } from '../core/stats.js';
-import { getLocalDateKey } from '../utils.js';
+import { getLocalDateKey, escapeHTML } from '../utils.js';
 import { showToast } from './components.js';
+import { speak, speakVi, stopAudio } from '../services/audio.js';
 
 let _cachedApp = null;
+let _lazyAudioState = {
+  active: false,
+  words: [],
+  currentIndex: 0,
+  isPlaying: false,
+  speed: 1.0,
+  isLoop: true,
+  timerId: null
+};
 
 export function renderReviewShell(container) {
   if (!container) return;
@@ -136,7 +136,72 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 2. Bệnh Án Từ Vựng: Cấp Cứu Từ Hay Quên (Weak Words Drill) -->
+        <!-- 2. Daily 3-Step Micro-Quests Bento Card (Nhiệm Vụ 3 Bước Nhỏ Mỗi Ngày) -->
+        <div class="review-quests-card">
+          <div class="quests-card-header">
+            <div class="quests-header-left">
+              <div class="quests-icon-badge">🏆</div>
+              <div class="quests-title-wrap">
+                <span class="quests-tag">3 BƯỚC NHỎ MỖI NGÀY</span>
+                <h3 class="quests-main-title">Dễ dàng & Chắc chắn hoàn thành</h3>
+              </div>
+            </div>
+            <span class="quests-progress-pill" id="review-quests-badge">0/3 bước</span>
+          </div>
+
+          <div class="quests-list" id="review-quests-list">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- 3. Comprehension Power Meter Bento Card (Thước Đo Tỷ Lệ Hiểu Tiếng Anh Thực Tế) -->
+        <div class="review-comprehension-card">
+          <div class="comprehension-header">
+            <div class="comprehension-header-left">
+              <div class="comprehension-icon-badge" id="comprehension-badge-icon">🌱</div>
+              <div class="comprehension-title-wrap">
+                <span class="comprehension-tag">NĂNG LỰC HIỂU THỰC TẾ (OXFORD 3000)</span>
+                <h3 class="comprehension-rank-title" id="comprehension-rank-title">Mầm Non Ngôn Ngữ</h3>
+              </div>
+            </div>
+            <div class="comprehension-score-badge">
+              <span class="comprehension-pct" id="comprehension-pct-val">0%</span>
+              <span class="comprehension-pct-sub">đọc hiểu</span>
+            </div>
+          </div>
+
+          <div class="comprehension-bar-track">
+            <div class="comprehension-bar-fill" id="comprehension-bar-fill" style="width: 0%;"></div>
+          </div>
+
+          <div class="comprehension-impact-box">
+            <p class="comprehension-impact-desc" id="comprehension-impact-desc">Đang phân tích năng lực hiểu thực tế...</p>
+          </div>
+
+          <div class="comprehension-next-milestone" id="comprehension-next-row">
+            <span class="milestone-icon">🎯</span>
+            <span class="milestone-text" id="comprehension-next-text">Mục tiêu tiếp theo: Chạm mốc 50 từ</span>
+          </div>
+        </div>
+
+        <!-- 4. Lazy Hands-free Audio Walk Shortcut -->
+        <div class="review-lazy-walk-card">
+          <div class="lazy-walk-left">
+            <div class="lazy-walk-icon">🎧</div>
+            <div class="lazy-walk-text">
+              <span class="lazy-walk-title">Học Lười Rảnh Tay</span>
+              <span class="lazy-walk-desc">Tự động phát âm & dịch nghĩa khi đi bộ, lái xe, làm việc nhà</span>
+            </div>
+          </div>
+          <button type="button" class="btn-lazy-walk-trigger" id="btn-trigger-lazy-walk" title="Bắt đầu nghe thụ động rảnh tay">
+            <span>Bật Nghe</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- 5. Bệnh Án Từ Vựng: Cấp Cứu Từ Hay Quên (Weak Words Drill) -->
         <div id="review-weak-words-box" class="review-weak-card" style="display: none;">
           <div class="weak-card-header">
             <div class="weak-header-left">
@@ -159,7 +224,7 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 3. Fast Navigation Shortcuts Row -->
+        <!-- 6. Fast Navigation Shortcuts Row -->
         <div class="review-shortcuts-grid">
           <button type="button" class="btn-review-shortcut" id="btn-shortcut-decks">
             <div class="shortcut-icon-badge icon-decks">📚</div>
@@ -184,6 +249,38 @@ export function renderReviewShell(container) {
           </button>
         </div>
 
+      </div>
+
+      <!-- Lazy Audio Walk Floating Player Modal -->
+      <div id="lazy-audio-modal" class="lazy-audio-modal" style="display: none;">
+        <div class="lazy-audio-card">
+          <div class="lazy-modal-header">
+            <div class="lazy-modal-tag">
+              <span class="lazy-pulse-dot"></span>
+              <span>🎧 ĐANG PHÁT RẢNH TAY</span>
+            </div>
+            <button type="button" class="btn-lazy-close" id="btn-lazy-close" title="Đóng trình phát">✕</button>
+          </div>
+
+          <div class="lazy-word-display">
+            <div class="lazy-word-counter" id="lazy-word-counter">Từ 1 / 10</div>
+            <h2 class="lazy-word-text" id="lazy-word-text">Vocabulary</h2>
+            <div class="lazy-word-phonetic" id="lazy-word-phonetic">/vəˈkæbjələri/</div>
+            <div class="lazy-word-meaning" id="lazy-word-meaning">Từ vựng</div>
+            <div class="lazy-word-badges">
+              <span class="lazy-badge-cefr" id="lazy-badge-cefr">A1</span>
+              <span class="lazy-badge-cat" id="lazy-badge-cat">Giao tiếp</span>
+            </div>
+          </div>
+
+          <div class="lazy-controls-row">
+            <button type="button" class="btn-lazy-ctrl" id="btn-lazy-prev" title="Từ trước">⏮️</button>
+            <button type="button" class="btn-lazy-ctrl btn-lazy-play" id="btn-lazy-play-toggle" title="Tạm dừng / Tiếp tục">⏸️</button>
+            <button type="button" class="btn-lazy-ctrl" id="btn-lazy-next" title="Từ tiếp theo">⏭️</button>
+            <button type="button" class="btn-lazy-ctrl btn-lazy-speed" id="btn-lazy-speed" title="Tốc độ đọc">1.0x</button>
+            <button type="button" class="btn-lazy-ctrl btn-lazy-loop active" id="btn-lazy-loop" title="Lặp lại danh sách">🔁</button>
+          </div>
+        </div>
       </div>
     `;
   }
@@ -267,7 +364,7 @@ export function renderReviewTab(app) {
       if (studyQueue.isBacklogProtected && queueDue >= 25) {
         elBacklogAlert.style.display = 'flex';
         if (elBacklogDesc) {
-          elBacklogDesc.textContent = `Hàng đợi có ${queueDue} từ cần ôn. Đã tạm hoãn nạp từ mới để bạn tập trung dọn sạch ôn tập!`;
+          elBacklogDesc.textContent = `Hàng đợi có ${queueDue} từ cần ôn. Đã tạm hoãn nạp từ mới để bạn tập trung dọn sạch hàng đợi!`;
         }
       } else {
         elBacklogAlert.style.display = 'none';
@@ -337,7 +434,92 @@ export function renderReviewTab(app) {
       }
     }
 
-    // E. Bệnh Án Từ Vựng (Weak Word Drill)
+    // E. Render 3 Nhiệm Vụ 3 Bước Nhỏ (Daily 3-Step Micro-Quests)
+    const microQuestsData = StatsManager.getDailyMicroQuests(allLogs, studyQueue, dailyGoal);
+    const elQuestsBadge = document.getElementById('review-quests-badge');
+    if (elQuestsBadge) {
+      elQuestsBadge.textContent = `${microQuestsData.completedCount}/3 bước`;
+      if (microQuestsData.isAllCompleted) {
+        elQuestsBadge.classList.add('all-done');
+      } else {
+        elQuestsBadge.classList.remove('all-done');
+      }
+    }
+
+    const elQuestsList = document.getElementById('review-quests-list');
+    if (elQuestsList) {
+      elQuestsList.innerHTML = microQuestsData.quests.map((q, idx) => {
+        let actionBtnHtml = '';
+        if (q.done) {
+          actionBtnHtml = `<span class="quest-done-tag">✓ Đạt</span>`;
+        } else if (q.id === 'warmup') {
+          actionBtnHtml = `<button type="button" class="btn-quest-action btn-quest-warmup" data-quest="warmup">Ôn ngay</button>`;
+        } else if (q.id === 'learn') {
+          actionBtnHtml = `<button type="button" class="btn-quest-action btn-quest-learn" data-quest="learn">Nạp ngay</button>`;
+        } else if (q.id === 'quiz') {
+          actionBtnHtml = `<button type="button" class="btn-quest-action btn-quest-quiz" data-quest="quiz">Làm Quiz</button>`;
+        }
+
+        return `
+          <div class="quest-step-item ${q.done ? 'is-done' : ''}">
+            <div class="quest-step-icon">${q.icon}</div>
+            <div class="quest-step-info">
+              <div class="quest-step-title-row">
+                <span class="quest-step-name">${escapeHTML(q.title)}</span>
+                <span class="quest-step-progress">${escapeHTML(q.progressText)}</span>
+              </div>
+              <span class="quest-step-sub">${escapeHTML(q.sub)}</span>
+            </div>
+            <div class="quest-step-action-wrap">
+              ${actionBtnHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Gán sự kiện click cho các nút hành động của từng nhiệm vụ nhỏ
+      elQuestsList.querySelectorAll('.btn-quest-action').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const qType = btn.dataset.quest;
+          if (qType === 'warmup') {
+            app.startStudySession(null, null, null, { mode: 'due_only' });
+          } else if (qType === 'learn') {
+            app.startStudySession(null, null, null, { mode: 'new_only' });
+          } else if (qType === 'quiz') {
+            app.startQuizSession();
+          }
+        });
+      });
+    }
+
+    // F. Render Thước Đo Tỷ Lệ Hiểu Tiếng Anh Thực Tế (Comprehension Power Meter)
+    const comprehension = StatsManager.getComprehensionPower(learnedCount);
+    const elCompIcon = document.getElementById('comprehension-badge-icon');
+    if (elCompIcon) elCompIcon.textContent = comprehension.badgeIcon;
+
+    const elCompRank = document.getElementById('comprehension-rank-title');
+    if (elCompRank) elCompRank.textContent = `${comprehension.rankTitle} (${comprehension.count} từ)`;
+
+    const elCompPct = document.getElementById('comprehension-pct-val');
+    if (elCompPct) elCompPct.textContent = `${comprehension.percent}%`;
+
+    const elCompFill = document.getElementById('comprehension-bar-fill');
+    if (elCompFill) elCompFill.style.width = `${comprehension.percent}%`;
+
+    const elCompDesc = document.getElementById('comprehension-impact-desc');
+    if (elCompDesc) elCompDesc.textContent = comprehension.impactDesc;
+
+    const elCompNext = document.getElementById('comprehension-next-text');
+    if (elCompNext) {
+      if (comprehension.wordsNeededForNext > 0) {
+        elCompNext.textContent = `Mục tiêu tiếp theo: Chạm mốc ${comprehension.nextMilestone} từ (còn ${comprehension.wordsNeededForNext} từ)`;
+      } else {
+        elCompNext.textContent = `Đã chinh phục trọn vẹn toàn bộ 2.582 từ vựng Oxford Pro! 👑`;
+      }
+    }
+
+    // G. Bệnh Án Từ Vựng (Weak Word Drill)
     const weakWords = typeof app.deckManager.getWeakWords === 'function' ? app.deckManager.getWeakWords(10) : [];
     const boxWeak = document.getElementById('review-weak-words-box');
     const elWeakTitle = document.getElementById('weak-words-title');
@@ -377,7 +559,7 @@ export function renderReviewTab(app) {
       }
     }
 
-    // F. CTA Nổi Bật: Twin Buttons (Luôn hiển thị đầy đủ cả 2 chế độ 3D & Trắc nghiệm)
+    // H. CTA Nổi Bật: Twin Buttons (Luôn hiển thị đầy đủ cả 2 chế độ 3D & Trắc nghiệm)
     const btnHeroCta = document.getElementById('btn-home-hero-cta');
     const elCtaText = document.getElementById('home-hero-cta-text');
     const btnQuizCta = document.getElementById('btn-home-quiz-cta');
@@ -463,7 +645,29 @@ export function renderReviewTab(app) {
       }
     }
 
-    // G. Gán sự kiện cho các nút điều hướng nhanh
+    // I. Lazy Audio Walk Trigger & Controller
+    const btnTriggerLazy = document.getElementById('btn-trigger-lazy-walk');
+    if (btnTriggerLazy) {
+      btnTriggerLazy.onclick = () => {
+        let walkCards = [];
+        if (studyQueue.dueCards && studyQueue.dueCards.length > 0) {
+          walkCards = studyQueue.dueCards;
+        } else if (studyQueue.newCards && studyQueue.newCards.length > 0) {
+          walkCards = studyQueue.newCards;
+        } else {
+          walkCards = allCards.slice(0, 20);
+        }
+
+        if (!walkCards || walkCards.length === 0) {
+          showToast('Chưa có từ vựng khả dụng để nghe', 'info');
+          return;
+        }
+
+        startLazyAudioWalk(walkCards, app);
+      };
+    }
+
+    // J. Gán sự kiện cho các nút điều hướng nhanh
     const btnShortcutDecks = document.getElementById('btn-shortcut-decks');
     if (btnShortcutDecks) {
       btnShortcutDecks.onclick = () => app.switchTab('tab-decks');
@@ -477,4 +681,159 @@ export function renderReviewTab(app) {
   } catch (err) {
     console.error('Lỗi khi render Review Tab:', err);
   }
+}
+
+/**
+ * Lazy Hands-free Audio Walk Implementation
+ */
+function startLazyAudioWalk(cards = [], app = null) {
+  _lazyAudioState.words = cards;
+  _lazyAudioState.currentIndex = 0;
+  _lazyAudioState.active = true;
+  _lazyAudioState.isPlaying = true;
+  _lazyAudioState.speed = Number(app?.settings?.speechRate) || 1.0;
+
+  const modal = document.getElementById('lazy-audio-modal');
+  if (!modal) return;
+  modal.style.display = 'flex';
+
+  setupLazyModalEvents(app);
+  playLazyWordStep();
+}
+
+function setupLazyModalEvents(app) {
+  const btnClose = document.getElementById('btn-lazy-close');
+  if (btnClose) {
+    btnClose.onclick = () => stopLazyAudioWalk();
+  }
+
+  const btnPlay = document.getElementById('btn-lazy-play-toggle');
+  if (btnPlay) {
+    btnPlay.onclick = () => {
+      if (_lazyAudioState.isPlaying) {
+        _lazyAudioState.isPlaying = false;
+        btnPlay.textContent = '▶️';
+        if (_lazyAudioState.timerId) clearTimeout(_lazyAudioState.timerId);
+        stopAudio();
+      } else {
+        _lazyAudioState.isPlaying = true;
+        btnPlay.textContent = '⏸️';
+        playLazyWordStep();
+      }
+    };
+  }
+
+  const btnNext = document.getElementById('btn-lazy-next');
+  if (btnNext) {
+    btnNext.onclick = () => {
+      if (_lazyAudioState.timerId) clearTimeout(_lazyAudioState.timerId);
+      stopAudio();
+      _lazyAudioState.currentIndex = (_lazyAudioState.currentIndex + 1) % _lazyAudioState.words.length;
+      playLazyWordStep();
+    };
+  }
+
+  const btnPrev = document.getElementById('btn-lazy-prev');
+  if (btnPrev) {
+    btnPrev.onclick = () => {
+      if (_lazyAudioState.timerId) clearTimeout(_lazyAudioState.timerId);
+      stopAudio();
+      _lazyAudioState.currentIndex = (_lazyAudioState.currentIndex - 1 + _lazyAudioState.words.length) % _lazyAudioState.words.length;
+      playLazyWordStep();
+    };
+  }
+
+  const btnSpeed = document.getElementById('btn-lazy-speed');
+  if (btnSpeed) {
+    btnSpeed.onclick = () => {
+      if (_lazyAudioState.speed === 1.0) _lazyAudioState.speed = 0.8;
+      else if (_lazyAudioState.speed === 0.8) _lazyAudioState.speed = 1.2;
+      else _lazyAudioState.speed = 1.0;
+      btnSpeed.textContent = `${_lazyAudioState.speed}x`;
+    };
+  }
+
+  const btnLoop = document.getElementById('btn-lazy-loop');
+  if (btnLoop) {
+    btnLoop.onclick = () => {
+      _lazyAudioState.isLoop = !_lazyAudioState.isLoop;
+      if (_lazyAudioState.isLoop) {
+        btnLoop.classList.add('active');
+      } else {
+        btnLoop.classList.remove('active');
+      }
+    };
+  }
+}
+
+function playLazyWordStep() {
+  if (!_lazyAudioState.active || !_lazyAudioState.isPlaying) return;
+
+  const wordObj = _lazyAudioState.words[_lazyAudioState.currentIndex];
+  if (!wordObj) {
+    stopLazyAudioWalk();
+    return;
+  }
+
+  // Update UI
+  const elCounter = document.getElementById('lazy-word-counter');
+  if (elCounter) elCounter.textContent = `Từ ${_lazyAudioState.currentIndex + 1} / ${_lazyAudioState.words.length}`;
+
+  const elWord = document.getElementById('lazy-word-text');
+  if (elWord) elWord.textContent = wordObj.word || '';
+
+  const elPhonetic = document.getElementById('lazy-word-phonetic');
+  if (elPhonetic) elPhonetic.textContent = wordObj.phonetic || '';
+
+  const elMeaning = document.getElementById('lazy-word-meaning');
+  if (elMeaning) elMeaning.textContent = wordObj.meaning || '';
+
+  const elCefr = document.getElementById('lazy-badge-cefr');
+  if (elCefr) elCefr.textContent = (wordObj.level || 'A1').toUpperCase();
+
+  const elCat = document.getElementById('lazy-badge-cat');
+  if (elCat) elCat.textContent = wordObj.category || 'Từ vựng';
+
+  const btnPlay = document.getElementById('btn-lazy-play-toggle');
+  if (btnPlay) btnPlay.textContent = '⏸️';
+
+  // Step 1: Speak English
+  speak(wordObj.word, {
+    speechRate: _lazyAudioState.speed,
+    cardObj: wordObj,
+    onEnd: () => {
+      if (!_lazyAudioState.active || !_lazyAudioState.isPlaying) return;
+      // Delay 700ms then speak Vietnamese translation
+      _lazyAudioState.timerId = setTimeout(() => {
+        if (!_lazyAudioState.active || !_lazyAudioState.isPlaying) return;
+        speakVi(wordObj.meaning, () => {
+          if (!_lazyAudioState.active || !_lazyAudioState.isPlaying) return;
+          // Delay 1200ms then advance to next word
+          _lazyAudioState.timerId = setTimeout(() => {
+            if (!_lazyAudioState.active || !_lazyAudioState.isPlaying) return;
+            if (_lazyAudioState.currentIndex + 1 < _lazyAudioState.words.length) {
+              _lazyAudioState.currentIndex++;
+              playLazyWordStep();
+            } else if (_lazyAudioState.isLoop) {
+              _lazyAudioState.currentIndex = 0;
+              playLazyWordStep();
+            } else {
+              showToast('Đã nghe hết danh sách từ vựng 🎉', 'success');
+              stopLazyAudioWalk();
+            }
+          }, 1200);
+        });
+      }, 700);
+    }
+  });
+}
+
+function stopLazyAudioWalk() {
+  _lazyAudioState.active = false;
+  _lazyAudioState.isPlaying = false;
+  if (_lazyAudioState.timerId) clearTimeout(_lazyAudioState.timerId);
+  stopAudio();
+
+  const modal = document.getElementById('lazy-audio-modal');
+  if (modal) modal.style.display = 'none';
 }

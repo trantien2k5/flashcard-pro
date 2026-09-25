@@ -308,6 +308,135 @@ export class StatsManager {
   }
 
   /**
+   * Tính toán Thước Đo Năng Lực Đọc Hiểu Tiếng Anh Thực Tế (Comprehension Power Meter)
+   * Dựa trên phân tích tần suất từ vựng Zipf's Law & Khung chuẩn Oxford 3000
+   */
+  static getComprehensionPower(learnedCount = 0) {
+    const count = Math.max(0, Number(learnedCount) || 0);
+
+    let pct = 0;
+    let rankTitle = 'Khởi Đầu';
+    let impactDesc = 'Nhận diện các từ vựng căn bản đầu tiên';
+    let nextMilestone = 100;
+    let badgeIcon = '🌱';
+
+    if (count === 0) {
+      pct = 0;
+      rankTitle = 'Chưa Bắt Đầu';
+      impactDesc = 'Hãy học 10 từ đầu tiên để mở khóa 15% khả năng hiểu!';
+      nextMilestone = 50;
+      badgeIcon = '✨';
+    } else if (count < 50) {
+      pct = Math.min(25, Math.round((count / 50) * 25));
+      rankTitle = 'Mầm Non Ngôn Ngữ';
+      impactDesc = `Đã hiểu ${pct}% từ vựng căn bản. Thêm ${50 - count} từ để chạm mốc 50 từ!`;
+      nextMilestone = 50;
+      badgeIcon = '🌱';
+    } else if (count < 150) {
+      pct = Math.min(45, Math.round(25 + ((count - 50) / 100) * 20));
+      rankTitle = 'Giao Tiếp Sơ Cấp (A1)';
+      impactDesc = `Đã hiểu ~${pct}% bảng hiệu, câu chào, hỏi đường & mua sắm cơ bản!`;
+      nextMilestone = 150;
+      badgeIcon = '🌿';
+    } else if (count < 300) {
+      pct = Math.min(65, Math.round(45 + ((count - 150) / 150) * 20));
+      rankTitle = 'Hội Thoại Đời Sống (A2)';
+      impactDesc = `Đã hiểu ~${pct}% các cuộc hội thoại đời sống, video ngắn & vlog!`;
+      nextMilestone = 300;
+      badgeIcon = '🚀';
+    } else if (count < 600) {
+      pct = Math.min(78, Math.round(65 + ((count - 300) / 300) * 13));
+      rankTitle = 'Tự Tin Giao Tiếp (B1)';
+      impactDesc = `Đã hiểu ~${pct}% tiếng Anh thường ngày, tự tin xem phim có phụ đề!`;
+      nextMilestone = 600;
+      badgeIcon = '🎯';
+    } else if (count < 1200) {
+      pct = Math.min(88, Math.round(78 + ((count - 600) / 600) * 10));
+      rankTitle = 'Lưu Loát & Công Sở (B2)';
+      impactDesc = `Đã hiểu ~${pct}% tiếng Anh công sở, viết email & phỏng vấn xin việc!`;
+      nextMilestone = 1200;
+      badgeIcon = '💼';
+    } else {
+      pct = Math.min(96, Math.round(88 + ((count - 1200) / 1382) * 8));
+      rankTitle = 'Chuyên Gia Ngôn Ngữ (C1/C2)';
+      impactDesc = `Đã hiểu ~${pct}% tiếng Anh học thuật & đọc báo chí chuyên ngành!`;
+      nextMilestone = 2582;
+      badgeIcon = '👑';
+    }
+
+    return {
+      count,
+      percent: pct,
+      rankTitle,
+      impactDesc,
+      nextMilestone,
+      badgeIcon,
+      wordsNeededForNext: Math.max(0, nextMilestone - count)
+    };
+  }
+
+  /**
+   * Tính toán trạng thái 3 Nhiệm Vụ Nhỏ Hôm Nay (Daily 3-Step Micro-Quests)
+   */
+  static getDailyMicroQuests(allLogs = [], studyQueue = {}, dailyNewGoal = 10) {
+    const todayKey = getLocalDateKey();
+    const todayLogs = allLogs.filter(l => l.timestamp && getLocalDateKey(l.timestamp) === todayKey);
+
+    const queueDue = studyQueue.totalDue !== undefined ? studyQueue.totalDue : 0;
+
+    // 1. Nhiệm vụ 1 (Warmup): Ôn tập từ cũ (đã ôn >= 5 từ hoặc sạch hàng đợi ôn)
+    const reviewCountToday = todayLogs.filter(l => l.oldState !== State.New && l.oldState !== 0).length;
+    const isWarmupDone = reviewCountToday >= 5 || (queueDue === 0 && reviewCountToday > 0) || (queueDue === 0 && todayLogs.length > 0);
+
+    // 2. Nhiệm vụ 2 (Learn): Nạp từ mới hôm nay (>= dailyNewGoal hoặc đạt chỉ tiêu)
+    const newCountToday = todayLogs.filter(l => 
+      l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
+    ).length;
+    const isLearnDone = newCountToday >= dailyNewGoal || (newCountToday > 0 && newCountToday >= (studyQueue.totalNew || 0));
+
+    // 3. Nhiệm vụ 3 (Quiz): Làm ít nhất 1 ván trắc nghiệm FSRS
+    const isQuizDone = todayLogs.some(l => l.isQuiz === true);
+
+    const quests = [
+      {
+        id: 'warmup',
+        title: 'Khởi động: Ôn 5 từ cũ',
+        sub: queueDue > 0 ? `Còn ${queueDue} từ cần ôn` : 'Đã sạch hàng đợi ✓',
+        icon: '🥪',
+        done: isWarmupDone,
+        progressText: `${Math.min(5, reviewCountToday)}/5 từ`
+      },
+      {
+        id: 'learn',
+        title: `Nạp mới: ${dailyNewGoal} từ vựng`,
+        sub: newCountToday >= dailyNewGoal ? 'Đạt chỉ tiêu ngày ✓' : `Còn ${Math.max(0, dailyNewGoal - newCountToday)} từ nữa`,
+        icon: '🥗',
+        done: isLearnDone,
+        progressText: `${newCountToday}/${dailyNewGoal} từ`
+      },
+      {
+        id: 'quiz',
+        title: 'Phản xạ: 1 ván Trắc Nghiệm',
+        sub: isQuizDone ? 'Đã hoàn thành xuất sắc ✓' : '10 câu kiểm tra phản xạ',
+        icon: '🍎',
+        done: isQuizDone,
+        progressText: isQuizDone ? '1/1 ván' : '0/1 ván'
+      }
+    ];
+
+    const completedQuestsCount = quests.filter(q => q.done).length;
+    const isAllCompleted = completedQuestsCount === 3;
+
+    return {
+      quests,
+      completedCount: completedQuestsCount,
+      totalQuests: 3,
+      isAllCompleted,
+      progressPercent: Math.round((completedQuestsCount / 3) * 100)
+    };
+  }
+
+  /**
    * Phân tích Khung Giờ Vàng Nhận Thức (Prime Cognitive Study Hour)
    */
   static getPrimeStudyHour(logs = []) {
