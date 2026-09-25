@@ -269,12 +269,12 @@ export function renderReviewShell(container) {
                 </div>
                 <div class="review-hero-titles">
                   <div class="review-hero-pill-tag">MỤC TIÊU & TIẾN ĐỘ</div>
-                  <h2 class="review-hero-main-title" id="goals-main-title">Kế hoạch 300 từ / 30 ngày</h2>
+                  <h2 class="review-hero-main-title" id="goals-main-title">Lộ trình mục tiêu cá nhân</h2>
                 </div>
               </div>
 
               <div class="review-header-badges-wrap">
-                <span class="pill-goals-countdown" id="goals-countdown-badge">⏳ Còn 30 ngày</span>
+                <span class="pill-goals-countdown" id="goals-countdown-badge">⏳ Đang tính...</span>
                 <span class="pill-goals-milestone" id="goals-milestone-badge">0%</span>
               </div>
             </div>
@@ -297,7 +297,7 @@ export function renderReviewShell(container) {
                 </div>
                 <div class="goal-ring-info">
                   <span class="goal-ring-title">Hôm nay</span>
-                  <span class="goal-ring-detail" id="ring-detail-day">0/10 từ</span>
+                  <span class="goal-ring-detail" id="ring-detail-day">0 từ</span>
                 </div>
               </div>
 
@@ -311,8 +311,8 @@ export function renderReviewShell(container) {
                   <span class="ring-center-val" id="ring-val-week">0%</span>
                 </div>
                 <div class="goal-ring-info">
-                  <span class="goal-ring-title">Tuần này</span>
-                  <span class="goal-ring-detail" id="ring-detail-week">0/70 từ</span>
+                  <span class="goal-ring-title">7 ngày qua</span>
+                  <span class="goal-ring-detail" id="ring-detail-week">0 từ</span>
                 </div>
               </div>
 
@@ -326,8 +326,8 @@ export function renderReviewShell(container) {
                   <span class="ring-center-val" id="ring-val-month">0%</span>
                 </div>
                 <div class="goal-ring-info">
-                  <span class="goal-ring-title">Tháng này</span>
-                  <span class="goal-ring-detail" id="ring-detail-month">0/300 từ</span>
+                  <span class="goal-ring-title">30 ngày qua</span>
+                  <span class="goal-ring-detail" id="ring-detail-month">0 từ</span>
                 </div>
               </div>
             </div>
@@ -341,10 +341,10 @@ export function renderReviewShell(container) {
                   <span class="status-tile-label" id="goal-sprint-label">MỤC TIÊU CHẶNG</span>
                 </div>
                 <div class="status-tile-main">
-                  <span class="status-tile-num" id="goal-sprint-num">0/300</span>
+                  <span class="status-tile-num" id="goal-sprint-num">--/--</span>
                   <span class="status-tile-unit">từ</span>
                 </div>
-                <span class="status-tile-sub" id="goal-sprint-sub">Chặng 1 • Còn 30 từ</span>
+                <span class="status-tile-sub" id="goal-sprint-sub">Đang tính tiến độ...</span>
               </div>
 
               <!-- Tile 2: Kho Tổng Thư Viện (Master-goal) -->
@@ -354,10 +354,10 @@ export function renderReviewShell(container) {
                   <span class="status-tile-label">KHO TỔNG THƯ VIỆN</span>
                 </div>
                 <div class="status-tile-main">
-                  <span class="status-tile-num" id="goal-master-num">0/2582</span>
+                  <span class="status-tile-num" id="goal-master-num">--/--</span>
                   <span class="status-tile-unit">từ</span>
                 </div>
-                <span class="status-tile-sub" id="goal-master-sub">Đã thuộc 0 từ (0%) 🛡️</span>
+                <span class="status-tile-sub" id="goal-master-sub">Đang đồng bộ dữ liệu...</span>
               </div>
             </div>
 
@@ -365,7 +365,7 @@ export function renderReviewShell(container) {
             <div class="goals-motive-strip">
               <div class="goals-motive-left">
                 <span class="goals-motive-icon">⚡</span>
-                <span class="goals-motive-text" id="goals-motive-text">Duy trì 10 từ/ngày để sớm về đích!</span>
+                <span class="goals-motive-text" id="goals-motive-text">Đang phân tích lộ trình học tập...</span>
               </div>
               <button type="button" class="btn-goals-adjust" id="btn-goals-adjust" title="Tùy chỉnh chỉ tiêu học">
                 <span>Cài đặt ⚙️</span>
@@ -713,16 +713,16 @@ export function renderReviewTab(app) {
     const weekGoal = dailyGoal * 7;
     const weekPct = Math.min(100, Math.round((weekNewLearned / weekGoal) * 100));
 
-    // 3. Tháng (Tháng dương lịch hiện tại)
-    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1, 0, 0, 0, 0);
-    const monthLogs = allLogs.filter(l => l.timestamp && new Date(l.timestamp) >= monthStart);
-    const monthNewLearned = monthLogs.filter(l => 
+    // 3. Chu kỳ 30 ngày (Rolling 30 days)
+    const month30Start = new Date(now);
+    month30Start.setDate(month30Start.getDate() - 29);
+    month30Start.setHours(0, 0, 0, 0);
+    const month30Logs = allLogs.filter(l => l.timestamp && new Date(l.timestamp) >= month30Start);
+    const month30NewLearned = month30Logs.filter(l => 
       l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
     ).length;
-    const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
-    const daysRemaining = Math.max(0, daysInMonth - now.getDate() + 1);
-    const monthGoal = dailyGoal * daysInMonth;
-    const monthPct = Math.min(100, Math.round((monthNewLearned / monthGoal) * 100));
+    const month30Goal = dailyGoal * 30;
+    const month30Pct = Math.min(100, Math.round((month30NewLearned / month30Goal) * 100));
 
     // 4. Mục tiêu Chặng (Sub-goal) & Kho Tổng (Master-goal)
     const roadmap = StatsManager.getMilestoneRoadmap(learnedCount, dailyGoal);
@@ -739,12 +739,12 @@ export function renderReviewTab(app) {
     // Update Header
     const elGoalsTitle = document.getElementById('goals-main-title');
     if (elGoalsTitle) {
-      elGoalsTitle.textContent = `${activeStage.title} (${monthGoal} từ/${daysInMonth} ngày)`;
+      elGoalsTitle.textContent = `${activeStage.title} (${activeStage.targetWords} từ)`;
     }
 
     const elGoalsCountdown = document.getElementById('goals-countdown-badge');
     if (elGoalsCountdown) {
-      elGoalsCountdown.textContent = `⏳ Còn ${daysRemaining} ngày`;
+      elGoalsCountdown.textContent = stageWordsLeft > 0 ? `⏳ Còn ${stageDaysEstimate} ngày` : '🏆 Hoàn thành';
     }
 
     const elGoalsMilestone = document.getElementById('goals-milestone-badge');
@@ -772,7 +772,7 @@ export function renderReviewTab(app) {
 
     setRadialRing('ring-svg-day', 'ring-val-day', 'ring-detail-day', dayPct, todayNewLearned, dailyGoal);
     setRadialRing('ring-svg-week', 'ring-val-week', 'ring-detail-week', weekPct, weekNewLearned, weekGoal);
-    setRadialRing('ring-svg-month', 'ring-val-month', 'ring-detail-month', monthPct, monthNewLearned, monthGoal);
+    setRadialRing('ring-svg-month', 'ring-val-month', 'ring-detail-month', month30Pct, month30NewLearned, month30Goal);
 
     // Update Sub-goal & Master-goal Tiles
     const elSprintNum = document.getElementById('goal-sprint-num');
