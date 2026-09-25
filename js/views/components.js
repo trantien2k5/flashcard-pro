@@ -1348,7 +1348,7 @@ export function openGoalPlannerModal(app, onSaveCallback = null) {
         <div class="goal-header-left">
           <div class="goal-planner-icon">🎯</div>
           <div class="goal-planner-titles">
-            <h3 class="modal-title">Căn Chỉnh & Lập Kế Hoạch Mục Tiêu</h3>
+            <h3 class="modal-title">Căn Chỉnh & Lập Kế Hoạch Mục Tiêu FSRS</h3>
             <p class="modal-subtitle">Hệ thống FSRS-6 tự động phân tích trí nhớ & tối ưu lịch học kỷ luật</p>
           </div>
         </div>
@@ -1360,16 +1360,16 @@ export function openGoalPlannerModal(app, onSaveCallback = null) {
         <!-- 1. Thống Kê Hiện Trạng Vốn Từ & Trí Nhớ -->
         <div class="planner-status-strip">
           <div class="planner-status-tile">
-            <span class="status-tile-lbl">📚 Vốn từ hiện tại</span>
-            <span class="status-tile-val">${learnedCount}/${totalLibraryWords} <small>từ (${Math.round((learnedCount/totalLibraryWords)*100)}%)</small></span>
+            <div class="status-tile-lbl">📚 VỐN TỪ HIỆN TẠI</div>
+            <div class="status-tile-val">${learnedCount} <span class="status-unit">/ ${totalLibraryWords} từ (${Math.round((learnedCount/totalLibraryWords)*100)}%)</span></div>
           </div>
           <div class="planner-status-tile">
-            <span class="status-tile-lbl">🛡️ Đã thuộc bền vững</span>
-            <span class="status-tile-val text-success">${masteredCount} <small>từ (${Math.round((masteredCount/totalLibraryWords)*100)}%)</small></span>
+            <div class="status-tile-lbl">🛡️ ĐÃ THUỘC BỀN VỮNG</div>
+            <div class="status-tile-val text-success">${masteredCount} <span class="status-unit">/ ${totalLibraryWords} từ (${Math.round((masteredCount/totalLibraryWords)*100)}%)</span></div>
           </div>
           <div class="planner-status-tile">
-            <span class="status-tile-lbl">💎 Độ nhớ thực tế</span>
-            <span class="status-tile-val text-primary">${avgRetention}% <small>FSRS R(t)</small></span>
+            <div class="status-tile-lbl">💎 ĐỘ NHỚ THỰC TẾ</div>
+            <div class="status-tile-val text-primary">${avgRetention}% <span class="status-unit">FSRS R(t)</span></div>
           </div>
         </div>
 
@@ -1377,18 +1377,30 @@ export function openGoalPlannerModal(app, onSaveCallback = null) {
         <div class="planner-section">
           <div class="planner-section-title-row">
             <span class="planner-section-num">1</span>
-            <h4 class="planner-section-title">Chọn Chặng Mục Tiêu Muốn Chinh Phục</h4>
+            <h4 class="planner-section-title">Chọn Chặng Mục Tiêu Chinh Phục</h4>
+            <span class="planner-section-hint">(Bấm chọn chặng mong muốn)</span>
           </div>
           
           <div class="planner-stages-grid" id="planner-stages-grid">
             ${stagesList.map(stage => {
               const isDone = stage.isCompleted;
               const isSelected = stage.id === selectedStageId;
+              const isCurrent = roadmap.activeStage && roadmap.activeStage.id === stage.id && !isDone;
+              let badgeTag = '';
+              if (isDone) {
+                badgeTag = '<span class="stage-tag tag-done">✓ Đạt</span>';
+              } else if (isSelected) {
+                badgeTag = '<span class="stage-tag tag-selected">🎯 Đang chọn</span>';
+              } else if (isCurrent) {
+                badgeTag = '<span class="stage-tag tag-current">⚡ Đang học</span>';
+              }
+
               return `
                 <div class="planner-stage-card ${isSelected ? 'selected' : ''} ${isDone ? 'completed' : ''}" data-stage-id="${stage.id}">
                   <div class="planner-stage-top">
                     <span class="planner-stage-icon">${stage.icon}</span>
                     <span class="planner-stage-badge">${stage.badge}</span>
+                    ${badgeTag}
                   </div>
                   <div class="planner-stage-name">${escapeHTML(stage.title)}</div>
                   <div class="planner-stage-target">${stage.targetWords} từ</div>
@@ -1398,7 +1410,6 @@ export function openGoalPlannerModal(app, onSaveCallback = null) {
                     </div>
                     <span class="planner-stage-pct-val">${stage.progressPct}%</span>
                   </div>
-                  ${isDone ? '<span class="stage-tag-done">✓ Đạt</span>' : ''}
                 </div>
               `;
             }).join('')}
@@ -1410,17 +1421,25 @@ export function openGoalPlannerModal(app, onSaveCallback = null) {
           <div class="planner-section-title-row">
             <span class="planner-section-num">2</span>
             <h4 class="planner-section-title">Chọn Vận Tốc Nạp Từ Mỗi Ngày</h4>
+            <span class="planner-section-hint">(Số từ mới mỗi ngày)</span>
           </div>
 
           <div class="planner-pace-row" id="planner-pace-row">
-            ${[5, 10, 15, 20, 30].map(pace => `
-              <button type="button" class="btn-pace-preset ${pace === currentPace ? 'active' : ''}" data-pace="${pace}">
-                <span class="pace-val">${pace}</span>
-                <span class="pace-unit">từ/ngày</span>
+            ${[
+              { val: 5, label: '5', sub: 'Thư thái' },
+              { val: 10, label: '10', sub: 'Chuẩn ⭐' },
+              { val: 15, label: '15', sub: 'Tăng tốc' },
+              { val: 20, label: '20', sub: 'Bứt phá' },
+              { val: 30, label: '30', sub: 'Cao độ' }
+            ].map(p => `
+              <button type="button" class="btn-pace-preset ${p.val === currentPace ? 'active' : ''}" data-pace="${p.val}">
+                <span class="pace-val">${p.label}</span>
+                <span class="pace-sub-tag">${p.sub}</span>
               </button>
             `).join('')}
             <div class="planner-custom-pace">
-              <input type="number" id="input-custom-pace" min="1" max="100" value="${currentPace}" placeholder="Số khác" title="Nhập số từ mỗi ngày">
+              <span class="custom-pace-lbl">Tùy chọn:</span>
+              <input type="number" id="input-custom-pace" min="1" max="100" value="${currentPace}" placeholder="Số từ">
               <span class="custom-pace-unit">từ/ngày</span>
             </div>
           </div>
@@ -1435,34 +1454,34 @@ export function openGoalPlannerModal(app, onSaveCallback = null) {
 
           <div class="sim-grid">
             <div class="sim-item">
-              <span class="sim-label">Cần nạp thêm:</span>
+              <span class="sim-label">📥 Cần nạp thêm:</span>
               <span class="sim-val" id="sim-words-left">0 từ</span>
             </div>
             <div class="sim-item">
-              <span class="sim-label">Thời gian về đích:</span>
-              <span class="sim-val highlight" id="sim-days-left">⏳ 0 ngày</span>
+              <span class="sim-label">⏳ Đếm ngược về đích:</span>
+              <span class="sim-val highlight" id="sim-days-left">0 ngày</span>
             </div>
             <div class="sim-item">
-              <span class="sim-label">Ngày dự kiến hoàn thành:</span>
+              <span class="sim-label">📅 Ngày hoàn thành dự kiến:</span>
               <span class="sim-val" id="sim-target-date">--/--/----</span>
             </div>
             <div class="sim-item">
-              <span class="sim-label">Thời gian học mỗi ngày:</span>
-              <span class="sim-val" id="sim-daily-minutes">~0 phút/ngày</span>
+              <span class="sim-label">⏱️ Thời gian học mỗi ngày:</span>
+              <span class="sim-val" id="sim-daily-minutes">~0 phút</span>
             </div>
           </div>
 
           <div class="sim-discipline-banner" id="sim-discipline-banner">
             <span class="discipline-tag" id="sim-discipline-tag">🎯 TIÊU CHUẨN VÀNG</span>
-            <span class="discipline-desc" id="sim-discipline-desc">Duy trì đều đặn 10 từ/ngày, ôn tập FSRS đúng hạn để đạt tỷ lệ nhớ 90%+.</span>
+            <span class="discipline-desc" id="sim-discipline-desc">Duy trì đều đặn mỗi ngày để đạt tỷ lệ nhớ FSRS trên 90%.</span>
           </div>
         </div>
 
       </div>
 
       <div class="modal-footer goal-planner-footer">
-        <button type="button" class="btn-confirm-secondary" id="btn-cancel-planner">Đóng</button>
-        <button type="button" class="btn-confirm-primary btn-save-goal-plan" id="btn-save-goal-plan">
+        <button type="button" class="btn-planner-cancel" id="btn-cancel-planner">Đóng</button>
+        <button type="button" class="btn-planner-save" id="btn-save-goal-plan">
           <span>🎯 Lưu & Áp Dụng Kế Hoạch</span>
         </button>
       </div>
@@ -1495,7 +1514,7 @@ export function openGoalPlannerModal(app, onSaveCallback = null) {
     if (elDaysLeft) elDaysLeft.textContent = wordsLeft > 0 ? `⏳ Còn ${daysEstimate} ngày` : '🎉 Đã về đích!';
 
     const elTargetDate = modal.querySelector('#sim-target-date');
-    if (elTargetDate) elTargetDate.textContent = wordsLeft > 0 ? dateStr : 'Đã chinh phục thành công';
+    if (elTargetDate) elTargetDate.textContent = wordsLeft > 0 ? dateStr : 'Đã hoàn thành xuất sắc';
 
     const elDailyMins = modal.querySelector('#sim-daily-minutes');
     if (elDailyMins) elDailyMins.textContent = `~${dailyMins} phút/ngày`;
@@ -1506,11 +1525,11 @@ export function openGoalPlannerModal(app, onSaveCallback = null) {
       if (currentPace <= 5) {
         elTag.textContent = '☕ THƯ THÁI & BỀN BỈ';
         elTag.className = 'discipline-tag tag-easy';
-        elDesc.textContent = `Lộ trình nhẹ nhàng (~${dailyMins} phút/ngày), cực kỳ phù hợp khi bận rộn. Bí quyết là không bỏ lỡ ngày nào!`;
+        elDesc.textContent = `Lộ trình nhẹ nhàng (~${dailyMins} phút/ngày), duy trì đều đặn không áp lực. Thích hợp khi bận rộn.`;
       } else if (currentPace <= 12) {
         elTag.textContent = '🎯 TIÊU CHUẨN VÀNG (KHUYÊN DÙNG)';
         elTag.className = 'discipline-tag tag-standard';
-        elDesc.textContent = `Vận tốc tối ưu cho não bộ (~${dailyMins} phút/ngày). Dễ dàng duy trì chuỗi học và giữ độ nhớ FSRS trên 90%.`;
+        elDesc.textContent = `Vận tốc tối ưu cho não bộ (~${dailyMins} phút/ngày). Duy trì độ nhớ FSRS trên 90% và hạn chế dồn backlog.`;
       } else if (currentPace <= 22) {
         elTag.textContent = '🚀 BỨT PHÁ TĂNG TỐC';
         elTag.className = 'discipline-tag tag-accelerate';
@@ -1518,7 +1537,7 @@ export function openGoalPlannerModal(app, onSaveCallback = null) {
       } else {
         elTag.textContent = '⚡ CHIẾN BINH CƯỜNG ĐỘ CAO';
         elTag.className = 'discipline-tag tag-hardcore';
-        elDesc.textContent = `Cường độ mạnh mẽ (~${dailyMins} phút/ngày). Hãy chia nhỏ thành 2 phiên sáng/tối để tránh quá tải nhận thức!`;
+        elDesc.textContent = `Cường độ mạnh mẽ (~${dailyMins} phút/ngày). Nên chia nhỏ thành 2 phiên sáng/tối để ghi nhớ sâu nhất!`;
       }
     }
   };
@@ -1537,9 +1556,24 @@ export function openGoalPlannerModal(app, onSaveCallback = null) {
   // Stage Selection
   modal.querySelectorAll('.planner-stage-card').forEach(card => {
     card.addEventListener('click', () => {
-      modal.querySelectorAll('.planner-stage-card').forEach(c => c.classList.remove('selected'));
+      modal.querySelectorAll('.planner-stage-card').forEach(c => {
+        c.classList.remove('selected');
+        const badge = c.querySelector('.stage-tag.tag-selected');
+        if (badge) badge.remove();
+      });
       card.classList.add('selected');
       selectedStageId = Number(card.dataset.stageId);
+      
+      // Update badge
+      if (!card.querySelector('.stage-tag')) {
+        const top = card.querySelector('.planner-stage-top');
+        if (top) {
+          const newBadge = document.createElement('span');
+          newBadge.className = 'stage-tag tag-selected';
+          newBadge.textContent = '🎯 Đang chọn';
+          top.appendChild(newBadge);
+        }
+      }
       updateSimulation();
     });
   });
