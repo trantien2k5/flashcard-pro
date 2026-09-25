@@ -455,16 +455,15 @@ export class SyncManager {
    * Đóng gói toàn bộ dữ liệu tiến trình học tập FSRS, logs, studyTime, customDecks
    */
   static packageSyncData() {
-    const rawData = StorageManager.exportBackup();
     return {
       v: 2,
       ts: Date.now(),
-      cards: rawData.cards || {},
-      settings: rawData.settings || {},
-      logs: rawData.logs || [],
-      customDecks: rawData.customDecks || [],
-      studyTime: rawData.studyTime || {},
-      userProgress: rawData.userProgress || {}
+      cards: StorageManager.getAllCardStates() || {},
+      settings: StorageManager.getSettings() || {},
+      logs: StorageManager.getStudyLogs() || [],
+      customDecks: StorageManager.getCustomDecks() || [],
+      studyTime: StorageManager.getStudyTimeMap() || {},
+      userProgress: StorageManager.getUserProgress() || {}
     };
   }
 
@@ -476,32 +475,42 @@ export class SyncManager {
     const cardsPayload = payload.cards || payload.c || {};
     
     const unpackedCards = {};
-    for (const [id, c] of Object.entries(cardsPayload)) {
-      if (c) {
-        unpackedCards[id] = {
-          id: id,
-          state: c.state ?? c.s ?? 0,
-          reps: c.reps ?? c.r ?? 0,
-          lapses: c.lapses ?? c.l ?? 0,
-          stability: c.stability ?? c.st ?? 0,
-          difficulty: c.difficulty ?? c.d ?? 0,
-          due: c.due ?? c.du ?? null,
-          last_review: c.last_review ?? c.lr ?? null,
-          elapsed_days: c.elapsed_days ?? 0,
-          scheduled_days: c.scheduled_days ?? 0
-        };
+    if (Array.isArray(cardsPayload)) {
+      cardsPayload.forEach(c => {
+        if (c) {
+          const norm = StorageManager._normalizeCardState ? StorageManager._normalizeCardState(c) : null;
+          if (norm) unpackedCards[norm.id] = norm;
+        }
+      });
+    } else if (typeof cardsPayload === 'object') {
+      for (const [id, c] of Object.entries(cardsPayload)) {
+        if (c) {
+          const norm = StorageManager._normalizeCardState ? StorageManager._normalizeCardState({ id, ...c }) : {
+            id: id,
+            state: c.state ?? c.s ?? 0,
+            reps: c.reps ?? c.r ?? 0,
+            lapses: c.lapses ?? c.l ?? 0,
+            stability: c.stability ?? c.st ?? 0,
+            difficulty: c.difficulty ?? c.d ?? 0,
+            due: c.due ?? c.du ?? null,
+            last_review: c.last_review ?? c.lr ?? null,
+            elapsed_days: c.elapsed_days ?? 0,
+            scheduled_days: c.scheduled_days ?? 0
+          };
+          if (norm) unpackedCards[norm.id] = norm;
+        }
       }
     }
 
     return {
       version: '2.0',
-      exportDate: new Date(payload.ts || Date.now()).toISOString(),
+      exportDate: new Date(payload.ts || payload.t * 1000 || Date.now()).toISOString(),
       cards: unpackedCards,
       settings: payload.settings || payload.s || {},
-      logs: payload.logs || payload.study_logs || [],
-      customDecks: payload.customDecks || payload.custom_decks || [],
-      studyTime: payload.studyTime || payload.study_time || {},
-      userProgress: payload.userProgress || payload.user_progress || {}
+      logs: payload.logs || payload.l || payload.study_logs || [],
+      customDecks: payload.customDecks || payload.d || payload.custom_decks || [],
+      studyTime: payload.studyTime || payload.st || payload.study_time || {},
+      userProgress: payload.userProgress || payload.up || payload.user_progress || {}
     };
   }
 
@@ -509,15 +518,27 @@ export class SyncManager {
    * Thuật toán Smart Merge FSRS: Hợp nhất thông minh & chính xác 100% giữa 2 thiết bị
    */
   static mergeProgress(incomingData) {
-    const currentData = StorageManager.exportBackup();
-    const currentCards = currentData.cards || {};
-    const incomingCards = incomingData.cards || {};
-    const mergedCards = { ...currentCards };
+    const currentCards = StorageManager.getAllCardStates() || {};
+    let incomingCards = incomingData.cards || incomingData.c || {};
+    
+    // Chuẩn hóa incomingCards nếu truyền dạng mảng tuple
+    if (Array.isArray(incomingCards)) {
+      const cardMap = {};
+      incomingCards.forEach(c => {
+        const norm = StorageManager._normalizeCardState ? StorageManager._normalizeCardState(c) : null;
+        if (norm) cardMap[norm.id] = norm;
+      });
+      incomingCards = cardMap;
+    }
 
+    const mergedCards = { ...currentCards };
     let updatedCount = 0;
     let addedCount = 0;
 
-    for (const [id, inc] of Object.entries(incomingCards)) {
+    for (const [id, rawInc] of Object.entries(incomingCards)) {
+      const inc = StorageManager._normalizeCardState ? StorageManager._normalizeCardState({ id, ...rawInc }) : rawInc;
+      if (!inc) continue;
+      
       const cur = currentCards[id];
       if (!cur) {
         mergedCards[id] = inc;
@@ -542,15 +563,28 @@ export class SyncManager {
     }
 
     // 1. Hợp nhất Lịch sử ôn tập (Logs) - Deduplicate theo ID & Timestamp, sắp xếp theo thời gian
-    const curLogs = currentData.logs || [];
-    const incLogs = incomingData.logs || [];
+    const curLogs = StorageManager.getStudyLogs() || [];
+    const incLogs = incomingData.logs || incomingData.l || [];
     const logMap = new Map();
     [...curLogs, ...incLogs].forEach(l => {
       if (l) {
-        const cardKey = l.cardId || l.card_id || l.word || 'item';
-        const timeKey = l.timestamp || l.review || '';
-        const key = l.id ? String(l.id) : `${cardKey}_${timeKey}`;
-        logMap.set(key, l);
+        if (Array.isArray(l)) {
+          const [cardId, rating, tsSec, latencySec, backViewSec] = l;
+          const logObj = {
+            id: `log_${tsSec}_${cardId}`,
+            cardId: cardId,
+            rating: rating || 3,
+            timestamp: tsSec > 0 ? new Date(tsSec * 1000).toISOString() : new Date().toISOString(),
+            latencySec: latencySec || null,
+            backViewSec: backViewSec || null
+          };
+          logMap.set(logObj.id, logObj);
+        } else {
+          const cardKey = l.cardId || l.card_id || l.word || 'item';
+          const timeKey = l.timestamp || l.review || '';
+          const key = l.id ? String(l.id) : `${cardKey}_${timeKey}`;
+          logMap.set(key, l);
+        }
       }
     });
     const mergedLogs = Array.from(logMap.values()).sort((a, b) => {
@@ -560,16 +594,16 @@ export class SyncManager {
     });
 
     // 2. Hợp nhất Thời gian học (Study Time theo từng ngày)
-    const curTimeMap = currentData.studyTime || {};
-    const incTimeMap = incomingData.studyTime || {};
+    const curTimeMap = StorageManager.getStudyTimeMap() || {};
+    const incTimeMap = incomingData.studyTime || incomingData.st || {};
     const mergedStudyTime = { ...curTimeMap };
     for (const [dateKey, seconds] of Object.entries(incTimeMap)) {
       mergedStudyTime[dateKey] = Math.max(mergedStudyTime[dateKey] || 0, seconds || 0);
     }
 
     // 3. Hợp nhất Bộ đề tùy chỉnh (Custom Decks) có sanitize HTML chống XSS
-    const curDecks = currentData.customDecks || [];
-    const incDecks = incomingData.customDecks || [];
+    const curDecks = StorageManager.getCustomDecks() || [];
+    const incDecks = incomingData.customDecks || incomingData.d || [];
     const deckMap = new Map();
     curDecks.forEach(d => {
       if (d && d.id) {
@@ -596,8 +630,8 @@ export class SyncManager {
     const mergedCustomDecks = Array.from(deckMap.values());
 
     // 4. Hợp nhất Tiến độ người dùng & Ghim chủ đề (User Progress & Pinned Topics)
-    const curProgress = currentData.userProgress || {};
-    const incProgress = incomingData.userProgress || {};
+    const curProgress = StorageManager.getUserProgress() || {};
+    const incProgress = incomingData.userProgress || incomingData.up || {};
     const mergedCompletedSubtopics = Array.from(new Set([
       ...(Array.isArray(curProgress.completedSubtopics) ? curProgress.completedSubtopics : []),
       ...(Array.isArray(incProgress.completedSubtopics) ? incProgress.completedSubtopics : [])
@@ -612,12 +646,15 @@ export class SyncManager {
       pinnedTopics: mergedPinnedTopics
     };
 
+    const curSettings = StorageManager.getSettings() || {};
+    const incSettings = incomingData.settings || incomingData.s || {};
+
     return {
       data: {
         version: '2.0',
         exportDate: new Date().toISOString(),
         cards: mergedCards,
-        settings: { ...(currentData.settings || {}), ...(incomingData.settings || {}) },
+        settings: { ...curSettings, ...incSettings },
         logs: mergedLogs,
         studyTime: mergedStudyTime,
         customDecks: mergedCustomDecks,

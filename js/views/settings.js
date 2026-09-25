@@ -532,7 +532,8 @@ export function setupSettingsUI(app) {
         try {
           const result = BackupService.exportToJSON();
           if (result && result.success) {
-            showToast(`Đã xuất file: ${result.filename} 📁`, 'success');
+            const sizeStr = result.sizeKb > 0 ? ` (${result.sizeKb} KB)` : '';
+            showToast(`Đã xuất file sao lưu siêu nhẹ${sizeStr}: ${result.filename} 📁`, 'success');
           } else {
             showToast('Lỗi khi xuất file sao lưu.', 'error');
           }
@@ -627,17 +628,16 @@ export function updateSettingsUIValues(app) {
 export async function executeBackupImport(file, app) {
   try {
     if (!file) return;
-    const text = await file.text();
-    const data = JSON.parse(text);
-    const res = await StorageManager.importBackup(data);
-    if (res.success) {
-      showToast('Khôi phục dữ liệu FSRS thành công! 🎉', 'success');
+    const res = await BackupService.importFromFile(file);
+    if (res && res.success) {
+      const countStr = typeof res.count === 'number' ? ` (${res.count} từ)` : '';
+      showToast(`Khôi phục dữ liệu FSRS thành công${countStr}! 🎉`, 'success');
       app.settings = StorageManager.getSettings();
       app.applyTheme(app.settings.theme || 'light');
       updateSettingsUIValues(app);
       app.refreshAllViews();
     } else {
-      showToast('Lỗi dữ liệu file: ' + (res.error || 'Không hợp lệ'), 'error');
+      showToast('Lỗi dữ liệu file: ' + (res?.error || 'Không hợp lệ'), 'error');
     }
   } catch (err) {
     console.error('Lỗi khi import file backup:', err);
