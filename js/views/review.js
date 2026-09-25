@@ -46,7 +46,7 @@ export function renderReviewShell(container) {
                 </div>
                 <div class="review-hero-titles">
                   <div class="review-hero-pill-tag">NHIỆM VỤ HÔM NAY</div>
-                  <h2 class="review-hero-main-title" id="home-today-status">Kế hoạch ôn tập & học từ vựng</h2>
+                  <h2 class="review-hero-main-title" id="home-today-status">Kế hoạch ôn tập & nạp từ vựng</h2>
                 </div>
               </div>
 
@@ -111,7 +111,7 @@ export function renderReviewShell(container) {
                   <span class="quad-number" id="home-retention-rate">0</span>
                   <span class="quad-unit">từ</span>
                 </div>
-                <span class="quad-sub-hint" id="home-retention-hint">Tầng 4 & 5 FSRS</span>
+                <span class="quad-sub-hint" id="home-retention-hint">Ghi nhớ bền vững 🛡️</span>
               </div>
             </div>
 
@@ -122,7 +122,7 @@ export function renderReviewShell(container) {
                   <svg class="action-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                     <polygon points="5 3 19 12 5 21 5 3"/>
                   </svg>
-                  <span id="home-hero-cta-text">Ôn thẻ 3D</span>
+                  <span id="home-hero-cta-text">Ôn thẻ Flashcard</span>
                 </button>
 
                 <button class="btn-hero-twin-quiz" id="btn-home-quiz-cta" type="button" title="Học & Ôn bằng trắc nghiệm phản xạ FSRS">
@@ -145,8 +145,8 @@ export function renderReviewShell(container) {
               <div class="milestones-header-left">
                 <div class="milestones-icon-badge">🎯</div>
                 <div class="milestones-title-wrap">
-                  <span class="milestones-tag">BẢNG MỤC TIÊU CHIA NHỎ</span>
-                  <h3 class="milestones-main-title" id="milestone-board-title">Lộ trình 8 chặng khả thi</h3>
+                  <span class="milestones-tag">LỘ TRÌNH MỤC TIÊU</span>
+                  <h3 class="milestones-main-title" id="milestone-board-title">Hành trình 8 chặng chinh phục</h3>
                 </div>
               </div>
               <div class="milestones-header-right">
@@ -261,8 +261,8 @@ export function renderReviewShell(container) {
               <div class="quests-header-left">
                 <div class="quests-icon-badge">🏆</div>
                 <div class="quests-title-wrap">
-                  <span class="quests-tag">3 BƯỚC NHỎ MỖI NGÀY</span>
-                  <h3 class="quests-main-title">Dễ dàng & Chắc chắn hoàn thành</h3>
+                  <span class="quests-tag">MỤC TIÊU HÀNG NGÀY</span>
+                  <h3 class="quests-main-title">Lộ trình học gọn nhẹ mỗi ngày</h3>
                 </div>
               </div>
               <span class="quests-progress-pill" id="review-quests-badge">0/3 bước</span>
@@ -279,12 +279,12 @@ export function renderReviewShell(container) {
               <div class="radar-header-left">
                 <div class="radar-icon-badge">💎</div>
                 <div class="radar-title-wrap">
-                  <span class="radar-tag">TRÍ TUỆ TRÍ NHỚ FSRS-6</span>
+                  <span class="radar-tag">NĂNG LỰC TRÍ NHỚ FSRS-6</span>
                   <h3 class="radar-main-title" id="radar-rank-title">Cấp bậc: Tập Sự (0 đ)</h3>
                 </div>
               </div>
               <div class="radar-retrieval-pill" id="radar-retrieval-badge" title="Tỷ lệ nhớ thực tế R(t) theo thuật toán FSRS">
-                <span class="radar-retrieval-label">Nhớ thật:</span>
+                <span class="radar-retrieval-label">Khả năng nhớ:</span>
                 <span class="radar-retrieval-val" id="radar-retrieval-val">100%</span>
               </div>
             </div>
@@ -363,14 +363,14 @@ export function renderReviewShell(container) {
             </button>
           </div>
 
-          <!-- 8. Bệnh Án Từ Vựng & Hệ Miễn Dịch (Weak Words Drill / Health Status) -->
+          <!-- 8. Củng Cố Từ Vựng & Phòng Ngừa Hay Quên (Weak Words Drill / Mastery Health) -->
           <div id="review-weak-words-box" class="review-weak-card">
             <div class="weak-card-header">
               <div class="weak-header-left">
                 <div class="weak-icon-badge" id="weak-icon-badge">🛡️</div>
                 <div class="weak-title-wrap">
-                  <span class="weak-tag" id="weak-tag-label">HỆ MIỄN DỊCH TỪ VỰNG</span>
-                  <h3 class="weak-main-title" id="weak-words-title">100% Khỏe mạnh • Chưa có từ hay quên</h3>
+                  <span class="weak-tag" id="weak-tag-label">PHÒNG NGỪA QUÊN TỪ</span>
+                  <h3 class="weak-main-title" id="weak-words-title">Phong độ xuất sắc • Chưa có từ nào hay quên</h3>
                 </div>
               </div>
               <span class="weak-count-pill" id="weak-words-count-badge">Tốt ✓</span>
@@ -378,10 +378,10 @@ export function renderReviewShell(container) {
 
             <div class="weak-actions-row" id="weak-actions-row" style="display: none;">
               <button type="button" class="btn-weak-action btn-weak-3d" id="btn-weak-drill-3d">
-                <span>🎴 Cấp cứu Thẻ 3D</span>
+                <span>🎴 Củng cố Flashcard</span>
               </button>
               <button type="button" class="btn-weak-action btn-weak-quiz" id="btn-weak-drill-quiz">
-                <span>⚡ Trắc nghiệm Cấp Tốc</span>
+                <span>⚡ Trắc nghiệm Củng Cố</span>
               </button>
             </div>
           </div>
@@ -499,7 +499,7 @@ export function renderReviewTab(app) {
     const elRetentionHint = document.getElementById('home-retention-hint');
     if (elRetentionHint) {
       if (masteredCount > 0) {
-        elRetentionHint.textContent = 'Tầng 4 & 5 • Bền vững 🛡️';
+        elRetentionHint.textContent = 'Ghi nhớ bền vững 🛡️';
       } else {
         elRetentionHint.textContent = 'Độ bền ≥ 14 ngày';
       }
@@ -539,9 +539,9 @@ export function renderReviewTab(app) {
     const elTodayStatus = document.getElementById('home-today-status');
     if (elTodayStatus) {
       if (queueDue > 0) {
-        elTodayStatus.textContent = `Có ${queueDue} từ cần ôn tập đến hạn`;
+        elTodayStatus.textContent = `Có ${queueDue} từ cần ôn tập hôm nay`;
       } else if (todayNewLearned >= dailyGoal) {
-        elTodayStatus.textContent = 'Đã hoàn thành chỉ tiêu hôm nay ✓';
+        elTodayStatus.textContent = 'Đã hoàn thành xuất sắc chỉ tiêu hôm nay ✓';
       } else {
         elTodayStatus.textContent = `Còn ${remainingGoal} từ mới để đạt chỉ tiêu hôm nay`;
       }
@@ -704,7 +704,7 @@ export function renderReviewTab(app) {
       if (activeStage.isCompleted) {
         elActiveEstimate.textContent = `🎉 Đã chinh phục trọn vẹn mốc này!`;
       } else {
-        elActiveEstimate.textContent = `⏱️ Còn ${activeStage.wordsRemaining} từ (~${activeStage.daysEstimate} ngày học nhẹ nhàng)`;
+        elActiveEstimate.textContent = `⏱️ Còn ${activeStage.wordsRemaining} từ (khoảng ${activeStage.daysEstimate} ngày học nhẹ nhàng)`;
       }
     }
 
@@ -823,7 +823,7 @@ export function renderReviewTab(app) {
       }
     }
 
-    // H. Render Radar Trí Tuệ Trí Nhớ FSRS-6 & 5 Tầng Phân Bố (Memory Radar)
+    // H. Render Radar Năng Lực Trí Nhớ FSRS-6 & 5 Tầng Phân Bố (Memory Radar)
     const memIntel = StatsManager.getMemoryIntelligence(allCards);
     const elRadarRank = document.getElementById('radar-rank-title');
     const elRadarRetrieval = document.getElementById('radar-retrieval-val');
@@ -888,12 +888,12 @@ export function renderReviewTab(app) {
 
     if (boxWeak) {
       if (weakWords.length > 0) {
-        if (elWeakIcon) elWeakIcon.textContent = '🩺';
+        if (elWeakIcon) elWeakIcon.textContent = '💡';
         if (elWeakTag) {
-          elWeakTag.textContent = 'BỆNH ÁN TỪ VỰNG';
+          elWeakTag.textContent = 'TỪ VỰNG CẦN CỦNG CỐ';
           elWeakTag.style.color = '#ef4444';
         }
-        if (elWeakTitle) elWeakTitle.textContent = `Có ${weakWords.length} từ bạn hay quên cần củng cố`;
+        if (elWeakTitle) elWeakTitle.textContent = `Có ${weakWords.length} từ bạn hay quên cần ôn luyện lại`;
         if (elWeakCount) {
           elWeakCount.textContent = `${weakWords.length} từ`;
           elWeakCount.style.color = '#ef4444';
@@ -906,7 +906,7 @@ export function renderReviewTab(app) {
             try {
               app.startStudySession(null, null, weakWords);
             } catch (err) {
-              console.error('Lỗi phiên cấp cứu thẻ 3D:', err);
+              console.error('Lỗi phiên củng cố thẻ Flashcard:', err);
               showToast('Lỗi: ' + err.message, 'error');
             }
           };
@@ -917,7 +917,7 @@ export function renderReviewTab(app) {
             try {
               app.startQuizSession(weakWords);
             } catch (err) {
-              console.error('Lỗi phiên cấp cứu trắc nghiệm:', err);
+              console.error('Lỗi phiên củng cố trắc nghiệm:', err);
               showToast('Lỗi: ' + err.message, 'error');
             }
           };
@@ -925,10 +925,10 @@ export function renderReviewTab(app) {
       } else {
         if (elWeakIcon) elWeakIcon.textContent = '🛡️';
         if (elWeakTag) {
-          elWeakTag.textContent = 'HỆ MIỄN DỊCH TỪ VỰNG';
+          elWeakTag.textContent = 'PHÒNG NGỪA QUÊN TỪ';
           elWeakTag.style.color = '#10b981';
         }
-        if (elWeakTitle) elWeakTitle.textContent = '100% Khỏe mạnh • Chưa có từ nào bị chập chờn hay quên';
+        if (elWeakTitle) elWeakTitle.textContent = 'Phong độ xuất sắc • Chưa có từ nào bị quên nhiều lần';
         if (elWeakCount) {
           elWeakCount.textContent = 'Tốt ✓';
           elWeakCount.style.color = '#10b981';

@@ -420,7 +420,7 @@ export class StatsManager {
         targetWords: 300,
         icon: '🚀',
         badge: 'Cấp độ 4 (A2)',
-        realBenefit: 'Hiểu 65% vlog Youtube, chat mạng xã hội & kể chuyện',
+        realBenefit: 'Hiểu 65% vlog Youtube, mạng xã hội & giao tiếp đời thường',
         comprehensionGain: '~65% hội thoại đời sống thường nhật',
         studyTip: 'Mốc chuyển mình lớn nhất! Bạn sẽ nhận ra từ vựng ở khắp mọi nơi.'
       },
@@ -542,7 +542,7 @@ export class StatsManager {
     ).length;
     const isLearnDone = newCountToday >= dailyNewGoal || (newCountToday > 0 && newCountToday >= (studyQueue.totalNew || 0));
 
-    // 3. Nhiệm vụ 3 (Quiz): Làm ít nhất 1 ván trắc nghiệm FSRS
+    // 3. Nhiệm vụ 3 (Quiz): Làm ít nhất 1 bài trắc nghiệm FSRS
     const isQuizDone = todayLogs.some(l => l.isQuiz === true);
 
     const quests = [
@@ -564,11 +564,11 @@ export class StatsManager {
       },
       {
         id: 'quiz',
-        title: 'Phản xạ: 1 ván Trắc Nghiệm',
-        sub: isQuizDone ? 'Đã hoàn thành xuất sắc ✓' : '10 câu kiểm tra phản xạ',
+        title: 'Phản xạ: 1 bài Trắc nghiệm',
+        sub: isQuizDone ? 'Đã hoàn thành xuất sắc ✓' : 'Luyện phản xạ nhanh 10 câu',
         icon: '🍎',
         done: isQuizDone,
-        progressText: isQuizDone ? '1/1 ván' : '0/1 ván'
+        progressText: isQuizDone ? '1/1 bài' : '0/1 bài'
       }
     ];
 
