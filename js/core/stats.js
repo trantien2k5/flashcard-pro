@@ -514,6 +514,7 @@ export class StatsManager {
 
     return {
       milestones,
+      stages: milestones,
       activeStage,
       completedStagesCount,
       totalStages: milestones.length,

@@ -1337,9 +1337,10 @@ export function openGoalPlannerModal(app, onSaveCallback = null) {
   // 2. Lấy cấu hình mục tiêu hiện tại
   let currentPace = Number(app?.settings?.dailyNewLimit) || 10;
   const roadmap = StatsManager.getMilestoneRoadmap(learnedCount, currentPace);
-  let selectedStageId = Number(app?.settings?.targetStageId) || roadmap.activeStage.id;
+  const stagesList = roadmap.milestones || roadmap.stages || [];
+  let selectedStageId = Number(app?.settings?.targetStageId) || (roadmap.activeStage ? roadmap.activeStage.id : 1);
 
-  const getStageById = (id) => roadmap.stages.find(s => s.id === id) || roadmap.activeStage;
+  const getStageById = (id) => stagesList.find(s => s.id === id) || roadmap.activeStage || stagesList[0];
 
   modal.innerHTML = `
     <div class="modal-dialog goal-planner-dialog">
@@ -1380,7 +1381,7 @@ export function openGoalPlannerModal(app, onSaveCallback = null) {
           </div>
           
           <div class="planner-stages-grid" id="planner-stages-grid">
-            ${roadmap.stages.map(stage => {
+            ${stagesList.map(stage => {
               const isDone = stage.isCompleted;
               const isSelected = stage.id === selectedStageId;
               return `
