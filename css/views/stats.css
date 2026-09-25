@@ -1547,9 +1547,19 @@
    🖥️ DESKTOP FIT OPTIMIZATIONS (>= 860px) - Zero-Scroll Viewport
    ========================================================================== */
 @media (min-width: 860px) {
+  #tab-stats.tab-pane.active {
+    padding: 12px 24px 32px 24px;
+    align-items: center;
+  }
+
+  .stats-bento-container {
+    max-width: 1080px;
+    gap: 18px;
+  }
+
   .stats-hero-banner {
     padding: 10px 18px;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     border-radius: 14px;
   }
 
@@ -1563,9 +1573,23 @@
     font-size: 1.05rem;
   }
 
-  .forecast-item {
-    padding: 8px 4px;
-    gap: 4px;
+  .journal-pnl-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 12px;
+  }
+
+  .forecast-capsules-grid {
+    gap: 10px;
+  }
+
+  .forecast-smart-card {
+    padding: 12px 6px;
+  }
+}
+
+@media (min-width: 1240px) {
+  .stats-bento-container {
+    max-width: 1180px;
   }
 }
 
