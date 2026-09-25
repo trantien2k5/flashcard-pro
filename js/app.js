@@ -29,6 +29,7 @@ import {
   handleCardChange, 
   handleStudyFinish 
 } from './views/study.js';
+import { startQuizSession } from './views/quiz.js';
 import { setupSearch, setupSyncController, openSyncModal, showToast, showConfirm, mountGlobalModals } from './views/components.js';
 
 // Xuất các hằng số và Enum để tương thích toàn hệ thống
@@ -501,6 +502,15 @@ export class FlashcardApp {
     } catch (err) {
       console.error('Lỗi startStudySession:', err);
       this.showToast('Lỗi khi mở phiên học: ' + (err?.message || err), 'error');
+    }
+  }
+
+  startQuizSession(queue = null, options = {}) {
+    try {
+      startQuizSession(this, queue, options);
+    } catch (err) {
+      console.error('Lỗi startQuizSession:', err);
+      this.showToast('Lỗi khi mở phiên trắc nghiệm: ' + (err?.message || err), 'error');
     }
   }
 

@@ -308,6 +308,59 @@ export class StatsManager {
   }
 
   /**
+   * Phân tích Khung Giờ Vàng Nhận Thức (Prime Cognitive Study Hour)
+   */
+  static getPrimeStudyHour(logs = []) {
+    if (!logs || logs.length === 0) return null;
+
+    const hourlyStats = Array.from({ length: 24 }, () => ({ total: 0, correct: 0 }));
+
+    logs.forEach(l => {
+      if (!l.timestamp) return;
+      const d = new Date(l.timestamp);
+      if (isNaN(d.getTime())) return;
+      const hour = d.getHours();
+      hourlyStats[hour].total++;
+      if (l.rating && (l.rating === Rating.Good || l.rating === Rating.Easy)) {
+        hourlyStats[hour].correct++;
+      }
+    });
+
+    let bestHour = -1;
+    let maxReviews = 0;
+
+    for (let h = 0; h < 24; h++) {
+      if (hourlyStats[h].total >= 3 && hourlyStats[h].total > maxReviews) {
+        maxReviews = hourlyStats[h].total;
+        bestHour = h;
+      }
+    }
+
+    if (bestHour === -1) {
+      for (let h = 0; h < 24; h++) {
+        if (hourlyStats[h].total > maxReviews) {
+          maxReviews = hourlyStats[h].total;
+          bestHour = h;
+        }
+      }
+    }
+
+    if (bestHour === -1) return null;
+
+    const startStr = `${String(bestHour).padStart(2, '0')}:00`;
+    const endStr = `${String((bestHour + 2) % 24).padStart(2, '0')}:00`;
+    const periodName = bestHour < 12 ? 'Sáng' : (bestHour < 18 ? 'Chiều' : 'Tối');
+
+    return {
+      hour: bestHour,
+      timeRange: `${startStr} - ${endStr}`,
+      period: periodName,
+      reviews: maxReviews,
+      text: `${startStr} - ${endStr} (${periodName})`
+    };
+  }
+
+  /**
    * Lấy số từ ghi nhớ được / tích lũy theo từng ngày trong 7 ngày qua
    */
   static getWeeklyProgress(logs) {

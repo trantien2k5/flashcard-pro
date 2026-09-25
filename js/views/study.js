@@ -45,6 +45,8 @@ export function saveAutoPlayPrefs(prefs) {
 
 let _isAutoPlaying = false;
 let _autoPlayTimer = null;
+let _cardShowTime = 0;
+let _lastFlipLatencyMs = 0;
 
 export function isAutoPlayActive() {
   return _isAutoPlaying;
@@ -489,7 +491,7 @@ export function renderStudyOverlayShell() {
             </button>
           </div>
 
-          <p class="autoplay-modal-desc">Học rảnh tay: tự động phát âm tiếng Anh, chờ suy nghĩ, lật thẻ và đọc nghĩa tiếng Việt theo nhịp điệu của bạn.</p>
+          <p class="autoplay-modal-desc">Học rảnh tay: tự động phát âm tiếng Anh, chờ suy nghĩ, lật thẻ và đọc nghĩa tiếng Việt. Duy trì chuỗi ngày học (Streak) và giữ nguyên lịch ôn tập FSRS của thẻ.</p>
 
           <div class="autoplay-settings-list">
             <!-- 1. Delay mặt trước -->
@@ -740,8 +742,26 @@ export function setupStudyControls(app) {
         flashcardEl.classList.toggle('flipped', isFlipped);
         
         if (isFlipped) {
+          _lastFlipLatencyMs = performance.now() - (_cardShowTime || performance.now());
           frontFlipControl?.classList.remove('visible');
           fsrsButtonsContainer?.classList.add('visible');
+
+          // Nhận diện hành vi phản xạ (Behavioral Latency Intelligence)
+          const flipSec = _lastFlipLatencyMs / 1000;
+          const btnHard = document.querySelector('.btn-fsrs-rating.hard');
+          const btnGood = document.querySelector('.btn-fsrs-rating.good');
+          const btnEasy = document.querySelector('.btn-fsrs-rating.easy');
+
+          [btnHard, btnGood, btnEasy].forEach(b => b?.classList.remove('behavioral-recommend'));
+
+          // Gợi ý mức đánh giá trung thực: Nếu phân vân lâu (>7s) gợi ý Hard, nếu siêu nhanh (<=1.8s) gợi ý Easy, bình thường Good
+          if (flipSec >= 7.0 && btnHard) {
+            btnHard.classList.add('behavioral-recommend');
+          } else if (flipSec <= 1.8 && btnEasy) {
+            btnEasy.classList.add('behavioral-recommend');
+          } else if (btnGood) {
+            btnGood.classList.add('behavioral-recommend');
+          }
         } else {
           frontFlipControl?.classList.add('visible');
           fsrsButtonsContainer?.classList.remove('visible');
@@ -782,7 +802,8 @@ export function setupStudyControls(app) {
       _isRatingInProgress = true;
       try {
         globalStudyTimer.recordActivity();
-        app.studySession.rateCard(rating);
+        const latencySec = _lastFlipLatencyMs > 0 ? Number((_lastFlipLatencyMs / 1000).toFixed(2)) : null;
+        app.studySession.rateCard(rating, { latencySec });
       } catch (err) {
         console.error('Lỗi rating thẻ:', err);
       } finally {
@@ -918,18 +939,50 @@ export function setupStudyControls(app) {
           _autoPlayTimer = setTimeout(() => {
             if (!_isAutoPlaying || app.studySession?.currentCard?.id !== currentCard.id) return;
             
+            globalStudyTimer.recordActivity();
+
             // Kiểm tra xem đã đến thẻ cuối cùng trong hàng đợi chưa
             const isLastCard = app.studySession.currentIndex >= (app.studySession.queue.length - 1);
             if (isLastCard && prefs.loopList) {
-              safeRateCard(Rating.Good);
+              // Ghi log streak cho từ cuối cùng và quay về đầu danh sách
+              StorageManager.logReview({
+                cardId: currentCard.id,
+                word: currentCard.word,
+                isAutoplay: true
+              });
+              app.studySession.completedCount = (app.studySession.completedCount || 0) + 1;
+              app.studySession.sessionStats.reviewedCount = (app.studySession.sessionStats.reviewedCount || 0) + 1;
+
               setTimeout(() => {
                 if (_isAutoPlaying && app.studySession?.queue?.length) {
                   app.studySession.currentIndex = 0;
                   app.studySession.loadCurrentCard();
                 }
               }, 300);
+            } else if (isLastCard) {
+              // Kết thúc danh sách
+              if (app.studySession.stepNextAutoplayCard) {
+                app.studySession.stepNextAutoplayCard();
+              } else {
+                app.studySession.currentIndex++;
+                app.studySession.loadCurrentCard();
+              }
+              stopAutoPlay();
             } else {
-              safeRateCard(Rating.Good);
+              // Chuyển sang thẻ kế tiếp: duy trì streak & thời gian học nhưng KHÔNG đánh giá 4 mức độ FSRS
+              if (app.studySession.stepNextAutoplayCard) {
+                app.studySession.stepNextAutoplayCard();
+              } else {
+                StorageManager.logReview({
+                  cardId: currentCard.id,
+                  word: currentCard.word,
+                  isAutoplay: true
+                });
+                app.studySession.completedCount = (app.studySession.completedCount || 0) + 1;
+                app.studySession.sessionStats.reviewedCount = (app.studySession.sessionStats.reviewedCount || 0) + 1;
+                app.studySession.currentIndex++;
+                app.studySession.loadCurrentCard();
+              }
             }
           }, backMs);
         };
@@ -1335,15 +1388,24 @@ export function handleCardChange(app, card, progress) {
       dom.progressBar.style.width = `${percent}%`;
     }
 
+    // Khởi tạo bộ đo thời gian phản xạ lật thẻ của thẻ hiện tại
+    _cardShowTime = performance.now();
+    _lastFlipLatencyMs = 0;
+    document.querySelectorAll('.btn-fsrs-rating').forEach(b => b.classList.remove('behavioral-recommend'));
+
     // Cập nhật trạng thái thẻ FSRS và số lần học bấm thẻ (reps)
     const cardState = card.fsrsState || StorageManager.getCardState(card.id) || { state: State.New, reps: 0 };
     const stateNum = cardState.state !== undefined ? cardState.state : State.New;
     const repsCount = cardState.reps || 0;
+    const isLeech = Boolean(cardState.isLeech === true || (cardState.lapses && cardState.lapses >= (app.settings?.leechThreshold || 6)));
 
     let stateText = 'Từ mới';
     let stateClass = 'state-new';
 
-    if (stateNum === State.Learning || stateNum === 1) {
+    if (card._isRelearning) {
+      stateText = 'Củng cố lại';
+      stateClass = 'state-relearning';
+    } else if (stateNum === State.Learning || stateNum === 1) {
       stateText = 'Đang học';
       stateClass = 'state-learning';
     } else if (stateNum === State.Review || stateNum === 2) {
@@ -1358,7 +1420,6 @@ export function handleCardChange(app, card, progress) {
     }
 
     const repsText = repsCount === 0 ? '0 lần học' : `${repsCount} lần học`;
-    const isLeech = Boolean(cardState.isLeech === true || (cardState.lapses && cardState.lapses >= (app.settings?.leechThreshold || 6)));
 
     if (dom.statusBadgeFront) {
       dom.statusBadgeFront.className = `card-status-badge ${stateClass}`;
@@ -1368,9 +1429,20 @@ export function handleCardChange(app, card, progress) {
     }
     if (dom.leechBadgeFront) {
       dom.leechBadgeFront.style.display = isLeech ? 'inline-flex' : 'none';
+      const leechTextEl = dom.leechBadgeFront.querySelector('.leech-text');
+      if (leechTextEl) {
+        leechTextEl.textContent = `Hay quên (Lapse x${cardState.lapses || 1})`;
+      }
     }
     if (dom.repsTextFront) {
       dom.repsTextFront.textContent = repsText;
+    }
+
+    // Nếu là Thẻ khó (Leech), tự động mở rộng câu ví dụ ở mặt sau để tăng cường ngữ cảnh
+    if (isLeech && card.example && dom.exBoxBack) {
+      dom.exBoxBack.style.display = 'flex';
+      if (dom.exBack) dom.exBack.style.display = 'block';
+      if (dom.exViBack && card.exampleVi) dom.exViBack.style.display = 'block';
     }
 
     // Xử lý hình ảnh minh họa

@@ -41910,7 +41910,7 @@ export const WORDS = [
     "exampleVi": "Đội ngũ thiết kế của chúng tôi đã hợp tác với bộ phận tiếp thị để phát triển chiến dịch.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/c/collaborate.webp",
+    "img": "assets/images/words/c/collaboration.webp",
     "topicIds": [
       "top-1000-toeic-chặng-1"
     ],
@@ -41926,7 +41926,7 @@ export const WORDS = [
     "exampleVi": "Vui lòng tham vấn phòng pháp chế trước khi ký thỏa thuận.",
     "level": "B1",
     "pos": "verb",
-    "img": "assets/images/words/c/consult.webp",
+    "img": "assets/images/words/c/consultant.webp",
     "topicIds": [
       "top-1000-toeic-chặng-1"
     ],
@@ -41958,7 +41958,7 @@ export const WORDS = [
     "exampleVi": "Tôi viết thư này để xác nhận cuộc hẹn của chúng ta vào thứ Sáu lúc 2:00 chiều.",
     "level": "A2",
     "pos": "verb",
-    "img": "assets/images/words/c/confirm.webp",
+    "img": "assets/images/words/c/checklist.webp",
     "topicIds": [
       "top-1000-toeic-chặng-1"
     ],

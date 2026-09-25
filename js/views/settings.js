@@ -55,6 +55,31 @@ export function renderSettingsTabShell(container) {
           </div>
 
           <div class="inset-grouped-card">
+            <!-- 1-Tap Learning Profile Presets -->
+            <div class="setting-row profile-presets-row" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+              <div class="setting-info">
+                <span class="setting-title">Gói mục tiêu học cá nhân hóa</span>
+                <span class="setting-desc">Thiết lập 1 chạm phù hợp theo lịch trình & mục tiêu</span>
+              </div>
+              <div class="settings-profile-chips-grid" id="settings-profile-chips" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; width: 100%;">
+                <button type="button" class="btn-profile-preset" data-preset="casual">
+                  <span class="preset-icon">☕</span>
+                  <span class="preset-name">Bận Rộn</span>
+                  <span class="preset-sub">5 từ • 85%</span>
+                </button>
+                <button type="button" class="btn-profile-preset" data-preset="balanced">
+                  <span class="preset-icon">⚖️</span>
+                  <span class="preset-name">Tiêu Chuẩn</span>
+                  <span class="preset-sub">10 từ • 90%</span>
+                </button>
+                <button type="button" class="btn-profile-preset" data-preset="intensive">
+                  <span class="preset-icon">🚀</span>
+                  <span class="preset-name">Cấp Tốc</span>
+                  <span class="preset-sub">20 từ • 95%</span>
+                </button>
+              </div>
+            </div>
+
             <div class="setting-row">
               <div class="setting-info">
                 <span class="setting-title">Tỷ lệ nhớ mong muốn</span>
@@ -246,6 +271,48 @@ export function setupSettingsUI(app) {
     }
 
     if (!retentionSelect) return;
+
+    // Đồng bộ nút preset hồ sơ học tập cá nhân hóa
+    const syncPresetButtons = () => {
+      const ret = parseFloat(app.settings.requestRetention || 0.9);
+      const nw = parseInt(app.settings.dailyNewLimit || 10, 10);
+      const presetBtns = document.querySelectorAll('.btn-profile-preset');
+      presetBtns.forEach(b => {
+        const type = b.getAttribute('data-preset');
+        let isActive = false;
+        if (type === 'casual' && nw <= 5 && ret <= 0.85) isActive = true;
+        else if (type === 'intensive' && nw >= 20 && ret >= 0.95) isActive = true;
+        else if (type === 'balanced' && ((nw === 10 && ret === 0.9) || (nw > 5 && nw < 20))) isActive = true;
+        b.classList.toggle('active', isActive);
+      });
+    };
+
+    document.querySelectorAll('.btn-profile-preset').forEach(btn => {
+      btn.onclick = () => {
+        const type = btn.getAttribute('data-preset');
+        if (type === 'casual') {
+          app.settings.dailyNewLimit = 5;
+          app.settings.requestRetention = 0.85;
+          app.showToast('☕ Đã chọn Gói Bận Rộn (5 từ/ngày • 85% Retention)', 'success', 2500);
+        } else if (type === 'intensive') {
+          app.settings.dailyNewLimit = 20;
+          app.settings.requestRetention = 0.95;
+          app.showToast('🚀 Đã chọn Gói Cấp Tốc (20 từ/ngày • 95% Retention)', 'success', 2500);
+        } else {
+          app.settings.dailyNewLimit = 10;
+          app.settings.requestRetention = 0.90;
+          app.showToast('⚖️ Đã chọn Gói Tiêu Chuẩn (10 từ/ngày • 90% Retention)', 'success', 2500);
+        }
+
+        if (retentionSelect) retentionSelect.value = String(app.settings.requestRetention);
+        if (newLimitSelect) newLimitSelect.value = String(app.settings.dailyNewLimit);
+        syncPresetButtons();
+        saveAppSettings(app);
+        app.refreshAllViews();
+      };
+    });
+
+    syncPresetButtons();
 
     const currentRetention = parseFloat(app.settings.requestRetention || 0.9);
     retentionSelect.value = String(currentRetention);

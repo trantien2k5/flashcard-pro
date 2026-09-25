@@ -261,6 +261,45 @@ export class DeckManager {
   }
 
   /**
+   * Lấy danh sách từ vựng yếu / hay quên nhất ("Bệnh Án Từ Vựng")
+   * Tiêu chí: Từng bị quên lapses >= 2 hoặc có xác suất nhớ R(t) < 0.65 hoặc isLeech === true
+   */
+  getWeakWords(limit = 10) {
+    const now = new Date();
+    const fsrsInstance = new FSRS();
+    const weakList = [];
+
+    for (const card of this.allCards) {
+      const state = StorageManager.getCardState(card.id);
+      if (!state || state.state === State.New || state.state === 0 || state.suspended) {
+        continue;
+      }
+
+      const lapses = Number(state.lapses) || 0;
+      const isLeech = Boolean(state.isLeech || lapses >= 4);
+      const r = fsrsInstance.getRetrievability(state, now);
+
+      if (lapses >= 2 || isLeech || (state.reps >= 2 && r < 0.65)) {
+        weakList.push({
+          ...(this.wordsMap.get(`${card.deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
+          fsrsState: state,
+          _lapses: lapses,
+          _isLeech: isLeech,
+          _retrievability: r
+        });
+      }
+    }
+
+    // Sắp xếp: Ưu tiên từ có nhiều lapses nhất, sau đó đến từ có R(t) thấp nhất
+    weakList.sort((a, b) => {
+      if (b._lapses !== a._lapses) return b._lapses - a._lapses;
+      return a._retrievability - b._retrievability;
+    });
+
+    return weakList.slice(0, limit);
+  }
+
+  /**
    * Tính toán thống kê tiến độ học của một bộ thẻ (New, Learning, Review, Mastered, Leech, Suspended)
    */
   getDeckStats(deckId) {
@@ -439,8 +478,26 @@ export class DeckManager {
       }
     }
 
-    // 1. Sắp xếp thẻ đến hạn theo thời gian đến hạn tăng dần
-    dueCards.sort((a, b) => new Date(a.fsrsState.due) - new Date(b.fsrsState.due));
+    // 1. SẮP XẾP ƯU TIÊN THEO ĐỘ KHẨN CẤP FSRS R(t) (Urgency Sorting)
+    // Tính toán xác suất nhớ thực tế R(t). Thẻ có R(t) thấp nhất (nguy cơ quên cao nhất) được đưa lên đầu để cứu nguy trước
+    const fsrsInstance = new FSRS({
+      requestRetention: Number(settings.requestRetention) || 0.90,
+      enableFuzz: settings.enableFuzz !== false
+    });
+
+    dueCards.forEach(c => {
+      const r = fsrsInstance.getRetrievability(c.fsrsState, now);
+      c._retrievability = r;
+    });
+
+    dueCards.sort((a, b) => {
+      // 1.1 Thẻ có R(t) thấp hơn xếp trước (nguy cơ quên cao hơn)
+      if (a._retrievability !== b._retrievability) {
+        return a._retrievability - b._retrievability;
+      }
+      // 1.2 Nếu cùng R(t), thẻ đến hạn trước xếp trước
+      return new Date(a.fsrsState.due) - new Date(b.fsrsState.due);
+    });
 
     // 2. Tính hạn mức từ mới và thẻ đến hạn
     let maxNew = Number(settings.dailyNewLimit) || 10;
@@ -483,15 +540,32 @@ export class DeckManager {
       // Chỉ học các thẻ MỚI CHƯA TỪNG HỌC
       queueCards = selectedNew;
     } else if (mode === 'auto') {
-      // Tự động: Nếu có từ đến hạn -> Chỉ ôn từ đến hạn; Nếu không có từ đến hạn -> Học từ mới
+      // Tự động: Ưu tiên ôn các thẻ đến hạn trước
       if (selectedDue.length > 0) {
         queueCards = selectedDue;
       } else {
         queueCards = selectedNew;
       }
     } else {
-      // mixed: Cả hai
-      queueCards = [...selectedDue, ...selectedNew];
+      // 3. KỸ THUẬT ĐAN XEN NHẬN THỨC (Cognitive Interleaving: 2 ôn -> 1 mới -> 2 ôn -> 1 mới)
+      const interleaved = [];
+      let dIdx = 0;
+      let nIdx = 0;
+      while (dIdx < selectedDue.length || nIdx < selectedNew.length) {
+        // Lấy 2 thẻ ôn
+        if (dIdx < selectedDue.length) interleaved.push(selectedDue[dIdx++]);
+        if (dIdx < selectedDue.length) interleaved.push(selectedDue[dIdx++]);
+        // Lấy 1 thẻ mới
+        if (nIdx < selectedNew.length) interleaved.push(selectedNew[nIdx++]);
+      }
+      queueCards = interleaved;
+    }
+
+    // 4. BẢO VỆ CHỐNG QUÁ TẢI NHẬN THỨC (Adaptive Backlog Protection)
+    // Nếu có >= 25 từ đến hạn dồn ứ, tạm thời không nạp từ mới để người học tập trung dọn sạch hàng đợi
+    const isBacklogProtected = dueCards.length >= 25;
+    if (isBacklogProtected && mode === 'auto') {
+      queueCards = selectedDue;
     }
 
     const queue = [];
@@ -511,6 +585,7 @@ export class DeckManager {
       dueCards: selectedDue,
       newCards: selectedNew,
       learningCards,
+      isBacklogProtected,
       totalDue: dueCards.length,
       totalNew: newCards.length,
       totalLearned: targetCards.length - newCards.length,

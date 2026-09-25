@@ -124,11 +124,14 @@ export class StudySession {
       }
     }
     this.totalCards = this.queue.length;
+    this.uniqueCardIds = new Set(this.queue.map(c => c.id));
+    this.completedUniqueIds = new Set();
     this.completedCount = 0;
     this.currentIndex = 0;
     this.isFlipped = false;
     this.sessionId = `session_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
     this.ratedReviewKeys.clear();
+    this.failedInSessionIds = new Set();
     this.sessionStats = {
       again: 0,
       hard: 0,
@@ -322,10 +325,64 @@ export class StudySession {
     else if (rating === Rating.Easy) this.sessionStats.easy++;
     this.sessionStats.reviewedCount++;
 
-    // Thẻ chạy bình thường qua từ tiếp theo (không lặp lại trong phiên hiện tại).
-    // Trạng thái đã được lưu (due = now + 1m) để tự động xuất hiện ở phiên ôn tới.
-    this.completedCount = (this.completedCount || 0) + 1;
+    const cardId = this.currentCard.id;
+    const latencySec = typeof options.latencySec === 'number' ? options.latencySec : null;
 
+    if (shouldPersist && latencySec !== null) {
+      // Bổ sung latencySec vào log gần nhất
+      try {
+        const logs = StorageManager.getStudyLogs();
+        if (logs.length > 0 && logs[logs.length - 1].cardId === cardId) {
+          logs[logs.length - 1].latencySec = Number(latencySec.toFixed(2));
+        }
+      } catch (e) {}
+    }
+
+    // 1. KHOA HỌC NHẬN THỨC: VÒNG LẶP HỌC LẠI TRONG PHIÊN (Intra-Session Re-queueing)
+    if (rating === Rating.Again) {
+      this.failedInSessionIds.add(cardId);
+      
+      // Tạo bản sao thẻ để người học bắt buộc phải hồi tưởng lại trước khi kết thúc phiên
+      const relearnCard = {
+        ...this.currentCard,
+        _isRelearning: true,
+        fsrsState: nextState
+      };
+
+      // Vị trí chèn: sau 3 thẻ tiếp theo (để có khoảng cách ngắt quãng ngắn) hoặc ở cuối danh sách
+      const remainingDistance = this.queue.length - 1 - this.currentIndex;
+      if (remainingDistance >= 3) {
+        this.queue.splice(this.currentIndex + 4, 0, relearnCard);
+      } else {
+        this.queue.push(relearnCard);
+      }
+    } else {
+      // Đã nhớ được (Hard, Good, Easy) -> ghi nhận hoàn thành thẻ độc nhất này
+      this.completedUniqueIds.add(cardId);
+    }
+
+    this.completedCount = this.completedUniqueIds.size;
+
+    this.currentIndex++;
+    return this.loadCurrentCard();
+  }
+
+  /**
+   * Chuyển sang thẻ tiếp theo trong chế độ Auto-Play (Nghe/Xem thụ động)
+   * Giữ nguyên 100% trạng thái FSRS của thẻ (không thay đổi lịch ôn hay độ bền)
+   * Chỉ ghi nhận nhật ký học để duy trì Chuỗi ngày học (Streak) và Thời gian học.
+   */
+  stepNextAutoplayCard() {
+    if (!this.currentCard) return null;
+
+    StorageManager.logReview({
+      cardId: this.currentCard.id,
+      word: this.currentCard.word,
+      isAutoplay: true
+    });
+
+    this.sessionStats.reviewedCount = (this.sessionStats.reviewedCount || 0) + 1;
+    this.completedCount = (this.completedCount || 0) + 1;
     this.currentIndex++;
     return this.loadCurrentCard();
   }
