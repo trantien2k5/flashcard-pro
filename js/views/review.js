@@ -2,7 +2,7 @@ import { StorageManager } from '../services/storage.js';
 import { State, isCardDue } from '../core/fsrs.js';
 import { StatsManager } from '../core/stats.js';
 import { getLocalDateKey, escapeHTML } from '../utils.js';
-import { showToast } from './components.js';
+import { showToast, openGoalPlannerModal } from './components.js';
 import { speak, speakVi, stopAudio } from '../services/audio.js';
 
 let _cachedApp = null;
@@ -367,8 +367,8 @@ export function renderReviewShell(container) {
                 <span class="goals-motive-icon">⚡</span>
                 <span class="goals-motive-text" id="goals-motive-text">Đang phân tích lộ trình học tập...</span>
               </div>
-              <button type="button" class="btn-goals-adjust" id="btn-goals-adjust" title="Tùy chỉnh chỉ tiêu học">
-                <span>Cài đặt ⚙️</span>
+              <button type="button" class="btn-goals-adjust" id="btn-goals-adjust" title="Căn chỉnh & lập kế hoạch mục tiêu FSRS">
+                <span>Đổi mục tiêu 🎯</span>
               </button>
             </div>
           </div>
@@ -805,14 +805,9 @@ export function renderReviewTab(app) {
     if (btnGoalsAdjust) {
       btnGoalsAdjust.onclick = (e) => {
         e.stopPropagation();
-        app.switchTab('settings');
-        setTimeout(() => {
-          const elDaily = document.getElementById('setting-daily-new');
-          if (elDaily) {
-            elDaily.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            elDaily.focus();
-          }
-        }, 300);
+        openGoalPlannerModal(app, () => {
+          renderReviewTab(app);
+        });
       };
     }
 

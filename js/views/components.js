@@ -8,7 +8,7 @@ import { State } from '../core/fsrs.js';
 import { escapeHTML, highlightKeyword } from '../utils.js';
 import { speak } from '../services/audio.js';
 import { SyncManager, SimpleQRCode } from '../services/sync.js';
-import { BehavioralOptimizer } from '../core/stats.js';
+import { BehavioralOptimizer, StatsManager } from '../core/stats.js';
 
 /* ==========================================================================
    0. MODALS DYNAMIC MOUNTING (APP SHELL ARCHITECTURE)
@@ -1298,5 +1298,297 @@ export function openBehavioralOptimizerModal(app) {
     });
   }
 
+  modal.classList.add('active');
+}
+
+/* ==========================================================================
+   5. SMART GOAL & STUDY PLANNER MODAL (CĂN CHỈNH & THIẾT LẬP MỤC TIÊU FSRS)
+   ========================================================================== */
+
+export function openGoalPlannerModal(app, onSaveCallback = null) {
+  let modal = document.getElementById('goal-planner-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'goal-planner-modal';
+    modal.className = 'modal-backdrop';
+    document.body.appendChild(modal);
+  }
+
+  const allCards = app?.deckManager ? app.deckManager.getAllCards() : [];
+  const totalLibraryWords = allCards.length || 2582;
+
+  // 1. Phân tích hiện trạng vốn từ & trí nhớ FSRS
+  let learnedCount = 0;
+  let masteredCount = 0;
+  for (const card of allCards) {
+    const state = StorageManager.getCardState(card.id);
+    if (state && state.state !== State.New && state.state !== 0 && !state.suspended) {
+      learnedCount++;
+      const s = Number(state.stability) || 0;
+      if (s >= 14) masteredCount++;
+    }
+  }
+
+  const allStates = StorageManager.getAllCardStates();
+  const allLogs = StorageManager.getStudyLogs();
+  const memoryIntel = StatsManager.getMemoryIntelligence(allStates, allLogs);
+  const avgRetention = Math.round((memoryIntel?.averageRetention || 0.9) * 100);
+
+  // 2. Lấy cấu hình mục tiêu hiện tại
+  let currentPace = Number(app?.settings?.dailyNewLimit) || 10;
+  const roadmap = StatsManager.getMilestoneRoadmap(learnedCount, currentPace);
+  let selectedStageId = Number(app?.settings?.targetStageId) || roadmap.activeStage.id;
+
+  const getStageById = (id) => roadmap.stages.find(s => s.id === id) || roadmap.activeStage;
+
+  modal.innerHTML = `
+    <div class="modal-dialog goal-planner-dialog">
+      <div class="modal-header goal-planner-header">
+        <div class="goal-header-left">
+          <div class="goal-planner-icon">🎯</div>
+          <div class="goal-planner-titles">
+            <h3 class="modal-title">Căn Chỉnh & Lập Kế Hoạch Mục Tiêu</h3>
+            <p class="modal-subtitle">Hệ thống FSRS-6 tự động phân tích trí nhớ & tối ưu lịch học kỷ luật</p>
+          </div>
+        </div>
+        <button type="button" class="btn-icon-close" id="btn-close-goal-planner" title="Đóng">✕</button>
+      </div>
+
+      <div class="modal-body goal-planner-body">
+        
+        <!-- 1. Thống Kê Hiện Trạng Vốn Từ & Trí Nhớ -->
+        <div class="planner-status-strip">
+          <div class="planner-status-tile">
+            <span class="status-tile-lbl">📚 Vốn từ hiện tại</span>
+            <span class="status-tile-val">${learnedCount}/${totalLibraryWords} <small>từ (${Math.round((learnedCount/totalLibraryWords)*100)}%)</small></span>
+          </div>
+          <div class="planner-status-tile">
+            <span class="status-tile-lbl">🛡️ Đã thuộc bền vững</span>
+            <span class="status-tile-val text-success">${masteredCount} <small>từ (${Math.round((masteredCount/totalLibraryWords)*100)}%)</small></span>
+          </div>
+          <div class="planner-status-tile">
+            <span class="status-tile-lbl">💎 Độ nhớ thực tế</span>
+            <span class="status-tile-val text-primary">${avgRetention}% <small>FSRS R(t)</small></span>
+          </div>
+        </div>
+
+        <!-- 2. Chọn Chặng Mục Tiêu Mong Muốn Chinh Phục -->
+        <div class="planner-section">
+          <div class="planner-section-title-row">
+            <span class="planner-section-num">1</span>
+            <h4 class="planner-section-title">Chọn Chặng Mục Tiêu Muốn Chinh Phục</h4>
+          </div>
+          
+          <div class="planner-stages-grid" id="planner-stages-grid">
+            ${roadmap.stages.map(stage => {
+              const isDone = stage.isCompleted;
+              const isSelected = stage.id === selectedStageId;
+              return `
+                <div class="planner-stage-card ${isSelected ? 'selected' : ''} ${isDone ? 'completed' : ''}" data-stage-id="${stage.id}">
+                  <div class="planner-stage-top">
+                    <span class="planner-stage-icon">${stage.icon}</span>
+                    <span class="planner-stage-badge">${stage.badge}</span>
+                  </div>
+                  <div class="planner-stage-name">${escapeHTML(stage.title)}</div>
+                  <div class="planner-stage-target">${stage.targetWords} từ</div>
+                  <div class="planner-stage-pct-row">
+                    <div class="planner-stage-mini-track">
+                      <div class="planner-stage-mini-fill" style="width: ${stage.progressPct}%;"></div>
+                    </div>
+                    <span class="planner-stage-pct-val">${stage.progressPct}%</span>
+                  </div>
+                  ${isDone ? '<span class="stage-tag-done">✓ Đạt</span>' : ''}
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+
+        <!-- 3. Chọn Vận Tốc & Chỉ Tiêu Nạp Từ Mỗi Ngày -->
+        <div class="planner-section">
+          <div class="planner-section-title-row">
+            <span class="planner-section-num">2</span>
+            <h4 class="planner-section-title">Chọn Vận Tốc Nạp Từ Mỗi Ngày</h4>
+          </div>
+
+          <div class="planner-pace-row" id="planner-pace-row">
+            ${[5, 10, 15, 20, 30].map(pace => `
+              <button type="button" class="btn-pace-preset ${pace === currentPace ? 'active' : ''}" data-pace="${pace}">
+                <span class="pace-val">${pace}</span>
+                <span class="pace-unit">từ/ngày</span>
+              </button>
+            `).join('')}
+            <div class="planner-custom-pace">
+              <input type="number" id="input-custom-pace" min="1" max="100" value="${currentPace}" placeholder="Số khác" title="Nhập số từ mỗi ngày">
+              <span class="custom-pace-unit">từ/ngày</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Bảng Dự Báo Kỷ Luật & Lộ Trình Về Đích (Live Smart Simulator) -->
+        <div class="planner-sim-box" id="planner-sim-box">
+          <div class="sim-header">
+            <span class="sim-icon">⚡</span>
+            <span class="sim-title">KẾT QUẢ MÔ PHỎNG & LỊCH HỌC KỶ LUẬT TỐI ƯU</span>
+          </div>
+
+          <div class="sim-grid">
+            <div class="sim-item">
+              <span class="sim-label">Cần nạp thêm:</span>
+              <span class="sim-val" id="sim-words-left">0 từ</span>
+            </div>
+            <div class="sim-item">
+              <span class="sim-label">Thời gian về đích:</span>
+              <span class="sim-val highlight" id="sim-days-left">⏳ 0 ngày</span>
+            </div>
+            <div class="sim-item">
+              <span class="sim-label">Ngày dự kiến hoàn thành:</span>
+              <span class="sim-val" id="sim-target-date">--/--/----</span>
+            </div>
+            <div class="sim-item">
+              <span class="sim-label">Thời gian học mỗi ngày:</span>
+              <span class="sim-val" id="sim-daily-minutes">~0 phút/ngày</span>
+            </div>
+          </div>
+
+          <div class="sim-discipline-banner" id="sim-discipline-banner">
+            <span class="discipline-tag" id="sim-discipline-tag">🎯 TIÊU CHUẨN VÀNG</span>
+            <span class="discipline-desc" id="sim-discipline-desc">Duy trì đều đặn 10 từ/ngày, ôn tập FSRS đúng hạn để đạt tỷ lệ nhớ 90%+.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer goal-planner-footer">
+        <button type="button" class="btn-confirm-secondary" id="btn-cancel-planner">Đóng</button>
+        <button type="button" class="btn-confirm-primary btn-save-goal-plan" id="btn-save-goal-plan">
+          <span>🎯 Lưu & Áp Dụng Kế Hoạch</span>
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Simulator Function
+  const updateSimulation = () => {
+    const stage = getStageById(selectedStageId);
+    const targetWords = stage.targetWords;
+    const learnedInStage = Math.min(targetWords, learnedCount);
+    const wordsLeft = Math.max(0, targetWords - learnedInStage);
+    const daysEstimate = Math.max(1, Math.ceil(wordsLeft / currentPace));
+
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + (wordsLeft === 0 ? 0 : daysEstimate));
+
+    const dayOfWeek = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'][targetDate.getDay()];
+    const dateStr = `${dayOfWeek}, ${String(targetDate.getDate()).padStart(2, '0')}/${String(targetDate.getMonth() + 1).padStart(2, '0')}/${targetDate.getFullYear()}`;
+
+    // Estimated daily time: ~25s per new card + spaced review time (~2.5 reps * 8s)
+    const dailySecs = (currentPace * 25) + (currentPace * 2.5 * 8);
+    const dailyMins = Math.max(3, Math.round(dailySecs / 60));
+
+    // DOM Elements
+    const elWordsLeft = modal.querySelector('#sim-words-left');
+    if (elWordsLeft) elWordsLeft.textContent = wordsLeft > 0 ? `${wordsLeft} từ` : 'Đã hoàn thành! 🏆';
+
+    const elDaysLeft = modal.querySelector('#sim-days-left');
+    if (elDaysLeft) elDaysLeft.textContent = wordsLeft > 0 ? `⏳ Còn ${daysEstimate} ngày` : '🎉 Đã về đích!';
+
+    const elTargetDate = modal.querySelector('#sim-target-date');
+    if (elTargetDate) elTargetDate.textContent = wordsLeft > 0 ? dateStr : 'Đã chinh phục thành công';
+
+    const elDailyMins = modal.querySelector('#sim-daily-minutes');
+    if (elDailyMins) elDailyMins.textContent = `~${dailyMins} phút/ngày`;
+
+    const elTag = modal.querySelector('#sim-discipline-tag');
+    const elDesc = modal.querySelector('#sim-discipline-desc');
+    if (elTag && elDesc) {
+      if (currentPace <= 5) {
+        elTag.textContent = '☕ THƯ THÁI & BỀN BỈ';
+        elTag.className = 'discipline-tag tag-easy';
+        elDesc.textContent = `Lộ trình nhẹ nhàng (~${dailyMins} phút/ngày), cực kỳ phù hợp khi bận rộn. Bí quyết là không bỏ lỡ ngày nào!`;
+      } else if (currentPace <= 12) {
+        elTag.textContent = '🎯 TIÊU CHUẨN VÀNG (KHUYÊN DÙNG)';
+        elTag.className = 'discipline-tag tag-standard';
+        elDesc.textContent = `Vận tốc tối ưu cho não bộ (~${dailyMins} phút/ngày). Dễ dàng duy trì chuỗi học và giữ độ nhớ FSRS trên 90%.`;
+      } else if (currentPace <= 22) {
+        elTag.textContent = '🚀 BỨT PHÁ TĂNG TỐC';
+        elTag.className = 'discipline-tag tag-accelerate';
+        elDesc.textContent = `Tiến độ nhanh (~${dailyMins} phút/ngày). Cần tập trung cao độ và ưu tiên dọn sạch hàng đợi ôn tập mỗi ngày.`;
+      } else {
+        elTag.textContent = '⚡ CHIẾN BINH CƯỜNG ĐỘ CAO';
+        elTag.className = 'discipline-tag tag-hardcore';
+        elDesc.textContent = `Cường độ mạnh mẽ (~${dailyMins} phút/ngày). Hãy chia nhỏ thành 2 phiên sáng/tối để tránh quá tải nhận thức!`;
+      }
+    }
+  };
+
+  // Event Listeners
+  const closeModal = () => {
+    modal.classList.remove('active');
+  };
+
+  modal.querySelector('#btn-close-goal-planner')?.addEventListener('click', closeModal);
+  modal.querySelector('#btn-cancel-planner')?.addEventListener('click', closeModal);
+  modal.onclick = (e) => {
+    if (e.target === modal) closeModal();
+  };
+
+  // Stage Selection
+  modal.querySelectorAll('.planner-stage-card').forEach(card => {
+    card.addEventListener('click', () => {
+      modal.querySelectorAll('.planner-stage-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      selectedStageId = Number(card.dataset.stageId);
+      updateSimulation();
+    });
+  });
+
+  // Pace Preset Selection
+  const inputCustomPace = modal.querySelector('#input-custom-pace');
+  modal.querySelectorAll('.btn-pace-preset').forEach(btn => {
+    btn.addEventListener('click', () => {
+      modal.querySelectorAll('.btn-pace-preset').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentPace = Number(btn.dataset.pace);
+      if (inputCustomPace) inputCustomPace.value = currentPace;
+      updateSimulation();
+    });
+  });
+
+  // Custom Pace Input
+  if (inputCustomPace) {
+    inputCustomPace.addEventListener('input', () => {
+      let val = parseInt(inputCustomPace.value, 10);
+      if (isNaN(val) || val < 1) val = 1;
+      if (val > 100) val = 100;
+      currentPace = val;
+      modal.querySelectorAll('.btn-pace-preset').forEach(b => {
+        if (Number(b.dataset.pace) === val) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+      updateSimulation();
+    });
+  }
+
+  // Save Goal Plan
+  modal.querySelector('#btn-save-goal-plan')?.addEventListener('click', () => {
+    if (!app.settings) app.settings = StorageManager.getSettings();
+    app.settings.dailyNewLimit = currentPace;
+    app.settings.targetStageId = selectedStageId;
+    StorageManager.saveSettings(app.settings);
+
+    closeModal();
+    if (typeof onSaveCallback === 'function') {
+      onSaveCallback();
+    }
+    if (typeof app.refreshAllViews === 'function') {
+      app.refreshAllViews();
+    }
+
+    const stage = getStageById(selectedStageId);
+    showToast(`🎯 Đã áp dụng mục tiêu: ${currentPace} từ/ngày cho ${stage.title}!`, 'success', 4000);
+  });
+
+  updateSimulation();
   modal.classList.add('active');
 }
