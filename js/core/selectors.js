@@ -176,6 +176,10 @@ export class DeckManager {
     return this.allCards;
   }
 
+  getAllWords() {
+    return this.allCards;
+  }
+
   /**
    * Lấy danh sách thẻ từ vựng đầy đủ của một chủ đề con (Subtopic)
    */

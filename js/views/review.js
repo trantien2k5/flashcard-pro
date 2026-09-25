@@ -732,7 +732,7 @@ export function renderReviewTab(app) {
     const stageWordsLeft = Math.max(0, stageTargetWords - stageLearnedWords);
     const stageDaysEstimate = Math.max(1, Math.ceil(stageWordsLeft / dailyGoal));
 
-    const totalLibraryWords = app.deckManager ? app.deckManager.getAllWords().length : 2582;
+    const totalLibraryWords = (allCards && allCards.length) ? allCards.length : (app.deckManager?.getAllCards?.().length || 2582);
     const libraryPct = Math.min(100, Math.round((learnedCount / totalLibraryWords) * 100));
     const libraryMasteredPct = Math.min(100, Math.round((masteredCount / totalLibraryWords) * 100));
 
