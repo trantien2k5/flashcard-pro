@@ -255,21 +255,121 @@ export function renderReviewShell(container) {
         <!-- RIGHT COLUMN (Daily Quests, Memory Radar, 7-Day Activity, Lazy Walk, Health & Shortcuts) -->
         <div class="review-col review-col-right">
 
-          <!-- 4. Daily 3-Step Micro-Quests Bento Card (Nhiệm Vụ 3 Bước Nhỏ Mỗi Ngày) -->
-          <div class="review-quests-card">
-            <div class="quests-card-header">
-              <div class="quests-header-left">
-                <div class="quests-icon-badge">🏆</div>
-                <div class="quests-title-wrap">
-                  <span class="quests-tag">MỤC TIÊU HÀNG NGÀY</span>
-                  <h3 class="quests-main-title">Lộ trình học gọn nhẹ mỗi ngày</h3>
+          <!-- 4. Goal & Progress Tracker Bento Card (Mục Tiêu & Tiến Độ Đa Tầng) -->
+          <div class="review-hero-card review-goals-card" id="review-goals-card">
+            <!-- Top Row Header -->
+            <div class="review-card-header">
+              <div class="review-card-header-left">
+                <div class="review-goals-icon-badge">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="6"/>
+                    <circle cx="12" cy="12" r="2"/>
+                  </svg>
+                </div>
+                <div class="review-hero-titles">
+                  <div class="review-hero-pill-tag">MỤC TIÊU & TIẾN ĐỘ</div>
+                  <h2 class="review-hero-main-title" id="goals-main-title">Kế hoạch 300 từ / 30 ngày</h2>
                 </div>
               </div>
-              <span class="quests-progress-pill" id="review-quests-badge">0/3 bước</span>
+
+              <div class="review-header-badges-wrap">
+                <span class="pill-goals-countdown" id="goals-countdown-badge">⏳ Còn 30 ngày</span>
+                <span class="pill-goals-milestone" id="goals-milestone-badge">0%</span>
+              </div>
             </div>
 
-            <div class="quests-list" id="review-quests-list">
-              <!-- Dynamically populated -->
+            <!-- Goal Progress Track -->
+            <div class="review-goal-track">
+              <div class="review-goal-fill ring-fill-gradient" id="goals-total-track-fill" style="width: 0%;"></div>
+            </div>
+
+            <!-- 3 Radial Rings Grid (% Tròn Ngày, Tuần, Tháng) -->
+            <div class="goals-rings-grid">
+              <!-- Ring 1: Ngày -->
+              <div class="goal-ring-card ring-day">
+                <div class="goal-ring-svg-wrap">
+                  <svg class="ring-svg" viewBox="0 0 48 48">
+                    <circle class="ring-bg" cx="24" cy="24" r="20" />
+                    <circle class="ring-fill ring-fill-day" id="ring-svg-day" cx="24" cy="24" r="20" />
+                  </svg>
+                  <span class="ring-center-val" id="ring-val-day">0%</span>
+                </div>
+                <div class="goal-ring-info">
+                  <span class="goal-ring-title">Hôm nay</span>
+                  <span class="goal-ring-detail" id="ring-detail-day">0/10 từ</span>
+                </div>
+              </div>
+
+              <!-- Ring 2: Tuần -->
+              <div class="goal-ring-card ring-week">
+                <div class="goal-ring-svg-wrap">
+                  <svg class="ring-svg" viewBox="0 0 48 48">
+                    <circle class="ring-bg" cx="24" cy="24" r="20" />
+                    <circle class="ring-fill ring-fill-week" id="ring-svg-week" cx="24" cy="24" r="20" />
+                  </svg>
+                  <span class="ring-center-val" id="ring-val-week">0%</span>
+                </div>
+                <div class="goal-ring-info">
+                  <span class="goal-ring-title">Tuần này</span>
+                  <span class="goal-ring-detail" id="ring-detail-week">0/70 từ</span>
+                </div>
+              </div>
+
+              <!-- Ring 3: Tháng -->
+              <div class="goal-ring-card ring-month">
+                <div class="goal-ring-svg-wrap">
+                  <svg class="ring-svg" viewBox="0 0 48 48">
+                    <circle class="ring-bg" cx="24" cy="24" r="20" />
+                    <circle class="ring-fill ring-fill-month" id="ring-svg-month" cx="24" cy="24" r="20" />
+                  </svg>
+                  <span class="ring-center-val" id="ring-val-month">0%</span>
+                </div>
+                <div class="goal-ring-info">
+                  <span class="goal-ring-title">Tháng này</span>
+                  <span class="goal-ring-detail" id="ring-detail-month">0/300 từ</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2 Bento Sub-Goal & Master-Goal Dual Tiles -->
+            <div class="goals-dual-status-grid">
+              <!-- Tile 1: Mục tiêu Chặng (Sub-goal) -->
+              <div class="goal-status-tile tile-sprint" id="tile-goal-sprint">
+                <div class="status-tile-top">
+                  <span class="status-tile-icon">🎯</span>
+                  <span class="status-tile-label" id="goal-sprint-label">MỤC TIÊU CHẶNG</span>
+                </div>
+                <div class="status-tile-main">
+                  <span class="status-tile-num" id="goal-sprint-num">0/300</span>
+                  <span class="status-tile-unit">từ</span>
+                </div>
+                <span class="status-tile-sub" id="goal-sprint-sub">Chặng 1 • Còn 30 từ</span>
+              </div>
+
+              <!-- Tile 2: Kho Tổng Thư Viện (Master-goal) -->
+              <div class="goal-status-tile tile-master" id="tile-goal-master">
+                <div class="status-tile-top">
+                  <span class="status-tile-icon">📚</span>
+                  <span class="status-tile-label">KHO TỔNG THƯ VIỆN</span>
+                </div>
+                <div class="status-tile-main">
+                  <span class="status-tile-num" id="goal-master-num">0/2582</span>
+                  <span class="status-tile-unit">từ</span>
+                </div>
+                <span class="status-tile-sub" id="goal-master-sub">Đã thuộc 0 từ (0%) 🛡️</span>
+              </div>
+            </div>
+
+            <!-- Motivating Sprint Action Strip (Matching Twin CTA Row on Left Card) -->
+            <div class="goals-motive-strip">
+              <div class="goals-motive-left">
+                <span class="goals-motive-icon">⚡</span>
+                <span class="goals-motive-text" id="goals-motive-text">Duy trì 10 từ/ngày để sớm về đích!</span>
+              </div>
+              <button type="button" class="btn-goals-adjust" id="btn-goals-adjust" title="Tùy chỉnh chỉ tiêu học">
+                <span>Cài đặt ⚙️</span>
+              </button>
             </div>
           </div>
 
@@ -598,69 +698,125 @@ export function renderReviewTab(app) {
       }
     }
 
-    // E. Render 3 Nhiệm Vụ 3 Bước Nhỏ (Daily 3-Step Micro-Quests)
-    const microQuestsData = StatsManager.getDailyMicroQuests(allLogs, studyQueue, dailyGoal);
-    const elQuestsBadge = document.getElementById('review-quests-badge');
-    if (elQuestsBadge) {
-      elQuestsBadge.textContent = `${microQuestsData.completedCount}/3 bước`;
-      if (microQuestsData.isAllCompleted) {
-        elQuestsBadge.classList.add('all-done');
+    // E. Render Goal & Progress Tracker (Radial Rings & Multi-Tier Goals)
+    // 1. Ngày (Hôm nay)
+    const dayPct = Math.min(100, Math.round((todayNewLearned / dailyGoal) * 100));
+
+    // 2. Tuần (7 ngày gần nhất)
+    const weekStart = new Date(now);
+    weekStart.setDate(weekStart.getDate() - 6);
+    weekStart.setHours(0, 0, 0, 0);
+    const weekLogs = allLogs.filter(l => l.timestamp && new Date(l.timestamp) >= weekStart);
+    const weekNewLearned = weekLogs.filter(l => 
+      l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
+    ).length;
+    const weekGoal = dailyGoal * 7;
+    const weekPct = Math.min(100, Math.round((weekNewLearned / weekGoal) * 100));
+
+    // 3. Tháng (Tháng dương lịch hiện tại)
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1, 0, 0, 0, 0);
+    const monthLogs = allLogs.filter(l => l.timestamp && new Date(l.timestamp) >= monthStart);
+    const monthNewLearned = monthLogs.filter(l => 
+      l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
+    ).length;
+    const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+    const daysRemaining = Math.max(0, daysInMonth - now.getDate() + 1);
+    const monthGoal = dailyGoal * daysInMonth;
+    const monthPct = Math.min(100, Math.round((monthNewLearned / monthGoal) * 100));
+
+    // 4. Mục tiêu Chặng (Sub-goal) & Kho Tổng (Master-goal)
+    const roadmap = StatsManager.getMilestoneRoadmap(learnedCount, dailyGoal);
+    const activeStage = roadmap.activeStage;
+    const stageTargetWords = activeStage.targetWords;
+    const stageLearnedWords = Math.min(stageTargetWords, learnedCount);
+    const stageWordsLeft = Math.max(0, stageTargetWords - stageLearnedWords);
+    const stageDaysEstimate = Math.max(1, Math.ceil(stageWordsLeft / dailyGoal));
+
+    const totalLibraryWords = app.deckManager ? app.deckManager.getAllWords().length : 2582;
+    const libraryPct = Math.min(100, Math.round((learnedCount / totalLibraryWords) * 100));
+    const libraryMasteredPct = Math.min(100, Math.round((masteredCount / totalLibraryWords) * 100));
+
+    // Update Header
+    const elGoalsTitle = document.getElementById('goals-main-title');
+    if (elGoalsTitle) {
+      elGoalsTitle.textContent = `${activeStage.title} (${monthGoal} từ/${daysInMonth} ngày)`;
+    }
+
+    const elGoalsCountdown = document.getElementById('goals-countdown-badge');
+    if (elGoalsCountdown) {
+      elGoalsCountdown.textContent = `⏳ Còn ${daysRemaining} ngày`;
+    }
+
+    const elGoalsMilestone = document.getElementById('goals-milestone-badge');
+    if (elGoalsMilestone) {
+      elGoalsMilestone.textContent = `${activeStage.progressPct}%`;
+    }
+
+    const elGoalsTotalTrack = document.getElementById('goals-total-track-fill');
+    if (elGoalsTotalTrack) {
+      elGoalsTotalTrack.style.width = `${activeStage.progressPct}%`;
+    }
+
+    // Update SVG Rings
+    const setRadialRing = (svgId, valId, detailId, pct, count, target) => {
+      const elSvg = document.getElementById(svgId);
+      const elVal = document.getElementById(valId);
+      const elDetail = document.getElementById(detailId);
+      if (elSvg) {
+        const offset = 125.66 * (1 - Math.min(100, Math.max(0, pct)) / 100);
+        elSvg.style.strokeDashoffset = offset;
+      }
+      if (elVal) elVal.textContent = `${pct}%`;
+      if (elDetail) elDetail.textContent = `${count}/${target} từ`;
+    };
+
+    setRadialRing('ring-svg-day', 'ring-val-day', 'ring-detail-day', dayPct, todayNewLearned, dailyGoal);
+    setRadialRing('ring-svg-week', 'ring-val-week', 'ring-detail-week', weekPct, weekNewLearned, weekGoal);
+    setRadialRing('ring-svg-month', 'ring-val-month', 'ring-detail-month', monthPct, monthNewLearned, monthGoal);
+
+    // Update Sub-goal & Master-goal Tiles
+    const elSprintNum = document.getElementById('goal-sprint-num');
+    if (elSprintNum) elSprintNum.textContent = `${stageLearnedWords}/${stageTargetWords}`;
+
+    const elSprintSub = document.getElementById('goal-sprint-sub');
+    if (elSprintSub) {
+      elSprintSub.textContent = stageWordsLeft > 0 ? `Chặng ${activeStage.id} • Còn ${stageWordsLeft} từ` : `Chặng ${activeStage.id} • Đã hoàn thành 🏆`;
+    }
+
+    const elMasterNum = document.getElementById('goal-master-num');
+    if (elMasterNum) elMasterNum.textContent = `${learnedCount}/${totalLibraryWords}`;
+
+    const elMasterSub = document.getElementById('goal-master-sub');
+    if (elMasterSub) {
+      elMasterSub.textContent = `Đã thuộc ${masteredCount} từ (${libraryMasteredPct}%) 🛡️`;
+    }
+
+    // Update Motivation Action Strip
+    const elMotiveText = document.getElementById('goals-motive-text');
+    if (elMotiveText) {
+      if (stageWordsLeft > 0) {
+        elMotiveText.textContent = `🔥 Duy trì ${dailyGoal} từ/ngày để hoàn tất ${activeStage.title} sau ${stageDaysEstimate} ngày nữa!`;
       } else {
-        elQuestsBadge.classList.remove('all-done');
+        elMotiveText.textContent = `🎉 Tuyệt vời! Đã chinh phục ${activeStage.title}. Sẵn sàng cho chặng tiếp theo!`;
       }
     }
 
-    const elQuestsList = document.getElementById('review-quests-list');
-    if (elQuestsList) {
-      elQuestsList.innerHTML = microQuestsData.quests.map((q, idx) => {
-        let actionBtnHtml = '';
-        if (q.done) {
-          actionBtnHtml = `<span class="quest-done-tag">✓ Đạt</span>`;
-        } else if (q.id === 'warmup') {
-          actionBtnHtml = `<button type="button" class="btn-quest-action btn-quest-warmup" data-quest="warmup">Ôn ngay</button>`;
-        } else if (q.id === 'learn') {
-          actionBtnHtml = `<button type="button" class="btn-quest-action btn-quest-learn" data-quest="learn">Nạp ngay</button>`;
-        } else if (q.id === 'quiz') {
-          actionBtnHtml = `<button type="button" class="btn-quest-action btn-quest-quiz" data-quest="quiz">Làm Quiz</button>`;
-        }
-
-        return `
-          <div class="quest-step-item ${q.done ? 'is-done' : ''}">
-            <div class="quest-step-icon">${q.icon}</div>
-            <div class="quest-step-info">
-              <div class="quest-step-title-row">
-                <span class="quest-step-name">${escapeHTML(q.title)}</span>
-                <span class="quest-step-progress">${escapeHTML(q.progressText)}</span>
-              </div>
-              <span class="quest-step-sub">${escapeHTML(q.sub)}</span>
-            </div>
-            <div class="quest-step-action-wrap">
-              ${actionBtnHtml}
-            </div>
-          </div>
-        `;
-      }).join('');
-
-      // Gán sự kiện click cho các nút hành động của từng nhiệm vụ nhỏ
-      elQuestsList.querySelectorAll('.btn-quest-action').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const qType = btn.dataset.quest;
-          if (qType === 'warmup') {
-            app.startStudySession(null, null, null, { mode: 'due_only' });
-          } else if (qType === 'learn') {
-            app.startStudySession(null, null, null, { mode: 'new_only' });
-          } else if (qType === 'quiz') {
-            app.startQuizSession();
+    const btnGoalsAdjust = document.getElementById('btn-goals-adjust');
+    if (btnGoalsAdjust) {
+      btnGoalsAdjust.onclick = (e) => {
+        e.stopPropagation();
+        app.switchTab('settings');
+        setTimeout(() => {
+          const elDaily = document.getElementById('setting-daily-new');
+          if (elDaily) {
+            elDaily.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            elDaily.focus();
           }
-        });
-      });
+        }, 300);
+      };
     }
 
     // F. Render Bảng Lộ Trình Mục Tiêu 8 Chặng Chia Nhỏ (Milestone Roadmap Board)
-    const roadmap = StatsManager.getMilestoneRoadmap(learnedCount, dailyGoal);
-    const activeStage = roadmap.activeStage;
-
     const elStagePill = document.getElementById('milestone-stage-pill');
     if (elStagePill) {
       elStagePill.textContent = `Chặng ${activeStage.id}/${roadmap.totalStages}`;

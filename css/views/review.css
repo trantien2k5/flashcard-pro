@@ -640,227 +640,375 @@
 }
 
 /* ==========================================================================
-   3. Daily 3-Step Micro-Quests Bento Card
+   3. Goal & Progress Tracker Bento Card (Mục Tiêu & Tiến Độ Đa Tầng)
    ========================================================================== */
-.review-quests-card {
+.review-goals-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 16px;
+  border-radius: 20px;
+  padding: 18px 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  box-shadow: var(--shadow-sm);
+  gap: 14px;
+  box-shadow: var(--shadow-md);
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-[data-theme="light"] .review-quests-card {
+[data-theme="light"] .review-goals-card {
   background: #ffffff;
   border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
 }
 
-.quests-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.quests-header-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
-
-.quests-icon-badge {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background: rgba(245, 158, 11, 0.12);
-  border: 1px solid rgba(245, 158, 11, 0.25);
+.review-goals-icon-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  font-size: 1.15rem;
 }
 
-.quests-title-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.quests-tag {
-  font-size: 0.62rem;
+.pill-goals-countdown {
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
-  color: #f59e0b;
-  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 99px;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: var(--primary);
+  white-space: nowrap;
 }
 
-.quests-main-title {
-  font-size: 0.88rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin: 0;
-  line-height: 1.25;
+[data-theme="light"] .pill-goals-countdown {
+  background: rgba(79, 70, 229, 0.08);
+  border-color: rgba(79, 70, 229, 0.2);
+  color: #4f46e5;
 }
 
-.quests-progress-pill {
-  font-size: 0.7rem;
+.pill-goals-milestone {
+  font-size: 0.68rem;
   font-weight: 800;
   font-family: var(--font-mono);
-  padding: 3px 9px;
+  padding: 3px 8px;
   border-radius: 99px;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  flex-shrink: 0;
-}
-
-.quests-progress-pill.all-done {
-  background: rgba(16, 185, 129, 0.15);
-  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
   color: #10b981;
 }
 
-.quests-list {
+.ring-fill-gradient {
+  background: linear-gradient(90deg, #10b981, #06b6d4, #6366f1);
+}
+
+/* 3 Radial Progress Rings Grid */
+.goals-rings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.goal-ring-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 9px 6px 8px 6px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-sizing: border-box;
+  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: var(--shadow-sm);
+  user-select: none;
 }
 
-.quest-step-item {
+[data-theme="light"] .goal-ring-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
+}
+
+.goal-ring-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.1);
+}
+
+.goal-ring-svg-wrap {
+  position: relative;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  transition: all 0.18s ease;
-}
-
-[data-theme="light"] .quest-step-item {
-  background: #f8fafc;
-  border-color: #e2e8f0;
-}
-
-.quest-step-item.is-done {
-  background: rgba(16, 185, 129, 0.06);
-  border-color: rgba(16, 185, 129, 0.22);
-}
-
-.quest-step-icon {
-  font-size: 1.25rem;
+  justify-content: center;
   flex-shrink: 0;
-  width: 28px;
+}
+
+.ring-svg {
+  width: 48px;
+  height: 48px;
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: var(--bg-tertiary);
+  stroke-width: 4;
+}
+
+[data-theme="light"] .ring-bg {
+  stroke: #e2e8f0;
+}
+
+.ring-fill {
+  fill: none;
+  stroke-width: 4.2;
+  stroke-linecap: round;
+  stroke-dasharray: 125.66;
+  stroke-dashoffset: 125.66;
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ring-fill-day {
+  stroke: #10b981;
+}
+
+.ring-fill-week {
+  stroke: #f59e0b;
+}
+
+.ring-fill-month {
+  stroke: #06b6d4;
+}
+
+[data-theme="light"] .ring-fill-month {
+  stroke: #0891b2;
+}
+
+.ring-center-val {
+  position: absolute;
+  font-size: 0.68rem;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  line-height: 1;
   text-align: center;
 }
 
-.quest-step-info {
+.goal-ring-info {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  flex: 1;
+  align-items: center;
+  gap: 1px;
+  width: 100%;
   min-width: 0;
+  text-align: center;
 }
 
-.quest-step-title-row {
+.goal-ring-title {
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.goal-ring-detail {
+  font-size: 0.66rem;
+  font-weight: 750;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* 2 Bento Dual Status Tiles (Sub-Goal & Master-Goal) */
+.goals-dual-status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+  width: 100%;
+}
+
+.goal-status-tile {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 72px;
+  box-sizing: border-box;
+  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: var(--shadow-sm);
+  user-select: none;
+}
+
+[data-theme="light"] .goal-status-tile {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
+}
+
+.goal-status-tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.1);
+}
+
+.status-tile-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 6px;
+  gap: 5px;
 }
 
-.quest-step-name {
-  font-size: 0.82rem;
-  font-weight: 750;
-  color: var(--text-primary);
+.status-tile-icon {
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.status-tile-label {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.status-tile-main {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  margin: 2px 0 1px 0;
+}
+
+.status-tile-num {
+  font-size: 1.25rem;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+
+.tile-sprint .status-tile-num {
+  color: #8b5cf6;
+}
+
+[data-theme="light"] .tile-sprint .status-tile-num {
+  color: #7c3aed;
+}
+
+.tile-master .status-tile-num {
+  color: #0ea5e9;
+}
+
+[data-theme="light"] .tile-master .status-tile-num {
+  color: #0284c7;
+}
+
+.status-tile-unit {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.status-tile-sub {
+  font-size: 0.64rem;
+  color: var(--text-muted);
+  font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.quest-step-item.is-done .quest-step-name {
-  color: #10b981;
+/* Motivating Sprint Action Strip */
+.goals-motive-strip {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.07), rgba(16, 185, 129, 0.07));
+  border: 1.5px solid rgba(99, 102, 241, 0.2);
+  border-radius: 14px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  box-sizing: border-box;
+  min-height: 46px;
 }
 
-.quest-step-progress {
-  font-size: 0.7rem;
-  font-weight: 800;
-  font-family: var(--font-mono);
-  color: var(--text-muted);
+[data-theme="light"] .goals-motive-strip {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(16, 185, 129, 0.05));
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+.goals-motive-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.goals-motive-icon {
+  font-size: 1rem;
   flex-shrink: 0;
 }
 
-.quest-step-sub {
+.goals-motive-text {
   font-size: 0.72rem;
-  color: var(--text-secondary);
-  line-height: 1.2;
-}
-
-.quest-step-action-wrap {
-  flex-shrink: 0;
-}
-
-.btn-quest-action {
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.75rem;
   font-weight: 750;
-  cursor: pointer;
-  border: 1px solid transparent;
-  transition: all 0.16s ease;
-  touch-action: manipulation;
-  white-space: nowrap;
+  color: var(--text-primary);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
-.btn-quest-warmup {
-  background: rgba(99, 102, 241, 0.12);
-  border-color: rgba(99, 102, 241, 0.3);
-  color: var(--primary);
-}
-
-.btn-quest-warmup:hover {
-  background: var(--primary);
-  color: #ffffff;
-}
-
-.btn-quest-learn {
-  background: rgba(16, 185, 129, 0.12);
-  border-color: rgba(16, 185, 129, 0.3);
-  color: #10b981;
-}
-
-.btn-quest-learn:hover {
-  background: #10b981;
-  color: #ffffff;
-}
-
-.btn-quest-quiz {
-  background: rgba(245, 158, 11, 0.12);
-  border-color: rgba(245, 158, 11, 0.3);
-  color: #f59e0b;
-}
-
-.btn-quest-quiz:hover {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  color: #ffffff;
-}
-
-.quest-done-tag {
-  font-size: 0.72rem;
+.btn-goals-adjust {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  color: var(--text-primary);
+  font-size: 0.68rem;
   font-weight: 800;
-  color: #10b981;
-  background: rgba(16, 185, 129, 0.12);
-  padding: 4px 8px;
-  border-radius: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.18s ease;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+[data-theme="light"] .btn-goals-adjust {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn-goals-adjust:hover {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+}
+
+.btn-goals-adjust:active {
+  transform: scale(0.96);
 }
 
 /* ==========================================================================
@@ -2202,9 +2350,30 @@
   }
 
   /* Right Column Cards */
-  .review-quests-card {
-    padding: 20px;
+  .review-goals-card {
+    padding: 22px 20px;
+    gap: 16px;
     border-radius: var(--radius-xl);
+  }
+
+  .goals-rings-grid {
+    gap: 10px;
+  }
+
+  .goal-ring-card {
+    padding: 11px 8px 10px 8px;
+    border-radius: var(--radius-lg);
+  }
+
+  .goal-status-tile {
+    padding: 12px 14px;
+    min-height: 82px;
+    border-radius: var(--radius-lg);
+  }
+
+  .goals-motive-strip {
+    padding: 10px 14px;
+    border-radius: var(--radius-lg);
   }
 
   .review-radar-card {
@@ -2250,7 +2419,7 @@
   }
 
   .review-hero-card,
-  .review-quests-card,
+  .review-goals-card,
   .review-milestones-card,
   .review-spotlight-card,
   .review-radar-card,
