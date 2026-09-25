@@ -238,21 +238,17 @@ export class StudySession {
       remaining: this.queue.length - this.currentIndex
     });
 
-    // Hủy timer phát âm cũ nếu người dùng chuyển thẻ nhanh
+    // Hủy timer phát âm cũ nếu có
     if (this._autoSpeakTimer) {
       clearTimeout(this._autoSpeakTimer);
       this._autoSpeakTimer = null;
     }
 
-    // Tự động phát âm ngay khi chuyển sang thẻ mới (mặt trước) - CHỈ PHÁT KHI BẬT
-    const isAutoplay = this.settings?.autoPronounce === true;
+    // Tự động phát âm ngay lập tức (0ms delay) khi chuyển sang thẻ mới (mặt trước)
+    const isAutoplay = this.settings?.autoPronounce !== false;
     if (this.currentCard && this.currentCard.word && isAutoplay) {
       const cardToSpeak = this.currentCard;
-      this._autoSpeakTimer = setTimeout(() => {
-        if (this.currentCard && this.currentCard.id === cardToSpeak.id && !this.isFlipped) {
-          this.speak(cardToSpeak.word);
-        }
-      }, 120);
+      this.speak(cardToSpeak.word);
     }
 
     // Tải trước trượt 3 từ tiếp theo trong hàng đợi (Sliding Window JIT) cả âm thanh và hình ảnh
@@ -301,6 +297,10 @@ export class StudySession {
       leechAction: this.settings?.leechAction || 'tag'
     });
 
+    const cardId = this.currentCard.id;
+    const latencySec = typeof options.latencySec === 'number' ? options.latencySec : null;
+    const backViewSec = typeof options.backViewSec === 'number' ? options.backViewSec : null;
+
     // Lưu trạng thái thẻ
     if (shouldPersist) {
       StorageManager.saveCardState(nextState);
@@ -314,7 +314,9 @@ export class StudySession {
         newState: nextState.state,
         scheduledDays: nextState.scheduled_days,
         stability: nextState.stability,
-        difficulty: nextState.difficulty
+        difficulty: nextState.difficulty,
+        latencySec: latencySec,
+        backViewSec: backViewSec
       });
     }
 
@@ -325,42 +327,18 @@ export class StudySession {
     else if (rating === Rating.Easy) this.sessionStats.easy++;
     this.sessionStats.reviewedCount++;
 
-    const cardId = this.currentCard.id;
-    const latencySec = typeof options.latencySec === 'number' ? options.latencySec : null;
-
-    if (shouldPersist && latencySec !== null) {
-      // Bổ sung latencySec vào log gần nhất
+    if (shouldPersist) {
       try {
         const logs = StorageManager.getStudyLogs();
         if (logs.length > 0 && logs[logs.length - 1].cardId === cardId) {
-          logs[logs.length - 1].latencySec = Number(latencySec.toFixed(2));
+          if (latencySec !== null) logs[logs.length - 1].latencySec = Number(latencySec.toFixed(2));
+          if (backViewSec !== null) logs[logs.length - 1].backViewSec = Number(backViewSec.toFixed(2));
         }
       } catch (e) {}
     }
 
-    // 1. KHOA HỌC NHẬN THỨC: VÒNG LẶP HỌC LẠI TRONG PHIÊN (Intra-Session Re-queueing)
-    if (rating === Rating.Again) {
-      this.failedInSessionIds.add(cardId);
-      
-      // Tạo bản sao thẻ để người học bắt buộc phải hồi tưởng lại trước khi kết thúc phiên
-      const relearnCard = {
-        ...this.currentCard,
-        _isRelearning: true,
-        fsrsState: nextState
-      };
-
-      // Vị trí chèn: sau 3 thẻ tiếp theo (để có khoảng cách ngắt quãng ngắn) hoặc ở cuối danh sách
-      const remainingDistance = this.queue.length - 1 - this.currentIndex;
-      if (remainingDistance >= 3) {
-        this.queue.splice(this.currentIndex + 4, 0, relearnCard);
-      } else {
-        this.queue.push(relearnCard);
-      }
-    } else {
-      // Đã nhớ được (Hard, Good, Easy) -> ghi nhận hoàn thành thẻ độc nhất này
-      this.completedUniqueIds.add(cardId);
-    }
-
+    // Ghi nhận hoàn thành thẻ trong phiên học
+    this.completedUniqueIds.add(cardId);
     this.completedCount = this.completedUniqueIds.size;
 
     this.currentIndex++;

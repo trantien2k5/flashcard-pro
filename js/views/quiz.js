@@ -22,6 +22,8 @@ let _reflexInterval = null;
 let _comboCount = 0;
 let _isAnswerLocked = false;
 let _audioCtx = null;
+let _timerUnsubscribe = null;
+let _autoSpeakTimer = null;
 
 // Thống kê phiên trắc nghiệm
 let _quizStats = {
@@ -177,8 +179,17 @@ export function renderQuizOverlayShell() {
 
         <div class="quiz-progress-section">
           <div class="quiz-progress-top-row">
-            <span class="quiz-counter-text" id="quiz-progress-counter">1 / 10</span>
-            <span class="quiz-combo-badge" id="quiz-combo-badge">🔥 x1 Combo</span>
+            <div class="quiz-progress-left-meta">
+              <span class="quiz-counter-text" id="quiz-progress-counter">1 / 10</span>
+              <span class="quiz-combo-badge" id="quiz-combo-badge">🔥 x1 Combo</span>
+            </div>
+
+            <!-- Live Active Study Timer with Idle AFK Auto-Pause -->
+            <div class="quiz-live-timer" id="quiz-live-timer" title="Thời gian học chủ động FSRS (Tự dừng khi treo máy)">
+              <span class="timer-icon">⏱️</span>
+              <span class="timer-digits" id="quiz-timer-digits">00:00</span>
+              <span class="timer-status-dot is-active" id="quiz-timer-dot" title="Đang tính giờ"></span>
+            </div>
           </div>
           <div class="quiz-progress-track">
             <div class="quiz-progress-fill" id="quiz-progress-fill" style="width: 10%;"></div>
@@ -220,8 +231,8 @@ export function renderQuizOverlayShell() {
           <!-- Options dynamic injected -->
         </div>
 
-        <!-- 4. Manual Advance Action Bar (No Auto-Advance) -->
-        <div class="quiz-action-bar" id="quiz-action-bar" style="display: none;">
+        <!-- 4. Manual Advance Action Bar (Fixed Reserved Space, No Layout Shift) -->
+        <div class="quiz-action-bar" id="quiz-action-bar">
           <button type="button" class="btn-quiz-next" id="btn-quiz-next">
             <span id="quiz-next-label">Tiếp tục (Space ↵)</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -372,7 +383,12 @@ export function startQuizSession(app, customQueue = null, options = {}) {
     renderQuizOverlayShell();
     const overlay = document.getElementById('quiz-overlay');
     if (overlay) overlay.classList.add('active');
+    
     globalStudyTimer.startSession();
+    if (_timerUnsubscribe) _timerUnsubscribe();
+    _timerUnsubscribe = globalStudyTimer.subscribe((state) => {
+      updateQuizLiveTimerUI(state);
+    });
 
     loadQuizQuestion(_quizIndex);
   } catch (err) {
@@ -423,7 +439,7 @@ function loadQuizQuestion(index) {
   const actionBar = document.getElementById('quiz-action-bar');
 
   if (actionBar) {
-    actionBar.style.display = 'none';
+    actionBar.classList.remove('active');
   }
 
   if (elWord) elWord.textContent = card.word || '...';
@@ -436,16 +452,28 @@ function loadQuizQuestion(index) {
     btnSpeaker.onclick = (e) => {
       e.stopPropagation();
       btnSpeaker.classList.add('playing');
-      speak(card.word);
+      speak(card.word, { cardObj: card });
       setTimeout(() => btnSpeaker.classList.remove('playing'), 1000);
     };
   }
 
-  // Tự động phát âm từ vựng mặt trước (nếu bật cài đặt)
-  if (_quizApp?.settings?.autoPronounce !== false) {
+  // Tự động phát âm từ vựng ngay lập tức khi vào câu hỏi mới (0ms delay)
+  if (_autoSpeakTimer) {
+    clearTimeout(_autoSpeakTimer);
+    _autoSpeakTimer = null;
+  }
+  const shouldAutoSpeak = _quizApp?.settings?.autoPronounce !== false;
+  if (shouldAutoSpeak && card && card.word) {
+    if (btnSpeaker) btnSpeaker.classList.add('playing');
+    speak(card.word, {
+      cardObj: card,
+      onEnd: () => {
+        if (btnSpeaker) btnSpeaker.classList.remove('playing');
+      }
+    });
     setTimeout(() => {
-      speak(card.word);
-    }, 150);
+      if (btnSpeaker) btnSpeaker.classList.remove('playing');
+    }, 1200);
   }
 
   // Sinh 4 phương án trắc nghiệm
@@ -494,7 +522,10 @@ function handleOptionSelected(selectedTile, selectedOpt, card, allOptions) {
   const isCorrect = selectedOpt.isCorrect === true;
   playFeedbackTone(isCorrect);
 
-  // 1. Phân loại Điểm FSRS theo Khoa Học Nhận Thức & Chống Spam
+  // 1. Phân loại Điểm FSRS theo Khoa Học Nhận Thức & Quy tắc Trắc Nghiệm
+  const oldCardState = StorageManager.getCardState(card.id) || FSRS.createEmptyCard(card.id);
+  const pastReps = oldCardState.reps || 0;
+
   let rating = Rating.Good;
   let toastClass = 'toast-good';
   let toastText = '✨ Chuẩn xác (+Good)';
@@ -516,12 +547,18 @@ function handleOptionSelected(selectedTile, selectedOpt, card, allOptions) {
       toastClass = 'toast-hard';
       toastText = '🛡️ Quá nhanh (<0.8s) • Khó (+Hard)';
     } else if (elapsedSec <= 2.5) {
-      // Phản xạ siêu tốc
-      rating = Rating.Easy;
-      toastClass = 'toast-easy';
-      toastText = `⚡ Siêu tốc (${elapsedSec.toFixed(1)}s) • Dễ (+Easy)`;
-    } else if (elapsedSec <= 5.0) {
-      // Trả lời chuẩn xác
+      // Phản xạ nhanh: Chỉ cấp Easy nếu từ này đã được học/ôn thành công từ 3 lần trở lên
+      if (pastReps >= 3) {
+        rating = Rating.Easy;
+        toastClass = 'toast-easy';
+        toastText = `⚡ Đã nhớ sâu (Ôn x${pastReps}) • Dễ (+Easy)`;
+      } else {
+        rating = Rating.Good;
+        toastClass = 'toast-good';
+        toastText = `✨ Chuẩn xác (${elapsedSec.toFixed(1)}s) • Tốt (+Good)`;
+      }
+    } else if (elapsedSec <= 5.5) {
+      // Trả lời chuẩn xác trong thời gian đọc hiểu thông thường
       rating = Rating.Good;
       toastClass = 'toast-good';
       toastText = `✨ Chuẩn xác (${elapsedSec.toFixed(1)}s) • Tốt (+Good)`;
@@ -594,7 +631,7 @@ function handleOptionSelected(selectedTile, selectedOpt, card, allOptions) {
     toast.className = `quiz-reflex-toast ${toastClass} show`;
   }
 
-  // 4. Hiển thị nút "Tiếp tục" thủ công (Không tự động nhảy câu)
+  // 4. Hiển thị nút "Tiếp tục" thủ công (Không tự động nhảy câu & Không giật layout)
   const actionBar = document.getElementById('quiz-action-bar');
   const nextLabel = document.getElementById('quiz-next-label');
   const isLast = _quizIndex + 1 >= _quizQueue.length;
@@ -604,8 +641,7 @@ function handleOptionSelected(selectedTile, selectedOpt, card, allOptions) {
   }
 
   if (actionBar) {
-    actionBar.style.display = 'flex';
-    actionBar.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    actionBar.classList.add('active');
   }
 }
 
@@ -617,7 +653,35 @@ function finishQuizSession() {
   showQuizSummaryModal(_quizStats);
 }
 
+function updateQuizLiveTimerUI(state) {
+  if (!state) return;
+  const elDigits = document.getElementById('quiz-timer-digits');
+  const elContainer = document.getElementById('quiz-live-timer');
+  const elDot = document.getElementById('quiz-timer-dot');
+  if (!elDigits || !elContainer) return;
+
+  elDigits.textContent = state.formattedSessionTime || '00:00';
+
+  if (state.isIdle || state.isPaused) {
+    elContainer.classList.add('is-idle');
+    elContainer.setAttribute('title', 'Tạm dừng tính giờ (Đang treo máy - tương tác lại để tiếp tục)');
+    if (elDot) elDot.className = 'timer-status-dot is-idle';
+  } else {
+    elContainer.classList.remove('is-idle');
+    elContainer.setAttribute('title', 'Thời gian học chủ động FSRS (Tự dừng khi treo máy)');
+    if (elDot) elDot.className = 'timer-status-dot is-active';
+  }
+}
+
 function closeQuizSession(isCancel = false) {
+  if (_autoSpeakTimer) {
+    clearTimeout(_autoSpeakTimer);
+    _autoSpeakTimer = null;
+  }
+  if (_timerUnsubscribe) {
+    _timerUnsubscribe();
+    _timerUnsubscribe = null;
+  }
   if (_reflexInterval) clearInterval(_reflexInterval);
   globalStudyTimer.endSession();
   const overlay = document.getElementById('quiz-overlay');

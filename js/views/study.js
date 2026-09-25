@@ -46,7 +46,10 @@ export function saveAutoPlayPrefs(prefs) {
 let _isAutoPlaying = false;
 let _autoPlayTimer = null;
 let _cardShowTime = 0;
+let _backShowTime = 0;
 let _lastFlipLatencyMs = 0;
+let _isFlipLocked = false;
+let _flipCountdownTimer = null;
 
 export function isAutoPlayActive() {
   return _isAutoPlaying;
@@ -93,6 +96,46 @@ export function stopAutoPlay() {
   updateAutoPlayUI(false);
 }
 
+export function startFrontActiveRecallTimer() {
+  if (_flipCountdownTimer) {
+    clearInterval(_flipCountdownTimer);
+    _flipCountdownTimer = null;
+  }
+
+  const btn = document.getElementById('btn-main-flip');
+  if (!btn) return;
+
+  const durationMs = 2500; // Khóa 2.5s ở Front để ép não truy xuất chủ động (Active Recall)
+  const startTime = performance.now();
+  _isFlipLocked = true;
+  btn.classList.add('is-locked');
+
+  const updateCountdown = () => {
+    const elapsed = performance.now() - startTime;
+    const remainingSec = Math.max(0, (durationMs - elapsed) / 1000);
+
+    if (remainingSec <= 0.05) {
+      _isFlipLocked = false;
+      if (_flipCountdownTimer) {
+        clearInterval(_flipCountdownTimer);
+        _flipCountdownTimer = null;
+      }
+      btn.classList.remove('is-locked');
+      btn.innerHTML = `<span>Xem đáp án (Space ↵)</span>`;
+    } else {
+      btn.innerHTML = `
+        <span class="flip-countdown-badge">
+          <span class="flip-countdown-dot"></span>
+          <span>Suy nghĩ (${remainingSec.toFixed(1)}s)</span>
+        </span>
+      `;
+    }
+  };
+
+  updateCountdown();
+  _flipCountdownTimer = setInterval(updateCountdown, 100);
+}
+
 // Cấu hình hiển thị trường dữ liệu mặc định (Tối giản tối đa)
 const DEFAULT_STUDY_PREFS = {
   showImage: false,
@@ -102,7 +145,7 @@ const DEFAULT_STUDY_PREFS = {
   showExampleVi: false,
   showPos: false,
   showCefr: false,
-  autoplayAudio: false,
+  autoplayAudio: true,
   showHint: false
 };
 
@@ -156,11 +199,16 @@ export function renderStudyOverlayShell() {
             </svg>
           </button>
 
-          <!-- Middle Progress Counter -->
+          <!-- Middle Progress Counter & Live Study Timer -->
           <div class="study-header-center">
             <span class="study-progress-counter" id="study-progress-text" title="Tiến độ học">
               <span class="counter-num">0</span><span class="counter-sep">/</span><span class="counter-total">0</span>
             </span>
+            <div class="study-live-timer" id="study-live-timer" title="Thời gian học chủ động FSRS (Tự dừng khi treo máy)">
+              <span class="timer-icon">⏱️</span>
+              <span class="timer-digits" id="study-timer-digits">00:00</span>
+              <span class="timer-status-dot is-active" id="study-timer-dot" title="Đang tính giờ"></span>
+            </div>
           </div>
 
           <!-- Right Actions (Auto-Play + Dark/Light Toggle + 3 Dots Menu) -->
@@ -733,38 +781,39 @@ export function setupStudyControls(app) {
       }
     });
 
+
+
     // Lật thẻ khi chạm hoặc bấm nút lật
     const triggerFlip = () => {
       try {
         if (!overlay.classList.contains('active')) return;
+        
+        // Nếu đang ở mặt trước và đang trong 2.5s suy nghĩ
+        if (!app.studySession.isFlipped && _isFlipLocked) {
+          btnMainFlip?.classList.add('shake-cue');
+          setTimeout(() => btnMainFlip?.classList.remove('shake-cue'), 350);
+          return;
+        }
+
+        if (_flipCountdownTimer) {
+          clearInterval(_flipCountdownTimer);
+          _flipCountdownTimer = null;
+        }
+        _isFlipLocked = false;
+
         globalStudyTimer.recordActivity();
         const isFlipped = app.studySession.flipCard();
         flashcardEl.classList.toggle('flipped', isFlipped);
         
         if (isFlipped) {
-          _lastFlipLatencyMs = performance.now() - (_cardShowTime || performance.now());
+          _backShowTime = performance.now();
+          _lastFlipLatencyMs = _backShowTime - (_cardShowTime || _backShowTime);
           frontFlipControl?.classList.remove('visible');
           fsrsButtonsContainer?.classList.add('visible');
-
-          // Nhận diện hành vi phản xạ (Behavioral Latency Intelligence)
-          const flipSec = _lastFlipLatencyMs / 1000;
-          const btnHard = document.querySelector('.btn-fsrs-rating.hard');
-          const btnGood = document.querySelector('.btn-fsrs-rating.good');
-          const btnEasy = document.querySelector('.btn-fsrs-rating.easy');
-
-          [btnHard, btnGood, btnEasy].forEach(b => b?.classList.remove('behavioral-recommend'));
-
-          // Gợi ý mức đánh giá trung thực: Nếu phân vân lâu (>7s) gợi ý Hard, nếu siêu nhanh (<=1.8s) gợi ý Easy, bình thường Good
-          if (flipSec >= 7.0 && btnHard) {
-            btnHard.classList.add('behavioral-recommend');
-          } else if (flipSec <= 1.8 && btnEasy) {
-            btnEasy.classList.add('behavioral-recommend');
-          } else if (btnGood) {
-            btnGood.classList.add('behavioral-recommend');
-          }
         } else {
           frontFlipControl?.classList.add('visible');
           fsrsButtonsContainer?.classList.remove('visible');
+          startFrontActiveRecallTimer();
         }
       } catch (err) {
         console.error('Lỗi khi lật thẻ:', err);
@@ -803,7 +852,10 @@ export function setupStudyControls(app) {
       try {
         globalStudyTimer.recordActivity();
         const latencySec = _lastFlipLatencyMs > 0 ? Number((_lastFlipLatencyMs / 1000).toFixed(2)) : null;
-        app.studySession.rateCard(rating, { latencySec });
+        const backViewMs = _backShowTime > 0 ? (performance.now() - _backShowTime) : 0;
+        const backViewSec = Number((backViewMs / 1000).toFixed(2));
+
+        app.studySession.rateCard(rating, { latencySec, backViewSec, backViewMs: Math.round(backViewMs) });
       } catch (err) {
         console.error('Lỗi rating thẻ:', err);
       } finally {
@@ -1136,6 +1188,10 @@ export function setupStudyControls(app) {
           });
 
           if (confirmed) {
+            if (_studyTimerUnsubscribe) {
+              _studyTimerUnsubscribe();
+              _studyTimerUnsubscribe = null;
+            }
             app.studySession?.stopAudio();
             globalStudyTimer.endSession();
             overlay.classList.remove('active');
@@ -1271,13 +1327,41 @@ function getStudyDom() {
   return _dom;
 }
 
+let _studyTimerUnsubscribe = null;
+
+function updateStudyLiveTimerUI(state) {
+  if (!state) return;
+  const elDigits = document.getElementById('study-timer-digits');
+  const elContainer = document.getElementById('study-live-timer');
+  const elDot = document.getElementById('study-timer-dot');
+  if (!elDigits || !elContainer) return;
+
+  elDigits.textContent = state.formattedSessionTime || '00:00';
+
+  if (state.isIdle || state.isPaused) {
+    elContainer.classList.add('is-idle');
+    elContainer.setAttribute('title', 'Tạm dừng tính giờ (Đang treo máy - tương tác lại để tiếp tục)');
+    if (elDot) elDot.className = 'timer-status-dot is-idle';
+  } else {
+    elContainer.classList.remove('is-idle');
+    elContainer.setAttribute('title', 'Thời gian học chủ động FSRS (Tự dừng khi treo máy)');
+    if (elDot) elDot.className = 'timer-status-dot is-active';
+  }
+}
+
 export function startStudySession(app, queue) {
   try {
     unlockAudioContext();
     const overlay = document.getElementById('study-overlay');
     if (!overlay) return;
     overlay.classList.add('active');
+    
     globalStudyTimer.startSession();
+    if (_studyTimerUnsubscribe) _studyTimerUnsubscribe();
+    _studyTimerUnsubscribe = globalStudyTimer.subscribe((state) => {
+      updateStudyLiveTimerUI(state);
+    });
+
     _dom = null;
     app.studySession.start(queue);
   } catch (err) {
@@ -1390,8 +1474,9 @@ export function handleCardChange(app, card, progress) {
 
     // Khởi tạo bộ đo thời gian phản xạ lật thẻ của thẻ hiện tại
     _cardShowTime = performance.now();
+    _backShowTime = 0;
     _lastFlipLatencyMs = 0;
-    document.querySelectorAll('.btn-fsrs-rating').forEach(b => b.classList.remove('behavioral-recommend'));
+    startFrontActiveRecallTimer();
 
     // Cập nhật trạng thái thẻ FSRS và số lần học bấm thẻ (reps)
     const cardState = card.fsrsState || StorageManager.getCardState(card.id) || { state: State.New, reps: 0 };
@@ -1604,6 +1689,12 @@ export function handleStudyFinish(app, sessionStats) {
         }
       }
     }
+
+    if (_studyTimerUnsubscribe) {
+      _studyTimerUnsubscribe();
+      _studyTimerUnsubscribe = null;
+    }
+    globalStudyTimer.endSession();
 
     showSummaryModal(app, sessionStats, false);
     app.refreshAllViews();

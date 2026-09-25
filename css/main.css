@@ -887,11 +887,12 @@ html, body {
     scrollbar-color: rgba(99, 102, 241, 0.25) transparent;
   }
 
-  /* Cho phép màn hình Trang chủ Ôn tập tự động co giãn không bị cắt mất đáy */
+  /* Cho phép màn hình Trang chủ Ôn tập tự động co giãn không bị thanh cuộn lồng */
   #tab-review.active {
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 100%;
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
   }
 
   /* macOS Style Floating Rounded Pill Scrollbar */

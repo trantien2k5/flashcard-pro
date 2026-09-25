@@ -951,10 +951,75 @@ export class StudyTimeTracker {
     this.lastActivityTime = 0;
     this.lastTickTime = 0;
     this.unflushedSeconds = 0;
+    this.sessionSeconds = 0;
 
     this.intervalId = null;
+    this.subscribers = new Set();
+    this._lastMoveRecordTime = 0;
+
     this._boundOnVisibilityChange = this._onVisibilityChange.bind(this);
     this._boundOnUserActivity = this.recordActivity.bind(this);
+    this._boundOnMouseMove = this._onMouseMove.bind(this);
+  }
+
+  /**
+   * Đăng ký lắng nghe nhịp tick thời gian học trực tiếp (cho Header Quiz/Study)
+   */
+  subscribe(callback) {
+    if (typeof callback === 'function') {
+      this.subscribers.add(callback);
+      // Gửi ngay trạng thái hiện tại
+      callback(this.getTimerState());
+      return () => this.subscribers.delete(callback);
+    }
+    return () => {};
+  }
+
+  unsubscribe(callback) {
+    this.subscribers.delete(callback);
+  }
+
+  _notifySubscribers() {
+    const state = this.getTimerState();
+    this.subscribers.forEach(cb => {
+      try {
+        cb(state);
+      } catch (e) {
+        console.warn('Lỗi subscriber study timer:', e);
+      }
+    });
+  }
+
+  getTimerState() {
+    const secs = Math.max(0, Math.floor(this.sessionSeconds));
+    return {
+      isActive: this.isActiveSession,
+      sessionSeconds: secs,
+      formattedSessionTime: this.formatDuration(secs),
+      isIdle: this.isIdle,
+      isPaused: this.isPaused
+    };
+  }
+
+  formatDuration(seconds) {
+    const s = Math.max(0, Math.floor(seconds));
+    const mins = Math.floor(s / 60);
+    const secs = s % 60;
+    const pad = (n) => String(n).padStart(2, '0');
+    if (mins >= 60) {
+      const hrs = Math.floor(mins / 60);
+      const remMins = mins % 60;
+      return `${pad(hrs)}:${pad(remMins)}:${pad(secs)}`;
+    }
+    return `${pad(mins)}:${pad(secs)}`;
+  }
+
+  _onMouseMove() {
+    const now = Date.now();
+    if (now - this._lastMoveRecordTime > 500) {
+      this._lastMoveRecordTime = now;
+      this.recordActivity();
+    }
   }
 
   /**
@@ -972,25 +1037,26 @@ export class StudyTimeTracker {
     this.lastActivityTime = now;
     this.lastTickTime = now;
     this.unflushedSeconds = 0;
+    this.sessionSeconds = 0;
 
     // Lắng nghe sự kiện tab ẩn/hiện
     document.addEventListener('visibilitychange', this._boundOnVisibilityChange);
     window.addEventListener('pagehide', this._boundOnVisibilityChange);
 
-    // Lắng nghe tương tác người dùng để duy trì trạng thái active
-    const overlay = document.getElementById('study-overlay');
-    if (overlay) {
-      overlay.addEventListener('pointerdown', this._boundOnUserActivity, { passive: true });
-      overlay.addEventListener('keydown', this._boundOnUserActivity, { passive: true });
-      overlay.addEventListener('touchstart', this._boundOnUserActivity, { passive: true });
-    }
+    // Lắng nghe tương tác người dùng toàn cục
+    window.addEventListener('pointerdown', this._boundOnUserActivity, { passive: true, capture: true });
+    window.addEventListener('keydown', this._boundOnUserActivity, { passive: true, capture: true });
+    window.addEventListener('touchstart', this._boundOnUserActivity, { passive: true, capture: true });
+    window.addEventListener('mousemove', this._boundOnMouseMove, { passive: true });
+    window.addEventListener('wheel', this._boundOnMouseMove, { passive: true });
 
     // Bắt đầu chu kỳ đếm 1s/lần
     this._startTicker();
+    this._notifySubscribers();
   }
 
   /**
-   * Ghi nhận người dùng vừa có hành vi học (lật thẻ, chấm điểm, nghe âm thanh, chạm)
+   * Ghi nhận người dùng vừa có hành vi học (lật thẻ, chấm điểm, nghe âm thanh, chạm, gõ phím)
    */
   recordActivity() {
     if (!this.isActiveSession) return;
@@ -1002,6 +1068,7 @@ export class StudyTimeTracker {
     if (this.isIdle) {
       this.isIdle = false;
       this.lastTickTime = now;
+      this._notifySubscribers();
     }
   }
 
@@ -1023,6 +1090,7 @@ export class StudyTimeTracker {
     this._tick();
     this.flush();
     this.isPaused = true;
+    this._notifySubscribers();
   }
 
   resume() {
@@ -1032,6 +1100,7 @@ export class StudyTimeTracker {
     this.isIdle = false;
     this.lastActivityTime = now;
     this.lastTickTime = now;
+    this._notifySubscribers();
   }
 
   _startTicker() {
@@ -1049,23 +1118,35 @@ export class StudyTimeTracker {
 
     // Kiểm tra phát hiện treo máy
     if (timeSinceLastActivity > this.idleThresholdMs) {
+      const wasNotIdle = !this.isIdle;
       this.isIdle = true;
       this.lastTickTime = now;
+      if (wasNotIdle) {
+        this.flush();
+        this._notifySubscribers();
+      }
       return;
     }
+
+    // Đang hoạt động tích cực
+    this.isIdle = false;
 
     // Tính số giây thực tế trôi qua giữa 2 nhịp tick
     const deltaMs = now - this.lastTickTime;
     this.lastTickTime = now;
 
     if (deltaMs > 0 && deltaMs < 5000) { // Bỏ qua nếu có độ trễ bất thường
-      this.unflushedSeconds += (deltaMs / 1000);
+      const deltaSec = deltaMs / 1000;
+      this.unflushedSeconds += deltaSec;
+      this.sessionSeconds += deltaSec;
     }
 
-    // Flush định kỳ mỗi khi tích lũy đủ 5 giây
-    if (this.unflushedSeconds >= 5) {
+    // Flush định kỳ mỗi khi tích lũy đủ 3 giây
+    if (this.unflushedSeconds >= 3) {
       this.flush();
     }
+
+    this._notifySubscribers();
   }
 
   /**
@@ -1108,12 +1189,13 @@ export class StudyTimeTracker {
     document.removeEventListener('visibilitychange', this._boundOnVisibilityChange);
     window.removeEventListener('pagehide', this._boundOnVisibilityChange);
 
-    const overlay = document.getElementById('study-overlay');
-    if (overlay) {
-      overlay.removeEventListener('pointerdown', this._boundOnUserActivity);
-      overlay.removeEventListener('keydown', this._boundOnUserActivity);
-      overlay.removeEventListener('touchstart', this._boundOnUserActivity);
-    }
+    window.removeEventListener('pointerdown', this._boundOnUserActivity, { capture: true });
+    window.removeEventListener('keydown', this._boundOnUserActivity, { capture: true });
+    window.removeEventListener('touchstart', this._boundOnUserActivity, { capture: true });
+    window.removeEventListener('mousemove', this._boundOnMouseMove);
+    window.removeEventListener('wheel', this._boundOnMouseMove);
+
+    this._notifySubscribers();
   }
 }
 
