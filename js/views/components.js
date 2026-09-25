@@ -8,6 +8,7 @@ import { State } from '../core/fsrs.js';
 import { escapeHTML, highlightKeyword } from '../utils.js';
 import { speak } from '../services/audio.js';
 import { SyncManager, SimpleQRCode } from '../services/sync.js';
+import { BehavioralOptimizer } from '../core/stats.js';
 
 /* ==========================================================================
    0. MODALS DYNAMIC MOUNTING (APP SHELL ARCHITECTURE)
@@ -1149,4 +1150,153 @@ async function handleScannedCode(app, rawData) {
     console.error('Lỗi phân tích mã QR:', err);
     showToast('Lỗi phân tích mã QR: ' + (err.message || 'Thất bại'), 'error');
   }
+}
+
+/* ==========================================================================
+   6. BEHAVIORAL OPTIMIZER MODAL (PHÂN TÍCH HÀNH VI & TỐI ƯU HÓA CÁ NHÂN HÓA)
+   ========================================================================== */
+
+export function openBehavioralOptimizerModal(app) {
+  let modal = document.getElementById('behavioral-optimizer-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'behavioral-optimizer-modal';
+    modal.className = 'modal-backdrop';
+    document.body.appendChild(modal);
+  }
+
+  const analysis = BehavioralOptimizer.analyze();
+  const { profile, recommendations, hasOptimizations } = analysis;
+
+  modal.innerHTML = `
+    <div class="modal-dialog optimizer-dialog">
+      <div class="modal-header optimizer-header">
+        <div class="optimizer-title-group">
+          <div class="optimizer-icon">🧠</div>
+          <div>
+            <h3 class="optimizer-title">Phân tích Hành vi & Tối ưu hóa FSRS</h3>
+            <p class="optimizer-subtitle">Tự động cân chỉnh thông số theo nhịp độ tư duy và tỉ lệ nhớ thực tế</p>
+          </div>
+        </div>
+        <button class="btn-icon-close" id="btn-close-optimizer-modal" title="Đóng">✕</button>
+      </div>
+
+      <div class="modal-body optimizer-body">
+        <!-- 1. Behavioral Profile Metrics -->
+        <div class="optimizer-section-label">📊 Hồ sơ Nhận thức & Thói quen học tập</div>
+        <div class="optimizer-profile-grid">
+          <div class="profile-stat-box">
+            <div class="stat-top">
+              <span class="stat-icon">⏱️</span>
+              <span class="stat-num">${profile.avgLatencySec > 0 ? profile.avgLatencySec + 's' : '—'}</span>
+            </div>
+            <div class="stat-title">Tốc độ phản xạ</div>
+            <div class="stat-desc text-muted">${profile.speedType}</div>
+          </div>
+
+          <div class="profile-stat-box">
+            <div class="stat-top">
+              <span class="stat-icon">🎯</span>
+              <span class="stat-num ${profile.actualRetentionPct >= 85 ? 'text-success' : 'text-warning'}">${profile.actualRetentionPct}%</span>
+            </div>
+            <div class="stat-title">Tỉ lệ nhớ thực tế</div>
+            <div class="stat-desc text-muted">${profile.totalReviews} lượt ôn</div>
+          </div>
+
+          <div class="profile-stat-box">
+            <div class="stat-top">
+              <span class="stat-icon">👁️</span>
+              <span class="stat-num">${profile.avgBackViewSec > 0 ? profile.avgBackViewSec + 's' : '0s'}</span>
+            </div>
+            <div class="stat-title">Kiểm chứng đáp án</div>
+            <div class="stat-desc text-muted">${profile.verificationType}</div>
+          </div>
+
+          <div class="profile-stat-box">
+            <div class="stat-top">
+              <span class="stat-icon">⏳</span>
+              <span class="stat-num">${profile.avgDailyMinutes > 0 ? profile.avgDailyMinutes + 'p' : '0p'}</span>
+            </div>
+            <div class="stat-title">Thời gian học/ngày</div>
+            <div class="stat-desc text-muted">${profile.activeDays} ngày active</div>
+          </div>
+        </div>
+
+        <!-- 2. Insights & Warnings if any -->
+        ${profile.rushedRatingPct >= 40 ? `
+          <div class="optimizer-alert warning">
+            <span class="alert-icon">⚠️</span>
+            <div class="alert-content">
+              <strong>Cảnh báo vội vàng (Rush Bias):</strong> Có ${profile.rushedRatingPct}% số lượt bấm đánh giá dưới 0.45s. Hãy dành 1-2s kiểm chứng phát âm & ví dụ để FSRS tính độ bền chính xác nhất.
+            </div>
+          </div>
+        ` : ''}
+
+        <!-- 3. Recommendations -->
+        <div class="optimizer-section-label" style="margin-top: 18px;">✨ Đề xuất Tối ưu hóa Cá nhân hóa</div>
+        ${hasOptimizations ? `
+          <div class="recommendations-list">
+            ${recommendations.map(rec => `
+              <div class="rec-card">
+                <div class="rec-card-header">
+                  <span class="rec-icon">${rec.icon}</span>
+                  <div class="rec-label">${escapeHTML(rec.label)}</div>
+                </div>
+                <div class="rec-diff">
+                  <span class="rec-val old">${escapeHTML(rec.currentValue)}</span>
+                  <span class="rec-arrow">➔</span>
+                  <span class="rec-val new">${escapeHTML(rec.recommendedValue)}</span>
+                </div>
+                <p class="rec-reason">${escapeHTML(rec.reason)}</p>
+              </div>
+            `).join('')}
+          </div>
+        ` : `
+          <div class="optimizer-perfect-state">
+            <div class="perfect-icon">🎉</div>
+            <h4>Cấu hình hiện tại đã tối ưu hóa 100%!</h4>
+            <p>Mục tiêu ghi nhớ FSRS, tốc độ giọng đọc và tải trọng học tập của bạn đang hoàn toàn đồng bộ với nhịp độ tiếp thu thực tế.</p>
+          </div>
+        `}
+      </div>
+
+      <div class="modal-footer optimizer-footer">
+        <button type="button" class="btn-confirm-secondary" id="btn-cancel-optimizer">Đóng</button>
+        ${hasOptimizations ? `
+          <button type="button" class="btn-primary-hero" id="btn-apply-optimizer" style="padding: 10px 22px; font-size: 0.95rem;">
+            <span>✨ Áp dụng tối ưu (${recommendations.length})</span>
+          </button>
+        ` : ''}
+      </div>
+    </div>
+  `;
+
+  const closeModal = () => {
+    modal.classList.remove('active');
+  };
+
+  modal.querySelector('#btn-close-optimizer-modal')?.addEventListener('click', closeModal);
+  modal.querySelector('#btn-cancel-optimizer')?.addEventListener('click', closeModal);
+  modal.onclick = (e) => {
+    if (e.target === modal) closeModal();
+  };
+
+  const btnApply = modal.querySelector('#btn-apply-optimizer');
+  if (btnApply) {
+    btnApply.addEventListener('click', () => {
+      const ok = BehavioralOptimizer.applyOptimizations(recommendations);
+      if (ok) {
+        if (app) {
+          app.settings = StorageManager.getSettings();
+          if (typeof app.refreshAllViews === 'function') app.refreshAllViews();
+        }
+        showToast('✨ Đã áp dụng các thông số cá nhân hóa tối ưu thành công!', 'success');
+        closeModal();
+      } else {
+        showToast('Không thể cập nhật cấu hình.', 'error');
+      }
+    });
+  }
+
+  modal.classList.add('active');
 }

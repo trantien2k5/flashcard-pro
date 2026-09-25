@@ -5,7 +5,7 @@
 import { StorageManager, BackupService } from '../services/storage.js';
 import { StatsManager } from '../core/stats.js';
 import { State } from '../core/fsrs.js';
-import { showConfirm, showToast } from './components.js';
+import { showConfirm, showToast, openBehavioralOptimizerModal } from './components.js';
 
 function saveAppSettings(app) {
   StorageManager.saveSettings(app.settings);
@@ -55,6 +55,18 @@ export function renderSettingsTabShell(container) {
           </div>
 
           <div class="inset-grouped-card">
+            <!-- AI Behavioral Optimizer Feature Banner -->
+            <div class="optimizer-feature-card">
+              <div class="optimizer-feature-left">
+                <div class="optimizer-feature-badge">⚡ AI OPTIMIZER</div>
+                <div class="optimizer-feature-title">Tối ưu hóa FSRS theo hành vi</div>
+                <div class="optimizer-feature-desc">Phân tích tốc độ tư duy, kiểm chứng đáp án & tự động hiệu chỉnh thông số cá nhân hóa.</div>
+              </div>
+              <button type="button" class="btn-primary-hero btn-run-optimizer" id="btn-run-behavioral-optimizer">
+                <span>🧠 Phân tích & Tối ưu</span>
+              </button>
+            </div>
+
             <!-- 1-Tap Learning Profile Presets -->
             <div class="setting-row profile-presets-row" style="flex-direction: column; align-items: flex-start; gap: 8px;">
               <div class="setting-info">
@@ -289,6 +301,17 @@ export function setupSettingsUI(app) {
     const autoSpeechToggle = document.getElementById('setting-auto-speech');
     const darkThemeToggle = document.getElementById('setting-dark-theme');
     const btnBack = document.getElementById('btn-back-from-settings');
+    const btnRunOptimizer = document.getElementById('btn-run-behavioral-optimizer');
+
+    if (btnRunOptimizer) {
+      btnRunOptimizer.onclick = () => {
+        try {
+          openBehavioralOptimizerModal(app);
+        } catch (err) {
+          console.error('Lỗi mở Behavioral Optimizer Modal:', err);
+        }
+      };
+    }
 
     if (btnBack) {
       btnBack.onclick = (e) => {

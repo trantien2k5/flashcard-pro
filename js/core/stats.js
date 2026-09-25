@@ -1200,3 +1200,212 @@ export class StudyTimeTracker {
 }
 
 export const globalStudyTimer = new StudyTimeTracker();
+
+/**
+ * ==========================================================================
+ * BEHAVIORAL OPTIMIZER (THUẬT TOÁN PHÂN TÍCH HÀNH VI & TỐI ƯU HÓA FSRS-6)
+ * ==========================================================================
+ */
+export class BehavioralOptimizer {
+  /**
+   * Phân tích chuyên sâu hành vi học tập thực tế và tính toán khuyến nghị cá nhân hóa
+   */
+  static analyze() {
+    const logs = StorageManager.getStudyLogs() || [];
+    const cardStates = StorageManager.getAllCardStates() || {};
+    const settings = StorageManager.getSettings() || {};
+    const studyTimeMap = StorageManager.getStudyTimeMap() || {};
+
+    // 1. Lọc và tính toán độ trễ phản xạ (Active Recall Latency)
+    const validLatencyLogs = logs.filter(l => typeof l.latencySec === 'number' && l.latencySec >= 0.2 && l.latencySec <= 60);
+    const validBackLogs = logs.filter(l => typeof l.backViewSec === 'number' && l.backViewSec >= 0.1 && l.backViewSec <= 60);
+
+    const totalReviews = logs.length;
+    
+    let avgLatency = 0;
+    if (validLatencyLogs.length > 0) {
+      const sum = validLatencyLogs.reduce((acc, l) => acc + l.latencySec, 0);
+      avgLatency = sum / validLatencyLogs.length;
+    }
+
+    // 2. Thời gian kiểm chứng mặt sau (Back-view Verification Time)
+    let avgBackView = 0;
+    let rushedCount = 0;
+    if (validBackLogs.length > 0) {
+      const sum = validBackLogs.reduce((acc, l) => acc + l.backViewSec, 0);
+      avgBackView = sum / validBackLogs.length;
+      rushedCount = validBackLogs.filter(l => l.backViewSec < 0.45).length;
+    }
+    const rushedPct = validBackLogs.length > 0 ? Math.round((rushedCount / validBackLogs.length) * 100) : 0;
+
+    // 3. Tỉ lệ nhớ thực tế (Actual Retention Rate)
+    const ratedReviews = logs.filter(l => l.rating >= 1 && l.rating <= 4);
+    const passReviews = logs.filter(l => l.rating === 3 || l.rating === 4); // Good + Easy
+    const actualRetention = ratedReviews.length > 0 ? (passReviews.length / ratedReviews.length) : 0.90;
+
+    // 4. Phân tích thói quen thời gian học thực tế (Daily Study Pace)
+    const activeDates = Object.keys(studyTimeMap);
+    const activeDays = activeDates.length;
+    const totalStudySec = Object.values(studyTimeMap).reduce((a, b) => a + (Number(b) || 0), 0);
+    const avgDailyMinutes = activeDays > 0 ? (totalStudySec / activeDays / 60) : 0;
+
+    // 5. Tổng hợp phân loại phong cách học (Cognitive Style Profile)
+    let speedType = 'Chuẩn mực';
+    let speedDesc = 'Nhịp độ suy ngẫm cân bằng, tối ưu cho ghi nhớ sâu.';
+    if (avgLatency > 0 && avgLatency < 2.2) {
+      speedType = 'Phản xạ nhanh';
+      speedDesc = 'Tốc độ truy xuất từ vựng tức thì, tư duy nhạy bén.';
+    } else if (avgLatency > 4.5) {
+      speedType = 'Suy ngẫm kỹ';
+      speedDesc = 'Cần thời gian kích hoạt ngữ cảnh trước khi lật đáp án.';
+    }
+
+    let verificationType = 'Kiểm chứng kỹ';
+    let verificationDesc = 'Dành thời gian đọc kỹ ví dụ và phát âm mặt sau.';
+    if (rushedPct >= 40) {
+      verificationType = 'Có xu hướng bấm vội';
+      verificationDesc = `Có ${rushedPct}% lượt bấm đánh giá dưới 0.45s. Chú ý nhìn lại phiên âm/ví dụ để tránh ảo tưởng trí nhớ.`;
+    }
+
+    // 6. Xây dựng danh sách đề xuất tối ưu hóa (Actionable Recommendations)
+    const recommendations = [];
+    const currentRetention = Number(settings.requestRetention) || 0.90;
+    let targetRetention = currentRetention;
+    let retentionReason = '';
+
+    if (totalReviews >= 12) {
+      if (actualRetention < 0.82) {
+        targetRetention = 0.92;
+        retentionReason = `Tỉ lệ nhớ thực tế (${Math.round(actualRetention * 100)}%) đang thấp hơn kỳ vọng. Tăng retention lên 92% để FSRS rút ngắn khoảng cách ôn, củng cố thẻ trước khi rơi vào vùng quên.`;
+      } else if (actualRetention > 0.95 && totalReviews >= 35) {
+        targetRetention = 0.88;
+        retentionReason = `Tỉ lệ nhớ thực tế (${Math.round(actualRetention * 100)}%) rất xuất sắc. Giảm nhẹ retention về 88% giúp nới rộng chu kỳ ôn, tiết kiệm ~25% thời gian học mà vẫn duy trì độ nhớ bền vững.`;
+      } else {
+        targetRetention = 0.90;
+        retentionReason = `Tỉ lệ nhớ thực tế (${Math.round(actualRetention * 100)}%) đang ở vùng vàng FSRS (85% - 94%). Mức 90% là chuẩn tối ưu nhất.`;
+      }
+    } else {
+      retentionReason = `Dữ liệu ôn tập ban đầu (${totalReviews} lượt). Duy trì mức chuẩn 90% để thuật toán FSRS tiếp tục học hành vi.`;
+    }
+
+    if (targetRetention !== currentRetention) {
+      recommendations.push({
+        key: 'requestRetention',
+        label: 'Tỷ lệ nhớ mục tiêu (Retention)',
+        currentValue: `${Math.round(currentRetention * 100)}%`,
+        recommendedValue: `${Math.round(targetRetention * 100)}%`,
+        val: targetRetention,
+        reason: retentionReason,
+        icon: '🎯'
+      });
+    }
+
+    // Tối ưu Tải trọng học tập mỗi ngày (Daily Limits)
+    const currentNewLimit = Number(settings.dailyNewLimit) || 10;
+    const currentReviewLimit = Number(settings.dailyReviewLimit) || 20;
+    let recNewLimit = currentNewLimit;
+    let recReviewLimit = currentReviewLimit;
+
+    if (avgDailyMinutes > 0 && totalReviews >= 10) {
+      if (avgDailyMinutes >= 15) {
+        recNewLimit = 20;
+        recReviewLimit = 30;
+      } else if (avgDailyMinutes >= 8) {
+        recNewLimit = 15;
+        recReviewLimit = 20;
+      } else {
+        recNewLimit = 5;
+        recReviewLimit = 10;
+      }
+
+      if (recNewLimit !== currentNewLimit || recReviewLimit !== currentReviewLimit) {
+        recommendations.push({
+          key: 'limits',
+          label: 'Tải trọng từ mới & ôn tập / phiên',
+          currentValue: `${currentNewLimit} mới / ${currentReviewLimit} ôn`,
+          recommendedValue: `${recNewLimit} mới / ${recReviewLimit} ôn`,
+          newLimitVal: recNewLimit,
+          reviewLimitVal: recReviewLimit,
+          reason: `Dựa trên thời gian học thực tế ~${avgDailyMinutes.toFixed(1)} phút/ngày và nhịp độ hoàn thành của bạn.`,
+          icon: '⚡'
+        });
+      }
+    }
+
+    // Tối ưu Tốc độ giọng đọc bản xứ (Speech Rate)
+    const currentSpeechRate = Number(settings.speechRate) || 0.9;
+    let recSpeechRate = currentSpeechRate;
+    if (avgLatency > 0 && totalReviews >= 8) {
+      if (avgLatency < 2.2 && actualRetention >= 0.85) {
+        recSpeechRate = 1.0;
+      } else if (avgLatency > 4.5) {
+        recSpeechRate = 0.85;
+      } else {
+        recSpeechRate = 0.9;
+      }
+
+      if (recSpeechRate !== currentSpeechRate) {
+        recommendations.push({
+          key: 'speechRate',
+          label: 'Tốc độ giọng đọc Audio',
+          currentValue: `${currentSpeechRate}x`,
+          recommendedValue: `${recSpeechRate}x`,
+          val: recSpeechRate,
+          reason: avgLatency < 2.2 
+            ? `Tốc độ phản xạ của bạn rất nhanh (~${avgLatency.toFixed(1)}s/từ). Nâng lên 1.0x giúp luyện nghe tự nhiên chuẩn ngữ điệu bản xứ.`
+            : `Bạn thường ngẫm kỹ (~${avgLatency.toFixed(1)}s/từ). Chỉnh về ${recSpeechRate}x để nghe rõ từng âm tiết và trọng âm.`,
+          icon: '🔊'
+        });
+      }
+    }
+
+    return {
+      profile: {
+        totalReviews,
+        avgLatencySec: Number(avgLatency.toFixed(1)),
+        avgBackViewSec: Number(avgBackView.toFixed(1)),
+        rushedRatingPct: rushedPct,
+        actualRetentionPct: Math.round(actualRetention * 100),
+        avgDailyMinutes: Number(avgDailyMinutes.toFixed(1)),
+        activeDays,
+        speedType,
+        speedDesc,
+        verificationType,
+        verificationDesc
+      },
+      recommendations,
+      hasOptimizations: recommendations.length > 0
+    };
+  }
+
+  /**
+   * Áp dụng toàn bộ cấu hình tối ưu hóa vào StorageManager
+   */
+  static applyOptimizations(recommendations) {
+    if (!Array.isArray(recommendations) || recommendations.length === 0) return false;
+    const settings = StorageManager.getSettings() || {};
+    let modified = false;
+
+    recommendations.forEach(rec => {
+      if (rec.key === 'requestRetention' && rec.val !== undefined) {
+        settings.requestRetention = rec.val;
+        modified = true;
+      }
+      if (rec.key === 'limits') {
+        if (rec.newLimitVal !== undefined) settings.dailyNewLimit = rec.newLimitVal;
+        if (rec.reviewLimitVal !== undefined) settings.dailyReviewLimit = rec.reviewLimitVal;
+        modified = true;
+      }
+      if (rec.key === 'speechRate' && rec.val !== undefined) {
+        settings.speechRate = rec.val;
+        modified = true;
+      }
+    });
+
+    if (modified) {
+      StorageManager.saveSettings(settings);
+      return true;
+    }
+    return false;
+  }
+}

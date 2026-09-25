@@ -13,6 +13,7 @@ import { State, isCardDue } from '../core/fsrs.js';
 import { StatsManager } from '../core/stats.js';
 import { escapeHTML } from '../utils.js';
 import { speak } from '../services/audio.js';
+import { openBehavioralOptimizerModal } from './components.js';
 
 let _currentYear = new Date().getFullYear();
 let _currentMonth = new Date().getMonth() + 1; // 1 - 12
@@ -42,6 +43,9 @@ export function renderStatsTabShell(container) {
             </div>
           </div>
           <div class="stats-hero-badges">
+            <button type="button" class="btn-open-calendar-modal" id="btn-open-optimizer-from-stats" title="Tối ưu hóa FSRS theo hành vi" style="cursor: pointer; background: var(--primary-light, rgba(99, 102, 241, 0.12)); border: 1px solid var(--border-focus, #6366f1); color: var(--primary, #6366f1); font-weight: 600;">
+              <span>🧠 Tối ưu hóa FSRS</span>
+            </button>
             <span class="stats-pill-badge stats-rank-pill" id="stats-hero-rank">🌱 Khởi Động</span>
             <span class="stats-pill-badge stats-score-pill" id="stats-hero-score">⚡ 0/1000</span>
           </div>
@@ -568,6 +572,17 @@ export function renderStatsTab(app) {
     }
     if (headerAccuracy) {
       headerAccuracy.textContent = `🧠 Khả năng nhớ: ${memoryIntel.currentRetrievability}%`;
+    }
+
+    const btnOpenOpt = container.querySelector('#btn-open-optimizer-from-stats');
+    if (btnOpenOpt) {
+      btnOpenOpt.onclick = () => {
+        try {
+          openBehavioralOptimizerModal(app);
+        } catch (err) {
+          console.error('Lỗi mở Behavioral Optimizer từ stats:', err);
+        }
+      };
     }
 
     // 4 Khối Chỉ Số Trí Nhớ Thật
