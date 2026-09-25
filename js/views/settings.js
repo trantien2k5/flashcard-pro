@@ -44,7 +44,7 @@ export function renderSettingsTabShell(container) {
       <!-- Symmetrical 2-Column Dashboard Grid (iOS Inset Grouped Style) -->
       <div class="settings-layout-grid">
         
-        <!-- 1. FSRS Section Group -->
+        <!-- Column 1: FSRS-6 Algorithm & Learning Profiles -->
         <div class="settings-group">
           <div class="section-group-header">
             <span class="section-group-title">
@@ -170,78 +170,109 @@ export function renderSettingsTabShell(container) {
           </div>
         </div>
 
-        <!-- 2. Audio & Appearance Group -->
-        <div class="settings-group">
-          <div class="section-group-header">
-            <span class="section-group-title">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-              ÂM THANH & GIAO DIỆN
-            </span>
-            <span class="section-group-hint">Tự động phát âm bản xứ và đổi chủ đề</span>
-          </div>
-
-          <div class="inset-grouped-card">
-            <div class="setting-row">
-              <div class="setting-info">
-                <span class="setting-title">Tự động phát âm</span>
-                <span class="setting-desc">Phát âm ngay khi lật sang từ vựng mới</span>
-              </div>
-              <label class="switch">
-                <input type="checkbox" id="setting-auto-speech" checked>
-                <span class="slider"></span>
-              </label>
+        <!-- Column 2: Audio, Appearance & Data Management -->
+        <div class="settings-column-right" style="display: flex; flex-direction: column; gap: 20px;">
+          
+          <!-- Audio & Appearance Group -->
+          <div class="settings-group">
+            <div class="section-group-header">
+              <span class="section-group-title">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                ÂM THANH & GIAO DIỆN
+              </span>
+              <span class="section-group-hint">Tự động phát âm bản xứ và đổi chủ đề</span>
             </div>
 
-            <div class="setting-row">
-              <div class="setting-info">
-                <span class="setting-title">Chế độ nền tối (Dark Mode)</span>
-                <span class="setting-desc">Bảo vệ mắt khi học ban đêm</span>
+            <div class="inset-grouped-card">
+              <div class="setting-row">
+                <div class="setting-info">
+                  <span class="setting-title">Tự động phát âm</span>
+                  <span class="setting-desc">Phát âm ngay khi lật sang từ vựng mới</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="setting-auto-speech" checked>
+                  <span class="slider"></span>
+                </label>
               </div>
-              <label class="switch">
-                <input type="checkbox" id="setting-dark-theme">
-                <span class="slider"></span>
-              </label>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <span class="setting-title">Giọng phát âm ưu tiên</span>
+                  <span class="setting-desc">Tự động chọn giọng bản xứ chất lượng cao</span>
+                </div>
+                <select id="setting-audio-accent" class="setting-select">
+                  <option value="us">🇺🇸 Anh - Mỹ (US Accent)</option>
+                  <option value="uk">🇬🇧 Anh - Anh (UK Accent)</option>
+                  <option value="au">🇦🇺 Anh - Úc (AU Accent)</option>
+                </select>
+              </div>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <span class="setting-title">Tốc độ phát âm (Speed)</span>
+                  <span class="setting-desc">Điều chỉnh tốc độ nghe phù hợp phản xạ</span>
+                </div>
+                <select id="setting-speech-rate" class="setting-select">
+                  <option value="0.75">0.75x (Chậm)</option>
+                  <option value="0.90" selected>0.90x (Tự nhiên - Khuyên dùng)</option>
+                  <option value="1.00">1.00x (Chuẩn bản ngữ)</option>
+                  <option value="1.15">1.15x (Nhanh)</option>
+                </select>
+              </div>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <span class="setting-title">Chế độ nền tối (Dark Mode)</span>
+                  <span class="setting-desc">Bảo vệ mắt khi học ban đêm</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="setting-dark-theme">
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Management & Backup Group -->
+          <div class="settings-group">
+            <div class="section-group-header">
+              <span class="section-group-title">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 9 0 0 0 18 0"/></svg>
+                QUẢN LÝ DỮ LIỆU & SAO LƯU
+              </span>
+              <span class="section-group-hint">Dữ liệu lưu 100% Offline trên máy của bạn</span>
+            </div>
+
+            <div class="inset-grouped-card">
+              <div class="setting-row setting-actions-compact-row" style="border-bottom: none; padding: 16px;">
+                <div class="settings-buttons-group">
+                  <button type="button" id="btn-test-native-audio" class="btn-setting-btn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                    <span>Nghe thử âm thanh</span>
+                  </button>
+                  <button type="button" id="btn-settings-open-sync" class="btn-setting-btn primary">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
+                    <span>Đồng bộ 2 chiều</span>
+                  </button>
+                  <button type="button" id="btn-settings-export-data" class="btn-setting-btn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    <span>Xuất file JSON</span>
+                  </button>
+                  <button type="button" id="btn-settings-import-data-trigger" class="btn-setting-btn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                    <span>Nhập file JSON</span>
+                  </button>
+                  <input type="file" id="input-import-file" accept=".json" style="display: none;">
+                  <button type="button" id="btn-settings-reset-data" class="btn-setting-btn danger">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+                    <span>Xóa & Đặt lại dữ liệu</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- 3. Data Management Group -->
-        <div class="settings-group" style="grid-column: 1 / -1;">
-          <div class="section-group-header">
-            <span class="section-group-title">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 9 0 0 0 18 0"/></svg>
-              QUẢN LÝ DỮ LIỆU & SAO LƯU
-            </span>
-            <span class="section-group-hint">Dữ liệu lưu 100% Offline trên máy của bạn</span>
-          </div>
-
-          <div class="inset-grouped-card">
-            <div class="setting-row setting-actions-compact-row" style="border-bottom: none; padding: 16px;">
-              <div class="settings-buttons-group">
-                <button type="button" id="btn-test-native-audio" class="btn-setting-btn">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                  <span>Nghe thử âm thanh</span>
-                </button>
-                <button type="button" id="btn-settings-open-sync" class="btn-setting-btn primary">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
-                  <span>Đồng bộ 2 chiều</span>
-                </button>
-                <button type="button" id="btn-settings-export-data" class="btn-setting-btn">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-                  <span>Xuất file JSON</span>
-                </button>
-                <button type="button" id="btn-settings-import-data-trigger" class="btn-setting-btn">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
-                  <span>Nhập file JSON</span>
-                </button>
-                <input type="file" id="input-import-file" accept=".json" style="display: none;">
-                <button type="button" id="btn-settings-reset-data" class="btn-setting-btn danger">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
-                  <span>Xóa & Đặt lại dữ liệu</span>
-                </button>
-              </div>
-            </div>
-          </div>
       </div>
     `;
   }

@@ -1714,57 +1714,99 @@
    🖥️ DESKTOP STYLING FOR DECKS & SUBTOPICS & WORDS (>= 860px)
    ========================================================================== */
 @media (min-width: 860px) {
+  #tab-decks,
+  #tab-subtopics,
+  #tab-subtopic-words {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .decks-header-bar {
     position: sticky;
-    top: -28px;
+    top: -24px;
     z-index: 25;
     background: var(--bg-primary);
     padding-top: 4px;
-    padding-bottom: 10px;
-    margin-bottom: 14px;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .decks-sub-toolbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0;
+  }
+
+  .decks-filter-dropdowns {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: auto;
+  }
+
+  .decks-select-wrap {
+    width: auto;
+    min-width: 180px;
+  }
+
+  .decks-select-wrap select {
+    padding: 7px 28px 7px 12px;
+    font-size: 0.82rem;
   }
 
   .decks-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 18px;
   }
 
   .deck-item-card {
-    padding: 16px 18px;
-    min-height: 120px;
-    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    min-height: 125px;
+    border-radius: var(--radius-xl);
   }
 
   .deck-icon-badge {
-    width: 46px;
-    height: 46px;
-    font-size: 1.4rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+
+  .deck-title {
+    font-size: 1.1rem;
   }
 
   .subtopics-list-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 14px;
-    margin-bottom: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
   }
 
   .subtopic-card-btn {
-    padding: 15px 16px;
+    padding: 16px 18px;
     height: 100%;
     border-radius: var(--radius-lg);
   }
 
   .subpage-hero-card {
-    padding: 14px 18px;
+    padding: 16px 20px;
     margin-bottom: 0;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-xl);
   }
 
   .subtopic-words-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 14px;
   }
 
   .word-item-card {
@@ -1774,22 +1816,22 @@
 
   .words-toolbar {
     position: sticky;
-    top: -28px;
+    top: -24px;
     z-index: 25;
     background: var(--bg-primary);
     padding-top: 4px;
-    padding-bottom: 10px;
-    margin-bottom: 14px;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .words-filter-chips {
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px;
   }
 
   .filter-chip {
-    padding: 5px 12px;
-    font-size: 0.82rem;
+    padding: 6px 14px;
+    font-size: 0.84rem;
   }
 
   .yt-subpage-header {
@@ -1797,6 +1839,11 @@
     padding: 0 0 16px 0;
     margin-bottom: 18px;
     border-bottom: 1px solid var(--border);
+  }
+
+  .subtopic-modal-dialog {
+    max-width: 480px;
+    border-radius: var(--radius-xl);
   }
 }
 
