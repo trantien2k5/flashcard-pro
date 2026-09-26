@@ -2293,7 +2293,7 @@
   }
 
   .review-bento-container {
-    max-width: 1140px;
+    max-width: 1080px;
     margin: 0 auto;
     width: 100%;
     display: grid;
@@ -2301,10 +2301,6 @@
     gap: 20px;
     align-items: start;
     box-sizing: border-box;
-  }
-
-  .review-backlog-alert {
-    grid-column: 1 / -1;
   }
 
   .review-col {
@@ -2339,11 +2335,6 @@
     border-radius: var(--radius-lg);
   }
 
-  .review-milestones-card {
-    padding: 20px;
-    border-radius: var(--radius-xl);
-  }
-
   .review-spotlight-card {
     padding: 20px;
     border-radius: var(--radius-xl);
@@ -2376,16 +2367,6 @@
     border-radius: var(--radius-lg);
   }
 
-  .review-radar-card {
-    padding: 20px;
-    border-radius: var(--radius-xl);
-  }
-
-  .review-7days-card {
-    padding: 18px 20px;
-    border-radius: var(--radius-xl);
-  }
-
   .review-lazy-walk-card {
     padding: 16px 18px;
     border-radius: var(--radius-xl);
@@ -2395,22 +2376,11 @@
     padding: 16px 18px;
     border-radius: var(--radius-xl);
   }
-
-  .review-shortcuts-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 0;
-  }
-
-  .btn-review-shortcut {
-    padding: 14px 16px;
-    border-radius: var(--radius-lg);
-  }
 }
 
 @media (min-width: 1240px) {
   .review-bento-container {
-    max-width: 1180px;
+    max-width: 1140px;
     gap: 22px;
   }
   
@@ -2420,13 +2390,11 @@
 
   .review-hero-card,
   .review-goals-card,
-  .review-milestones-card,
-  .review-spotlight-card,
-  .review-radar-card,
-  .review-7days-card {
+  .review-spotlight-card {
     padding: 22px;
   }
 }
+
 
 
 

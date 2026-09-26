@@ -18,20 +18,11 @@ let _lazyAudioState = {
 
 export function renderReviewShell(container) {
   if (!container) return;
-  if (!container.querySelector('.review-col-left') || !container.querySelector('#review-radar-card')) {
+  if (!container.querySelector('.review-col-left') || !container.querySelector('#review-goals-card')) {
     container.innerHTML = `
       <div class="review-bento-container">
-        
-        <!-- Adaptive Backlog Protection Alert Banner -->
-        <div id="review-backlog-alert" class="review-backlog-alert" style="display: none;">
-          <span class="alert-icon">🛡️</span>
-          <div class="alert-text-wrap">
-            <span class="alert-title">Chế Độ Chống Quá Tải Nhận Thức</span>
-            <span class="alert-desc" id="review-backlog-desc">Hàng đợi ôn tập đang cao. Hệ thống tạm hoãn nạp từ mới để ưu tiên dọn sạch hàng đợi!</span>
-          </div>
-        </div>
 
-        <!-- LEFT COLUMN (Command Center, Milestones & Spotlight Word) -->
+        <!-- LEFT COLUMN (Command Center & Spotlight Word) -->
         <div class="review-col review-col-left">
 
           <!-- 1. Hero Card: Nhiệm Vụ Hôm Nay (Unified Bento Design) -->
@@ -139,67 +130,7 @@ export function renderReviewShell(container) {
             </div>
           </div>
 
-          <!-- 2. Milestone Roadmap Board: Bảng Mục Tiêu & Lộ Trình 8 Chặng Chia Nhỏ -->
-          <div class="review-milestones-card" id="review-milestones-card">
-            <div class="milestones-card-header">
-              <div class="milestones-header-left">
-                <div class="milestones-icon-badge">🎯</div>
-                <div class="milestones-title-wrap">
-                  <span class="milestones-tag">LỘ TRÌNH MỤC TIÊU</span>
-                  <h3 class="milestones-main-title" id="milestone-board-title">Hành trình 8 chặng chinh phục</h3>
-                </div>
-              </div>
-              <div class="milestones-header-right">
-                <span class="milestone-stage-pill" id="milestone-stage-pill">Chặng 1/8</span>
-              </div>
-            </div>
-
-            <!-- Active Stage Highlight Box -->
-            <div class="active-stage-card" id="active-stage-card">
-              <div class="active-stage-top">
-                <div class="active-stage-badge">
-                  <span class="active-stage-icon" id="active-stage-icon">🌱</span>
-                  <div class="active-stage-names">
-                    <span class="active-stage-level" id="active-stage-level">CẤP ĐỘ 1 • ĐANG CHINH PHỤC</span>
-                    <h4 class="active-stage-title" id="active-stage-title">Khởi Động Nhanh (30 từ)</h4>
-                  </div>
-                </div>
-                <span class="active-stage-pct" id="active-stage-pct">0%</span>
-              </div>
-
-              <div class="active-stage-track">
-                <div class="active-stage-fill" id="active-stage-fill" style="width: 0%;"></div>
-              </div>
-
-              <div class="active-stage-benefit-box">
-                <div class="benefit-row">
-                  <span class="benefit-icon">🔓</span>
-                  <span class="benefit-text" id="active-stage-benefit">Phản xạ chào hỏi, làm quen & cảm ơn cơ bản</span>
-                </div>
-                <div class="benefit-sub-row">
-                  <span class="benefit-gain" id="active-stage-gain">📈 Đạt ~18% từ vựng căn bản</span>
-                  <span class="benefit-estimate" id="active-stage-estimate">⏱️ Còn 30 từ (~3 ngày)</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Toggle View All 8 Stages -->
-            <div class="milestones-expand-wrap">
-              <button type="button" class="btn-toggle-milestones" id="btn-toggle-milestones">
-                <span id="toggle-milestones-text">Xem chi tiết 8 chặng mục tiêu</span>
-                <svg class="toggle-icon" id="toggle-milestones-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </button>
-            </div>
-
-            <!-- 8 Stages List (Collapsible) -->
-            <div class="milestones-stages-list" id="milestones-stages-list" style="display: none;">
-              <!-- Dynamically populated 8 stages -->
-            </div>
-          </div>
-
-          <!-- 3. Daily Spotlight Word Capsule (Từ Vựng Vàng Tiêu Điểm Trong Ngày) -->
+          <!-- 2. Daily Spotlight Word Capsule (Từ Vựng Vàng Tiêu Điểm Trong Ngày) -->
           <div class="review-spotlight-card" id="review-spotlight-card">
             <div class="spotlight-card-header">
               <div class="spotlight-header-left">
@@ -252,10 +183,10 @@ export function renderReviewShell(container) {
 
         </div> <!-- /review-col-left -->
 
-        <!-- RIGHT COLUMN (Daily Quests, Memory Radar, 7-Day Activity, Lazy Walk, Health & Shortcuts) -->
+        <!-- RIGHT COLUMN (Goal & Progress Tracker, Lazy Walk & Weak Cards Drill) -->
         <div class="review-col review-col-right">
 
-          <!-- 4. Goal & Progress Tracker Bento Card (Mục Tiêu & Tiến Độ Đa Tầng) -->
+          <!-- 3. Goal & Progress Tracker Bento Card (Mục Tiêu & Tiến Độ Đa Tầng) -->
           <div class="review-hero-card review-goals-card" id="review-goals-card">
             <!-- Top Row Header -->
             <div class="review-card-header">
@@ -373,80 +304,7 @@ export function renderReviewShell(container) {
             </div>
           </div>
 
-          <!-- 5. FSRS Memory Radar & Stability Matrix (Radar Phân Bố Trí Nhớ FSRS-6) -->
-          <div class="review-radar-card" id="review-radar-card">
-            <div class="radar-card-header">
-              <div class="radar-header-left">
-                <div class="radar-icon-badge">💎</div>
-                <div class="radar-title-wrap">
-                  <span class="radar-tag">NĂNG LỰC TRÍ NHỚ FSRS-6</span>
-                  <h3 class="radar-main-title" id="radar-rank-title">Cấp bậc: Tập Sự (0 đ)</h3>
-                </div>
-              </div>
-              <div class="radar-retrieval-pill" id="radar-retrieval-badge" title="Tỷ lệ nhớ thực tế R(t) theo thuật toán FSRS">
-                <span class="radar-retrieval-label">Khả năng nhớ:</span>
-                <span class="radar-retrieval-val" id="radar-retrieval-val">100%</span>
-              </div>
-            </div>
-
-            <!-- Multi-tier Distribution Bar -->
-            <div class="radar-spectrum-track" id="radar-spectrum-track">
-              <div class="spectrum-bar bar-tier5" id="spec-bar-tier5" style="width: 0%;" title="Nhớ sâu vĩnh viễn"></div>
-              <div class="spectrum-bar bar-tier4" id="spec-bar-tier4" style="width: 0%;" title="Ghi nhớ bền vững"></div>
-              <div class="spectrum-bar bar-tier3" id="spec-bar-tier3" style="width: 0%;" title="Ghi nhớ trung hạn"></div>
-              <div class="spectrum-bar bar-tier2" id="spec-bar-tier2" style="width: 0%;" title="Trí nhớ ngắn hạn"></div>
-              <div class="spectrum-bar bar-tier1" id="spec-bar-tier1" style="width: 0%;" title="Mới nạp vào não"></div>
-            </div>
-
-            <!-- 5-Tier Compact Legend Grid -->
-            <div class="radar-tiers-grid">
-              <div class="radar-tier-item tier-5">
-                <div class="tier-dot dot-5"></div>
-                <span class="tier-name">Nhớ sâu (≥30d)</span>
-                <span class="tier-val" id="tier-val-5">0</span>
-              </div>
-              <div class="radar-tier-item tier-4">
-                <div class="tier-dot dot-4"></div>
-                <span class="tier-name">Bền vững (14-30d)</span>
-                <span class="tier-val" id="tier-val-4">0</span>
-              </div>
-              <div class="radar-tier-item tier-3">
-                <div class="tier-dot dot-3"></div>
-                <span class="tier-name">Trung hạn (7-14d)</span>
-                <span class="tier-val" id="tier-val-3">0</span>
-              </div>
-              <div class="radar-tier-item tier-2">
-                <div class="tier-dot dot-2"></div>
-                <span class="tier-name">Ngắn hạn (3-7d)</span>
-                <span class="tier-val" id="tier-val-2">0</span>
-              </div>
-              <div class="radar-tier-item tier-1">
-                <div class="tier-dot dot-1"></div>
-                <span class="tier-name">Mới nạp (&lt;3d)</span>
-                <span class="tier-val" id="tier-val-1">0</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 6. Weekly 7-Day Habit Activity Tracker (Nhịp Độ Học Tập 7 Ngày) -->
-          <div class="review-7days-card" id="review-7days-card">
-            <div class="days7-card-header">
-              <div class="days7-header-left">
-                <div class="days7-icon-badge">📅</div>
-                <div class="days7-title-wrap">
-                  <span class="days7-tag">NHỊP ĐỘ HỌC TẬP</span>
-                  <h3 class="days7-main-title">7 ngày gần nhất</h3>
-                </div>
-              </div>
-              <span class="days7-active-days-pill" id="days7-active-summary">0/7 ngày hoạt động</span>
-            </div>
-
-            <div class="days7-columns-row" id="days7-columns-row">
-              <!-- Dynamically populated 7 days -->
-            </div>
-          </div>
-
-          <!-- 7. Lazy Hands-free Audio Walk Shortcut -->
+          <!-- 4. Lazy Hands-free Audio Walk Shortcut -->
           <div class="review-lazy-walk-card">
             <div class="lazy-walk-left">
               <div class="lazy-walk-icon">🎧</div>
@@ -463,7 +321,7 @@ export function renderReviewShell(container) {
             </button>
           </div>
 
-          <!-- 8. Củng Cố Từ Vựng & Phòng Ngừa Hay Quên (Weak Words Drill / Mastery Health) -->
+          <!-- 5. Củng Cố Từ Vựng & Phòng Ngừa Hay Quên (Weak Words Drill / Mastery Health) -->
           <div id="review-weak-words-box" class="review-weak-card">
             <div class="weak-card-header">
               <div class="weak-header-left">
@@ -484,31 +342,6 @@ export function renderReviewShell(container) {
                 <span>⚡ Trắc nghiệm Củng Cố</span>
               </button>
             </div>
-          </div>
-
-          <!-- 9. Fast Navigation Shortcuts Row -->
-          <div class="review-shortcuts-grid">
-            <button type="button" class="btn-review-shortcut" id="btn-shortcut-decks">
-              <div class="shortcut-icon-badge icon-decks">📚</div>
-              <div class="shortcut-text-wrap">
-                <span class="shortcut-title">16 Chủ Đề Từ Vựng</span>
-                <span class="shortcut-desc">Duyệt theo lộ trình & chặng học</span>
-              </div>
-              <svg class="shortcut-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <path d="M9 18l6-6-6-6"/>
-              </svg>
-            </button>
-
-            <button type="button" class="btn-review-shortcut" id="btn-shortcut-stats">
-              <div class="shortcut-icon-badge icon-stats">📊</div>
-              <div class="shortcut-text-wrap">
-                <span class="shortcut-title">Thống Kê & Báo Cáo</span>
-                <span class="shortcut-desc">Dự báo 7 ngày & Lịch học tập</span>
-              </div>
-              <svg class="shortcut-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <path d="M9 18l6-6-6-6"/>
-              </svg>
-            </button>
           </div>
 
         </div> <!-- /review-col-right -->
@@ -621,21 +454,7 @@ export function renderReviewTab(app) {
     const remainingGoal = Math.max(0, dailyGoal - todayNewLearned);
     const goalPct = Math.min(100, Math.round((todayNewLearned / dailyGoal) * 100));
 
-    // A. Chế độ Chống Quá Tải Nhận Thức (Adaptive Backlog Protection)
-    const elBacklogAlert = document.getElementById('review-backlog-alert');
-    const elBacklogDesc = document.getElementById('review-backlog-desc');
-    if (elBacklogAlert) {
-      if (studyQueue.isBacklogProtected && queueDue >= 25) {
-        elBacklogAlert.style.display = 'flex';
-        if (elBacklogDesc) {
-          elBacklogDesc.textContent = `Hàng đợi có ${queueDue} từ cần ôn. Đã tạm hoãn nạp từ mới để bạn tập trung dọn sạch hàng đợi!`;
-        }
-      } else {
-        elBacklogAlert.style.display = 'none';
-      }
-    }
-
-    // B. Trạng thái hôm nay
+    // A. Trạng thái hôm nay
     const elTodayStatus = document.getElementById('home-today-status');
     if (elTodayStatus) {
       if (queueDue > 0) {
@@ -647,7 +466,7 @@ export function renderReviewTab(app) {
       }
     }
 
-    // C. Chuỗi ngày học & Khung giờ vàng nhận thức
+    // B. Chuỗi ngày học & Khung giờ vàng nhận thức
     const streak = StatsManager.calculateStreak(allLogs);
     const primeHour = StatsManager.getPrimeStudyHour(allLogs);
 
@@ -677,7 +496,7 @@ export function renderReviewTab(app) {
       }
     }
 
-    // D. Từ cần ôn ngay & Đã học hôm nay
+    // C. Từ cần ôn ngay & Đã học hôm nay
     const elDueVal = document.getElementById('home-due-val');
     if (elDueVal) elDueVal.textContent = queueDue;
 
@@ -698,7 +517,7 @@ export function renderReviewTab(app) {
       }
     }
 
-    // E. Render Goal & Progress Tracker (Radial Rings & Multi-Tier Goals)
+    // D. Render Goal & Progress Tracker (Radial Rings & Multi-Tier Goals)
     // 1. Ngày (Hôm nay)
     const dayPct = Math.min(100, Math.round((todayNewLearned / dailyGoal) * 100));
 
@@ -732,8 +551,7 @@ export function renderReviewTab(app) {
     const stageWordsLeft = Math.max(0, stageTargetWords - stageLearnedWords);
     const stageDaysEstimate = Math.max(1, Math.ceil(stageWordsLeft / dailyGoal));
 
-    const totalLibraryWords = (allCards && allCards.length) ? allCards.length : (app.deckManager?.getAllCards?.().length || 2582);
-    const libraryPct = Math.min(100, Math.round((learnedCount / totalLibraryWords) * 100));
+    const totalLibraryWords = (allCards && allCards.length) ? allCards.length : (app.deckManager?.getAllCards?.().length || 3523);
     const libraryMasteredPct = Math.min(100, Math.round((masteredCount / totalLibraryWords) * 100));
 
     // Update Header
@@ -811,114 +629,7 @@ export function renderReviewTab(app) {
       };
     }
 
-    // F. Render Bảng Lộ Trình Mục Tiêu 8 Chặng Chia Nhỏ (Milestone Roadmap Board)
-    const elStagePill = document.getElementById('milestone-stage-pill');
-    if (elStagePill) {
-      elStagePill.textContent = `Chặng ${activeStage.id}/${roadmap.totalStages}`;
-    }
-
-    const elActiveIcon = document.getElementById('active-stage-icon');
-    if (elActiveIcon) elActiveIcon.textContent = activeStage.icon;
-
-    const elActiveLevel = document.getElementById('active-stage-level');
-    if (elActiveLevel) {
-      elActiveLevel.textContent = `${activeStage.badge.toUpperCase()} • ${activeStage.isCompleted ? 'ĐÃ HOÀN THÀNH 🏆' : 'ĐANG CHINH PHỤC ⚡'}`;
-    }
-
-    const elActiveTitle = document.getElementById('active-stage-title');
-    if (elActiveTitle) {
-      elActiveTitle.textContent = `${activeStage.title} (${activeStage.targetWords} từ)`;
-    }
-
-    const elActivePct = document.getElementById('active-stage-pct');
-    if (elActivePct) {
-      elActivePct.textContent = `${activeStage.progressPct}%`;
-    }
-
-    const elActiveFill = document.getElementById('active-stage-fill');
-    if (elActiveFill) {
-      elActiveFill.style.width = `${activeStage.progressPct}%`;
-    }
-
-    const elActiveBenefit = document.getElementById('active-stage-benefit');
-    if (elActiveBenefit) {
-      elActiveBenefit.textContent = activeStage.realBenefit;
-    }
-
-    const elActiveGain = document.getElementById('active-stage-gain');
-    if (elActiveGain) {
-      elActiveGain.textContent = `📈 Mở khóa: ${activeStage.comprehensionGain}`;
-    }
-
-    const elActiveEstimate = document.getElementById('active-stage-estimate');
-    if (elActiveEstimate) {
-      if (activeStage.isCompleted) {
-        elActiveEstimate.textContent = `🎉 Đã chinh phục trọn vẹn mốc này!`;
-      } else {
-        elActiveEstimate.textContent = `⏱️ Còn ${activeStage.wordsRemaining} từ (khoảng ${activeStage.daysEstimate} ngày học nhẹ nhàng)`;
-      }
-    }
-
-    // Toggle 8 Chặng chi tiết
-    const btnToggleMilestones = document.getElementById('btn-toggle-milestones');
-    const elStagesList = document.getElementById('milestones-stages-list');
-    const elToggleText = document.getElementById('toggle-milestones-text');
-    const elToggleArrow = document.getElementById('toggle-milestones-arrow');
-
-    if (btnToggleMilestones && elStagesList) {
-      btnToggleMilestones.onclick = () => {
-        const isHidden = elStagesList.style.display === 'none';
-        if (isHidden) {
-          elStagesList.style.display = 'flex';
-          if (elToggleText) elToggleText.textContent = 'Thu gọn 8 chặng mục tiêu';
-          if (elToggleArrow) elToggleArrow.style.transform = 'rotate(180deg)';
-        } else {
-          elStagesList.style.display = 'none';
-          if (elToggleText) elToggleText.textContent = 'Xem chi tiết 8 chặng mục tiêu';
-          if (elToggleArrow) elToggleArrow.style.transform = 'rotate(0deg)';
-        }
-      };
-
-      // Populate 8 Stage Cards
-      elStagesList.innerHTML = roadmap.milestones.map(m => {
-        let statusBadge = '';
-        let cardClass = 'stage-locked';
-
-        if (m.isCompleted) {
-          cardClass = 'stage-completed';
-          statusBadge = `<span class="stage-status-badge badge-done">✓ Đã đạt</span>`;
-        } else if (m.isCurrent) {
-          cardClass = 'stage-current';
-          statusBadge = `<span class="stage-status-badge badge-current">⚡ Đang học (${m.progressPct}%)</span>`;
-        } else {
-          cardClass = 'stage-locked';
-          statusBadge = `<span class="stage-status-badge badge-locked">🔒 Còn ${m.wordsRemaining} từ</span>`;
-        }
-
-        return `
-          <div class="milestone-stage-item ${cardClass}">
-            <div class="stage-item-left">
-              <span class="stage-item-icon">${m.icon}</span>
-              <div class="stage-item-info">
-                <div class="stage-item-title-row">
-                  <span class="stage-item-title">Chặng ${m.id}: ${escapeHTML(m.title)}</span>
-                  <span class="stage-item-target">${m.targetWords} từ</span>
-                </div>
-                <span class="stage-item-benefit">${escapeHTML(m.realBenefit)}</span>
-                <div class="stage-item-track">
-                  <div class="stage-item-fill" style="width: ${m.progressPct}%;"></div>
-                </div>
-              </div>
-            </div>
-            <div class="stage-item-right">
-              ${statusBadge}
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    // G. Render Từ Vựng Vàng Tiêu Điểm Hôm Nay (Daily Spotlight Word)
+    // E. Render Từ Vựng Vàng Tiêu Điểm Hôm Nay (Daily Spotlight Word)
     const spotlightCard = getDailySpotlightCard(allCards);
     if (spotlightCard) {
       const elSpotWord = document.getElementById('spotlight-word');
@@ -974,59 +685,7 @@ export function renderReviewTab(app) {
       }
     }
 
-    // H. Render Radar Năng Lực Trí Nhớ FSRS-6 & 5 Tầng Phân Bố (Memory Radar)
-    const memIntel = StatsManager.getMemoryIntelligence(allCards);
-    const elRadarRank = document.getElementById('radar-rank-title');
-    const elRadarRetrieval = document.getElementById('radar-retrieval-val');
-
-    if (elRadarRank && memIntel.rank) {
-      elRadarRank.textContent = `${memIntel.rank.title} (${memIntel.score} đ)`;
-    }
-
-    if (elRadarRetrieval) {
-      elRadarRetrieval.textContent = `${memIntel.currentRetrievability}%`;
-    }
-
-    const t5 = memIntel.tiers?.tier5?.count || 0;
-    const t4 = memIntel.tiers?.tier4?.count || 0;
-    const t3 = memIntel.tiers?.tier3?.count || 0;
-    const t2 = memIntel.tiers?.tier2?.count || 0;
-    const t1 = memIntel.tiers?.tier1?.count || 0;
-    const totalTiers = t5 + t4 + t3 + t2 + t1;
-
-    const elTierVal5 = document.getElementById('tier-val-5');
-    const elTierVal4 = document.getElementById('tier-val-4');
-    const elTierVal3 = document.getElementById('tier-val-3');
-    const elTierVal2 = document.getElementById('tier-val-2');
-    const elTierVal1 = document.getElementById('tier-val-1');
-
-    if (elTierVal5) elTierVal5.textContent = t5;
-    if (elTierVal4) elTierVal4.textContent = t4;
-    if (elTierVal3) elTierVal3.textContent = t3;
-    if (elTierVal2) elTierVal2.textContent = t2;
-    if (elTierVal1) elTierVal1.textContent = t1;
-
-    // Phân bổ thanh quang phổ FSRS Spectrum Bar
-    const elBar5 = document.getElementById('spec-bar-tier5');
-    const elBar4 = document.getElementById('spec-bar-tier4');
-    const elBar3 = document.getElementById('spec-bar-tier3');
-    const elBar2 = document.getElementById('spec-bar-tier2');
-    const elBar1 = document.getElementById('spec-bar-tier1');
-
-    if (totalTiers > 0) {
-      if (elBar5) elBar5.style.width = `${Math.round((t5 / totalTiers) * 100)}%`;
-      if (elBar4) elBar4.style.width = `${Math.round((t4 / totalTiers) * 100)}%`;
-      if (elBar3) elBar3.style.width = `${Math.round((t3 / totalTiers) * 100)}%`;
-      if (elBar2) elBar2.style.width = `${Math.round((t2 / totalTiers) * 100)}%`;
-      if (elBar1) elBar1.style.width = `${Math.round((t1 / totalTiers) * 100)}%`;
-    } else {
-      if (elBar1) elBar1.style.width = '100%';
-    }
-
-    // I. Render Nhịp Độ Học Tập 7 Ngày Gần Nhất (7-Day Habit Activity)
-    render7DayHabitActivity(allLogs);
-
-    // J. Bệnh Án Từ Vựng & Hệ Miễn Dịch (Weak Word Drill / Immunity Status)
+    // F. Bệnh Án Từ Vựng & Hệ Miễn Dịch (Weak Word Drill / Immunity Status)
     const weakWords = typeof app.deckManager.getWeakWords === 'function' ? app.deckManager.getWeakWords(10) : [];
     const boxWeak = document.getElementById('review-weak-words-box');
     const elWeakIcon = document.getElementById('weak-icon-badge');
@@ -1089,7 +748,7 @@ export function renderReviewTab(app) {
       }
     }
 
-    // H. CTA Nổi Bật: Twin Buttons (Luôn hiển thị đầy đủ cả 2 chế độ 3D & Trắc nghiệm)
+    // G. CTA Nổi Bật: Twin Buttons (Luôn hiển thị đầy đủ cả 2 chế độ 3D & Trắc nghiệm)
     const btnHeroCta = document.getElementById('btn-home-hero-cta');
     const elCtaText = document.getElementById('home-hero-cta-text');
     const btnQuizCta = document.getElementById('btn-home-quiz-cta');
@@ -1175,7 +834,7 @@ export function renderReviewTab(app) {
       }
     }
 
-    // I. Lazy Audio Walk Trigger & Controller
+    // H. Lazy Audio Walk Trigger & Controller
     const btnTriggerLazy = document.getElementById('btn-trigger-lazy-walk');
     if (btnTriggerLazy) {
       btnTriggerLazy.onclick = () => {
@@ -1195,17 +854,6 @@ export function renderReviewTab(app) {
 
         startLazyAudioWalk(walkCards, app);
       };
-    }
-
-    // J. Gán sự kiện cho các nút điều hướng nhanh
-    const btnShortcutDecks = document.getElementById('btn-shortcut-decks');
-    if (btnShortcutDecks) {
-      btnShortcutDecks.onclick = () => app.switchTab('tab-decks');
-    }
-
-    const btnShortcutStats = document.getElementById('btn-shortcut-stats');
-    if (btnShortcutStats) {
-      btnShortcutStats.onclick = () => app.switchTab('tab-stats');
     }
 
   } catch (err) {
@@ -1383,79 +1031,4 @@ function getDailySpotlightCard(allCards = []) {
   }
   const positiveIndex = Math.abs(hash) % allCards.length;
   return allCards[positiveIndex] || allCards[0];
-}
-
-/**
- * Render 7 Cột Hoạt Động Của 7 Ngày Gần Nhất
- */
-function render7DayHabitActivity(allLogs = []) {
-  const container = document.getElementById('days7-columns-row');
-  const summaryEl = document.getElementById('days7-active-summary');
-  if (!container) return;
-
-  const dayNames = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
-  const today = new Date();
-  const todayKey = getLocalDateKey();
-
-  // Nhóm logs theo ngày
-  const logMap = Object.create(null);
-  for (let i = 0; i < allLogs.length; i++) {
-    const l = allLogs[i];
-    if (l.timestamp) {
-      const k = getLocalDateKey(l.timestamp);
-      if (!logMap[k]) logMap[k] = { count: 0, seconds: 0 };
-      logMap[k].count++;
-      if (l.latencySec) logMap[k].seconds += Number(l.latencySec) || 0;
-    }
-  }
-
-  // 7 ngày gần nhất (từ 6 ngày trước đến hôm nay)
-  const days = [];
-  let activeDaysCount = 0;
-
-  for (let i = 6; i >= 0; i--) {
-    const d = new Date(today);
-    d.setDate(today.getDate() - i);
-    const key = getLocalDateKey(d);
-    const dayName = dayNames[d.getDay()];
-    const isToday = key === todayKey;
-    const data = logMap[key] || { count: 0, seconds: 0 };
-    const isActive = data.count > 0;
-
-    if (isActive) activeDaysCount++;
-
-    days.push({
-      key,
-      dayName,
-      isToday,
-      count: data.count,
-      isActive
-    });
-  }
-
-  if (summaryEl) {
-    summaryEl.textContent = `${activeDaysCount}/7 ngày hoạt động 🔥`;
-  }
-
-  container.innerHTML = days.map(d => {
-    let barClass = 'day-inactive';
-    let statusText = `${d.count}`;
-
-    if (d.isActive) {
-      barClass = 'day-active';
-    }
-    if (d.isToday) {
-      barClass += ' day-today';
-    }
-
-    return `
-      <div class="day7-col ${barClass}">
-        <span class="day7-count">${d.count > 0 ? d.count : '—'}</span>
-        <div class="day7-bar-track">
-          <div class="day7-bar-fill" style="height: ${Math.min(100, Math.max(15, d.count * 10))}%;"></div>
-        </div>
-        <span class="day7-label">${d.dayName}</span>
-      </div>
-    `;
-  }).join('');
 }
