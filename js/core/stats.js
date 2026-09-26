@@ -948,7 +948,7 @@ export class StudyTimeTracker {
     this.isPaused = false;
     this.isIdle = false;
 
-    this.idleThresholdMs = 25 * 1000; // 25 giây không có tương tác -> coi như treo máy
+    this.idleThresholdMs = 15 * 1000; // 15 giây không có tương tác -> coi như treo máy (Idle AFK)
     this.lastActivityTime = 0;
     this.lastTickTime = 0;
     this.unflushedSeconds = 0;
