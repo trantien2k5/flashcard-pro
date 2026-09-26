@@ -121,7 +121,7 @@ export function startFrontActiveRecallTimer() {
         _flipCountdownTimer = null;
       }
       btn.classList.remove('is-locked');
-      btn.innerHTML = `<span>Xem đáp án (Space ↵)</span>`;
+      btn.innerHTML = `<span>Xem đáp án</span>`;
     } else {
       btn.innerHTML = `
         <span class="flip-countdown-badge">

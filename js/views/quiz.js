@@ -234,7 +234,7 @@ export function renderQuizOverlayShell() {
         <!-- 4. Manual Advance Action Bar (Fixed Reserved Space, No Layout Shift) -->
         <div class="quiz-action-bar" id="quiz-action-bar">
           <button type="button" class="btn-quiz-next" id="btn-quiz-next">
-            <span id="quiz-next-label">Tiếp tục (Space ↵)</span>
+            <span id="quiz-next-label">Tiếp tục</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
             </svg>
@@ -637,7 +637,7 @@ function handleOptionSelected(selectedTile, selectedOpt, card, allOptions) {
   const isLast = _quizIndex + 1 >= _quizQueue.length;
 
   if (nextLabel) {
-    nextLabel.textContent = isLast ? 'Xem Kết Quả (Space ↵)' : 'Tiếp tục (Space ↵)';
+    nextLabel.textContent = isLast ? 'Xem Kết Quả' : 'Tiếp tục';
   }
 
   if (actionBar) {
