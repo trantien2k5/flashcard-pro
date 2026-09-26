@@ -123,10 +123,11 @@ export function startFrontActiveRecallTimer() {
       btn.classList.remove('is-locked');
       btn.innerHTML = `<span>Xem đáp án</span>`;
     } else {
+      const displaySec = Math.max(1, Math.ceil(remainingSec));
       btn.innerHTML = `
         <span class="flip-countdown-badge">
           <span class="flip-countdown-dot"></span>
-          <span>Suy nghĩ (${remainingSec.toFixed(1)}s)</span>
+          <span>Suy nghĩ (${displaySec}s)</span>
         </span>
       `;
     }
@@ -847,12 +848,16 @@ export function setupStudyControls(app) {
     const safeRateCard = (rating) => {
       if (!app.studySession || !app.studySession.isActive) return;
       if (!app.studySession.isFlipped) return;
+      
+      // Khóa ngầm 0.5s (500ms) ở mặt sau để chống bấm nhầm/quá nhanh trước khi não kịp nhìn nhận
+      const backViewMs = _backShowTime > 0 ? (performance.now() - _backShowTime) : 0;
+      if (backViewMs < 500) return;
+
       if (_isRatingInProgress) return;
       _isRatingInProgress = true;
       try {
         globalStudyTimer.recordActivity();
         const latencySec = _lastFlipLatencyMs > 0 ? Number((_lastFlipLatencyMs / 1000).toFixed(2)) : null;
-        const backViewMs = _backShowTime > 0 ? (performance.now() - _backShowTime) : 0;
         const backViewSec = Number((backViewMs / 1000).toFixed(2));
 
         app.studySession.rateCard(rating, { latencySec, backViewSec, backViewMs: Math.round(backViewMs) });
