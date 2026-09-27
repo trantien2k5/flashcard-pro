@@ -85,7 +85,7 @@ export function renderReviewShell(container) {
                 <input type="checkbox" id="toggle-inline-example-en" class="toggle-checkbox" checked>
               </label>
               <label class="prefs-popover-item">
-                <span class="prefs-popover-label">🇻🇳 Dịch câu ví dụ</span>
+                <span class="prefs-popover-label"><svg class="flag-icon-vn" width="18" height="12" viewBox="0 0 30 20" fill="none"><rect width="30" height="20" rx="2" fill="#DA251D"/><polygon points="15,4 16.545,8.755 21.548,8.755 17.501,11.695 19.046,16.45 15,13.51 10.954,16.45 12.499,11.695 8.452,8.755 13.455,8.755" fill="#FFFF00"/></svg> Dịch câu ví dụ</span>
                 <input type="checkbox" id="toggle-inline-example-vi" class="toggle-checkbox" checked>
               </label>
             </div>
