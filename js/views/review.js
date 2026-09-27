@@ -1057,20 +1057,20 @@ function setupInlineStudyEvents(app) {
         return;
       }
 
-      // Khi đang xem mặt sau (đáp án): Phím 1, 2, 3, 4 để tự chấm
+      // Khi đang xem mặt sau (đáp án): Phím 1, 2, 3, 4 để tự chấm (Quên - Khó - Nhớ - Dễ)
       if (_inlineStudyState.isFlipped) {
-        if (e.key === '1') {
+        if (e.key === '1' || e.code === 'Numpad1') {
           e.preventDefault();
-          rateInlineCard(Rating.Again);
-        } else if (e.key === '2') {
+          rateInlineCard(Rating.Again); // 1 = Quên
+        } else if (e.key === '2' || e.code === 'Numpad2') {
           e.preventDefault();
-          rateInlineCard(Rating.Hard);
-        } else if (e.key === '3') {
+          rateInlineCard(Rating.Hard);  // 2 = Khó
+        } else if (e.key === '3' || e.code === 'Numpad3') {
           e.preventDefault();
-          rateInlineCard(Rating.Good);
-        } else if (e.key === '4') {
+          rateInlineCard(Rating.Good);  // 3 = Nhớ
+        } else if (e.key === '4' || e.code === 'Numpad4') {
           e.preventDefault();
-          rateInlineCard(Rating.Easy);
+          rateInlineCard(Rating.Easy);  // 4 = Dễ
         }
       }
     });
