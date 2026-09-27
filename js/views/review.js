@@ -24,7 +24,11 @@ let _inlineStudyState = {
   fsrs: null,
   startTime: 0,
   isTimerListening: false,
-  isInitialized: false
+  isInitialized: false,
+  isKeyboardListening: false,
+  audioMode: 'auto', // 'auto' | 'continuous' | 'mute'
+  isSlowSpeed: false, // true = 0.5x, false = 1.0x
+  loopTimerId: null
 };
 
 export function renderReviewShell(container) {
@@ -141,18 +145,14 @@ export function renderReviewShell(container) {
             </div>
           </div>
 
-          <!-- 2. Interactive Inline Quick Flashcard (Tối Giản 1 Lớp, Không Lồng Card, Không Cắt Chữ) -->
+          <!-- 2. Interactive Inline Quick Flashcard (Tối Giản 1 Lớp, Tự Động Nạp 5 Từ, Đa Chế Độ Âm Thanh) -->
           <div class="review-inline-card" id="review-inline-study-card">
             <div class="inline-card-topbar">
               <div class="inline-topbar-left">
                 <span class="inline-flash-badge">⚡ ÔN TẬP NHANH</span>
-                <span class="inline-queue-pill" id="inline-queue-pill">...</span>
               </div>
-              <button type="button" class="btn-inline-speaker" id="btn-inline-speaker" title="Phát âm từ vựng">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                </svg>
+              <button type="button" class="btn-inline-speaker mode-auto" id="btn-inline-speaker" title="Âm thanh tự động (Click: Đổi chế độ / Giữ: 0.5x)">
+                <span class="speaker-icon" id="inline-speaker-icon">🔊</span>
               </button>
             </div>
 
@@ -841,6 +841,26 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
 }
 
 /**
+ * Nạp đệm 5 từ vựng tinh gọn (Ưu tiên từ đến hạn -> từ mới -> từ ngẫu nhiên)
+ */
+function fetchInlineBatch(app) {
+  if (!app || !app.deckManager) return [];
+  const studyQueue = app.deckManager.getStudyQueue(null, app.settings);
+  const dueCards = Array.isArray(studyQueue?.dueCards) ? [...studyQueue.dueCards] : [];
+  const newCards = Array.isArray(studyQueue?.newCards) ? [...studyQueue.newCards] : [];
+  const allCards = app.deckManager.getAllCards() || [];
+
+  if (dueCards.length > 0) {
+    return dueCards.slice(0, 5);
+  }
+  if (newCards.length > 0) {
+    return newCards.slice(0, 5);
+  }
+  const shuffled = [...allCards].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 5);
+}
+
+/**
  * Khởi tạo Trình Ôn Tập Nhanh Trực Tiếp Tại Trang Chủ (Inline Quick Flashcard)
  */
 function initInlineStudy(app) {
@@ -851,28 +871,73 @@ function initInlineStudy(app) {
     enableFuzz: app.settings?.enableFuzz !== false
   });
 
-  const studyQueue = app.deckManager.getStudyQueue(null, app.settings);
-  const dueCards = Array.isArray(studyQueue.dueCards) ? [...studyQueue.dueCards] : [];
-  const newCards = Array.isArray(studyQueue.newCards) ? [...studyQueue.newCards] : [];
-  const allCards = app.deckManager.getAllCards() || [];
-
-  // Ưu tiên 1: Toàn bộ từ tới hạn (Due Cards)
-  // Ưu tiên 2: Từ mới (New Cards)
-  // Ưu tiên 3: Toàn bộ từ vựng
-  let targetQueue = [];
-  if (dueCards.length > 0) {
-    targetQueue = dueCards;
-  } else if (newCards.length > 0) {
-    targetQueue = newCards;
-  } else {
-    targetQueue = allCards.slice(0, 30);
-  }
-
-  _inlineStudyState.queue = targetQueue;
+  _inlineStudyState.queue = fetchInlineBatch(app);
   _inlineStudyState.currentIndex = 0;
 
   setupInlineStudyEvents(app);
+  updateSpeakerUI();
   showNextInlineCard();
+}
+
+/**
+ * Cập nhật giao diện nút Loa phát âm đa chế độ
+ */
+function updateSpeakerUI() {
+  const btn = document.getElementById('btn-inline-speaker');
+  const icon = document.getElementById('inline-speaker-icon');
+  if (!btn || !icon) return;
+
+  if (_inlineStudyState.audioMode === 'auto') {
+    icon.textContent = _inlineStudyState.isSlowSpeed ? '🐢' : '🔊';
+    btn.className = 'btn-inline-speaker mode-auto';
+    btn.title = `Âm thanh: Tự động phát (${_inlineStudyState.isSlowSpeed ? '0.5x' : '1.0x'}) • Click: Đổi chế độ • Nhấn giữ: Đổi tốc độ`;
+  } else if (_inlineStudyState.audioMode === 'continuous') {
+    icon.textContent = '🔁';
+    btn.className = 'btn-inline-speaker mode-continuous';
+    btn.title = `Âm thanh: Phát lặp liên tục (${_inlineStudyState.isSlowSpeed ? '0.5x' : '1.0x'}) • Click: Đổi chế độ • Nhấn giữ: Đổi tốc độ`;
+  } else {
+    icon.textContent = '🔇';
+    btn.className = 'btn-inline-speaker mode-mute';
+    btn.title = 'Âm thanh: Đã tắt • Click: Bật lại âm thanh';
+  }
+}
+
+/**
+ * Chuyển đổi chu kỳ 3 chế độ âm thanh: Tự động -> Phát liên tục -> Tắt
+ */
+function cycleSpeakerMode() {
+  notifyStudyActivity();
+  if (_inlineStudyState.loopTimerId) {
+    clearTimeout(_inlineStudyState.loopTimerId);
+    _inlineStudyState.loopTimerId = null;
+  }
+  stopAudio();
+
+  if (_inlineStudyState.audioMode === 'auto') {
+    _inlineStudyState.audioMode = 'continuous';
+    showToast('🔁 Chế độ: Phát lặp liên tục', 'info');
+    speakInlineCard();
+  } else if (_inlineStudyState.audioMode === 'continuous') {
+    _inlineStudyState.audioMode = 'mute';
+    showToast('🔇 Đã tắt phát âm', 'info');
+  } else {
+    _inlineStudyState.audioMode = 'auto';
+    showToast(`🔊 Chế độ: Tự động phát khi sang từ (${_inlineStudyState.isSlowSpeed ? '0.5x' : '1.0x'})`, 'success');
+    speakInlineCard({ force: true });
+  }
+  updateSpeakerUI();
+}
+
+/**
+ * Nhấn giữ để chuyển đổi tốc độ phát âm chậm 0.5x / chuẩn 1.0x
+ */
+function toggleSlowSpeed() {
+  notifyStudyActivity();
+  _inlineStudyState.isSlowSpeed = !_inlineStudyState.isSlowSpeed;
+  const speedText = _inlineStudyState.isSlowSpeed ? 'Chậm 0.5x 🐢' : 'Chuẩn 1.0x ⚡';
+  showToast(`Tốc độ phát âm: ${speedText}`, 'info');
+  updateSpeakerUI();
+  speakInlineCard({ force: true });
 }
 
 /**
@@ -897,10 +962,40 @@ function setupInlineStudyEvents(app) {
     };
   }
 
+  // Xử lý nút Loa: Click ngắn chuyển Mode / Nhấn giữ >450ms chuyển 0.5x
   if (btnSpeaker) {
-    btnSpeaker.onclick = (e) => {
-      e.stopPropagation();
-      speakInlineCard();
+    let pressTimer = null;
+    let isLongPress = false;
+
+    btnSpeaker.onpointerdown = () => {
+      isLongPress = false;
+      if (pressTimer) clearTimeout(pressTimer);
+      pressTimer = setTimeout(() => {
+        isLongPress = true;
+        toggleSlowSpeed();
+      }, 480);
+    };
+
+    btnSpeaker.onpointerup = (e) => {
+      if (pressTimer) {
+        clearTimeout(pressTimer);
+        pressTimer = null;
+      }
+      if (!isLongPress) {
+        e.stopPropagation();
+        cycleSpeakerMode();
+      }
+    };
+
+    btnSpeaker.onpointerleave = () => {
+      if (pressTimer) {
+        clearTimeout(pressTimer);
+        pressTimer = null;
+      }
+    };
+
+    btnSpeaker.oncontextmenu = (e) => {
+      e.preventDefault();
     };
   }
 
@@ -929,7 +1024,7 @@ function setupInlineStudyEvents(app) {
     }
   });
 
-  // Gán phím tắt nhanh kích thích học liền mạch (Space, 1, 2, 3, 4, R)
+  // Gán phím tắt nhanh (Space, 1, 2, 3, 4, R)
   if (!_inlineStudyState.isKeyboardListening) {
     _inlineStudyState.isKeyboardListening = true;
     window.addEventListener('keydown', (e) => {
@@ -945,7 +1040,7 @@ function setupInlineStudyEvents(app) {
           flipInlineCard();
         } else if (e.key === 'r' || e.key === 'R') {
           e.preventDefault();
-          speakInlineCard();
+          speakInlineCard({ force: true });
         }
       } else {
         if (e.key === '1') {
@@ -962,7 +1057,7 @@ function setupInlineStudyEvents(app) {
           rateInlineCard(Rating.Easy);
         } else if (e.key === 'r' || e.key === 'R') {
           e.preventDefault();
-          speakInlineCard();
+          speakInlineCard({ force: true });
         }
       }
     });
@@ -970,27 +1065,18 @@ function setupInlineStudyEvents(app) {
 }
 
 /**
- * Hiển thị thẻ từ vựng kế tiếp trong luồng học liên tục (Không giới hạn phiên)
+ * Hiển thị thẻ từ vựng kế tiếp trong luồng học liên tục (Tự nạp đệm 5 từ)
  */
 function showNextInlineCard() {
   const frontFace = document.getElementById('inline-face-front');
   const backFace = document.getElementById('inline-face-back');
   const emptyState = document.getElementById('inline-card-empty');
-  const queuePill = document.getElementById('inline-queue-pill');
 
   if (_inlineStudyState.currentIndex >= _inlineStudyState.queue.length) {
-    // Tự động kiểm tra nạp tiếp từ mới hoặc từ cần củng cố (Endless Flow)
-    const studyQueue = _cachedApp?.deckManager?.getStudyQueue(null, _cachedApp?.settings);
-    const moreDue = Array.isArray(studyQueue?.dueCards) ? studyQueue.dueCards : [];
-    const moreNew = Array.isArray(studyQueue?.newCards) ? studyQueue.newCards : [];
-
-    if (moreDue.length > 0 && _inlineStudyState.queue !== moreDue) {
-      _inlineStudyState.queue = moreDue;
-      _inlineStudyState.currentIndex = 0;
-      showNextInlineCard();
-      return;
-    } else if (moreNew.length > 0 && _inlineStudyState.queue !== moreNew) {
-      _inlineStudyState.queue = moreNew;
+    // Tự động nạp đệm 5 từ kế tiếp không ngắt mạch học
+    const nextBatch = fetchInlineBatch(_cachedApp);
+    if (nextBatch.length > 0) {
+      _inlineStudyState.queue = nextBatch;
       _inlineStudyState.currentIndex = 0;
       showNextInlineCard();
       return;
@@ -1001,7 +1087,6 @@ function showNextInlineCard() {
     if (frontFace) frontFace.style.display = 'none';
     if (backFace) backFace.style.display = 'none';
     if (emptyState) emptyState.style.display = 'flex';
-    if (queuePill) queuePill.textContent = '🏆 Đã ôn sạch!';
     return;
   }
 
@@ -1014,19 +1099,6 @@ function showNextInlineCard() {
 
   const card = _inlineStudyState.queue[_inlineStudyState.currentIndex];
   _inlineStudyState.currentCard = card;
-
-  const remaining = _inlineStudyState.queue.length - _inlineStudyState.currentIndex;
-  if (queuePill) {
-    const state = StorageManager.getCardState(card.id);
-    const isDue = state && isCardDue(state, new Date());
-    if (isDue) {
-      queuePill.textContent = `${remaining} từ đến hạn`;
-    } else if (!state || state.state === State.New || state.state === 0) {
-      queuePill.textContent = `Từ mới: ${remaining}`;
-    } else {
-      queuePill.textContent = `Luyện tập: ${remaining}`;
-    }
-  }
 
   // Populate Front Data
   const elWord = document.getElementById('inline-word');
@@ -1075,10 +1147,15 @@ function showNextInlineCard() {
     const intGood = document.getElementById('rate-int-good');
     const intEasy = document.getElementById('rate-int-easy');
 
-    if (intAgain) intAgain.textContent = formatViIntervalText(previews[Rating.Again]?.intervalText) || '< 10p';
+    if (intAgain) intAgain.textContent = formatViIntervalText(previews[Rating.Again]?.intervalText) || '< 10 phút';
     if (intHard) intHard.textContent = formatViIntervalText(previews[Rating.Hard]?.intervalText) || '1 ngày';
     if (intGood) intGood.textContent = formatViIntervalText(previews[Rating.Good]?.intervalText) || '3 ngày';
     if (intEasy) intEasy.textContent = formatViIntervalText(previews[Rating.Easy]?.intervalText) || '4 ngày';
+  }
+
+  // Tự động phát âm nếu đang ở chế độ auto hoặc continuous
+  if (_inlineStudyState.audioMode !== 'mute') {
+    speakInlineCard();
   }
 }
 
@@ -1162,6 +1239,13 @@ function rateInlineCard(rating) {
     boxNew.classList.add('pulse-dopamine');
   }
 
+  // Dừng phát lặp từ cũ trước khi chuyển từ mới
+  if (_inlineStudyState.loopTimerId) {
+    clearTimeout(_inlineStudyState.loopTimerId);
+    _inlineStudyState.loopTimerId = null;
+  }
+  stopAudio();
+
   // Hiệu ứng chuyển thẻ mượt mà 120ms
   const viewport = document.getElementById('inline-card-viewport');
   if (viewport) {
@@ -1180,13 +1264,32 @@ function rateInlineCard(rating) {
 }
 
 /**
- * Phát âm từ vựng của thẻ đang hiển thị
+ * Phát âm từ vựng với tốc độ linh hoạt (chuẩn 1.0x hoặc chậm 0.5x) và hỗ trợ chế độ phát lặp
  */
-function speakInlineCard() {
+function speakInlineCard(options = {}) {
   notifyStudyActivity();
-  if (_inlineStudyState.currentCard && _inlineStudyState.currentCard.word) {
-    speak(_inlineStudyState.currentCard.word, { cardObj: _inlineStudyState.currentCard });
+  if (!_inlineStudyState.currentCard || !_inlineStudyState.currentCard.word) return;
+  if (_inlineStudyState.audioMode === 'mute' && !options.force) return;
+
+  if (_inlineStudyState.loopTimerId) {
+    clearTimeout(_inlineStudyState.loopTimerId);
+    _inlineStudyState.loopTimerId = null;
   }
+
+  const rate = _inlineStudyState.isSlowSpeed ? 0.5 : 1.0;
+  speak(_inlineStudyState.currentCard.word, {
+    speechRate: rate,
+    cardObj: _inlineStudyState.currentCard,
+    onEnd: () => {
+      if (_inlineStudyState.audioMode === 'continuous') {
+        _inlineStudyState.loopTimerId = setTimeout(() => {
+          if (_inlineStudyState.audioMode === 'continuous') {
+            speakInlineCard();
+          }
+        }, 1200);
+      }
+    }
+  });
 }
 
 /**
