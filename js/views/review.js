@@ -48,9 +48,47 @@ export function renderReviewShell(container) {
             <div class="inline-topbar-left">
               <span class="inline-flash-badge">⚡ ÔN TẬP NHANH</span>
             </div>
-            <button type="button" class="btn-inline-speaker mode-auto" id="btn-inline-speaker" title="Âm thanh tự động (Click: Đổi chế độ / Giữ: 0.5x)">
-              <span class="speaker-icon" id="inline-speaker-icon">🔊</span>
-            </button>
+            <div class="inline-topbar-actions">
+              <button type="button" class="btn-inline-speaker mode-auto" id="btn-inline-speaker" title="Âm thanh tự động (Click: Đổi chế độ / Giữ: 0.5x)">
+                <span class="speaker-icon" id="inline-speaker-icon">🔊</span>
+              </button>
+              <button type="button" class="btn-inline-gear" id="btn-inline-prefs" title="Cài đặt hiển thị các trường dữ liệu">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Glassmorphic Prefs Dropdown Popover -->
+          <div class="inline-prefs-popover" id="inline-prefs-popover" style="display: none;">
+            <div class="prefs-popover-header">
+              <span class="prefs-popover-title">⚙️ Hiển thị trường dữ liệu</span>
+              <button type="button" class="btn-popover-close" id="btn-inline-prefs-close" title="Đóng">✕</button>
+            </div>
+            <div class="prefs-popover-list">
+              <label class="prefs-popover-item">
+                <span class="prefs-popover-label">🔊 Phiên âm IPA</span>
+                <input type="checkbox" id="toggle-inline-ipa" class="toggle-checkbox" checked>
+              </label>
+              <label class="prefs-popover-item">
+                <span class="prefs-popover-label">🏷️ Cấp độ CEFR (A1-C2)</span>
+                <input type="checkbox" id="toggle-inline-cefr" class="toggle-checkbox" checked>
+              </label>
+              <label class="prefs-popover-item">
+                <span class="prefs-popover-label">📝 Loại từ (POS)</span>
+                <input type="checkbox" id="toggle-inline-pos" class="toggle-checkbox" checked>
+              </label>
+              <label class="prefs-popover-item">
+                <span class="prefs-popover-label">💬 Câu ví dụ tiếng Anh</span>
+                <input type="checkbox" id="toggle-inline-example-en" class="toggle-checkbox" checked>
+              </label>
+              <label class="prefs-popover-item">
+                <span class="prefs-popover-label">🇻🇳 Dịch câu ví dụ</span>
+                <input type="checkbox" id="toggle-inline-example-vi" class="toggle-checkbox" checked>
+              </label>
+            </div>
           </div>
 
           <!-- Single Layer Content (No Inner Box Border) -->
@@ -865,6 +903,130 @@ function fetchInlineBatch(app) {
 }
 
 /**
+ * Quản lý cấu hình hiển thị trường dữ liệu trên thẻ Inline Flashcard
+ */
+const DEFAULT_INLINE_DISPLAY_PREFS = {
+  showIpa: true,
+  showCefr: true,
+  showPos: true,
+  showExampleEn: true,
+  showExampleVi: true
+};
+
+function getInlineDisplayPrefs() {
+  try {
+    const raw = localStorage.getItem('inline_flashcard_display_prefs');
+    if (raw) {
+      return { ...DEFAULT_INLINE_DISPLAY_PREFS, ...JSON.parse(raw) };
+    }
+  } catch (e) {}
+  return { ...DEFAULT_INLINE_DISPLAY_PREFS };
+}
+
+function saveInlineDisplayPrefs(prefs) {
+  try {
+    localStorage.setItem('inline_flashcard_display_prefs', JSON.stringify(prefs));
+  } catch (e) {}
+}
+
+function applyInlineDisplayPrefs() {
+  const prefs = getInlineDisplayPrefs();
+
+  // 1. IPA
+  const elIpa = document.getElementById('inline-ipa');
+  const elBackIpa = document.getElementById('inline-back-ipa');
+  if (elIpa) elIpa.style.display = prefs.showIpa ? 'block' : 'none';
+  if (elBackIpa) elBackIpa.style.display = prefs.showIpa ? 'inline' : 'none';
+
+  // 2. Badges (CEFR & POS)
+  const elCefr = document.getElementById('inline-cefr');
+  const elPos = document.getElementById('inline-pos');
+  const metaBadges = document.querySelector('.inline-meta-badges');
+  if (elCefr) elCefr.style.display = prefs.showCefr ? 'inline-block' : 'none';
+  if (elPos) elPos.style.display = prefs.showPos ? 'inline-block' : 'none';
+  if (metaBadges) {
+    metaBadges.style.display = (!prefs.showCefr && !prefs.showPos) ? 'none' : 'flex';
+  }
+
+  // 3. Examples
+  const elEn = document.getElementById('inline-example-en');
+  const elVi = document.getElementById('inline-example-vi');
+  const exampleBox = document.getElementById('inline-example-box');
+  if (elEn) elEn.style.display = prefs.showExampleEn ? 'block' : 'none';
+  if (elVi) {
+    const hasVi = elVi.textContent.trim().length > 0;
+    elVi.style.display = (prefs.showExampleVi && hasVi) ? 'block' : 'none';
+  }
+  if (exampleBox) {
+    exampleBox.style.display = (!prefs.showExampleEn && !prefs.showExampleVi) ? 'none' : 'block';
+  }
+
+  // Cập nhật trạng thái checkbox trong Popover
+  const chkIpa = document.getElementById('toggle-inline-ipa');
+  const chkCefr = document.getElementById('toggle-inline-cefr');
+  const chkPos = document.getElementById('toggle-inline-pos');
+  const chkEn = document.getElementById('toggle-inline-example-en');
+  const chkVi = document.getElementById('toggle-inline-example-vi');
+  if (chkIpa) chkIpa.checked = !!prefs.showIpa;
+  if (chkCefr) chkCefr.checked = !!prefs.showCefr;
+  if (chkPos) chkPos.checked = !!prefs.showPos;
+  if (chkEn) chkEn.checked = !!prefs.showExampleEn;
+  if (chkVi) chkVi.checked = !!prefs.showExampleVi;
+}
+
+function setupInlinePrefsEvents() {
+  const btnPrefs = document.getElementById('btn-inline-prefs');
+  const popover = document.getElementById('inline-prefs-popover');
+  const btnClose = document.getElementById('btn-inline-prefs-close');
+
+  if (btnPrefs && popover) {
+    btnPrefs.onclick = (e) => {
+      e.stopPropagation();
+      const isVisible = popover.style.display !== 'none';
+      popover.style.display = isVisible ? 'none' : 'flex';
+      btnPrefs.classList.toggle('active', !isVisible);
+    };
+  }
+
+  if (btnClose && popover) {
+    btnClose.onclick = (e) => {
+      e.stopPropagation();
+      popover.style.display = 'none';
+      btnPrefs?.classList.remove('active');
+    };
+  }
+
+  document.addEventListener('click', (e) => {
+    if (popover && popover.style.display !== 'none') {
+      if (!popover.contains(e.target) && e.target !== btnPrefs && !btnPrefs?.contains(e.target)) {
+        popover.style.display = 'none';
+        btnPrefs?.classList.remove('active');
+      }
+    }
+  });
+
+  const toggles = [
+    { id: 'toggle-inline-ipa', key: 'showIpa' },
+    { id: 'toggle-inline-cefr', key: 'showCefr' },
+    { id: 'toggle-inline-pos', key: 'showPos' },
+    { id: 'toggle-inline-example-en', key: 'showExampleEn' },
+    { id: 'toggle-inline-example-vi', key: 'showExampleVi' }
+  ];
+
+  toggles.forEach(({ id, key }) => {
+    const chk = document.getElementById(id);
+    if (chk) {
+      chk.onchange = () => {
+        const prefs = getInlineDisplayPrefs();
+        prefs[key] = chk.checked;
+        saveInlineDisplayPrefs(prefs);
+        applyInlineDisplayPrefs();
+      };
+    }
+  });
+}
+
+/**
  * Khởi tạo Trình Ôn Tập Nhanh Trực Tiếp Tại Trang Chủ (Inline Quick Flashcard)
  */
 function initInlineStudy(app) {
@@ -880,6 +1042,7 @@ function initInlineStudy(app) {
 
   setupInlineStudyEvents(app);
   updateSpeakerUI();
+  applyInlineDisplayPrefs();
   showNextInlineCard();
 }
 
@@ -948,6 +1111,7 @@ function toggleSlowSpeed() {
  * Gán sự kiện cho các nút điều khiển của Inline Quick Flashcard
  */
 function setupInlineStudyEvents(app) {
+  setupInlinePrefsEvents();
   const btnFlip = document.getElementById('btn-inline-flip');
   const frontFace = document.getElementById('inline-face-front');
   const backFace = document.getElementById('inline-face-back');
@@ -1173,6 +1337,9 @@ function showNextInlineCard() {
 
   // Dọn dẹp thời gian mặt sau khi sang từ mới
   _inlineStudyState.backFlippedTime = 0;
+
+  // Áp dụng cấu hình bật/tắt các trường dữ liệu
+  applyInlineDisplayPrefs();
 
   // Kích hoạt khóa chống spam 2.5s trước khi cho lật
   startFlipLockTimer();
