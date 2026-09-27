@@ -28,7 +28,9 @@ let _inlineStudyState = {
   isKeyboardListening: false,
   audioMode: 'auto', // 'auto' | 'continuous' | 'mute'
   isSlowSpeed: false, // true = 0.5x, false = 1.0x
-  loopTimerId: null
+  loopTimerId: null,
+  isFlipLocked: false,
+  flipLockTimer: null
 };
 
 export function renderReviewShell(container) {
@@ -1167,10 +1169,52 @@ function showNextInlineCard() {
     if (intEasy) intEasy.textContent = formatViIntervalText(previews[Rating.Easy]?.intervalText) || '4 ngày';
   }
 
+  // Kích hoạt khóa chống spam 2.5s trước khi cho lật
+  startFlipLockTimer();
+
   // Tự động phát âm nếu đang ở chế độ auto hoặc continuous
   if (_inlineStudyState.audioMode !== 'mute') {
     speakInlineCard();
   }
+}
+
+/**
+ * Khởi động bộ đếm khóa lật thẻ 2.5s chống bấm spam vô thức
+ */
+function startFlipLockTimer() {
+  if (_inlineStudyState.flipLockTimer) {
+    clearInterval(_inlineStudyState.flipLockTimer);
+    _inlineStudyState.flipLockTimer = null;
+  }
+
+  _inlineStudyState.isFlipLocked = true;
+  const btnFlip = document.getElementById('btn-inline-flip');
+  if (btnFlip) {
+    btnFlip.classList.add('is-locked');
+    btnFlip.innerHTML = `<span>Lật thẻ (2s)</span>`;
+  }
+
+  const startTime = Date.now();
+  const lockDurationMs = 2500;
+
+  _inlineStudyState.flipLockTimer = setInterval(() => {
+    const elapsed = Date.now() - startTime;
+    const remainingSec = Math.max(0, Math.ceil((lockDurationMs - elapsed) / 1000));
+
+    if (elapsed >= lockDurationMs || remainingSec <= 0) {
+      clearInterval(_inlineStudyState.flipLockTimer);
+      _inlineStudyState.flipLockTimer = null;
+      _inlineStudyState.isFlipLocked = false;
+      if (btnFlip) {
+        btnFlip.classList.remove('is-locked');
+        btnFlip.innerHTML = `<span>Lật thẻ xem đáp án</span>`;
+      }
+    } else {
+      if (btnFlip) {
+        btnFlip.innerHTML = `<span>Lật thẻ (${remainingSec}s)</span>`;
+      }
+    }
+  }, 200);
 }
 
 /**
@@ -1200,6 +1244,17 @@ function formatViIntervalText(rawText) {
 function flipInlineCard() {
   notifyStudyActivity();
   if (!_inlineStudyState.currentCard) return;
+
+  // Khóa chống bấm spam 2.5s khi ở mặt trước
+  if (!_inlineStudyState.isFlipped && _inlineStudyState.isFlipLocked) {
+    const btnFlip = document.getElementById('btn-inline-flip');
+    if (btnFlip) {
+      btnFlip.classList.remove('shake-locked');
+      void btnFlip.offsetWidth;
+      btnFlip.classList.add('shake-locked');
+    }
+    return;
+  }
 
   const frontFace = document.getElementById('inline-face-front');
   const backFace = document.getElementById('inline-face-back');

@@ -2553,6 +2553,34 @@
   transform: scale(0.96);
 }
 
+.btn-inline-flip.is-locked {
+  background: rgba(99, 102, 241, 0.18);
+  color: var(--text-muted, #94a3b8);
+  border: 1px dashed rgba(99, 102, 241, 0.45);
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.88;
+}
+
+.btn-inline-flip.is-locked:hover {
+  background: rgba(99, 102, 241, 0.22);
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-inline-flip.shake-locked {
+  animation: flipLockShake 0.35s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  border-color: #ef4444 !important;
+  color: #f87171 !important;
+}
+
+@keyframes flipLockShake {
+  10%, 90% { transform: translate3d(-2px, 0, 0); }
+  20%, 80% { transform: translate3d(3px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-3px, 0, 0); }
+  40%, 60% { transform: translate3d(3px, 0, 0); }
+}
+
 /* Back Face (Revealed) */
 .inline-card-back {
   flex: 1;
