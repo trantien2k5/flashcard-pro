@@ -946,6 +946,7 @@ function toggleSlowSpeed() {
 function setupInlineStudyEvents(app) {
   const btnFlip = document.getElementById('btn-inline-flip');
   const frontFace = document.getElementById('inline-face-front');
+  const backFace = document.getElementById('inline-face-back');
   const btnSpeaker = document.getElementById('btn-inline-speaker');
   const btnMore = document.getElementById('btn-inline-more');
 
