@@ -1119,8 +1119,11 @@ function setupInlineStudyEvents(app) {
   const btnMore = document.getElementById('btn-inline-more');
 
   if (btnFlip) {
+    btnFlip.onpointerdown = (e) => e.preventDefault(); // Ngăn focus bằng chuột
     btnFlip.onclick = (e) => {
       e.stopPropagation();
+      btnFlip.blur();
+      document.activeElement?.blur();
       flipInlineCard();
     };
   }
@@ -1129,6 +1132,7 @@ function setupInlineStudyEvents(app) {
   if (frontFace) {
     frontFace.onclick = (e) => {
       if (e.target.closest('button')) return;
+      document.activeElement?.blur();
       flipInlineCard();
     };
   }
@@ -1136,6 +1140,7 @@ function setupInlineStudyEvents(app) {
   if (backFace) {
     backFace.onclick = (e) => {
       if (e.target.closest('.inline-rating-grid') || e.target.closest('button')) return;
+      document.activeElement?.blur();
       flipInlineCard();
     };
   }
@@ -1161,6 +1166,7 @@ function setupInlineStudyEvents(app) {
       }
       if (!isLongPress) {
         e.stopPropagation();
+        btnSpeaker.blur();
         cycleSpeakerMode();
       }
     };
@@ -1195,8 +1201,11 @@ function setupInlineStudyEvents(app) {
   rateBtns.forEach(({ id, rating }) => {
     const btn = document.getElementById(id);
     if (btn) {
+      btn.onpointerdown = (e) => e.preventDefault(); // Ngăn trình duyệt giữ focus lên nút chấm
       btn.onclick = (e) => {
         e.stopPropagation();
+        btn.blur();
+        document.activeElement?.blur();
         rateInlineCard(rating);
       };
     }
@@ -1205,6 +1214,7 @@ function setupInlineStudyEvents(app) {
   // Gán phím tắt nhanh: Space/Enter/Mũi tên LẬT QUA LẠI giữa 2 mặt; 1, 2, 3, 4 để TỰ CHẤM
   if (!_inlineStudyState.isKeyboardListening) {
     _inlineStudyState.isKeyboardListening = true;
+
     window.addEventListener('keydown', (e) => {
       const tabReview = document.getElementById('tab-review');
       if (!tabReview || !tabReview.classList.contains('active')) return;
@@ -1215,6 +1225,8 @@ function setupInlineStudyEvents(app) {
       // Phím Space, Enter, Mũi tên: Lật qua lật lại giữa Mặt trước và Mặt sau
       if (e.code === 'Space' || e.code === 'Enter' || e.key === 'ArrowDown' || e.key === 'ArrowUp') {
         e.preventDefault();
+        e.stopImmediatePropagation();
+        document.activeElement?.blur();
         flipInlineCard();
         return;
       }
@@ -1230,16 +1242,30 @@ function setupInlineStudyEvents(app) {
       if (_inlineStudyState.isFlipped) {
         if (e.key === '1' || e.code === 'Numpad1') {
           e.preventDefault();
+          document.activeElement?.blur();
           rateInlineCard(Rating.Again); // 1 = Quên
         } else if (e.key === '2' || e.code === 'Numpad2') {
           e.preventDefault();
+          document.activeElement?.blur();
           rateInlineCard(Rating.Hard);  // 2 = Khó
         } else if (e.key === '3' || e.code === 'Numpad3') {
           e.preventDefault();
+          document.activeElement?.blur();
           rateInlineCard(Rating.Good);  // 3 = Nhớ
         } else if (e.key === '4' || e.code === 'Numpad4') {
           e.preventDefault();
+          document.activeElement?.blur();
           rateInlineCard(Rating.Easy);  // 4 = Dễ
+        }
+      }
+    });
+
+    window.addEventListener('keyup', (e) => {
+      if (e.code === 'Space' || e.code === 'Enter') {
+        const tabReview = document.getElementById('tab-review');
+        if (tabReview && tabReview.classList.contains('active')) {
+          e.preventDefault();
+          document.activeElement?.blur();
         }
       }
     });
