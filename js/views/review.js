@@ -1050,13 +1050,21 @@ function showNextInlineCard() {
   if (elBackIpa) elBackIpa.textContent = card.phonetic || card.ipa || '';
   if (elMeaning) elMeaning.textContent = card.meaning || '';
 
-  const exampleEn = card.example || (card.examples && card.examples[0]?.en) || `Practice using "${card.word}" every day.`;
-  const exampleVi = card.example_trans || (card.examples && card.examples[0]?.vi) || `Thực hành sử dụng từ vựng mỗi ngày.`;
+  const exampleEn = card.example || (Array.isArray(card.examples) && card.examples[0]?.en) || `Practice using "${card.word}" every day.`;
+  const exampleVi = card.example_trans || card.example_vi || (Array.isArray(card.examples) && card.examples[0]?.vi) || '';
 
   if (elEn) elEn.textContent = `"${exampleEn}"`;
-  if (elVi) elVi.textContent = `"${exampleVi}"`;
+  if (elVi) {
+    if (exampleVi) {
+      elVi.textContent = `"${exampleVi}"`;
+      elVi.style.display = 'block';
+    } else {
+      elVi.textContent = '';
+      elVi.style.display = 'none';
+    }
+  }
 
-  // Tính toán dynamic preview intervals cho 4 nút FSRS
+  // Tính toán dynamic preview intervals cho 4 nút FSRS (Định dạng tiếng Việt rõ ràng)
   if (_inlineStudyState.fsrs) {
     let cardState = StorageManager.getCardState(card.id);
     if (!cardState) cardState = FSRS.createEmptyCard(card.id);
@@ -1067,11 +1075,32 @@ function showNextInlineCard() {
     const intGood = document.getElementById('rate-int-good');
     const intEasy = document.getElementById('rate-int-easy');
 
-    if (intAgain) intAgain.textContent = previews[Rating.Again]?.intervalText || '<10p';
-    if (intHard) intHard.textContent = previews[Rating.Hard]?.intervalText || '1 ngày';
-    if (intGood) intGood.textContent = previews[Rating.Good]?.intervalText || '3 ngày';
-    if (intEasy) intEasy.textContent = previews[Rating.Easy]?.intervalText || '4 ngày';
+    if (intAgain) intAgain.textContent = formatViIntervalText(previews[Rating.Again]?.intervalText) || '< 10p';
+    if (intHard) intHard.textContent = formatViIntervalText(previews[Rating.Hard]?.intervalText) || '1 ngày';
+    if (intGood) intGood.textContent = formatViIntervalText(previews[Rating.Good]?.intervalText) || '3 ngày';
+    if (intEasy) intEasy.textContent = formatViIntervalText(previews[Rating.Easy]?.intervalText) || '4 ngày';
   }
+}
+
+/**
+ * Định dạng khoảng thời gian FSRS sang tiếng Việt thân thiện
+ */
+function formatViIntervalText(rawText) {
+  if (!rawText) return '';
+  const s = String(rawText).trim();
+  if (s.endsWith('mo')) {
+    return `${s.replace('mo', '')} tháng`;
+  }
+  if (s.endsWith('d')) {
+    return `${s.replace('d', '')} ngày`;
+  }
+  if (s.endsWith('m')) {
+    return `${s.replace('m', '')} phút`;
+  }
+  if (s.endsWith('y')) {
+    return `${s.replace('y', '')} năm`;
+  }
+  return s;
 }
 
 /**
