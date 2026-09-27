@@ -2508,7 +2508,7 @@
 }
 
 .inline-front-hint {
-  margin-top: 6px;
+  margin-top: 8px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -2520,30 +2520,30 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 220px;
-  min-height: 36px;
-  padding: 6px 14px;
-  border-radius: 10px;
+  max-width: 185px;
+  min-height: 44px;
+  padding: 8px 16px;
+  border-radius: 12px;
   background: linear-gradient(135deg, #6366f1, #4f46e5);
   border: none;
   color: #ffffff;
-  font-size: 0.82rem;
-  font-weight: 750;
+  font-size: 0.86rem;
+  font-weight: 800;
   cursor: pointer;
   transition: all 0.16s ease;
   touch-action: manipulation;
-  box-shadow: 0 3px 10px rgba(99, 102, 241, 0.22);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.28);
   outline: none;
 }
 
 .btn-inline-flip:hover {
   background: linear-gradient(135deg, #818cf8, #6366f1);
-  transform: translateY(-1px);
-  box-shadow: 0 5px 14px rgba(99, 102, 241, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.36);
 }
 
 .btn-inline-flip:active {
-  transform: scale(0.97);
+  transform: scale(0.96);
 }
 
 /* Back Face (Revealed) */
