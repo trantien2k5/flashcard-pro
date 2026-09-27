@@ -849,9 +849,29 @@ export function setupStudyControls(app) {
       if (!app.studySession || !app.studySession.isActive) return;
       if (!app.studySession.isFlipped) return;
       
-      // Khóa ngầm 0.5s (500ms) ở mặt sau để chống bấm nhầm/quá nhanh trước khi não kịp nhìn nhận
+      // Khóa thông minh ở mặt sau: Quên 3.0s, Khó 2.0s, Nhớ 1.0s, Dễ 0s
       const backViewMs = _backShowTime > 0 ? (performance.now() - _backShowTime) : 0;
-      if (backViewMs < 500) return;
+      let minLockMs = 0;
+      if (rating === Rating.Again) minLockMs = 3000;
+      else if (rating === Rating.Hard) minLockMs = 2000;
+      else if (rating === Rating.Good) minLockMs = 1000;
+      else if (rating === Rating.Easy) minLockMs = 0;
+
+      if (backViewMs < minLockMs) {
+        const ratingClassMap = {
+          [Rating.Again]: '.btn-fsrs-rating.again',
+          [Rating.Hard]: '.btn-fsrs-rating.hard',
+          [Rating.Good]: '.btn-fsrs-rating.good',
+          [Rating.Easy]: '.btn-fsrs-rating.easy'
+        };
+        const targetBtn = document.querySelector(ratingClassMap[rating]);
+        if (targetBtn) {
+          targetBtn.classList.remove('shake-cue');
+          void targetBtn.offsetWidth;
+          targetBtn.classList.add('shake-cue');
+        }
+        return;
+      }
 
       if (_isRatingInProgress) return;
       _isRatingInProgress = true;
