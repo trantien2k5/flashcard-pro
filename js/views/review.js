@@ -1,6 +1,6 @@
 import { StorageManager } from '../services/storage.js';
-import { State, isCardDue } from '../core/fsrs.js';
-import { StatsManager } from '../core/stats.js';
+import { State, isCardDue, FSRS, Rating } from '../core/fsrs.js';
+import { StatsManager, globalStudyTimer } from '../core/stats.js';
 import { getLocalDateKey, escapeHTML } from '../utils.js';
 import { showToast, openGoalPlannerModal } from './components.js';
 import { speak, speakVi, stopAudio } from '../services/audio.js';
@@ -16,13 +16,24 @@ let _lazyAudioState = {
   timerId: null
 };
 
+let _inlineStudyState = {
+  queue: [],
+  currentIndex: 0,
+  currentCard: null,
+  isFlipped: false,
+  fsrs: null,
+  startTime: 0,
+  isTimerListening: false,
+  isInitialized: false
+};
+
 export function renderReviewShell(container) {
   if (!container) return;
-  if (!container.querySelector('.review-col-left') || !container.querySelector('#review-goals-card')) {
+  if (!container.querySelector('.review-col-left') || !container.querySelector('#review-goals-card') || !container.querySelector('#review-inline-study-card')) {
     container.innerHTML = `
       <div class="review-bento-container">
 
-        <!-- LEFT COLUMN (Command Center & Spotlight Word) -->
+        <!-- LEFT COLUMN (Command Center & Inline Quick Flashcard) -->
         <div class="review-col review-col-left">
 
           <!-- 1. Hero Card: Nhiệm Vụ Hôm Nay (Unified Bento Design) -->
@@ -130,52 +141,86 @@ export function renderReviewShell(container) {
             </div>
           </div>
 
-          <!-- 2. Daily Spotlight Word Capsule (Từ Vựng Vàng Tiêu Điểm Trong Ngày) -->
-          <div class="review-spotlight-card" id="review-spotlight-card">
-            <div class="spotlight-card-header">
-              <div class="spotlight-header-left">
-                <div class="spotlight-icon-badge">🌟</div>
-                <div class="spotlight-title-wrap">
-                  <span class="spotlight-tag">TỪ VỰNG TIÊU ĐIỂM HÔM NAY</span>
-                  <h3 class="spotlight-main-title">Mỗi ngày 1 từ tinh hoa</h3>
+          <!-- 2. Interactive Inline Quick Flashcard (Tự Chấm Trực Tiếp Tại Trang Chủ) -->
+          <div class="review-inline-card" id="review-inline-study-card">
+            <div class="inline-card-header">
+              <div class="inline-header-left">
+                <div class="inline-icon-badge">⚡</div>
+                <div class="inline-title-wrap">
+                  <span class="inline-tag">ÔN TẬP NHANH TỚI HẠN</span>
+                  <h3 class="inline-main-title">FSRS-6 Tự Chấm Trực Tiếp</h3>
                 </div>
               </div>
-              <div class="spotlight-badges-wrap">
-                <span class="spotlight-badge-cefr" id="spotlight-cefr">B1</span>
-                <span class="spotlight-badge-cat" id="spotlight-category">Giao tiếp</span>
-              </div>
-            </div>
-
-            <div class="spotlight-body">
-              <div class="spotlight-word-row">
-                <div class="spotlight-word-left">
-                  <h4 class="spotlight-word-text" id="spotlight-word">Opportunity</h4>
-                  <div class="spotlight-ipa-row">
-                    <span class="spotlight-pos" id="spotlight-pos">noun</span>
-                    <span class="spotlight-ipa" id="spotlight-ipa">/ˌɑː.pɚˈtuː.nə.t̬i/</span>
-                  </div>
-                </div>
-                <button type="button" class="btn-spotlight-speaker" id="btn-spotlight-speaker" title="Phát âm từ vựng">
+              <div class="inline-header-right">
+                <span class="inline-queue-pill" id="inline-queue-pill">⏳ Đang tải...</span>
+                <button type="button" class="btn-inline-speaker" id="btn-inline-speaker" title="Phát âm từ vựng">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
                     <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
                   </svg>
                 </button>
               </div>
+            </div>
 
-              <p class="spotlight-meaning" id="spotlight-meaning">Cơ hội, thời cơ thuận lợi</p>
-
-              <div class="spotlight-example-box" id="spotlight-example-box">
-                <p class="spotlight-example-en" id="spotlight-example-en">"This is a great opportunity to improve your skills."</p>
-                <p class="spotlight-example-vi" id="spotlight-example-vi">"Đây là một cơ hội tuyệt vời để nâng cao kỹ năng của bạn."</p>
+            <!-- Active Card Viewport -->
+            <div class="inline-card-viewport" id="inline-card-viewport">
+              <!-- Front View -->
+              <div class="inline-card-face inline-card-front" id="inline-face-front">
+                <div class="inline-meta-badges">
+                  <span class="inline-badge-cefr" id="inline-cefr">B1</span>
+                  <span class="inline-badge-pos" id="inline-pos">noun</span>
+                  <span class="inline-badge-cat" id="inline-cat">Giao tiếp</span>
+                </div>
+                <h2 class="inline-word-text" id="inline-word">Opportunity</h2>
+                <div class="inline-ipa-text" id="inline-ipa">/ˌɑː.pɚˈtuː.nə.t̬i/</div>
+                <div class="inline-front-hint">
+                  <button type="button" class="btn-inline-flip" id="btn-inline-flip">
+                    <span>🔍 Xem đáp án & Tự chấm</span>
+                  </button>
+                </div>
               </div>
 
-              <div class="spotlight-actions-row">
-                <button type="button" class="btn-spotlight-action btn-spotlight-study" id="btn-spotlight-study">
-                  <span>🎴 Học thẻ này</span>
-                </button>
-                <button type="button" class="btn-spotlight-action btn-spotlight-quiz" id="btn-spotlight-quiz">
-                  <span>⚡ Thử thách Quiz</span>
+              <!-- Back View (Revealed) -->
+              <div class="inline-card-face inline-card-back" id="inline-face-back" style="display: none;">
+                <div class="inline-back-word-row">
+                  <span class="inline-back-word" id="inline-back-word">Opportunity</span>
+                  <span class="inline-back-ipa" id="inline-back-ipa">/ˌɑː.pɚˈtuː.nə.t̬i/</span>
+                </div>
+                <div class="inline-meaning-text" id="inline-meaning">Cơ hội, thời cơ thuận lợi</div>
+
+                <div class="inline-example-box" id="inline-example-box">
+                  <p class="inline-example-en" id="inline-example-en">"This is a great opportunity to improve your skills."</p>
+                  <p class="inline-example-vi" id="inline-example-vi">"Đây là một cơ hội tuyệt vời để nâng cao kỹ năng của bạn."</p>
+                </div>
+
+                <!-- 4 FSRS Self-Rating Buttons -->
+                <div class="inline-rating-grid">
+                  <button type="button" class="btn-inline-rate rate-again" id="btn-rate-again" data-rating="1">
+                    <span class="rate-name">🔴 Quên</span>
+                    <span class="rate-interval" id="rate-int-again">&lt;10p</span>
+                  </button>
+                  <button type="button" class="btn-inline-rate rate-hard" id="btn-rate-hard" data-rating="2">
+                    <span class="rate-name">🟠 Khó</span>
+                    <span class="rate-interval" id="rate-int-hard">1 ngày</span>
+                  </button>
+                  <button type="button" class="btn-inline-rate rate-good" id="btn-rate-good" data-rating="3">
+                    <span class="rate-name">🟢 Nhớ</span>
+                    <span class="rate-interval" id="rate-int-good">3 ngày</span>
+                  </button>
+                  <button type="button" class="btn-inline-rate rate-easy" id="btn-rate-easy" data-rating="4">
+                    <span class="rate-name">🔵 Dễ</span>
+                    <span class="rate-interval" id="rate-int-easy">4 ngày</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- All Caught Up / Empty State -->
+              <div class="inline-card-empty" id="inline-card-empty" style="display: none;">
+                <div class="empty-icon">🎉</div>
+                <h4 class="empty-title">Đã Hoàn Thành Ôn Tập!</h4>
+                <p class="empty-desc">Toàn bộ từ vựng đến hạn hôm nay đã được ôn luyện sạch sẽ.</p>
+                <button type="button" class="btn-inline-more" id="btn-inline-more">
+                  <span>✨ Luyện thêm từ mới</span>
                 </button>
               </div>
             </div>
@@ -390,454 +435,35 @@ export function renderReviewTab(app) {
     if (!container) return;
     renderReviewShell(container);
 
-    const allCards = app.deckManager.getAllCards();
-    const now = new Date();
-
-    // 1. Phân loại từ vựng & Cấp độ thành tựu FSRS
-    let learnedCount = 0;
-    let masteredCount = 0; // Tầng 4 & 5 (Stability >= 14 ngày) VÀ CHƯA ĐẾN HẠN ÔN (!isDue)
-    let dueCount = 0;
-
-    for (const card of allCards) {
-      const state = StorageManager.getCardState(card.id);
-      if (state && state.state !== State.New && state.state !== 0 && !state.suspended) {
-        learnedCount++;
-        const isDue = isCardDue(state, now);
-        if (isDue) {
-          dueCount++;
-        }
-        const s = Number(state.stability) || 0;
-        if (s >= 14 && !isDue) {
-          masteredCount++;
-        }
-      }
-    }
-
-    // Cập nhật Timer & Từ Đã Thuộc
-    const elTimer = document.getElementById('home-study-timer');
-    if (elTimer) {
-      const todaySecs = StorageManager.getTodayStudySeconds();
-      if (todaySecs < 60) {
-        elTimer.textContent = todaySecs > 0 ? `${todaySecs}s` : `0p`;
-      } else {
-        elTimer.textContent = `${Math.round(todaySecs / 60)}p`;
-      }
-    }
-
-    const elRetention = document.getElementById('home-retention-rate');
-    if (elRetention) {
-      elRetention.textContent = masteredCount;
-    }
-
-    const elRetentionHint = document.getElementById('home-retention-hint');
-    if (elRetentionHint) {
-      if (masteredCount > 0) {
-        elRetentionHint.textContent = 'Ghi nhớ bền vững 🛡️';
-      } else {
-        elRetentionHint.textContent = 'Độ bền ≥ 14 ngày';
-      }
-    }
-
-    // 2. Mục tiêu hôm nay & Nhật ký học
-    const dailyGoal = Number(app.settings?.dailyNewLimit) || 10;
-    const studyQueue = app.deckManager.getStudyQueue(null, app.settings);
-    const queueDue = studyQueue.totalDue !== undefined ? studyQueue.totalDue : dueCount;
-    const queueNew = studyQueue.totalNew !== undefined ? studyQueue.totalNew : 0;
-
-    const allLogs = StorageManager.getStudyLogs();
-    const todayLogs = allLogs.filter(l => 
-      l.timestamp && getLocalDateKey(l.timestamp) === getLocalDateKey()
-    );
-    const todayNewLearned = todayLogs.filter(l => 
-      l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
-    ).length;
-    const remainingGoal = Math.max(0, dailyGoal - todayNewLearned);
-    const goalPct = Math.min(100, Math.round((todayNewLearned / dailyGoal) * 100));
-
-    // A. Trạng thái hôm nay
-    const elTodayStatus = document.getElementById('home-today-status');
-    if (elTodayStatus) {
-      if (queueDue > 0) {
-        elTodayStatus.textContent = `Có ${queueDue} từ cần ôn tập hôm nay`;
-      } else if (todayNewLearned >= dailyGoal) {
-        elTodayStatus.textContent = 'Đã hoàn thành xuất sắc chỉ tiêu hôm nay ✓';
-      } else {
-        elTodayStatus.textContent = `Còn ${remainingGoal} từ mới để đạt chỉ tiêu hôm nay`;
-      }
-    }
-
-    // B. Chuỗi ngày học & Khung giờ vàng nhận thức
-    const streak = StatsManager.calculateStreak(allLogs);
-    const primeHour = StatsManager.getPrimeStudyHour(allLogs);
-
-    const elHeaderStreak = document.getElementById('home-header-streak');
-    if (elHeaderStreak) {
-      elHeaderStreak.textContent = `🔥 ${streak} ngày`;
-    }
-
-    const elGoalPct = document.getElementById('home-goal-pct');
-    if (elGoalPct) {
-      elGoalPct.textContent = `${goalPct}%`;
-    }
-
-    const elGoalFill = document.getElementById('home-goal-progress-fill');
-    if (elGoalFill) {
-      elGoalFill.style.width = `${goalPct}%`;
-    }
-
-    const elStreakHint = document.getElementById('home-streak-hint');
-    if (elStreakHint) {
-      if (primeHour && primeHour.text) {
-        elStreakHint.textContent = `⏱️ Giờ vàng: ${primeHour.text}`;
-      } else if (todayLogs.length > 0) {
-        elStreakHint.textContent = `Đã giữ chuỗi ${streak} ngày hôm nay! 🌟`;
-      } else {
-        elStreakHint.textContent = `Học hôm nay để giữ chuỗi ${streak} ngày 🔥`;
-      }
-    }
-
-    // C. Từ cần ôn ngay & Đã học hôm nay
-    const elDueVal = document.getElementById('home-due-val');
-    if (elDueVal) elDueVal.textContent = queueDue;
-
-    const elDueHint = document.getElementById('home-due-hint');
-    if (elDueHint) {
-      elDueHint.textContent = queueDue > 0 ? 'Ưu tiên ôn trước' : 'Đã sạch hàng đợi ✓';
-    }
-
-    const elNewVal = document.getElementById('home-new-today-val');
-    if (elNewVal) elNewVal.textContent = `${todayNewLearned}/${dailyGoal}`;
-
-    const elGoalHint = document.getElementById('home-goal-hint');
-    if (elGoalHint) {
-      if (todayNewLearned >= dailyGoal) {
-        elGoalHint.textContent = `Đạt chỉ tiêu ngày ✓`;
-      } else {
-        elGoalHint.textContent = `Còn ${remainingGoal} từ nữa`;
-      }
-    }
-
-    // D. Render Goal & Progress Tracker (Radial Rings & Multi-Tier Goals)
-    // 1. Ngày (Hôm nay)
-    const dayPct = Math.min(100, Math.round((todayNewLearned / dailyGoal) * 100));
-
-    // 2. Tuần (7 ngày gần nhất)
-    const weekStart = new Date(now);
-    weekStart.setDate(weekStart.getDate() - 6);
-    weekStart.setHours(0, 0, 0, 0);
-    const weekLogs = allLogs.filter(l => l.timestamp && new Date(l.timestamp) >= weekStart);
-    const weekNewLearned = weekLogs.filter(l => 
-      l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
-    ).length;
-    const weekGoal = dailyGoal * 7;
-    const weekPct = Math.min(100, Math.round((weekNewLearned / weekGoal) * 100));
-
-    // 3. Chu kỳ 30 ngày (Rolling 30 days)
-    const month30Start = new Date(now);
-    month30Start.setDate(month30Start.getDate() - 29);
-    month30Start.setHours(0, 0, 0, 0);
-    const month30Logs = allLogs.filter(l => l.timestamp && new Date(l.timestamp) >= month30Start);
-    const month30NewLearned = month30Logs.filter(l => 
-      l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
-    ).length;
-    const month30Goal = dailyGoal * 30;
-    const month30Pct = Math.min(100, Math.round((month30NewLearned / month30Goal) * 100));
-
-    // 4. Mục tiêu Chặng (Sub-goal) & Kho Tổng (Master-goal)
-    const roadmap = StatsManager.getMilestoneRoadmap(learnedCount, dailyGoal);
-    const activeStage = roadmap.activeStage;
-    const stageTargetWords = activeStage.targetWords;
-    const stageLearnedWords = Math.min(stageTargetWords, learnedCount);
-    const stageWordsLeft = Math.max(0, stageTargetWords - stageLearnedWords);
-    const stageDaysEstimate = Math.max(1, Math.ceil(stageWordsLeft / dailyGoal));
-
-    const totalLibraryWords = (allCards && allCards.length) ? allCards.length : (app.deckManager?.getAllCards?.().length || 3523);
-    const libraryMasteredPct = Math.min(100, Math.round((masteredCount / totalLibraryWords) * 100));
-
-    // Update Header
-    const elGoalsTitle = document.getElementById('goals-main-title');
-    if (elGoalsTitle) {
-      elGoalsTitle.textContent = `${activeStage.title} (${activeStage.targetWords} từ)`;
-    }
-
-    const elGoalsCountdown = document.getElementById('goals-countdown-badge');
-    if (elGoalsCountdown) {
-      elGoalsCountdown.textContent = stageWordsLeft > 0 ? `⏳ Còn ${stageDaysEstimate} ngày` : '🏆 Hoàn thành';
-    }
-
-    const elGoalsMilestone = document.getElementById('goals-milestone-badge');
-    if (elGoalsMilestone) {
-      elGoalsMilestone.textContent = `${activeStage.progressPct}%`;
-    }
-
-    const elGoalsTotalTrack = document.getElementById('goals-total-track-fill');
-    if (elGoalsTotalTrack) {
-      elGoalsTotalTrack.style.width = `${activeStage.progressPct}%`;
-    }
-
-    // Update SVG Rings
-    const setRadialRing = (svgId, valId, detailId, pct, count, target) => {
-      const elSvg = document.getElementById(svgId);
-      const elVal = document.getElementById(valId);
-      const elDetail = document.getElementById(detailId);
-      if (elSvg) {
-        const offset = 125.66 * (1 - Math.min(100, Math.max(0, pct)) / 100);
-        elSvg.style.strokeDashoffset = offset;
-      }
-      if (elVal) elVal.textContent = `${pct}%`;
-      if (elDetail) elDetail.textContent = `${count}/${target} từ`;
-    };
-
-    setRadialRing('ring-svg-day', 'ring-val-day', 'ring-detail-day', dayPct, todayNewLearned, dailyGoal);
-    setRadialRing('ring-svg-week', 'ring-val-week', 'ring-detail-week', weekPct, weekNewLearned, weekGoal);
-    setRadialRing('ring-svg-month', 'ring-val-month', 'ring-detail-month', month30Pct, month30NewLearned, month30Goal);
-
-    // Update Sub-goal & Master-goal Tiles
-    const elSprintNum = document.getElementById('goal-sprint-num');
-    if (elSprintNum) elSprintNum.textContent = `${stageLearnedWords}/${stageTargetWords}`;
-
-    const elSprintSub = document.getElementById('goal-sprint-sub');
-    if (elSprintSub) {
-      elSprintSub.textContent = stageWordsLeft > 0 ? `Chặng ${activeStage.id} • Còn ${stageWordsLeft} từ` : `Chặng ${activeStage.id} • Đã hoàn thành 🏆`;
-    }
-
-    const elMasterNum = document.getElementById('goal-master-num');
-    if (elMasterNum) elMasterNum.textContent = `${learnedCount}/${totalLibraryWords}`;
-
-    const elMasterSub = document.getElementById('goal-master-sub');
-    if (elMasterSub) {
-      elMasterSub.textContent = `Đã thuộc ${masteredCount} từ (${libraryMasteredPct}%) 🛡️`;
-    }
-
-    // Update Motivation Action Strip
-    const elMotiveText = document.getElementById('goals-motive-text');
-    if (elMotiveText) {
-      if (stageWordsLeft > 0) {
-        elMotiveText.textContent = `🔥 Duy trì ${dailyGoal} từ/ngày để hoàn tất ${activeStage.title} sau ${stageDaysEstimate} ngày nữa!`;
-      } else {
-        elMotiveText.textContent = `🎉 Tuyệt vời! Đã chinh phục ${activeStage.title}. Sẵn sàng cho chặng tiếp theo!`;
-      }
-    }
-
-    const btnGoalsAdjust = document.getElementById('btn-goals-adjust');
-    if (btnGoalsAdjust) {
-      btnGoalsAdjust.onclick = (e) => {
-        e.stopPropagation();
-        openGoalPlannerModal(app, () => {
-          renderReviewTab(app);
-        });
-      };
-    }
-
-    // E. Render Từ Vựng Vàng Tiêu Điểm Hôm Nay (Daily Spotlight Word)
-    const spotlightCard = getDailySpotlightCard(allCards);
-    if (spotlightCard) {
-      const elSpotWord = document.getElementById('spotlight-word');
-      const elSpotIpa = document.getElementById('spotlight-ipa');
-      const elSpotPos = document.getElementById('spotlight-pos');
-      const elSpotCefr = document.getElementById('spotlight-cefr');
-      const elSpotCat = document.getElementById('spotlight-category');
-      const elSpotMeaning = document.getElementById('spotlight-meaning');
-      const elSpotEn = document.getElementById('spotlight-example-en');
-      const elSpotVi = document.getElementById('spotlight-example-vi');
-      const btnSpotSpeaker = document.getElementById('btn-spotlight-speaker');
-      const btnSpotStudy = document.getElementById('btn-spotlight-study');
-      const btnSpotQuiz = document.getElementById('btn-spotlight-quiz');
-
-      if (elSpotWord) elSpotWord.textContent = spotlightCard.word || '';
-      if (elSpotIpa) elSpotIpa.textContent = spotlightCard.phonetic || spotlightCard.ipa || '';
-      if (elSpotPos) elSpotPos.textContent = (spotlightCard.pos || 'word').toLowerCase();
-      if (elSpotCefr) elSpotCefr.textContent = (spotlightCard.level || spotlightCard.cefr || 'B1').toUpperCase();
-      if (elSpotCat) elSpotCat.textContent = spotlightCard.category || 'Giao tiếp';
-      if (elSpotMeaning) elSpotMeaning.textContent = spotlightCard.meaning || '';
-
-      const exampleEn = spotlightCard.example || (spotlightCard.examples && spotlightCard.examples[0]?.en) || `Practice using "${spotlightCard.word}" daily.`;
-      const exampleVi = spotlightCard.example_trans || (spotlightCard.examples && spotlightCard.examples[0]?.vi) || `Thực hành sử dụng từ vựng mỗi ngày.`;
-
-      if (elSpotEn) elSpotEn.textContent = `"${exampleEn}"`;
-      if (elSpotVi) elSpotVi.textContent = `"${exampleVi}"`;
-
-      if (btnSpotSpeaker) {
-        btnSpotSpeaker.onclick = (e) => {
-          e.stopPropagation();
-          speak(spotlightCard.word, { cardObj: spotlightCard });
-        };
-      }
-
-      if (btnSpotStudy) {
-        btnSpotStudy.onclick = () => {
-          try {
-            app.startStudySession(null, null, [spotlightCard]);
-          } catch (err) {
-            console.error('Lỗi học thẻ tiêu điểm:', err);
+    // Bắt đầu lắng nghe nhịp tick của Active Study Timer để cập nhật live
+    if (!_inlineStudyState.isTimerListening) {
+      _inlineStudyState.isTimerListening = true;
+      globalStudyTimer.subscribe(() => {
+        const elTimer = document.getElementById('home-study-timer');
+        if (elTimer) {
+          const todaySecs = StorageManager.getTodayStudySeconds();
+          const liveSecs = todaySecs + Math.floor(globalStudyTimer.unflushedSeconds || 0);
+          if (liveSecs < 60) {
+            elTimer.textContent = liveSecs > 0 ? `${liveSecs}s` : `0p`;
+          } else {
+            elTimer.textContent = `${Math.round(liveSecs / 60)}p`;
           }
-        };
-      }
-
-      if (btnSpotQuiz) {
-        btnSpotQuiz.onclick = () => {
-          try {
-            app.startQuizSession([spotlightCard]);
-          } catch (err) {
-            console.error('Lỗi trắc nghiệm thẻ tiêu điểm:', err);
-          }
-        };
-      }
+        }
+      });
     }
 
-    // F. Bệnh Án Từ Vựng & Hệ Miễn Dịch (Weak Word Drill / Immunity Status)
-    const weakWords = typeof app.deckManager.getWeakWords === 'function' ? app.deckManager.getWeakWords(10) : [];
-    const boxWeak = document.getElementById('review-weak-words-box');
-    const elWeakIcon = document.getElementById('weak-icon-badge');
-    const elWeakTag = document.getElementById('weak-tag-label');
-    const elWeakTitle = document.getElementById('weak-words-title');
-    const elWeakCount = document.getElementById('weak-words-count-badge');
-    const weakActionsRow = document.getElementById('weak-actions-row');
-    const btnWeak3D = document.getElementById('btn-weak-drill-3d');
-    const btnWeakQuiz = document.getElementById('btn-weak-drill-quiz');
+    // 1. Cập nhật số liệu tổng quan & các chỉ số Home Bento
+    updateHomeStatsRealtime(app);
 
-    if (boxWeak) {
-      if (weakWords.length > 0) {
-        if (elWeakIcon) elWeakIcon.textContent = '💡';
-        if (elWeakTag) {
-          elWeakTag.textContent = 'TỪ VỰNG CẦN CỦNG CỐ';
-          elWeakTag.style.color = '#ef4444';
-        }
-        if (elWeakTitle) elWeakTitle.textContent = `Có ${weakWords.length} từ bạn hay quên cần ôn luyện lại`;
-        if (elWeakCount) {
-          elWeakCount.textContent = `${weakWords.length} từ`;
-          elWeakCount.style.color = '#ef4444';
-          elWeakCount.style.background = 'rgba(239, 68, 68, 0.12)';
-        }
-        if (weakActionsRow) weakActionsRow.style.display = 'grid';
+    // 2. Khởi tạo Trình Ôn Tập Flashcard Nhanh Trực Tiếp Tại Trang Chủ
+    initInlineStudy(app);
 
-        if (btnWeak3D) {
-          btnWeak3D.onclick = () => {
-            try {
-              app.startStudySession(null, null, weakWords);
-            } catch (err) {
-              console.error('Lỗi phiên củng cố thẻ Flashcard:', err);
-              showToast('Lỗi: ' + err.message, 'error');
-            }
-          };
-        }
-
-        if (btnWeakQuiz) {
-          btnWeakQuiz.onclick = () => {
-            try {
-              app.startQuizSession(weakWords);
-            } catch (err) {
-              console.error('Lỗi phiên củng cố trắc nghiệm:', err);
-              showToast('Lỗi: ' + err.message, 'error');
-            }
-          };
-        }
-      } else {
-        if (elWeakIcon) elWeakIcon.textContent = '🛡️';
-        if (elWeakTag) {
-          elWeakTag.textContent = 'PHÒNG NGỪA QUÊN TỪ';
-          elWeakTag.style.color = '#10b981';
-        }
-        if (elWeakTitle) elWeakTitle.textContent = 'Phong độ xuất sắc • Chưa có từ nào bị quên nhiều lần';
-        if (elWeakCount) {
-          elWeakCount.textContent = 'Tốt ✓';
-          elWeakCount.style.color = '#10b981';
-          elWeakCount.style.background = 'rgba(16, 185, 129, 0.12)';
-        }
-        if (weakActionsRow) weakActionsRow.style.display = 'none';
-      }
-    }
-
-    // G. CTA Nổi Bật: Twin Buttons (Luôn hiển thị đầy đủ cả 2 chế độ 3D & Trắc nghiệm)
-    const btnHeroCta = document.getElementById('btn-home-hero-cta');
-    const elCtaText = document.getElementById('home-hero-cta-text');
-    const btnQuizCta = document.getElementById('btn-home-quiz-cta');
-    const elQuizText = document.getElementById('home-quiz-cta-text');
-    const elEstTime = document.getElementById('home-estimated-time');
-
-    if (btnHeroCta && btnQuizCta) {
-      if (queueDue > 0) {
-        // TRƯỜNG HỢP 1: Có từ cần ôn tập đến hạn
-        if (elCtaText) elCtaText.textContent = `Ôn ${queueDue} từ (Thẻ 3D)`;
-        if (elQuizText) elQuizText.textContent = `Trắc nghiệm (${queueDue} từ)`;
-
-        const estMin = Math.max(1, Math.ceil(queueDue * 0.5));
-        if (elEstTime) elEstTime.textContent = `⏱️ Khoảng ${estMin} phút ôn tập`;
-
-        btnHeroCta.onclick = () => {
-          try {
-            app.startStudySession(null, null, null, { mode: 'due_only' });
-          } catch (err) {
-            console.error('Lỗi phiên ôn tập thẻ 3D:', err);
-            showToast('Lỗi: ' + err.message, 'error');
-          }
-        };
-
-        btnQuizCta.onclick = () => {
-          try {
-            app.startQuizSession(studyQueue.dueCards, { mode: 'due_only' });
-          } catch (err) {
-            console.error('Lỗi phiên trắc nghiệm:', err);
-            showToast('Lỗi: ' + err.message, 'error');
-          }
-        };
-      } else if (todayNewLearned < dailyGoal) {
-        // TRƯỜNG HỢP 2: Đã sạch từ ôn, nạp từ mới để đạt chỉ tiêu
-        const newBatchCount = Math.min(remainingGoal, queueNew > 0 ? queueNew : remainingGoal);
-        if (elCtaText) elCtaText.textContent = `Học ${newBatchCount} từ mới (Thẻ 3D)`;
-        if (elQuizText) elQuizText.textContent = `Trắc nghiệm (${newBatchCount} từ mới)`;
-
-        const estMin = Math.max(1, Math.ceil(newBatchCount * 0.6));
-        if (elEstTime) elEstTime.textContent = `⏱️ Khoảng ${estMin} phút nạp từ mới`;
-
-        btnHeroCta.onclick = () => {
-          try {
-            app.startStudySession(null, null, null, { mode: 'new_only' });
-          } catch (err) {
-            console.error('Lỗi phiên học từ mới thẻ 3D:', err);
-            showToast('Lỗi: ' + err.message, 'error');
-          }
-        };
-
-        btnQuizCta.onclick = () => {
-          try {
-            app.startQuizSession(studyQueue.newCards, { mode: 'new_only' });
-          } catch (err) {
-            console.error('Lỗi phiên trắc nghiệm từ mới:', err);
-            showToast('Lỗi: ' + err.message, 'error');
-          }
-        };
-      } else {
-        // TRƯỜNG HỢP 3: Đã đạt chỉ tiêu ngày, luyện tập thêm
-        if (elCtaText) elCtaText.textContent = `Luyện tập thêm (Thẻ 3D)`;
-        if (elQuizText) elQuizText.textContent = `Trắc nghiệm phản xạ`;
-
-        if (elEstTime) elEstTime.textContent = `🎉 Đã hoàn thành chỉ tiêu ngày! Sẵn sàng luyện thêm`;
-
-        btnHeroCta.onclick = () => {
-          try {
-            app.startStudySession();
-          } catch (err) {
-            console.error('Lỗi phiên học thẻ 3D:', err);
-            showToast('Lỗi: ' + err.message, 'error');
-          }
-        };
-
-        btnQuizCta.onclick = () => {
-          try {
-            app.startQuizSession();
-          } catch (err) {
-            console.error('Lỗi phiên trắc nghiệm:', err);
-            showToast('Lỗi: ' + err.message, 'error');
-          }
-        };
-      }
-    }
-
-    // H. Lazy Audio Walk Trigger & Controller
+    // 3. Lazy Audio Walk Trigger & Controller
     const btnTriggerLazy = document.getElementById('btn-trigger-lazy-walk');
     if (btnTriggerLazy) {
       btnTriggerLazy.onclick = () => {
+        const studyQueue = app.deckManager.getStudyQueue(null, app.settings);
+        const allCards = app.deckManager.getAllCards();
         let walkCards = [];
         if (studyQueue.dueCards && studyQueue.dueCards.length > 0) {
           walkCards = studyQueue.dueCards;
@@ -858,6 +484,688 @@ export function renderReviewTab(app) {
 
   } catch (err) {
     console.error('Lỗi khi render Review Tab:', err);
+  }
+}
+
+/**
+ * Ghi nhận người dùng đang chủ động học để bật bộ đếm thời gian thực
+ */
+function notifyStudyActivity() {
+  if (!globalStudyTimer.isActiveSession) {
+    globalStudyTimer.startSession();
+  }
+  globalStudyTimer.recordActivity();
+}
+
+/**
+ * Cập nhật toàn bộ các chỉ số thống kê trên Home Dashboard theo thời gian thực (Real-time)
+ */
+export function updateHomeStatsRealtime(app = _cachedApp) {
+  if (!app || !app.deckManager) return;
+  const allCards = app.deckManager.getAllCards();
+  const now = new Date();
+
+  let learnedCount = 0;
+  let masteredCount = 0;
+  let dueCount = 0;
+
+  for (const card of allCards) {
+    const state = StorageManager.getCardState(card.id);
+    if (state && state.state !== State.New && state.state !== 0 && !state.suspended) {
+      learnedCount++;
+      const isDue = isCardDue(state, now);
+      if (isDue) {
+        dueCount++;
+      }
+      const s = Number(state.stability) || 0;
+      if (s >= 14 && !isDue) {
+        masteredCount++;
+      }
+    }
+  }
+
+  // Timer & Retention
+  const elTimer = document.getElementById('home-study-timer');
+  if (elTimer) {
+    const todaySecs = StorageManager.getTodayStudySeconds();
+    const liveSecs = todaySecs + Math.floor(globalStudyTimer?.unflushedSeconds || 0);
+    if (liveSecs < 60) {
+      elTimer.textContent = liveSecs > 0 ? `${liveSecs}s` : `0p`;
+    } else {
+      elTimer.textContent = `${Math.round(liveSecs / 60)}p`;
+    }
+  }
+
+  const elRetention = document.getElementById('home-retention-rate');
+  if (elRetention) {
+    elRetention.textContent = masteredCount;
+  }
+
+  const elRetentionHint = document.getElementById('home-retention-hint');
+  if (elRetentionHint) {
+    elRetentionHint.textContent = masteredCount > 0 ? 'Ghi nhớ bền vững 🛡️' : 'Độ bền ≥ 14 ngày';
+  }
+
+  // Daily Goals & Logs
+  const dailyGoal = Number(app.settings?.dailyNewLimit) || 10;
+  const studyQueue = app.deckManager.getStudyQueue(null, app.settings);
+  const queueDue = studyQueue.totalDue !== undefined ? studyQueue.totalDue : dueCount;
+  const queueNew = studyQueue.totalNew !== undefined ? studyQueue.totalNew : 0;
+
+  const allLogs = StorageManager.getStudyLogs();
+  const todayLogs = allLogs.filter(l => 
+    l.timestamp && getLocalDateKey(l.timestamp) === getLocalDateKey()
+  );
+  const todayNewLearned = todayLogs.filter(l => 
+    l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
+  ).length;
+  const remainingGoal = Math.max(0, dailyGoal - todayNewLearned);
+  const goalPct = Math.min(100, Math.round((todayNewLearned / dailyGoal) * 100));
+
+  // Today Status
+  const elTodayStatus = document.getElementById('home-today-status');
+  if (elTodayStatus) {
+    if (queueDue > 0) {
+      elTodayStatus.textContent = `Có ${queueDue} từ cần ôn tập hôm nay`;
+    } else if (todayNewLearned >= dailyGoal) {
+      elTodayStatus.textContent = 'Đã hoàn thành xuất sắc chỉ tiêu hôm nay ✓';
+    } else {
+      elTodayStatus.textContent = `Còn ${remainingGoal} từ mới để đạt chỉ tiêu hôm nay`;
+    }
+  }
+
+  // Streak & Goals
+  const streak = StatsManager.calculateStreak(allLogs);
+  const primeHour = StatsManager.getPrimeStudyHour(allLogs);
+
+  const elHeaderStreak = document.getElementById('home-header-streak');
+  if (elHeaderStreak) elHeaderStreak.textContent = `🔥 ${streak} ngày`;
+
+  const elGoalPct = document.getElementById('home-goal-pct');
+  if (elGoalPct) elGoalPct.textContent = `${goalPct}%`;
+
+  const elGoalFill = document.getElementById('home-goal-progress-fill');
+  if (elGoalFill) elGoalFill.style.width = `${goalPct}%`;
+
+  const elStreakHint = document.getElementById('home-streak-hint');
+  if (elStreakHint) {
+    if (primeHour && primeHour.text) {
+      elStreakHint.textContent = `⏱️ Giờ vàng: ${primeHour.text}`;
+    } else if (todayLogs.length > 0) {
+      elStreakHint.textContent = `Đã giữ chuỗi ${streak} ngày hôm nay! 🌟`;
+    } else {
+      elStreakHint.textContent = `Học hôm nay để giữ chuỗi ${streak} ngày 🔥`;
+    }
+  }
+
+  // Due & New boxes
+  const elDueVal = document.getElementById('home-due-val');
+  if (elDueVal) elDueVal.textContent = queueDue;
+
+  const elDueHint = document.getElementById('home-due-hint');
+  if (elDueHint) {
+    elDueHint.textContent = queueDue > 0 ? 'Ưu tiên ôn trước' : 'Đã sạch hàng đợi ✓';
+  }
+
+  const elNewVal = document.getElementById('home-new-today-val');
+  if (elNewVal) elNewVal.textContent = `${todayNewLearned}/${dailyGoal}`;
+
+  const elGoalHint = document.getElementById('home-goal-hint');
+  if (elGoalHint) {
+    elGoalHint.textContent = todayNewLearned >= dailyGoal ? `Đạt chỉ tiêu ngày ✓` : `Còn ${remainingGoal} từ nữa`;
+  }
+
+  // Goal & Progress Rings
+  const dayPct = Math.min(100, Math.round((todayNewLearned / dailyGoal) * 100));
+
+  const weekStart = new Date(now);
+  weekStart.setDate(weekStart.getDate() - 6);
+  weekStart.setHours(0, 0, 0, 0);
+  const weekLogs = allLogs.filter(l => l.timestamp && new Date(l.timestamp) >= weekStart);
+  const weekNewLearned = weekLogs.filter(l => 
+    l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
+  ).length;
+  const weekGoal = dailyGoal * 7;
+  const weekPct = Math.min(100, Math.round((weekNewLearned / weekGoal) * 100));
+
+  const month30Start = new Date(now);
+  month30Start.setDate(month30Start.getDate() - 29);
+  month30Start.setHours(0, 0, 0, 0);
+  const month30Logs = allLogs.filter(l => l.timestamp && new Date(l.timestamp) >= month30Start);
+  const month30NewLearned = month30Logs.filter(l => 
+    l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
+  ).length;
+  const month30Goal = dailyGoal * 30;
+  const month30Pct = Math.min(100, Math.round((month30NewLearned / month30Goal) * 100));
+
+  const roadmap = StatsManager.getMilestoneRoadmap(learnedCount, dailyGoal);
+  const activeStage = roadmap.activeStage;
+  const stageTargetWords = activeStage.targetWords;
+  const stageLearnedWords = Math.min(stageTargetWords, learnedCount);
+  const stageWordsLeft = Math.max(0, stageTargetWords - stageLearnedWords);
+  const stageDaysEstimate = Math.max(1, Math.ceil(stageWordsLeft / dailyGoal));
+
+  const totalLibraryWords = (allCards && allCards.length) ? allCards.length : 3523;
+  const libraryMasteredPct = Math.min(100, Math.round((masteredCount / totalLibraryWords) * 100));
+
+  const elGoalsTitle = document.getElementById('goals-main-title');
+  if (elGoalsTitle) elGoalsTitle.textContent = `${activeStage.title} (${activeStage.targetWords} từ)`;
+
+  const elGoalsCountdown = document.getElementById('goals-countdown-badge');
+  if (elGoalsCountdown) {
+    elGoalsCountdown.textContent = stageWordsLeft > 0 ? `⏳ Còn ${stageDaysEstimate} ngày` : '🏆 Hoàn thành';
+  }
+
+  const elGoalsMilestone = document.getElementById('goals-milestone-badge');
+  if (elGoalsMilestone) elGoalsMilestone.textContent = `${activeStage.progressPct}%`;
+
+  const elGoalsTotalTrack = document.getElementById('goals-total-track-fill');
+  if (elGoalsTotalTrack) elGoalsTotalTrack.style.width = `${activeStage.progressPct}%`;
+
+  const setRadialRing = (svgId, valId, detailId, pct, count, target) => {
+    const elSvg = document.getElementById(svgId);
+    const elVal = document.getElementById(valId);
+    const elDetail = document.getElementById(detailId);
+    if (elSvg) {
+      const offset = 125.66 * (1 - Math.min(100, Math.max(0, pct)) / 100);
+      elSvg.style.strokeDashoffset = offset;
+    }
+    if (elVal) elVal.textContent = `${pct}%`;
+    if (elDetail) elDetail.textContent = `${count}/${target} từ`;
+  };
+
+  setRadialRing('ring-svg-day', 'ring-val-day', 'ring-detail-day', dayPct, todayNewLearned, dailyGoal);
+  setRadialRing('ring-svg-week', 'ring-val-week', 'ring-detail-week', weekPct, weekNewLearned, weekGoal);
+  setRadialRing('ring-svg-month', 'ring-val-month', 'ring-detail-month', month30Pct, month30NewLearned, month30Goal);
+
+  const elSprintNum = document.getElementById('goal-sprint-num');
+  if (elSprintNum) elSprintNum.textContent = `${stageLearnedWords}/${stageTargetWords}`;
+
+  const elSprintSub = document.getElementById('goal-sprint-sub');
+  if (elSprintSub) {
+    elSprintSub.textContent = stageWordsLeft > 0 ? `Chặng ${activeStage.id} • Còn ${stageWordsLeft} từ` : `Chặng ${activeStage.id} • Đã hoàn thành 🏆`;
+  }
+
+  const elMasterNum = document.getElementById('goal-master-num');
+  if (elMasterNum) elMasterNum.textContent = `${learnedCount}/${totalLibraryWords}`;
+
+  const elMasterSub = document.getElementById('goal-master-sub');
+  if (elMasterSub) elMasterSub.textContent = `Đã thuộc ${masteredCount} từ (${libraryMasteredPct}%) 🛡️`;
+
+  const elMotiveText = document.getElementById('goals-motive-text');
+  if (elMotiveText) {
+    if (stageWordsLeft > 0) {
+      elMotiveText.textContent = `🔥 Duy trì ${dailyGoal} từ/ngày để hoàn tất ${activeStage.title} sau ${stageDaysEstimate} ngày nữa!`;
+    } else {
+      elMotiveText.textContent = `🎉 Tuyệt vời! Đã chinh phục ${activeStage.title}. Sẵn sàng cho chặng tiếp theo!`;
+    }
+  }
+
+  const btnGoalsAdjust = document.getElementById('btn-goals-adjust');
+  if (btnGoalsAdjust) {
+    btnGoalsAdjust.onclick = (e) => {
+      e.stopPropagation();
+      openGoalPlannerModal(app, () => {
+        updateHomeStatsRealtime(app);
+      });
+    };
+  }
+
+  // Twin Hero Buttons
+  const btnHeroCta = document.getElementById('btn-home-hero-cta');
+  const elCtaText = document.getElementById('home-hero-cta-text');
+  const btnQuizCta = document.getElementById('btn-home-quiz-cta');
+  const elQuizText = document.getElementById('home-quiz-cta-text');
+  const elEstTime = document.getElementById('home-estimated-time');
+
+  if (btnHeroCta && btnQuizCta) {
+    if (queueDue > 0) {
+      if (elCtaText) elCtaText.textContent = `Ôn ${queueDue} từ (Thẻ 3D)`;
+      if (elQuizText) elQuizText.textContent = `Trắc nghiệm (${queueDue} từ)`;
+      const estMin = Math.max(1, Math.ceil(queueDue * 0.5));
+      if (elEstTime) elEstTime.textContent = `⏱️ Khoảng ${estMin} phút ôn tập`;
+
+      btnHeroCta.onclick = () => {
+        try {
+          app.startStudySession(null, null, null, { mode: 'due_only' });
+        } catch (err) {
+          showToast('Lỗi: ' + err.message, 'error');
+        }
+      };
+
+      btnQuizCta.onclick = () => {
+        try {
+          app.startQuizSession(studyQueue.dueCards, { mode: 'due_only' });
+        } catch (err) {
+          showToast('Lỗi: ' + err.message, 'error');
+        }
+      };
+    } else if (todayNewLearned < dailyGoal) {
+      const newBatchCount = Math.min(remainingGoal, queueNew > 0 ? queueNew : remainingGoal);
+      if (elCtaText) elCtaText.textContent = `Học ${newBatchCount} từ mới (Thẻ 3D)`;
+      if (elQuizText) elQuizText.textContent = `Trắc nghiệm (${newBatchCount} từ mới)`;
+      const estMin = Math.max(1, Math.ceil(newBatchCount * 0.6));
+      if (elEstTime) elEstTime.textContent = `⏱️ Khoảng ${estMin} phút nạp từ mới`;
+
+      btnHeroCta.onclick = () => {
+        try {
+          app.startStudySession(null, null, null, { mode: 'new_only' });
+        } catch (err) {
+          showToast('Lỗi: ' + err.message, 'error');
+        }
+      };
+
+      btnQuizCta.onclick = () => {
+        try {
+          app.startQuizSession(studyQueue.newCards, { mode: 'new_only' });
+        } catch (err) {
+          showToast('Lỗi: ' + err.message, 'error');
+        }
+      };
+    } else {
+      if (elCtaText) elCtaText.textContent = `Luyện tập thêm (Thẻ 3D)`;
+      if (elQuizText) elQuizText.textContent = `Trắc nghiệm phản xạ`;
+      if (elEstTime) elEstTime.textContent = `🎉 Đã hoàn thành chỉ tiêu ngày! Sẵn sàng luyện thêm`;
+
+      btnHeroCta.onclick = () => {
+        try {
+          app.startStudySession();
+        } catch (err) {
+          showToast('Lỗi: ' + err.message, 'error');
+        }
+      };
+
+      btnQuizCta.onclick = () => {
+        try {
+          app.startQuizSession();
+        } catch (err) {
+          showToast('Lỗi: ' + err.message, 'error');
+        }
+      };
+    }
+  }
+
+  // Weak Words Box
+  const weakWords = typeof app.deckManager.getWeakWords === 'function' ? app.deckManager.getWeakWords(10) : [];
+  const boxWeak = document.getElementById('review-weak-words-box');
+  const elWeakIcon = document.getElementById('weak-icon-badge');
+  const elWeakTag = document.getElementById('weak-tag-label');
+  const elWeakTitle = document.getElementById('weak-words-title');
+  const elWeakCount = document.getElementById('weak-words-count-badge');
+  const weakActionsRow = document.getElementById('weak-actions-row');
+  const btnWeak3D = document.getElementById('btn-weak-drill-3d');
+  const btnWeakQuiz = document.getElementById('btn-weak-drill-quiz');
+
+  if (boxWeak) {
+    if (weakWords.length > 0) {
+      if (elWeakIcon) elWeakIcon.textContent = '💡';
+      if (elWeakTag) {
+        elWeakTag.textContent = 'TỪ VỰNG CẦN CỦNG CỐ';
+        elWeakTag.style.color = '#ef4444';
+      }
+      if (elWeakTitle) elWeakTitle.textContent = `Có ${weakWords.length} từ bạn hay quên cần ôn luyện lại`;
+      if (elWeakCount) {
+        elWeakCount.textContent = `${weakWords.length} từ`;
+        elWeakCount.style.color = '#ef4444';
+        elWeakCount.style.background = 'rgba(239, 68, 68, 0.12)';
+      }
+      if (weakActionsRow) weakActionsRow.style.display = 'grid';
+
+      if (btnWeak3D) {
+        btnWeak3D.onclick = () => {
+          try {
+            app.startStudySession(null, null, weakWords);
+          } catch (err) {
+            showToast('Lỗi: ' + err.message, 'error');
+          }
+        };
+      }
+
+      if (btnWeakQuiz) {
+        btnWeakQuiz.onclick = () => {
+          try {
+            app.startQuizSession(weakWords);
+          } catch (err) {
+            showToast('Lỗi: ' + err.message, 'error');
+          }
+        };
+      }
+    } else {
+      if (elWeakIcon) elWeakIcon.textContent = '🛡️';
+      if (elWeakTag) {
+        elWeakTag.textContent = 'PHÒNG NGỪA QUÊN TỪ';
+        elWeakTag.style.color = '#10b981';
+      }
+      if (elWeakTitle) elWeakTitle.textContent = 'Phong độ xuất sắc • Chưa có từ nào bị quên nhiều lần';
+      if (elWeakCount) {
+        elWeakCount.textContent = 'Tốt ✓';
+        elWeakCount.style.color = '#10b981';
+        elWeakCount.style.background = 'rgba(16, 185, 129, 0.12)';
+      }
+      if (weakActionsRow) weakActionsRow.style.display = 'none';
+    }
+  }
+}
+
+/**
+ * Khởi tạo Trình Ôn Tập Nhanh Trực Tiếp Tại Trang Chủ (Inline Quick Flashcard)
+ */
+function initInlineStudy(app) {
+  if (!app || !app.deckManager) return;
+
+  _inlineStudyState.fsrs = new FSRS({
+    requestRetention: Number(app.settings?.requestRetention) || 0.90,
+    enableFuzz: app.settings?.enableFuzz !== false
+  });
+
+  const studyQueue = app.deckManager.getStudyQueue(null, app.settings);
+  const dueCards = Array.isArray(studyQueue.dueCards) ? [...studyQueue.dueCards] : [];
+  const newCards = Array.isArray(studyQueue.newCards) ? [...studyQueue.newCards] : [];
+  const allCards = app.deckManager.getAllCards() || [];
+
+  // Ưu tiên 1: Toàn bộ từ tới hạn (Due Cards)
+  // Ưu tiên 2: Từ mới (New Cards)
+  // Ưu tiên 3: Toàn bộ từ vựng
+  let targetQueue = [];
+  if (dueCards.length > 0) {
+    targetQueue = dueCards;
+  } else if (newCards.length > 0) {
+    targetQueue = newCards;
+  } else {
+    targetQueue = allCards.slice(0, 30);
+  }
+
+  _inlineStudyState.queue = targetQueue;
+  _inlineStudyState.currentIndex = 0;
+
+  setupInlineStudyEvents(app);
+  showNextInlineCard();
+}
+
+/**
+ * Gán sự kiện cho các nút điều khiển của Inline Quick Flashcard
+ */
+function setupInlineStudyEvents(app) {
+  const btnFlip = document.getElementById('btn-inline-flip');
+  const frontFace = document.getElementById('inline-face-front');
+  const btnSpeaker = document.getElementById('btn-inline-speaker');
+  const btnMore = document.getElementById('btn-inline-more');
+
+  if (btnFlip) {
+    btnFlip.onclick = (e) => {
+      e.stopPropagation();
+      flipInlineCard();
+    };
+  }
+
+  if (frontFace) {
+    frontFace.onclick = () => {
+      flipInlineCard();
+    };
+  }
+
+  if (btnSpeaker) {
+    btnSpeaker.onclick = (e) => {
+      e.stopPropagation();
+      speakInlineCard();
+    };
+  }
+
+  if (btnMore) {
+    btnMore.onclick = () => {
+      notifyStudyActivity();
+      initInlineStudy(app);
+    };
+  }
+
+  // 4 Nút Tự Chấm FSRS
+  const rateBtns = [
+    { id: 'btn-rate-again', rating: Rating.Again },
+    { id: 'btn-rate-hard', rating: Rating.Hard },
+    { id: 'btn-rate-good', rating: Rating.Good },
+    { id: 'btn-rate-easy', rating: Rating.Easy }
+  ];
+
+  rateBtns.forEach(({ id, rating }) => {
+    const btn = document.getElementById(id);
+    if (btn) {
+      btn.onclick = (e) => {
+        e.stopPropagation();
+        rateInlineCard(rating);
+      };
+    }
+  });
+
+  // Gán phím tắt nhanh kích thích học liền mạch (Space, 1, 2, 3, 4, R)
+  if (!_inlineStudyState.isKeyboardListening) {
+    _inlineStudyState.isKeyboardListening = true;
+    window.addEventListener('keydown', (e) => {
+      const tabReview = document.getElementById('tab-review');
+      if (!tabReview || !tabReview.classList.contains('active')) return;
+      if (document.querySelector('.modal-overlay[style*="display: flex"], .modal-overlay[style*="display: block"], .modal-container.active, .modal.active')) return;
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
+      if (!_inlineStudyState.currentCard) return;
+
+      if (!_inlineStudyState.isFlipped) {
+        if (e.code === 'Space' || e.code === 'Enter' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          flipInlineCard();
+        } else if (e.key === 'r' || e.key === 'R') {
+          e.preventDefault();
+          speakInlineCard();
+        }
+      } else {
+        if (e.key === '1') {
+          e.preventDefault();
+          rateInlineCard(Rating.Again);
+        } else if (e.key === '2') {
+          e.preventDefault();
+          rateInlineCard(Rating.Hard);
+        } else if (e.key === '3' || e.code === 'Space' || e.code === 'Enter') {
+          e.preventDefault();
+          rateInlineCard(Rating.Good);
+        } else if (e.key === '4') {
+          e.preventDefault();
+          rateInlineCard(Rating.Easy);
+        } else if (e.key === 'r' || e.key === 'R') {
+          e.preventDefault();
+          speakInlineCard();
+        }
+      }
+    });
+  }
+}
+
+/**
+ * Hiển thị thẻ từ vựng kế tiếp trong luồng học liên tục (Không giới hạn phiên)
+ */
+function showNextInlineCard() {
+  const frontFace = document.getElementById('inline-face-front');
+  const backFace = document.getElementById('inline-face-back');
+  const emptyState = document.getElementById('inline-card-empty');
+  const queuePill = document.getElementById('inline-queue-pill');
+
+  if (_inlineStudyState.currentIndex >= _inlineStudyState.queue.length) {
+    // Tự động kiểm tra nạp tiếp từ mới hoặc từ cần củng cố (Endless Flow)
+    const studyQueue = _cachedApp?.deckManager?.getStudyQueue(null, _cachedApp?.settings);
+    const moreDue = Array.isArray(studyQueue?.dueCards) ? studyQueue.dueCards : [];
+    const moreNew = Array.isArray(studyQueue?.newCards) ? studyQueue.newCards : [];
+
+    if (moreDue.length > 0 && _inlineStudyState.queue !== moreDue) {
+      _inlineStudyState.queue = moreDue;
+      _inlineStudyState.currentIndex = 0;
+      showNextInlineCard();
+      return;
+    } else if (moreNew.length > 0 && _inlineStudyState.queue !== moreNew) {
+      _inlineStudyState.queue = moreNew;
+      _inlineStudyState.currentIndex = 0;
+      showNextInlineCard();
+      return;
+    }
+
+    // Đã dọn sạch toàn bộ từ
+    _inlineStudyState.currentCard = null;
+    if (frontFace) frontFace.style.display = 'none';
+    if (backFace) backFace.style.display = 'none';
+    if (emptyState) emptyState.style.display = 'flex';
+    if (queuePill) queuePill.textContent = '🏆 Đã ôn sạch!';
+    return;
+  }
+
+  if (emptyState) emptyState.style.display = 'none';
+  if (frontFace) frontFace.style.display = 'flex';
+  if (backFace) backFace.style.display = 'none';
+
+  _inlineStudyState.isFlipped = false;
+  _inlineStudyState.startTime = Date.now();
+
+  const card = _inlineStudyState.queue[_inlineStudyState.currentIndex];
+  _inlineStudyState.currentCard = card;
+
+  const remaining = _inlineStudyState.queue.length - _inlineStudyState.currentIndex;
+  if (queuePill) {
+    const state = StorageManager.getCardState(card.id);
+    const isDue = state && isCardDue(state, new Date());
+    if (isDue) {
+      queuePill.textContent = `⏳ Còn ${remaining} từ đến hạn`;
+    } else if (!state || state.state === State.New || state.state === 0) {
+      queuePill.textContent = `✨ Từ mới (${remaining})`;
+    } else {
+      queuePill.textContent = `⚡ Luyện tập (${remaining})`;
+    }
+  }
+
+  // Populate Front Data
+  const elWord = document.getElementById('inline-word');
+  const elIpa = document.getElementById('inline-ipa');
+  const elCefr = document.getElementById('inline-cefr');
+  const elPos = document.getElementById('inline-pos');
+  const elCat = document.getElementById('inline-cat');
+
+  if (elWord) elWord.textContent = card.word || '';
+  if (elIpa) elIpa.textContent = card.phonetic || card.ipa || '';
+  if (elCefr) elCefr.textContent = (card.level || card.cefr || 'B1').toUpperCase();
+  if (elPos) elPos.textContent = (card.pos || 'word').toLowerCase();
+  if (elCat) elCat.textContent = card.category || 'Giao tiếp';
+
+  // Populate Back Data
+  const elBackWord = document.getElementById('inline-back-word');
+  const elBackIpa = document.getElementById('inline-back-ipa');
+  const elMeaning = document.getElementById('inline-meaning');
+  const elEn = document.getElementById('inline-example-en');
+  const elVi = document.getElementById('inline-example-vi');
+
+  if (elBackWord) elBackWord.textContent = card.word || '';
+  if (elBackIpa) elBackIpa.textContent = card.phonetic || card.ipa || '';
+  if (elMeaning) elMeaning.textContent = card.meaning || '';
+
+  const exampleEn = card.example || (card.examples && card.examples[0]?.en) || `Practice using "${card.word}" every day.`;
+  const exampleVi = card.example_trans || (card.examples && card.examples[0]?.vi) || `Thực hành sử dụng từ vựng mỗi ngày.`;
+
+  if (elEn) elEn.textContent = `"${exampleEn}"`;
+  if (elVi) elVi.textContent = `"${exampleVi}"`;
+
+  // Tính toán dynamic preview intervals cho 4 nút FSRS
+  if (_inlineStudyState.fsrs) {
+    let cardState = StorageManager.getCardState(card.id);
+    if (!cardState) cardState = FSRS.createEmptyCard(card.id);
+    const previews = _inlineStudyState.fsrs.preview(cardState, new Date());
+
+    const intAgain = document.getElementById('rate-int-again');
+    const intHard = document.getElementById('rate-int-hard');
+    const intGood = document.getElementById('rate-int-good');
+    const intEasy = document.getElementById('rate-int-easy');
+
+    if (intAgain) intAgain.textContent = previews[Rating.Again]?.intervalText || '<10p';
+    if (intHard) intHard.textContent = previews[Rating.Hard]?.intervalText || '1 ngày';
+    if (intGood) intGood.textContent = previews[Rating.Good]?.intervalText || '3 ngày';
+    if (intEasy) intEasy.textContent = previews[Rating.Easy]?.intervalText || '4 ngày';
+  }
+}
+
+/**
+ * Lật thẻ xem đáp án & mở 4 nút tự chấm
+ */
+function flipInlineCard() {
+  notifyStudyActivity();
+  if (!_inlineStudyState.currentCard) return;
+
+  const frontFace = document.getElementById('inline-face-front');
+  const backFace = document.getElementById('inline-face-back');
+
+  if (frontFace && backFace) {
+    frontFace.style.display = 'none';
+    backFace.style.display = 'flex';
+    _inlineStudyState.isFlipped = true;
+  }
+}
+
+/**
+ * Tự chấm thẻ theo thuật toán FSRS-6 và chuyển ngay sang từ kế tiếp
+ */
+function rateInlineCard(rating) {
+  notifyStudyActivity();
+  if (!_inlineStudyState.currentCard || !_inlineStudyState.fsrs) return;
+
+  const card = _inlineStudyState.currentCard;
+  const now = new Date();
+  let oldState = StorageManager.getCardState(card.id);
+  if (!oldState) oldState = FSRS.createEmptyCard(card.id);
+
+  const nextState = _inlineStudyState.fsrs.calculateNextState(oldState, rating, now, {
+    enableFuzz: _cachedApp?.settings?.enableFuzz !== false,
+    leechThreshold: _cachedApp?.settings?.leechThreshold || 6,
+    leechAction: _cachedApp?.settings?.leechAction || 'tag'
+  });
+
+  const latencySec = (Date.now() - _inlineStudyState.startTime) / 1000;
+
+  // Lưu trạng thái FSRS & ghi nhật ký
+  StorageManager.saveCardState(nextState);
+  StorageManager.logReview({
+    cardId: card.id,
+    word: card.word,
+    rating: rating,
+    oldState: oldState.state,
+    newState: nextState.state,
+    scheduledDays: nextState.scheduled_days,
+    stability: nextState.stability,
+    difficulty: nextState.difficulty,
+    latencySec: latencySec
+  });
+
+  // Kích hoạt vi hiệu ứng Dopamine Pulse lên tile tiến độ
+  const boxNew = document.getElementById('box-home-new');
+  if (boxNew) {
+    boxNew.classList.remove('pulse-dopamine');
+    void boxNew.offsetWidth;
+    boxNew.classList.add('pulse-dopamine');
+  }
+
+  // Hiệu ứng chuyển thẻ mượt mà 120ms
+  const viewport = document.getElementById('inline-card-viewport');
+  if (viewport) {
+    viewport.classList.add('card-fade-out');
+    setTimeout(() => {
+      viewport.classList.remove('card-fade-out');
+      _inlineStudyState.currentIndex++;
+      showNextInlineCard();
+      updateHomeStatsRealtime(_cachedApp);
+    }, 120);
+  } else {
+    _inlineStudyState.currentIndex++;
+    showNextInlineCard();
+    updateHomeStatsRealtime(_cachedApp);
+  }
+}
+
+/**
+ * Phát âm từ vựng của thẻ đang hiển thị
+ */
+function speakInlineCard() {
+  notifyStudyActivity();
+  if (_inlineStudyState.currentCard && _inlineStudyState.currentCard.word) {
+    speak(_inlineStudyState.currentCard.word, { cardObj: _inlineStudyState.currentCard });
   }
 }
 
@@ -953,7 +1261,6 @@ function playLazyWordStep() {
     return;
   }
 
-  // Update UI
   const elCounter = document.getElementById('lazy-word-counter');
   if (elCounter) elCounter.textContent = `Từ ${_lazyAudioState.currentIndex + 1} / ${_lazyAudioState.words.length}`;
 
@@ -975,18 +1282,15 @@ function playLazyWordStep() {
   const btnPlay = document.getElementById('btn-lazy-play-toggle');
   if (btnPlay) btnPlay.textContent = '⏸️';
 
-  // Step 1: Speak English
   speak(wordObj.word, {
     speechRate: _lazyAudioState.speed,
     cardObj: wordObj,
     onEnd: () => {
       if (!_lazyAudioState.active || !_lazyAudioState.isPlaying) return;
-      // Delay 700ms then speak Vietnamese translation
       _lazyAudioState.timerId = setTimeout(() => {
         if (!_lazyAudioState.active || !_lazyAudioState.isPlaying) return;
         speakVi(wordObj.meaning, () => {
           if (!_lazyAudioState.active || !_lazyAudioState.isPlaying) return;
-          // Delay 1200ms then advance to next word
           _lazyAudioState.timerId = setTimeout(() => {
             if (!_lazyAudioState.active || !_lazyAudioState.isPlaying) return;
             if (_lazyAudioState.currentIndex + 1 < _lazyAudioState.words.length) {
@@ -1016,19 +1320,3 @@ function stopLazyAudioWalk() {
   if (modal) modal.style.display = 'none';
 }
 
-/**
- * Chọn 1 từ vựng tiêu điểm theo ngày (Daily Spotlight Word)
- */
-function getDailySpotlightCard(allCards = []) {
-  if (!allCards || allCards.length === 0) return null;
-  const todayKey = getLocalDateKey();
-  
-  // Tính hash đơn giản từ date string (vd '2026-09-25') để giữ nguyên từ trong suốt cả ngày
-  let hash = 0;
-  for (let i = 0; i < todayKey.length; i++) {
-    hash = ((hash << 5) - hash) + todayKey.charCodeAt(i);
-    hash |= 0;
-  }
-  const positiveIndex = Math.abs(hash) % allCards.length;
-  return allCards[positiveIndex] || allCards[0];
-}
