@@ -31,8 +31,7 @@ let _inlineStudyState = {
   loopTimerId: null,
   isFlipLocked: false,
   flipLockTimer: null,
-  backFlippedTime: 0,
-  ratingLockTimer: null
+  backFlippedTime: 0
 };
 
 export function renderReviewShell(container) {
@@ -1171,25 +1170,8 @@ function showNextInlineCard() {
     if (intEasy) intEasy.textContent = formatViIntervalText(previews[Rating.Easy]?.intervalText) || '4 ngày';
   }
 
-  // Dọn dẹp timer mặt sau nếu có và reset nhãn các nút tự chấm
-  if (_inlineStudyState.ratingLockTimer) {
-    clearInterval(_inlineStudyState.ratingLockTimer);
-    _inlineStudyState.ratingLockTimer = null;
-  }
+  // Dọn dẹp thời gian mặt sau khi sang từ mới
   _inlineStudyState.backFlippedTime = 0;
-  [
-    { id: 'btn-rate-again', label: 'Quên' },
-    { id: 'btn-rate-hard', label: 'Khó' },
-    { id: 'btn-rate-good', label: 'Nhớ' },
-    { id: 'btn-rate-easy', label: 'Dễ' }
-  ].forEach(({ id, label }) => {
-    const btn = document.getElementById(id);
-    if (btn) {
-      btn.classList.remove('is-locked');
-      const nameEl = btn.querySelector('.rate-name');
-      if (nameEl) nameEl.textContent = label;
-    }
-  });
 
   // Kích hoạt khóa chống spam 2.5s trước khi cho lật
   startFlipLockTimer();
@@ -1240,67 +1222,6 @@ function startFlipLockTimer() {
 }
 
 /**
- * Khởi động bộ đếm khóa thông minh các nút tự chấm ở mặt sau:
- * - Quên (Again / 1): Khóa 3.0s để người học đọc kỹ nghĩa & ví dụ
- * - Khó (Hard / 2): Khóa 2.0s
- * - Nhớ (Good / 3): Khóa 1.0s
- * - Dễ (Easy / 4): Không khóa (0s), bấm được ngay
- */
-function startBackRatingLockTimer() {
-  if (_inlineStudyState.ratingLockTimer) {
-    clearInterval(_inlineStudyState.ratingLockTimer);
-    _inlineStudyState.ratingLockTimer = null;
-  }
-
-  _inlineStudyState.backFlippedTime = Date.now();
-  const startTime = _inlineStudyState.backFlippedTime;
-
-  const RATING_CONFIG = [
-    { rating: Rating.Again, id: 'btn-rate-again', baseLabel: 'Quên', durationMs: 3000 },
-    { rating: Rating.Hard, id: 'btn-rate-hard', baseLabel: 'Khó', durationMs: 2000 },
-    { rating: Rating.Good, id: 'btn-rate-good', baseLabel: 'Nhớ', durationMs: 1000 },
-    { rating: Rating.Easy, id: 'btn-rate-easy', baseLabel: 'Dễ', durationMs: 0 }
-  ];
-
-  const updateRatingsUI = () => {
-    const elapsed = Date.now() - startTime;
-    let anyStillLocked = false;
-
-    RATING_CONFIG.forEach(cfg => {
-      const btn = document.getElementById(cfg.id);
-      if (!btn) return;
-      const nameEl = btn.querySelector('.rate-name');
-
-      if (cfg.durationMs > 0) {
-        const remainingMs = cfg.durationMs - elapsed;
-        if (remainingMs > 0) {
-          anyStillLocked = true;
-          const remainingSec = Math.ceil(remainingMs / 1000);
-          btn.classList.add('is-locked');
-          if (nameEl) nameEl.textContent = `${cfg.baseLabel} (${remainingSec}s)`;
-        } else {
-          btn.classList.remove('is-locked');
-          if (nameEl) nameEl.textContent = cfg.baseLabel;
-        }
-      } else {
-        btn.classList.remove('is-locked');
-        if (nameEl) nameEl.textContent = cfg.baseLabel;
-      }
-    });
-
-    if (!anyStillLocked) {
-      if (_inlineStudyState.ratingLockTimer) {
-        clearInterval(_inlineStudyState.ratingLockTimer);
-        _inlineStudyState.ratingLockTimer = null;
-      }
-    }
-  };
-
-  updateRatingsUI();
-  _inlineStudyState.ratingLockTimer = setInterval(updateRatingsUI, 120);
-}
-
-/**
  * Định dạng khoảng thời gian FSRS sang tiếng Việt thân thiện
  */
 function formatViIntervalText(rawText) {
@@ -1347,15 +1268,11 @@ function flipInlineCard() {
       frontFace.style.display = 'none';
       backFace.style.display = 'flex';
       _inlineStudyState.isFlipped = true;
-      startBackRatingLockTimer();
+      _inlineStudyState.backFlippedTime = Date.now();
     } else {
       frontFace.style.display = 'flex';
       backFace.style.display = 'none';
       _inlineStudyState.isFlipped = false;
-      if (_inlineStudyState.ratingLockTimer) {
-        clearInterval(_inlineStudyState.ratingLockTimer);
-        _inlineStudyState.ratingLockTimer = null;
-      }
     }
   }
 }
@@ -1367,8 +1284,7 @@ function rateInlineCard(rating) {
   notifyStudyActivity();
   if (!_inlineStudyState.currentCard || !_inlineStudyState.fsrs) return;
 
-  // Kiểm tra khóa chống bấm sớm của từng nút theo quy tắc:
-  // Quên: 3.0s, Khó: 2.0s, Nhớ: 1.0s, Dễ: 0s
+  // Khóa ngầm chống bấm sớm ở mặt sau: Quên 3.0s, Khó 2.0s, Nhớ 1.0s, Dễ 0s (không hiện đếm ngược)
   const elapsed = Date.now() - (_inlineStudyState.backFlippedTime || 0);
   let lockDuration = 0;
   if (rating === Rating.Again) lockDuration = 3000;
@@ -1390,12 +1306,6 @@ function rateInlineCard(rating) {
       btn.classList.add('shake-locked');
     }
     return;
-  }
-
-  // Dọn dẹp timer mặt sau khi đã chấm hợp lệ
-  if (_inlineStudyState.ratingLockTimer) {
-    clearInterval(_inlineStudyState.ratingLockTimer);
-    _inlineStudyState.ratingLockTimer = null;
   }
 
   const card = _inlineStudyState.currentCard;

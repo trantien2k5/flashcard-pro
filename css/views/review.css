@@ -2766,20 +2766,6 @@
   transform: scale(0.94);
 }
 
-.btn-inline-rate.is-locked {
-  opacity: 0.52;
-  filter: grayscale(0.35);
-  cursor: not-allowed;
-  pointer-events: auto;
-}
-
-.btn-inline-rate.is-locked:hover {
-  transform: none;
-  box-shadow: none;
-  background: inherit;
-  color: inherit;
-}
-
 .btn-inline-rate.shake-locked {
   animation: rateLockShake 0.35s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   border-color: #ef4444 !important;
