@@ -1450,6 +1450,7 @@ function flipInlineCard() {
       btnFlip.classList.remove('shake-locked');
       void btnFlip.offsetWidth;
       btnFlip.classList.add('shake-locked');
+      setTimeout(() => btnFlip.classList.remove('shake-locked'), 400);
     }
     return;
   }
@@ -1498,6 +1499,7 @@ function rateInlineCard(rating) {
       btn.classList.remove('shake-locked');
       void btn.offsetWidth;
       btn.classList.add('shake-locked');
+      setTimeout(() => btn.classList.remove('shake-locked'), 400);
     }
     return;
   }

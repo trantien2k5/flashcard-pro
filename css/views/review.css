@@ -2640,26 +2640,30 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 185px;
+  max-width: 190px;
   min-height: 44px;
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
-  border: none;
-  color: #ffffff;
-  font-size: 0.86rem;
-  font-weight: 800;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  border: 1px solid transparent;
+  color: #ffffff !important;
+  font-size: 0.88rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.16s ease;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   touch-action: manipulation;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.28);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.28);
   outline: none;
 }
 
+.btn-inline-flip span {
+  color: #ffffff !important;
+}
+
 .btn-inline-flip:hover {
-  background: linear-gradient(135deg, #818cf8, #6366f1);
+  background: linear-gradient(135deg, #4338ca, #4f46e5);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.36);
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.38);
 }
 
 .btn-inline-flip:active {
@@ -2667,16 +2671,20 @@
 }
 
 .btn-inline-flip.is-locked {
-  background: rgba(99, 102, 241, 0.18);
-  color: var(--text-muted, #94a3b8);
-  border: 1px dashed rgba(99, 102, 241, 0.45);
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--text-muted, #94a3b8) !important;
+  border: 1px dashed rgba(99, 102, 241, 0.4);
   box-shadow: none;
   cursor: not-allowed;
   opacity: 0.88;
 }
 
+.btn-inline-flip.is-locked span {
+  color: var(--text-muted, #94a3b8) !important;
+}
+
 .btn-inline-flip.is-locked:hover {
-  background: rgba(99, 102, 241, 0.22);
+  background: rgba(99, 102, 241, 0.16);
   transform: none;
   box-shadow: none;
 }
@@ -2684,7 +2692,6 @@
 .btn-inline-flip.shake-locked {
   animation: flipLockShake 0.35s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   border-color: #ef4444 !important;
-  color: #f87171 !important;
 }
 
 @keyframes flipLockShake {
