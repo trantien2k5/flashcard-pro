@@ -27,9 +27,10 @@
 }
 
 /* ==========================================================================
-   1. Main Hero Bento Card (Nhiệm Vụ Hôm Nay)
+   1. Main Hero Bento Card (Nhiệm Vụ Hôm Nay) & Assist Card
    ========================================================================== */
-.review-hero-card {
+.review-hero-card,
+.review-assist-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -44,7 +45,8 @@
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-[data-theme="light"] .review-hero-card {
+[data-theme="light"] .review-hero-card,
+[data-theme="light"] .review-assist-card {
   background: #ffffff;
   border-color: rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
@@ -2854,7 +2856,7 @@
 
 
 /* ==========================================================================
-   🖥️ DESKTOP & PC LAYOUT (>= 860px) - Balanced 2-Column Bento Dashboard
+   🖥️ DESKTOP & PC LAYOUT (>= 860px) - Balanced 2x2 Bento Dashboard
    ========================================================================== */
 @media (min-width: 860px) {
   #tab-review.tab-pane.active {
@@ -2864,46 +2866,100 @@
   }
 
   .review-bento-container {
-    max-width: 1080px;
+    max-width: 1140px;
     margin: 0 auto;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    align-items: start;
+    align-items: stretch;
     box-sizing: border-box;
   }
 
-  .review-col {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-  }
-
-  .review-col-left {
-    grid-column: 1;
-  }
-
-  .review-col-right {
-    grid-column: 2;
-  }
-
-  /* Left Column Cards */
-  .review-hero-card {
+  /* 4 Khối đều nhau tuyệt đối */
+  .review-hero-card,
+  .review-inline-card,
+  .review-goals-card,
+  .review-assist-card {
     padding: 22px 20px;
     gap: 16px;
     border-radius: var(--radius-xl);
+    height: 100%;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
   }
 
+  /* Block 1 (Top-Left): Flashcard Học Nhanh */
   .review-inline-card {
-    padding: 16px 20px;
-    gap: 8px;
-    border-radius: var(--radius-xl);
-    height: 270px;
-    min-height: 270px;
+    padding: 22px 20px;
+    gap: 10px;
+    height: 100%;
+    min-height: 350px;
   }
 
+  .inline-card-viewport {
+    min-height: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .inline-card-front {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .inline-word-text {
+    font-size: 2.35rem;
+  }
+
+  .inline-ipa-text {
+    font-size: 1rem;
+  }
+
+  .inline-front-hint {
+    margin-top: 12px;
+  }
+
+  .btn-inline-flip {
+    max-width: 210px;
+    min-height: 48px;
+    font-size: 0.92rem;
+  }
+
+  .inline-card-back {
+    gap: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .inline-meaning-text {
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+
+  .inline-rating-grid {
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .btn-inline-rate {
+    min-height: 46px;
+    padding: 6px 4px;
+  }
+
+  /* Block 2 (Top-Right): Nhiệm Vụ Hôm Nay */
   .hero-quad-grid {
     gap: 10px;
   }
@@ -2914,21 +2970,7 @@
     border-radius: var(--radius-lg);
   }
 
-  .inline-card-viewport {
-    min-height: 0;
-  }
-
-  .inline-word-text {
-    font-size: 2.15rem;
-  }
-
-  /* Right Column Cards */
-  .review-goals-card {
-    padding: 22px 20px;
-    gap: 16px;
-    border-radius: var(--radius-xl);
-  }
-
+  /* Block 3 (Bottom-Left): Mục Tiêu & Tiến Độ */
   .goals-rings-grid {
     gap: 10px;
   }
@@ -2949,36 +2991,52 @@
     border-radius: var(--radius-lg);
   }
 
-  .review-lazy-walk-card {
-    padding: 16px 18px;
-    border-radius: var(--radius-xl);
+  /* Block 4 (Bottom-Right): Rảnh Tay & Củng Cố */
+  .review-assist-card {
+    padding: 20px;
+    gap: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  .review-weak-card {
+  .review-assist-card .review-lazy-walk-card {
+    flex: 1;
+    margin: 0;
     padding: 16px 18px;
-    border-radius: var(--radius-xl);
+    border-radius: 16px;
+  }
+
+  .review-assist-card .review-weak-card {
+    flex: 1.25;
+    margin: 0;
+    padding: 16px 18px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 
 @media (min-width: 1240px) {
   .review-bento-container {
-    max-width: 1140px;
-    gap: 22px;
-  }
-  
-  .review-col {
+    max-width: 1180px;
     gap: 22px;
   }
 
   .review-hero-card,
-  .review-goals-card {
-    padding: 22px;
+  .review-inline-card,
+  .review-goals-card,
+  .review-assist-card {
+    padding: 24px 22px;
+    min-height: 360px;
   }
 
   .review-inline-card {
-    padding: 16px 20px;
-    height: 270px;
-    min-height: 270px;
+    padding: 24px 22px;
+    min-height: 360px;
   }
 }
 

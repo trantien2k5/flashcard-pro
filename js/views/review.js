@@ -36,316 +36,318 @@ let _inlineStudyState = {
 
 export function renderReviewShell(container) {
   if (!container) return;
-  if (!container.querySelector('.review-col-left') || !container.querySelector('#review-goals-card') || !container.querySelector('#review-inline-study-card')) {
+  if (!container.querySelector('#review-hero-card') || !container.querySelector('#review-goals-card') || !container.querySelector('#review-inline-study-card')) {
     container.innerHTML = `
       <div class="review-bento-container">
 
-        <!-- LEFT COLUMN (Command Center & Inline Quick Flashcard) -->
-        <div class="review-col review-col-left">
-
-          <!-- 1. Hero Card: Nhiệm Vụ Hôm Nay (Unified Bento Design) -->
-          <div class="review-hero-card">
-            <!-- Top Row Header -->
-            <div class="review-card-header">
-              <div class="review-card-header-left">
-                <div class="review-hero-icon-badge">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                  </svg>
-                </div>
-                <div class="review-hero-titles">
-                  <div class="review-hero-pill-tag">NHIỆM VỤ HÔM NAY</div>
-                  <h2 class="review-hero-main-title" id="home-today-status">Kế hoạch ôn tập & nạp từ vựng</h2>
-                </div>
-              </div>
-
-              <div class="review-header-badges-wrap">
-                <span class="pill-review-streak" id="home-header-streak">🔥 0 ngày</span>
-                <span class="pill-review-goal" id="home-goal-pct">0%</span>
-              </div>
+        <!-- ==========================================
+             BLOCK 1 (Top-Left): ÔN TẬP NHANH (Flashcard Học Nhanh Trực Quan)
+             ========================================== -->
+        <div class="review-hero-card review-inline-card" id="review-inline-study-card">
+          <div class="inline-card-topbar">
+            <div class="inline-topbar-left">
+              <span class="inline-flash-badge">⚡ ÔN TẬP NHANH</span>
             </div>
-
-            <!-- Goal Progress Track -->
-            <div class="review-goal-track">
-              <div class="review-goal-fill" id="home-goal-progress-fill" style="width: 0%;"></div>
-            </div>
-
-            <!-- 4 Bento Metrics Grid (2x2) -->
-            <div class="hero-quad-grid">
-              <!-- Card 1: Cần ôn ngay -->
-              <div class="quad-tile tile-due" id="box-home-due">
-                <div class="quad-tile-top">
-                  <span class="quad-icon-badge">📥</span>
-                  <span class="quad-label">CẦN ÔN TẬP</span>
-                </div>
-                <div class="quad-num-wrap">
-                  <span class="quad-number" id="home-due-val">0</span>
-                  <span class="quad-unit">từ</span>
-                </div>
-                <span class="quad-sub-hint" id="home-due-hint">Ưu tiên ôn trước</span>
-              </div>
-
-              <!-- Card 2: Đã học hôm nay -->
-              <div class="quad-tile tile-new" id="box-home-new">
-                <div class="quad-tile-top">
-                  <span class="quad-icon-badge">✨</span>
-                  <span class="quad-label">ĐÃ HỌC HÔM NAY</span>
-                </div>
-                <div class="quad-num-wrap">
-                  <span class="quad-number" id="home-new-today-val">0/10</span>
-                  <span class="quad-unit">từ</span>
-                </div>
-                <span class="quad-sub-hint" id="home-goal-hint">Chỉ tiêu: 10 từ</span>
-              </div>
-
-              <!-- Card 3: Thời gian học -->
-              <div class="quad-tile tile-time" id="box-home-time">
-                <div class="quad-tile-top">
-                  <span class="quad-icon-badge">⏱️</span>
-                  <span class="quad-label">THỜI GIAN HỌC</span>
-                </div>
-                <div class="quad-num-wrap">
-                  <span class="quad-number" id="home-study-timer">0p</span>
-                </div>
-                <span class="quad-sub-hint">Tập trung hôm nay</span>
-              </div>
-
-              <!-- Card 4: Từ đã thuộc (Tầng 4 & 5 FSRS) -->
-              <div class="quad-tile tile-retention" id="box-home-retention">
-                <div class="quad-tile-top">
-                  <span class="quad-icon-badge">💎</span>
-                  <span class="quad-label">TỪ ĐÃ THUỘC</span>
-                </div>
-                <div class="quad-num-wrap">
-                  <span class="quad-number" id="home-retention-rate">0</span>
-                  <span class="quad-unit">từ</span>
-                </div>
-                <span class="quad-sub-hint" id="home-retention-hint">Ghi nhớ bền vững 🛡️</span>
-              </div>
-            </div>
-
-            <!-- Dual Action Launchpad (Twin CTA Buttons) -->
-            <div class="hero-action-container">
-              <div class="hero-twin-cta-row" id="home-twin-cta-row">
-                <button class="btn-hero-twin-study" id="btn-home-hero-cta" type="button" title="Học & Ôn bằng thẻ Flashcard 3D">
-                  <svg class="action-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <polygon points="5 3 19 12 5 21 5 3"/>
-                  </svg>
-                  <span id="home-hero-cta-text">Ôn thẻ Flashcard</span>
-                </button>
-
-                <button class="btn-hero-twin-quiz" id="btn-home-quiz-cta" type="button" title="Học & Ôn bằng trắc nghiệm phản xạ FSRS">
-                  <span>⚡</span>
-                  <span id="home-quiz-cta-text">Trắc nghiệm FSRS</span>
-                </button>
-              </div>
-
-              <div class="hero-meta-hint">
-                <span id="home-estimated-time">⏱️ Khoảng 0 phút</span>
-                <span class="hint-sep">•</span>
-                <span id="home-streak-hint">Học hôm nay để giữ chuỗi 🔥</span>
-              </div>
-            </div>
+            <button type="button" class="btn-inline-speaker mode-auto" id="btn-inline-speaker" title="Âm thanh tự động (Click: Đổi chế độ / Giữ: 0.5x)">
+              <span class="speaker-icon" id="inline-speaker-icon">🔊</span>
+            </button>
           </div>
 
-          <!-- 2. Interactive Inline Quick Flashcard (Tối Giản 1 Lớp, Tự Động Nạp 5 Từ, Đa Chế Độ Âm Thanh) -->
-          <div class="review-inline-card" id="review-inline-study-card">
-            <div class="inline-card-topbar">
-              <div class="inline-topbar-left">
-                <span class="inline-flash-badge">⚡ ÔN TẬP NHANH</span>
+          <!-- Single Layer Content (No Inner Box Border) -->
+          <div class="inline-card-viewport" id="inline-card-viewport">
+            <!-- Front View -->
+            <div class="inline-card-face inline-card-front" id="inline-face-front">
+              <div class="inline-meta-badges">
+                <span class="inline-badge-cefr" id="inline-cefr">B1</span>
+                <span class="inline-badge-pos" id="inline-pos">noun</span>
               </div>
-              <button type="button" class="btn-inline-speaker mode-auto" id="btn-inline-speaker" title="Âm thanh tự động (Click: Đổi chế độ / Giữ: 0.5x)">
-                <span class="speaker-icon" id="inline-speaker-icon">🔊</span>
-              </button>
-            </div>
-
-            <!-- Single Layer Content (No Inner Box Border) -->
-            <div class="inline-card-viewport" id="inline-card-viewport">
-              <!-- Front View -->
-              <div class="inline-card-face inline-card-front" id="inline-face-front">
-                <div class="inline-meta-badges">
-                  <span class="inline-badge-cefr" id="inline-cefr">B1</span>
-                  <span class="inline-badge-pos" id="inline-pos">noun</span>
-                </div>
-                <h2 class="inline-word-text" id="inline-word">Opportunity</h2>
-                <div class="inline-ipa-text" id="inline-ipa">/ˌɑː.pɚˈtuː.nə.t̬i/</div>
-                <div class="inline-front-hint">
-                  <button type="button" class="btn-inline-flip" id="btn-inline-flip">
-                    <span>Lật thẻ xem đáp án</span>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Back View (Revealed) -->
-              <div class="inline-card-face inline-card-back" id="inline-face-back" style="display: none;">
-                <div class="inline-back-word-row">
-                  <span class="inline-back-word" id="inline-back-word">Opportunity</span>
-                  <span class="inline-back-ipa" id="inline-back-ipa">/ˌɑː.pɚˈtuː.nə.t̬i/</span>
-                </div>
-                <div class="inline-meaning-text" id="inline-meaning">Cơ hội, thời cơ thuận lợi</div>
-
-                <div class="inline-example-box" id="inline-example-box">
-                  <p class="inline-example-en" id="inline-example-en">"This is a great opportunity to improve your skills."</p>
-                  <p class="inline-example-vi" id="inline-example-vi">"Đây là một cơ hội tuyệt vời để nâng cao kỹ năng của bạn."</p>
-                </div>
-
-                <!-- 4 FSRS Self-Rating Buttons -->
-                <div class="inline-rating-grid">
-                  <button type="button" class="btn-inline-rate rate-again" id="btn-rate-again" data-rating="1">
-                    <span class="rate-name">Quên</span>
-                    <span class="rate-interval" id="rate-int-again">&lt;10p</span>
-                  </button>
-                  <button type="button" class="btn-inline-rate rate-hard" id="btn-rate-hard" data-rating="2">
-                    <span class="rate-name">Khó</span>
-                    <span class="rate-interval" id="rate-int-hard">1 ngày</span>
-                  </button>
-                  <button type="button" class="btn-inline-rate rate-good" id="btn-rate-good" data-rating="3">
-                    <span class="rate-name">Nhớ</span>
-                    <span class="rate-interval" id="rate-int-good">3 ngày</span>
-                  </button>
-                  <button type="button" class="btn-inline-rate rate-easy" id="btn-rate-easy" data-rating="4">
-                    <span class="rate-name">Dễ</span>
-                    <span class="rate-interval" id="rate-int-easy">4 ngày</span>
-                  </button>
-                </div>
-              </div>
-
-              <!-- All Caught Up / Empty State -->
-              <div class="inline-card-empty" id="inline-card-empty" style="display: none;">
-                <div class="empty-icon">🎉</div>
-                <h4 class="empty-title">Đã Hoàn Thành Ôn Tập!</h4>
-                <p class="empty-desc">Toàn bộ từ vựng đến hạn hôm nay đã được ôn luyện sạch sẽ.</p>
-                <button type="button" class="btn-inline-more" id="btn-inline-more">
-                  <span>✨ Luyện thêm từ mới</span>
+              <h2 class="inline-word-text" id="inline-word">Opportunity</h2>
+              <div class="inline-ipa-text" id="inline-ipa">/ˌɑː.pɚˈtuː.nə.t̬i/</div>
+              <div class="inline-front-hint">
+                <button type="button" class="btn-inline-flip" id="btn-inline-flip">
+                  <span>Lật thẻ xem đáp án</span>
                 </button>
               </div>
             </div>
-          </div>
 
-        </div> <!-- /review-col-left -->
+            <!-- Back View (Revealed) -->
+            <div class="inline-card-face inline-card-back" id="inline-face-back" style="display: none;">
+              <div class="inline-back-word-row">
+                <span class="inline-back-word" id="inline-back-word">Opportunity</span>
+                <span class="inline-back-ipa" id="inline-back-ipa">/ˌɑː.pɚˈtuː.nə.t̬i/</span>
+              </div>
+              <div class="inline-meaning-text" id="inline-meaning">Cơ hội, thời cơ thuận lợi</div>
 
-        <!-- RIGHT COLUMN (Goal & Progress Tracker, Lazy Walk & Weak Cards Drill) -->
-        <div class="review-col review-col-right">
-
-          <!-- 3. Goal & Progress Tracker Bento Card (Mục Tiêu & Tiến Độ Đa Tầng) -->
-          <div class="review-hero-card review-goals-card" id="review-goals-card">
-            <!-- Top Row Header -->
-            <div class="review-card-header">
-              <div class="review-card-header-left">
-                <div class="review-goals-icon-badge">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <circle cx="12" cy="12" r="6"/>
-                    <circle cx="12" cy="12" r="2"/>
-                  </svg>
-                </div>
-                <div class="review-hero-titles">
-                  <div class="review-hero-pill-tag">MỤC TIÊU & TIẾN ĐỘ</div>
-                  <h2 class="review-hero-main-title" id="goals-main-title">Lộ trình mục tiêu cá nhân</h2>
-                </div>
+              <div class="inline-example-box" id="inline-example-box">
+                <p class="inline-example-en" id="inline-example-en">"This is a great opportunity to improve your skills."</p>
+                <p class="inline-example-vi" id="inline-example-vi">"Đây là một cơ hội tuyệt vời để nâng cao kỹ năng của bạn."</p>
               </div>
 
-              <div class="review-header-badges-wrap">
-                <span class="pill-goals-countdown" id="goals-countdown-badge">⏳ Đang tính...</span>
-                <span class="pill-goals-milestone" id="goals-milestone-badge">0%</span>
-              </div>
-            </div>
-
-            <!-- Goal Progress Track -->
-            <div class="review-goal-track">
-              <div class="review-goal-fill ring-fill-gradient" id="goals-total-track-fill" style="width: 0%;"></div>
-            </div>
-
-            <!-- 3 Radial Rings Grid (% Tròn Ngày, Tuần, Tháng) -->
-            <div class="goals-rings-grid">
-              <!-- Ring 1: Ngày -->
-              <div class="goal-ring-card ring-day">
-                <div class="goal-ring-svg-wrap">
-                  <svg class="ring-svg" viewBox="0 0 48 48">
-                    <circle class="ring-bg" cx="24" cy="24" r="20" />
-                    <circle class="ring-fill ring-fill-day" id="ring-svg-day" cx="24" cy="24" r="20" />
-                  </svg>
-                  <span class="ring-center-val" id="ring-val-day">0%</span>
-                </div>
-                <div class="goal-ring-info">
-                  <span class="goal-ring-title">Hôm nay</span>
-                  <span class="goal-ring-detail" id="ring-detail-day">0 từ</span>
-                </div>
-              </div>
-
-              <!-- Ring 2: Tuần -->
-              <div class="goal-ring-card ring-week">
-                <div class="goal-ring-svg-wrap">
-                  <svg class="ring-svg" viewBox="0 0 48 48">
-                    <circle class="ring-bg" cx="24" cy="24" r="20" />
-                    <circle class="ring-fill ring-fill-week" id="ring-svg-week" cx="24" cy="24" r="20" />
-                  </svg>
-                  <span class="ring-center-val" id="ring-val-week">0%</span>
-                </div>
-                <div class="goal-ring-info">
-                  <span class="goal-ring-title">7 ngày qua</span>
-                  <span class="goal-ring-detail" id="ring-detail-week">0 từ</span>
-                </div>
-              </div>
-
-              <!-- Ring 3: Tháng -->
-              <div class="goal-ring-card ring-month">
-                <div class="goal-ring-svg-wrap">
-                  <svg class="ring-svg" viewBox="0 0 48 48">
-                    <circle class="ring-bg" cx="24" cy="24" r="20" />
-                    <circle class="ring-fill ring-fill-month" id="ring-svg-month" cx="24" cy="24" r="20" />
-                  </svg>
-                  <span class="ring-center-val" id="ring-val-month">0%</span>
-                </div>
-                <div class="goal-ring-info">
-                  <span class="goal-ring-title">30 ngày qua</span>
-                  <span class="goal-ring-detail" id="ring-detail-month">0 từ</span>
-                </div>
+              <!-- 4 FSRS Self-Rating Buttons -->
+              <div class="inline-rating-grid">
+                <button type="button" class="btn-inline-rate rate-again" id="btn-rate-again" data-rating="1">
+                  <span class="rate-name">Quên</span>
+                  <span class="rate-interval" id="rate-int-again">&lt;10p</span>
+                </button>
+                <button type="button" class="btn-inline-rate rate-hard" id="btn-rate-hard" data-rating="2">
+                  <span class="rate-name">Khó</span>
+                  <span class="rate-interval" id="rate-int-hard">1 ngày</span>
+                </button>
+                <button type="button" class="btn-inline-rate rate-good" id="btn-rate-good" data-rating="3">
+                  <span class="rate-name">Nhớ</span>
+                  <span class="rate-interval" id="rate-int-good">3 ngày</span>
+                </button>
+                <button type="button" class="btn-inline-rate rate-easy" id="btn-rate-easy" data-rating="4">
+                  <span class="rate-name">Dễ</span>
+                  <span class="rate-interval" id="rate-int-easy">4 ngày</span>
+                </button>
               </div>
             </div>
 
-            <!-- 2 Bento Sub-Goal & Master-Goal Dual Tiles -->
-            <div class="goals-dual-status-grid">
-              <!-- Tile 1: Mục tiêu Chặng (Sub-goal) -->
-              <div class="goal-status-tile tile-sprint" id="tile-goal-sprint">
-                <div class="status-tile-top">
-                  <span class="status-tile-icon">🎯</span>
-                  <span class="status-tile-label" id="goal-sprint-label">MỤC TIÊU CHẶNG</span>
-                </div>
-                <div class="status-tile-main">
-                  <span class="status-tile-num" id="goal-sprint-num">--/--</span>
-                  <span class="status-tile-unit">từ</span>
-                </div>
-                <span class="status-tile-sub" id="goal-sprint-sub">Đang tính tiến độ...</span>
-              </div>
-
-              <!-- Tile 2: Kho Tổng Thư Viện (Master-goal) -->
-              <div class="goal-status-tile tile-master" id="tile-goal-master">
-                <div class="status-tile-top">
-                  <span class="status-tile-icon">📚</span>
-                  <span class="status-tile-label">KHO TỔNG THƯ VIỆN</span>
-                </div>
-                <div class="status-tile-main">
-                  <span class="status-tile-num" id="goal-master-num">--/--</span>
-                  <span class="status-tile-unit">từ</span>
-                </div>
-                <span class="status-tile-sub" id="goal-master-sub">Đang đồng bộ dữ liệu...</span>
-              </div>
-            </div>
-
-            <!-- Motivating Sprint Action Strip (Matching Twin CTA Row on Left Card) -->
-            <div class="goals-motive-strip">
-              <div class="goals-motive-left">
-                <span class="goals-motive-icon">⚡</span>
-                <span class="goals-motive-text" id="goals-motive-text">Đang phân tích lộ trình học tập...</span>
-              </div>
-              <button type="button" class="btn-goals-adjust" id="btn-goals-adjust" title="Căn chỉnh & lập kế hoạch mục tiêu FSRS">
-                <span>Đổi mục tiêu 🎯</span>
+            <!-- All Caught Up / Empty State -->
+            <div class="inline-card-empty" id="inline-card-empty" style="display: none;">
+              <div class="empty-icon">🎉</div>
+              <h4 class="empty-title">Đã Hoàn Thành Ôn Tập!</h4>
+              <p class="empty-desc">Toàn bộ từ vựng đến hạn hôm nay đã được ôn luyện sạch sẽ.</p>
+              <button type="button" class="btn-inline-more" id="btn-inline-more">
+                <span>✨ Luyện thêm từ mới</span>
               </button>
             </div>
           </div>
+        </div>
 
-          <!-- 4. Lazy Hands-free Audio Walk Shortcut -->
+        <!-- ==========================================
+             BLOCK 2 (Top-Right): NHIỆM VỤ HÔM NAY (Thống Kê Nhiệm Vụ)
+             ========================================== -->
+        <div class="review-hero-card" id="review-hero-card">
+          <!-- Top Row Header -->
+          <div class="review-card-header">
+            <div class="review-card-header-left">
+              <div class="review-hero-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                </svg>
+              </div>
+              <div class="review-hero-titles">
+                <div class="review-hero-pill-tag">NHIỆM VỤ HÔM NAY</div>
+                <h2 class="review-hero-main-title" id="home-today-status">Kế hoạch ôn tập & nạp từ vựng</h2>
+              </div>
+            </div>
+
+            <div class="review-header-badges-wrap">
+              <span class="pill-review-streak" id="home-header-streak">🔥 0 ngày</span>
+              <span class="pill-review-goal" id="home-goal-pct">0%</span>
+            </div>
+          </div>
+
+          <!-- Goal Progress Track -->
+          <div class="review-goal-track">
+            <div class="review-goal-fill" id="home-goal-progress-fill" style="width: 0%;"></div>
+          </div>
+
+          <!-- 4 Bento Metrics Grid (2x2) -->
+          <div class="hero-quad-grid">
+            <!-- Card 1: Cần ôn ngay -->
+            <div class="quad-tile tile-due" id="box-home-due">
+              <div class="quad-tile-top">
+                <span class="quad-icon-badge">📥</span>
+                <span class="quad-label">CẦN ÔN TẬP</span>
+              </div>
+              <div class="quad-num-wrap">
+                <span class="quad-number" id="home-due-val">0</span>
+                <span class="quad-unit">từ</span>
+              </div>
+              <span class="quad-sub-hint" id="home-due-hint">Ưu tiên ôn trước</span>
+            </div>
+
+            <!-- Card 2: Đã học hôm nay -->
+            <div class="quad-tile tile-new" id="box-home-new">
+              <div class="quad-tile-top">
+                <span class="quad-icon-badge">✨</span>
+                <span class="quad-label">ĐÃ HỌC HÔM NAY</span>
+              </div>
+              <div class="quad-num-wrap">
+                <span class="quad-number" id="home-new-today-val">0/10</span>
+                <span class="quad-unit">từ</span>
+              </div>
+              <span class="quad-sub-hint" id="home-goal-hint">Chỉ tiêu: 10 từ</span>
+            </div>
+
+            <!-- Card 3: Thời gian học -->
+            <div class="quad-tile tile-time" id="box-home-time">
+              <div class="quad-tile-top">
+                <span class="quad-icon-badge">⏱️</span>
+                <span class="quad-label">THỜI GIAN HỌC</span>
+              </div>
+              <div class="quad-num-wrap">
+                <span class="quad-number" id="home-study-timer">0p</span>
+              </div>
+              <span class="quad-sub-hint">Tập trung hôm nay</span>
+            </div>
+
+            <!-- Card 4: Từ đã thuộc (Tầng 4 & 5 FSRS) -->
+            <div class="quad-tile tile-retention" id="box-home-retention">
+              <div class="quad-tile-top">
+                <span class="quad-icon-badge">💎</span>
+                <span class="quad-label">TỪ ĐÃ THUỘC</span>
+              </div>
+              <div class="quad-num-wrap">
+                <span class="quad-number" id="home-retention-rate">0</span>
+                <span class="quad-unit">từ</span>
+              </div>
+              <span class="quad-sub-hint" id="home-retention-hint">Ghi nhớ bền vững 🛡️</span>
+            </div>
+          </div>
+
+          <!-- Dual Action Launchpad (Twin CTA Buttons) -->
+          <div class="hero-action-container">
+            <div class="hero-twin-cta-row" id="home-twin-cta-row">
+              <button class="btn-hero-twin-study" id="btn-home-hero-cta" type="button" title="Học & Ôn bằng thẻ Flashcard 3D">
+                <svg class="action-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                <span id="home-hero-cta-text">Ôn thẻ Flashcard</span>
+              </button>
+
+              <button class="btn-hero-twin-quiz" id="btn-home-quiz-cta" type="button" title="Học & Ôn bằng trắc nghiệm phản xạ FSRS">
+                <span>⚡</span>
+                <span id="home-quiz-cta-text">Trắc nghiệm FSRS</span>
+              </button>
+            </div>
+
+            <div class="hero-meta-hint">
+              <span id="home-estimated-time">⏱️ Khoảng 0 phút</span>
+              <span class="hint-sep">•</span>
+              <span id="home-streak-hint">Học hôm nay để giữ chuỗi 🔥</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             BLOCK 3 (Bottom-Left): MỤC TIÊU & TIẾN ĐỘ
+             ========================================== -->
+        <div class="review-hero-card review-goals-card" id="review-goals-card">
+          <!-- Top Row Header -->
+          <div class="review-card-header">
+            <div class="review-card-header-left">
+              <div class="review-goals-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+              </div>
+              <div class="review-hero-titles">
+                <div class="review-hero-pill-tag">MỤC TIÊU & TIẾN ĐỘ</div>
+                <h2 class="review-hero-main-title" id="goals-main-title">Lộ trình mục tiêu cá nhân</h2>
+              </div>
+            </div>
+
+            <div class="review-header-badges-wrap">
+              <span class="pill-goals-countdown" id="goals-countdown-badge">⏳ Đang tính...</span>
+              <span class="pill-goals-milestone" id="goals-milestone-badge">0%</span>
+            </div>
+          </div>
+
+          <!-- Goal Progress Track -->
+          <div class="review-goal-track">
+            <div class="review-goal-fill ring-fill-gradient" id="goals-total-track-fill" style="width: 0%;"></div>
+          </div>
+
+          <!-- 3 Radial Rings Grid (% Tròn Ngày, Tuần, Tháng) -->
+          <div class="goals-rings-grid">
+            <!-- Ring 1: Ngày -->
+            <div class="goal-ring-card ring-day">
+              <div class="goal-ring-svg-wrap">
+                <svg class="ring-svg" viewBox="0 0 48 48">
+                  <circle class="ring-bg" cx="24" cy="24" r="20" />
+                  <circle class="ring-fill ring-fill-day" id="ring-svg-day" cx="24" cy="24" r="20" />
+                </svg>
+                <span class="ring-center-val" id="ring-val-day">0%</span>
+              </div>
+              <div class="goal-ring-info">
+                <span class="goal-ring-title">Hôm nay</span>
+                <span class="goal-ring-detail" id="ring-detail-day">0 từ</span>
+              </div>
+            </div>
+
+            <!-- Ring 2: Tuần -->
+            <div class="goal-ring-card ring-week">
+              <div class="goal-ring-svg-wrap">
+                <svg class="ring-svg" viewBox="0 0 48 48">
+                  <circle class="ring-bg" cx="24" cy="24" r="20" />
+                  <circle class="ring-fill ring-fill-week" id="ring-svg-week" cx="24" cy="24" r="20" />
+                </svg>
+                <span class="ring-center-val" id="ring-val-week">0%</span>
+              </div>
+              <div class="goal-ring-info">
+                <span class="goal-ring-title">7 ngày qua</span>
+                <span class="goal-ring-detail" id="ring-detail-week">0 từ</span>
+              </div>
+            </div>
+
+            <!-- Ring 3: Tháng -->
+            <div class="goal-ring-card ring-month">
+              <div class="goal-ring-svg-wrap">
+                <svg class="ring-svg" viewBox="0 0 48 48">
+                  <circle class="ring-bg" cx="24" cy="24" r="20" />
+                  <circle class="ring-fill ring-fill-month" id="ring-svg-month" cx="24" cy="24" r="20" />
+                </svg>
+                <span class="ring-center-val" id="ring-val-month">0%</span>
+              </div>
+              <div class="goal-ring-info">
+                <span class="goal-ring-title">30 ngày qua</span>
+                <span class="goal-ring-detail" id="ring-detail-month">0 từ</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2 Bento Sub-Goal & Master-Goal Dual Tiles -->
+          <div class="goals-dual-status-grid">
+            <!-- Tile 1: Mục tiêu Chặng (Sub-goal) -->
+            <div class="goal-status-tile tile-sprint" id="tile-goal-sprint">
+              <div class="status-tile-top">
+                <span class="status-tile-icon">🎯</span>
+                <span class="status-tile-label" id="goal-sprint-label">MỤC TIÊU CHẶNG</span>
+              </div>
+              <div class="status-tile-main">
+                <span class="status-tile-num" id="goal-sprint-num">--/--</span>
+                <span class="status-tile-unit">từ</span>
+              </div>
+              <span class="status-tile-sub" id="goal-sprint-sub">Đang tính tiến độ...</span>
+            </div>
+
+            <!-- Tile 2: Kho Tổng Thư Viện (Master-goal) -->
+            <div class="goal-status-tile tile-master" id="tile-goal-master">
+              <div class="status-tile-top">
+                <span class="status-tile-icon">📚</span>
+                <span class="status-tile-label">KHO TỔNG THƯ VIỆN</span>
+              </div>
+              <div class="status-tile-main">
+                <span class="status-tile-num" id="goal-master-num">--/--</span>
+                <span class="status-tile-unit">từ</span>
+              </div>
+              <span class="status-tile-sub" id="goal-master-sub">Đang đồng bộ dữ liệu...</span>
+            </div>
+          </div>
+
+          <!-- Motivating Sprint Action Strip (Matching Twin CTA Row on Left Card) -->
+          <div class="goals-motive-strip">
+            <div class="goals-motive-left">
+              <span class="goals-motive-icon">⚡</span>
+              <span class="goals-motive-text" id="goals-motive-text">Đang phân tích lộ trình học tập...</span>
+            </div>
+            <button type="button" class="btn-goals-adjust" id="btn-goals-adjust" title="Căn chỉnh & lập kế hoạch mục tiêu FSRS">
+              <span>Đổi mục tiêu 🎯</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             BLOCK 4 (Bottom-Right): HỌC LƯỜI RẢNH TAY + PHÒNG NGỪA QUÊN TỪ
+             ========================================== -->
+        <div class="review-hero-card review-assist-card" id="review-assist-card">
+          <!-- Sub-Block A: Lazy Audio Walk -->
           <div class="review-lazy-walk-card">
             <div class="lazy-walk-left">
               <div class="lazy-walk-icon">🎧</div>
@@ -362,7 +364,7 @@ export function renderReviewShell(container) {
             </button>
           </div>
 
-          <!-- 5. Củng Cố Từ Vựng & Phòng Ngừa Hay Quên (Weak Words Drill / Mastery Health) -->
+          <!-- Sub-Block B: Weak Words Drill / Mastery Health -->
           <div id="review-weak-words-box" class="review-weak-card">
             <div class="weak-card-header">
               <div class="weak-header-left">
@@ -384,8 +386,7 @@ export function renderReviewShell(container) {
               </button>
             </div>
           </div>
-
-        </div> <!-- /review-col-right -->
+        </div>
 
       </div>
 
