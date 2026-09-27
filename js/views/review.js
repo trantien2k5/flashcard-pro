@@ -148,7 +148,7 @@ export function renderReviewShell(container) {
                 <span class="inline-flash-badge">⚡ ÔN TẬP NHANH</span>
                 <span class="inline-queue-pill" id="inline-queue-pill">...</span>
               </div>
-              <button type="button" class="btn-inline-speaker" id="btn-inline-speaker" title="Phát âm từ vựng (Phím R)">
+              <button type="button" class="btn-inline-speaker" id="btn-inline-speaker" title="Phát âm từ vựng">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                   <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
                   <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
@@ -169,7 +169,6 @@ export function renderReviewShell(container) {
                 <div class="inline-front-hint">
                   <button type="button" class="btn-inline-flip" id="btn-inline-flip">
                     <span>Lật thẻ xem đáp án</span>
-                    <span class="inline-kbd-pill">Space</span>
                   </button>
                 </div>
               </div>
@@ -190,19 +189,19 @@ export function renderReviewShell(container) {
                 <!-- 4 FSRS Self-Rating Buttons -->
                 <div class="inline-rating-grid">
                   <button type="button" class="btn-inline-rate rate-again" id="btn-rate-again" data-rating="1">
-                    <span class="rate-name">Quên (1)</span>
+                    <span class="rate-name">Quên</span>
                     <span class="rate-interval" id="rate-int-again">&lt;10p</span>
                   </button>
                   <button type="button" class="btn-inline-rate rate-hard" id="btn-rate-hard" data-rating="2">
-                    <span class="rate-name">Khó (2)</span>
+                    <span class="rate-name">Khó</span>
                     <span class="rate-interval" id="rate-int-hard">1 ngày</span>
                   </button>
                   <button type="button" class="btn-inline-rate rate-good" id="btn-rate-good" data-rating="3">
-                    <span class="rate-name">Nhớ (3)</span>
+                    <span class="rate-name">Nhớ</span>
                     <span class="rate-interval" id="rate-int-good">3 ngày</span>
                   </button>
                   <button type="button" class="btn-inline-rate rate-easy" id="btn-rate-easy" data-rating="4">
-                    <span class="rate-name">Dễ (4)</span>
+                    <span class="rate-name">Dễ</span>
                     <span class="rate-interval" id="rate-int-easy">4 ngày</span>
                   </button>
                 </div>
