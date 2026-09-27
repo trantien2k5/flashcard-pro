@@ -141,41 +141,35 @@ export function renderReviewShell(container) {
             </div>
           </div>
 
-          <!-- 2. Interactive Inline Quick Flashcard (Tự Chấm Trực Tiếp Tại Trang Chủ) -->
+          <!-- 2. Interactive Inline Quick Flashcard (Tối Giản 1 Lớp, Không Lồng Card, Không Cắt Chữ) -->
           <div class="review-inline-card" id="review-inline-study-card">
-            <div class="inline-card-header">
-              <div class="inline-header-left">
-                <div class="inline-icon-badge">⚡</div>
-                <div class="inline-title-wrap">
-                  <span class="inline-tag">ÔN TẬP NHANH TỚI HẠN</span>
-                  <h3 class="inline-main-title">FSRS-6 Tự Chấm Trực Tiếp</h3>
-                </div>
+            <div class="inline-card-topbar">
+              <div class="inline-topbar-left">
+                <span class="inline-flash-badge">⚡ ÔN TẬP NHANH</span>
+                <span class="inline-queue-pill" id="inline-queue-pill">...</span>
               </div>
-              <div class="inline-header-right">
-                <span class="inline-queue-pill" id="inline-queue-pill">⏳ Đang tải...</span>
-                <button type="button" class="btn-inline-speaker" id="btn-inline-speaker" title="Phát âm từ vựng">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                  </svg>
-                </button>
-              </div>
+              <button type="button" class="btn-inline-speaker" id="btn-inline-speaker" title="Phát âm từ vựng (Phím R)">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                </svg>
+              </button>
             </div>
 
-            <!-- Active Card Viewport -->
+            <!-- Single Layer Content (No Inner Box Border) -->
             <div class="inline-card-viewport" id="inline-card-viewport">
               <!-- Front View -->
               <div class="inline-card-face inline-card-front" id="inline-face-front">
                 <div class="inline-meta-badges">
                   <span class="inline-badge-cefr" id="inline-cefr">B1</span>
                   <span class="inline-badge-pos" id="inline-pos">noun</span>
-                  <span class="inline-badge-cat" id="inline-cat">Giao tiếp</span>
                 </div>
                 <h2 class="inline-word-text" id="inline-word">Opportunity</h2>
                 <div class="inline-ipa-text" id="inline-ipa">/ˌɑː.pɚˈtuː.nə.t̬i/</div>
                 <div class="inline-front-hint">
                   <button type="button" class="btn-inline-flip" id="btn-inline-flip">
-                    <span>🔍 Xem đáp án & Tự chấm</span>
+                    <span>Lật thẻ xem đáp án</span>
+                    <span class="inline-kbd-pill">Space</span>
                   </button>
                 </div>
               </div>
@@ -196,19 +190,19 @@ export function renderReviewShell(container) {
                 <!-- 4 FSRS Self-Rating Buttons -->
                 <div class="inline-rating-grid">
                   <button type="button" class="btn-inline-rate rate-again" id="btn-rate-again" data-rating="1">
-                    <span class="rate-name">🔴 Quên</span>
+                    <span class="rate-name">Quên (1)</span>
                     <span class="rate-interval" id="rate-int-again">&lt;10p</span>
                   </button>
                   <button type="button" class="btn-inline-rate rate-hard" id="btn-rate-hard" data-rating="2">
-                    <span class="rate-name">🟠 Khó</span>
+                    <span class="rate-name">Khó (2)</span>
                     <span class="rate-interval" id="rate-int-hard">1 ngày</span>
                   </button>
                   <button type="button" class="btn-inline-rate rate-good" id="btn-rate-good" data-rating="3">
-                    <span class="rate-name">🟢 Nhớ</span>
+                    <span class="rate-name">Nhớ (3)</span>
                     <span class="rate-interval" id="rate-int-good">3 ngày</span>
                   </button>
                   <button type="button" class="btn-inline-rate rate-easy" id="btn-rate-easy" data-rating="4">
-                    <span class="rate-name">🔵 Dễ</span>
+                    <span class="rate-name">Dễ (4)</span>
                     <span class="rate-interval" id="rate-int-easy">4 ngày</span>
                   </button>
                 </div>
@@ -1027,11 +1021,11 @@ function showNextInlineCard() {
     const state = StorageManager.getCardState(card.id);
     const isDue = state && isCardDue(state, new Date());
     if (isDue) {
-      queuePill.textContent = `⏳ Còn ${remaining} từ đến hạn`;
+      queuePill.textContent = `${remaining} từ đến hạn`;
     } else if (!state || state.state === State.New || state.state === 0) {
-      queuePill.textContent = `✨ Từ mới (${remaining})`;
+      queuePill.textContent = `Từ mới: ${remaining}`;
     } else {
-      queuePill.textContent = `⚡ Luyện tập (${remaining})`;
+      queuePill.textContent = `Luyện tập: ${remaining}`;
     }
   }
 
@@ -1040,13 +1034,11 @@ function showNextInlineCard() {
   const elIpa = document.getElementById('inline-ipa');
   const elCefr = document.getElementById('inline-cefr');
   const elPos = document.getElementById('inline-pos');
-  const elCat = document.getElementById('inline-cat');
 
   if (elWord) elWord.textContent = card.word || '';
   if (elIpa) elIpa.textContent = card.phonetic || card.ipa || '';
   if (elCefr) elCefr.textContent = (card.level || card.cefr || 'B1').toUpperCase();
   if (elPos) elPos.textContent = (card.pos || 'word').toLowerCase();
-  if (elCat) elCat.textContent = card.category || 'Giao tiếp';
 
   // Populate Back Data
   const elBackWord = document.getElementById('inline-back-word');
