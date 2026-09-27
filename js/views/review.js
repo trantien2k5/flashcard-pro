@@ -956,8 +956,17 @@ function setupInlineStudyEvents(app) {
     };
   }
 
+  // Cho phép click vào mặt thẻ để lật qua lật lại 2 mặt
   if (frontFace) {
-    frontFace.onclick = () => {
+    frontFace.onclick = (e) => {
+      if (e.target.closest('button')) return;
+      flipInlineCard();
+    };
+  }
+
+  if (backFace) {
+    backFace.onclick = (e) => {
+      if (e.target.closest('.inline-rating-grid') || e.target.closest('button')) return;
       flipInlineCard();
     };
   }
@@ -1024,7 +1033,7 @@ function setupInlineStudyEvents(app) {
     }
   });
 
-  // Gán phím tắt nhanh (Space, 1, 2, 3, 4, R)
+  // Gán phím tắt nhanh: Space/Enter/Mũi tên LẬT QUA LẠI giữa 2 mặt; 1, 2, 3, 4 để TỰ CHẤM
   if (!_inlineStudyState.isKeyboardListening) {
     _inlineStudyState.isKeyboardListening = true;
     window.addEventListener('keydown', (e) => {
@@ -1034,30 +1043,34 @@ function setupInlineStudyEvents(app) {
       if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
       if (!_inlineStudyState.currentCard) return;
 
-      if (!_inlineStudyState.isFlipped) {
-        if (e.code === 'Space' || e.code === 'Enter' || e.key === 'ArrowDown') {
-          e.preventDefault();
-          flipInlineCard();
-        } else if (e.key === 'r' || e.key === 'R') {
-          e.preventDefault();
-          speakInlineCard({ force: true });
-        }
-      } else {
+      // Phím Space, Enter, Mũi tên: Lật qua lật lại giữa Mặt trước và Mặt sau
+      if (e.code === 'Space' || e.code === 'Enter' || e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        flipInlineCard();
+        return;
+      }
+
+      // Phím R: Phát âm lại từ
+      if (e.key === 'r' || e.key === 'R') {
+        e.preventDefault();
+        speakInlineCard({ force: true });
+        return;
+      }
+
+      // Khi đang xem mặt sau (đáp án): Phím 1, 2, 3, 4 để tự chấm
+      if (_inlineStudyState.isFlipped) {
         if (e.key === '1') {
           e.preventDefault();
           rateInlineCard(Rating.Again);
         } else if (e.key === '2') {
           e.preventDefault();
           rateInlineCard(Rating.Hard);
-        } else if (e.key === '3' || e.code === 'Space' || e.code === 'Enter') {
+        } else if (e.key === '3') {
           e.preventDefault();
           rateInlineCard(Rating.Good);
         } else if (e.key === '4') {
           e.preventDefault();
           rateInlineCard(Rating.Easy);
-        } else if (e.key === 'r' || e.key === 'R') {
-          e.preventDefault();
-          speakInlineCard({ force: true });
         }
       }
     });
@@ -1181,7 +1194,7 @@ function formatViIntervalText(rawText) {
 }
 
 /**
- * Lật thẻ xem đáp án & mở 4 nút tự chấm
+ * Lật qua lại giữa Mặt trước và Mặt sau của thẻ
  */
 function flipInlineCard() {
   notifyStudyActivity();
@@ -1191,9 +1204,15 @@ function flipInlineCard() {
   const backFace = document.getElementById('inline-face-back');
 
   if (frontFace && backFace) {
-    frontFace.style.display = 'none';
-    backFace.style.display = 'flex';
-    _inlineStudyState.isFlipped = true;
+    if (!_inlineStudyState.isFlipped) {
+      frontFace.style.display = 'none';
+      backFace.style.display = 'flex';
+      _inlineStudyState.isFlipped = true;
+    } else {
+      frontFace.style.display = 'flex';
+      backFace.style.display = 'none';
+      _inlineStudyState.isFlipped = false;
+    }
   }
 }
 
