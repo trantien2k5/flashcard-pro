@@ -6,7 +6,7 @@ import { StorageManager } from '../services/storage.js';
 import { FSRS, State, isCardDue } from './fsrs.js';
 import { MASTERY_STABILITY_THRESHOLD } from '../config.js';
 import { getLocalDateKey } from '../utils.js';
-import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords } from '../../data/index.js';
+import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords, WORDS_MAP } from '../../data/index.js';
 
 export class DeckManager {
   constructor() {
@@ -31,15 +31,13 @@ export class DeckManager {
     const customDecks = StorageManager.getCustomDecks();
     this.decks = [...this.decks, ...customDecks];
 
-    // 3. Nạp toàn bộ từ điển từ vựng
+    // 3. Nạp toàn bộ từ điển từ vựng (O(1) Direct Reference)
     try {
-      const allWords = await loadAllWords();
-      if (allWords && typeof allWords === 'object') {
-        for (const [key, wordData] of Object.entries(allWords)) {
-          if (wordData && typeof wordData === 'object') {
-            const id = wordData.id || key;
-            this.wordsMap.set(key, { ...wordData, id });
-            this.wordsMap.set(id, { ...wordData, id });
+      if (WORDS_MAP instanceof Map) {
+        for (const [id, wordData] of WORDS_MAP.entries()) {
+          this.wordsMap.set(id, wordData);
+          if (wordData && wordData.word && !this.wordsMap.has(wordData.word)) {
+            this.wordsMap.set(wordData.word, wordData);
           }
         }
       }

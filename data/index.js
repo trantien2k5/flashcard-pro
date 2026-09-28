@@ -63,6 +63,7 @@ function _extractTokens(text) {
     .filter(t => t.length >= 2);
 }
 
+// Nạp danh mục từ vựng trực tiếp theo Topic ID
 for (const word of WORDS) {
   if (Array.isArray(word.topicIds)) {
     for (const tid of word.topicIds) {
@@ -73,30 +74,48 @@ for (const word of WORDS) {
       if (directList) directList.push(word);
     }
   }
+}
 
-  // Build Inverted Token Index
-  const tokens = new Set([
-    ..._extractTokens(word.word),
-    ..._extractTokens(word.meaning),
-    ..._extractTokens(word.definition)
-  ]);
-  for (const token of tokens) {
-    if (!_tokenIndexMap.has(token)) {
-      _tokenIndexMap.set(token, []);
+let _searchIndexesBuilt = false;
+
+export function _ensureSearchIndexes() {
+  if (_searchIndexesBuilt) return;
+  _searchIndexesBuilt = true;
+
+  for (const word of WORDS) {
+    // Build Inverted Token Index
+    const tokens = new Set([
+      ..._extractTokens(word.word),
+      ..._extractTokens(word.meaning),
+      ..._extractTokens(word.definition)
+    ]);
+    for (const token of tokens) {
+      if (!_tokenIndexMap.has(token)) {
+        _tokenIndexMap.set(token, []);
+      }
+      const tList = _tokenIndexMap.get(token);
+      if (tList) tList.push(word);
     }
-    const tList = _tokenIndexMap.get(token);
-    if (tList) tList.push(word);
+
+    // Build Word Family Stem Index
+    const pureWord = String(word.word || '').toLowerCase().replace(/[^a-z]/g, '');
+    if (pureWord.length >= 4) {
+      const stem = pureWord.slice(0, 4);
+      if (!_stemIndexMap.has(stem)) {
+        _stemIndexMap.set(stem, []);
+      }
+      const sList = _stemIndexMap.get(stem);
+      if (sList) sList.push(word);
+    }
   }
+}
 
-  // Build Word Family Stem Index
-  const pureWord = String(word.word || '').toLowerCase().replace(/[^a-z]/g, '');
-  if (pureWord.length >= 4) {
-    const stem = pureWord.slice(0, 4);
-    if (!_stemIndexMap.has(stem)) {
-      _stemIndexMap.set(stem, []);
-    }
-    const sList = _stemIndexMap.get(stem);
-    if (sList) sList.push(word);
+// Khởi tạo nền khi UI đã rảnh (Non-blocking Initial Render)
+if (typeof window !== 'undefined') {
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(() => _ensureSearchIndexes(), { timeout: 2500 });
+  } else {
+    setTimeout(() => _ensureSearchIndexes(), 800);
   }
 }
 
@@ -318,6 +337,7 @@ export function filterWords(criteria) {
 
   // Lọc tìm kiếm từ khóa
   if (criteria.search || criteria.query) {
+    _ensureSearchIndexes();
     const q = String(criteria.search || criteria.query).toLowerCase().trim();
     if (q) {
       const qTokens = _extractTokens(q);
@@ -360,6 +380,7 @@ export function filterWords(criteria) {
  */
 export function getWordFamily(wordIdOrWord) {
   if (!wordIdOrWord) return [];
+  _ensureSearchIndexes();
   const targetWord = typeof wordIdOrWord === 'object' ? wordIdOrWord : (getWord(wordIdOrWord) || WORDS.find(w => w.word.toLowerCase() === String(wordIdOrWord).toLowerCase()));
   if (!targetWord || !targetWord.word) return [];
 

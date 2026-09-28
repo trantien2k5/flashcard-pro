@@ -2,8 +2,6 @@
    FSRS-6 Flashcard Pro - Design Tokens, Variables & Reset
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
-
 :root,
 [data-theme="dark"] {
   /* Color Palette - Dark Theme Default (Zen Charcoal #18181B / Deep Carbon) */

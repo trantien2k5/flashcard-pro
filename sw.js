@@ -4,12 +4,13 @@
  * Tự động phát hiện và cập nhật code mới tức thời khi Online (Zero-Friction Live Update).
  */
 
-const CACHE_NAME = 'flashcard-pro-v3.16.0';
+const CACHE_NAME = 'flashcard-pro-v3.17.0';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './assets/icons/favicon.svg',
+  './assets/icons/favicon.ico',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
   './assets/icons/icon.svg',
@@ -22,6 +23,7 @@ const PRECACHE_ASSETS = [
   './css/views/decks.css',
   './css/views/stats.css',
   './css/views/settings.css',
+  './css/views/quiz.css',
   './js/app.js',
   './js/config.js',
   './js/utils.js',
@@ -39,6 +41,7 @@ const PRECACHE_ASSETS = [
   './js/views/stats.js',
   './js/views/settings.js',
   './js/views/study.js',
+  './js/views/quiz.js',
   './data/index.js',
   './data/schemas.js',
   './data/validators.js',
@@ -172,31 +175,33 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // C. Tệp tĩnh nội bộ (JS, CSS, Data, Icons): Network-First kèm Cache Fallback
+  // C. Tệp tĩnh nội bộ (JS, CSS, Data, Icons): Stale-While-Revalidate (Instant Load <10ms & Silent Refresh)
   event.respondWith(
-    fetch(event.request)
-      .then((networkResponse) => {
-        if (networkResponse && networkResponse.status === 200 && (networkResponse.type === 'basic' || networkResponse.type === 'cors')) {
-          const clone = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, clone).catch(() => {});
-          }).catch(() => {});
-        }
-        return networkResponse;
-      })
-      .catch(async () => {
-        try {
-          const cachedResponse = await caches.match(event.request, { ignoreSearch: true });
-          if (cachedResponse) {
-            return cachedResponse;
+    caches.match(event.request, { ignoreSearch: true }).then((cachedResponse) => {
+      const fetchPromise = fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200 && (networkResponse.type === 'basic' || networkResponse.type === 'cors')) {
+            const clone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, clone).catch(() => {});
+            }).catch(() => {});
           }
-        } catch (e) {}
+          return networkResponse;
+        })
+        .catch(() => null);
 
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+
+      return fetchPromise.then((networkResponse) => {
+        if (networkResponse) return networkResponse;
         return new Response('Offline: Tài nguyên không có sẵn trong bộ nhớ đệm', {
           status: 503,
           statusText: 'Service Unavailable',
           headers: new Headers({ 'Content-Type': 'text/plain; charset=utf-8' })
         });
-      })
+      });
+    })
   );
 });
