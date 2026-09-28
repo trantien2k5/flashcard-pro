@@ -382,47 +382,126 @@ export function renderReviewShell(container) {
         </div>
 
         <!-- ==========================================
-             BLOCK 4 (Bottom-Right): HỌC LƯỜI RẢNH TAY + PHÒNG NGỪA QUÊN TỪ
+             BLOCK 4 (Bottom-Right): THÁP 5 CẤP ĐỘ TRÍ NHỚ FSRS-6
              ========================================== -->
-        <div class="review-hero-card review-assist-card" id="review-assist-card">
-          <!-- Sub-Block A: Lazy Audio Walk -->
-          <div class="review-lazy-walk-card">
-            <div class="lazy-walk-left">
-              <div class="lazy-walk-icon">🎧</div>
-              <div class="lazy-walk-text">
-                <span class="lazy-walk-title">Học Lười Rảnh Tay</span>
-                <span class="lazy-walk-desc">Tự động phát âm & dịch nghĩa khi đi bộ, lái xe, làm việc nhà</span>
+        <div class="review-hero-card review-pyramid-home-card" id="review-assist-card">
+          <!-- Top Row Header -->
+          <div class="review-card-header">
+            <div class="review-card-header-left">
+              <div class="review-pyramid-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 22h20L12 2z"/>
+                  <path d="M12 9l5 10H7l5-10z"/>
+                </svg>
+              </div>
+              <div class="review-hero-titles">
+                <div class="review-hero-pill-tag">5 CẤP ĐỘ TRÍ NHỚ</div>
+                <h2 class="review-hero-main-title" id="home-pyramid-main-title">Độ bền lưu giữ từ vựng</h2>
               </div>
             </div>
-            <button type="button" class="btn-lazy-walk-trigger" id="btn-trigger-lazy-walk" title="Bắt đầu nghe thụ động rảnh tay">
-              <span>Bật Nghe</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="5 3 19 12 5 21 5 3"/>
-              </svg>
-            </button>
+
+            <div class="review-header-badges-wrap">
+              <span class="pill-goals-countdown" id="home-pyramid-accuracy-badge">🧠 Nhớ thật: 0%</span>
+              <span class="pill-goals-milestone" id="home-pyramid-total-badge">0 từ</span>
+            </div>
           </div>
 
-          <!-- Sub-Block B: Weak Words Drill / Mastery Health -->
-          <div id="review-weak-words-box" class="review-weak-card">
-            <div class="weak-card-header">
-              <div class="weak-header-left">
-                <div class="weak-icon-badge" id="weak-icon-badge">🛡️</div>
-                <div class="weak-title-wrap">
-                  <span class="weak-tag" id="weak-tag-label">PHÒNG NGỪA QUÊN TỪ</span>
-                  <h3 class="weak-main-title" id="weak-words-title">Phong độ xuất sắc • Chưa có từ nào hay quên</h3>
+          <!-- Multi-segment visual progress bar -->
+          <div class="home-pyramid-segment-bar" id="home-pyramid-segment-bar">
+            <div class="home-seg-fill home-seg-tier5" id="home-seg-tier5" style="width: 0%;" title="Nhớ sâu (≥ 30d)"></div>
+            <div class="home-seg-fill home-seg-tier4" id="home-seg-tier4" style="width: 0%;" title="Bền vững (14-30d)"></div>
+            <div class="home-seg-fill home-seg-tier3" id="home-seg-tier3" style="width: 0%;" title="Trung hạn (7-14d)"></div>
+            <div class="home-seg-fill home-seg-tier2" id="home-seg-tier2" style="width: 0%;" title="Ngắn hạn (3-7d)"></div>
+            <div class="home-seg-fill home-seg-tier1" id="home-seg-tier1" style="width: 0%;" title="Mới nạp (< 3d)"></div>
+          </div>
+
+          <!-- 5 Tiers Mini List -->
+          <div class="home-pyramid-tiers-list">
+            <!-- Tier 5 -->
+            <div class="home-tier-row tier-5">
+              <div class="home-tier-left">
+                <span class="home-tier-icon">💎</span>
+                <div class="home-tier-meta">
+                  <strong class="home-tier-name">Mức 5: Nhớ sâu vĩnh viễn</strong>
+                  <span class="home-tier-desc">Độ bền ≥ 30 ngày • Ôn 1 - 6 tháng</span>
                 </div>
               </div>
-              <span class="weak-count-pill" id="weak-words-count-badge">Tốt ✓</span>
+              <div class="home-tier-right">
+                <strong class="home-tier-count" id="home-tier-cnt-5">0 từ</strong>
+                <span class="home-tier-pct" id="home-tier-pct-5">0%</span>
+              </div>
             </div>
 
-            <div class="weak-actions-row" id="weak-actions-row" style="display: none;">
-              <button type="button" class="btn-weak-action btn-weak-3d" id="btn-weak-drill-3d">
-                <span>🎴 Củng cố Flashcard</span>
-              </button>
-              <button type="button" class="btn-weak-action btn-weak-quiz" id="btn-weak-drill-quiz">
-                <span>⚡ Trắc nghiệm Củng Cố</span>
-              </button>
+            <!-- Tier 4 -->
+            <div class="home-tier-row tier-4">
+              <div class="home-tier-left">
+                <span class="home-tier-icon">🛡️</span>
+                <div class="home-tier-meta">
+                  <strong class="home-tier-name">Mức 4: Ghi nhớ bền vững</strong>
+                  <span class="home-tier-desc">Độ bền 14 - 30 ngày • Ôn 2 - 4 tuần</span>
+                </div>
+              </div>
+              <div class="home-tier-right">
+                <strong class="home-tier-count" id="home-tier-cnt-4">0 từ</strong>
+                <span class="home-tier-pct" id="home-tier-pct-4">0%</span>
+              </div>
             </div>
+
+            <!-- Tier 3 -->
+            <div class="home-tier-row tier-3">
+              <div class="home-tier-left">
+                <span class="home-tier-icon">🌳</span>
+                <div class="home-tier-meta">
+                  <strong class="home-tier-name">Mức 3: Ghi nhớ trung hạn</strong>
+                  <span class="home-tier-desc">Độ bền 7 - 14 ngày • Ôn 1 - 2 tuần</span>
+                </div>
+              </div>
+              <div class="home-tier-right">
+                <strong class="home-tier-count" id="home-tier-cnt-3">0 từ</strong>
+                <span class="home-tier-pct" id="home-tier-pct-3">0%</span>
+              </div>
+            </div>
+
+            <!-- Tier 2 -->
+            <div class="home-tier-row tier-2">
+              <div class="home-tier-left">
+                <span class="home-tier-icon">🌿</span>
+                <div class="home-tier-meta">
+                  <strong class="home-tier-name">Mức 2: Trí nhớ ngắn hạn</strong>
+                  <span class="home-tier-desc">Độ bền 3 - 7 ngày • Ôn 3 - 7 ngày</span>
+                </div>
+              </div>
+              <div class="home-tier-right">
+                <strong class="home-tier-count" id="home-tier-cnt-2">0 từ</strong>
+                <span class="home-tier-pct" id="home-tier-pct-2">0%</span>
+              </div>
+            </div>
+
+            <!-- Tier 1 -->
+            <div class="home-tier-row tier-1">
+              <div class="home-tier-left">
+                <span class="home-tier-icon">🌱</span>
+                <div class="home-tier-meta">
+                  <strong class="home-tier-name">Mức 1: Mới nạp vào não</strong>
+                  <span class="home-tier-desc">Độ bền < 3 ngày • Cần củng cố</span>
+                </div>
+              </div>
+              <div class="home-tier-right">
+                <strong class="home-tier-count" id="home-tier-cnt-1">0 từ</strong>
+                <span class="home-tier-pct" id="home-tier-pct-1">0%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Motive / Stats CTA Strip -->
+          <div class="goals-motive-strip home-pyramid-motive-strip">
+            <div class="goals-motive-left">
+              <span class="goals-motive-icon">✨</span>
+              <span class="goals-motive-text" id="home-pyramid-motive-text">0% từ vựng đang ở vùng trí nhớ bền vững</span>
+            </div>
+            <button type="button" class="btn-goals-adjust" id="btn-home-view-stats" title="Xem phân tích năng lực trí nhớ FSRS chuyên sâu">
+              <span>Xem báo cáo 📊</span>
+            </button>
           </div>
         </div>
 
@@ -819,65 +898,69 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
     }
   }
 
-  // Weak Words Box
-  const weakWords = typeof app.deckManager.getWeakWords === 'function' ? app.deckManager.getWeakWords(10) : [];
-  const boxWeak = document.getElementById('review-weak-words-box');
-  const elWeakIcon = document.getElementById('weak-icon-badge');
-  const elWeakTag = document.getElementById('weak-tag-label');
-  const elWeakTitle = document.getElementById('weak-words-title');
-  const elWeakCount = document.getElementById('weak-words-count-badge');
-  const weakActionsRow = document.getElementById('weak-actions-row');
-  const btnWeak3D = document.getElementById('btn-weak-drill-3d');
-  const btnWeakQuiz = document.getElementById('btn-weak-drill-quiz');
+  // 5 Cấp Độ Trí Nhớ (FSRS Stability Tiers)
+  const memIntel = StatsManager.getMemoryIntelligence(allCards);
+  const tiers = memIntel.tiers || {};
+  const totalLearned = memIntel.totalLearned || 0;
 
-  if (boxWeak) {
-    if (weakWords.length > 0) {
-      if (elWeakIcon) elWeakIcon.textContent = '💡';
-      if (elWeakTag) {
-        elWeakTag.textContent = 'TỪ VỰNG CẦN CỦNG CỐ';
-        elWeakTag.style.color = '#ef4444';
-      }
-      if (elWeakTitle) elWeakTitle.textContent = `Có ${weakWords.length} từ bạn hay quên cần ôn luyện lại`;
-      if (elWeakCount) {
-        elWeakCount.textContent = `${weakWords.length} từ`;
-        elWeakCount.style.color = '#ef4444';
-        elWeakCount.style.background = 'rgba(239, 68, 68, 0.12)';
-      }
-      if (weakActionsRow) weakActionsRow.style.display = 'grid';
+  const elPyrAcc = document.getElementById('home-pyramid-accuracy-badge');
+  if (elPyrAcc) elPyrAcc.textContent = `🧠 Nhớ thật: ${memIntel.currentRetrievability || 0}%`;
 
-      if (btnWeak3D) {
-        btnWeak3D.onclick = () => {
-          try {
-            app.startStudySession(null, null, weakWords);
-          } catch (err) {
-            showToast('Lỗi: ' + err.message, 'error');
-          }
-        };
-      }
+  const elPyrTot = document.getElementById('home-pyramid-total-badge');
+  if (elPyrTot) elPyrTot.textContent = `${totalLearned} từ`;
 
-      if (btnWeakQuiz) {
-        btnWeakQuiz.onclick = () => {
-          try {
-            app.startQuizSession(weakWords);
-          } catch (err) {
-            showToast('Lỗi: ' + err.message, 'error');
-          }
-        };
-      }
+  const t5 = tiers.tier5?.count || 0;
+  const t4 = tiers.tier4?.count || 0;
+  const t3 = tiers.tier3?.count || 0;
+  const t2 = tiers.tier2?.count || 0;
+  const t1 = tiers.tier1?.count || 0;
+
+  const pct = (cnt) => totalLearned > 0 ? Math.round((cnt / totalLearned) * 100) : 0;
+  const p5 = pct(t5), p4 = pct(t4), p3 = pct(t3), p2 = pct(t2), p1 = pct(t1);
+
+  const setTier = (tierNum, cnt, p) => {
+    const elCnt = document.getElementById(`home-tier-cnt-${tierNum}`);
+    const elPct = document.getElementById(`home-tier-pct-${tierNum}`);
+    if (elCnt) elCnt.textContent = `${cnt} từ`;
+    if (elPct) elPct.textContent = `${p}%`;
+  };
+  setTier(5, t5, p5);
+  setTier(4, t4, p4);
+  setTier(3, t3, p3);
+  setTier(2, t2, p2);
+  setTier(1, t1, p1);
+
+  const seg5 = document.getElementById('home-seg-tier5');
+  const seg4 = document.getElementById('home-seg-tier4');
+  const seg3 = document.getElementById('home-seg-tier3');
+  const seg2 = document.getElementById('home-seg-tier2');
+  const seg1 = document.getElementById('home-seg-tier1');
+  if (seg5) seg5.style.width = `${p5}%`;
+  if (seg4) seg4.style.width = `${p4}%`;
+  if (seg3) seg3.style.width = `${p3}%`;
+  if (seg2) seg2.style.width = `${p2}%`;
+  if (seg1) seg1.style.width = `${p1}%`;
+
+  const solidCount = t5 + t4;
+  const solidPct = totalLearned > 0 ? Math.round((solidCount / totalLearned) * 100) : 0;
+  const elPyrMotive = document.getElementById('home-pyramid-motive-text');
+  if (elPyrMotive) {
+    if (totalLearned === 0) {
+      elPyrMotive.textContent = 'Bắt đầu học để xây dựng 5 cấp độ trí nhớ FSRS bền vững!';
     } else {
-      if (elWeakIcon) elWeakIcon.textContent = '🛡️';
-      if (elWeakTag) {
-        elWeakTag.textContent = 'PHÒNG NGỪA QUÊN TỪ';
-        elWeakTag.style.color = '#10b981';
-      }
-      if (elWeakTitle) elWeakTitle.textContent = 'Phong độ xuất sắc • Chưa có từ nào bị quên nhiều lần';
-      if (elWeakCount) {
-        elWeakCount.textContent = 'Tốt ✓';
-        elWeakCount.style.color = '#10b981';
-        elWeakCount.style.background = 'rgba(16, 185, 129, 0.12)';
-      }
-      if (weakActionsRow) weakActionsRow.style.display = 'none';
+      elPyrMotive.textContent = `${solidPct}% từ vựng (${solidCount}/${totalLearned}) đang ở vùng trí nhớ bền vững (≥ 14 ngày)!`;
     }
+  }
+
+  const btnViewStats = document.getElementById('btn-home-view-stats');
+  if (btnViewStats && !btnViewStats._bound) {
+    btnViewStats._bound = true;
+    btnViewStats.onclick = (e) => {
+      e.stopPropagation();
+      if (app && typeof app.switchTab === 'function') {
+        app.switchTab('stats');
+      }
+    };
   }
 }
 

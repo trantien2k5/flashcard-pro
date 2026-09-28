@@ -1428,82 +1428,158 @@
 }
 
 /* ==========================================================================
-   5. Lazy Audio Walk Bento Card & Floating Modal
+   5. Tháp 5 Cấp Độ Trí Nhớ FSRS-6 Trên Trang Chủ Ôn Tập (Review Home Pyramid)
    ========================================================================== */
-.review-lazy-walk-card {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08));
-  border: 1.5px dashed rgba(99, 102, 241, 0.3);
-  border-radius: 16px;
-  padding: 12px 14px;
+.review-pyramid-home-card {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 10px;
-  box-sizing: border-box;
+  gap: 12px;
 }
 
-.lazy-walk-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
-
-.lazy-walk-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
+.review-pyramid-icon-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #10b981, #06b6d4);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+.home-pyramid-segment-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--bg-tertiary);
+  overflow: hidden;
+  display: flex;
+  gap: 2px;
+}
+
+[data-theme="light"] .home-pyramid-segment-bar {
+  background: #e2e8f0;
+}
+
+.home-seg-fill {
+  height: 100%;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px;
+}
+
+.home-seg-tier5 { background: #10b981; }
+.home-seg-tier4 { background: #06b6d4; }
+.home-seg-tier3 { background: #3b82f6; }
+.home-seg-tier2 { background: #f59e0b; }
+.home-seg-tier1 { background: #a855f7; }
+
+.home-pyramid-tiers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.home-tier-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.15s ease;
+}
+
+[data-theme="light"] .home-tier-row {
+  background: #ffffff;
+  border-color: #f1f5f9;
+}
+
+.home-tier-row:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-focus);
+}
+
+.home-tier-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.home-tier-icon {
+  font-size: 1rem;
+  line-height: 1;
   flex-shrink: 0;
 }
 
-.lazy-walk-text {
+.home-tier-meta {
   display: flex;
   flex-direction: column;
   gap: 1px;
+  min-width: 0;
 }
 
-.lazy-walk-title {
-  font-size: 0.84rem;
+.home-tier-name {
+  font-size: 0.76rem;
+  font-weight: 750;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.home-tier-desc {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.home-tier-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.home-tier-count {
+  font-size: 0.78rem;
   font-weight: 800;
+  font-family: var(--font-mono);
   color: var(--text-primary);
 }
 
-.lazy-walk-desc {
-  font-size: 0.7rem;
-  color: var(--text-secondary);
-  line-height: 1.2;
-}
+.home-tier-row.tier-5 .home-tier-count { color: #10b981; }
+[data-theme="light"] .home-tier-row.tier-5 .home-tier-count { color: #059669; }
 
-.btn-lazy-walk-trigger {
-  padding: 7px 12px;
-  border-radius: 9px;
-  background: var(--primary);
-  color: #ffffff;
-  border: none;
-  font-size: 0.75rem;
+.home-tier-row.tier-4 .home-tier-count { color: #06b6d4; }
+[data-theme="light"] .home-tier-row.tier-4 .home-tier-count { color: #0891b2; }
+
+.home-tier-row.tier-3 .home-tier-count { color: #3b82f6; }
+[data-theme="light"] .home-tier-row.tier-3 .home-tier-count { color: #2563eb; }
+
+.home-tier-row.tier-2 .home-tier-count { color: #f59e0b; }
+[data-theme="light"] .home-tier-row.tier-2 .home-tier-count { color: #d97706; }
+
+.home-tier-row.tier-1 .home-tier-count { color: #a855f7; }
+[data-theme="light"] .home-tier-row.tier-1 .home-tier-count { color: #7c3aed; }
+
+.home-tier-pct {
+  font-size: 0.68rem;
   font-weight: 800;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  flex-shrink: 0;
-  box-shadow: 0 3px 10px rgba(99, 102, 241, 0.3);
-  transition: all 0.16s ease;
+  font-family: var(--font-mono);
+  padding: 1px 6px;
+  border-radius: 99px;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
 }
 
-.btn-lazy-walk-trigger:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.08);
-}
-
-.btn-lazy-walk-trigger:active {
-  transform: scale(0.96);
+.home-pyramid-motive-strip {
+  margin-top: 2px;
 }
 
 /* Floating Lazy Audio Player Modal */
@@ -3143,29 +3219,11 @@
     border-radius: var(--radius-lg);
   }
 
-  /* Block 4 (Bottom-Right): Rảnh Tay & Củng Cố */
-  .review-assist-card {
+  /* Block 4 (Bottom-Right): Tháp 5 Cấp Độ Trí Nhớ */
+  .review-assist-card,
+  .review-pyramid-home-card {
     padding: 20px;
-    gap: 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .review-assist-card .review-lazy-walk-card {
-    flex: 1;
-    margin: 0;
-    padding: 16px 18px;
-    border-radius: 16px;
-  }
-
-  .review-assist-card .review-weak-card {
-    flex: 1.25;
-    margin: 0;
-    padding: 16px 18px;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    background: var(--bg-secondary);
+    gap: 12px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
