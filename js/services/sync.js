@@ -458,12 +458,14 @@ export class SyncManager {
     return {
       v: 2,
       ts: Date.now(),
+      profile: StorageManager.getUserProfile ? StorageManager.getUserProfile() : null,
       cards: StorageManager.getAllCardStates() || {},
       settings: StorageManager.getSettings() || {},
       logs: StorageManager.getStudyLogs() || [],
       customDecks: StorageManager.getCustomDecks() || [],
       studyTime: StorageManager.getStudyTimeMap() || {},
-      userProgress: StorageManager.getUserProgress() || {}
+      userProgress: StorageManager.getUserProgress() || {},
+      prefs: StorageManager.getUserPreferences ? StorageManager.getUserPreferences() : {}
     };
   }
 
@@ -505,12 +507,14 @@ export class SyncManager {
     return {
       version: '2.0',
       exportDate: new Date(payload.ts || payload.t * 1000 || Date.now()).toISOString(),
+      profile: payload.profile || payload.p || null,
       cards: unpackedCards,
       settings: payload.settings || payload.s || {},
       logs: payload.logs || payload.l || payload.study_logs || [],
       customDecks: payload.customDecks || payload.d || payload.custom_decks || [],
       studyTime: payload.studyTime || payload.st || payload.study_time || {},
-      userProgress: payload.userProgress || payload.up || payload.user_progress || {}
+      userProgress: payload.userProgress || payload.up || payload.user_progress || {},
+      prefs: payload.prefs || payload.preferences || {}
     };
   }
 
@@ -649,16 +653,35 @@ export class SyncManager {
     const curSettings = StorageManager.getSettings() || {};
     const incSettings = incomingData.settings || incomingData.s || {};
 
+    const curProfile = StorageManager.getUserProfile ? StorageManager.getUserProfile() : { name: 'Học Viên Flashcard Pro', avatar: '🎓' };
+    const incProfile = incomingData.profile || incomingData.p || {};
+    const mergedProfile = {
+      name: (incProfile.name && incProfile.name !== 'Học Viên Flashcard Pro') ? incProfile.name : curProfile.name,
+      avatar: (incProfile.avatar && incProfile.avatar !== '🎓') ? incProfile.avatar : curProfile.avatar
+    };
+
+    const curPrefs = StorageManager.getUserPreferences ? StorageManager.getUserPreferences() : {};
+    const incPrefs = incomingData.prefs || incomingData.preferences || {};
+    const mergedPrefs = {
+      studyDisplay: incPrefs.studyDisplay || curPrefs.studyDisplay || null,
+      studyAutoplay: incPrefs.studyAutoplay || curPrefs.studyAutoplay || null,
+      inlineDisplay: incPrefs.inlineDisplay || curPrefs.inlineDisplay || null,
+      pinnedDecks: Array.from(new Set([...(curPrefs.pinnedDecks || []), ...(incPrefs.pinnedDecks || [])])),
+      searchHistory: Array.from(new Set([...(curPrefs.searchHistory || []), ...(incPrefs.searchHistory || [])])).slice(0, 20)
+    };
+
     return {
       data: {
         version: '2.0',
         exportDate: new Date().toISOString(),
+        profile: mergedProfile,
         cards: mergedCards,
         settings: { ...curSettings, ...incSettings },
         logs: mergedLogs,
         studyTime: mergedStudyTime,
         customDecks: mergedCustomDecks,
-        userProgress: mergedUserProgress
+        userProgress: mergedUserProgress,
+        prefs: mergedPrefs
       },
       stats: {
         added: addedCount,

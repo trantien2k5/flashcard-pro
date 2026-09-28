@@ -743,6 +743,68 @@ export class StorageManager {
     return false;
   }
 
+  // ==========================================
+  // USER PROFILE & PERSONALIZATION PREFERENCES
+  // ==========================================
+
+  static getUserProfile() {
+    if (typeof localStorage === 'undefined') {
+      return { name: 'Học Viên Flashcard Pro', avatar: '🎓' };
+    }
+    try {
+      return {
+        name: localStorage.getItem('fc_pro_user_name') || 'Học Viên Flashcard Pro',
+        avatar: localStorage.getItem('fc_pro_user_avatar') || '🎓'
+      };
+    } catch (e) {
+      return { name: 'Học Viên Flashcard Pro', avatar: '🎓' };
+    }
+  }
+
+  static saveUserProfile(profile) {
+    if (typeof localStorage === 'undefined' || !profile) return;
+    try {
+      if (profile.name) localStorage.setItem('fc_pro_user_name', String(profile.name).trim().slice(0, 50));
+      if (profile.avatar) localStorage.setItem('fc_pro_user_avatar', String(profile.avatar).trim().slice(0, 10));
+    } catch (e) {
+      console.warn('Error saving user profile:', e);
+    }
+  }
+
+  static getUserPreferences() {
+    if (typeof localStorage === 'undefined') return {};
+    try {
+      const studyDisplay = localStorage.getItem('study_display_prefs');
+      const studyAutoplay = localStorage.getItem('study_autoplay_prefs');
+      const inlineDisplay = localStorage.getItem('inline_flashcard_display_prefs');
+      const pinnedDecks = localStorage.getItem('fc_pro_pinned_decks');
+      const searchHistory = localStorage.getItem('flashcard_search_history_v2');
+
+      return {
+        studyDisplay: studyDisplay ? JSON.parse(studyDisplay) : null,
+        studyAutoplay: studyAutoplay ? JSON.parse(studyAutoplay) : null,
+        inlineDisplay: inlineDisplay ? JSON.parse(inlineDisplay) : null,
+        pinnedDecks: pinnedDecks ? JSON.parse(pinnedDecks) : null,
+        searchHistory: searchHistory ? JSON.parse(searchHistory) : null
+      };
+    } catch (e) {
+      return {};
+    }
+  }
+
+  static saveUserPreferences(prefs) {
+    if (typeof localStorage === 'undefined' || !prefs) return;
+    try {
+      if (prefs.studyDisplay) localStorage.setItem('study_display_prefs', JSON.stringify(prefs.studyDisplay));
+      if (prefs.studyAutoplay) localStorage.setItem('study_autoplay_prefs', JSON.stringify(prefs.studyAutoplay));
+      if (prefs.inlineDisplay) localStorage.setItem('inline_flashcard_display_prefs', JSON.stringify(prefs.inlineDisplay));
+      if (Array.isArray(prefs.pinnedDecks)) localStorage.setItem('fc_pro_pinned_decks', JSON.stringify(prefs.pinnedDecks));
+      if (Array.isArray(prefs.searchHistory)) localStorage.setItem('flashcard_search_history_v2', JSON.stringify(prefs.searchHistory));
+    } catch (e) {
+      console.warn('Error saving user preferences:', e);
+    }
+  }
+
   static exportBackup() {
     return this.exportCompactBackup();
   }
@@ -797,15 +859,17 @@ export class StorageManager {
     });
 
     return {
-      v: '3.0',
+      v: '3.1',
       type: 'fc_fsrs_nano',
       t: Math.floor(Date.now() / 1000),
+      p: this.getUserProfile(),
       s: this.getSettings(),
       c: compactCards,
       l: compactLogs,
       d: this.getCustomDecks(),
       st: this.getStudyTimeMap(),
-      up: this.getUserProgress()
+      up: this.getUserProgress(),
+      prefs: this.getUserPreferences()
     };
   }
 
@@ -1004,7 +1068,23 @@ export class StorageManager {
         }
       }
 
-      // 7. Ghi đè đồng bộ vào IndexedDB bền vững
+      // 7. Hồ sơ cá nhân (User Profile) & Tùy chọn học tập (Personalization Preferences)
+      const rawProfile = data.profile || data.p;
+      if (rawProfile && typeof rawProfile === 'object') {
+        this.saveUserProfile(rawProfile);
+      }
+
+      const rawPrefs = data.prefs || data.preferences;
+      if (rawPrefs && typeof rawPrefs === 'object') {
+        this.saveUserPreferences(rawPrefs);
+      }
+
+      const rawPinnedDecks = data.pinnedDecks || data.pinned_decks;
+      if (Array.isArray(rawPinnedDecks) && typeof localStorage !== 'undefined') {
+        localStorage.setItem('fc_pro_pinned_decks', JSON.stringify(rawPinnedDecks));
+      }
+
+      // 8. Ghi đè đồng bộ vào IndexedDB bền vững
       if (_dbPromise) {
         const db = await _dbPromise;
         if (db) {
