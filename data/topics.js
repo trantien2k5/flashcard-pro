@@ -5790,6 +5790,376 @@ export const TOPICS = [
     "icon": "💰",
     "color": "#14b8a6"
   }
+,
+  {
+    "id": "toeic-b2-mastery",
+    "name": "TOEIC B2 Chuyên Sâu - Đột Phá 785 - 900+",
+    "titleEn": "TOEIC B2 Mastery - Patterns & Word Families",
+    "parentId": null,
+    "description": "Lộ trình 30 chặng luyện chuyên sâu 300 từ vựng, trạng từ bẫy, cụm động từ công sở và cụm từ cố định sống còn trong đề thi TOEIC (785 - 900+).",
+    "icon": "🏆",
+    "category": "toeic",
+    "phase": 3,
+    "color": "#4f46e5",
+    "order": 20,
+    "isProgressive": true
+  },
+  {
+    "id": "toeic-b2-chặng-1",
+    "name": "1. Trạng từ Mức độ, Tăng trưởng & Tỷ lệ #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về trạng từ mức độ, tăng trưởng & tỷ lệ #1.",
+    "icon": "📈",
+    "color": "#4f46e5"
+  },
+  {
+    "id": "toeic-b2-chặng-2",
+    "name": "2. Trạng từ Mức độ, Tăng trưởng & Tỷ lệ #2",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về trạng từ mức độ, tăng trưởng & tỷ lệ #2.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-1"
+    },
+    "icon": "📊",
+    "color": "#6366f1"
+  },
+  {
+    "id": "toeic-b2-chặng-3",
+    "name": "3. Trạng từ Thời gian, Tiến độ & Tính kịp thời #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về trạng từ thời gian, tiến độ & tính kịp thời #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-2"
+    },
+    "icon": "⏱️",
+    "color": "#0ea5e9"
+  },
+  {
+    "id": "toeic-b2-chặng-4",
+    "name": "4. Trạng từ Thời gian, Tiến độ & Tính kịp thời #2",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về trạng từ thời gian, tiến độ & tính kịp thời #2.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-3"
+    },
+    "icon": "⏳",
+    "color": "#06b6d4"
+  },
+  {
+    "id": "toeic-b2-chặng-5",
+    "name": "5. Trạng từ Quy định, Chính sách & Chuẩn xác #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về trạng từ quy định, chính sách & chuẩn xác #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-4"
+    },
+    "icon": "⚖️",
+    "color": "#10b981"
+  },
+  {
+    "id": "toeic-b2-chặng-6",
+    "name": "6. Trạng từ Quy định, Chính sách & Chuẩn xác #2",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về trạng từ quy định, chính sách & chuẩn xác #2.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-5"
+    },
+    "icon": "📜",
+    "color": "#14b8a6"
+  },
+  {
+    "id": "toeic-b2-chặng-7",
+    "name": "7. Trạng từ Thái độ, Quan điểm & Thuyết phục #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về trạng từ thái độ, quan điểm & thuyết phục #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-6"
+    },
+    "icon": "💡",
+    "color": "#f59e0b"
+  },
+  {
+    "id": "toeic-b2-chặng-8",
+    "name": "8. Trạng từ Tương quan, So sánh & Tần suất #2",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về trạng từ tương quan, so sánh & tần suất #2.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-7"
+    },
+    "icon": "🔄",
+    "color": "#ec4899"
+  },
+  {
+    "id": "toeic-b2-chặng-9",
+    "name": "9. Cụm Động từ: Kế hoạch, Lịch trình & Họp hành #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về cụm động từ kế hoạch, lịch trình & họp hành #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-8"
+    },
+    "icon": "📅",
+    "color": "#4f46e5"
+  },
+  {
+    "id": "toeic-b2-chặng-10",
+    "name": "10. Cụm Động từ: Kế hoạch, Lịch trình & Họp hành #2",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về cụm động từ kế hoạch, lịch trình & họp hành #2.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-9"
+    },
+    "icon": "📌",
+    "color": "#6366f1"
+  },
+  {
+    "id": "toeic-b2-chặng-11",
+    "name": "11. Cụm Động từ: Vận hành, Quản trị & Bàn giao #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về cụm động từ vận hành, quản trị & bàn giao #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-10"
+    },
+    "icon": "🏢",
+    "color": "#8b5cf6"
+  },
+  {
+    "id": "toeic-b2-chặng-12",
+    "name": "12. Cụm Động từ: Vận hành, Quản trị & Bàn giao #2",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về cụm động từ vận hành, quản trị & bàn giao #2.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-11"
+    },
+    "icon": "🤝",
+    "color": "#a855f7"
+  },
+  {
+    "id": "toeic-b2-chặng-13",
+    "name": "13. Cụm Động từ: Thủ tục, Giấy tờ & Biểu mẫu #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về cụm động từ thủ tục, giấy tờ & biểu mẫu #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-12"
+    },
+    "icon": "📝",
+    "color": "#0284c7"
+  },
+  {
+    "id": "toeic-b2-chặng-14",
+    "name": "14. Cụm Động từ: Tra cứu, Kiểm tra & Xử lý sự cố #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về cụm động từ tra cứu, kiểm tra & xử lý sự cố #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-13"
+    },
+    "icon": "🔍",
+    "color": "#0ea5e9"
+  },
+  {
+    "id": "toeic-b2-chặng-15",
+    "name": "15. Cụm Động từ: Giao tiếp, Đàm phán & Khách hàng #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về cụm động từ giao tiếp, đàm phán & khách hàng #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-14"
+    },
+    "icon": "💬",
+    "color": "#10b981"
+  },
+  {
+    "id": "toeic-b2-chặng-16",
+    "name": "16. Cụm Động từ: Tài chính, Ngân sách & Cắt giảm #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về cụm động từ tài chính, ngân sách & cắt giảm #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-15"
+    },
+    "icon": "💰",
+    "color": "#f59e0b"
+  },
+  {
+    "id": "toeic-b2-chặng-17",
+    "name": "17. Cụm Động từ: Phát triển, Mở rộng & Đầu tư #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về cụm động từ phát triển, mở rộng & đầu tư #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-16"
+    },
+    "icon": "🚀",
+    "color": "#ec4899"
+  },
+  {
+    "id": "toeic-b2-chặng-18",
+    "name": "18. Cụm Động từ: Thích ứng, Kiên trì & Giải quyết #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về cụm động từ thích ứng, kiên trì & giải quyết #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-17"
+    },
+    "icon": "🧗",
+    "color": "#f43f5e"
+  },
+  {
+    "id": "toeic-b2-chặng-19",
+    "name": "19. Cụm Giới từ: Quy định, Hợp đồng & Tuân thủ #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về cụm giới từ quy định, hợp đồng & tuân thủ #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-18"
+    },
+    "icon": "📑",
+    "color": "#4f46e5"
+  },
+  {
+    "id": "toeic-b2-chặng-20",
+    "name": "20. Cụm Giới từ: Điều kiện, Quyền lợi & Trách nhiệm #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về cụm giới từ điều kiện, quyền lợi & trách nhiệm #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-19"
+    },
+    "icon": "🛡️",
+    "color": "#6366f1"
+  },
+  {
+    "id": "toeic-b2-chặng-21",
+    "name": "21. Cụm Giới từ: Thời điểm, Tiến độ & Tình trạng #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về cụm giới từ thời điểm, tiến độ & tình trạng #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-20"
+    },
+    "icon": "⌛",
+    "color": "#0284c7"
+  },
+  {
+    "id": "toeic-b2-chặng-22",
+    "name": "22. Cụm Giới từ: Nguyên nhân, Mục đích & Quan hệ #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về cụm giới từ nguyên nhân, mục đích & quan hệ #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-21"
+    },
+    "icon": "🎯",
+    "color": "#06b6d4"
+  },
+  {
+    "id": "toeic-b2-chặng-23",
+    "name": "23. Collocations: Quyết định, Hành động & Đạt thỏa thuận #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về collocations quyết định, hành động & đạt thỏa thuận #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-22"
+    },
+    "icon": "✍️",
+    "color": "#10b981"
+  },
+  {
+    "id": "toeic-b2-chặng-24",
+    "name": "24. Collocations: Mục tiêu, Hạn chót & Kỳ vọng #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về collocations mục tiêu, hạn chót & kỳ vọng #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-23"
+    },
+    "icon": "🏁",
+    "color": "#14b8a6"
+  },
+  {
+    "id": "toeic-b2-chặng-25",
+    "name": "25. Collocations: Khảo sát, Báo cáo & Yêu cầu pháp lý #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về collocations khảo sát, báo cáo & yêu cầu pháp lý #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-24"
+    },
+    "icon": "📋",
+    "color": "#f59e0b"
+  },
+  {
+    "id": "toeic-b2-chặng-26",
+    "name": "26. Collocations: Tài chính, Ngân sách & Tối ưu quy trình #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về collocations tài chính, ngân sách & tối ưu quy trình #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-25"
+    },
+    "icon": "💎",
+    "color": "#ec4899"
+  },
+  {
+    "id": "toeic-b2-chặng-27",
+    "name": "27. Động từ + Giới từ Cố định: Tuân thủ, Đầu tư & Đóng góp #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về động từ + giới từ cố định: tuân thủ, đầu tư & đóng góp #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-26"
+    },
+    "icon": "🔗",
+    "color": "#8b5cf6"
+  },
+  {
+    "id": "toeic-b2-chặng-28",
+    "name": "28. Động từ + Giới từ Cố định: Hạn chế, Xuất phát & Dẫn tới #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về động từ + giới từ cố định: hạn chế, xuất phát & dẫn tới #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-27"
+    },
+    "icon": "⚖️",
+    "color": "#a855f7"
+  },
+  {
+    "id": "toeic-b2-chặng-29",
+    "name": "29. Động từ + Giới từ Cố định: Tin cậy, Phụ thuộc & Cung cấp #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về động từ + giới từ cố định: tin cậy, phụ thuộc & cung cấp #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-28"
+    },
+    "icon": "🤝",
+    "color": "#0284c7"
+  },
+  {
+    "id": "toeic-b2-chặng-30",
+    "name": "30. Tính từ + Giới từ Cố định: Đủ tư cách, Bắt buộc & Đóng góp #1",
+    "parentId": "toeic-b2-mastery",
+    "description": "Gồm 10 từ vựng chuyên sâu về tính từ + giới từ cố định: đủ tư cách, bắt buộc & đóng góp #1.",
+    "unlockRule": {
+      "type": "completeSubtopic",
+      "subtopicId": "toeic-b2-chặng-29"
+    },
+    "icon": "🌟",
+    "color": "#f43f5e"
+  }
 ];
 
 export const TOPICS_MAP = new Map(TOPICS.map(t => [t.id, t]));

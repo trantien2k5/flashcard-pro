@@ -30,6 +30,8 @@ export {
 const _childTopicIdsByParentId = new Map();
 const _parentTopicIdByTopicId = new Map();
 const _wordsByDirectTopicId = new Map();
+const _tokenIndexMap = new Map();
+const _stemIndexMap = new Map();
 const _rootTopics = [];
 let _topicTreeCache = null;
 
@@ -51,6 +53,16 @@ for (const topic of TOPICS) {
 
 const CEFR_WEIGHT_MAP = { 'A1': 1, 'A2': 2, 'B1': 3, 'B2': 4, 'C1': 5, 'C2': 6 };
 
+function _extractTokens(text) {
+  if (!text) return [];
+  return String(text)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .split(/[^a-z0-9]+/i)
+    .filter(t => t.length >= 2);
+}
+
 for (const word of WORDS) {
   if (Array.isArray(word.topicIds)) {
     for (const tid of word.topicIds) {
@@ -60,6 +72,31 @@ for (const word of WORDS) {
       const directList = _wordsByDirectTopicId.get(tid);
       if (directList) directList.push(word);
     }
+  }
+
+  // Build Inverted Token Index
+  const tokens = new Set([
+    ..._extractTokens(word.word),
+    ..._extractTokens(word.meaning),
+    ..._extractTokens(word.definition)
+  ]);
+  for (const token of tokens) {
+    if (!_tokenIndexMap.has(token)) {
+      _tokenIndexMap.set(token, []);
+    }
+    const tList = _tokenIndexMap.get(token);
+    if (tList) tList.push(word);
+  }
+
+  // Build Word Family Stem Index
+  const pureWord = String(word.word || '').toLowerCase().replace(/[^a-z]/g, '');
+  if (pureWord.length >= 4) {
+    const stem = pureWord.slice(0, 4);
+    if (!_stemIndexMap.has(stem)) {
+      _stemIndexMap.set(stem, []);
+    }
+    const sList = _stemIndexMap.get(stem);
+    if (sList) sList.push(word);
   }
 }
 
@@ -283,16 +320,63 @@ export function filterWords(criteria) {
   if (criteria.search || criteria.query) {
     const q = String(criteria.search || criteria.query).toLowerCase().trim();
     if (q) {
-      dataset = dataset.filter(w => {
-        const matchWord = w.word && w.word.toLowerCase().includes(q);
-        const matchMeaning = w.meaning && w.meaning.toLowerCase().includes(q);
-        const matchDef = w.definition && w.definition.toLowerCase().includes(q);
-        return Boolean(matchWord || matchMeaning || matchDef);
-      });
+      const qTokens = _extractTokens(q);
+      // Sử dụng Token Inverted Index khi tìm kiếm trên toàn bộ từ điển WORDS
+      if (qTokens.length > 0 && dataset === WORDS && !criteria.topicId && !criteria.level && !criteria.pos && !criteria.tag) {
+        const candidateSets = qTokens.map(t => _tokenIndexMap.get(t) || []);
+        if (candidateSets.length === 1 && candidateSets[0].length > 0) {
+          dataset = candidateSets[0].filter(w => {
+            const matchWord = w.word && w.word.toLowerCase().includes(q);
+            const matchMeaning = w.meaning && w.meaning.toLowerCase().includes(q);
+            const matchDef = w.definition && w.definition.toLowerCase().includes(q);
+            return Boolean(matchWord || matchMeaning || matchDef);
+          });
+        } else {
+          dataset = dataset.filter(w => {
+            const matchWord = w.word && w.word.toLowerCase().includes(q);
+            const matchMeaning = w.meaning && w.meaning.toLowerCase().includes(q);
+            const matchDef = w.definition && w.definition.toLowerCase().includes(q);
+            return Boolean(matchWord || matchMeaning || matchDef);
+          });
+        }
+      } else {
+        dataset = dataset.filter(w => {
+          const matchWord = w.word && w.word.toLowerCase().includes(q);
+          const matchMeaning = w.meaning && w.meaning.toLowerCase().includes(q);
+          const matchDef = w.definition && w.definition.toLowerCase().includes(q);
+          return Boolean(matchWord || matchMeaning || matchDef);
+        });
+      }
     }
   }
 
   return dataset;
+}
+
+/**
+ * Tra cứu họ từ (Word Family) / Các từ có chung gốc từ hoặc liên quan chặt chẽ
+ * @param {string|Object} wordIdOrWord - ID từ vựng hoặc object từ
+ * @returns {Array<Object>}
+ */
+export function getWordFamily(wordIdOrWord) {
+  if (!wordIdOrWord) return [];
+  const targetWord = typeof wordIdOrWord === 'object' ? wordIdOrWord : (getWord(wordIdOrWord) || WORDS.find(w => w.word.toLowerCase() === String(wordIdOrWord).toLowerCase()));
+  if (!targetWord || !targetWord.word) return [];
+
+  const pureTarget = targetWord.word.toLowerCase().replace(/[^a-z]/g, '');
+  if (pureTarget.length < 3) return [targetWord];
+
+  const stem = pureTarget.slice(0, Math.min(4, pureTarget.length));
+  const candidates = _stemIndexMap.get(stem) || [];
+  
+  // Lọc các từ có chung gốc từ hoặc tiền tố/hậu tố tương thích
+  const matched = candidates.filter(w => {
+    if (w.id === targetWord.id) return true;
+    const pure = w.word.toLowerCase().replace(/[^a-z]/g, '');
+    return pure.startsWith(pureTarget.slice(0, 3)) || pureTarget.startsWith(pure.slice(0, 3));
+  });
+
+  return matched.length > 0 ? matched : [targetWord];
 }
 
 /**

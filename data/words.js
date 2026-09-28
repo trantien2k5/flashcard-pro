@@ -57836,6 +57836,5733 @@ export const WORDS = [
     ],
     "tags": []
   }
+,
+  {
+    "id": "substantially-adv",
+    "word": "Substantially",
+    "meaning": "Đáng kể, về căn bản",
+    "ipa": "/səbˈstæn.ʃəl.i/",
+    "definition": "To a great or significant degree; considerably.",
+    "example": "Profits grew substantially after the launch of the new product line.",
+    "exampleVi": "Lợi nhuận đã tăng đáng kể sau khi ra mắt dòng sản phẩm mới.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-1"
+    ],
+    "tags": [
+      "growth",
+      "finance"
+    ],
+    "family": {
+      "noun": "substance",
+      "adj": "substantial"
+    }
+  },
+  {
+    "id": "significantly-adv",
+    "word": "Significantly",
+    "meaning": "Một cách có ý nghĩa, đáng kể",
+    "ipa": "/sɪɡˈnɪf.ə.kənt.li/",
+    "definition": "In a sufficiently great or important way as to be worthy of attention.",
+    "example": "The revised budget significantly reduced overhead expenses.",
+    "exampleVi": "Ngân sách sửa đổi đã giảm đáng kể các chi phí vận hành gián tiếp.",
+    "level": "B1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-1"
+    ],
+    "tags": [
+      "finance",
+      "degree"
+    ],
+    "family": {
+      "noun": "significance",
+      "verb": "signify",
+      "adj": "significant"
+    }
+  },
+  {
+    "id": "dramatically-adv",
+    "word": "Dramatically",
+    "meaning": "Đột ngột, mạnh mẽ, đáng kinh ngạc",
+    "ipa": "/drəˈmæt̬.ɪ.kəl.i/",
+    "definition": "By a strikingly large amount or in an impressive way.",
+    "example": "Online sales increased dramatically during the fourth quarter.",
+    "exampleVi": "Doanh số bán hàng trực tuyến đã tăng vọt mạnh mẽ trong quý 4.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-1"
+    ],
+    "tags": [
+      "sales",
+      "trend"
+    ],
+    "family": {
+      "noun": "drama",
+      "adj": "dramatic"
+    }
+  },
+  {
+    "id": "considerably-adv",
+    "word": "Considerably",
+    "meaning": "Khá nhiều, đáng kể",
+    "ipa": "/kənˈsɪd.ɚ.ə.bli/",
+    "definition": "By a notably large amount or to a noticeable extent.",
+    "example": "The quality of service has improved considerably over the past year.",
+    "exampleVi": "Chất lượng dịch vụ đã được cải thiện khá nhiều trong năm qua.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-1"
+    ],
+    "tags": [
+      "degree"
+    ],
+    "family": {
+      "verb": "consider",
+      "noun": "consideration",
+      "adj": "considerable"
+    }
+  },
+  {
+    "id": "marginally-adv",
+    "word": "Marginally",
+    "meaning": "Nhẹ, chỉ ở mức biên độ nhỏ",
+    "ipa": "/ˈmɑːr.dʒɪ.nəl.i/",
+    "definition": "To only a limited extent; slightly.",
+    "example": "Production costs were only marginally higher than our initial forecast.",
+    "exampleVi": "Chi phí sản xuất chỉ cao hơn một chút so với dự báo ban đầu.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-1"
+    ],
+    "tags": [
+      "finance",
+      "cost"
+    ],
+    "family": {
+      "noun": "margin",
+      "adj": "marginal"
+    }
+  },
+  {
+    "id": "exponentially-adv",
+    "word": "Exponentially",
+    "meaning": "Theo cấp số nhân, tăng vọt thần tốc",
+    "ipa": "/ˌek.spəˈnen.ʃəl.i/",
+    "definition": "At a very rapid and increasingly accelerated pace.",
+    "example": "The user base expanded exponentially within six months of the global launch.",
+    "exampleVi": "Lượng người dùng đã tăng theo cấp số nhân trong vòng sáu tháng kể từ khi ra mắt toàn cầu.",
+    "level": "C1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-1"
+    ],
+    "tags": [
+      "growth",
+      "tech"
+    ],
+    "family": {
+      "noun": "exponent",
+      "adj": "exponential"
+    }
+  },
+  {
+    "id": "virtually-adv",
+    "word": "Virtually",
+    "meaning": "Hầu như, gần như tuyệt đối",
+    "ipa": "/ˈvɝː.tʃu.ə.li/",
+    "definition": "Nearly; almost entirely without exception.",
+    "example": "The automated system has eliminated virtually all manual filing errors.",
+    "exampleVi": "Hệ thống tự động hóa đã loại bỏ gần như toàn bộ các lỗi lưu trữ thủ công.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-1"
+    ],
+    "tags": [
+      "degree"
+    ],
+    "family": {
+      "adj": "virtual"
+    }
+  },
+  {
+    "id": "remarkably-adv",
+    "word": "Remarkably",
+    "meaning": "Một cách xuất sắc, đáng chú ý",
+    "ipa": "/rɪˈmɑːr.kə.bli/",
+    "definition": "In a way that is worthy of attention; strikingly.",
+    "example": "The new marketing campaign performed remarkably well in Asian markets.",
+    "exampleVi": "Chiến dịch tiếp thị mới đã hoạt động xuất sắc một cách đáng chú ý tại các thị trường châu Á.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-1"
+    ],
+    "tags": [
+      "performance"
+    ],
+    "family": {
+      "verb": "remark",
+      "adj": "remarkable"
+    }
+  },
+  {
+    "id": "steadily-adv",
+    "word": "Steadily",
+    "meaning": "Đều đặn, vững chắc, ổn định",
+    "ipa": "/ˈsted.əl.i/",
+    "definition": "In a regular, even, and continuous manner.",
+    "example": "Share prices have climbed steadily since the merger announcement.",
+    "exampleVi": "Giá cổ phiếu đã tăng đều đặn kể từ khi có thông báo sáp nhập.",
+    "level": "B1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-1"
+    ],
+    "tags": [
+      "trend"
+    ],
+    "family": {
+      "adj": "steady",
+      "noun": "steadiness"
+    }
+  },
+  {
+    "id": "sharply-adv",
+    "word": "Sharply",
+    "meaning": "Đột ngột, rõ rệt, sắc bén",
+    "ipa": "/ˈʃɑːrp.li/",
+    "definition": "Quickly and by a large, noticeable amount.",
+    "example": "Fuel expenses dropped sharply following the route optimization.",
+    "exampleVi": "Chi phí nhiên liệu đã giảm mạnh sau khi tối ưu hóa lộ trình vận chuyển.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-1"
+    ],
+    "tags": [
+      "trend",
+      "cost"
+    ],
+    "family": {
+      "adj": "sharp",
+      "noun": "sharpness"
+    }
+  },
+  {
+    "id": "moderately-adv",
+    "word": "Moderately",
+    "meaning": "Vừa phải, ở mức độ trung bình",
+    "ipa": "/ˈmɑː.dɚ.ət.li/",
+    "definition": "To a certain extent; neither too much nor too little.",
+    "example": "Demand for commercial office space has grown moderately this quarter.",
+    "exampleVi": "Nhu cầu về diện tích văn phòng thương mại đã tăng trưởng ở mức vừa phải trong quý này.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-2"
+    ],
+    "tags": [
+      "degree"
+    ],
+    "family": {
+      "noun": "moderation",
+      "adj": "moderate"
+    }
+  },
+  {
+    "id": "partially-adv",
+    "word": "Partially",
+    "meaning": "Một phần, không trọn vẹn",
+    "ipa": "/ˈpɑːr.ʃəl.i/",
+    "definition": "Only in part; to some extent but not completely.",
+    "example": "The software upgrade was only partially successful due to server downtime.",
+    "exampleVi": "Việc nâng cấp phần mềm chỉ thành công một phần do máy chủ bị gián đoạn.",
+    "level": "B1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-2"
+    ],
+    "tags": [
+      "degree"
+    ],
+    "family": {
+      "noun": "part",
+      "adj": "partial"
+    }
+  },
+  {
+    "id": "overwhelmingly-adv",
+    "word": "Overwhelmingly",
+    "meaning": "Áp đảo, chiếm đại đa số",
+    "ipa": "/ˌoʊ.vɚˈwel.mɪŋ.li/",
+    "definition": "By a very large majority; decisively.",
+    "example": "Shareholders voted overwhelmingly in favor of the board restructure.",
+    "exampleVi": "Các cổ đông đã bỏ phiếu áp đảo tán thành việc tái cơ cấu hội đồng quản trị.",
+    "level": "C1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-2"
+    ],
+    "tags": [
+      "vote",
+      "corporate"
+    ],
+    "family": {
+      "verb": "overwhelm",
+      "adj": "overwhelming"
+    }
+  },
+  {
+    "id": "predominantly-adv",
+    "word": "Predominantly",
+    "meaning": "Chủ yếu, phần lớn, chiếm ưu thế",
+    "ipa": "/prɪˈdɑː.mə.nənt.li/",
+    "definition": "Mainly; for the most part.",
+    "example": "Our client base is predominantly comprised of technology startups.",
+    "exampleVi": "Tệp khách hàng của chúng tôi chủ yếu bao gồm các công ty khởi nghiệp công nghệ.",
+    "level": "C1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-2"
+    ],
+    "tags": [
+      "demographic"
+    ],
+    "family": {
+      "noun": "predominance",
+      "adj": "predominant"
+    }
+  },
+  {
+    "id": "primarily-adv",
+    "word": "Primarily",
+    "meaning": "Chủ yếu, trước hết là",
+    "ipa": "/praɪˈmer.əl.i/",
+    "definition": "For the most part; chiefly.",
+    "example": "The marketing director is primarily responsible for brand identity.",
+    "exampleVi": "Giám đốc tiếp thị chịu trách nhiệm chính về nhận diện thương hiệu.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-2"
+    ],
+    "tags": [
+      "responsibility"
+    ],
+    "family": {
+      "adj": "primary"
+    }
+  },
+  {
+    "id": "solely-adv",
+    "word": "Solely",
+    "meaning": "Duy nhất, chỉ đơn thuần",
+    "ipa": "/ˈsoʊl.li/",
+    "definition": "Not involving anything or anyone else; only.",
+    "example": "Promotions are based solely on merit and annual performance metrics.",
+    "exampleVi": "Việc thăng chức chỉ dựa duy nhất vào năng lực và các chỉ số hiệu suất hàng năm.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-2"
+    ],
+    "tags": [
+      "criteria",
+      "hr"
+    ],
+    "family": {
+      "adj": "sole"
+    }
+  },
+  {
+    "id": "exclusively-adv",
+    "word": "Exclusively",
+    "meaning": "Độc quyền, chỉ dành riêng cho",
+    "ipa": "/ɪkˈskluː.sɪv.li/",
+    "definition": "Only; not including any other; limited to a specific group.",
+    "example": "The executive lounge is reserved exclusively for platinum members.",
+    "exampleVi": "Phòng chờ thương gia chỉ dành riêng cho các hội viên hạng bạch kim.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-2"
+    ],
+    "tags": [
+      "access",
+      "vip"
+    ],
+    "family": {
+      "verb": "exclude",
+      "adj": "exclusive"
+    }
+  },
+  {
+    "id": "largely-adv",
+    "word": "Largely",
+    "meaning": "Phần lớn, trên diện rộng",
+    "ipa": "/ˈlɑːrdʒ.li/",
+    "definition": "To a great extent; on the whole.",
+    "example": "The project's success was largely due to effective cross-team communication.",
+    "exampleVi": "Sự thành công của dự án phần lớn nhờ vào sự giao tiếp hiệu quả giữa các nhóm.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-2"
+    ],
+    "tags": [
+      "degree"
+    ],
+    "family": {
+      "adj": "large"
+    }
+  },
+  {
+    "id": "extensively-adv",
+    "word": "Extensively",
+    "meaning": "Rộng rãi, chuyên sâu trên phạm vi lớn",
+    "ipa": "/ɪkˈsten.sɪv.li/",
+    "definition": "Covering a large area or having a wide scope.",
+    "example": "The new electric vehicle model was tested extensively in extreme climates.",
+    "exampleVi": "Mẫu xe điện mới đã được thử nghiệm chuyên sâu trên diện rộng ở các điều kiện khí hậu khắc nghiệt.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-2"
+    ],
+    "tags": [
+      "scope"
+    ],
+    "family": {
+      "verb": "extend",
+      "adj": "extensive"
+    }
+  },
+  {
+    "id": "profoundly-adv",
+    "word": "Profoundly",
+    "meaning": "Sâu sắc, ảnh hưởng sâu rộng",
+    "ipa": "/prəˈfaʊnd.li/",
+    "definition": "Deeply; in a fundamental and insightful manner.",
+    "example": "Artificial intelligence has profoundly reshaped our customer service workflow.",
+    "exampleVi": "Trí tuệ nhân tạo đã định hình lại một cách sâu sắc quy trình dịch vụ khách hàng của chúng tôi.",
+    "level": "C1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-2"
+    ],
+    "tags": [
+      "impact"
+    ],
+    "family": {
+      "adj": "profound"
+    }
+  },
+  {
+    "id": "promptly-adv",
+    "word": "Promptly",
+    "meaning": "Kịp thời, ngay lập tức, đúng giờ",
+    "ipa": "/ˈprɑːmpt.li/",
+    "definition": "Immediately; without delay or lateness.",
+    "example": "Please reply promptly to the client's inquiry to maintain good relations.",
+    "exampleVi": "Vui lòng phản hồi kịp thời câu hỏi của khách hàng để duy trì quan hệ tốt đẹp.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-3"
+    ],
+    "tags": [
+      "time",
+      "customer"
+    ],
+    "family": {
+      "adj": "prompt",
+      "noun": "promptness"
+    }
+  },
+  {
+    "id": "temporarily-adv",
+    "word": "Temporarily",
+    "meaning": "Tạm thời, trong một thời gian ngắn",
+    "ipa": "/ˌtem.pəˈrer.əl.i/",
+    "definition": "For a limited time only; not permanently.",
+    "example": "The main entrance is temporarily closed for renovation works.",
+    "exampleVi": "Lối vào chính tạm thời đóng cửa để phục vụ công tác cải tạo.",
+    "level": "B1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-3"
+    ],
+    "tags": [
+      "time"
+    ],
+    "family": {
+      "adj": "temporary"
+    }
+  },
+  {
+    "id": "momentarily-adv",
+    "word": "Momentarily",
+    "meaning": "Trong giây lát, chỉ chốc lát",
+    "ipa": "/ˌmoʊ.mənˈter.əl.i/",
+    "definition": "For a very short time; or very soon.",
+    "example": "The technician will arrive momentarily to fix the conference room projector.",
+    "exampleVi": "Kỹ thuật viên sẽ đến trong giây lát để sửa máy chiếu phòng hội thảo.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-3"
+    ],
+    "tags": [
+      "time"
+    ],
+    "family": {
+      "noun": "moment",
+      "adj": "momentary"
+    }
+  },
+  {
+    "id": "periodically-adv",
+    "word": "Periodically",
+    "meaning": "Định kỳ, theo chu kỳ",
+    "ipa": "/ˌpɪr.iˈɑː.dɪ.kəl.i/",
+    "definition": "At regular intervals from time to time.",
+    "example": "All employee credentials must be periodically updated for security compliance.",
+    "exampleVi": "Mọi thông tin đăng nhập của nhân viên phải được cập nhật định kỳ để tuân thủ bảo mật.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-3"
+    ],
+    "tags": [
+      "security"
+    ],
+    "family": {
+      "noun": "period",
+      "adj": "periodic"
+    }
+  },
+  {
+    "id": "simultaneously-adv",
+    "word": "Simultaneously",
+    "meaning": "Đồng thời, cùng một lúc",
+    "ipa": "/ˌsaɪ.məlˈteɪ.ni.əs.li/",
+    "definition": "At the same exact time as something else.",
+    "example": "The keynote speech was broadcast simultaneously across all regional offices.",
+    "exampleVi": "Bài phát biểu khai mạc được phát sóng đồng thời tới tất cả các văn phòng khu vực.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-3"
+    ],
+    "tags": [
+      "meeting"
+    ],
+    "family": {
+      "adj": "simultaneous"
+    }
+  },
+  {
+    "id": "consistently-adv",
+    "word": "Consistently",
+    "meaning": "Nhất quán, liên tục ổn định",
+    "ipa": "/kənˈsɪs.tənt.li/",
+    "definition": "In an unchanging, reliable, and uniform standard manner.",
+    "example": "Our logistics department has consistently met all delivery deadlines.",
+    "exampleVi": "Bộ phận hậu cần của chúng tôi đã liên tục đáp ứng mọi hạn chót giao hàng.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-3"
+    ],
+    "tags": [
+      "logistics",
+      "quality"
+    ],
+    "family": {
+      "noun": "consistency",
+      "adj": "consistent"
+    }
+  },
+  {
+    "id": "subsequently-adv",
+    "word": "Subsequently",
+    "meaning": "Sau đó, tiếp theo sau",
+    "ipa": "/ˈsʌb.sɪ.kwənt.li/",
+    "definition": "After a particular event has happened; afterward.",
+    "example": "The prototype was approved and subsequently sent for mass manufacturing.",
+    "exampleVi": "Mẫu thử nghiệm đã được phê duyệt và sau đó được chuyển đi sản xuất hàng loạt.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-3"
+    ],
+    "tags": [
+      "sequence"
+    ],
+    "family": {
+      "adj": "subsequent"
+    }
+  },
+  {
+    "id": "initially-adv",
+    "word": "Initially",
+    "meaning": "Ban đầu, vào lúc khởi đầu",
+    "ipa": "/ɪˈnɪʃ.əl.i/",
+    "definition": "At the beginning or first stage of a process.",
+    "example": "Initially, the project faced budget constraints before securing venture capital.",
+    "exampleVi": "Ban đầu, dự án gặp hạn chế về ngân sách trước khi huy động được vốn đầu tư mạo hiểm.",
+    "level": "B1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-3"
+    ],
+    "tags": [
+      "finance"
+    ],
+    "family": {
+      "verb": "initiate",
+      "adj": "initial"
+    }
+  },
+  {
+    "id": "instantly-adv",
+    "word": "Instantly",
+    "meaning": "Ngay lập tức, tức thì",
+    "ipa": "/ˈɪn.stənt.li/",
+    "definition": "At once; immediately without hesitation.",
+    "example": "Transactions processed through the digital wallet are confirmed instantly.",
+    "exampleVi": "Các giao dịch được xử lý qua ví điện tử được xác nhận ngay lập tức.",
+    "level": "B1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-3"
+    ],
+    "tags": [
+      "fintech"
+    ],
+    "family": {
+      "noun": "instant",
+      "adj": "instant"
+    }
+  },
+  {
+    "id": "indefinitely-adv",
+    "word": "Indefinitely",
+    "meaning": "Vô thời hạn, chưa rõ hồi kết",
+    "ipa": "/ɪnˈdef.ə.nət.li/",
+    "definition": "For an unlimited or unspecified period of time.",
+    "example": "The international trade seminar has been postponed indefinitely.",
+    "exampleVi": "Hội thảo thương mại quốc tế đã bị hoãn vô thời hạn.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-3"
+    ],
+    "tags": [
+      "meeting"
+    ],
+    "family": {
+      "verb": "define",
+      "adj": "indefinite"
+    }
+  },
+  {
+    "id": "routinely-adv",
+    "word": "Routinely",
+    "meaning": "Thường lệ, theo thông lệ",
+    "ipa": "/ruːˈtiːn.li/",
+    "definition": "As a regular part of a customary procedure.",
+    "example": "Equipment is routinely inspected before the morning factory shift begins.",
+    "exampleVi": "Thiết bị được kiểm tra thường lệ trước khi ca làm việc buổi sáng bắt đầu.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-4"
+    ],
+    "tags": [
+      "operation"
+    ],
+    "family": {
+      "noun": "routine",
+      "adj": "routine"
+    }
+  },
+  {
+    "id": "frequently-adv",
+    "word": "Frequently",
+    "meaning": "Thường xuyên, lặp lại nhiều lần",
+    "ipa": "/ˈfriː.kwənt.li/",
+    "definition": "Regularly or on many occasions.",
+    "example": "Customers frequently inquire about warranty extensions for laptops.",
+    "exampleVi": "Khách hàng thường xuyên hỏi về việc gia hạn bảo hành cho máy tính xách tay.",
+    "level": "A2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-4"
+    ],
+    "tags": [
+      "customer"
+    ],
+    "family": {
+      "noun": "frequency",
+      "adj": "frequent"
+    }
+  },
+  {
+    "id": "occasionally-adv",
+    "word": "Occasionally",
+    "meaning": "Thỉnh thoảng, đôi khi",
+    "ipa": "/əˈkeɪ.ʒən.əl.i/",
+    "definition": "At infrequent or irregular intervals; now and then.",
+    "example": "Senior managers occasionally conduct impromptu branch audits.",
+    "exampleVi": "Các nhà quản lý cấp cao thỉnh thoảng tiến hành các đợt kiểm toán chi nhánh đột xuất.",
+    "level": "B1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-4"
+    ],
+    "tags": [
+      "management"
+    ],
+    "family": {
+      "noun": "occasion",
+      "adj": "occasional"
+    }
+  },
+  {
+    "id": "repeatedly-adv",
+    "word": "Repeatedly",
+    "meaning": "Lặp đi lặp lại nhiều lần",
+    "ipa": "/rɪˈpiː.t̬ɪd.li/",
+    "definition": "Many times over; continuously recurring.",
+    "example": "The supervisor has repeatedly reminded staff to lock confidential files.",
+    "exampleVi": "Người giám sát đã nhiều lần nhắc nhở nhân viên phải khóa các tài liệu bảo mật.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-4"
+    ],
+    "tags": [
+      "security"
+    ],
+    "family": {
+      "verb": "repeat",
+      "adj": "repetitive"
+    }
+  },
+  {
+    "id": "urgently-adv",
+    "word": "Urgently",
+    "meaning": "Khẩn cấp, gấp rút",
+    "ipa": "/ˈɝː.dʒənt.li/",
+    "definition": "In a way that requires immediate action or attention.",
+    "example": "The maintenance team was urgently called to fix the network power failure.",
+    "exampleVi": "Đội bảo trì đã được gọi khẩn cấp để khắc phục sự cố mất điện mạng lưới.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-4"
+    ],
+    "tags": [
+      "technical"
+    ],
+    "family": {
+      "noun": "urgency",
+      "adj": "urgent"
+    }
+  },
+  {
+    "id": "gradually-adv",
+    "word": "Gradually",
+    "meaning": "Dần dần, từng bước một",
+    "ipa": "/ˈɡrædʒ.u.əl.i/",
+    "definition": "Slowly over a period of time or in progressive stages.",
+    "example": "The company is gradually transitioning all operations to renewable energy.",
+    "exampleVi": "Công ty đang dần dần chuyển đổi toàn bộ hoạt động sang năng lượng tái tạo.",
+    "level": "B1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-4"
+    ],
+    "tags": [
+      "strategy"
+    ],
+    "family": {
+      "adj": "gradual"
+    }
+  },
+  {
+    "id": "inevitably-adv",
+    "word": "Inevitably",
+    "meaning": "Tất yếu, không thể tránh khỏi",
+    "ipa": "/ɪnˈev.ə.t̬ə.bli/",
+    "definition": "As is certain to happen; unavoidably.",
+    "example": "Delays in raw material shipments will inevitably affect production targets.",
+    "exampleVi": "Sự chậm trễ trong các lô hàng nguyên liệu thô chắc chắn sẽ ảnh hưởng tới chỉ tiêu sản xuất.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-4"
+    ],
+    "tags": [
+      "logistics"
+    ],
+    "family": {
+      "adj": "inevitable"
+    }
+  },
+  {
+    "id": "unexpectedly-adv",
+    "word": "Unexpectedly",
+    "meaning": "Bất ngờ, ngoài dự kiến",
+    "ipa": "/ˌʌn.ɪkˈspek.tɪd.li/",
+    "definition": "In a manner that was not anticipated or forecasted.",
+    "example": "Interest rates dropped unexpectedly following the central bank statement.",
+    "exampleVi": "Lãi suất đã giảm bất ngờ sau tuyên bố của ngân hàng trung ương.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-4"
+    ],
+    "tags": [
+      "finance"
+    ],
+    "family": {
+      "verb": "expect",
+      "adj": "unexpected"
+    }
+  },
+  {
+    "id": "ultimately-adv",
+    "word": "Ultimately",
+    "meaning": "Cuối cùng, xét cho cùng",
+    "ipa": "/ˈʌl.tə.mət.li/",
+    "definition": "In the end; after a long series of events.",
+    "example": "The board ultimately selected candidate A due to international experience.",
+    "exampleVi": "Hội đồng quản trị cuối cùng đã chọn ứng viên A nhờ có kinh nghiệm quốc tế.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-4"
+    ],
+    "tags": [
+      "decision"
+    ],
+    "family": {
+      "adj": "ultimate"
+    }
+  },
+  {
+    "id": "progressively-adv",
+    "word": "Progressively",
+    "meaning": "Tiến bộ dần, ngày càng tăng tiến",
+    "ipa": "/prəˈɡres.ɪv.li/",
+    "definition": "Steadily advancing in amount or quality over time.",
+    "example": "The software has become progressively faster with each patch release.",
+    "exampleVi": "Phần mềm ngày càng trở nên nhanh hơn qua từng bản vá phát hành.",
+    "level": "C1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-4"
+    ],
+    "tags": [
+      "tech"
+    ],
+    "family": {
+      "verb": "progress",
+      "adj": "progressive"
+    }
+  },
+  {
+    "id": "strictly-adv",
+    "word": "Strictly",
+    "meaning": "Nghiêm ngặt, tuyệt đối tuân thủ",
+    "ipa": "/ˈstrɪkt.li/",
+    "definition": "In a severe, demanding, and uncompromising manner.",
+    "example": "Safety protocols are strictly enforced inside the chemical laboratory.",
+    "exampleVi": "Các quy chuẩn an toàn được thực thi nghiêm ngặt bên trong phòng thí nghiệm hóa chất.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-5"
+    ],
+    "tags": [
+      "compliance"
+    ],
+    "family": {
+      "adj": "strict",
+      "noun": "strictness"
+    }
+  },
+  {
+    "id": "precisely-adv",
+    "word": "Precisely",
+    "meaning": "Chính xác, chuẩn từng chi tiết",
+    "ipa": "/prɪˈsaɪs.li/",
+    "definition": "Exact in terms of detail, number, or measurement.",
+    "example": "The contract stipulates precisely when the milestone payments are due.",
+    "exampleVi": "Hợp đồng quy định chính xác thời điểm các khoản thanh toán theo giai đoạn đến hạn.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-5"
+    ],
+    "tags": [
+      "contract"
+    ],
+    "family": {
+      "noun": "precision",
+      "adj": "precise"
+    }
+  },
+  {
+    "id": "rigorously-adv",
+    "word": "Rigorously",
+    "meaning": "Khắt khe, cẩn mật, tỉ mỉ",
+    "ipa": "/ˈrɪɡ.ɚ.əs.li/",
+    "definition": "In an extremely thorough, careful, and demanding way.",
+    "example": "All accounting records are rigorously audited before tax submission.",
+    "exampleVi": "Mọi hồ sơ kế toán đều được kiểm toán cẩn mật trước khi nộp thuế.",
+    "level": "C1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-5"
+    ],
+    "tags": [
+      "audit"
+    ],
+    "family": {
+      "noun": "rigor",
+      "adj": "rigorous"
+    }
+  },
+  {
+    "id": "explicitly-adv",
+    "word": "Explicitly",
+    "meaning": "Rõ ràng, dứt khoát, không mập mờ",
+    "ipa": "/ɪkˈsplɪs.ɪt.li/",
+    "definition": "In a clear, detailed, and unmistakable manner leaving no doubt.",
+    "example": "The warranty policy explicitly states that water damage is not covered.",
+    "exampleVi": "Chính sách bảo hành nêu rõ ràng rằng các hư hỏng do nước sẽ không được bảo hành.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-5"
+    ],
+    "tags": [
+      "policy"
+    ],
+    "family": {
+      "adj": "explicit"
+    }
+  },
+  {
+    "id": "specifically-adv",
+    "word": "Specifically",
+    "meaning": "Cụ thể, đặc biệt chỉ rõ",
+    "ipa": "/spəˈsɪf.ɪ.kəl.i/",
+    "definition": "In a detailed and exact way; particularly.",
+    "example": "The grant is specifically designed for small businesses in rural areas.",
+    "exampleVi": "Khoản tài trợ được thiết kế cụ thể dành cho các doanh nghiệp nhỏ ở vùng nông thôn.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-5"
+    ],
+    "tags": [
+      "grant"
+    ],
+    "family": {
+      "verb": "specify",
+      "adj": "specific"
+    }
+  },
+  {
+    "id": "unanimously-adv",
+    "word": "Unanimously",
+    "meaning": "Nhất trí, đồng thuận 100%",
+    "ipa": "/juːˈnæn.ə.məs.li/",
+    "definition": "Without opposition; with the complete agreement of all parties.",
+    "example": "The committee voted unanimously to approve the building permit.",
+    "exampleVi": "Ủy ban đã bỏ phiếu nhất trí thông qua giấy phép xây dựng.",
+    "level": "C1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-5"
+    ],
+    "tags": [
+      "vote"
+    ],
+    "family": {
+      "noun": "unanimity",
+      "adj": "unanimous"
+    }
+  },
+  {
+    "id": "tentatively-adv",
+    "word": "Tentatively",
+    "meaning": "Dự kiến, mang tính thăm dò tạm thời",
+    "ipa": "/ˈten.t̬ə.t̬ɪv.li/",
+    "definition": "Subject to further confirmation; not definitely finalized.",
+    "example": "The next general meeting is tentatively scheduled for October 15th.",
+    "exampleVi": "Cuộc họp đại hội tiếp theo dự kiến tạm thời được lên lịch vào ngày 15 tháng 10.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-5"
+    ],
+    "tags": [
+      "meeting"
+    ],
+    "family": {
+      "adj": "tentative"
+    }
+  },
+  {
+    "id": "appropriately-adv",
+    "word": "Appropriately",
+    "meaning": "Thích hợp, thỏa đáng, đúng mực",
+    "ipa": "/əˈproʊ.pri.ət.li/",
+    "definition": "In a manner that is suitable or proper in the circumstances.",
+    "example": "Please dress appropriately for the corporate gala dinner.",
+    "exampleVi": "Vui lòng ăn mặc lịch sự thích hợp cho bữa tiệc tối gala của công ty.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-5"
+    ],
+    "tags": [
+      "etiquette"
+    ],
+    "family": {
+      "adj": "appropriate"
+    }
+  },
+  {
+    "id": "adequately-adv",
+    "word": "Adequately",
+    "meaning": "Đầy đủ, thỏa đáng, đạt yêu cầu",
+    "ipa": "/ˈæd.ə.kwət.li/",
+    "definition": "To a satisfactory or acceptable extent.",
+    "example": "The workspace is adequately ventilated and well-lit for all staff.",
+    "exampleVi": "Không gian làm việc được thông gió đầy đủ và chiếu sáng tốt cho tất cả nhân viên.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-5"
+    ],
+    "tags": [
+      "facility"
+    ],
+    "family": {
+      "noun": "adequacy",
+      "adj": "adequate"
+    }
+  },
+  {
+    "id": "uniformly-adv",
+    "word": "Uniformly",
+    "meaning": "Đồng đều, nhất quán như nhau",
+    "ipa": "/ˈjuː.nə.fɔːrm.li/",
+    "definition": "In an equal, consistent, and standardized manner throughout.",
+    "example": "The new quality guidelines must be applied uniformly across all factories.",
+    "exampleVi": "Các hướng dẫn chất lượng mới phải được áp dụng đồng đều tại tất cả các nhà máy.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-5"
+    ],
+    "tags": [
+      "quality"
+    ],
+    "family": {
+      "noun": "uniformity",
+      "adj": "uniform"
+    }
+  },
+  {
+    "id": "mandatorily-adv",
+    "word": "Mandatorily",
+    "meaning": "Bắt buộc theo luật/quy định",
+    "ipa": "/ˈmæn.də.tɔːr.əl.i/",
+    "definition": "In a manner required by authority or regulation.",
+    "example": "All new employees must mandatorily complete cybersecurity training.",
+    "exampleVi": "Tất cả nhân viên mới bắt buộc phải hoàn thành khóa đào tạo an ninh mạng.",
+    "level": "C1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-6"
+    ],
+    "tags": [
+      "hr",
+      "security"
+    ],
+    "family": {
+      "noun": "mandate",
+      "adj": "mandatory"
+    }
+  },
+  {
+    "id": "officially-adv",
+    "word": "Officially",
+    "meaning": "Chính thức, công khai",
+    "ipa": "/əˈfɪʃ.əl.i/",
+    "definition": "With the authority of the government or governing body.",
+    "example": "The new headquarters was officially opened by the CEO yesterday.",
+    "exampleVi": "Trụ sở mới đã được Tổng giám đốc chính thức khánh thành vào ngày hôm qua.",
+    "level": "B1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-6"
+    ],
+    "tags": [
+      "corporate"
+    ],
+    "family": {
+      "noun": "office",
+      "adj": "official"
+    }
+  },
+  {
+    "id": "legally-adv",
+    "word": "Legally",
+    "meaning": "Về mặt pháp lý, hợp pháp",
+    "ipa": "/ˈliː.ɡəl.i/",
+    "definition": "According to the law; lawfully.",
+    "example": "Both signatories are legally bound by the terms of this contract.",
+    "exampleVi": "Cả hai bên ký kết đều bị ràng buộc về mặt pháp lý bởi các điều khoản của hợp đồng này.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-6"
+    ],
+    "tags": [
+      "legal"
+    ],
+    "family": {
+      "noun": "legality",
+      "adj": "legal"
+    }
+  },
+  {
+    "id": "unconditionally-adv",
+    "word": "Unconditionally",
+    "meaning": "Vô điều kiện, không ràng buộc thêm",
+    "ipa": "/ˌʌn.kənˈdɪʃ.ən.əl.i/",
+    "definition": "Without any conditions, limits, or reservations.",
+    "example": "We guarantee to refund defective merchandise unconditionally within 30 days.",
+    "exampleVi": "Chúng tôi cam kết hoàn tiền cho hàng hóa bị lỗi vô điều kiện trong vòng 30 ngày.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-6"
+    ],
+    "tags": [
+      "warranty"
+    ],
+    "family": {
+      "noun": "condition",
+      "adj": "unconditional"
+    }
+  },
+  {
+    "id": "fairly-adv",
+    "word": "Fairly",
+    "meaning": "Công bằng, khách quan",
+    "ipa": "/ˈfer.li/",
+    "definition": "In a just, impartial, and reasonable manner.",
+    "example": "All supplier bids are evaluated fairly according to transparent scoring.",
+    "exampleVi": "Mọi gói thầu từ nhà cung cấp đều được đánh giá công bằng theo thang điểm minh bạch.",
+    "level": "B1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-6"
+    ],
+    "tags": [
+      "procurement"
+    ],
+    "family": {
+      "noun": "fairness",
+      "adj": "fair"
+    }
+  },
+  {
+    "id": "thoroughly-adv",
+    "word": "Thoroughly",
+    "meaning": "Triệt để, kỹ lưỡng, hoàn toàn",
+    "ipa": "/ˈθɝː.oʊ.li/",
+    "definition": "Completely and with great attention to every detail.",
+    "example": "Please read the user manual thoroughly before assembling the desk.",
+    "exampleVi": "Vui lòng đọc kỹ hướng dẫn sử dụng trước khi lắp ráp bàn làm việc.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-6"
+    ],
+    "tags": [
+      "instruction"
+    ],
+    "family": {
+      "adj": "thorough"
+    }
+  },
+  {
+    "id": "readily-adv",
+    "word": "Readily",
+    "meaning": "Dễ dàng, sẵn lòng ngay",
+    "ipa": "/ˈred.əl.i/",
+    "definition": "Without delay or difficulty; willingly.",
+    "example": "Replacement printer cartridges are readily available at the front desk.",
+    "exampleVi": "Hộp mực máy in thay thế luôn có sẵn dễ dàng tại quầy lễ tân.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-6"
+    ],
+    "tags": [
+      "office"
+    ],
+    "family": {
+      "adj": "ready"
+    }
+  },
+  {
+    "id": "seamlessly-adv",
+    "word": "Seamlessly",
+    "meaning": "Liền mạch, trơn tru không ngắt quãng",
+    "ipa": "/ˈsiːm.ləs.li/",
+    "definition": "Smoothly and continuously, without any noticeable transitions.",
+    "example": "The mobile app integrates seamlessly with our existing CRM database.",
+    "exampleVi": "Ứng dụng di động tích hợp liền mạch với cơ sở dữ liệu CRM hiện tại của chúng tôi.",
+    "level": "C1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-6"
+    ],
+    "tags": [
+      "it"
+    ],
+    "family": {
+      "adj": "seamless"
+    }
+  },
+  {
+    "id": "reliably-adv",
+    "word": "Reliably",
+    "meaning": "Đáng tin cậy, chuẩn xác",
+    "ipa": "/rɪˈlaɪ.ə.bli/",
+    "definition": "In a dependable and consistently trustworthy manner.",
+    "example": "The automated backup server reliably secures data every midnight.",
+    "exampleVi": "Máy chủ sao lưu tự động bảo mật dữ liệu một cách đáng tin cậy vào mỗi nửa đêm.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-6"
+    ],
+    "tags": [
+      "security"
+    ],
+    "family": {
+      "verb": "rely",
+      "adj": "reliable"
+    }
+  },
+  {
+    "id": "namely-adv",
+    "word": "Namely",
+    "meaning": "Cụ thể là, đích danh là",
+    "ipa": "/ˈneɪm.li/",
+    "definition": "That is to say; specifically mentioning.",
+    "example": "Only two candidates met our strict criteria, namely Sarah and David.",
+    "exampleVi": "Chỉ có hai ứng viên đáp ứng các tiêu chuẩn khắt khe của chúng tôi, cụ thể là Sarah và David.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-6"
+    ],
+    "tags": [
+      "hr"
+    ],
+    "family": {
+      "noun": "name"
+    }
+  },
+  {
+    "id": "favorably-adv",
+    "word": "Favorably",
+    "meaning": "Thuận lợi, có thiện chí, tán thành",
+    "ipa": "/ˈfeɪ.vɚ.ə.bli/",
+    "definition": "To the advantage of someone; with approval.",
+    "example": "The investment proposal was viewed favorably by the venture capital committee.",
+    "exampleVi": "Đề xuất đầu tư đã được ủy ban vốn mạo hiểm đón nhận rất thuận lợi.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-7"
+    ],
+    "tags": [
+      "investment"
+    ],
+    "family": {
+      "noun": "favor",
+      "adj": "favorable"
+    }
+  },
+  {
+    "id": "adversely-adv",
+    "word": "Adversely",
+    "meaning": "Bất lợi, tiêu cực, có hại",
+    "ipa": "/ædˈvɝːs.li/",
+    "definition": "In a harmful or unfavorable manner.",
+    "example": "Supply chain disruptions have adversely affected third-quarter profit margins.",
+    "exampleVi": "Sự gián đoạn chuỗi cung ứng đã ảnh hưởng bất lợi đến biên lợi nhuận quý 3.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-7"
+    ],
+    "tags": [
+      "finance"
+    ],
+    "family": {
+      "noun": "adversity",
+      "adj": "adverse"
+    }
+  },
+  {
+    "id": "reasonably-adv",
+    "word": "Reasonably",
+    "meaning": "Hợp lý, phải chăng, vừa phải",
+    "ipa": "/ˈriː.zən.ə.bli/",
+    "definition": "In a fair and practical manner; at a fair price.",
+    "example": "The catering packages are reasonably priced for corporate events.",
+    "exampleVi": "Các gói tiệc phục vụ ăn uống có giá cả rất hợp lý cho các sự kiện công ty.",
+    "level": "B1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-7"
+    ],
+    "tags": [
+      "pricing"
+    ],
+    "family": {
+      "noun": "reason",
+      "adj": "reasonable"
+    }
+  },
+  {
+    "id": "sincerely-adv",
+    "word": "Sincerely",
+    "meaning": "Chân thành, thành thật",
+    "ipa": "/sɪnˈsɪr.li/",
+    "definition": "With genuine and honest feelings.",
+    "example": "We sincerely apologize for the shipping delay caused by bad weather.",
+    "exampleVi": "Chúng tôi chân thành xin lỗi vì sự chậm trễ giao hàng do thời tiết xấu.",
+    "level": "B1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-7"
+    ],
+    "tags": [
+      "communication"
+    ],
+    "family": {
+      "noun": "sincerity",
+      "adj": "sincere"
+    }
+  },
+  {
+    "id": "strategically-adv",
+    "word": "Strategically",
+    "meaning": "Về mặt chiến lược, có tính toán",
+    "ipa": "/strəˈtiː.dʒɪ.kəl.i/",
+    "definition": "In a way that relates to the achievement of long-term goals.",
+    "example": "The new warehouse is strategically located near the international shipping port.",
+    "exampleVi": "Nhà kho mới có vị trí chiến lược nằm gần cảng vận chuyển quốc tế.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-7"
+    ],
+    "tags": [
+      "logistics"
+    ],
+    "family": {
+      "noun": "strategy",
+      "adj": "strategic"
+    }
+  },
+  {
+    "id": "intently-adv",
+    "word": "Intently",
+    "meaning": "Chăm chú, tập trung cao độ",
+    "ipa": "/ɪnˈtent.li/",
+    "definition": "With earnest and eager attention.",
+    "example": "The delegates listened intently to the presentation on renewable energy.",
+    "exampleVi": "Các đại biểu chăm chú lắng nghe bài thuyết trình về năng lượng tái tạo.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-7"
+    ],
+    "tags": [
+      "conference"
+    ],
+    "family": {
+      "noun": "intent",
+      "adj": "intent"
+    }
+  },
+  {
+    "id": "relentlessly-adv",
+    "word": "Relentlessly",
+    "meaning": "Không ngừng nghỉ, kiên trì bền bỉ",
+    "ipa": "/rɪˈlent.ləs.li/",
+    "definition": "In an unceasingly intense and determined manner.",
+    "example": "The engineering team worked relentlessly to fix the server vulnerability.",
+    "exampleVi": "Đội ngũ kỹ thuật đã làm việc không ngừng nghỉ để khắc phục lỗ hổng máy chủ.",
+    "level": "C1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-7"
+    ],
+    "tags": [
+      "engineering"
+    ],
+    "family": {
+      "adj": "relentless"
+    }
+  },
+  {
+    "id": "undoubtedly-adv",
+    "word": "Undoubtedly",
+    "meaning": "Chắc chắn, không còn nghi ngờ gì nữa",
+    "ipa": "/ʌnˈdaʊ.t̬ɪd.li/",
+    "definition": "Without question; undeniably true.",
+    "example": "The patent acquisition will undoubtedly strengthen our market dominance.",
+    "exampleVi": "Việc mua lại bằng sáng chế chắc chắn sẽ củng cố vị thế thống lĩnh thị trường của chúng tôi.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-7"
+    ],
+    "tags": [
+      "patent"
+    ],
+    "family": {
+      "noun": "doubt",
+      "adj": "undoubted"
+    }
+  },
+  {
+    "id": "undeniably-adv",
+    "word": "Undeniably",
+    "meaning": "Không thể phủ nhận",
+    "ipa": "/ˌʌn.dɪˈnaɪ.ə.bli/",
+    "definition": "Plainly true or incapable of being disputed.",
+    "example": "Quality customer service is undeniably the key to long-term loyalty.",
+    "exampleVi": "Dịch vụ khách hàng chất lượng không thể phủ nhận là chìa khóa cho sự trung thành lâu dài.",
+    "level": "C1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-7"
+    ],
+    "tags": [
+      "service"
+    ],
+    "family": {
+      "verb": "deny",
+      "adj": "undeniable"
+    }
+  },
+  {
+    "id": "successfully-adv",
+    "word": "Successfully",
+    "meaning": "Thành công, thắng lợi",
+    "ipa": "/səkˈses.fəl.i/",
+    "definition": "In a way that accomplishes a desired aim or result.",
+    "example": "The finance team successfully closed the fiscal year with zero deficits.",
+    "exampleVi": "Đội ngũ tài chính đã kết thúc năm tài chính thành công mà không có thâm hụt.",
+    "level": "A2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-7"
+    ],
+    "tags": [
+      "finance"
+    ],
+    "family": {
+      "noun": "success",
+      "verb": "succeed",
+      "adj": "successful"
+    }
+  },
+  {
+    "id": "mutually-adv",
+    "word": "Mutually",
+    "meaning": "Lẫn nhau, qua lại hai bên",
+    "ipa": "/ˈmjuː.tʃu.ə.li/",
+    "definition": "In a way that is experienced or agreed upon by two or more parties.",
+    "example": "Both companies agreed on a mutually beneficial partnership contract.",
+    "exampleVi": "Cả hai công ty đã nhất trí về một hợp đồng đối tác cùng có lợi cho đôi bên.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-8"
+    ],
+    "tags": [
+      "contract"
+    ],
+    "family": {
+      "adj": "mutual"
+    }
+  },
+  {
+    "id": "respectively-adv",
+    "word": "Respectively",
+    "meaning": "Tương ứng, theo thứ tự lần lượt",
+    "ipa": "/rɪˈspek.tɪv.li/",
+    "definition": "Separately or individually in the order mentioned.",
+    "example": "Tokyo and Singapore ranked first and second respectively in market growth.",
+    "exampleVi": "Tokyo và Singapore lần lượt xếp thứ nhất và thứ hai về tăng trưởng thị trường.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-8"
+    ],
+    "tags": [
+      "ranking"
+    ],
+    "family": {
+      "adj": "respective"
+    }
+  },
+  {
+    "id": "conversely-adv",
+    "word": "Conversely",
+    "meaning": "Ngược lại, trái lại",
+    "ipa": "/kənˈvɝːs.li/",
+    "definition": "Introducing a statement that reverses a previously stated proposition.",
+    "example": "When interest rates rise, borrowing demand conversely declines.",
+    "exampleVi": "Khi lãi suất tăng, nhu cầu vay vốn ngược lại sẽ suy giảm.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-8"
+    ],
+    "tags": [
+      "finance"
+    ],
+    "family": {
+      "adj": "converse"
+    }
+  },
+  {
+    "id": "exceptionally-adv",
+    "word": "Exceptionally",
+    "meaning": "Đặc biệt xuất chúng, hiếm có",
+    "ipa": "/ɪkˈsep.ʃən.əl.i/",
+    "definition": "To a greater degree than normal; unusually well.",
+    "example": "The candidate demonstrated exceptionally strong data analysis capabilities.",
+    "exampleVi": "Ứng viên đã thể hiện năng lực phân tích dữ liệu đặc biệt xuất sắc.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-8"
+    ],
+    "tags": [
+      "hr"
+    ],
+    "family": {
+      "noun": "exception",
+      "adj": "exceptional"
+    }
+  },
+  {
+    "id": "potentially-adv",
+    "word": "Potentially",
+    "meaning": "Có tiềm năng, có khả năng xảy ra",
+    "ipa": "/poʊˈten.ʃəl.i/",
+    "definition": "With a possibility of becoming actual or real.",
+    "example": "The new trade agreement could potentially boost agricultural exports by 20%.",
+    "exampleVi": "Hiệp định thương mại mới có khả năng thúc đẩy xuất khẩu nông sản thêm 20%.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-8"
+    ],
+    "tags": [
+      "trade"
+    ],
+    "family": {
+      "noun": "potential",
+      "adj": "potential"
+    }
+  },
+  {
+    "id": "plausibly-adv",
+    "word": "Plausibly",
+    "meaning": "Hợp lý, có vẻ thuyết phục",
+    "ipa": "/ˈplɑː.zə.bli/",
+    "definition": "In a manner that appears reasonable or probable.",
+    "example": "The forecast plausibly accounts for seasonal tourism variations.",
+    "exampleVi": "Bản dự báo giải thích một cách hợp lý cho sự biến động du lịch theo mùa.",
+    "level": "C1",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-8"
+    ],
+    "tags": [
+      "forecast"
+    ],
+    "family": {
+      "noun": "plausibility",
+      "adj": "plausible"
+    }
+  },
+  {
+    "id": "invariably-adv",
+    "word": "Invariably",
+    "meaning": "Luôn luôn, bất biến không thay đổi",
+    "ipa": "/ɪnˈver.i.ə.bli/",
+    "definition": "In every case or on every occasion; always.",
+    "example": "Public holidays invariably cause short-term logistics delivery delays.",
+    "exampleVi": "Các ngày lễ lớn luôn luôn gây ra sự chậm trễ giao hàng hậu cần ngắn hạn.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-8"
+    ],
+    "tags": [
+      "logistics"
+    ],
+    "family": {
+      "verb": "vary",
+      "adj": "invariable"
+    }
+  },
+  {
+    "id": "scarcely-adv",
+    "word": "Scarcely",
+    "meaning": "Hiếm khi, hầu như không",
+    "ipa": "/ˈsker.sli/",
+    "definition": "Only just; almost not at all.",
+    "example": "There was scarcely enough printed material for all conference attendees.",
+    "exampleVi": "Hầu như không có đủ tài liệu in cho tất cả người tham dự hội nghị.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-8"
+    ],
+    "tags": [
+      "conference"
+    ],
+    "family": {
+      "noun": "scarcity",
+      "adj": "scarce"
+    }
+  },
+  {
+    "id": "seemingly-adv",
+    "word": "Seemingly",
+    "meaning": "Dường như, có vẻ bề ngoài là",
+    "ipa": "/ˈsiː.mɪŋ.li/",
+    "definition": "Appearing to be real or true, though perhaps not actually so.",
+    "example": "The team resolved the seemingly complex software bug within one hour.",
+    "exampleVi": "Nhóm đã giải quyết lỗi phần mềm dường như rất phức tạp chỉ trong vòng một giờ.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-8"
+    ],
+    "tags": [
+      "it"
+    ],
+    "family": {
+      "verb": "seem",
+      "adj": "seeming"
+    }
+  },
+  {
+    "id": "reportedly-adv",
+    "word": "Reportedly",
+    "meaning": "Theo báo cáo, theo tin đưa",
+    "ipa": "/rɪˈpɔːr.t̬ɪd.li/",
+    "definition": "According to what has been said or rumored.",
+    "example": "The airline is reportedly acquiring ten new energy-efficient aircraft.",
+    "exampleVi": "Hãng hàng không này được đưa tin là đang mua lại mười máy bay tiết kiệm năng lượng mới.",
+    "level": "B2",
+    "pos": "adverb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-8"
+    ],
+    "tags": [
+      "airline"
+    ],
+    "family": {
+      "noun": "report",
+      "verb": "report"
+    }
+  },
+  {
+    "id": "call-off-pv",
+    "word": "Call off",
+    "meaning": "Hủy bỏ (sự kiện, cuộc họp, thỏa thuận)",
+    "ipa": "/kɑːl ɑːf/",
+    "definition": "To cancel an event or an agreement that was previously scheduled.",
+    "example": "Due to heavy snow, the organizers had to call off the outdoor press briefing.",
+    "exampleVi": "Do tuyết rơi dày đặc, ban tổ chức đã phải hủy buổi họp báo ngoài trời.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-9"
+    ],
+    "tags": [
+      "meeting"
+    ]
+  },
+  {
+    "id": "put-off-pv",
+    "word": "Put off",
+    "meaning": "Trì hoãn, lùi lịch lại sau",
+    "ipa": "/pʊt ɑːf/",
+    "definition": "To delay an event or activity until a later date or time.",
+    "example": "Never put off answering critical client emails until the next morning.",
+    "exampleVi": "Đừng bao giờ trì hoãn việc trả lời các email quan trọng của khách hàng sang sáng hôm sau.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-9"
+    ],
+    "tags": [
+      "time"
+    ]
+  },
+  {
+    "id": "bring-forward-pv",
+    "word": "Bring forward",
+    "meaning": "Đẩy lịch lên sớm hơn",
+    "ipa": "/brɪŋ ˈfɔːr.wɚd/",
+    "definition": "To move an appointment or meeting to an earlier date or time.",
+    "example": "The director asked to bring forward the weekly review to Thursday afternoon.",
+    "exampleVi": "Giám đốc đã yêu cầu đẩy lịch cuộc họp đánh giá hàng tuần lên sớm hơn vào chiều thứ Năm.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-9"
+    ],
+    "tags": [
+      "schedule"
+    ]
+  },
+  {
+    "id": "draw-up-pv",
+    "word": "Draw up",
+    "meaning": "Soạn thảo, lập văn bản (hợp đồng, kế hoạch)",
+    "ipa": "/drɑː ʌp/",
+    "definition": "To prepare and write a formal document such as a contract or proposal.",
+    "example": "The legal counsel will draw up the non-disclosure agreement by tomorrow.",
+    "exampleVi": "Bộ phận tư vấn pháp lý sẽ soạn thảo thỏa thuận bảo mật trước ngày mai.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-9"
+    ],
+    "tags": [
+      "contract"
+    ]
+  },
+  {
+    "id": "wrap-up-pv",
+    "word": "Wrap up",
+    "meaning": "Tổng kết, kết thúc, gói gọn",
+    "ipa": "/ræp ʌp/",
+    "definition": "To complete or conclude a meeting, discussion, or project successfully.",
+    "example": "Let's wrap up today's brainstorming session with a summary of action items.",
+    "exampleVi": "Hãy cùng kết thúc buổi họp thảo luận ý tưởng hôm nay bằng bản tóm tắt các việc cần làm.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-9"
+    ],
+    "tags": [
+      "meeting"
+    ]
+  },
+  {
+    "id": "kick-off-pv",
+    "word": "Kick off",
+    "meaning": "Bắt đầu, khởi động (chiến dịch, dự án)",
+    "ipa": "/kɪk ɑːf/",
+    "definition": "To start or initiate an event, project, or campaign.",
+    "example": "The annual sales conference will kick off with an address by the founder.",
+    "exampleVi": "Hội nghị bán hàng thường niên sẽ khởi động bằng bài phát biểu của người sáng lập.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-9"
+    ],
+    "tags": [
+      "launch"
+    ]
+  },
+  {
+    "id": "pencil-in-pv",
+    "word": "Pencil in",
+    "meaning": "Lên lịch hẹn tạm thời (chờ chốt)",
+    "ipa": "/ˈpen.səl ɪn/",
+    "definition": "To make a tentative appointment that is subject to future confirmation.",
+    "example": "I will pencil in our lunch meeting for next Wednesday at noon.",
+    "exampleVi": "Tôi sẽ lên lịch tạm cho bữa trưa của chúng ta vào trưa thứ Tư tuần tới.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-9"
+    ],
+    "tags": [
+      "schedule"
+    ]
+  },
+  {
+    "id": "map-out-pv",
+    "word": "Map out",
+    "meaning": "Vạch ra chi tiết (kế hoạch, chiến lược)",
+    "ipa": "/mæp aʊt/",
+    "definition": "To plan in detail how something will happen or be achieved.",
+    "example": "The executive board mapped out a five-year global expansion roadmap.",
+    "exampleVi": "Ban điều hành đã vạch ra lộ trình mở rộng toàn cầu chi tiết trong 5 năm.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-9"
+    ],
+    "tags": [
+      "strategy"
+    ]
+  },
+  {
+    "id": "set-up-pv",
+    "word": "Set up",
+    "meaning": "Thiết lập, sắp xếp, thành lập",
+    "ipa": "/set ʌp/",
+    "definition": "To arrange an appointment, system, or organization.",
+    "example": "The IT team helped set up the high-speed video conferencing equipment.",
+    "exampleVi": "Đội ngũ CNTT đã hỗ trợ thiết lập thiết bị hội nghị truyền hình tốc độ cao.",
+    "level": "A2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-9"
+    ],
+    "tags": [
+      "office"
+    ]
+  },
+  {
+    "id": "lock-in-pv",
+    "word": "Lock in",
+    "meaning": "Chốt chắc chắn (giá, hợp đồng, điều khoản)",
+    "ipa": "/lɑːk ɪn/",
+    "definition": "To secure or fix a price, rate, or agreement firmly.",
+    "example": "We managed to lock in a favorable interest rate for the warehouse mortgage.",
+    "exampleVi": "Chúng tôi đã chốt được mức lãi suất ưu đãi cho khoản vay mua nhà kho.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-9"
+    ],
+    "tags": [
+      "finance"
+    ]
+  },
+  {
+    "id": "go-over-pv",
+    "word": "Go over",
+    "meaning": "Rà soát, kiểm tra lại kỹ lưỡng",
+    "ipa": "/ɡoʊ ˈoʊ.vɚ/",
+    "definition": "To examine or review something carefully.",
+    "example": "Let's go over the quarterly revenue spreadsheet before the client presentation.",
+    "exampleVi": "Hãy cùng rà soát lại bảng tính doanh thu hàng quý trước khi thuyết trình cho khách hàng.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-10"
+    ],
+    "tags": [
+      "review"
+    ]
+  },
+  {
+    "id": "bring-up-pv",
+    "word": "Bring up",
+    "meaning": "Đưa ra bàn luận, nêu vấn đề",
+    "ipa": "/brɪŋ ʌp/",
+    "definition": "To raise a topic or issue for discussion during a conversation or meeting.",
+    "example": "Mr. Chen brought up the issue of workplace ergonomics at the safety council.",
+    "exampleVi": "Ông Chen đã đưa vấn đề công thái học tại nơi làm việc ra bàn luận tại hội đồng an toàn.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-10"
+    ],
+    "tags": [
+      "meeting"
+    ]
+  },
+  {
+    "id": "point-out-pv",
+    "word": "Point out",
+    "meaning": "Chỉ ra, lưu ý điểm quan trọng",
+    "ipa": "/pɔɪnt aʊt/",
+    "definition": "To direct attention to a specific fact or detail.",
+    "example": "The financial analyst pointed out a discrepancies in the inventory valuation.",
+    "exampleVi": "Chuyên viên phân tích tài chính đã chỉ ra điểm bất hợp lý trong định giá hàng tồn kho.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-10"
+    ],
+    "tags": [
+      "analysis"
+    ]
+  },
+  {
+    "id": "rule-out-pv",
+    "word": "Rule out",
+    "meaning": "Loại trừ, bác bỏ khả năng",
+    "ipa": "/ruːl aʊt/",
+    "definition": "To exclude something from consideration as a possibility.",
+    "example": "Management has ruled out salary cuts as a solution to budget deficits.",
+    "exampleVi": "Ban quản lý đã loại trừ phương án cắt giảm lương như một giải pháp cho thâm hụt ngân sách.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-10"
+    ],
+    "tags": [
+      "management"
+    ]
+  },
+  {
+    "id": "narrow-down-pv",
+    "word": "Narrow down",
+    "meaning": "Thu hẹp danh sách lựa chọn",
+    "ipa": "/ˈner.oʊ daʊn/",
+    "definition": "To reduce the number of possibilities or choices.",
+    "example": "The recruitment team narrowed down the applicant pool to three finalists.",
+    "exampleVi": "Đội ngũ tuyển dụng đã thu hẹp danh sách ứng viên xuống còn ba người cuối cùng.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-10"
+    ],
+    "tags": [
+      "recruitment"
+    ]
+  },
+  {
+    "id": "sort-out-pv",
+    "word": "Sort out",
+    "meaning": "Phân loại, giải quyết ổn thỏa",
+    "ipa": "/sɔːrt aʊt/",
+    "definition": "To organize or resolve a problem successfully.",
+    "example": "The customer support lead sorted out the shipping dispute within an hour.",
+    "exampleVi": "Trưởng nhóm hỗ trợ khách hàng đã giải quyết ổn thỏa tranh chấp giao hàng trong vòng một giờ.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-10"
+    ],
+    "tags": [
+      "support"
+    ]
+  },
+  {
+    "id": "iron-out-pv",
+    "word": "Iron out",
+    "meaning": "Tháo gỡ khúc mắc, dàn xếp êm đẹp",
+    "ipa": "/ˈaɪ.ɚn aʊt/",
+    "definition": "To resolve remaining minor difficulties or discrepancies.",
+    "example": "Both attorneys met yesterday to iron out the final clauses of the joint venture.",
+    "exampleVi": "Cả hai luật sư đã gặp nhau hôm qua để tháo gỡ các điều khoản cuối cùng của liên doanh.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-10"
+    ],
+    "tags": [
+      "negotiation"
+    ]
+  },
+  {
+    "id": "hammer-out-pv",
+    "word": "Hammer out",
+    "meaning": "Thảo luận gay cấn để đạt thỏa thuận",
+    "ipa": "/ˈhæm.ɚ aʊt/",
+    "definition": "To negotiate and reach an agreement through long, intense effort.",
+    "example": "Union leaders and management hammered out a new three-year labor contract.",
+    "exampleVi": "Các lãnh đạo công đoàn và ban quản lý đã thảo luận căng thẳng để chốt hợp đồng lao động mới 3 năm.",
+    "level": "C1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-10"
+    ],
+    "tags": [
+      "labor"
+    ]
+  },
+  {
+    "id": "come-down-to-pv",
+    "word": "Come down to",
+    "meaning": "Chung quy lại là, cốt lõi là",
+    "ipa": "/kʌm daʊn tuː/",
+    "definition": "To be the most essential or determining factor.",
+    "example": "The winning bid ultimately came down to delivery speed and reliability.",
+    "exampleVi": "Gói thầu chiến thắng chung quy lại phụ thuộc vào tốc độ giao hàng và độ tin cậy.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-10"
+    ],
+    "tags": [
+      "decision"
+    ]
+  },
+  {
+    "id": "boil-down-to-pv",
+    "word": "Boil down to",
+    "meaning": "Quy về điểm mấu chốt",
+    "ipa": "/bɔɪl daʊn tuː/",
+    "definition": "To reduce a complex issue to its basic fundamental essence.",
+    "example": "The dispute boils down to disagreement over intellectual property ownership.",
+    "exampleVi": "Tranh chấp quy về điểm mấu chốt là sự bất đồng về quyền sở hữu trí tuệ.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-10"
+    ],
+    "tags": [
+      "dispute"
+    ]
+  },
+  {
+    "id": "carry-out-pv",
+    "word": "Carry out",
+    "meaning": "Tiến hành, thực thi (kế hoạch, nghiên cứu, kiểm tra)",
+    "ipa": "/ˈkær.i aʊt/",
+    "definition": "To perform or execute a planned task, research, or order.",
+    "example": "The safety committee will carry out an on-site inspection next Monday.",
+    "exampleVi": "Ủy ban an toàn sẽ tiến hành kiểm tra thực địa vào thứ Hai tới.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-11"
+    ],
+    "tags": [
+      "inspection"
+    ]
+  },
+  {
+    "id": "take-over-pv",
+    "word": "Take over",
+    "meaning": "Tiếp quản, nắm quyền điều hành",
+    "ipa": "/teɪk ˈoʊ.vɚ/",
+    "definition": "To assume control or responsibility for a company or role.",
+    "example": "Ms. Vance will take over as regional director starting next quarter.",
+    "exampleVi": "Bà Vance sẽ tiếp quản vị trí giám đốc khu vực bắt đầu từ quý tới.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-11"
+    ],
+    "tags": [
+      "management"
+    ]
+  },
+  {
+    "id": "step-down-pv",
+    "word": "Step down",
+    "meaning": "Từ chức, nhường vị trí",
+    "ipa": "/step daʊn/",
+    "definition": "To resign or leave an official position or post of authority.",
+    "example": "The founder decided to step down as CEO to focus on philanthropic work.",
+    "exampleVi": "Người sáng lập đã quyết định từ chức Tổng giám đốc để tập trung vào công tác từ thiện.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-11"
+    ],
+    "tags": [
+      "leadership"
+    ]
+  },
+  {
+    "id": "hand-over-pv",
+    "word": "Hand over",
+    "meaning": "Bàn giao (quyền hạn, tài liệu, công việc)",
+    "ipa": "/hænd ˈoʊ.vɚ/",
+    "definition": "To give control or responsibility to someone else.",
+    "example": "Please ensure all project assets are handed over before your last working day.",
+    "exampleVi": "Vui lòng đảm bảo toàn bộ tài sản dự án đã được bàn giao trước ngày làm việc cuối cùng.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-11"
+    ],
+    "tags": [
+      "hr"
+    ]
+  },
+  {
+    "id": "phase-out-pv",
+    "word": "Phase out",
+    "meaning": "Loại bỏ dần dần theo lộ trình",
+    "ipa": "/feɪz aʊt/",
+    "definition": "To stop using or producing something gradually over time.",
+    "example": "The automobile manufacturer will phase out diesel engines by 2030.",
+    "exampleVi": "Nhà sản xuất ô tô sẽ loại bỏ dần động cơ diesel trước năm 2030.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-11"
+    ],
+    "tags": [
+      "manufacturing"
+    ]
+  },
+  {
+    "id": "phase-in-pv",
+    "word": "Phase in",
+    "meaning": "Đưa vào sử dụng dần dần theo từng bước",
+    "ipa": "/feɪz ɪn/",
+    "definition": "To introduce something gradually in planned stages.",
+    "example": "The automated payroll system will be phased in over the next three months.",
+    "exampleVi": "Hệ thống tính lương tự động sẽ được đưa vào áp dụng dần trong vòng ba tháng tới.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-11"
+    ],
+    "tags": [
+      "hr",
+      "tech"
+    ]
+  },
+  {
+    "id": "roll-out-pv",
+    "word": "Roll out",
+    "meaning": "Tung ra thị trường, triển khai rộng rãi",
+    "ipa": "/roʊl aʊt/",
+    "definition": "To introduce a new product, system, or service to the public.",
+    "example": "The bank plans to roll out its biometric authentication feature next month.",
+    "exampleVi": "Ngân hàng có kế hoạch tung ra tính năng xác thực sinh trắc học vào tháng tới.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-11"
+    ],
+    "tags": [
+      "product"
+    ]
+  },
+  {
+    "id": "take-on-pv",
+    "word": "Take on",
+    "meaning": "Đảm nhận (trách nhiệm), tuyển thêm (nhân sự)",
+    "ipa": "/teɪk ɑːn/",
+    "definition": "To accept a new challenge or hire additional personnel.",
+    "example": "Our firm will take on five new junior software engineers this autumn.",
+    "exampleVi": "Công ty chúng tôi sẽ tuyển thêm năm kỹ sư phần mềm trẻ vào mùa thu này.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-11"
+    ],
+    "tags": [
+      "hiring"
+    ]
+  },
+  {
+    "id": "back-up-pv",
+    "word": "Back up",
+    "meaning": "Sao lưu dữ liệu, ủng hộ ai đó",
+    "ipa": "/bæk ʌp/",
+    "definition": "To make a copy of computer data, or provide support to someone.",
+    "example": "Always back up financial spreadsheets to the secure cloud repository.",
+    "exampleVi": "Hãy luôn sao lưu các bảng tính tài chính lên kho lưu trữ đám mây bảo mật.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-11"
+    ],
+    "tags": [
+      "it"
+    ]
+  },
+  {
+    "id": "shut-down-pv",
+    "word": "Shut down",
+    "meaning": "Đóng cửa, ngừng hoạt động (nhà máy, hệ thống)",
+    "ipa": "/ʃʌt daʊn/",
+    "definition": "To stop operating or close a facility permanently or temporarily.",
+    "example": "The assembly plant was shut down for two days for routine maintenance.",
+    "exampleVi": "Nhà máy lắp ráp đã ngừng hoạt động trong hai ngày để bảo trì định kỳ.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-11"
+    ],
+    "tags": [
+      "factory"
+    ]
+  },
+  {
+    "id": "close-down-pv",
+    "word": "Close down",
+    "meaning": "Đóng cửa vĩnh viễn (doanh nghiệp, chi nhánh)",
+    "ipa": "/kloʊz daʊn/",
+    "definition": "To stop operating permanently as a commercial enterprise.",
+    "example": "The retail chain closed down five underperforming suburban branches.",
+    "exampleVi": "Chuỗi bán lẻ đã đóng cửa vĩnh viễn năm chi nhánh ngoại ô hoạt động kém hiệu quả.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-12"
+    ],
+    "tags": [
+      "retail"
+    ]
+  },
+  {
+    "id": "buy-out-pv",
+    "word": "Buy out",
+    "meaning": "Mua lại toàn bộ cổ phần / quyền kiểm soát",
+    "ipa": "/baɪ aʊt/",
+    "definition": "To purchase the entire interest or shares of a partner or company.",
+    "example": "The telecom giant bought out its regional competitor for 500 million dollars.",
+    "exampleVi": "Gã khổng lồ viễn thông đã mua lại đối thủ cạnh tranh trong khu vực với giá 500 triệu đô la.",
+    "level": "C1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-12"
+    ],
+    "tags": [
+      "acquisition"
+    ]
+  },
+  {
+    "id": "branch-out-pv",
+    "word": "Branch out",
+    "meaning": "Mở rộng sang lĩnh vực mới",
+    "ipa": "/bræntʃ aʊt/",
+    "definition": "To expand business activities into a new or different field.",
+    "example": "The publishing house is branching out into audiobooks and digital learning.",
+    "exampleVi": "Nhà xuất bản đang mở rộng sang lĩnh vực sách nói và học tập kỹ thuật số.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-12"
+    ],
+    "tags": [
+      "business"
+    ]
+  },
+  {
+    "id": "build-up-pv",
+    "word": "Build up",
+    "meaning": "Xây dựng, tích lũy dần theo thời gian",
+    "ipa": "/bɪld ʌp/",
+    "definition": "To increase, develop, or accumulate over time.",
+    "example": "The company has built up a strong reputation for customer care.",
+    "exampleVi": "Công ty đã xây dựng được danh tiếng vững chắc về chăm sóc khách hàng.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-12"
+    ],
+    "tags": [
+      "reputation"
+    ]
+  },
+  {
+    "id": "scale-up-pv",
+    "word": "Scale up",
+    "meaning": "Mở rộng quy mô hoạt động",
+    "ipa": "/skeɪl ʌp/",
+    "definition": "To increase the size, amount, or scope of business operations.",
+    "example": "We need additional server infrastructure to scale up our cloud platform.",
+    "exampleVi": "Chúng ta cần thêm hạ tầng máy chủ để mở rộng quy mô nền tảng đám mây.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-12"
+    ],
+    "tags": [
+      "tech"
+    ]
+  },
+  {
+    "id": "wind-down-pv",
+    "word": "Wind down",
+    "meaning": "Thu hẹp hoạt động, tiến tới kết thúc",
+    "ipa": "/waɪnd daʊn/",
+    "definition": "To gradually reduce business activities before complete cessation.",
+    "example": "The consulting firm is winding down operations in unprofitable markets.",
+    "exampleVi": "Công ty tư vấn đang thu hẹp dần các hoạt động tại những thị trường không sinh lời.",
+    "level": "C1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-12"
+    ],
+    "tags": [
+      "strategy"
+    ]
+  },
+  {
+    "id": "hold-back-pv",
+    "word": "Hold back",
+    "meaning": "Kìm hãm, ngăn chặn đà phát triển",
+    "ipa": "/hoʊld bæk/",
+    "definition": "To restrain or impede progress or development.",
+    "example": "High tariffs are holding back international supply chain efficiency.",
+    "exampleVi": "Mức thuế quan cao đang kìm hãm hiệu quả của chuỗi cung ứng quốc tế.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-12"
+    ],
+    "tags": [
+      "trade"
+    ]
+  },
+  {
+    "id": "lay-off-pv",
+    "word": "Lay off",
+    "meaning": "Sa thải nhân viên (do thu hẹp kinh doanh)",
+    "ipa": "/leɪ ɑːf/",
+    "definition": "To dismiss workers temporarily or permanently due to lack of work.",
+    "example": "The airline had to lay off 200 ground staff during the travel downturn.",
+    "exampleVi": "Hãng hàng không đã phải sa thải 200 nhân viên mặt đất trong đợt suy thoái du lịch.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-12"
+    ],
+    "tags": [
+      "hr"
+    ]
+  },
+  {
+    "id": "step-up-pv",
+    "word": "Step up",
+    "meaning": "Tăng cường, đẩy mạnh nỗ lực",
+    "ipa": "/step ʌp/",
+    "definition": "To increase the amount, speed, or intensity of an effort.",
+    "example": "Marketing must step up advertising efforts ahead of the festive shopping season.",
+    "exampleVi": "Bộ phận tiếp thị phải đẩy mạnh các nỗ lực quảng cáo trước mùa mua sắm lễ hội.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-12"
+    ],
+    "tags": [
+      "marketing"
+    ]
+  },
+  {
+    "id": "opt-out-pv",
+    "word": "Opt out",
+    "meaning": "Chọn không tham gia, rút lui",
+    "ipa": "/ɑːpt aʊt/",
+    "definition": "To choose not to participate in an agreement, scheme, or feature.",
+    "example": "Subscribers may opt out of promotional newsletters at any time.",
+    "exampleVi": "Người đăng ký có thể chọn không nhận bản tin quảng cáo bất cứ lúc nào.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-12"
+    ],
+    "tags": [
+      "subscription"
+    ]
+  },
+  {
+    "id": "fill-out-pv",
+    "word": "Fill out",
+    "meaning": "Điền hoàn chỉnh (mẫu đơn, phiếu thông tin)",
+    "ipa": "/fɪl aʊt/",
+    "definition": "To complete a formal form or document by writing information in all spaces.",
+    "example": "Please fill out the reimbursement form and attach all original receipts.",
+    "exampleVi": "Vui lòng điền hoàn chỉnh mẫu đơn hoàn tiền và đính kèm tất cả biên lai gốc.",
+    "level": "A2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-13"
+    ],
+    "tags": [
+      "form"
+    ]
+  },
+  {
+    "id": "fill-in-pv",
+    "word": "Fill in",
+    "meaning": "Điền vào chỗ trống, làm thay tạm thời",
+    "ipa": "/fɪl ɪn/",
+    "definition": "To write information in a space, or act as a temporary substitute.",
+    "example": "Maria will fill in for the accountant while she is on maternity leave.",
+    "exampleVi": "Maria sẽ làm thay cho kế toán viên trong khi cô ấy nghỉ thai sản.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-13"
+    ],
+    "tags": [
+      "hr"
+    ]
+  },
+  {
+    "id": "sign-up-pv",
+    "word": "Sign up",
+    "meaning": "Đăng ký tham gia (khóa học, dịch vụ)",
+    "ipa": "/saɪn ʌp/",
+    "definition": "To agree to participate in an activity or service by putting one's name on a list.",
+    "example": "Over 500 delegates have signed up for the annual cybersecurity summit.",
+    "exampleVi": "Hơn 500 đại biểu đã đăng ký tham gia hội nghị thượng đỉnh an ninh mạng thường niên.",
+    "level": "A2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-13"
+    ],
+    "tags": [
+      "registration"
+    ]
+  },
+  {
+    "id": "sign-in-pv",
+    "word": "Sign in",
+    "meaning": "Đăng nhập, ký tên khi vào cơ quan",
+    "ipa": "/saɪn ɪn/",
+    "definition": "To record one's arrival by signing a register or logging into a system.",
+    "example": "All visitors are required to sign in at the security desk upon arrival.",
+    "exampleVi": "Tất cả khách đến thăm bắt buộc phải ký tên tại quầy an ninh khi vừa tới nơi.",
+    "level": "A2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-13"
+    ],
+    "tags": [
+      "security"
+    ]
+  },
+  {
+    "id": "sign-off-on-pv",
+    "word": "Sign off on",
+    "meaning": "Ký duyệt chính thức, phê chuẩn",
+    "ipa": "/saɪn ɑːf ɑːn/",
+    "definition": "To give formal written approval or endorsement to something.",
+    "example": "The chief financial officer must sign off on any expenditure over $10,000.",
+    "exampleVi": "Giám đốc tài chính phải ký duyệt chính thức cho bất kỳ khoản chi nào trên 10.000 đô la.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-13"
+    ],
+    "tags": [
+      "finance"
+    ]
+  },
+  {
+    "id": "write-up-pv",
+    "word": "Write up",
+    "meaning": "Soạn thảo bản tường trình / báo cáo chi tiết",
+    "ipa": "/raɪt ʌp/",
+    "definition": "To write a comprehensive report or description based on notes.",
+    "example": "The auditor will write up a formal report following the branch inspection.",
+    "exampleVi": "Kiểm toán viên sẽ soạn thảo bản báo cáo chi tiết sau đợt kiểm tra chi nhánh.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-13"
+    ],
+    "tags": [
+      "report"
+    ]
+  },
+  {
+    "id": "print-out-pv",
+    "word": "Print out",
+    "meaning": "In ra giấy (văn bản từ máy tính)",
+    "ipa": "/prɪnt aʊt/",
+    "definition": "To produce a paper copy of a digital document.",
+    "example": "Please print out five copies of the agenda for the executive board.",
+    "exampleVi": "Vui lòng in ra năm bản chương trình nghị sự cho ban giám đốc.",
+    "level": "A2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-13"
+    ],
+    "tags": [
+      "office"
+    ]
+  },
+  {
+    "id": "cross-out-pv",
+    "word": "Cross out",
+    "meaning": "Gạch bỏ, xóa bỏ dòng chữ",
+    "ipa": "/krɑːs aʊt/",
+    "definition": "To draw a line through text because it is incorrect or no longer needed.",
+    "example": "Please cross out any obsolete contact numbers on the office directory.",
+    "exampleVi": "Vui lòng gạch bỏ bất kỳ số liên lạc lỗi thời nào trong danh bạ văn phòng.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-13"
+    ],
+    "tags": [
+      "office"
+    ]
+  },
+  {
+    "id": "check-off-pv",
+    "word": "Check off",
+    "meaning": "Đánh dấu đã hoàn thành (trong danh sách)",
+    "ipa": "/tʃek ɑːf/",
+    "definition": "To mark items on a checklist as they are completed.",
+    "example": "Check off each safety item on the checklist before starting the machinery.",
+    "exampleVi": "Hãy đánh dấu từng mục an toàn trong danh sách kiểm tra trước khi khởi động máy móc.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-13"
+    ],
+    "tags": [
+      "checklist"
+    ]
+  },
+  {
+    "id": "file-away-pv",
+    "word": "File away",
+    "meaning": "Lưu trữ hồ sơ ngăn nắp vào tủ/thư mục",
+    "ipa": "/faɪl əˈweɪ/",
+    "definition": "To place documents neatly into a filing cabinet or archive.",
+    "example": "The legal contracts were scanned and filed away in the secure archive.",
+    "exampleVi": "Các hợp đồng pháp lý đã được quét và lưu trữ ngăn nắp trong kho lưu trữ bảo mật.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-13"
+    ],
+    "tags": [
+      "archive"
+    ]
+  },
+  {
+    "id": "look-into-pv",
+    "word": "Look into",
+    "meaning": "Điều tra, xem xét kỹ lưỡng (khiếu nại, sự cố)",
+    "ipa": "/lʊk ˈɪn.tuː/",
+    "definition": "To investigate or examine the facts about a situation.",
+    "example": "Our quality assurance department is looking into the customer complaint.",
+    "exampleVi": "Bộ phận đảm bảo chất lượng của chúng tôi đang điều tra khiếu nại của khách hàng.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-14"
+    ],
+    "tags": [
+      "investigation"
+    ]
+  },
+  {
+    "id": "figure-out-pv",
+    "word": "Figure out",
+    "meaning": "Tìm ra giải pháp, hiểu ra cách giải quyết",
+    "ipa": "/ˈfɪɡ.jɚ aʊt/",
+    "definition": "To solve a problem or discover the reason for something.",
+    "example": "The software engineers quickly figured out what caused the database crash.",
+    "exampleVi": "Các kỹ sư phần mềm đã nhanh chóng tìm ra nguyên nhân gây sập cơ sở dữ liệu.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-14"
+    ],
+    "tags": [
+      "troubleshooting"
+    ]
+  },
+  {
+    "id": "clear-up-pv",
+    "word": "Clear up",
+    "meaning": "Làm sáng tỏ (hiểu lầm), dọn dẹp sạch sẽ",
+    "ipa": "/klɪr ʌp/",
+    "definition": "To clarify a misunderstanding or make an area clean and tidy.",
+    "example": "A brief conference call helped clear up the confusion regarding payment terms.",
+    "exampleVi": "Một cuộc gọi ngắn qua hội nghị truyền hình đã giúp làm sáng tỏ sự nhầm lẫn về điều khoản thanh toán.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-14"
+    ],
+    "tags": [
+      "communication"
+    ]
+  },
+  {
+    "id": "brush-up-on-pv",
+    "word": "Brush up on",
+    "meaning": "Ôn tập lại, trau dồi lại kiến thức cũ",
+    "ipa": "/brʌʃ ʌp ɑːn/",
+    "definition": "To refresh or improve one's memory or skill in a subject.",
+    "example": "Before traveling to Berlin, David brushed up on his German business vocabulary.",
+    "exampleVi": "Trước khi đi công tác tại Berlin, David đã trau dồi lại vốn từ vựng tiếng Đức chuyên ngành thương mại.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-14"
+    ],
+    "tags": [
+      "skills"
+    ]
+  },
+  {
+    "id": "track-down-pv",
+    "word": "Track down",
+    "meaning": "Lần ra manh mối, tìm ra vết tích",
+    "ipa": "/træk daʊn/",
+    "definition": "To locate something or someone after a prolonged search.",
+    "example": "The inventory clerk tracked down the missing crate in warehouse B.",
+    "exampleVi": "Nhân viên kiểm kho đã lần ra kiện hàng bị thất lạc tại nhà kho B.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-14"
+    ],
+    "tags": [
+      "logistics"
+    ]
+  },
+  {
+    "id": "break-down-pv",
+    "word": "Break down",
+    "meaning": "Hỏng hóc (máy móc), phân tích chi tiết",
+    "ipa": "/breɪk daʊn/",
+    "definition": "To stop functioning mechanically, or analyze data into smaller parts.",
+    "example": "The financial model breaks down operating expenses by regional branch.",
+    "exampleVi": "Mô hình tài chính phân tích chi tiết các chi phí hoạt động theo từng chi nhánh khu vực.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-14"
+    ],
+    "tags": [
+      "analysis",
+      "equipment"
+    ]
+  },
+  {
+    "id": "zero-in-on-pv",
+    "word": "Zero in on",
+    "meaning": "Nhắm trúng mục tiêu, tập trung trọng tâm",
+    "ipa": "/ˈzɪr.oʊ ɪn ɑːn/",
+    "definition": "To direct all attention or effort specifically toward a particular target.",
+    "example": "The auditor zeroed in on several unexplained travel expense reimbursements.",
+    "exampleVi": "Kiểm toán viên đã nhắm thẳng trọng tâm vào một số khoản hoàn trả chi phí đi lại chưa rõ ràng.",
+    "level": "C1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-14"
+    ],
+    "tags": [
+      "audit"
+    ]
+  },
+  {
+    "id": "act-upon-pv",
+    "word": "Act upon",
+    "meaning": "Hành động theo (lời khuyên, chỉ thị)",
+    "ipa": "/ækt əˈpɑːn/",
+    "definition": "To take action in accordance with advice, orders, or information.",
+    "example": "Management acted upon the consultant's recommendations to automate billing.",
+    "exampleVi": "Ban quản lý đã hành động theo khuyến nghị của chuyên gia tư vấn để tự động hóa khâu lập hóa đơn.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-14"
+    ],
+    "tags": [
+      "management"
+    ]
+  },
+  {
+    "id": "account-for-pv",
+    "word": "Account for",
+    "meaning": "Giải trình, chiếm tỷ lệ (%)",
+    "ipa": "/əˈkaʊnt fɔːr/",
+    "definition": "To explain the cause of something, or comprise a particular proportion.",
+    "example": "Online subscriptions account for 65% of our annual recurring revenue.",
+    "exampleVi": "Các gói đăng ký trực tuyến chiếm 65% doanh thu định kỳ hàng năm của chúng tôi.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-14"
+    ],
+    "tags": [
+      "finance"
+    ]
+  },
+  {
+    "id": "bear-out-pv",
+    "word": "Bear out",
+    "meaning": "Chứng thực, chứng minh điều gì là đúng",
+    "ipa": "/ber aʊt/",
+    "definition": "To support or confirm the truth of a claim or hypothesis.",
+    "example": "Subsequent market research data bore out our initial revenue projections.",
+    "exampleVi": "Dữ liệu nghiên cứu thị trường sau đó đã chứng thực cho các dự báo doanh thu ban đầu của chúng tôi.",
+    "level": "C1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-14"
+    ],
+    "tags": [
+      "research"
+    ]
+  },
+  {
+    "id": "follow-up-pv",
+    "word": "Follow up",
+    "meaning": "Liên hệ theo dõi tiến độ, bám sát",
+    "ipa": "/ˈfɑː.loʊ ʌp/",
+    "definition": "To take further action or make a contact to maintain progress.",
+    "example": "The sales representative followed up with the client after the product demo.",
+    "exampleVi": "Đại diện bán hàng đã liên hệ bám sát khách hàng sau buổi giới thiệu sản phẩm.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-15"
+    ],
+    "tags": [
+      "sales"
+    ]
+  },
+  {
+    "id": "turn-down-pv",
+    "word": "Turn down",
+    "meaning": "Từ chối (lời mời, đề xuất, đơn xin việc)",
+    "ipa": "/tɝːn daʊn/",
+    "definition": "To reject or decline an offer, request, or applicant.",
+    "example": "The board turned down the initial takeover bid because the valuation was too low.",
+    "exampleVi": "Hội đồng quản trị đã từ chối đề nghị thâu tóm ban đầu vì định giá quá thấp.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-15"
+    ],
+    "tags": [
+      "negotiation"
+    ]
+  },
+  {
+    "id": "touch-base-pv",
+    "word": "Touch base",
+    "meaning": "Liên lạc nhanh, cập nhật tình hình ngắn gọn",
+    "ipa": "/tʌtʃ beɪs/",
+    "definition": "To make contact briefly with someone to update or coordinate plans.",
+    "example": "Let's touch base next Monday to review the design mockups.",
+    "exampleVi": "Hãy liên lạc nhanh vào thứ Hai tới để duyệt các bản thiết kế mẫu.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-15"
+    ],
+    "tags": [
+      "communication"
+    ]
+  },
+  {
+    "id": "reach-out-to-pv",
+    "word": "Reach out to",
+    "meaning": "Chủ động liên hệ, tiếp cận đối tác",
+    "ipa": "/riːtʃ aʊt tuː/",
+    "definition": "To make an effort to communicate or offer help to someone.",
+    "example": "Our HR department is reaching out to top engineering university graduates.",
+    "exampleVi": "Bộ phận nhân sự của chúng tôi đang chủ động tiếp cận các sinh viên tốt nghiệp kỹ thuật xuất sắc.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-15"
+    ],
+    "tags": [
+      "recruitment"
+    ]
+  },
+  {
+    "id": "get-back-to-pv",
+    "word": "Get back to",
+    "meaning": "Phản hồi lại ai đó sau khi có thông tin",
+    "ipa": "/ɡet bæk tuː/",
+    "definition": "To contact someone again with information they requested earlier.",
+    "example": "I will check the inventory stock and get back to you by 3:00 PM.",
+    "exampleVi": "Tôi sẽ kiểm tra lượng hàng tồn kho và phản hồi lại cho bạn trước 3 giờ chiều.",
+    "level": "A2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-15"
+    ],
+    "tags": [
+      "customer"
+    ]
+  },
+  {
+    "id": "stand-out-pv",
+    "word": "Stand out",
+    "meaning": "Nổi bật, vượt trội hơn hẳn đối thủ",
+    "ipa": "/stænd aʊt/",
+    "definition": "To be clearly noticeable or superior to others in quality.",
+    "example": "The candidate's extensive multilingual skills made her resume stand out.",
+    "exampleVi": "Kỹ năng đa ngôn ngữ chuyên sâu của ứng viên đã làm cho hồ sơ của cô ấy nổi bật hơn hẳn.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-15"
+    ],
+    "tags": [
+      "hr"
+    ]
+  },
+  {
+    "id": "win-over-pv",
+    "word": "Win over",
+    "meaning": "Thuyết phục, chiếm được lòng tin",
+    "ipa": "/wɪn ˈoʊ.vɚ/",
+    "definition": "To persuade someone to agree with or support your point of view.",
+    "example": "The innovative design proposal won over the city planning committee.",
+    "exampleVi": "Bản đề xuất thiết kế sáng tạo đã chiếm trọn được sự ủng hộ của ủy ban quy hoạch thành phố.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-15"
+    ],
+    "tags": [
+      "pitch"
+    ]
+  },
+  {
+    "id": "back-out-of-pv",
+    "word": "Back out of",
+    "meaning": "Rút lui khỏi (thỏa thuận, hợp đồng)",
+    "ipa": "/bæk aʊt əv/",
+    "definition": "To withdraw from an agreement, promise, or contract before completion.",
+    "example": "The supplier unexpectedly backed out of the delivery contract at the last minute.",
+    "exampleVi": "Nhà cung cấp đã bất ngờ rút lui khỏi hợp đồng giao hàng vào phút chót.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-15"
+    ],
+    "tags": [
+      "contract"
+    ]
+  },
+  {
+    "id": "cave-in-pv",
+    "word": "Cave in",
+    "meaning": "Nhượng bộ, đầu hàng trước áp lực",
+    "ipa": "/keɪv ɪn/",
+    "definition": "To yield or surrender completely under intense pressure or demands.",
+    "example": "Management refused to cave in to unreasonable price reduction demands.",
+    "exampleVi": "Ban quản lý kiên quyết không nhượng bộ trước những yêu cầu giảm giá vô lý.",
+    "level": "C1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-15"
+    ],
+    "tags": [
+      "negotiation"
+    ]
+  },
+  {
+    "id": "count-on-pv",
+    "word": "Count on",
+    "meaning": "Trông cậy vào, tin tưởng vào",
+    "ipa": "/kaʊnt ɑːn/",
+    "definition": "To rely on or be confident that someone will help or do something.",
+    "example": "You can count on our technical support team 24/7 for critical server issues.",
+    "exampleVi": "Bạn hoàn toàn có thể trông cậy vào đội ngũ hỗ trợ kỹ thuật của chúng tôi 24/7 cho các sự cố máy chủ nghiêm trọng.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-15"
+    ],
+    "tags": [
+      "support"
+    ]
+  },
+  {
+    "id": "cut-down-on-pv",
+    "word": "Cut down on",
+    "meaning": "Cắt giảm (chi tiêu, thời gian, nguyên liệu)",
+    "ipa": "/kʌt daʊn ɑːn/",
+    "definition": "To reduce the amount or consumption of something.",
+    "example": "Switching to digital invoices helped cut down on office paper waste.",
+    "exampleVi": "Việc chuyển sang hóa đơn điện tử đã giúp cắt giảm lượng giấy văn phòng lãng phí.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-16"
+    ],
+    "tags": [
+      "cost"
+    ]
+  },
+  {
+    "id": "cut-back-on-pv",
+    "word": "Cut back on",
+    "meaning": "Cắt giảm quy mô ngân sách",
+    "ipa": "/kʌt bæk ɑːn/",
+    "definition": "To reduce spending, production, or resources in a planned way.",
+    "example": "The corporation cut back on overseas business trips to control travel costs.",
+    "exampleVi": "Tập đoàn đã cắt giảm các chuyến công tác nước ngoài để kiểm soát chi phí đi lại.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-16"
+    ],
+    "tags": [
+      "budget"
+    ]
+  },
+  {
+    "id": "pay-off-pv",
+    "word": "Pay off",
+    "meaning": "Trả hết nợ, đơm hoa kết trái (mang lại kết quả)",
+    "ipa": "/peɪ ɑːf/",
+    "definition": "To finish paying a debt, or yield successful results from an effort.",
+    "example": "Our long-term investment in employee development has paid off handsomely.",
+    "exampleVi": "Khoản đầu tư dài hạn của chúng tôi vào phát triển nhân viên đã mang lại kết quả hết sức mỹ mãn.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-16"
+    ],
+    "tags": [
+      "investment"
+    ]
+  },
+  {
+    "id": "write-off-pv",
+    "word": "Write off",
+    "meaning": "Xóa nợ (khoản nợ khó đòi), coi như mất trắng",
+    "ipa": "/raɪt ɑːf/",
+    "definition": "To cancel a debt from accounts as uncollectible.",
+    "example": "The bank had to write off $2 million in bad loans following the market crash.",
+    "exampleVi": "Ngân hàng đã phải xóa 2 triệu đô la nợ xấu sau đợt sụp đổ thị trường.",
+    "level": "C1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-16"
+    ],
+    "tags": [
+      "accounting"
+    ]
+  },
+  {
+    "id": "cash-in-on-pv",
+    "word": "Cash in on",
+    "meaning": "Tận dụng kiếm lời từ cơ hội",
+    "ipa": "/kæʃ ɪn ɑːn/",
+    "definition": "To take advantage of a situation to make money or gain benefits.",
+    "example": "Retailers cashed in on the holiday shopping rush by offering bundle deals.",
+    "exampleVi": "Các nhà bán lẻ đã kiếm bộn tiền từ mùa mua sắm lễ hội bằng cách cung cấp các gói ưu đãi kèm theo.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-16"
+    ],
+    "tags": [
+      "sales"
+    ]
+  },
+  {
+    "id": "drive-up-pv",
+    "word": "Drive up",
+    "meaning": "Làm tăng vọt (giá cả, chi phí, nhu cầu)",
+    "ipa": "/draɪv ʌp/",
+    "definition": "To cause prices, costs, or demand to rise rapidly.",
+    "example": "Global semiconductor shortages have driven up electronics manufacturing costs.",
+    "exampleVi": "Tình trạng thiếu hụt chất bán dẫn toàn cầu đã đẩy chi phí sản xuất thiết bị điện tử tăng vọt.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-16"
+    ],
+    "tags": [
+      "cost"
+    ]
+  },
+  {
+    "id": "level-off-pv",
+    "word": "Level off",
+    "meaning": "Đi vào ổn định, chững lại (sau khi tăng/giảm)",
+    "ipa": "/ˈlev.əl ɑːf/",
+    "definition": "To stabilize after a period of increase or decrease.",
+    "example": "Inflation rates are expected to level off around 2.5% next quarter.",
+    "exampleVi": "Tỷ lệ lạm phát được kỳ vọng sẽ chững lại và ổn định ở mức khoảng 2,5% trong quý tới.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-16"
+    ],
+    "tags": [
+      "economy"
+    ]
+  },
+  {
+    "id": "dial-back-pv",
+    "word": "Dial back",
+    "meaning": "Tiết giảm mức độ, kiềm chế lại",
+    "ipa": "/ˈdaɪ.əl bæk/",
+    "definition": "To reduce the intensity, spending, or aggressiveness of something.",
+    "example": "Marketing dialed back ad spend on underperforming social media channels.",
+    "exampleVi": "Bộ phận tiếp thị đã tiết giảm chi tiêu quảng cáo trên các kênh mạng xã hội kém hiệu quả.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-16"
+    ],
+    "tags": [
+      "marketing"
+    ]
+  },
+  {
+    "id": "fork-out-pv",
+    "word": "Fork out",
+    "meaning": "Bấm bụng chi trả khoản tiền lớn",
+    "ipa": "/fɔːrk aʊt/",
+    "definition": "To spend a large sum of money reluctantly.",
+    "example": "The tenant had to fork out an extra month's deposit for the office lease.",
+    "exampleVi": "Bên thuê đã phải bấm bụng chi thêm một tháng tiền đặt cọc cho hợp đồng thuê văn phòng.",
+    "level": "C1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-16"
+    ],
+    "tags": [
+      "realestate"
+    ]
+  },
+  {
+    "id": "bail-out-pv",
+    "word": "Bail out",
+    "meaning": "Cứu trợ tài chính (giải cứu doanh nghiệp)",
+    "ipa": "/beɪl aʊt/",
+    "definition": "To rescue a company from financial collapse by providing funds.",
+    "example": "The central bank intervened to bail out the struggling regional lender.",
+    "exampleVi": "Ngân hàng trung ương đã can thiệp để giải cứu nhà cho vay khu vực đang gặp khó khăn.",
+    "level": "C1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-16"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "embark-on-pv",
+    "word": "Embark on",
+    "meaning": "Bắt tay vào, khởi xướng (dự án, lộ trình)",
+    "ipa": "/ɪmˈbɑːrk ɑːn/",
+    "definition": "To start a new, important, or demanding project or journey.",
+    "example": "The enterprise embarked on a comprehensive digital transformation program.",
+    "exampleVi": "Doanh nghiệp đã bắt tay vào một chương trình chuyển đổi số toàn diện.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-17"
+    ],
+    "tags": [
+      "transformation"
+    ]
+  },
+  {
+    "id": "bring-about-pv",
+    "word": "Bring about",
+    "meaning": "Đem lại, tạo ra sự thay đổi",
+    "ipa": "/brɪŋ əˈbaʊt/",
+    "definition": "To cause something to happen or bring to fruition.",
+    "example": "The new leadership team brought about positive changes in employee morale.",
+    "exampleVi": "Đội ngũ lãnh đạo mới đã đem lại những thay đổi tích cực trong tinh thần làm việc của nhân viên.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-17"
+    ],
+    "tags": [
+      "leadership"
+    ]
+  },
+  {
+    "id": "lead-to-pv",
+    "word": "Lead to",
+    "meaning": "Dẫn đến, đưa tới kết quả",
+    "ipa": "/liːd tuː/",
+    "definition": "To result in or cause a particular outcome.",
+    "example": "Careful quality control will lead to higher customer satisfaction rates.",
+    "exampleVi": "Việc kiểm soát chất lượng cẩn thận sẽ dẫn đến tỷ lệ hài lòng của khách hàng cao hơn.",
+    "level": "A2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-17"
+    ],
+    "tags": [
+      "quality"
+    ]
+  },
+  {
+    "id": "bring-in-pv",
+    "word": "Bring in",
+    "meaning": "Thu hút, mang lại (doanh thu, khách hàng)",
+    "ipa": "/brɪŋ ɪn/",
+    "definition": "To attract customers, revenue, or external experts.",
+    "example": "The new loyalty rewards program brought in over 10,000 new subscribers.",
+    "exampleVi": "Chương trình thưởng khách hàng thân thiết mới đã thu hút hơn 10.000 người đăng ký mới.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-17"
+    ],
+    "tags": [
+      "marketing"
+    ]
+  },
+  {
+    "id": "dive-into-pv",
+    "word": "Dive into",
+    "meaning": "Đi sâu nghiên cứu, lao vào làm",
+    "ipa": "/daɪv ˈɪn.tuː/",
+    "definition": "To start doing or investigating something enthusiastically.",
+    "example": "Let's dive into the market survey statistics to discover customer trends.",
+    "exampleVi": "Hãy cùng đi sâu vào số liệu khảo sát thị trường để khám phá xu hướng khách hàng.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-17"
+    ],
+    "tags": [
+      "research"
+    ]
+  },
+  {
+    "id": "draw-upon-pv",
+    "word": "Draw upon",
+    "meaning": "Tận dụng, khai thác (kinh nghiệm, nguồn lực)",
+    "ipa": "/drɑː əˈpɑːn/",
+    "definition": "To use information, experience, or resources that are available.",
+    "example": "The design team drew upon decades of engineering heritage to craft the prototype.",
+    "exampleVi": "Đội ngũ thiết kế đã tận dụng nhiều thập kỷ di sản kỹ thuật để chế tạo mẫu thử nghiệm.",
+    "level": "C1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-17"
+    ],
+    "tags": [
+      "engineering"
+    ]
+  },
+  {
+    "id": "gear-up-for-pv",
+    "word": "Gear up for",
+    "meaning": "Sẵn sàng chuẩn bị ráo riết cho",
+    "ipa": "/ɡɪr ʌp fɔːr/",
+    "definition": "To prepare intensively for a forthcoming major event or busy season.",
+    "example": "The logistics fulfillment center is gearing up for Black Friday demand.",
+    "exampleVi": "Trung tâm hoàn tất đơn hàng hậu cần đang chuẩn bị ráo riết cho nhu cầu mua sắm ngày Black Friday.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-17"
+    ],
+    "tags": [
+      "logistics"
+    ]
+  },
+  {
+    "id": "open-up-pv",
+    "word": "Open up",
+    "meaning": "Mở ra (cơ hội, thị trường mới)",
+    "ipa": "/ˈoʊ.pən ʌp/",
+    "definition": "To create new opportunities or make accessible to the public.",
+    "example": "Free trade pacts open up lucrative export markets for local manufacturers.",
+    "exampleVi": "Các hiệp định thương mại tự do mở ra các thị trường xuất khẩu béo bở cho các nhà sản xuất địa phương.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-17"
+    ],
+    "tags": [
+      "trade"
+    ]
+  },
+  {
+    "id": "tap-into-pv",
+    "word": "Tap into",
+    "meaning": "Khai thác tiềm năng (nguồn lực, thị trường ngách)",
+    "ipa": "/tæp ˈɪn.tuː/",
+    "definition": "To access and utilize an abundant resource or specialized market.",
+    "example": "Renewable startups are tapping into government green energy subsidies.",
+    "exampleVi": "Các công ty khởi nghiệp năng lượng tái tạo đang khai thác các khoản trợ cấp năng lượng xanh của chính phủ.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-17"
+    ],
+    "tags": [
+      "energy"
+    ]
+  },
+  {
+    "id": "set-forth-pv",
+    "word": "Set forth",
+    "meaning": "Trình bày rõ ràng, nêu bật (mục tiêu, chính sách)",
+    "ipa": "/set fɔːrθ/",
+    "definition": "To state or present facts, ideas, or policies in writing.",
+    "example": "The company policy sets forth clear guidelines on data privacy.",
+    "exampleVi": "Chính sách của công ty trình bày rõ ràng các hướng dẫn về bảo mật dữ liệu.",
+    "level": "C1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-17"
+    ],
+    "tags": [
+      "policy"
+    ]
+  },
+  {
+    "id": "keep-up-with-pv",
+    "word": "Keep up with",
+    "meaning": "Bắt kịp, theo kịp đà phát triển",
+    "ipa": "/kiːp ʌp wɪð/",
+    "definition": "To move or advance at the same pace as competitors or technology.",
+    "example": "Legacy banks must innovate quickly to keep up with agile fintech competitors.",
+    "exampleVi": "Các ngân hàng truyền thống phải đổi mới nhanh chóng để theo kịp các đối thủ fintech linh hoạt.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-18"
+    ],
+    "tags": [
+      "fintech"
+    ]
+  },
+  {
+    "id": "catch-up-on-pv",
+    "word": "Catch up on",
+    "meaning": "Bắt kịp việc tồn đọng (hồ sơ, tin tức)",
+    "ipa": "/kætʃ ʌp ɑːn/",
+    "definition": "To do tasks that you did not have time to complete earlier.",
+    "example": "I spent Friday afternoon catching up on pending customer support tickets.",
+    "exampleVi": "Tôi đã dành chiều thứ Sáu để giải quyết hết các phiếu hỗ trợ khách hàng còn tồn đọng.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-18"
+    ],
+    "tags": [
+      "productivity"
+    ]
+  },
+  {
+    "id": "deal-with-pv",
+    "word": "Deal with",
+    "meaning": "Giải quyết, xử lý (khách hàng, khiếu nại, vấn đề)",
+    "ipa": "/diːl wɪð/",
+    "definition": "To take action on or handle a particular problem or situation.",
+    "example": "Our branch manager is experienced in dealing with complex lease disputes.",
+    "exampleVi": "Trưởng chi nhánh của chúng tôi rất giàu kinh nghiệm trong việc xử lý các tranh chấp hợp đồng thuê phức tạp.",
+    "level": "A2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-18"
+    ],
+    "tags": [
+      "management"
+    ]
+  },
+  {
+    "id": "work-out-pv",
+    "word": "Work out",
+    "meaning": "Tính toán ra, tìm ra cách giải quyết thỏa đáng",
+    "ipa": "/wɝːk aʊt/",
+    "definition": "To find a solution or calculate an exact amount.",
+    "example": "The accountants worked out a feasible repayment schedule for the debt.",
+    "exampleVi": "Các kế toán viên đã tính toán ra một lộ trình trả nợ khả thi cho khoản nợ.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-18"
+    ],
+    "tags": [
+      "finance"
+    ]
+  },
+  {
+    "id": "stick-to-pv",
+    "word": "Stick to",
+    "meaning": "Bám sát, tuân thủ không lệch (ngân sách, quy trình)",
+    "ipa": "/stɪk tuː/",
+    "definition": "To continue doing or adhering to something without changing.",
+    "example": "Project managers must stick to the pre-approved timeline and budget.",
+    "exampleVi": "Các giám đốc dự án phải bám sát mốc thời gian và ngân sách đã được phê duyệt trước.",
+    "level": "B1",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-18"
+    ],
+    "tags": [
+      "project"
+    ]
+  },
+  {
+    "id": "fall-through-pv",
+    "word": "Fall through",
+    "meaning": "Đổ bể, thất bại vào phút chót (thỏa thuận)",
+    "ipa": "/fɑːl θruː/",
+    "definition": "To fail to happen or reach fruition; fall apart.",
+    "example": "The acquisition fell through because the parties could not agree on liability clauses.",
+    "exampleVi": "Thương vụ thâu tóm đã đổ bể vì các bên không thể thống nhất về các điều khoản trách nhiệm pháp lý.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-18"
+    ],
+    "tags": [
+      "acquisition"
+    ]
+  },
+  {
+    "id": "make-up-for-pv",
+    "word": "Make up for",
+    "meaning": "Bù đắp lại, đền bù cho sự thiếu hụt",
+    "ipa": "/meɪk ʌp fɔːr/",
+    "definition": "To compensate for a mistake, deficiency, or delay.",
+    "example": "Overtime shifts were added to make up for production lost during the storm.",
+    "exampleVi": "Các ca làm thêm giờ đã được bổ sung để bù đắp cho sản lượng bị mất trong cơn bão.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-18"
+    ],
+    "tags": [
+      "production"
+    ]
+  },
+  {
+    "id": "pass-up-pv",
+    "word": "Pass up",
+    "meaning": "Bỏ lỡ, bỏ qua (cơ hội tốt, ưu đãi)",
+    "ipa": "/pæs ʌp/",
+    "definition": "To decline or fail to take advantage of an opportunity.",
+    "example": "Do not pass up this opportunity to enroll in the executive leadership masterclass.",
+    "exampleVi": "Đừng bỏ lỡ cơ hội này để đăng ký tham gia lớp học chuyên sâu về năng lực lãnh đạo điều hành.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-18"
+    ],
+    "tags": [
+      "opportunity"
+    ]
+  },
+  {
+    "id": "pull-off-pv",
+    "word": "Pull off",
+    "meaning": "Thực hiện thành công ngoạn mục (nhiệm vụ khó)",
+    "ipa": "/pʊl ɑːf/",
+    "definition": "To succeed in doing something difficult or unexpected.",
+    "example": "The sales team pulled off a remarkable record quarter despite fierce competition.",
+    "exampleVi": "Đội ngũ bán hàng đã thực hiện thành công một quý kỷ lục đáng nể bất chấp sự cạnh tranh khốc liệt.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-18"
+    ],
+    "tags": [
+      "achievement"
+    ]
+  },
+  {
+    "id": "burn-out-pv",
+    "word": "Burn out",
+    "meaning": "Kiệt sức do làm việc quá tải",
+    "ipa": "/bɝːn aʊt/",
+    "definition": "To become completely exhausted through prolonged overwork or stress.",
+    "example": "HR introduced flexible wellness hours to prevent employee burnout.",
+    "exampleVi": "Bộ phận nhân sự đã đưa vào áp dụng các giờ chăm sóc sức khỏe linh hoạt để ngăn ngừa tình trạng nhân viên bị kiệt sức.",
+    "level": "B2",
+    "pos": "phrasal verb",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-18"
+    ],
+    "tags": [
+      "wellness"
+    ]
+  },
+  {
+    "id": "in-accordance-with-phr",
+    "word": "In accordance with",
+    "meaning": "Phù hợp với, căn cứ theo (quy định, thỏa thuận)",
+    "ipa": "/ɪn əˈkɔːr.dəns wɪð/",
+    "definition": "In conformity with; conforming to a rule or standard.",
+    "example": "The financial audit was conducted in accordance with international accounting standards.",
+    "exampleVi": "Cuộc kiểm toán tài chính được tiến hành phù hợp với các chuẩn mực kế toán quốc tế.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-19"
+    ],
+    "tags": [
+      "compliance",
+      "audit"
+    ]
+  },
+  {
+    "id": "in-compliance-with-phr",
+    "word": "In compliance with",
+    "meaning": "Tuân thủ theo đúng (luật pháp, tiêu chuẩn)",
+    "ipa": "/ɪn kəmˈplaɪ.əns wɪð/",
+    "definition": "Acting in obedience to a formal rule, law, or directive.",
+    "example": "All factory emissions are monitored in compliance with environmental laws.",
+    "exampleVi": "Mọi lượng khí thải từ nhà máy đều được giám sát tuân thủ theo đúng luật bảo vệ môi trường.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-19"
+    ],
+    "tags": [
+      "legal",
+      "environment"
+    ]
+  },
+  {
+    "id": "in-line-with-phr",
+    "word": "In line with",
+    "meaning": "Phù hợp với, đồng nhất với (kỳ vọng, dự báo)",
+    "ipa": "/ɪn laɪn wɪð/",
+    "definition": "Similar to, consistent with, or in alignment with.",
+    "example": "Our quarterly revenue figures were in line with Wall Street analyst expectations.",
+    "exampleVi": "Các số liệu doanh thu hàng quý của chúng tôi hoàn toàn phù hợp với kỳ vọng của giới phân tích Phố Wall.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-19"
+    ],
+    "tags": [
+      "finance",
+      "expectation"
+    ]
+  },
+  {
+    "id": "in-violation-of-phr",
+    "word": "In violation of",
+    "meaning": "Vi phạm, trái với (điều khoản, luật định)",
+    "ipa": "/ɪn ˌvaɪ.əˈleɪ.ʃən əv/",
+    "definition": "Breaking or acting against a law, agreement, or regulation.",
+    "example": "Unauthorized data copying is in direct violation of the corporate confidentiality code.",
+    "exampleVi": "Việc sao chép dữ liệu trái phép là hành vi vi phạm trực tiếp quy tắc bảo mật của tập đoàn.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-19"
+    ],
+    "tags": [
+      "security",
+      "legal"
+    ]
+  },
+  {
+    "id": "under-the-terms-of-phr",
+    "word": "Under the terms of",
+    "meaning": "Dưới các điều khoản của (hợp đồng)",
+    "ipa": "/ˈʌn.dɚ ðə tɝːmz əv/",
+    "definition": "As stipulated in the conditions of a binding legal agreement.",
+    "example": "Under the terms of the lease, the tenant is responsible for interior repairs.",
+    "exampleVi": "Theo các điều khoản của hợp đồng thuê, bên thuê chịu trách nhiệm sửa chữa nội thất.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-19"
+    ],
+    "tags": [
+      "contract",
+      "lease"
+    ]
+  },
+  {
+    "id": "subject-to-phr",
+    "word": "Subject to",
+    "meaning": "Tùy thuộc vào, chịu sự chi phối của",
+    "ipa": "/ˈsʌb.dʒɪkt tuː/",
+    "definition": "Conditional upon; affected by or depending on something.",
+    "example": "The final merger agreement is subject to regulatory approval by the antitrust agency.",
+    "exampleVi": "Thỏa thuận sáp nhập cuối cùng phụ thuộc vào sự phê chuẩn theo quy định của cơ quan chống độc quyền.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-19"
+    ],
+    "tags": [
+      "merger",
+      "regulatory"
+    ]
+  },
+  {
+    "id": "in-fulfillment-of-phr",
+    "word": "In fulfillment of",
+    "meaning": "Để hoàn thành, nhằm thực hiện (nghĩa vụ)",
+    "ipa": "/ɪn fʊlˈfɪl.mənt əv/",
+    "definition": "In the act of satisfying a condition, duty, or obligation.",
+    "example": "The manufacturer shipped 500 units in fulfillment of the government procurement contract.",
+    "exampleVi": "Nhà sản xuất đã xuất xưởng 500 chiếc nhằm thực hiện hợp đồng mua sắm của chính phủ.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-19"
+    ],
+    "tags": [
+      "procurement"
+    ]
+  },
+  {
+    "id": "pursuant-to-phr",
+    "word": "Pursuant to",
+    "meaning": "Căn cứ theo, chiếu theo (văn bản pháp lý)",
+    "ipa": "/pɚˈsuː.ənt tuː/",
+    "definition": "In accordance with a specified law, rule, or legal judgment.",
+    "example": "Pursuant to article 5, either party may terminate the partnership with 30 days notice.",
+    "exampleVi": "Căn cứ theo điều 5, một trong hai bên có thể chấm dứt quan hệ đối tác với thông báo trước 30 ngày.",
+    "level": "C1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-19"
+    ],
+    "tags": [
+      "legal"
+    ]
+  },
+  {
+    "id": "in-observance-of-phr",
+    "word": "In observance of",
+    "meaning": "Nhân dịp kỷ niệm / Tuân thủ nghi thức",
+    "ipa": "/ɪn əbˈzɝː.vəns əv/",
+    "definition": "In keeping with or celebrating a holiday or solemn occasion.",
+    "example": "Our regional offices will be closed on Monday in observance of Labor Day.",
+    "exampleVi": "Các văn phòng khu vực của chúng tôi sẽ đóng cửa vào thứ Hai nhân dịp kỷ niệm ngày Quốc tế Lao động.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-19"
+    ],
+    "tags": [
+      "holiday",
+      "hr"
+    ]
+  },
+  {
+    "id": "by-virtue-of-phr",
+    "word": "By virtue of",
+    "meaning": "Nhờ vào, bởi vì quyền hạn của",
+    "ipa": "/baɪ ˈvɝː.tʃuː əv/",
+    "definition": "Because of, or as a result of a specific authority or position.",
+    "example": "By virtue of his senior executive title, he has final veto power over all acquisitions.",
+    "exampleVi": "Nhờ vào chức danh điều hành cấp cao, ông có quyền phủ quyết cuối cùng đối với mọi thương vụ thâu tóm.",
+    "level": "C1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-19"
+    ],
+    "tags": [
+      "governance"
+    ]
+  },
+  {
+    "id": "be-eligible-for-phr",
+    "word": "Be eligible for",
+    "meaning": "Đủ điều kiện được hưởng (quyền lợi, trợ cấp, học bổng)",
+    "ipa": "/bi ˈel.ə.dʒə.bəl fɔːr/",
+    "definition": "Satisfying the required conditions to receive a benefit.",
+    "example": "Full-time employees are eligible for comprehensive medical dental insurance.",
+    "exampleVi": "Nhân viên toàn thời gian đủ điều kiện được hưởng bảo hiểm y tế và nha khoa toàn diện.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-20"
+    ],
+    "tags": [
+      "hr",
+      "benefit"
+    ]
+  },
+  {
+    "id": "at-one-s-disposal-phr",
+    "word": "At one's disposal",
+    "meaning": "Tùy ý ai đó sử dụng, sẵn sàng phục vụ",
+    "ipa": "/æt wʌnz dɪˈspoʊ.zəl/",
+    "definition": "Available for someone to use as they wish or need.",
+    "example": "The research team has advanced cloud computing clusters at their disposal.",
+    "exampleVi": "Đội ngũ nghiên cứu có sẵn các cụm điện toán đám mây tiên tiến tùy ý sử dụng.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-20"
+    ],
+    "tags": [
+      "resource"
+    ]
+  },
+  {
+    "id": "contingent-upon-phr",
+    "word": "Contingent upon",
+    "meaning": "Tùy thuộc vào, phụ thuộc vào yếu tố",
+    "ipa": "/kənˈtɪn.dʒənt əˈpɑːn/",
+    "definition": "Dependent on something that may or may not happen in the future.",
+    "example": "Funding release is contingent upon achieving milestone deliverables on schedule.",
+    "exampleVi": "Việc giải ngân nguồn vốn phụ thuộc vào việc đạt được các sản phẩm bàn giao theo đúng tiến độ.",
+    "level": "C1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-20"
+    ],
+    "tags": [
+      "finance",
+      "milestone"
+    ]
+  },
+  {
+    "id": "in-charge-of-phr",
+    "word": "In charge of",
+    "meaning": "Chịu trách nhiệm, phụ trách chính",
+    "ipa": "/ɪn tʃɑːrdʒ əv/",
+    "definition": "Responsible for something or someone in an organization.",
+    "example": "Ms. Nguyen is currently in charge of international logistics operations.",
+    "exampleVi": "Bà Nguyễn hiện đang phụ trách các hoạt động hậu cần quốc tế.",
+    "level": "A2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-20"
+    ],
+    "tags": [
+      "responsibility"
+    ]
+  },
+  {
+    "id": "on-behalf-of-phr",
+    "word": "On behalf of",
+    "meaning": "Thay mặt cho, đại diện cho",
+    "ipa": "/ɑːn bɪˈhæf əv/",
+    "definition": "As a representative or spokesperson of another person or entity.",
+    "example": "On behalf of the board of directors, I welcome you to our annual meeting.",
+    "exampleVi": "Thay mặt ban giám đốc, tôi nhiệt liệt chào mừng quý vị đến với cuộc họp thường niên của chúng ta.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-20"
+    ],
+    "tags": [
+      "meeting"
+    ]
+  },
+  {
+    "id": "entitled-to-phr",
+    "word": "Entitled to",
+    "meaning": "Có quyền được hưởng (nghỉ phép, quyền lợi)",
+    "ipa": "/ɪnˈtaɪ.t̬əld tuː/",
+    "definition": "Given the official right to have or do something.",
+    "example": "Employees are entitled to 15 days of paid annual leave after probation.",
+    "exampleVi": "Nhân viên có quyền được hưởng 15 ngày nghỉ phép có lương hàng năm sau thời gian thử việc.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-20"
+    ],
+    "tags": [
+      "hr",
+      "leave"
+    ]
+  },
+  {
+    "id": "liable-for-phr",
+    "word": "Liable for",
+    "meaning": "Chịu trách nhiệm pháp lý bồi thường",
+    "ipa": "/ˈlaɪ.ə.bəl fɔːr/",
+    "definition": "Legally responsible for paying costs or damages.",
+    "example": "The carrier is liable for any cargo damage incurred during ocean transit.",
+    "exampleVi": "Đơn vị vận chuyển chịu trách nhiệm pháp lý cho bất kỳ hư hỏng hàng hóa nào phát sinh trong quá trình vận chuyển đường biển.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-20"
+    ],
+    "tags": [
+      "logistics",
+      "legal"
+    ]
+  },
+  {
+    "id": "at-the-expense-of-phr",
+    "word": "At the expense of",
+    "meaning": "Phải trả giá bằng, làm tổn hại đến",
+    "ipa": "/æt ði ɪkˈspens əv/",
+    "definition": "So as to cause damage, loss, or harm to something else.",
+    "example": "Cost-cutting measures should not be implemented at the expense of workplace safety.",
+    "exampleVi": "Các biện pháp cắt giảm chi phí không được thực hiện mà làm tổn hại đến sự an toàn tại nơi làm việc.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-20"
+    ],
+    "tags": [
+      "safety"
+    ]
+  },
+  {
+    "id": "under-the-supervision-of-phr",
+    "word": "Under the supervision of",
+    "meaning": "Dưới sự giám sát và chỉ đạo của",
+    "ipa": "/ˈʌn.dɚ ðə ˌsuː.pɚˈvɪʒ.ən əv/",
+    "definition": "Managed or directed by an authorized superior.",
+    "example": "Interns will work under the direct supervision of senior software architects.",
+    "exampleVi": "Các thực tập sinh sẽ làm việc dưới sự giám sát trực tiếp của các kiến trúc sư phần mềm cấp cao.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-20"
+    ],
+    "tags": [
+      "mentorship"
+    ]
+  },
+  {
+    "id": "accountable-to-phr",
+    "word": "Accountable to",
+    "meaning": "Chịu trách nhiệm giải trình trước ai đó",
+    "ipa": "/əˈkaʊn.t̬ə.bəl tuː/",
+    "definition": "Required to explain actions and decisions to a governing body.",
+    "example": "The chief executive officer is directly accountable to the board of trustees.",
+    "exampleVi": "Tổng giám đốc điều hành chịu trách nhiệm giải trình trực tiếp trước hội đồng quản trị.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-20"
+    ],
+    "tags": [
+      "governance"
+    ]
+  },
+  {
+    "id": "ahead-of-schedule-phr",
+    "word": "Ahead of schedule",
+    "meaning": "Trước thời hạn dự kiến, sớm hơn kế hoạch",
+    "ipa": "/əˈhed əv ˈskedʒ.uːl/",
+    "definition": "Completed earlier than the planned or expected date.",
+    "example": "The bridge construction was completed three weeks ahead of schedule.",
+    "exampleVi": "Công trình xây dựng cầu đã hoàn thành sớm hơn kế hoạch ba tuần.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-21"
+    ],
+    "tags": [
+      "project"
+    ]
+  },
+  {
+    "id": "behind-schedule-phr",
+    "word": "Behind schedule",
+    "meaning": "Trễ hạn, chậm tiến độ so với kế hoạch",
+    "ipa": "/bɪˈhaɪnd ˈskedʒ.uːl/",
+    "definition": "Delayed and later than the planned or expected timetable.",
+    "example": "The software release is two weeks behind schedule due to unexpected bug testing.",
+    "exampleVi": "Đợt phát hành phần mềm bị chậm tiến độ hai tuần do quá trình kiểm thử lỗi phát sinh ngoài dự kiến.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-21"
+    ],
+    "tags": [
+      "project"
+    ]
+  },
+  {
+    "id": "on-short-notice-phr",
+    "word": "On short notice",
+    "meaning": "Trong thời gian thông báo rất gấp",
+    "ipa": "/ɑːn ʃɔːrt ˈnoʊ.t̬ɪs/",
+    "definition": "With very little advance warning or preparation time.",
+    "example": "We appreciate the team traveling to the overseas client on short notice.",
+    "exampleVi": "Chúng tôi rất đánh giá cao việc nhóm đã đi công tác gặp khách hàng nước ngoài dù thời gian thông báo rất gấp.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-21"
+    ],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "as-of-phr",
+    "word": "As of",
+    "meaning": "Kể từ thời điểm, tính đến ngày",
+    "ipa": "/æz əv/",
+    "definition": "From a specified date onwards; effective from.",
+    "example": "As of next Monday, all international parcel rates will adjust upward by 5%.",
+    "exampleVi": "Kể từ thứ Hai tới, tất cả giá bưu kiện quốc tế sẽ điều chỉnh tăng 5%.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-21"
+    ],
+    "tags": [
+      "pricing"
+    ]
+  },
+  {
+    "id": "prior-to-phr",
+    "word": "Prior to",
+    "meaning": "Trước khi, trước thời điểm",
+    "ipa": "/ˈpraɪ.ɚ tuː/",
+    "definition": "Before a particular time or event.",
+    "example": "All safety gear must be inspected prior to entering the production floor.",
+    "exampleVi": "Tất cả đồ bảo hộ an toàn phải được kiểm tra trước khi bước vào khu vực xưởng sản xuất.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-21"
+    ],
+    "tags": [
+      "safety"
+    ]
+  },
+  {
+    "id": "under-warranty-phr",
+    "word": "Under warranty",
+    "meaning": "Còn trong thời hạn bảo hành",
+    "ipa": "/ˈʌn.dɚ ˈwɔːr.ən.t̬i/",
+    "definition": "Protected by a manufacturer's written guarantee for free repair or replacement.",
+    "example": "Repairs are completely free of charge because the tablet is still under warranty.",
+    "exampleVi": "Việc sửa chữa hoàn toàn miễn phí vì máy tính bảng vẫn còn trong thời hạn bảo hành.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-21"
+    ],
+    "tags": [
+      "warranty"
+    ]
+  },
+  {
+    "id": "under-renovation-phr",
+    "word": "Under renovation",
+    "meaning": "Đang trong quá trình cải tạo, sửa chữa",
+    "ipa": "/ˈʌn.dɚ ˌren.əˈveɪ.ʃən/",
+    "definition": "Currently undergoing remodeling, repair, or reconstruction.",
+    "example": "The hotel lobby is currently under renovation to expand the guest reception area.",
+    "exampleVi": "Sảnh khách sạn hiện đang trong quá trình cải tạo để mở rộng khu vực tiếp đón khách.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-21"
+    ],
+    "tags": [
+      "facility"
+    ]
+  },
+  {
+    "id": "under-consideration-phr",
+    "word": "Under consideration",
+    "meaning": "Đang được xem xét, cân nhắc kỹ",
+    "ipa": "/ˈʌn.dɚ kənˌsɪd.əˈreɪ.ʃən/",
+    "definition": "Currently being evaluated, analyzed, or discussed.",
+    "example": "Several alternative proposals for flexible telecommuting are currently under consideration.",
+    "exampleVi": "Một số đề xuất thay thế cho việc làm việc từ xa linh hoạt hiện đang được xem xét kỹ lưỡng.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-21"
+    ],
+    "tags": [
+      "hr"
+    ]
+  },
+  {
+    "id": "out-of-order-phr",
+    "word": "Out of order",
+    "meaning": "Bị hỏng hóc, tạm ngừng hoạt động",
+    "ipa": "/aʊt əv ˈɔːr.dɚ/",
+    "definition": "Not working or functioning properly; mechanically broken.",
+    "example": "The main passenger elevator is out of order and awaiting spare parts.",
+    "exampleVi": "Thang máy chở khách chính đang bị hỏng và đang chờ phụ tùng thay thế.",
+    "level": "A2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-21"
+    ],
+    "tags": [
+      "facility"
+    ]
+  },
+  {
+    "id": "out-of-stock-phr",
+    "word": "Out of stock",
+    "meaning": "Hết hàng, tạm thời không còn trong kho",
+    "ipa": "/aʊt əv stɑːk/",
+    "definition": "Not available for immediate sale or purchase from inventory.",
+    "example": "The popular wireless earbuds model is currently out of stock until Friday.",
+    "exampleVi": "Mẫu tai nghe không dây được ưa chuộng hiện đang tạm hết hàng cho đến thứ Sáu.",
+    "level": "A2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-21"
+    ],
+    "tags": [
+      "inventory"
+    ]
+  },
+  {
+    "id": "in-light-of-phr",
+    "word": "In light of",
+    "meaning": "Xét đến, dựa trên thực tế là",
+    "ipa": "/ɪn laɪt əv/",
+    "definition": "Because of or considering certain newly discovered facts.",
+    "example": "In light of recent fuel price increases, delivery surcharges have been revised.",
+    "exampleVi": "Xét đến những đợt tăng giá nhiên liệu gần đây, phụ phí giao hàng đã được điều chỉnh lại.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-22"
+    ],
+    "tags": [
+      "pricing"
+    ]
+  },
+  {
+    "id": "in-response-to-phr",
+    "word": "In response to",
+    "meaning": "Để phản hồi lại, nhằm đáp ứng",
+    "ipa": "/ɪn rɪˈspɑːns tuː/",
+    "definition": "As an answer to or reaction against customer requests or events.",
+    "example": "The retail bank launched mobile check deposits in response to client requests.",
+    "exampleVi": "Ngân hàng bán lẻ đã ra mắt tính năng gửi séc qua điện thoại nhằm đáp ứng yêu cầu của khách hàng.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-22"
+    ],
+    "tags": [
+      "banking"
+    ]
+  },
+  {
+    "id": "in-terms-of-phr",
+    "word": "In terms of",
+    "meaning": "Xét về mặt, liên quan đến khía cạnh",
+    "ipa": "/ɪn tɝːmz əv/",
+    "definition": "With regard to; in relation to a specific aspect.",
+    "example": "In terms of battery longevity, the new model outperforms all market rivals.",
+    "exampleVi": "Xét về mặt thời lượng pin, mẫu máy mới vượt trội hơn hẳn mọi đối thủ trên thị trường.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-22"
+    ],
+    "tags": [
+      "performance"
+    ]
+  },
+  {
+    "id": "by-means-of-phr",
+    "word": "By means of",
+    "meaning": "Bằng phương tiện, nhờ công cụ",
+    "ipa": "/baɪ miːnz əv/",
+    "definition": "Through the use or agency of a specific tool or method.",
+    "example": "The logistics firm tracks international cargo by means of real-time GPS sensors.",
+    "exampleVi": "Công ty hậu cần theo dõi hàng hóa quốc tế bằng phương tiện cảm biến GPS thời gian thực.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-22"
+    ],
+    "tags": [
+      "tech"
+    ]
+  },
+  {
+    "id": "in-view-of-phr",
+    "word": "In view of",
+    "meaning": "Xét thấy, do xét đến hoàn cảnh",
+    "ipa": "/ɪn vjuː əv/",
+    "definition": "Taking into consideration; because of.",
+    "example": "In view of current supply chain bottlenecks, we advise clients to order early.",
+    "exampleVi": "Xét thấy tình trạng nghẽn cổ chai chuỗi cung ứng hiện nay, chúng tôi khuyên khách hàng nên đặt hàng sớm.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-22"
+    ],
+    "tags": [
+      "supplychain"
+    ]
+  },
+  {
+    "id": "with-regard-to-phr",
+    "word": "With regard to",
+    "meaning": "Liên quan đến, đối với vấn đề",
+    "ipa": "/wɪð rɪˈɡɑːrd tuː/",
+    "definition": "Concerning or in connection with a specific subject.",
+    "example": "With regard to your invoice query, our billing specialist will call you shortly.",
+    "exampleVi": "Liên quan đến câu hỏi về hóa đơn của bạn, chuyên viên thanh toán của chúng tôi sẽ gọi lại ngay.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-22"
+    ],
+    "tags": [
+      "billing"
+    ]
+  },
+  {
+    "id": "in-the-event-of-phr",
+    "word": "In the event of",
+    "meaning": "Trong trường hợp xảy ra sự cố",
+    "ipa": "/ɪn ði ɪˈvent əv/",
+    "definition": "If a particular unexpected situation or emergency happens.",
+    "example": "In the event of a fire alarm, all personnel must evacuate via the north stairs.",
+    "exampleVi": "Trong trường hợp có chuông báo cháy, toàn bộ nhân sự phải sơ tán qua lối cầu thang phía bắc.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-22"
+    ],
+    "tags": [
+      "emergency"
+    ]
+  },
+  {
+    "id": "regardless-of-phr",
+    "word": "Regardless of",
+    "meaning": "Bất kể, bất chấp điều gì",
+    "ipa": "/rɪˈɡɑːrd.ləs əv/",
+    "definition": "Without being influenced or affected by any conditions.",
+    "example": "Free shipping is offered to all domestic orders regardless of weight or size.",
+    "exampleVi": "Miễn phí vận chuyển được áp dụng cho mọi đơn hàng nội địa bất kể trọng lượng hay kích thước.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-22"
+    ],
+    "tags": [
+      "shipping"
+    ]
+  },
+  {
+    "id": "as-opposed-to-phr",
+    "word": "As opposed to",
+    "meaning": "Trái ngược với, thay vì",
+    "ipa": "/æz əˈpoʊzd tuː/",
+    "definition": "In contrast to; rather than.",
+    "example": "We decided to invest in cloud servers as opposed to building an on-premise datacenter.",
+    "exampleVi": "Chúng tôi quyết định đầu tư vào máy chủ đám mây thay vì xây dựng trung tâm dữ liệu tại chỗ.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-22"
+    ],
+    "tags": [
+      "it"
+    ]
+  },
+  {
+    "id": "in-collaboration-with-phr",
+    "word": "In collaboration with",
+    "meaning": "Hợp tác chặt chẽ cùng với",
+    "ipa": "/ɪn kəˌlæb.əˈreɪ.ʃən wɪð/",
+    "definition": "Working jointly with another partner or organization.",
+    "example": "The research hospital conducted clinical drug trials in collaboration with the university.",
+    "exampleVi": "Bệnh viện nghiên cứu đã tiến hành các thử nghiệm lâm sàng thuốc khi hợp tác cùng trường đại học.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-22"
+    ],
+    "tags": [
+      "research"
+    ]
+  },
+  {
+    "id": "take-into-account-phr",
+    "word": "Take into account",
+    "meaning": "Tính đến, cân nhắc kỹ yếu tố",
+    "ipa": "/teɪk ˈɪn.tuː əˈkaʊnt/",
+    "definition": "To consider or remember a fact when assessing a situation.",
+    "example": "Project cost projections must take into account potential currency fluctuations.",
+    "exampleVi": "Các dự báo chi phí dự án phải tính đến sự biến động tiềm ẩn của tỷ giá tiền tệ.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-23"
+    ],
+    "tags": [
+      "finance"
+    ]
+  },
+  {
+    "id": "take-advantage-of-phr",
+    "word": "Take advantage of",
+    "meaning": "Tận dụng tối đa (cơ hội, ưu đãi, thời cơ)",
+    "ipa": "/teɪk ədˈvæn.t̬ɪdʒ əv/",
+    "definition": "To utilize an opportunity favorably or profit from a situation.",
+    "example": "Many corporate clients took advantage of our early-bird renewal discounts.",
+    "exampleVi": "Nhiều khách hàng doanh nghiệp đã tận dụng tối đa các mức chiết khấu gia hạn sớm của chúng tôi.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-23"
+    ],
+    "tags": [
+      "sales"
+    ]
+  },
+  {
+    "id": "take-effect-phr",
+    "word": "Take effect",
+    "meaning": "Có hiệu lực, bắt đầu áp dụng",
+    "ipa": "/teɪk ɪˈfekt/",
+    "definition": "To become operational, binding, or applicable in practice.",
+    "example": "The new privacy regulations will take effect on the first day of next month.",
+    "exampleVi": "Các quy định về quyền riêng tư mới sẽ có hiệu lực vào ngày đầu tiên của tháng tới.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-23"
+    ],
+    "tags": [
+      "policy"
+    ]
+  },
+  {
+    "id": "take-measures-phr",
+    "word": "Take measures",
+    "meaning": "Áp dụng các biện pháp, hành động can thiệp",
+    "ipa": "/teɪk ˈmeʒ.ɚz/",
+    "definition": "To enact specific actions or precautions to resolve an issue.",
+    "example": "Management took immediate measures to secure the office network against malware.",
+    "exampleVi": "Ban quản lý đã áp dụng các biện pháp tức thì để bảo vệ mạng văn phòng khỏi phần mềm độc hại.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-23"
+    ],
+    "tags": [
+      "security"
+    ]
+  },
+  {
+    "id": "reach-an-agreement-phr",
+    "word": "Reach an agreement",
+    "meaning": "Đạt được thỏa thuận chung",
+    "ipa": "/riːtʃ ən əˈɡriː.mənt/",
+    "definition": "To successfully arrive at a mutual consensus or signed accord.",
+    "example": "After marathon negotiations, both companies reached an agreement on the buyout.",
+    "exampleVi": "Sau những cuộc đàm phán kéo dài, cả hai công ty đã đạt được thỏa thuận về việc mua lại.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-23"
+    ],
+    "tags": [
+      "negotiation"
+    ]
+  },
+  {
+    "id": "reach-a-consensus-phr",
+    "word": "Reach a consensus",
+    "meaning": "Đạt được sự đồng thuận tuyệt đối",
+    "ipa": "/riːtʃ ə kənˈsen.səs/",
+    "definition": "To achieve collective unanimous accord among all voting members.",
+    "example": "The board reached a consensus on expanding into Latin American markets.",
+    "exampleVi": "Hội đồng quản trị đã đạt được sự đồng thuận về việc mở rộng sang các thị trường Mỹ Latinh.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-23"
+    ],
+    "tags": [
+      "board"
+    ]
+  },
+  {
+    "id": "make-a-commitment-phr",
+    "word": "Make a commitment",
+    "meaning": "Đưa ra cam kết chắc chắn",
+    "ipa": "/meɪk ə kəˈmɪt.mənt/",
+    "definition": "To formally pledge or promise dedication to a course of action.",
+    "example": "Our firm made a firm commitment to reduce carbon emissions by 40% by 2030.",
+    "exampleVi": "Công ty chúng tôi đã đưa ra cam kết mạnh mẽ giảm 40% lượng khí thải carbon trước năm 2030.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-23"
+    ],
+    "tags": [
+      "sustainability"
+    ]
+  },
+  {
+    "id": "make-an-inquiry-phr",
+    "word": "Make an inquiry",
+    "meaning": "Hỏi thăm, đưa ra câu hỏi tìm hiểu thông tin",
+    "ipa": "/meɪk ən ɪnˈkwaɪr.i/",
+    "definition": "To ask for information or investigate a topic.",
+    "example": "Potential buyers made inquiries regarding the commercial property leasing rates.",
+    "exampleVi": "Các bên mua tiềm năng đã gửi câu hỏi tìm hiểu thông tin về giá thuê bất động sản thương mại.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-23"
+    ],
+    "tags": [
+      "realestate"
+    ]
+  },
+  {
+    "id": "make-every-effort-phr",
+    "word": "Make every effort",
+    "meaning": "Nỗ lực hết mình, làm mọi cách",
+    "ipa": "/meɪk ˈev.ri ˈef.ɚt/",
+    "definition": "To try as hard as possible to achieve a goal.",
+    "example": "Our logistics team will make every effort to deliver your parcel on time.",
+    "exampleVi": "Đội ngũ hậu cần của chúng tôi sẽ nỗ lực hết mình để giao kiện hàng của bạn đúng giờ.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-23"
+    ],
+    "tags": [
+      "customer"
+    ]
+  },
+  {
+    "id": "exercise-caution-phr",
+    "word": "Exercise caution",
+    "meaning": "Cẩn trọng, thận trọng đề phòng",
+    "ipa": "/ˈek.sɚ.saɪz ˈkɑː.ʃən/",
+    "definition": "To act with careful prudence and vigilance.",
+    "example": "Investors are advised to exercise caution when trading volatile currency markets.",
+    "exampleVi": "Các nhà đầu tư được khuyên nên hết sức cẩn trọng khi giao dịch trên các thị trường tiền tệ nhiều biến động.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-23"
+    ],
+    "tags": [
+      "investment"
+    ]
+  },
+  {
+    "id": "meet-the-deadline-phr",
+    "word": "Meet the deadline",
+    "meaning": "Kịp hạn chót, hoàn thành đúng hạn",
+    "ipa": "/miːt ðə ˈded.laɪn/",
+    "definition": "To finish a task or deliver a project by the agreed time limit.",
+    "example": "The engineering team worked overtime to ensure they met the client deadline.",
+    "exampleVi": "Đội ngũ kỹ thuật đã làm thêm giờ để đảm bảo họ kịp hạn chót của khách hàng.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-24"
+    ],
+    "tags": [
+      "project"
+    ]
+  },
+  {
+    "id": "meet-the-requirements-phr",
+    "word": "Meet the requirements",
+    "meaning": "Đáp ứng đầy đủ các yêu cầu, tiêu chuẩn",
+    "ipa": "/miːt ðə rɪˈkwaɪr.mənts/",
+    "definition": "To fulfill all necessary qualifications, specifications, or rules.",
+    "example": "Candidates must meet all educational and certification requirements to apply.",
+    "exampleVi": "Các ứng viên phải đáp ứng đầy đủ tất cả các yêu cầu về học vấn và chứng chỉ để nộp đơn.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-24"
+    ],
+    "tags": [
+      "recruitment"
+    ]
+  },
+  {
+    "id": "meet-the-expectations-phr",
+    "word": "Meet the expectations",
+    "meaning": "Đáp ứng kỳ vọng của khách hàng",
+    "ipa": "/miːt ði ˌek.spekˈteɪ.ʃənz/",
+    "definition": "To satisfy or match what was anticipated in quality or performance.",
+    "example": "The new smartphone camera system exceeded all user expectations.",
+    "exampleVi": "Hệ thống camera trên điện thoại thông minh mới đã vượt qua mọi kỳ vọng của người dùng.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-24"
+    ],
+    "tags": [
+      "quality"
+    ]
+  },
+  {
+    "id": "exceed-the-budget-phr",
+    "word": "Exceed the budget",
+    "meaning": "Vượt quá ngân sách dự kiến",
+    "ipa": "/ɪkˈsiːd ðə ˈbʌdʒ.ɪt/",
+    "definition": "To spend more money than was originally allocated for a project.",
+    "example": "Careful material sourcing ensured the construction did not exceed the budget.",
+    "exampleVi": "Việc tìm nguồn nguyên liệu cẩn thận đã đảm bảo công trình không bị vượt quá ngân sách.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-24"
+    ],
+    "tags": [
+      "finance"
+    ]
+  },
+  {
+    "id": "fulfill-an-order-phr",
+    "word": "Fulfill an order",
+    "meaning": "Hoàn tất đơn hàng, cung ứng đúng yêu cầu",
+    "ipa": "/fʊlˈfɪl ən ˈɔːr.dɚ/",
+    "definition": "To pack, supply, and deliver the goods requested by a customer.",
+    "example": "The automated warehouse can fulfill over 20,000 online orders per day.",
+    "exampleVi": "Nhà kho tự động hóa có thể hoàn tất hơn 20.000 đơn đặt hàng trực tuyến mỗi ngày.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-24"
+    ],
+    "tags": [
+      "warehouse"
+    ]
+  },
+  {
+    "id": "fulfill-obligations-phr",
+    "word": "Fulfill obligations",
+    "meaning": "Thực hiện đầy đủ các nghĩa vụ hợp đồng",
+    "ipa": "/fʊlˈfɪl ˌɑː.bləˈɡeɪ.ʃənz/",
+    "definition": "To carry out what one is legally or morally bound to do.",
+    "example": "Both contracting parties must strictly fulfill their contractual obligations.",
+    "exampleVi": "Cả hai bên ký hợp đồng phải thực hiện đầy đủ và nghiêm ngặt các nghĩa vụ theo hợp đồng của mình.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-24"
+    ],
+    "tags": [
+      "contract"
+    ]
+  },
+  {
+    "id": "grant-permission-phr",
+    "word": "Grant permission",
+    "meaning": "Cấp phép, cho phép chính thức",
+    "ipa": "/ɡrænt pɚˈmɪʃ.ən/",
+    "definition": "To officially give consent or authorization to someone.",
+    "example": "City council granted permission to build the multi-story parking structure.",
+    "exampleVi": "Hội đồng thành phố đã cấp phép chính thức cho việc xây dựng công trình bãi đỗ xe nhiều tầng.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-24"
+    ],
+    "tags": [
+      "permission"
+    ]
+  },
+  {
+    "id": "grant-access-phr",
+    "word": "Grant access",
+    "meaning": "Cấp quyền truy cập (hệ thống, tài liệu)",
+    "ipa": "/ɡrænt ˈæk.ses/",
+    "definition": "To authorize someone to enter a secure facility or digital database.",
+    "example": "The administrator granted the contractor temporary access to the database.",
+    "exampleVi": "Quản trị viên đã cấp cho nhà thầu quyền truy cập tạm thời vào cơ sở dữ liệu.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-24"
+    ],
+    "tags": [
+      "security"
+    ]
+  },
+  {
+    "id": "extend-a-deadline-phr",
+    "word": "Extend a deadline",
+    "meaning": "Gia hạn thêm thời gian hoàn thành",
+    "ipa": "/ɪkˈstend ə ˈded.laɪn/",
+    "definition": "To allow more time before a deadline or expiry date.",
+    "example": "The professor agreed to extend the project deadline by an additional 48 hours.",
+    "exampleVi": "Giáo sư đã đồng ý gia hạn thời gian nộp bài dự án thêm 48 giờ nữa.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-24"
+    ],
+    "tags": [
+      "schedule"
+    ]
+  },
+  {
+    "id": "extend-an-invitation-phr",
+    "word": "Extend an invitation",
+    "meaning": "Gửi lời mời trang trọng tới ai đó",
+    "ipa": "/ɪkˈstend ən ˌɪn.vəˈteɪ.ʃən/",
+    "definition": "To formally offer or send an invite to attend an event.",
+    "example": "We would like to extend an invitation to all alumni for the anniversary banquet.",
+    "exampleVi": "Chúng tôi xin gửi lời mời trân trọng tới tất cả các cựu sinh viên tham dự buổi tiệc chiêu đãi kỷ niệm.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-24"
+    ],
+    "tags": [
+      "event"
+    ]
+  },
+  {
+    "id": "conduct-a-survey-phr",
+    "word": "Conduct a survey",
+    "meaning": "Tiến hành một cuộc khảo sát ý kiến",
+    "ipa": "/kənˈdʌkt ə ˈsɝː.veɪ/",
+    "definition": "To organize and perform an opinion poll or questionnaire.",
+    "example": "Marketing conducted a customer survey to evaluate demand for organic snacks.",
+    "exampleVi": "Bộ phận tiếp thị đã tiến hành một cuộc khảo sát khách hàng để đánh giá nhu cầu về đồ ăn nhẹ hữu cơ.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-25"
+    ],
+    "tags": [
+      "marketing"
+    ]
+  },
+  {
+    "id": "conduct-research-phr",
+    "word": "Conduct research",
+    "meaning": "Thực hiện nghiên cứu khoa học / thị trường",
+    "ipa": "/kənˈdʌkt rɪˈsɝːtʃ/",
+    "definition": "To carry out a systematic investigation or scientific inquiry.",
+    "example": "The pharmaceutical lab is conducting research into long-lasting pain relief.",
+    "exampleVi": "Phòng thí nghiệm dược phẩm đang thực hiện nghiên cứu về các loại thuốc giảm đau kéo dài.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-25"
+    ],
+    "tags": [
+      "research"
+    ]
+  },
+  {
+    "id": "file-a-complaint-phr",
+    "word": "File a complaint",
+    "meaning": "Nộp đơn khiếu nại chính thức",
+    "ipa": "/faɪl ə kəmˈpleɪnt/",
+    "definition": "To submit a formal objection or grievance to an authority or merchant.",
+    "example": "The passenger filed a complaint regarding lost luggage during the transit flight.",
+    "exampleVi": "Hành khách đã nộp đơn khiếu nại chính thức về việc thất lạc hành lý trong chuyến bay quá cảnh.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-25"
+    ],
+    "tags": [
+      "customer"
+    ]
+  },
+  {
+    "id": "file-a-claim-phr",
+    "word": "File a claim",
+    "meaning": "Nộp đơn yêu cầu bồi thường bảo hiểm",
+    "ipa": "/faɪl ə kleɪm/",
+    "definition": "To request a formal compensation payout from an insurance company.",
+    "example": "The homeowner filed a claim with their insurer after water pipe damage.",
+    "exampleVi": "Chủ nhà đã nộp đơn yêu cầu bồi thường lên công ty bảo hiểm sau sự cố vỡ đường ống nước.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-25"
+    ],
+    "tags": [
+      "insurance"
+    ]
+  },
+  {
+    "id": "submit-a-proposal-phr",
+    "word": "Submit a proposal",
+    "meaning": "Nộp bản đề xuất dự án",
+    "ipa": "/səbˈmɪt ə prəˈpoʊ.zəl/",
+    "definition": "To present a formal written plan for approval by a client or committee.",
+    "example": "Three architecture firms submitted proposals for the downtown library redesign.",
+    "exampleVi": "Ba công ty kiến trúc đã nộp các bản đề xuất cho việc tái thiết kế thư viện trung tâm thành phố.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-25"
+    ],
+    "tags": [
+      "proposal"
+    ]
+  },
+  {
+    "id": "submit-an-application-phr",
+    "word": "Submit an application",
+    "meaning": "Nộp hồ sơ xin việc / xin cấp phép",
+    "ipa": "/səbˈmɪt ən ˌæp.ləˈkeɪ.ʃən/",
+    "definition": "To send in a completed application form and supporting documents.",
+    "example": "Candidates must submit an application online along with three reference letters.",
+    "exampleVi": "Ứng viên phải nộp hồ sơ xin việc trực tuyến cùng với ba thư giới thiệu.",
+    "level": "A2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-25"
+    ],
+    "tags": [
+      "hr"
+    ]
+  },
+  {
+    "id": "impose-restrictions-phr",
+    "word": "Impose restrictions",
+    "meaning": "Áp đặt các hạn chế, ràng buộc",
+    "ipa": "/ɪmˈpoʊz rɪˈstrɪk.ʃənz/",
+    "definition": "To establish formal limits or controls on an activity or trade.",
+    "example": "The government imposed restrictions on raw timber exports to preserve forests.",
+    "exampleVi": "Chính phủ đã áp đặt các hạn chế đối với việc xuất khẩu gỗ xẻ thô nhằm bảo tồn rừng.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-25"
+    ],
+    "tags": [
+      "policy"
+    ]
+  },
+  {
+    "id": "impose-a-fee-phr",
+    "word": "Impose a fee",
+    "meaning": "Thu phí, áp đặt một mức phí",
+    "ipa": "/ɪmˈpoʊz ə fiː/",
+    "definition": "To demand payment of a penalty, tax, or administrative charge.",
+    "example": "Airlines impose a fee for luggage weighing in excess of 23 kilograms.",
+    "exampleVi": "Các hãng hàng không thu phí đối với hành lý có trọng lượng vượt quá 23 kilôgam.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-25"
+    ],
+    "tags": [
+      "airline"
+    ]
+  },
+  {
+    "id": "address-an-issue-phr",
+    "word": "Address an issue",
+    "meaning": "Giải quyết, xử lý một vấn đề nan giải",
+    "ipa": "/əˈdres ən ˈɪʃ.uː/",
+    "definition": "To direct attention and effort toward fixing a difficult problem.",
+    "example": "The town hall meeting was convened specifically to address traffic congestion.",
+    "exampleVi": "Buổi họp tòa thị chính được triệu tập nhằm giải quyết tình trạng ùn tắc giao thông.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-25"
+    ],
+    "tags": [
+      "management"
+    ]
+  },
+  {
+    "id": "address-concerns-phr",
+    "word": "Address concerns",
+    "meaning": "Giải tỏa những băn khoăn, lo lắng",
+    "ipa": "/əˈdres kənˈsɝːnz/",
+    "definition": "To provide reassuring answers or solutions to worries.",
+    "example": "The human resources director held an open forum to address staff concerns.",
+    "exampleVi": "Giám đốc nhân sự đã tổ chức một diễn đàn mở để giải tỏa những băn khoăn của nhân viên.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-25"
+    ],
+    "tags": [
+      "hr"
+    ]
+  },
+  {
+    "id": "allocate-resources-phr",
+    "word": "Allocate resources",
+    "meaning": "Phân bổ các nguồn lực (nhân sự, tài sản)",
+    "ipa": "/ˈæl.ə.keɪt rɪˈsɔːr.sɪz/",
+    "definition": "To designate and distribute assets, staff, or equipment for a project.",
+    "example": "Project managers must allocate resources efficiently to avoid team bottlenecks.",
+    "exampleVi": "Các giám đốc dự án phải phân bổ nguồn lực một cách hiệu quả để tránh điểm nghẽn cho nhóm.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-26"
+    ],
+    "tags": [
+      "management"
+    ]
+  },
+  {
+    "id": "allocate-funds-phr",
+    "word": "Allocate funds",
+    "meaning": "Phân bổ ngân sách, cấp vốn",
+    "ipa": "/ˈæl.ə.keɪt fʌndz/",
+    "definition": "To assign money officially for a specific departmental purpose.",
+    "example": "The board allocated additional funds for cybersecurity defense upgrades.",
+    "exampleVi": "Hội đồng quản trị đã phân bổ thêm kinh phí cho việc nâng cấp phòng thủ an ninh mạng.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-26"
+    ],
+    "tags": [
+      "finance"
+    ]
+  },
+  {
+    "id": "generate-revenue-phr",
+    "word": "Generate revenue",
+    "meaning": "Tạo ra doanh thu, đem lại dòng tiền",
+    "ipa": "/ˈdʒen.ə.reɪt ˈrev.ə.nuː/",
+    "definition": "To produce income from commercial sales, operations, or investments.",
+    "example": "Subscription services generate predictable recurring revenue for software companies.",
+    "exampleVi": "Các dịch vụ thuê bao tạo ra nguồn doanh thu định kỳ dễ dự báo cho các công ty phần mềm.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-26"
+    ],
+    "tags": [
+      "revenue"
+    ]
+  },
+  {
+    "id": "generate-leads-phr",
+    "word": "Generate leads",
+    "meaning": "Tìm kiếm khách hàng tiềm năng",
+    "ipa": "/ˈdʒen.ə.reɪt liːdz/",
+    "definition": "To attract prospective buyers and identify sales opportunities.",
+    "example": "Social media marketing campaigns generated over 2,000 qualified sales leads.",
+    "exampleVi": "Các chiến dịch tiếp thị trên mạng xã hội đã mang lại hơn 2.000 khách hàng tiềm năng chất lượng.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-26"
+    ],
+    "tags": [
+      "marketing"
+    ]
+  },
+  {
+    "id": "streamline-operations-phr",
+    "word": "Streamline operations",
+    "meaning": "Tinh gọn hóa các hoạt động vận hành",
+    "ipa": "/ˈstriːm.laɪn ˌɑː.pəˈreɪ.ʃənz/",
+    "definition": "To simplify and make business processes more efficient.",
+    "example": "Adopting automated robotics helped the manufacturer streamline assembly operations.",
+    "exampleVi": "Việc áp dụng robot tự động hóa đã giúp nhà sản xuất tinh gọn các hoạt động lắp ráp.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-26"
+    ],
+    "tags": [
+      "operations"
+    ]
+  },
+  {
+    "id": "streamline-the-process-phr",
+    "word": "Streamline the process",
+    "meaning": "Đơn giản hóa quy trình thủ tục",
+    "ipa": "/ˈstriːm.laɪn ðə ˈprɑː.ses/",
+    "definition": "To eliminate unnecessary steps in a bureaucratic or technical system.",
+    "example": "The new web portal streamlined the visa application process significantly.",
+    "exampleVi": "Cổng thông tin trực tuyến mới đã giúp đơn giản hóa đáng kể quy trình xin cấp thị thực.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-26"
+    ],
+    "tags": [
+      "it"
+    ]
+  },
+  {
+    "id": "comply-with-regulations-phr",
+    "word": "Comply with regulations",
+    "meaning": "Tuân thủ các quy định pháp lý",
+    "ipa": "/kəmˈplaɪ wɪð ˌreɡ.jəˈleɪ.ʃənz/",
+    "definition": "To follow all mandatory legal laws and industry standards.",
+    "example": "All medical device manufacturers must comply strictly with FDA regulations.",
+    "exampleVi": "Tất cả các nhà sản xuất thiết bị y tế phải tuân thủ nghiêm ngặt các quy định của FDA.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-26"
+    ],
+    "tags": [
+      "compliance"
+    ]
+  },
+  {
+    "id": "adhere-to-policies-phr",
+    "word": "Adhere to policies",
+    "meaning": "Bám sát, gắn chặt với các chính sách nội bộ",
+    "ipa": "/ədˈhɪr tuː ˈpɑː.lə.siz/",
+    "definition": "To strictly obey internal company rules, guidelines, or procedures.",
+    "example": "Employees are required to adhere to all corporate data privacy policies.",
+    "exampleVi": "Nhân viên bắt buộc phải bám sát tất cả các chính sách bảo mật dữ liệu của tập đoàn.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-26"
+    ],
+    "tags": [
+      "policy"
+    ]
+  },
+  {
+    "id": "facilitate-growth-phr",
+    "word": "Facilitate growth",
+    "meaning": "Tạo điều kiện thuận lợi thúc đẩy tăng trưởng",
+    "ipa": "/fəˈsɪl.ə.teɪt ɡroʊθ/",
+    "definition": "To make expansion easier and help progress happen smoothly.",
+    "example": "Low corporate interest rates facilitate small business economic growth.",
+    "exampleVi": "Lãi suất vay doanh nghiệp thấp sẽ tạo điều kiện thuận lợi thúc đẩy tăng trưởng kinh tế của các doanh nghiệp nhỏ.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-26"
+    ],
+    "tags": [
+      "growth"
+    ]
+  },
+  {
+    "id": "foster-innovation-phr",
+    "word": "Foster innovation",
+    "meaning": "Nuôi dưỡng, ươm mầm sự đổi mới sáng tạo",
+    "ipa": "/ˈfɑː.stɚ ˌɪn.əˈveɪ.ʃən/",
+    "definition": "To encourage and nurture creative problem-solving and new ideas.",
+    "example": "Flexible open work environments help foster innovation across product teams.",
+    "exampleVi": "Môi trường làm việc mở và linh hoạt giúp nuôi dưỡng sự đổi mới sáng tạo giữa các nhóm sản phẩm.",
+    "level": "C1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-26"
+    ],
+    "tags": [
+      "innovation"
+    ]
+  },
+  {
+    "id": "specialize-in-phr",
+    "word": "Specialize in",
+    "meaning": "Chuyên sâu về lĩnh vực chuyên môn",
+    "ipa": "/ˈspeʃ.ə.laɪz ɪn/",
+    "definition": "To focus on and become an expert in a specific skill or industry.",
+    "example": "Our law firm specializes in cross-border intellectual property litigation.",
+    "exampleVi": "Công ty luật của chúng tôi chuyên sâu về các vụ kiện tranh chấp sở hữu trí tuệ xuyên biên giới.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-27"
+    ],
+    "tags": [
+      "legal"
+    ]
+  },
+  {
+    "id": "participate-in-phr",
+    "word": "Participate in",
+    "meaning": "Tham gia vào (sự kiện, hội thảo, cuộc họp)",
+    "ipa": "/pɑːrˈtɪs.ə.peɪt ɪn/",
+    "definition": "To take part in an activity or event alongside others.",
+    "example": "Over 50 countries participated in the global trade and tariff summit.",
+    "exampleVi": "Hơn 50 quốc gia đã tham gia vào hội nghị thượng đỉnh về thương mại và thuế quan toàn cầu.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-27"
+    ],
+    "tags": [
+      "summit"
+    ]
+  },
+  {
+    "id": "invest-in-phr",
+    "word": "Invest in",
+    "meaning": "Đầu tư vốn vào (dự án, công nghệ, cổ phiếu)",
+    "ipa": "/ɪnˈvest ɪn/",
+    "definition": "To put money, effort, or time into something to achieve future profit.",
+    "example": "The venture fund invested $10 million in renewable battery research.",
+    "exampleVi": "Quỹ mạo hiểm đã đầu tư 10 triệu đô la vào nghiên cứu pin năng lượng tái tạo.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-27"
+    ],
+    "tags": [
+      "investment"
+    ]
+  },
+  {
+    "id": "contribute-to-phr",
+    "word": "Contribute to",
+    "meaning": "Đóng góp vào, góp phần tạo nên",
+    "ipa": "/kənˈtrɪb.juːt tuː/",
+    "definition": "To give something (money, time, effort) to help achieve a collective goal.",
+    "example": "Employee dedication contributed directly to our record customer retention.",
+    "exampleVi": "Sự tận tâm của nhân viên đã đóng góp trực tiếp vào tỷ lệ giữ chân khách hàng kỷ lục của chúng tôi.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-27"
+    ],
+    "tags": [
+      "hr"
+    ]
+  },
+  {
+    "id": "object-to-phr",
+    "word": "Object to",
+    "meaning": "Phản đối, bác bỏ (đề xuất, quyết định)",
+    "ipa": "/əbˈdʒekt tuː/",
+    "definition": "To express disagreement or disapproval regarding an action or plan.",
+    "example": "Local residents objected to the construction of a high-rise tower.",
+    "exampleVi": "Cư dân địa phương đã phản đối việc xây dựng tòa tháp cao tầng.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-27"
+    ],
+    "tags": [
+      "meeting"
+    ]
+  },
+  {
+    "id": "attribute-to-phr",
+    "word": "Attribute to",
+    "meaning": "Quy cho là do, gán cho nguyên nhân là",
+    "ipa": "/əˈtrɪb.juːt tuː/",
+    "definition": "To regard something as being caused by a specific factor.",
+    "example": "The CEO attributed the surge in sales to the viral social media campaign.",
+    "exampleVi": "Tổng giám đốc đã quy sự gia tăng vọt trong doanh số bán hàng là nhờ vào chiến dịch lan truyền trên mạng xã hội.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-27"
+    ],
+    "tags": [
+      "analysis"
+    ]
+  },
+  {
+    "id": "subscribe-to-phr",
+    "word": "Subscribe to",
+    "meaning": "Đăng ký mua định kỳ, tán thành quan điểm",
+    "ipa": "/səbˈskraɪb tuː/",
+    "definition": "To pay for regular access to a service, or support an opinion.",
+    "example": "Over 5,000 businesses subscribe to our cloud security monitoring software.",
+    "exampleVi": "Hơn 5.000 doanh nghiệp đăng ký sử dụng phần mềm giám sát an ninh mạng đám mây của chúng tôi.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-27"
+    ],
+    "tags": [
+      "subscription"
+    ]
+  },
+  {
+    "id": "refrain-from-phr",
+    "word": "Refrain from",
+    "meaning": "Kiềm chế, kiên quyết không làm điều gì",
+    "ipa": "/rɪˈfreɪn frʌm/",
+    "definition": "To stop oneself from doing something; avoid doing.",
+    "example": "Please refrain from taking photographs during the proprietary presentation.",
+    "exampleVi": "Vui lòng kiềm chế không chụp ảnh trong suốt bài thuyết trình độc quyền.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-27"
+    ],
+    "tags": [
+      "conduct"
+    ]
+  },
+  {
+    "id": "abstain-from-phr",
+    "word": "Abstain from",
+    "meaning": "Bỏ phiếu trắng, kiêng khem",
+    "ipa": "/æbˈsteɪn frʌm/",
+    "definition": "To choose not to vote, or hold oneself back from an action.",
+    "example": "Two board members abstained from voting on the controversial merger.",
+    "exampleVi": "Hai thành viên hội đồng quản trị đã bỏ phiếu trắng trong cuộc biểu quyết về vụ sáp nhập gây tranh cãi.",
+    "level": "C1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-27"
+    ],
+    "tags": [
+      "board"
+    ]
+  },
+  {
+    "id": "benefit-from-phr",
+    "word": "Benefit from",
+    "meaning": "Hưởng lợi từ (chính sách, hiệp định, công nghệ)",
+    "ipa": "/ˈben.ə.fɪt frʌm/",
+    "definition": "To receive an advantage or positive profit from something.",
+    "example": "Exporters will benefit significantly from the newly reduced tariff schedule.",
+    "exampleVi": "Các nhà xuất khẩu sẽ hưởng lợi đáng kể từ biểu thuế vừa được cắt giảm.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-27"
+    ],
+    "tags": [
+      "trade"
+    ]
+  },
+  {
+    "id": "stem-from-phr",
+    "word": "Stem from",
+    "meaning": "Bắt nguồn từ, xuất phát từ nguyên nhân",
+    "ipa": "/stem frʌm/",
+    "definition": "To originate or develop as a result of something.",
+    "example": "The delay stemmed from an unforeseen component shortage at the supplier's plant.",
+    "exampleVi": "Sự chậm trễ bắt nguồn từ tình trạng thiếu hụt linh kiện bất khả kháng tại nhà máy của nhà cung cấp.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-28"
+    ],
+    "tags": [
+      "cause"
+    ]
+  },
+  {
+    "id": "result-from-phr",
+    "word": "Result from",
+    "meaning": "Là kết quả do điều gì sinh ra",
+    "ipa": "/rɪˈzʌlt frʌm/",
+    "definition": "To happen as a direct outcome or consequence of something.",
+    "example": "The increase in traffic accidents resulted from unusually heavy snowstorms.",
+    "exampleVi": "Sự gia tăng tai nạn giao thông là kết quả do những trận bão tuyết dày đặc bất thường gây ra.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-28"
+    ],
+    "tags": [
+      "effect"
+    ]
+  },
+  {
+    "id": "result-in-phr",
+    "word": "Result in",
+    "meaning": "Dẫn đến, đưa lại kết quả là",
+    "ipa": "/rɪˈzʌlt ɪn/",
+    "definition": "To cause a particular situation or outcome to happen.",
+    "example": "Careless accounting can result in severe financial penalties from tax authorities.",
+    "exampleVi": "Việc kế toán bất cẩn có thể dẫn đến những hình phạt tài chính nặng nề từ các cơ quan thuế.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-28"
+    ],
+    "tags": [
+      "consequence"
+    ]
+  },
+  {
+    "id": "engage-in-phr",
+    "word": "Engage in",
+    "meaning": "Tham gia vào các hoạt động (đàm phán, thương mại)",
+    "ipa": "/ɪnˈɡeɪdʒ ɪn/",
+    "definition": "To take part or participate actively in a specific pursuit.",
+    "example": "Both pharmaceutical corporations engaged in exploratory merger discussions.",
+    "exampleVi": "Cả hai tập đoàn dược phẩm đã tham gia vào các cuộc thảo luận sáp nhập mang tính thăm dò.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-28"
+    ],
+    "tags": [
+      "negotiation"
+    ]
+  },
+  {
+    "id": "enroll-in-phr",
+    "word": "Enroll in",
+    "meaning": "Ghi danh, đăng ký theo học khóa đào tạo",
+    "ipa": "/ɪnˈroʊl ɪn/",
+    "definition": "To officially register as a student or participant in a course.",
+    "example": "Managers are encouraged to enroll in the project leadership certification program.",
+    "exampleVi": "Các nhà quản lý được khuyến khích ghi danh tham gia chương trình cấp chứng chỉ lãnh đạo dự án.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-28"
+    ],
+    "tags": [
+      "training"
+    ]
+  },
+  {
+    "id": "collaborate-on-phr",
+    "word": "Collaborate on",
+    "meaning": "Cùng hợp tác làm việc trên dự án",
+    "ipa": "/kəˈlæb.ə.reɪt ɑːn/",
+    "definition": "To work jointly with others on a specific creation or endeavor.",
+    "example": "Engineers from both divisions collaborated on designing the hybrid engine.",
+    "exampleVi": "Các kỹ sư từ cả hai bộ phận đã cùng hợp tác để thiết kế động cơ hybrid.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-28"
+    ],
+    "tags": [
+      "project"
+    ]
+  },
+  {
+    "id": "rely-on-phr",
+    "word": "Rely on",
+    "meaning": "Dựa dẫm vào, trông cậy hoàn toàn vào",
+    "ipa": "/rɪˈlaɪ ɑːn/",
+    "definition": "To depend on with full trust and confidence.",
+    "example": "Our production schedule relies on timely raw material deliveries from suppliers.",
+    "exampleVi": "Lịch trình sản xuất của chúng tôi dựa dẫm vào các đợt giao nguyên liệu thô đúng hẹn từ nhà cung cấp.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-28"
+    ],
+    "tags": [
+      "logistics"
+    ]
+  },
+  {
+    "id": "depend-on-phr",
+    "word": "Depend on",
+    "meaning": "Phụ thuộc vào, tùy thuộc vào yếu tố",
+    "ipa": "/dɪˈpend ɑːn/",
+    "definition": "To be determined or conditioned by something else.",
+    "example": "Bonus payouts depend directly on achieving quarterly divisional targets.",
+    "exampleVi": "Các khoản chi trả tiền thưởng phụ thuộc trực tiếp vào việc đạt được các chỉ tiêu của bộ phận hàng quý.",
+    "level": "A2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-28"
+    ],
+    "tags": [
+      "bonus"
+    ]
+  },
+  {
+    "id": "insist-on-phr",
+    "word": "Insist on",
+    "meaning": "Khăng khăng đòi, kiên quyết yêu cầu",
+    "ipa": "/ɪnˈsɪst ɑːn/",
+    "definition": "To demand something forcefully and refuse to accept any alternative.",
+    "example": "The client insisted on a full quality inspection prior to shipment release.",
+    "exampleVi": "Khách hàng đã khăng khăng yêu cầu phải kiểm định chất lượng toàn diện trước khi xuất kho giao hàng.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-28"
+    ],
+    "tags": [
+      "inspection"
+    ]
+  },
+  {
+    "id": "congratulate-on-phr",
+    "word": "Congratulate on",
+    "meaning": "Chúc mừng ai đó nhân dịp thành công",
+    "ipa": "/kənˈɡrætʃ.ə.leɪt ɑːn/",
+    "definition": "To express praise and good wishes for an achievement.",
+    "example": "We would like to congratulate Ms. Davis on her promotion to vice president.",
+    "exampleVi": "Chúng tôi xin chúc mừng bà Davis nhân dịp bà được thăng chức lên vị trí Phó Tổng giám đốc.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-28"
+    ],
+    "tags": [
+      "celebration"
+    ]
+  },
+  {
+    "id": "provide-with-phr",
+    "word": "Provide with",
+    "meaning": "Cung cấp cho ai đó thứ gì",
+    "ipa": "/prəˈvaɪd wɪð/",
+    "definition": "To supply someone with something useful or required.",
+    "example": "The training program will provide new hires with all essential software tools.",
+    "exampleVi": "Chương trình đào tạo sẽ cung cấp cho nhân viên mới tất cả các công cụ phần mềm thiết yếu.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-29"
+    ],
+    "tags": [
+      "onboarding"
+    ]
+  },
+  {
+    "id": "supply-with-phr",
+    "word": "Supply with",
+    "meaning": "Tiếp tế, cung ứng cho ai đó thiết bị",
+    "ipa": "/səˈplaɪ wɪð/",
+    "definition": "To furnish goods, materials, or equipment systematically.",
+    "example": "The vendor agreed to supply the factory with high-grade aluminum rods.",
+    "exampleVi": "Nhà cung cấp đã đồng ý cung ứng cho nhà máy các thanh nhôm cao cấp.",
+    "level": "B1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-29"
+    ],
+    "tags": [
+      "manufacturing"
+    ]
+  },
+  {
+    "id": "furnish-with-phr",
+    "word": "Furnish with",
+    "meaning": "Trang bị, cung cấp đồ đạc / bằng chứng",
+    "ipa": "/ˈfɝː.nɪʃ wɪð/",
+    "definition": "To equip a room or person with necessary fittings, furniture, or data.",
+    "example": "The contractor furnished the auditors with complete maintenance records.",
+    "exampleVi": "Nhà thầu đã cung cấp cho các kiểm toán viên đầy đủ hồ sơ bảo trì.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-29"
+    ],
+    "tags": [
+      "audit"
+    ]
+  },
+  {
+    "id": "equip-with-phr",
+    "word": "Equip with",
+    "meaning": "Trang bị cho máy móc / nhân sự dụng cụ",
+    "ipa": "/ɪˈkwɪp wɪð/",
+    "definition": "To supply a device or team with specific tools or protective items.",
+    "example": "All delivery vans are equipped with temperature-controlled refrigeration.",
+    "exampleVi": "Tất cả các xe tải giao hàng đều được trang bị hệ thống làm lạnh kiểm soát nhiệt độ.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-29"
+    ],
+    "tags": [
+      "logistics"
+    ]
+  },
+  {
+    "id": "entrust-with-phr",
+    "word": "Entrust with",
+    "meaning": "Giao phó trọng trách cho ai đó",
+    "ipa": "/ɪnˈtrʌst wɪð/",
+    "definition": "To assign the responsibility for something valuable or important to someone.",
+    "example": "The director entrusted the senior architect with designing the new flagship store.",
+    "exampleVi": "Giám đốc đã giao phó trọng trách thiết kế cửa hàng kiểu mẫu mới cho kiến trúc sư trưởng.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-29"
+    ],
+    "tags": [
+      "delegation"
+    ]
+  },
+  {
+    "id": "acquaint-with-phr",
+    "word": "Acquaint with",
+    "meaning": "Làm quen với, nắm rõ quy trình",
+    "ipa": "/əˈkweɪnt wɪð/",
+    "definition": "To make someone familiar with or knowledgeable about a topic.",
+    "example": "New staff should acquaint themselves thoroughly with company safety rules.",
+    "exampleVi": "Nhân viên mới nên làm quen và nắm rõ kỹ lưỡng các quy tắc an toàn của công ty.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-29"
+    ],
+    "tags": [
+      "compliance"
+    ]
+  },
+  {
+    "id": "associate-with-phr",
+    "word": "Associate with",
+    "meaning": "Liên kết với, đồng hành cùng",
+    "ipa": "/əˈsoʊ.ʃi.eɪt wɪð/",
+    "definition": "To connect something in the mind, or partner socially/professionally.",
+    "example": "Our brand is widely associated with premium quality and sustainable innovation.",
+    "exampleVi": "Thương hiệu của chúng tôi được liên kết rộng rãi với chất lượng cao cấp và sự đổi mới bền vững.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-29"
+    ],
+    "tags": [
+      "branding"
+    ]
+  },
+  {
+    "id": "compensate-for-phr",
+    "word": "Compensate for",
+    "meaning": "Đền bù, bồi thường cho tổn thất",
+    "ipa": "/ˈkɑːm.pən.seɪt fɔːr/",
+    "definition": "To pay money to make amends for damage, injury, or loss.",
+    "example": "The airline provided vouchers to compensate passengers for the overnight delay.",
+    "exampleVi": "Hãng hàng không đã cung cấp phiếu ưu đãi để bồi thường cho các hành khách vì chuyến bay bị hoãn qua đêm.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-29"
+    ],
+    "tags": [
+      "compensation"
+    ]
+  },
+  {
+    "id": "charge-for-phr",
+    "word": "Charge for",
+    "meaning": "Tính phí cho dịch vụ",
+    "ipa": "/tʃɑːrdʒ fɔːr/",
+    "definition": "To ask an amount of money as a price for a service or commodity.",
+    "example": "The hotel does not charge for high-speed wireless internet access.",
+    "exampleVi": "Khách sạn không tính phí đối với dịch vụ truy cập internet không dây tốc độ cao.",
+    "level": "A2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-29"
+    ],
+    "tags": [
+      "billing"
+    ]
+  },
+  {
+    "id": "apologize-for-phr",
+    "word": "Apologize for",
+    "meaning": "Xin lỗi vì sự cố xảy ra",
+    "ipa": "/əˈpɑː.lə.dʒaɪz fɔːr/",
+    "definition": "To express regret for something that has caused inconvenience or offense.",
+    "example": "We sincerely apologize for the typographical error in our product brochure.",
+    "exampleVi": "Chúng tôi thành thật xin lỗi vì lỗi in ấn trong tập sách giới thiệu sản phẩm của mình.",
+    "level": "A2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-29"
+    ],
+    "tags": [
+      "service"
+    ]
+  },
+  {
+    "id": "eligible-to-phr",
+    "word": "Eligible to",
+    "meaning": "Đủ tư cách làm điều gì (bỏ phiếu, nhận thưởng)",
+    "ipa": "/ˈel.ə.dʒə.bəl tuː/",
+    "definition": "Having the necessary qualifications or right to do an action.",
+    "example": "Only shareholders of record are eligible to vote at the annual meeting.",
+    "exampleVi": "Chỉ các cổ đông có tên trong danh sách đăng ký mới đủ tư cách bỏ phiếu tại cuộc họp thường niên.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-30"
+    ],
+    "tags": [
+      "voting"
+    ]
+  },
+  {
+    "id": "prone-to-phr",
+    "word": "Prone to",
+    "meaning": "Dễ bị, thiên hướng dễ mắc phải (lỗi, hỏng hóc)",
+    "ipa": "/proʊn tuː/",
+    "definition": "Likely to experience or suffer from an adverse condition.",
+    "example": "Older server models are prone to overheating during heavy data processing.",
+    "exampleVi": "Các mẫu máy chủ cũ hơn rất dễ bị quá nhiệt trong quá trình xử lý dữ liệu nặng.",
+    "level": "C1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-30"
+    ],
+    "tags": [
+      "technical"
+    ]
+  },
+  {
+    "id": "conducive-to-phr",
+    "word": "Conducive to",
+    "meaning": "Có lợi cho, tạo điều kiện thuận lợi cho",
+    "ipa": "/kənˈduː.sɪv tuː/",
+    "definition": "Making a certain situation or outcome likely or possible.",
+    "example": "A quiet, well-lit workspace is highly conducive to deep focused work.",
+    "exampleVi": "Không gian làm việc yên tĩnh và đủ ánh sáng rất có lợi cho công việc đòi hỏi tập trung sâu.",
+    "level": "C1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-30"
+    ],
+    "tags": [
+      "ergonomics"
+    ]
+  },
+  {
+    "id": "detrimental-to-phr",
+    "word": "Detrimental to",
+    "meaning": "Có hại cho, gây tổn hại nghiêm trọng tới",
+    "ipa": "/ˌdet.rəˈmen.t̬əl tuː/",
+    "definition": "Causing damage, harm, or disadvantage.",
+    "example": "High turnover rates can be severely detrimental to workplace morale and productivity.",
+    "exampleVi": "Tỷ lệ luân chuyển nhân sự cao có thể gây tổn hại nghiêm trọng đến tinh thần làm việc và năng suất.",
+    "level": "C1",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-30"
+    ],
+    "tags": [
+      "hr"
+    ]
+  },
+  {
+    "id": "integral-to-phr",
+    "word": "Integral to",
+    "meaning": "Là một phần không thể thiếu của",
+    "ipa": "/ˈɪn.t̬ə.ɡrəl tuː/",
+    "definition": "Essential and necessary for completeness or functionality.",
+    "example": "Customer feedback is integral to our continuous product development lifecycle.",
+    "exampleVi": "Ý kiến phản hồi của khách hàng là một phần không thể thiếu trong vòng đời phát triển sản phẩm liên tục của chúng tôi.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-30"
+    ],
+    "tags": [
+      "quality"
+    ]
+  },
+  {
+    "id": "equivalent-to-phr",
+    "word": "Equivalent to",
+    "meaning": "Tương đương với, có giá trị ngang bằng",
+    "ipa": "/ɪˈkwɪv.əl.ənt tuː/",
+    "definition": "Equal in value, function, or meaning to something else.",
+    "example": "A score of 785 on the TOEIC is generally considered equivalent to CEFR B2 level.",
+    "exampleVi": "Điểm số 785 trong kỳ thi TOEIC thường được coi là tương đương với trình độ B2 theo khung CEFR.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-30"
+    ],
+    "tags": [
+      "assessment"
+    ]
+  },
+  {
+    "id": "vital-to-phr",
+    "word": "Vital to",
+    "meaning": "Tối quan trọng, sống còn đối với sự thành công",
+    "ipa": "/ˈvaɪ.t̬əl tuː/",
+    "definition": "Extremely important and necessary for the survival or success of something.",
+    "example": "Securing intellectual property patents is vital to biotech startups.",
+    "exampleVi": "Việc bảo hộ các bằng sáng chế sở hữu trí tuệ là tối quan trọng đối với các công ty khởi nghiệp công nghệ sinh học.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-30"
+    ],
+    "tags": [
+      "patent"
+    ]
+  },
+  {
+    "id": "compatible-with-phr",
+    "word": "Compatible with",
+    "meaning": "Tương thích với (thiết bị, hệ điều hành)",
+    "ipa": "/kəmˈpæt̬.ə.bəl wɪð/",
+    "definition": "Able to exist, operate, or work together without conflict.",
+    "example": "The new accounting software is fully compatible with Windows and macOS.",
+    "exampleVi": "Phần mềm kế toán mới hoàn toàn tương thích với cả hệ điều hành Windows và macOS.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-30"
+    ],
+    "tags": [
+      "it"
+    ]
+  },
+  {
+    "id": "adjacent-to-phr",
+    "word": "Adjacent to",
+    "meaning": "Nằm liền kề, sát cạnh bên",
+    "ipa": "/əˈdʒeɪ.sənt tuː/",
+    "definition": "Next to or adjoining something else.",
+    "example": "The conference breakout room is located adjacent to the main auditorium.",
+    "exampleVi": "Phòng họp nhóm hội thảo nằm ngay sát cạnh hội trường chính.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-30"
+    ],
+    "tags": [
+      "facility"
+    ]
+  },
+  {
+    "id": "exempt-from-phr",
+    "word": "Exempt from",
+    "meaning": "Được miễn trừ khỏi (thuế, nghĩa vụ, lệ phí)",
+    "ipa": "/ɪɡˈzempt frʌm/",
+    "definition": "Free from an obligation or liability imposed on others.",
+    "example": "Nonprofit educational institutions are legally exempt from local property taxes.",
+    "exampleVi": "Các tổ chức giáo dục phi lợi nhuận được miễn thuế tài sản địa phương theo quy định của pháp luật.",
+    "level": "B2",
+    "pos": "phrase",
+    "img": "",
+    "topicIds": [
+      "toeic-b2-chặng-30"
+    ],
+    "tags": [
+      "tax"
+    ]
+  }
 ];
 
 export const WORDS_MAP = new Map(WORDS.map(w => [w.id, w]));
