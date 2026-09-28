@@ -198,17 +198,17 @@ export function renderReviewShell(container) {
               <span class="quad-sub-hint" id="home-due-hint">Ưu tiên ôn trước</span>
             </div>
 
-            <!-- Card 2: Đã học hôm nay -->
+            <!-- Card 2: Đã học hôm nay (Học từ mới + Ôn tập) -->
             <div class="quad-tile tile-new" id="box-home-new">
               <div class="quad-tile-top">
                 <span class="quad-icon-badge">✨</span>
                 <span class="quad-label">ĐÃ HỌC HÔM NAY</span>
               </div>
               <div class="quad-num-wrap">
-                <span class="quad-number" id="home-new-today-val">0/10</span>
+                <span class="quad-number" id="home-new-today-val">0</span>
                 <span class="quad-unit">từ</span>
               </div>
-              <span class="quad-sub-hint" id="home-goal-hint">Chỉ tiêu: 10 từ</span>
+              <span class="quad-sub-hint" id="home-goal-hint">Chỉ tiêu: 10 từ mới</span>
             </div>
 
             <!-- Card 3: Thời gian học -->
@@ -304,8 +304,8 @@ export function renderReviewShell(container) {
                 <span class="ring-center-val" id="ring-val-day">0%</span>
               </div>
               <div class="goal-ring-info">
-                <span class="goal-ring-title">Hôm nay</span>
-                <span class="goal-ring-detail" id="ring-detail-day">0 từ</span>
+                <span class="goal-ring-title">Từ mới hôm nay</span>
+                <span class="goal-ring-detail" id="ring-detail-day">0/10 từ</span>
               </div>
             </div>
 
@@ -319,8 +319,8 @@ export function renderReviewShell(container) {
                 <span class="ring-center-val" id="ring-val-week">0%</span>
               </div>
               <div class="goal-ring-info">
-                <span class="goal-ring-title">7 ngày qua</span>
-                <span class="goal-ring-detail" id="ring-detail-week">0 từ</span>
+                <span class="goal-ring-title">Từ mới 7 ngày</span>
+                <span class="goal-ring-detail" id="ring-detail-week">0/70 từ</span>
               </div>
             </div>
 
@@ -334,8 +334,8 @@ export function renderReviewShell(container) {
                 <span class="ring-center-val" id="ring-val-month">0%</span>
               </div>
               <div class="goal-ring-info">
-                <span class="goal-ring-title">30 ngày qua</span>
-                <span class="goal-ring-detail" id="ring-detail-month">0 từ</span>
+                <span class="goal-ring-title">Từ mới 30 ngày</span>
+                <span class="goal-ring-detail" id="ring-detail-month">0/300 từ</span>
               </div>
             </div>
           </div>
@@ -659,31 +659,80 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
     elRetentionHint.textContent = masteredCount > 0 ? 'Ghi nhớ bền vững 🛡️' : 'Độ bền ≥ 14 ngày';
   }
 
-  // Daily Goals & Logs
+  // Daily Goals, New Words & Active Reviews
   const dailyGoal = Number(app.settings?.dailyNewLimit) || 10;
   const studyQueue = app.deckManager.getStudyQueue(null, app.settings);
   const queueDue = studyQueue.totalDue !== undefined ? studyQueue.totalDue : dueCount;
   const queueNew = studyQueue.totalNew !== undefined ? studyQueue.totalNew : 0;
 
-  const allLogs = StorageManager.getStudyLogs();
-  const todayLogs = allLogs.filter(l => 
-    l.timestamp && getLocalDateKey(l.timestamp) === getLocalDateKey()
-  );
-  const todayNewLearned = todayLogs.filter(l => 
-    l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
-  ).length;
+  const allLogs = StorageManager.getStudyLogs() || [];
+  const cardStates = StorageManager.getAllCardStates() || {};
+  const todayKey = getLocalDateKey(now);
+
+  // Xây dựng bản đồ thời điểm học đầu tiên của từng từ
+  const firstStudyMap = new Map();
+  allLogs.forEach(l => {
+    const cid = l.cardId || l.word;
+    if (!cid || !l.timestamp) return;
+    const t = new Date(l.timestamp).getTime();
+    if (!firstStudyMap.has(cid) || t < firstStudyMap.get(cid)) {
+      firstStudyMap.set(cid, t);
+    }
+  });
+
+  // Bổ sung cho các thẻ đã học trong cardStates
+  for (const [cid, s] of Object.entries(cardStates)) {
+    if (s && s.state !== State.New && s.state !== 0 && s.last_review) {
+      const t = new Date(s.last_review).getTime();
+      if (!firstStudyMap.has(cid)) {
+        firstStudyMap.set(cid, t);
+      }
+    }
+  }
+
+  const weekStart = new Date(now);
+  weekStart.setDate(weekStart.getDate() - 6);
+  weekStart.setHours(0, 0, 0, 0);
+
+  const month30Start = new Date(now);
+  month30Start.setDate(month30Start.getDate() - 29);
+  month30Start.setHours(0, 0, 0, 0);
+
+  let todayNewLearned = 0;
+  let weekNewLearned = 0;
+  let month30NewLearned = 0;
+
+  for (const [cid, firstT] of firstStudyMap.entries()) {
+    const d = new Date(firstT);
+    if (getLocalDateKey(d) === todayKey) {
+      todayNewLearned++;
+    }
+    if (firstT >= weekStart.getTime()) {
+      weekNewLearned++;
+    }
+    if (firstT >= month30Start.getTime()) {
+      month30NewLearned++;
+    }
+  }
+
+  // Hoạt động hôm nay (cả từ mới và từ ôn tập)
+  const todayLogs = allLogs.filter(l => l.timestamp && getLocalDateKey(l.timestamp) === todayKey);
+  const todayUniqueCardIds = new Set(todayLogs.map(l => l.cardId || l.word).filter(Boolean));
+  const todayTotalUnique = todayUniqueCardIds.size;
+  const todayReviews = Math.max(0, todayTotalUnique - todayNewLearned);
+
   const remainingGoal = Math.max(0, dailyGoal - todayNewLearned);
   const goalPct = Math.min(100, Math.round((todayNewLearned / dailyGoal) * 100));
 
-  // Today Status
+  // Today Status Header Text
   const elTodayStatus = document.getElementById('home-today-status');
   if (elTodayStatus) {
     if (queueDue > 0) {
       elTodayStatus.textContent = `Có ${queueDue} từ cần ôn tập hôm nay`;
     } else if (todayNewLearned >= dailyGoal) {
-      elTodayStatus.textContent = 'Đã hoàn thành xuất sắc chỉ tiêu hôm nay ✓';
+      elTodayStatus.textContent = `Đã nạp đủ ${todayNewLearned}/${dailyGoal} từ mới & hoàn thành xuất sắc hôm nay ✓`;
     } else {
-      elTodayStatus.textContent = `Còn ${remainingGoal} từ mới để đạt chỉ tiêu hôm nay`;
+      elTodayStatus.textContent = `Đã sạch hàng đợi ôn tập • Còn ${remainingGoal} từ mới để đạt chỉ tiêu hôm nay`;
     }
   }
 
@@ -721,33 +770,27 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
   }
 
   const elNewVal = document.getElementById('home-new-today-val');
-  if (elNewVal) elNewVal.textContent = `${todayNewLearned}/${dailyGoal}`;
+  if (elNewVal) {
+    elNewVal.textContent = todayTotalUnique;
+  }
 
   const elGoalHint = document.getElementById('home-goal-hint');
   if (elGoalHint) {
-    elGoalHint.textContent = todayNewLearned >= dailyGoal ? `Đạt chỉ tiêu ngày ✓` : `Còn ${remainingGoal} từ nữa`;
+    if (todayTotalUnique === 0) {
+      elGoalHint.textContent = `Chỉ tiêu: ${dailyGoal} từ mới`;
+    } else if (todayNewLearned >= dailyGoal) {
+      elGoalHint.textContent = `🌱 Đạt ${todayNewLearned}/${dailyGoal} từ mới • 🔄 Ôn ${todayReviews} từ`;
+    } else {
+      elGoalHint.textContent = `🌱 Nạp ${todayNewLearned}/${dailyGoal} từ mới • 🔄 Ôn ${todayReviews} từ`;
+    }
   }
 
-  // Goal & Progress Rings
+  // 3 Radial Rings (% Tròn Ngày, Tuần, Tháng)
   const dayPct = Math.min(100, Math.round((todayNewLearned / dailyGoal) * 100));
 
-  const weekStart = new Date(now);
-  weekStart.setDate(weekStart.getDate() - 6);
-  weekStart.setHours(0, 0, 0, 0);
-  const weekLogs = allLogs.filter(l => l.timestamp && new Date(l.timestamp) >= weekStart);
-  const weekNewLearned = weekLogs.filter(l => 
-    l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
-  ).length;
   const weekGoal = dailyGoal * 7;
   const weekPct = Math.min(100, Math.round((weekNewLearned / weekGoal) * 100));
 
-  const month30Start = new Date(now);
-  month30Start.setDate(month30Start.getDate() - 29);
-  month30Start.setHours(0, 0, 0, 0);
-  const month30Logs = allLogs.filter(l => l.timestamp && new Date(l.timestamp) >= month30Start);
-  const month30NewLearned = month30Logs.filter(l => 
-    l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
-  ).length;
   const month30Goal = dailyGoal * 30;
   const month30Pct = Math.min(100, Math.round((month30NewLearned / month30Goal) * 100));
 
