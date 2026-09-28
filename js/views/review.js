@@ -523,13 +523,12 @@ export function renderReviewTab(app) {
 }
 
 /**
- * Ghi nhận người dùng đang chủ động học để bật bộ đếm thời gian thực
+ * Ghi nhận người dùng đang chủ động học để duy trì bộ đếm thời gian thực
  */
 function notifyStudyActivity() {
-  if (!globalStudyTimer.isActiveSession) {
-    globalStudyTimer.startSession();
+  if (globalStudyTimer.isActiveSession) {
+    globalStudyTimer.recordActivity();
   }
-  globalStudyTimer.recordActivity();
 }
 
 /**
@@ -1515,7 +1514,11 @@ function rateInlineCard(rating) {
     leechAction: _cachedApp?.settings?.leechAction || 'tag'
   });
 
-  const latencySec = (Date.now() - _inlineStudyState.startTime) / 1000;
+  const latencySec = (Date.now() - (_inlineStudyState.startTime || Date.now())) / 1000;
+  const activeStudySecs = Math.min(20, Math.max(1, Math.round(latencySec)));
+  if (typeof StorageManager.addStudySeconds === 'function') {
+    StorageManager.addStudySeconds(activeStudySecs);
+  }
 
   // Lưu trạng thái FSRS & ghi nhật ký
   StorageManager.saveCardState(nextState);
@@ -1530,14 +1533,6 @@ function rateInlineCard(rating) {
     difficulty: nextState.difficulty,
     latencySec: latencySec
   });
-
-  // Kích hoạt vi hiệu ứng Dopamine Pulse lên tile tiến độ
-  const boxNew = document.getElementById('box-home-new');
-  if (boxNew) {
-    boxNew.classList.remove('pulse-dopamine');
-    void boxNew.offsetWidth;
-    boxNew.classList.add('pulse-dopamine');
-  }
 
   // Dừng phát lặp từ cũ trước khi chuyển từ mới
   if (_inlineStudyState.loopTimerId) {

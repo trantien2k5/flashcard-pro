@@ -19,6 +19,23 @@
   box-sizing: border-box;
 }
 
+/* Mobile Order (< 860px): 1. Nhiệm vụ hôm nay, 2. Ôn tập nhanh (Flashcard), 3. Mục tiêu & tiến độ, 4. Trợ giúp & củng cố */
+#review-hero-card {
+  order: 1;
+}
+
+#review-inline-study-card {
+  order: 2;
+}
+
+#review-goals-card {
+  order: 3;
+}
+
+#review-assist-card {
+  order: 4;
+}
+
 .review-col {
   display: flex;
   flex-direction: column;
@@ -2992,6 +3009,23 @@
     gap: 20px;
     align-items: stretch;
     box-sizing: border-box;
+  }
+
+  /* Desktop Order: 1. Top-Left Flashcard, 2. Top-Right Task, 3. Bottom-Left Goals, 4. Bottom-Right Assist */
+  #review-inline-study-card {
+    order: 1;
+  }
+
+  #review-hero-card {
+    order: 2;
+  }
+
+  #review-goals-card {
+    order: 3;
+  }
+
+  #review-assist-card {
+    order: 4;
   }
 
   /* 4 Khối đều nhau tuyệt đối */

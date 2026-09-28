@@ -948,7 +948,7 @@ export class StudyTimeTracker {
     this.isPaused = false;
     this.isIdle = false;
 
-    this.idleThresholdMs = 15 * 1000; // 15 giây không có tương tác -> coi như treo máy (Idle AFK)
+    this.idleThresholdMs = 10 * 1000; // 10 giây không có tương tác học -> tạm dừng bộ đếm (Idle AFK)
     this.lastActivityTime = 0;
     this.lastTickTime = 0;
     this.unflushedSeconds = 0;
@@ -956,11 +956,9 @@ export class StudyTimeTracker {
 
     this.intervalId = null;
     this.subscribers = new Set();
-    this._lastMoveRecordTime = 0;
 
     this._boundOnVisibilityChange = this._onVisibilityChange.bind(this);
     this._boundOnUserActivity = this.recordActivity.bind(this);
-    this._boundOnMouseMove = this._onMouseMove.bind(this);
   }
 
   /**
@@ -1015,16 +1013,8 @@ export class StudyTimeTracker {
     return `${pad(mins)}:${pad(secs)}`;
   }
 
-  _onMouseMove() {
-    const now = Date.now();
-    if (now - this._lastMoveRecordTime > 500) {
-      this._lastMoveRecordTime = now;
-      this.recordActivity();
-    }
-  }
-
   /**
-   * Bắt đầu theo dõi thời gian cho phiên học
+   * Bắt đầu theo dõi thời gian cho phiên học (Study/Quiz Modal)
    */
   startSession() {
     if (this.isActiveSession) {
@@ -1044,12 +1034,10 @@ export class StudyTimeTracker {
     document.addEventListener('visibilitychange', this._boundOnVisibilityChange);
     window.addEventListener('pagehide', this._boundOnVisibilityChange);
 
-    // Lắng nghe tương tác người dùng toàn cục
+    // Lắng nghe tương tác chủ động (chạm, phím, click học)
     window.addEventListener('pointerdown', this._boundOnUserActivity, { passive: true, capture: true });
     window.addEventListener('keydown', this._boundOnUserActivity, { passive: true, capture: true });
     window.addEventListener('touchstart', this._boundOnUserActivity, { passive: true, capture: true });
-    window.addEventListener('mousemove', this._boundOnMouseMove, { passive: true });
-    window.addEventListener('wheel', this._boundOnMouseMove, { passive: true });
 
     // Bắt đầu chu kỳ đếm 1s/lần
     this._startTicker();
@@ -1117,7 +1105,7 @@ export class StudyTimeTracker {
     const now = Date.now();
     const timeSinceLastActivity = now - this.lastActivityTime;
 
-    // Kiểm tra phát hiện treo máy
+    // Kiểm tra phát hiện treo máy (AFK > 10s)
     if (timeSinceLastActivity > this.idleThresholdMs) {
       const wasNotIdle = !this.isIdle;
       this.isIdle = true;
@@ -1193,8 +1181,6 @@ export class StudyTimeTracker {
     window.removeEventListener('pointerdown', this._boundOnUserActivity, { capture: true });
     window.removeEventListener('keydown', this._boundOnUserActivity, { capture: true });
     window.removeEventListener('touchstart', this._boundOnUserActivity, { capture: true });
-    window.removeEventListener('mousemove', this._boundOnMouseMove);
-    window.removeEventListener('wheel', this._boundOnMouseMove);
 
     this._notifySubscribers();
   }
