@@ -1478,11 +1478,11 @@ function rateInlineCard(rating) {
   notifyStudyActivity();
   if (!_inlineStudyState.currentCard || !_inlineStudyState.fsrs) return;
 
-  // Khóa ngầm chống bấm sớm ở mặt sau: Quên 2.0s, Khó 2.0s, Nhớ 1.0s, Dễ 0s (không hiện đếm ngược)
+  // Khóa ngầm chống bấm sớm ở mặt sau (giảm dần): Quên 2.0s, Khó 1.5s, Nhớ 1.0s, Dễ 0s (không hiện đếm ngược)
   const elapsed = Date.now() - (_inlineStudyState.backFlippedTime || 0);
   let lockDuration = 0;
   if (rating === Rating.Again) lockDuration = 2000;
-  else if (rating === Rating.Hard) lockDuration = 2000;
+  else if (rating === Rating.Hard) lockDuration = 1500;
   else if (rating === Rating.Good) lockDuration = 1000;
   else if (rating === Rating.Easy) lockDuration = 0;
 

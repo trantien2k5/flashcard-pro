@@ -849,11 +849,11 @@ export function setupStudyControls(app) {
       if (!app.studySession || !app.studySession.isActive) return;
       if (!app.studySession.isFlipped) return;
       
-      // Khóa thông minh ở mặt sau: Quên 2.0s, Khó 2.0s, Nhớ 1.0s, Dễ 0s
+      // Khóa thông minh ở mặt sau (giảm dần): Quên 2.0s, Khó 1.5s, Nhớ 1.0s, Dễ 0s
       const backViewMs = _backShowTime > 0 ? (performance.now() - _backShowTime) : 0;
       let minLockMs = 0;
       if (rating === Rating.Again) minLockMs = 2000;
-      else if (rating === Rating.Hard) minLockMs = 2000;
+      else if (rating === Rating.Hard) minLockMs = 1500;
       else if (rating === Rating.Good) minLockMs = 1000;
       else if (rating === Rating.Easy) minLockMs = 0;
 
