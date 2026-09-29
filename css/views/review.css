@@ -19,7 +19,12 @@
   box-sizing: border-box;
 }
 
-/* Mobile Order (< 860px): 1. Nhiệm vụ hôm nay, 2. Ôn tập nhanh (Flashcard), 3. Mục tiêu & tiến độ, 4. Trợ giúp & củng cố */
+/* ==========================================================================
+   Mobile Structure (< 860px): CHỈ GỒM ĐÚNG 2 KHỐI CHÍNH DUY NHẤT
+   1. Khối Nửa Trên: Bảng Tổng Hợp Thông Tin & Nhiệm Vụ (#review-hero-card)
+   2. Khối Nửa Dưới: Học Flashcard Nhanh Trực Tiếp (#review-inline-study-card)
+   Ẩn các khối phụ rườm rà (#review-goals-card, #review-assist-card)
+   ========================================================================== */
 #review-hero-card {
   order: 1;
 }
@@ -28,19 +33,159 @@
   order: 2;
 }
 
-#review-goals-card {
-  order: 3;
-}
+@media (max-width: 859px) {
+  #tab-review.tab-pane.active {
+    padding: 8px 10px 24px 10px;
+  }
 
-#review-assist-card {
-  order: 4;
-}
+  .review-bento-container {
+    gap: 12px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
 
-.review-col {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
+  /* Ẩn triệt để các khối phụ dưới trên Mobile */
+  #review-goals-card,
+  #review-assist-card {
+    display: none !important;
+  }
+
+  /* Khối Nửa Trên: Bảng Tổng Hợp Thông Tin */
+  #review-hero-card {
+    padding: 14px 12px;
+    gap: 10px;
+    border-radius: 18px;
+    width: 100%;
+  }
+
+  .review-hero-main-title {
+    font-size: 0.92rem;
+  }
+
+  .hero-quad-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .quad-tile {
+    padding: 10px 10px;
+    min-height: 72px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .quad-tile-top {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .quad-icon-badge {
+    font-size: 0.82rem;
+  }
+
+  .quad-label {
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+  }
+
+  .quad-number {
+    font-size: 1.35rem;
+    font-weight: 850;
+    line-height: 1;
+  }
+
+  .quad-unit {
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  .quad-sub-hint {
+    font-size: 0.64rem;
+    line-height: 1.25;
+    margin-top: 1px;
+  }
+
+  .hero-mini-roadmap-strip {
+    margin-top: -2px;
+    gap: 6px;
+  }
+
+  .mini-roadmap-pill {
+    padding: 5px 8px;
+    font-size: 0.68rem;
+    border-radius: 10px;
+  }
+
+  .hero-twin-cta-row {
+    gap: 8px;
+  }
+
+  .btn-hero-twin-study,
+  .btn-hero-twin-quiz {
+    min-height: 42px;
+    font-size: 0.82rem;
+    padding: 8px 10px;
+    border-radius: 12px;
+  }
+
+  .hero-meta-hint {
+    font-size: 0.68rem;
+    margin-top: -2px;
+  }
+
+  /* Khối Nửa Dưới: Học Flashcard Nhanh Trực Tiếp */
+  #review-inline-study-card {
+    padding: 14px 12px;
+    gap: 8px;
+    border-radius: 18px;
+    min-height: 270px;
+    width: 100%;
+  }
+
+  .inline-word-text {
+    font-size: 1.85rem;
+  }
+
+  .inline-ipa-text {
+    font-size: 0.88rem;
+  }
+
+  .btn-inline-flip {
+    min-height: 42px;
+    font-size: 0.86rem;
+    padding: 8px 16px;
+  }
+
+  .inline-meaning-text {
+    font-size: 1.05rem;
+  }
+
+  .inline-example-box {
+    padding: 8px 10px;
+    margin: 4px 0;
+  }
+
+  .inline-rating-grid {
+    gap: 6px;
+  }
+
+  .btn-inline-rate {
+    min-height: 42px;
+    padding: 4px 2px;
+  }
+
+  .rate-name {
+    font-size: 0.78rem;
+  }
+
+  .rate-interval {
+    font-size: 0.65rem;
+  }
 }
 
 /* ==========================================================================
@@ -267,6 +412,60 @@
 [data-theme="light"] .tile-new .quad-number { color: #4f46e5; }
 [data-theme="light"] .tile-time .quad-number { color: #0284c7; }
 [data-theme="light"] .tile-retention .quad-number { color: #059669; }
+
+/* Mini Roadmap Strip in Hero Card */
+.hero-mini-roadmap-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.mini-roadmap-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .mini-roadmap-pill {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.mini-roadmap-icon {
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.mini-roadmap-label {
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.mini-roadmap-val {
+  font-weight: 750;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.mini-roadmap-pct {
+  font-weight: 750;
+  font-size: 0.7rem;
+  color: var(--primary);
+  background: var(--primary-glow);
+  padding: 2px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
 
 /* ==========================================================================
    3. Dual Action Launchpad (Twin CTA Buttons)

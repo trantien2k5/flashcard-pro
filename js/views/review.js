@@ -237,6 +237,22 @@ export function renderReviewShell(container) {
             </div>
           </div>
 
+          <!-- Roadmaps Mini Metric Row (Tiến độ 7 ngày & 30 ngày) -->
+          <div class="hero-mini-roadmap-strip" id="home-mini-roadmap-strip">
+            <div class="mini-roadmap-pill">
+              <span class="mini-roadmap-icon">🌱</span>
+              <span class="mini-roadmap-label">7 ngày:</span>
+              <strong class="mini-roadmap-val" id="home-mini-week-val">0/70 từ</strong>
+              <span class="mini-roadmap-pct" id="home-mini-week-pct">0%</span>
+            </div>
+            <div class="mini-roadmap-pill">
+              <span class="mini-roadmap-icon">🎯</span>
+              <span class="mini-roadmap-label">30 ngày:</span>
+              <strong class="mini-roadmap-val" id="home-mini-month-val">0/300 từ</strong>
+              <span class="mini-roadmap-pct" id="home-mini-month-pct">0%</span>
+            </div>
+          </div>
+
           <!-- Dual Action Launchpad (Twin CTA Buttons) -->
           <div class="hero-action-container">
             <div class="hero-twin-cta-row" id="home-twin-cta-row">
@@ -793,6 +809,17 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
 
   const month30Goal = dailyGoal * 30;
   const month30Pct = Math.min(100, Math.round((month30NewLearned / month30Goal) * 100));
+
+  // Cập nhật Mini Roadmap Strip (Hiện hữu trên cả Mobile & Desktop)
+  const elMiniWeekVal = document.getElementById('home-mini-week-val');
+  if (elMiniWeekVal) elMiniWeekVal.textContent = `${weekNewLearned}/${weekGoal} từ`;
+  const elMiniWeekPct = document.getElementById('home-mini-week-pct');
+  if (elMiniWeekPct) elMiniWeekPct.textContent = `${weekPct}%`;
+
+  const elMiniMonthVal = document.getElementById('home-mini-month-val');
+  if (elMiniMonthVal) elMiniMonthVal.textContent = `${month30NewLearned}/${month30Goal} từ`;
+  const elMiniMonthPct = document.getElementById('home-mini-month-pct');
+  if (elMiniMonthPct) elMiniMonthPct.textContent = `${month30Pct}%`;
 
   const roadmap = StatsManager.getMilestoneRoadmap(learnedCount, dailyGoal);
   const activeStage = roadmap.activeStage;
