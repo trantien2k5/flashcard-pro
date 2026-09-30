@@ -147,19 +147,19 @@ export function startFrontActiveRecallTimer() {
   _flipCountdownTimer = setInterval(updateCountdown, 100);
 }
 
-// Cấu hình học tập (Mặc định hiển thị đầy đủ tất cả các trường dữ liệu bắt buộc)
+// Cấu hình học tập (Mặc định: Từ tiếng Anh, Nghĩa tiếng Việt, Phiên âm, Từ loại, Câu ví dụ tiếng Anh)
 const DEFAULT_STUDY_PREFS = {
-  showImage: true,
-  showPhonetic: true,
-  showDefinition: true,
-  showExample: true,
-  showExampleVi: true,
-  showPos: true,
-  showCefr: true,
+  showImage: false,          // Mặc định TẮT hình ảnh (tránh lỗi/chiếm diện tích)
+  showPhonetic: true,        // Mặc định BẬT phiên âm IPA
+  showDefinition: false,     // Mặc định TẮT định nghĩa tiếng Anh dài dòng
+  showExample: true,         // Mặc định BẬT câu ví dụ tiếng Anh
+  showExampleVi: false,      // Mặc định TẮT bản dịch câu ví dụ
+  showPos: true,             // Mặc định BẬT từ loại (POS)
+  showCefr: false,           // Mặc định TẮT nhãn CEFR
   autoplayAudio: true,
   showHint: true,
-  thinkDelaySec: 0,      // Mặc định tắt (0s) lật tức thì
-  enableBackLock: false  // Mặc định tắt khóa chống bấm nhầm mặt sau
+  thinkDelaySec: 0,          // Mặc định tắt (0s) lật tức thì
+  enableBackLock: false      // Mặc định tắt khóa chống bấm nhầm mặt sau
 };
 
 export function getStudyPrefs() {
@@ -169,6 +169,13 @@ export function getStudyPrefs() {
       const parsed = JSON.parse(raw);
       return {
         ...DEFAULT_STUDY_PREFS,
+        showImage: parsed.showImage !== undefined ? !!parsed.showImage : DEFAULT_STUDY_PREFS.showImage,
+        showPhonetic: parsed.showPhonetic !== undefined ? !!parsed.showPhonetic : DEFAULT_STUDY_PREFS.showPhonetic,
+        showDefinition: parsed.showDefinition !== undefined ? !!parsed.showDefinition : DEFAULT_STUDY_PREFS.showDefinition,
+        showExample: parsed.showExample !== undefined ? !!parsed.showExample : DEFAULT_STUDY_PREFS.showExample,
+        showExampleVi: parsed.showExampleVi !== undefined ? !!parsed.showExampleVi : DEFAULT_STUDY_PREFS.showExampleVi,
+        showPos: parsed.showPos !== undefined ? !!parsed.showPos : DEFAULT_STUDY_PREFS.showPos,
+        showCefr: parsed.showCefr !== undefined ? !!parsed.showCefr : DEFAULT_STUDY_PREFS.showCefr,
         autoplayAudio: parsed.autoplayAudio !== undefined ? !!parsed.autoplayAudio : DEFAULT_STUDY_PREFS.autoplayAudio,
         thinkDelaySec: parsed.thinkDelaySec !== undefined ? Number(parsed.thinkDelaySec) : DEFAULT_STUDY_PREFS.thinkDelaySec,
         enableBackLock: parsed.enableBackLock !== undefined ? !!parsed.enableBackLock : DEFAULT_STUDY_PREFS.enableBackLock
@@ -1428,52 +1435,55 @@ function applyFieldVisibility(prefs, card) {
   const dom = getStudyDom();
   if (!dom.flashcardEl) return;
 
-  // Hiển thị bắt buộc các trường cơ bản khi có dữ liệu
+  // 1. Hình ảnh minh họa: Mặc định TẮT
   const imgSrc = card.img || card.image || '';
   if (dom.imgContainer) {
-    dom.imgContainer.style.display = imgSrc ? 'flex' : 'none';
+    dom.imgContainer.style.display = (prefs.showImage && imgSrc) ? 'flex' : 'none';
   }
 
+  // 2. Phiên âm IPA ở mặt trước: Mặc định BẬT
   if (dom.phoneticFront) {
     const hasPhonetic = !!(card.phonetic || card.ipa);
-    dom.phoneticFront.style.display = hasPhonetic ? 'inline-block' : 'none';
+    dom.phoneticFront.style.display = (prefs.showPhonetic && hasPhonetic) ? 'inline-block' : 'none';
   }
 
-  // Loại từ & Cấp độ CEFR ở mặt trước
+  // 3. Từ loại (POS) & Cấp độ CEFR
   const hasPos = !!card.pos;
   const cefrVal = card.cefr || card.level;
   const hasCefr = !!cefrVal;
 
   if (dom.posFront) {
-    dom.posFront.style.display = hasPos ? 'inline-block' : 'none';
+    dom.posFront.style.display = (prefs.showPos && hasPos) ? 'inline-block' : 'none';
   }
   if (dom.cefrBadgeFront) {
-    dom.cefrBadgeFront.style.display = hasCefr ? 'inline-block' : 'none';
+    dom.cefrBadgeFront.style.display = (prefs.showCefr && hasCefr) ? 'inline-block' : 'none';
   }
   if (dom.badgesFrontWrap) {
-    dom.badgesFrontWrap.style.display = (hasPos || hasCefr) ? 'inline-flex' : 'none';
+    const showFront = (prefs.showPos && hasPos) || (prefs.showCefr && hasCefr);
+    dom.badgesFrontWrap.style.display = showFront ? 'inline-flex' : 'none';
   }
 
   // Loại từ & Cấp độ CEFR ở mặt sau
   if (dom.posBack) {
-    dom.posBack.style.display = hasPos ? 'inline-block' : 'none';
+    dom.posBack.style.display = (prefs.showPos && hasPos) ? 'inline-block' : 'none';
   }
   if (dom.cefrBadgeBack) {
-    dom.cefrBadgeBack.style.display = hasCefr ? 'inline-block' : 'none';
+    dom.cefrBadgeBack.style.display = (prefs.showCefr && hasCefr) ? 'inline-block' : 'none';
   }
   if (dom.badgesBackWrap) {
-    dom.badgesBackWrap.style.display = (hasPos || hasCefr) ? 'inline-flex' : 'none';
+    const showBack = (prefs.showPos && hasPos) || (prefs.showCefr && hasCefr);
+    dom.badgesBackWrap.style.display = showBack ? 'inline-flex' : 'none';
   }
 
-  // Định nghĩa tiếng Anh
+  // 4. Định nghĩa tiếng Anh: Mặc định TẮT
   const defText = card.definition || card.def || '';
   if (dom.defBoxBack) {
-    dom.defBoxBack.style.display = defText ? 'flex' : 'none';
+    dom.defBoxBack.style.display = (prefs.showDefinition && defText) ? 'flex' : 'none';
   }
 
-  // Câu ví dụ tiếng Anh & Bản dịch tiếng Việt
-  const hasExampleEn = !!card.example;
-  const hasExampleVi = !!card.exampleVi;
+  // 5. Câu ví dụ tiếng Anh (BẬT) & Bản dịch tiếng Việt (TẮT)
+  const hasExampleEn = !!(prefs.showExample && card.example);
+  const hasExampleVi = !!(prefs.showExampleVi && card.exampleVi);
 
   const topHeader = dom.exBoxBack?.querySelector('#example-top-header') || dom.exBoxBack?.querySelector('.example-top-header');
   if (topHeader) {
@@ -1490,10 +1500,10 @@ function applyFieldVisibility(prefs, card) {
   }
 
   if (dom.hintFront) {
-    dom.hintFront.style.display = 'flex';
+    dom.hintFront.style.display = prefs.showHint ? 'flex' : 'none';
   }
   if (dom.hintBack) {
-    dom.hintBack.style.display = 'flex';
+    dom.hintBack.style.display = prefs.showHint ? 'flex' : 'none';
   }
 }
 
