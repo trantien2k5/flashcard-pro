@@ -195,6 +195,10 @@ export function renderQuizOverlayShell() {
             <div class="quiz-progress-fill" id="quiz-progress-fill" style="width: 10%;"></div>
           </div>
         </div>
+
+        <button type="button" class="btn-quiz-icon btn-quiz-mode-switch" id="btn-quiz-mode-switch" title="Chuyển sang Flashcard (Lật thẻ 3D)" aria-label="Đổi sang Flashcard">
+          <span style="font-size: 1.05rem; line-height: 1;">🎴</span>
+        </button>
       </header>
 
       <!-- 2. Main Question Card & Reflex Timer -->
@@ -272,6 +276,25 @@ function setupQuizEvents() {
   if (btnNext) {
     btnNext.onclick = () => {
       advanceQuizQuestion();
+    };
+  }
+
+  const btnModeSwitch = document.getElementById('btn-quiz-mode-switch');
+  if (btnModeSwitch) {
+    btnModeSwitch.onclick = () => {
+      try {
+        const remainingQueue = (_quizQueue || []).slice(_quizIndex);
+        if (!remainingQueue || remainingQueue.length === 0) {
+          _quizApp?.showToast('Không có thẻ nào còn lại trong hàng đợi.', 'info');
+          return;
+        }
+
+        closeQuizSession(false);
+        _quizApp?.startStudySession(remainingQueue);
+        _quizApp?.showToast('🎴 Đã chuyển sang chế độ Flashcard 3D', 'info', 2000);
+      } catch (err) {
+        console.error('Lỗi chuyển sang Flashcard:', err);
+      }
     };
   }
 

@@ -81,18 +81,6 @@ export function renderReviewShell(container) {
             </div>
           </button>
         </div>
-
-        <!-- 4. Nút phụ: Trắc nghiệm Quiz & Thống kê -->
-        <div class="home-quick-actions">
-          <button type="button" class="btn-home-quick" id="btn-home-start-quiz">
-            <span class="quick-icon">🎯</span>
-            <span class="quick-text">Trắc nghiệm Quiz</span>
-          </button>
-          <button type="button" class="btn-home-quick" id="btn-home-goto-stats">
-            <span class="quick-icon">📊</span>
-            <span class="quick-text">Xem Thống kê</span>
-          </button>
-        </div>
       </div>
     `;
   }
@@ -125,22 +113,6 @@ export function renderReviewTab(app) {
       btnFlashcard._bound = true;
       btnFlashcard.onclick = () => {
         app.startStudySession(null, null, null, { mode: 'due_first' });
-      };
-    }
-
-    const btnQuiz = document.getElementById('btn-home-start-quiz');
-    if (btnQuiz && !btnQuiz._bound) {
-      btnQuiz._bound = true;
-      btnQuiz.onclick = () => {
-        app.startQuizSession();
-      };
-    }
-
-    const btnStats = document.getElementById('btn-home-goto-stats');
-    if (btnStats && !btnStats._bound) {
-      btnStats._bound = true;
-      btnStats.onclick = () => {
-        app.switchTab('tab-stats');
       };
     }
 

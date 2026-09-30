@@ -229,8 +229,12 @@ export function renderStudyOverlayShell() {
             </div>
           </div>
 
-          <!-- Right Actions (Auto-Play + Dark/Light Toggle + 3 Dots Menu) -->
+          <!-- Right Actions (Mode Switch + Auto-Play + Dark/Light Toggle + 3 Dots Menu) -->
           <div class="study-header-right">
+            <button id="btn-study-mode-switch" class="btn-study-icon btn-study-mode-switch" title="Chuyển sang Trắc nghiệm (Quiz)" aria-label="Đổi sang Trắc nghiệm">
+              <span style="font-size: 1.05rem; line-height: 1;">🎯</span>
+            </button>
+
             <button id="btn-study-autoplay" class="btn-study-icon btn-study-autoplay" title="Tự động lật thẻ & học rảnh tay" aria-label="Tự động học">
               <svg class="icon-autoplay-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <polygon points="6 4 20 12 6 20 6 4"></polygon>
@@ -440,6 +444,21 @@ export function renderStudyOverlayShell() {
           <p class="prefs-desc">Mặc định hiển thị tinh gọn. Bật thêm trường dữ liệu theo nhu cầu học của bạn:</p>
 
           <div class="prefs-list">
+            <div class="pref-item pref-mode-selector-item">
+              <div class="pref-info">
+                <span class="pref-label">🎮 Chế độ ôn tập</span>
+                <span class="pref-sub">Chuyển sang bài thi trắc nghiệm 4 đáp án</span>
+              </div>
+              <div class="study-mode-toggle-group">
+                <button type="button" class="btn-mode-pill active" id="btn-mode-flashcard" title="Chế độ Flashcard 3D">
+                  <span>🎴 Thẻ 3D</span>
+                </button>
+                <button type="button" class="btn-mode-pill" id="btn-mode-quiz" title="Chế độ Trắc nghiệm 4 đáp án">
+                  <span>🎯 Trắc nghiệm</span>
+                </button>
+              </div>
+            </div>
+
             <label class="pref-item">
               <div class="pref-info">
                 <span class="pref-label">🖼️ Hình ảnh minh họa</span>
@@ -758,6 +777,51 @@ export function setupStudyControls(app) {
         if (app.settings) app.settings.theme = nextTheme;
         app.applyTheme(nextTheme);
         StorageManager.saveSettings(app.settings);
+      });
+    }
+
+    // Chuyển đổi trực tiếp sang Chế độ Trắc nghiệm (Quiz) trong phiên học
+    const switchToQuizMode = () => {
+      try {
+        if (!app.studySession || !app.studySession.isActive) return;
+        const currentIndex = app.studySession.currentIndex || 0;
+        const remainingQueue = (app.studySession.queue || []).slice(currentIndex);
+        
+        if (!remainingQueue || remainingQueue.length === 0) {
+          app.showToast('Không có thẻ nào còn lại trong hàng đợi.', 'info');
+          return;
+        }
+
+        stopAutoPlay();
+        if (_studyTimerUnsubscribe) {
+          _studyTimerUnsubscribe();
+          _studyTimerUnsubscribe = null;
+        }
+        app.studySession?.stopAudio();
+
+        overlay.classList.remove('active');
+        drawer?.classList.remove('active');
+
+        app.startQuizSession(remainingQueue);
+        app.showToast('🎯 Đã chuyển sang chế độ Trắc nghiệm', 'info', 2000);
+      } catch (err) {
+        console.error('Lỗi chuyển sang chế độ Trắc nghiệm:', err);
+      }
+    };
+
+    const btnModeSwitch = document.getElementById('btn-study-mode-switch');
+    if (btnModeSwitch) {
+      btnModeSwitch.addEventListener('click', (e) => {
+        e.stopPropagation();
+        switchToQuizMode();
+      });
+    }
+
+    const btnModeQuiz = document.getElementById('btn-mode-quiz');
+    if (btnModeQuiz) {
+      btnModeQuiz.addEventListener('click', (e) => {
+        e.stopPropagation();
+        switchToQuizMode();
       });
     }
 
