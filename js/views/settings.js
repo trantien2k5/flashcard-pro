@@ -260,6 +260,10 @@ export function renderSettingsTabShell(container) {
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
                     <span>Nghe thử âm thanh</span>
                   </button>
+                  <button type="button" id="btn-settings-check-update" class="btn-setting-btn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                    <span>Cập nhật ứng dụng (PWA)</span>
+                  </button>
                   <button type="button" id="btn-settings-export-data" class="btn-setting-btn primary">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
                     <span>Xuất file JSON sao lưu</span>
@@ -606,6 +610,35 @@ export function setupSettingsUI(app) {
           console.error('Lỗi test âm thanh:', err);
         }
       });
+    }
+
+    const btnCheckUpdate = document.getElementById('btn-settings-check-update');
+    if (btnCheckUpdate) {
+      btnCheckUpdate.onclick = async () => {
+        try {
+          showToast('🔄 Đang kiểm tra phiên bản mới...', 'info', 2000);
+          if ('serviceWorker' in navigator) {
+            const reg = await navigator.serviceWorker.getRegistration();
+            if (reg) {
+              await reg.update();
+            }
+          }
+          // Xóa cache và tải lại
+          if ('caches' in window) {
+            const keys = await caches.keys();
+            await Promise.all(keys.filter(k => !k.includes('flashcard-pro-v3.27.0')).map(k => caches.delete(k)));
+          }
+          setTimeout(() => {
+            showToast('✨ Đang tải lại với mã nguồn mới nhất...', 'success', 1500);
+            setTimeout(() => {
+              window.location.reload();
+            }, 800);
+          }, 600);
+        } catch (err) {
+          console.error('Lỗi check update:', err);
+          window.location.reload();
+        }
+      };
     }
 
     // Xuất / Nhập dữ liệu sao lưu JSON & Đặt lại dữ liệu
