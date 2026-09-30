@@ -147,17 +147,17 @@ export function startFrontActiveRecallTimer() {
   _flipCountdownTimer = setInterval(updateCountdown, 100);
 }
 
-// Cấu hình hiển thị trường dữ liệu mặc định (Tối giản tối đa)
+// Cấu hình học tập (Mặc định hiển thị đầy đủ tất cả các trường dữ liệu bắt buộc)
 const DEFAULT_STUDY_PREFS = {
-  showImage: false,
-  showPhonetic: false,
-  showDefinition: false,
-  showExample: false,
-  showExampleVi: false,
-  showPos: false,
-  showCefr: false,
+  showImage: true,
+  showPhonetic: true,
+  showDefinition: true,
+  showExample: true,
+  showExampleVi: true,
+  showPos: true,
+  showCefr: true,
   autoplayAudio: true,
-  showHint: false,
+  showHint: true,
   thinkDelaySec: 0,      // Mặc định tắt (0s) lật tức thì
   enableBackLock: false  // Mặc định tắt khóa chống bấm nhầm mặt sau
 };
@@ -167,16 +167,12 @@ export function getStudyPrefs() {
     const raw = localStorage.getItem('study_display_prefs');
     if (raw) {
       const parsed = JSON.parse(raw);
-      if (parsed.showBadges !== undefined) {
-        if (parsed.showPos === undefined) parsed.showPos = !!parsed.showBadges;
-        if (parsed.showCefr === undefined) parsed.showCefr = !!parsed.showBadges;
-      }
-      if (parsed.showExample !== undefined && parsed.showExampleVi === undefined) {
-        parsed.showExampleVi = !!parsed.showExample;
-      }
-      if (parsed.thinkDelaySec === undefined) parsed.thinkDelaySec = DEFAULT_STUDY_PREFS.thinkDelaySec;
-      if (parsed.enableBackLock === undefined) parsed.enableBackLock = DEFAULT_STUDY_PREFS.enableBackLock;
-      return { ...DEFAULT_STUDY_PREFS, ...parsed };
+      return {
+        ...DEFAULT_STUDY_PREFS,
+        autoplayAudio: parsed.autoplayAudio !== undefined ? !!parsed.autoplayAudio : DEFAULT_STUDY_PREFS.autoplayAudio,
+        thinkDelaySec: parsed.thinkDelaySec !== undefined ? Number(parsed.thinkDelaySec) : DEFAULT_STUDY_PREFS.thinkDelaySec,
+        enableBackLock: parsed.enableBackLock !== undefined ? !!parsed.enableBackLock : DEFAULT_STUDY_PREFS.enableBackLock
+      };
     }
   } catch (e) {}
   return { ...DEFAULT_STUDY_PREFS };
@@ -277,13 +273,17 @@ export function renderStudyOverlayShell() {
             
             <!-- ================= MẶT TRƯỚC (FRONT FACE) ================= -->
             <div class="flashcard-face face-front">
-              <!-- Top Minimal Status Badge & Top-Right POS Badge -->
+              <!-- Top Minimal Status Badge & Top-Right Badges -->
               <div class="card-top-bar">
                 <div class="card-status-badge state-new" id="card-front-status-badge">
                   <span class="status-dot"></span>
                   <span class="status-text" id="card-front-status-text">Từ mới</span>
                 </div>
                 <div class="card-front-top-right">
+                  <div class="card-badges-row" id="card-front-badges-wrap">
+                    <span class="card-pos-tag" id="card-pos-badge-front">WORD</span>
+                    <span class="card-cefr-tag" id="card-cefr-badge-front">A1</span>
+                  </div>
                   <div class="card-leech-badge" id="card-front-leech-badge" style="display: none;" title="Thẻ khó nhớ (Leech)">
                     <span class="leech-icon">⚠️</span>
                     <span class="leech-text">Khó nhớ</span>
@@ -294,16 +294,16 @@ export function renderStudyOverlayShell() {
                 </div>
               </div>
 
-              <!-- Hình ảnh minh họa (Mặc định ẩn, bật qua 3 chấm) -->
+              <!-- Hình ảnh minh họa (nếu từ vựng có ảnh) -->
               <div class="card-image-container" id="card-front-img-container" style="display: none;">
                 <img id="card-front-img" class="fc-image" alt="Visual representation" />
               </div>
 
-              <!-- Cụm Từ Vựng Chính Giữa (One-Focus Clean Layout) -->
+              <!-- Cụm Từ Vựng Chính Giữa (Vibrant Focus Layout) -->
               <div class="card-word-center">
                 <!-- Nút loa dời lên đầu từ tiếng Anh sinh động, bắt mắt -->
                 <button class="card-speaker-hero" id="btn-audio-speaker" type="button" title="Phát âm từ vựng" aria-label="Phát âm">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
                     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                     <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                     <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
@@ -321,7 +321,7 @@ export function renderStudyOverlayShell() {
 
               <!-- Footer Gợi Ý Thao Tác Lật Thẻ -->
               <div class="card-bottom-bar" id="card-front-hint">
-                <span class="card-hint-text">Chạm để xem đáp án</span>
+                <span class="card-hint-text">Chạm thẻ hoặc phím Space để xem đáp án</span>
               </div>
             </div>
 
@@ -352,12 +352,12 @@ export function renderStudyOverlayShell() {
                   <h3 class="card-back-meaning fc-meaning" id="card-back-meaning">...</h3>
                 </div>
 
-                <!-- Định nghĩa Tiếng Anh (Mặc định ẩn, bật qua 3 chấm) -->
+                <!-- Định nghĩa Tiếng Anh -->
                 <div class="card-back-def-box" id="card-back-def-box" style="display: none;">
                   <p class="card-back-def fc-def" id="card-back-def">...</p>
                 </div>
 
-                <!-- Câu ví dụ tiếng Anh (Italic) & Bản dịch mờ bên dưới -->
+                <!-- Câu ví dụ tiếng Anh (Italic) & Bản dịch bên dưới -->
                 <div class="card-back-example fc-example" id="card-back-example-box" style="display: none;">
                   <div class="example-top-header" id="example-top-header">
                     <span class="example-label-tag">Ví dụ</span>
@@ -376,7 +376,7 @@ export function renderStudyOverlayShell() {
 
               <!-- Footer Gợi Ý Thao Tác Lật Lại -->
               <div class="card-bottom-bar" id="card-back-hint">
-                <span class="card-hint-text">Chạm để lật lại</span>
+                <span class="card-hint-text">Chạm thẻ để lật lại mặt trước</span>
               </div>
             </div>
           </div>
@@ -425,14 +425,14 @@ export function renderStudyOverlayShell() {
         </div>
       </main>
 
-      <!-- Drawer / Modal Tùy chọn hiển thị Menu 3 Chấm -->
+      <!-- Drawer / Modal Tùy chọn học tập Menu 3 Chấm -->
       <div class="study-prefs-drawer" id="study-prefs-drawer">
         <div class="study-prefs-backdrop" id="study-prefs-backdrop"></div>
         <div class="study-prefs-content">
           <div class="prefs-header">
             <div class="prefs-title-wrap">
               <span class="prefs-icon">⚙️</span>
-              <h3 class="prefs-title">Tùy chọn hiển thị</h3>
+              <h3 class="prefs-title">Tùy chọn phiên học</h3>
             </div>
             <button class="btn-prefs-close" id="btn-prefs-close" title="Đóng bảng tùy chọn" aria-label="Đóng">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -441,9 +441,10 @@ export function renderStudyOverlayShell() {
             </button>
           </div>
           
-          <p class="prefs-desc">Mặc định hiển thị tinh gọn. Bật thêm trường dữ liệu theo nhu cầu học của bạn:</p>
+          <p class="prefs-desc">Tùy chỉnh chế độ học, nhịp độ và cấu hình phiên học FSRS:</p>
 
           <div class="prefs-list">
+            <!-- 1. Chế độ ôn tập -->
             <div class="pref-item pref-mode-selector-item">
               <div class="pref-info">
                 <span class="pref-label">🎮 Chế độ ôn tập</span>
@@ -459,62 +460,7 @@ export function renderStudyOverlayShell() {
               </div>
             </div>
 
-            <label class="pref-item">
-              <div class="pref-info">
-                <span class="pref-label">🖼️ Hình ảnh minh họa</span>
-                <span class="pref-sub">Hiển thị ảnh minh họa từ vựng ở mặt trước</span>
-              </div>
-              <input type="checkbox" id="pref-toggle-image" class="toggle-checkbox">
-            </label>
-
-            <label class="pref-item">
-              <div class="pref-info">
-                <span class="pref-label">🗣️ Phiên âm IPA</span>
-                <span class="pref-sub">Hiển thị ký hiệu phát âm quốc tế (/.../)</span>
-              </div>
-              <input type="checkbox" id="pref-toggle-phonetic" class="toggle-checkbox">
-            </label>
-
-            <label class="pref-item">
-              <div class="pref-info">
-                <span class="pref-label">📖 Định nghĩa tiếng Anh</span>
-                <span class="pref-sub">Hiển thị giải nghĩa tiếng Anh ở mặt sau</span>
-              </div>
-              <input type="checkbox" id="pref-toggle-definition" class="toggle-checkbox">
-            </label>
-
-            <label class="pref-item">
-              <div class="pref-info">
-                <span class="pref-label">💬 Câu ví dụ tiếng Anh</span>
-                <span class="pref-sub">Hiển thị câu ví dụ ngữ cảnh ở mặt sau</span>
-              </div>
-              <input type="checkbox" id="pref-toggle-example" class="toggle-checkbox">
-            </label>
-
-            <label class="pref-item">
-              <div class="pref-info">
-                <span class="pref-label"><svg class="flag-icon-vn" width="18" height="12" viewBox="0 0 30 20" fill="none"><rect width="30" height="20" rx="2" fill="#DA251D"/><polygon points="15,4 16.545,8.755 21.548,8.755 17.501,11.695 19.046,16.45 15,13.51 10.954,16.45 12.499,11.695 8.452,8.755 13.455,8.755" fill="#FFFF00"/></svg> Dịch câu ví dụ</span>
-                <span class="pref-sub">Hiển thị bản dịch tiếng Việt của câu ví dụ</span>
-              </div>
-              <input type="checkbox" id="pref-toggle-example-vi" class="toggle-checkbox">
-            </label>
-
-            <label class="pref-item">
-              <div class="pref-info">
-                <span class="pref-label">🏷️ Loại từ (POS)</span>
-                <span class="pref-sub">Hiển thị nhãn Danh từ, Động từ... ở mặt sau</span>
-              </div>
-              <input type="checkbox" id="pref-toggle-pos" class="toggle-checkbox">
-            </label>
-
-            <label class="pref-item">
-              <div class="pref-info">
-                <span class="pref-label">🎯 Cấp độ CEFR</span>
-                <span class="pref-sub">Hiển thị huy hiệu cấp độ (A1, A2, B1, B2...)</span>
-              </div>
-              <input type="checkbox" id="pref-toggle-cefr" class="toggle-checkbox">
-            </label>
-
+            <!-- 2. Tự động phát âm -->
             <label class="pref-item">
               <div class="pref-info">
                 <span class="pref-label">🔊 Tự động phát âm</span>
@@ -523,14 +469,7 @@ export function renderStudyOverlayShell() {
               <input type="checkbox" id="pref-toggle-autoplay" class="toggle-checkbox">
             </label>
 
-            <label class="pref-item">
-              <div class="pref-info">
-                <span class="pref-label">💡 Gợi ý thao tác lật</span>
-                <span class="pref-sub">Hiển thị dòng chữ hướng dẫn lật thẻ ở đáy</span>
-              </div>
-              <input type="checkbox" id="pref-toggle-hint" class="toggle-checkbox">
-            </label>
-
+            <!-- 3. Chờ suy nghĩ mặt trước -->
             <div class="pref-item">
               <div class="pref-info">
                 <span class="pref-label">⏱️ Chờ suy nghĩ (Mặt trước)</span>
@@ -544,6 +483,7 @@ export function renderStudyOverlayShell() {
               </select>
             </div>
 
+            <!-- 4. Khóa chống bấm nhầm mặt sau -->
             <label class="pref-item">
               <div class="pref-info">
                 <span class="pref-label">🛡️ Khóa chống bấm nhầm (Mặt sau)</span>
@@ -680,15 +620,7 @@ export function setupStudyControls(app) {
     const btnResetPrefs = document.getElementById('btn-reset-prefs');
 
     // Các điều khiển tùy chọn trong Drawer
-    const toggleImg = document.getElementById('pref-toggle-image');
-    const togglePhonetic = document.getElementById('pref-toggle-phonetic');
-    const toggleDef = document.getElementById('pref-toggle-definition');
-    const toggleEx = document.getElementById('pref-toggle-example');
-    const toggleExVi = document.getElementById('pref-toggle-example-vi');
-    const togglePos = document.getElementById('pref-toggle-pos');
-    const toggleCefr = document.getElementById('pref-toggle-cefr');
     const toggleAutoplay = document.getElementById('pref-toggle-autoplay');
-    const toggleHint = document.getElementById('pref-toggle-hint');
     const selectThinkDelay = document.getElementById('pref-select-think-delay');
     const toggleBackLock = document.getElementById('pref-toggle-back-lock');
 
@@ -698,15 +630,7 @@ export function setupStudyControls(app) {
     // Khởi tạo trạng thái điều khiển theo Preferences hiện tại
     const syncCheckboxesFromPrefs = () => {
       const p = getStudyPrefs();
-      if (toggleImg) toggleImg.checked = !!p.showImage;
-      if (togglePhonetic) togglePhonetic.checked = !!p.showPhonetic;
-      if (toggleDef) toggleDef.checked = !!p.showDefinition;
-      if (toggleEx) toggleEx.checked = !!p.showExample;
-      if (toggleExVi) toggleExVi.checked = !!p.showExampleVi;
-      if (togglePos) togglePos.checked = !!p.showPos;
-      if (toggleCefr) toggleCefr.checked = !!p.showCefr;
       if (toggleAutoplay) toggleAutoplay.checked = (app.settings?.autoPronounce === true) || !!p.autoplayAudio;
-      if (toggleHint) toggleHint.checked = !!p.showHint;
       if (selectThinkDelay) selectThinkDelay.value = String(p.thinkDelaySec ?? 0);
       if (toggleBackLock) toggleBackLock.checked = !!p.enableBackLock;
     };
@@ -714,15 +638,8 @@ export function setupStudyControls(app) {
     const updatePrefFromCheckbox = () => {
       const isAutoplay = !!toggleAutoplay?.checked;
       const p = {
-        showImage: !!toggleImg?.checked,
-        showPhonetic: !!togglePhonetic?.checked,
-        showDefinition: !!toggleDef?.checked,
-        showExample: !!toggleEx?.checked,
-        showExampleVi: !!toggleExVi?.checked,
-        showPos: !!togglePos?.checked,
-        showCefr: !!toggleCefr?.checked,
+        ...DEFAULT_STUDY_PREFS,
         autoplayAudio: isAutoplay,
-        showHint: !!toggleHint?.checked,
         thinkDelaySec: Number(selectThinkDelay?.value || 0),
         enableBackLock: !!toggleBackLock?.checked
       };
@@ -741,21 +658,15 @@ export function setupStudyControls(app) {
 
     syncCheckboxesFromPrefs();
 
-    [toggleImg, togglePhonetic, toggleDef, toggleEx, toggleExVi, togglePos, toggleCefr, toggleAutoplay, toggleHint, toggleBackLock].forEach(cb => {
-      if (cb) {
-        cb.addEventListener('change', updatePrefFromCheckbox);
-      }
-    });
-
-    if (selectThinkDelay) {
-      selectThinkDelay.addEventListener('change', updatePrefFromCheckbox);
-    }
+    if (toggleAutoplay) toggleAutoplay.addEventListener('change', updatePrefFromCheckbox);
+    if (toggleBackLock) toggleBackLock.addEventListener('change', updatePrefFromCheckbox);
+    if (selectThinkDelay) selectThinkDelay.addEventListener('change', updatePrefFromCheckbox);
 
     if (btnResetPrefs) {
       btnResetPrefs.addEventListener('click', () => {
         saveStudyPrefs(DEFAULT_STUDY_PREFS);
         if (app.settings) {
-          app.settings.autoPronounce = false;
+          app.settings.autoPronounce = true;
           StorageManager.saveSettings(app.settings);
         }
         if (app.studySession) {
@@ -1438,6 +1349,9 @@ function getStudyDom() {
     progressBar: document.getElementById('study-progress-bar-fill'),
     imgContainer: document.getElementById('card-front-img-container'),
     imgEl: document.getElementById('card-front-img'),
+    badgesFrontWrap: document.getElementById('card-front-badges-wrap'),
+    posFront: document.getElementById('card-pos-badge-front'),
+    cefrBadgeFront: document.getElementById('card-cefr-badge-front'),
     badgesBackWrap: document.getElementById('card-back-badges-wrap'),
     posBack: document.getElementById('card-pos-badge-back'),
     cefrBadgeBack: document.getElementById('card-cefr-badge-back'),
@@ -1514,62 +1428,72 @@ function applyFieldVisibility(prefs, card) {
   const dom = getStudyDom();
   if (!dom.flashcardEl) return;
 
+  // Hiển thị bắt buộc các trường cơ bản khi có dữ liệu
   const imgSrc = card.img || card.image || '';
   if (dom.imgContainer) {
-    dom.imgContainer.style.display = (prefs.showImage && imgSrc) ? 'flex' : 'none';
+    dom.imgContainer.style.display = imgSrc ? 'flex' : 'none';
   }
 
   if (dom.phoneticFront) {
-    dom.phoneticFront.style.display = prefs.showPhonetic ? 'inline-block' : 'none';
+    const hasPhonetic = !!(card.phonetic || card.ipa);
+    dom.phoneticFront.style.display = hasPhonetic ? 'inline-block' : 'none';
   }
 
-  // Loại từ (Part of speech) & Cấp độ CEFR độc lập ở mặt sau
+  // Loại từ & Cấp độ CEFR ở mặt trước
+  const hasPos = !!card.pos;
+  const cefrVal = card.cefr || card.level;
+  const hasCefr = !!cefrVal;
+
+  if (dom.posFront) {
+    dom.posFront.style.display = hasPos ? 'inline-block' : 'none';
+  }
+  if (dom.cefrBadgeFront) {
+    dom.cefrBadgeFront.style.display = hasCefr ? 'inline-block' : 'none';
+  }
+  if (dom.badgesFrontWrap) {
+    dom.badgesFrontWrap.style.display = (hasPos || hasCefr) ? 'inline-flex' : 'none';
+  }
+
+  // Loại từ & Cấp độ CEFR ở mặt sau
   if (dom.posBack) {
-    dom.posBack.style.display = (prefs.showPos && card.pos) ? 'inline-block' : 'none';
+    dom.posBack.style.display = hasPos ? 'inline-block' : 'none';
   }
-
   if (dom.cefrBadgeBack) {
-    const cefrVal = card.cefr || card.level;
-    dom.cefrBadgeBack.style.display = (prefs.showCefr && cefrVal) ? 'inline-block' : 'none';
+    dom.cefrBadgeBack.style.display = hasCefr ? 'inline-block' : 'none';
   }
-
   if (dom.badgesBackWrap) {
-    const hasAnyBadge = (prefs.showPos && card.pos) || (prefs.showCefr && (card.cefr || card.level));
-    dom.badgesBackWrap.style.display = hasAnyBadge ? 'inline-flex' : 'none';
+    dom.badgesBackWrap.style.display = (hasPos || hasCefr) ? 'inline-flex' : 'none';
   }
 
   // Định nghĩa tiếng Anh
   const defText = card.definition || card.def || '';
   if (dom.defBoxBack) {
-    dom.defBoxBack.style.display = (prefs.showDefinition && defText) ? 'flex' : 'none';
+    dom.defBoxBack.style.display = defText ? 'flex' : 'none';
   }
 
-  // Câu ví dụ tiếng Anh & Bản dịch tiếng Việt độc lập
-  const hasExampleEn = !!(prefs.showExample && card.example);
-  const hasExampleVi = !!(prefs.showExampleVi && card.exampleVi);
+  // Câu ví dụ tiếng Anh & Bản dịch tiếng Việt
+  const hasExampleEn = !!card.example;
+  const hasExampleVi = !!card.exampleVi;
 
   const topHeader = dom.exBoxBack?.querySelector('#example-top-header') || dom.exBoxBack?.querySelector('.example-top-header');
   if (topHeader) {
     topHeader.style.display = hasExampleEn ? 'flex' : 'none';
   }
-
   if (dom.exBack) {
     dom.exBack.style.display = hasExampleEn ? 'block' : 'none';
   }
-
   if (dom.exViBack) {
     dom.exViBack.style.display = hasExampleVi ? 'block' : 'none';
   }
-
   if (dom.exBoxBack) {
     dom.exBoxBack.style.display = (hasExampleEn || hasExampleVi) ? 'flex' : 'none';
   }
 
   if (dom.hintFront) {
-    dom.hintFront.style.display = prefs.showHint ? 'flex' : 'none';
+    dom.hintFront.style.display = 'flex';
   }
   if (dom.hintBack) {
-    dom.hintBack.style.display = prefs.showHint ? 'flex' : 'none';
+    dom.hintBack.style.display = 'flex';
   }
 }
 
@@ -1720,13 +1644,20 @@ export function handleCardChange(app, card, progress) {
       dom.phoneticFront.textContent = card.phonetic || card.ipa || '';
     }
 
+    const posVal = (card.pos || 'word').toUpperCase();
+    if (dom.posFront) {
+      dom.posFront.textContent = posVal;
+    }
     if (dom.posBack) {
-      dom.posBack.textContent = (card.pos || 'word').toUpperCase();
+      dom.posBack.textContent = posVal;
     }
     
-    const cefrText = card.cefr || card.level || 'A1';
+    const cefrText = (card.cefr || card.level || 'A1').toUpperCase();
+    if (dom.cefrBadgeFront) {
+      dom.cefrBadgeFront.textContent = cefrText;
+    }
     if (dom.cefrBadgeBack) {
-      dom.cefrBadgeBack.textContent = cefrText.toUpperCase();
+      dom.cefrBadgeBack.textContent = cefrText;
     }
 
     if (dom.meaningBack) {
