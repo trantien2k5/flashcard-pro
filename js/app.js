@@ -7,7 +7,6 @@ import { DeckManager } from './core/selectors.js';
 import { StorageManager } from './services/storage.js';
 import { StudySession } from './core/session.js';
 import { StatsManager } from './core/stats.js';
-import { SyncManager } from './services/sync.js';
 import { scrollToTop } from './utils.js';
 
 // Giao diện các màn hình chức năng & Thành phần dùng chung
@@ -22,7 +21,7 @@ import { renderDecksTab,
 } from './views/decks.js';
 import { renderLibraryTab } from './views/library.js';
 import { renderStatsTab } from './views/stats.js';
-import { setupSettingsUI, renderProfileTab } from './views/settings.js';
+import { setupSettingsUI } from './views/settings.js';
 import { 
   setupStudyControls, 
   startStudySession as startStudyView, 
@@ -30,7 +29,7 @@ import {
   handleStudyFinish 
 } from './views/study.js';
 import { startQuizSession } from './views/quiz.js';
-import { setupSearch, setupSyncController, openSyncModal, showToast, showConfirm, mountGlobalModals } from './views/components.js';
+import { setupSearch, showToast, showConfirm, mountGlobalModals } from './views/components.js';
 
 // Xuất các hằng số và Enum để tương thích toàn hệ thống
 export { DECK_ENGLISH_NAMES, SUBTOPIC_ICONS, getSubtopicIcon, getSubtopicColor, Rating, State, STABILITY_TIERS } from './config.js';
@@ -87,24 +86,10 @@ export class FlashcardApp {
       try { setupStudyControls(this); } catch (e) { console.warn('setupStudyControls:', e); }
       try { setupSettingsUI(this); } catch (e) { console.warn('setupSettingsUI:', e); }
       try { setupSearch(this); } catch (e) { console.warn('setupSearch:', e); }
-      try { setupSyncController(this); } catch (e) { console.warn('setupSyncController:', e); }
 
-      // Triggers mở Sync Modal
-      const btnHeaderSync = document.getElementById('btn-header-sync');
-      if (btnHeaderSync) btnHeaderSync.onclick = () => this.openSyncModal();
-
-      const btnSidebarSync = document.getElementById('btn-sidebar-sync');
-      if (btnSidebarSync) btnSidebarSync.onclick = () => this.openSyncModal();
-
-      const btnSettingsSync = document.getElementById('btn-settings-open-sync');
-      if (btnSettingsSync) btnSettingsSync.onclick = () => this.openSyncModal();
-
-      // 5. Đặt tab Ôn tập làm mặc định & Khởi tạo dữ liệu
+      // 6. Đặt tab Trang chủ làm mặc định & Khởi tạo dữ liệu
       this.switchTab('tab-review');
       this.updateHeaderBadges();
-
-      // 6. Kiểm tra auto-sync từ URL
-      this.checkUrlSync();
 
       // 7. Đăng ký Service Worker
       this.registerServiceWorker();
@@ -119,6 +104,28 @@ export class FlashcardApp {
 
   registerServiceWorker() {
     if (typeof navigator === 'undefined' || !('serviceWorker' in navigator) || !window.location.protocol.startsWith('http')) {
+      return;
+    }
+
+    // Tự động nhận diện môi trường Local Development (Live Server / localhost / IP nội bộ)
+    const hostname = window.location.hostname;
+    const isLocalDev = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1' || hostname.endsWith('.local') || hostname.startsWith('192.168.') || hostname.startsWith('10.');
+
+    if (isLocalDev) {
+      // Tự động gỡ bỏ Service Worker & xóa sạch Cache cũ trên môi trường dev mà người dùng không cần thao tác
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (const reg of registrations) {
+          reg.unregister();
+        }
+      }).catch(() => {});
+
+      if ('caches' in window) {
+        caches.keys().then((keys) => {
+          for (const key of keys) {
+            caches.delete(key);
+          }
+        }).catch(() => {});
+      }
       return;
     }
 
@@ -229,13 +236,17 @@ export class FlashcardApp {
       });
     });
 
-    const btnHeaderProfile = document.getElementById('btn-header-profile');
-    if (btnHeaderProfile) {
-      btnHeaderProfile.addEventListener('click', () => {
+    const btnHeaderSettings = document.getElementById('btn-header-settings') || document.getElementById('btn-header-profile');
+    if (btnHeaderSettings) {
+      btnHeaderSettings.addEventListener('click', () => {
         try {
-          this.switchTab('tab-profile');
+          if (this.activeTab === 'tab-settings') {
+            this.switchTab(this.previousTab || 'tab-review');
+          } else {
+            this.switchTab('tab-settings');
+          }
         } catch (err) {
-          console.error('Lỗi btn-header-profile:', err);
+          console.error('Lỗi btn-header-settings:', err);
         }
       });
     }
@@ -262,7 +273,7 @@ export class FlashcardApp {
     if (btnBack) {
       btnBack.addEventListener('click', () => {
         try {
-          this.switchTab(this.previousTab || 'tab-decks');
+          this.switchTab(this.previousTab || 'tab-review');
         } catch (err) {
           console.error('Lỗi btn-back-to-decks:', err);
         }
@@ -276,7 +287,7 @@ export class FlashcardApp {
           if (this.currentSubtopicsDeckId) {
             this.openSubtopicsPage(this.currentSubtopicsDeckId);
           } else {
-            this.switchTab('tab-decks');
+            this.switchTab('tab-review');
           }
         } catch (err) {
           console.error('Lỗi btn-back-to-subtopics:', err);
@@ -291,7 +302,7 @@ export class FlashcardApp {
           if (this.currentSubtopicsDeckId) {
             this.openSubtopicsPage(this.currentSubtopicsDeckId);
           } else {
-            this.switchTab('tab-decks');
+            this.switchTab('tab-review');
           }
         } catch (err) {
           console.error('Lỗi btn-back-to-subtopic-detail:', err);
@@ -320,9 +331,9 @@ export class FlashcardApp {
         btn.classList.toggle('active', btn.getAttribute('data-tab') === navTargetId);
       });
 
-      const btnHeaderProfile = document.getElementById('btn-header-profile');
-      if (btnHeaderProfile) {
-        btnHeaderProfile.classList.toggle('active', tabId === 'tab-profile');
+      const btnHeaderSettings = document.getElementById('btn-header-settings') || document.getElementById('btn-header-profile');
+      if (btnHeaderSettings) {
+        btnHeaderSettings.classList.toggle('active', tabId === 'tab-settings');
       }
 
       scrollToTop();
@@ -333,10 +344,10 @@ export class FlashcardApp {
       this.updateHeaderBadges();
 
       if (tabId === 'tab-review' || tabId === 'tab-home') this.renderReviewTab();
-      else if (tabId === 'tab-library') this.renderLibraryTab();
-      else if (tabId === 'tab-decks') this.renderDecksTab();
       else if (tabId === 'tab-stats') this.renderStatsTab();
-      else if (tabId === 'tab-profile') this.renderProfileTab();
+      else if (tabId === 'tab-settings') this.renderSettingsTab();
+      else if (tabId === 'tab-decks') this.renderDecksTab();
+      else if (tabId === 'tab-library') this.renderLibraryTab();
       else if (tabId === 'tab-subtopics' && this.currentSubtopicsDeckId) {
         this.renderSubtopicsPage(this.currentSubtopicsDeckId);
       } else if (tabId === 'tab-subtopic-words' && this.currentSubtopicsDeckId && this.currentSubtopicName) {
@@ -359,8 +370,8 @@ export class FlashcardApp {
       this.renderDecksTab();
     } else if (this.activeTab === 'tab-stats') {
       this.renderStatsTab();
-    } else if (this.activeTab === 'tab-profile') {
-      this.renderProfileTab();
+    } else if (this.activeTab === 'tab-settings') {
+      this.renderSettingsTab();
     } else if (this.activeTab === 'tab-subtopics' && this.currentSubtopicsDeckId) {
       this.renderSubtopicsPage(this.currentSubtopicsDeckId);
     } else if (this.activeTab === 'tab-subtopic-words' && this.currentSubtopicsDeckId && this.currentSubtopicName) {
@@ -387,6 +398,9 @@ export class FlashcardApp {
 
       const desktopStreakEl = document.getElementById('desktop-streak-count');
       if (desktopStreakEl) desktopStreakEl.textContent = streak;
+
+      const topHeaderStreakEl = document.getElementById('header-streak-count');
+      if (topHeaderStreakEl) topHeaderStreakEl.textContent = streak;
     } catch (err) {
       console.error('Lỗi updateHeaderBadges:', err);
     }
@@ -472,8 +486,8 @@ export class FlashcardApp {
     try { renderStatsTab(this); } catch (err) { console.error('Lỗi renderStatsTab:', err); }
   }
 
-  renderProfileTab() {
-    try { renderProfileTab(this); } catch (err) { console.error('Lỗi renderProfileTab:', err); }
+  renderSettingsTab() {
+    try { setupSettingsUI(this); } catch (err) { console.error('Lỗi renderSettingsTab:', err); }
   }
 
   async startStudySession(deckId = null, subtopic = null, customCards = null, options = {}) {
@@ -514,51 +528,6 @@ export class FlashcardApp {
     }
   }
 
-  openSyncModal() {
-    openSyncModal(this);
-  }
-
-  async checkUrlSync() {
-    try {
-      if (typeof window === 'undefined' || !window.location) return;
-      const urlParams = new URLSearchParams(window.location.search);
-      
-      const pairPin = urlParams.get('pair');
-      if (pairPin) {
-        this.showToast('Đang bắt tay đồng bộ 2 chiều với máy kia...', 'info', 3000);
-        const res = await SyncManager.executeClientHandshake(pairPin);
-        if (res.success) {
-          this.settings = StorageManager.getSettings();
-          this.applyTheme(this.settings.theme || 'light');
-          this.refreshAllViews();
-          this.showToast(`🎉 Đồng bộ 2 chiều thành công!`, 'success', 5000);
-        } else {
-          this.showToast(res.error || 'Không thể kết nối với máy kia.', 'error');
-        }
-        window.history.replaceState({}, document.title, window.location.pathname);
-        return;
-      }
-
-      const syncToken = urlParams.get('sync') || (window.location.hash.startsWith('#sync=') ? window.location.hash.slice(6) : null);
-      if (syncToken) {
-        const res = await SyncManager.fetchSyncData(syncToken);
-        if (res.success && res.payload) {
-          const unpacked = SyncManager.unpackageSyncData(res.payload);
-          if (unpacked) {
-            const mergeResult = SyncManager.mergeProgress(unpacked);
-            await StorageManager.importBackup(mergeResult.data);
-            this.settings = StorageManager.getSettings();
-            this.applyTheme(this.settings.theme || 'light');
-            this.refreshAllViews();
-            this.showToast(`🎉 Đồng bộ thành công! Đã cập nhật ${mergeResult.stats.total} thẻ FSRS`, 'success', 4000);
-            window.history.replaceState({}, document.title, window.location.pathname);
-          }
-        }
-      }
-    } catch (e) {
-      console.warn('Auto sync URL err:', e);
-    }
-  }
 
   showConfirm(options) {
     return showConfirm(options);

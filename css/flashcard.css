@@ -28,29 +28,29 @@
 }
 
 /* --------------------------------------------------------------------------
-   Top Ultra-thin 2px Progress Indicator (Browser Loading Style)
+   Top Ultra-thin 2.5px Progress Line Track
    -------------------------------------------------------------------------- */
 .study-progress-line-track {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 2.5px;
   background: transparent;
   z-index: 5050;
 }
 
 .study-progress-line-fill {
   height: 100%;
-  background: var(--primary);
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #3b82f6);
   transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* --------------------------------------------------------------------------
-   Minimalist Header Bar
+   Minimalist & Premium Header Bar
    -------------------------------------------------------------------------- */
 .study-header-bar {
-  padding: 12px 20px;
+  padding: 14px 20px 8px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,15 +66,19 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 600px;
+  max-width: 520px;
+  gap: 12px;
 }
 
+/* Unified Modern Action Buttons */
 .btn-study-exit,
 .btn-study-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  border: 1px solid transparent;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -83,156 +87,149 @@
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   padding: 0;
   flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.btn-study-exit:hover,
+.btn-study-icon:hover {
+  background: var(--bg-hover, rgba(0, 0, 0, 0.05));
+  color: var(--text-primary);
+  border-color: var(--border-hover, var(--border));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .btn-study-exit:active,
 .btn-study-icon:active {
-  transform: scale(0.92);
+  transform: scale(0.93);
 }
 
-/* Nút Thoát Phiên Học (Đỏ / Rose nổi bật, tinh tế) */
-#btn-study-close.btn-study-exit {
-  background: rgba(239, 68, 68, 0.09);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.22);
-}
-
+/* Nút Thoát Phiên Học (Esc) - Tinh tế, chuyển đỏ nhẹ nhàng khi hover */
 #btn-study-close.btn-study-exit:hover {
-  background: rgba(239, 68, 68, 0.2);
-  color: #dc2626;
-  border-color: rgba(239, 68, 68, 0.4);
-  transform: scale(1.06);
-}
-
-[data-theme="dark"] #btn-study-close.btn-study-exit {
-  background: rgba(239, 68, 68, 0.16);
-  color: #f87171;
-  border-color: rgba(239, 68, 68, 0.32);
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
 }
 
 [data-theme="dark"] #btn-study-close.btn-study-exit:hover {
-  background: rgba(239, 68, 68, 0.28);
-  color: #fca5a5;
-  border-color: rgba(239, 68, 68, 0.5);
+  background: rgba(239, 68, 68, 0.18);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.4);
 }
 
-/* Nút Tự Động Phát / Auto-Play (Tím Indigo công nghệ) */
-#btn-study-autoplay.btn-study-icon {
+/* Nút Tự Động Phát / Auto-Play */
+#btn-study-autoplay.btn-study-icon:hover {
   background: rgba(99, 102, 241, 0.1);
   color: #6366f1;
-  border: 1px solid rgba(99, 102, 241, 0.25);
-}
-
-#btn-study-autoplay.btn-study-icon:hover {
-  background: rgba(99, 102, 241, 0.22);
-  color: #4f46e5;
-  border-color: rgba(99, 102, 241, 0.45);
-  transform: scale(1.06);
-}
-
-[data-theme="dark"] #btn-study-autoplay.btn-study-icon {
-  background: rgba(99, 102, 241, 0.18);
-  color: #818cf8;
-  border-color: rgba(99, 102, 241, 0.38);
+  border-color: rgba(99, 102, 241, 0.3);
 }
 
 [data-theme="dark"] #btn-study-autoplay.btn-study-icon:hover {
-  background: rgba(99, 102, 241, 0.3);
-  color: #a5b4fc;
-  border-color: rgba(99, 102, 241, 0.55);
+  background: rgba(99, 102, 241, 0.18);
+  color: #818cf8;
+  border-color: rgba(99, 102, 241, 0.4);
 }
 
 #btn-study-autoplay.btn-study-icon.active {
   color: #ffffff !important;
-  background: #6366f1 !important;
-  border-color: #4f46e5 !important;
+  background: var(--primary, #4f46e5) !important;
+  border-color: var(--primary, #4f46e5) !important;
   box-shadow: 0 0 14px rgba(99, 102, 241, 0.5);
   animation: pulseAutoplay 2s infinite ease-in-out;
 }
 
 @keyframes pulseAutoplay {
   0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.5); }
-  50% { transform: scale(1.08); box-shadow: 0 0 0 7px rgba(99, 102, 241, 0); }
+  50% { transform: scale(1.06); box-shadow: 0 0 0 6px rgba(99, 102, 241, 0); }
 }
 
-/* Nút Chuyển Đổi Theme Sáng / Tối (Vàng Hổ Phách / Golden Sun) */
-#btn-study-theme.btn-study-icon {
+/* Nút Chuyển Đổi Theme */
+#btn-study-theme.btn-study-icon:hover {
   background: rgba(245, 158, 11, 0.1);
   color: #d97706;
-  border: 1px solid rgba(245, 158, 11, 0.25);
-}
-
-#btn-study-theme.btn-study-icon:hover {
-  background: rgba(245, 158, 11, 0.22);
-  color: #b45309;
-  border-color: rgba(245, 158, 11, 0.45);
-  transform: scale(1.06);
-}
-
-[data-theme="dark"] #btn-study-theme.btn-study-icon {
-  background: rgba(245, 158, 11, 0.18);
-  color: #fbbf24;
-  border-color: rgba(245, 158, 11, 0.38);
+  border-color: rgba(245, 158, 11, 0.3);
 }
 
 [data-theme="dark"] #btn-study-theme.btn-study-icon:hover {
-  background: rgba(245, 158, 11, 0.3);
-  color: #fde68a;
-  border-color: rgba(245, 158, 11, 0.55);
+  background: rgba(245, 158, 11, 0.18);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.4);
 }
 
-/* Nút Tùy Chọn Hiển Thị Menu 3 Chấm (Xanh Dương / Sky Cyan) */
-#btn-study-menu.btn-study-icon {
+/* Nút Tùy Chọn Hiển Thị Menu 3 Chấm */
+#btn-study-menu.btn-study-icon:hover {
   background: rgba(14, 165, 233, 0.1);
   color: #0284c7;
-  border: 1px solid rgba(14, 165, 233, 0.25);
-}
-
-#btn-study-menu.btn-study-icon:hover {
-  background: rgba(14, 165, 233, 0.22);
-  color: #0369a1;
-  border-color: rgba(14, 165, 233, 0.45);
-  transform: scale(1.06);
-}
-
-[data-theme="dark"] #btn-study-menu.btn-study-icon {
-  background: rgba(14, 165, 233, 0.18);
-  color: #38bdf8;
-  border-color: rgba(14, 165, 233, 0.38);
+  border-color: rgba(14, 165, 233, 0.3);
 }
 
 [data-theme="dark"] #btn-study-menu.btn-study-icon:hover {
-  background: rgba(14, 165, 233, 0.3);
-  color: #7dd3fc;
-  border-color: rgba(14, 165, 233, 0.55);
+  background: rgba(14, 165, 233, 0.18);
+  color: #38bdf8;
+  border-color: rgba(14, 165, 233, 0.4);
 }
 
+/* Middle Progress Counter & Live Study Timer Capsule */
 .study-header-center {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  flex: 1;
 }
 
-.study-header-right {
-  display: flex;
+.study-status-capsule {
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  user-select: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .study-status-capsule {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .study-progress-counter {
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  font-family: var(--font-mono);
+  font-family: var(--font-mono, monospace);
   color: var(--text-secondary);
-  background: var(--bg-secondary, rgba(0, 0, 0, 0.04));
-  border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
-  padding: 5px 14px;
-  border-radius: 99px;
   display: inline-flex;
   align-items: center;
   gap: 2px;
   letter-spacing: 0.02em;
+}
+
+.study-progress-counter .counter-num {
+  color: var(--primary, #4f46e5);
+  font-weight: 800;
+}
+
+[data-theme="dark"] .study-progress-counter .counter-num {
+  color: #818cf8;
+}
+
+.study-progress-counter .counter-sep {
+  color: var(--text-muted);
+  opacity: 0.6;
+  margin: 0 1px;
+}
+
+.study-progress-counter .counter-total {
+  color: var(--text-muted);
+}
+
+.status-capsule-divider {
+  width: 1px;
+  height: 14px;
+  background: var(--border);
+  opacity: 0.8;
 }
 
 /* Live Study Active Timer */
@@ -240,22 +237,12 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 5px 12px;
-  border-radius: 99px;
-  background: var(--bg-secondary, rgba(0, 0, 0, 0.04));
-  border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
-  font-family: var(--font-mono);
-  font-size: 0.84rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.86rem;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: 0.02em;
   transition: all 0.25s ease;
-  user-select: none;
-}
-
-[data-theme="dark"] .study-live-timer {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .study-live-timer .timer-icon {
@@ -279,9 +266,7 @@
 }
 
 .study-live-timer.is-idle {
-  opacity: 0.68;
-  border-color: rgba(245, 158, 11, 0.35);
-  background: rgba(245, 158, 11, 0.07);
+  opacity: 0.65;
 }
 
 .study-live-timer.is-idle .timer-status-dot {
@@ -294,30 +279,12 @@
   color: var(--text-secondary);
 }
 
-[data-theme="dark"] .study-progress-counter {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
+.study-header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.study-progress-counter .counter-num {
-  color: var(--primary, #4f46e5);
-  font-weight: 800;
-}
-
-[data-theme="dark"] .study-progress-counter .counter-num {
-  color: #818cf8;
-}
-
-.study-progress-counter .counter-sep {
-  color: var(--text-muted);
-  margin: 0 1px;
-}
-
-.study-progress-counter .counter-total {
-  color: var(--text-muted);
-}
-
-/* --------------------------------------------------------------------------
 /* --------------------------------------------------------------------------
    2. Study Body Wrapper & Studio Canvas (One-Focus Zen Layout)
    -------------------------------------------------------------------------- */
@@ -326,11 +293,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
   max-width: 520px;
   margin: 0 auto;
-  padding: 4px 16px 20px 16px;
+  padding: 8px 16px 20px 16px;
   gap: 16px;
   box-sizing: border-box;
   min-height: 0;
@@ -341,8 +308,8 @@
 .flashcard-stage {
   width: 100%;
   flex: 0 0 auto;
-  height: clamp(370px, 55vh, 450px);
-  min-height: 340px;
+  height: clamp(380px, 58vh, 480px);
+  min-height: 350px;
   perspective: 1200px;
   display: flex;
   align-items: center;
@@ -1063,11 +1030,11 @@
   75% { transform: translateX(-2px); }
 }
 
-/* Cụm 4 Nút Đánh Giá Anki/FSRS: Vibrant Solid Tint */
+/* Cụm 4 Nút Đánh Giá Anki/FSRS */
 .fsrs-buttons-grid {
   display: none;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 8px;
   width: 100%;
   opacity: 0;
   transform: translateY(4px);
@@ -1085,126 +1052,125 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  min-height: 60px;
-  padding: 10px 4px;
-  border-radius: 16px;
+  gap: 3px;
+  min-height: 56px;
+  padding: 8px 4px;
+  border-radius: 14px;
   cursor: pointer;
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   touch-action: manipulation;
   outline: none;
   user-select: none;
   -webkit-user-select: none;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.btn-fsrs-rating:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
 }
 
 .btn-fsrs-rating:active {
-  transform: scale(0.95);
+  transform: scale(0.96);
 }
 
 .btn-fsrs-rating .fsrs-rating-title {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 800;
   line-height: 1.1;
 }
 
 .btn-fsrs-rating .fsrs-badge-interval {
-  font-size: 0.85rem;
-  font-family: var(--font-mono);
-  font-weight: 750;
-  opacity: 0.9;
+  font-size: 0.8rem;
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  opacity: 0.85;
   line-height: 1.1;
 }
 
-/* 1. Nút Lại (Again) - Red */
+/* 1. Nút Lại (Again) - Soft Rose */
 .btn-fsrs-rating.again {
-  background: #fee2e2;
-  border: 1.5px solid #fca5a5;
-  color: #dc2626;
-  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.12);
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.22);
+  color: #ef4444;
 }
 .btn-fsrs-rating.again:hover {
-  background: #fecaca;
-  border-color: #f87171;
-  transform: translateY(-1px);
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.38);
+  color: #dc2626;
 }
 [data-theme="dark"] .btn-fsrs-rating.again {
-  background: rgba(239, 68, 68, 0.18);
-  border: 1.5px solid rgba(239, 68, 68, 0.45);
+  background: rgba(239, 68, 68, 0.14);
+  border-color: rgba(239, 68, 68, 0.3);
   color: #f87171;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 [data-theme="dark"] .btn-fsrs-rating.again:hover {
-  background: rgba(239, 68, 68, 0.28);
-  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.24);
+  border-color: rgba(239, 68, 68, 0.45);
 }
 
-/* 2. Nút Khó (Hard) - Amber/Orange */
+/* 2. Nút Khó (Hard) - Soft Amber */
 .btn-fsrs-rating.hard {
-  background: #fef3c7;
-  border: 1.5px solid #fde68a;
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.22);
   color: #d97706;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.12);
 }
 .btn-fsrs-rating.hard:hover {
-  background: #fde68a;
-  border-color: #fbbf24;
-  transform: translateY(-1px);
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.38);
+  color: #b45309;
 }
 [data-theme="dark"] .btn-fsrs-rating.hard {
-  background: rgba(245, 158, 11, 0.18);
-  border: 1.5px solid rgba(245, 158, 11, 0.45);
+  background: rgba(245, 158, 11, 0.14);
+  border-color: rgba(245, 158, 11, 0.3);
   color: #fbbf24;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 [data-theme="dark"] .btn-fsrs-rating.hard:hover {
-  background: rgba(245, 158, 11, 0.28);
-  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.24);
+  border-color: rgba(245, 158, 11, 0.45);
 }
 
-/* 3. Nút Tốt (Good) - Emerald/Green */
+/* 3. Nút Tốt (Good) - Soft Emerald */
 .btn-fsrs-rating.good {
-  background: #d1fae5;
-  border: 1.5px solid #a7f3d0;
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.22);
   color: #059669;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.12);
 }
 .btn-fsrs-rating.good:hover {
-  background: #a7f3d0;
-  border-color: #34d399;
-  transform: translateY(-1px);
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.38);
+  color: #047857;
 }
 [data-theme="dark"] .btn-fsrs-rating.good {
-  background: rgba(16, 185, 129, 0.18);
-  border: 1.5px solid rgba(16, 185, 129, 0.45);
+  background: rgba(16, 185, 129, 0.14);
+  border-color: rgba(16, 185, 129, 0.3);
   color: #34d399;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 [data-theme="dark"] .btn-fsrs-rating.good:hover {
-  background: rgba(16, 185, 129, 0.28);
-  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.24);
+  border-color: rgba(16, 185, 129, 0.45);
 }
 
-/* 4. Nút Dễ (Easy) - Blue */
+/* 4. Nút Dễ (Easy) - Soft Sky / Blue */
 .btn-fsrs-rating.easy {
-  background: #dbeafe;
-  border: 1.5px solid #bfdbfe;
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.22);
   color: #2563eb;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.12);
 }
 .btn-fsrs-rating.easy:hover {
-  background: #bfdbfe;
-  border-color: #60a5fa;
-  transform: translateY(-1px);
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.38);
+  color: #1d4ed8;
 }
 [data-theme="dark"] .btn-fsrs-rating.easy {
-  background: rgba(59, 130, 246, 0.18);
-  border: 1.5px solid rgba(59, 130, 246, 0.45);
+  background: rgba(59, 130, 246, 0.14);
+  border-color: rgba(59, 130, 246, 0.3);
   color: #60a5fa;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 [data-theme="dark"] .btn-fsrs-rating.easy:hover {
-  background: rgba(59, 130, 246, 0.28);
-  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.24);
+  border-color: rgba(59, 130, 246, 0.45);
 }
 
 .card-status-badge.state-relearning {
@@ -1423,6 +1389,33 @@
 
 .toggle-checkbox:checked::before {
   transform: translateX(18px);
+}
+
+/* Custom Select Dropdown in Prefs Drawer */
+.pref-select-dropdown {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  min-width: 130px;
+}
+
+[data-theme="dark"] .pref-select-dropdown {
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.pref-select-dropdown:hover,
+.pref-select-dropdown:focus {
+  border-color: var(--primary, #6366f1);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
 }
 
 /* Thao Tác Thẻ Hiện Tại trong Drawer */
@@ -1913,9 +1906,9 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 520px) {
   .study-body-wrapper {
-    padding: 4px 10px 18px 10px;
+    padding: 6px 12px 18px 12px;
     gap: 14px;
-    justify-content: flex-start;
+    justify-content: center;
   }
   
   .card-speaker-hero {

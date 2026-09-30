@@ -213,37 +213,48 @@ html, body {
 }
 
 .brand-icon {
-  width: 32px;
-  height: 32px;
-  background: var(--primary);
-  border-radius: 9px;
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 17px;
+  font-size: 18px;
   color: #ffffff;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
 }
 
-.brand-text h1 {
-  font-size: 1rem;
-  font-weight: 700;
+.brand-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.brand-title {
+  font-size: 0.98rem;
+  font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--text-primary);
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
-.brand-badge {
-  font-size: 0.62rem;
+.brand-sub {
+  font-size: 0.65rem;
   font-weight: 700;
-  color: var(--primary-light);
+  color: var(--primary);
   background: rgba(99, 102, 241, 0.12);
-  padding: 1px 5px;
+  padding: 1px 6px;
   border-radius: 4px;
   letter-spacing: 0.04em;
   display: inline-block;
+  line-height: 1.2;
 }
 
-[data-theme="light"] .brand-badge {
+[data-theme="light"] .brand-sub {
   color: #4f46e5;
   background: #eef2ff;
 }
@@ -283,12 +294,14 @@ html, body {
   transform: scale(0.94);
 }
 
-.header-actions .btn-header-profile svg {
+.header-actions .btn-header-profile svg,
+.header-actions .btn-header-settings svg {
   width: 18px;
   height: 18px;
 }
 
-.header-actions .btn-header-profile.active {
+.header-actions .btn-header-profile.active,
+.header-actions .btn-header-settings.active {
   background: var(--primary);
   color: #ffffff;
   border-color: var(--primary);
@@ -471,8 +484,8 @@ html, body {
   transform: none;
   width: 100%;
   max-width: 480px;
-  height: calc(var(--nav-height) + var(--safe-bottom));
-  padding-bottom: var(--safe-bottom);
+  height: calc(64px + var(--safe-bottom));
+  padding: 6px 14px var(--safe-bottom) 14px;
   background: var(--bg-glass);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -480,7 +493,9 @@ html, body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 8px;
   z-index: 50;
+  box-sizing: border-box;
 }
 
 .sidebar-nav-list {
@@ -494,41 +509,46 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
+  gap: 4px;
   background: transparent;
   border: none;
-  color: var(--text-muted);
+  border-radius: 14px;
+  color: var(--text-secondary);
   cursor: pointer;
-  padding: 6px 2px;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 6px 4px;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   -webkit-tap-highlight-color: transparent;
+}
+
+.nav-item:hover {
+  color: var(--text-primary);
 }
 
 .nav-item .nav-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   color: inherit;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-item .nav-icon svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   stroke: currentColor;
-  stroke-width: 2.2;
-  transition: all 0.2s ease;
+  stroke-width: 2.1;
+  transition: all 0.22s ease;
 }
 
 .nav-item .nav-label {
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   color: inherit;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -537,29 +557,38 @@ html, body {
 
 .nav-item.active {
   color: var(--primary);
+  background: rgba(99, 102, 241, 0.08);
 }
 
 [data-theme="light"] .nav-item.active {
   color: #4f46e5;
+  background: rgba(79, 70, 229, 0.08);
 }
 
 .nav-item.active .nav-icon {
-  transform: translateY(-2px);
+  transform: translateY(-1px) scale(1.04);
 }
 
 .nav-item.active .nav-icon svg {
+  stroke: var(--primary);
+  stroke-width: 2.4;
+  filter: drop-shadow(0 2px 6px rgba(99, 102, 241, 0.35));
+}
+
+[data-theme="light"] .nav-item.active .nav-icon svg {
   stroke: #4f46e5;
-  stroke-width: 2.5;
   filter: drop-shadow(0 2px 6px rgba(79, 70, 229, 0.35));
+}
+
+.nav-item.active .nav-label {
+  font-weight: 700;
 }
 
 .sidebar-search-wrap {
   display: none;
 }
 
-.nav-item[data-tab="tab-profile"] {
-  display: none;
-}
+
 
 /* ==========================================================================
    🖥️ DESKTOP & PC LAYOUT (>= 860px) - Dedicated Left Sidebar + Right Content
@@ -696,9 +725,7 @@ html, body {
     color: #475569;
   }
 
-  .nav-item[data-tab="tab-profile"] {
-    display: flex;
-  }
+
 
   .sidebar-brand-info {
     display: flex;

@@ -385,13 +385,25 @@
   color: var(--text-muted);
 }
 
-.fc-card-count.count-active.load-low { color: #10b981; }
-.fc-card-count.count-active.load-med { color: #f59e0b; }
-.fc-card-count.count-active.load-high { color: #ef4444; }
+.fc-card-count.count-active.load-low {
+  color: #10b981;
+}
+.fc-card-count.count-active.load-med {
+  color: #f59e0b;
+}
+.fc-card-count.count-active.load-high {
+  color: #ef4444;
+}
 
-[data-theme="light"] .fc-card-count.count-active.load-low { color: #059669; }
-[data-theme="light"] .fc-card-count.count-active.load-med { color: #d97706; }
-[data-theme="light"] .fc-card-count.count-active.load-high { color: #dc2626; }
+[data-theme="light"] .fc-card-count.count-active.load-low {
+  color: #059669;
+}
+[data-theme="light"] .fc-card-count.count-active.load-med {
+  color: #d97706;
+}
+[data-theme="light"] .fc-card-count.count-active.load-high {
+  color: #dc2626;
+}
 
 .fc-card-bar {
   width: 80%;
@@ -409,9 +421,15 @@
   background: var(--text-muted);
 }
 
-.fc-bar-fill.fill-active.load-low { background: #10b981; }
-.fc-bar-fill.fill-active.load-med { background: #f59e0b; }
-.fc-bar-fill.fill-active.load-high { background: #ef4444; }
+.fc-bar-fill.fill-active.load-low {
+  background: #10b981;
+}
+.fc-bar-fill.fill-active.load-med {
+  background: #f59e0b;
+}
+.fc-bar-fill.fill-active.load-high {
+  background: #ef4444;
+}
 
 /* ==========================================================================
    Lịch Học Tập Theo Ngày (Calendar Month & Navigation)
@@ -617,21 +635,23 @@
 
 .pnl-stat-box {
   background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 14px;
-  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 11px 13px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 86px;
+  justify-content: center;
+  gap: 4px;
+  min-height: 70px;
   box-sizing: border-box;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
 [data-theme="light"] .pnl-stat-box {
   background: #ffffff;
-  border-color: rgba(0, 0, 0, 0.06);
-  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
 }
 
 .pnl-stat-box:hover {
@@ -643,11 +663,11 @@
 .pnl-box-header {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 }
 
 .pnl-box-icon {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   line-height: 1;
 }
 
@@ -715,14 +735,29 @@
   width: 11px;
   height: 11px;
   border-radius: 3px;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-[data-theme="light"] .legend-cell.heat-0 { background: #ffffff; border-color: #cbd5e1; }
-[data-theme="light"] .legend-cell.heat-1 { background: #ecfdf5; border-color: #a7f3d0; }
-[data-theme="light"] .legend-cell.heat-2 { background: #d1fae5; border-color: #6ee7b7; }
-[data-theme="light"] .legend-cell.heat-3 { background: #10b981; border-color: #059669; }
-[data-theme="light"] .legend-cell.heat-4 { background: #047857; border-color: #064e3b; }
+[data-theme="light"] .legend-cell.heat-0 {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+[data-theme="light"] .legend-cell.heat-1 {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+[data-theme="light"] .legend-cell.heat-2 {
+  background: #d1fae5;
+  border-color: #6ee7b7;
+}
+[data-theme="light"] .legend-cell.heat-3 {
+  background: #10b981;
+  border-color: #059669;
+}
+[data-theme="light"] .legend-cell.heat-4 {
+  background: #047857;
+  border-color: #064e3b;
+}
 
 .journal-calendar-wrapper {
   padding: 10px 10px 12px 10px;
@@ -1225,7 +1260,7 @@
 .stats-accuracy-pill {
   font-weight: 800;
   font-family: var(--font-mono);
-  font-size: 0.70rem;
+  font-size: 0.7rem;
   padding: 2px 8px;
   border-radius: var(--radius-full);
   background: rgba(16, 185, 129, 0.1);
@@ -1285,11 +1320,21 @@
   transition: width 0.4s ease;
 }
 
-.seg-tier5 { background: #10b981; }
-.seg-tier4 { background: #06b6d4; }
-.seg-tier3 { background: #3b82f6; }
-.seg-tier2 { background: #f59e0b; }
-.seg-tier1 { background: #a855f7; }
+.seg-tier5 {
+  background: #10b981;
+}
+.seg-tier4 {
+  background: #06b6d4;
+}
+.seg-tier3 {
+  background: #3b82f6;
+}
+.seg-tier2 {
+  background: #f59e0b;
+}
+.seg-tier1 {
+  background: #a855f7;
+}
 
 .pyramid-tiers-list {
   display: flex;
@@ -1366,23 +1411,43 @@
   color: var(--text-primary);
 }
 
-.tier-5 .tier-count { color: #10b981; }
-[data-theme="light"] .tier-5 .tier-count { color: #059669; }
+.tier-5 .tier-count {
+  color: #10b981;
+}
+[data-theme="light"] .tier-5 .tier-count {
+  color: #059669;
+}
 
-.tier-4 .tier-count { color: #06b6d4; }
-[data-theme="light"] .tier-4 .tier-count { color: #0891b2; }
+.tier-4 .tier-count {
+  color: #06b6d4;
+}
+[data-theme="light"] .tier-4 .tier-count {
+  color: #0891b2;
+}
 
-.tier-3 .tier-count { color: #3b82f6; }
-[data-theme="light"] .tier-3 .tier-count { color: #2563eb; }
+.tier-3 .tier-count {
+  color: #3b82f6;
+}
+[data-theme="light"] .tier-3 .tier-count {
+  color: #2563eb;
+}
 
-.tier-2 .tier-count { color: #f59e0b; }
-[data-theme="light"] .tier-2 .tier-count { color: #d97706; }
+.tier-2 .tier-count {
+  color: #f59e0b;
+}
+[data-theme="light"] .tier-2 .tier-count {
+  color: #d97706;
+}
 
-.tier-1 .tier-count { color: #a855f7; }
-[data-theme="light"] .tier-1 .tier-count { color: #7c3aed; }
+.tier-1 .tier-count {
+  color: #a855f7;
+}
+[data-theme="light"] .tier-1 .tier-count {
+  color: #7c3aed;
+}
 
 .tier-pct {
-  font-size: 0.70rem;
+  font-size: 0.7rem;
   font-weight: 800;
   font-family: var(--font-mono);
   padding: 2px 6px;
@@ -1464,17 +1529,33 @@
   color: var(--text-muted);
 }
 
-.reflex-easy .reflex-pill-val { color: #10b981; }
-[data-theme="light"] .reflex-easy .reflex-pill-val { color: #059669; }
+.reflex-easy .reflex-pill-val {
+  color: #10b981;
+}
+[data-theme="light"] .reflex-easy .reflex-pill-val {
+  color: #059669;
+}
 
-.reflex-good .reflex-pill-val { color: #3b82f6; }
-[data-theme="light"] .reflex-good .reflex-pill-val { color: #2563eb; }
+.reflex-good .reflex-pill-val {
+  color: #3b82f6;
+}
+[data-theme="light"] .reflex-good .reflex-pill-val {
+  color: #2563eb;
+}
 
-.reflex-hard .reflex-pill-val { color: #f59e0b; }
-[data-theme="light"] .reflex-hard .reflex-pill-val { color: #d97706; }
+.reflex-hard .reflex-pill-val {
+  color: #f59e0b;
+}
+[data-theme="light"] .reflex-hard .reflex-pill-val {
+  color: #d97706;
+}
 
-.reflex-again .reflex-pill-val { color: #f43f5e; }
-[data-theme="light"] .reflex-again .reflex-pill-val { color: #e11d48; }
+.reflex-again .reflex-pill-val {
+  color: #f43f5e;
+}
+[data-theme="light"] .reflex-again .reflex-pill-val {
+  color: #e11d48;
+}
 
 .recovery-strip {
   display: flex;
@@ -1882,9 +1963,15 @@
   font-family: var(--font-mono);
 }
 
-.cal-day-cell.load-low .cal-count-badge { color: #10b981; }
-.cal-day-cell.load-medium .cal-count-badge { color: #f59e0b; }
-.cal-day-cell.load-high .cal-count-badge { color: #ef4444; }
+.cal-day-cell.load-low .cal-count-badge {
+  color: #10b981;
+}
+.cal-day-cell.load-medium .cal-count-badge {
+  color: #f59e0b;
+}
+.cal-day-cell.load-high .cal-count-badge {
+  color: #ef4444;
+}
 
 .cal-empty-dot {
   color: var(--text-muted);

@@ -53,8 +53,7 @@ simple-flashcard/
 │   │   └── selectors.js          # DeckManager & truy vấn từ vựng theo chủ đề O(1)
 │   ├── services/                 # Dịch vụ hạ tầng & Lưu trữ ngoại vi
 │   │   ├── storage.js            # IndexedDB + In-Memory Write-Through RAM Cache & BackupService
-│   │   ├── audio.js              # Dual Native Audio Engine (CDN MP3 + Neural TTS)
-│   │   └── sync.js               # Universal 2-Way Handshake & Smart Merge FSRS
+│   │   └── audio.js              # Dual Native Audio Engine (CDN MP3 + Neural TTS)
 │   └── views/                    # Giao diện các màn hình chức năng
 │       ├── review.js             # Màn hình Trang chủ Ôn tập: Nhiệm vụ ngày & CTA học tập
 │       ├── decks.js              # Duyệt 4 cấp độ chủ đề (Chủ đề lớn -> Chặng -> Chi tiết -> Danh sách từ)

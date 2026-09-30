@@ -4,7 +4,7 @@
  * Tự động phát hiện và cập nhật code mới tức thời khi Online (Zero-Friction Live Update).
  */
 
-const CACHE_NAME = 'flashcard-pro-v3.18.0';
+const CACHE_NAME = 'flashcard-pro-v3.26.0';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -33,7 +33,6 @@ const PRECACHE_ASSETS = [
   './js/core/selectors.js',
   './js/services/storage.js',
   './js/services/audio.js',
-  './js/services/sync.js',
   './js/views/components.js',
   './js/views/review.js',
   './js/views/library.js',
@@ -103,19 +102,16 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(event.request.url);
 
+  // Tự động bỏ qua cache khi phát triển trên localhost / 127.0.0.1 để live reload tức thời
+  const isLocalhost = url.hostname === 'localhost' || url.hostname === '127.0.0.1' || url.hostname === '::1';
+  if (isLocalhost) {
+    // Để trình duyệt fetch trực tiếp từ server cục bộ mà không bị chặn bởi cache
+    return;
+  }
+
   // Bỏ qua các scheme đặc biệt (chrome-extension, etc.)
   if (!url.protocol.startsWith('http')) return;
 
-  // Bỏ qua toàn bộ Server-Sent Events (SSE), WebSocket & Realtime Sync Relays
-  if (
-    url.pathname.endsWith('/sse') ||
-    url.pathname.includes('/fc_fsrs_') ||
-    url.searchParams.has('poll') ||
-    url.hostname.includes('ntfy') ||
-    event.request.headers.get('Accept')?.includes('text/event-stream')
-  ) {
-    return;
-  }
 
   // A. Cache-First cho Hình ảnh từ vựng (.webp, .png, .jpg, .svg) và Audio (.mp3)
   const isImageOrAudio = 

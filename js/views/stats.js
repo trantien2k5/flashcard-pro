@@ -39,7 +39,6 @@ export function renderStatsTabShell(container) {
             </div>
             <div class="stats-hero-text">
               <h2 class="stats-hero-title">Năng Lực & Phân Tích Trí Nhớ</h2>
-              <p class="stats-hero-subtitle">Đánh giá trí nhớ thật theo mô hình toán học FSRS-6 chuyên sâu</p>
             </div>
           </div>
           <div class="stats-hero-badges">
@@ -66,7 +65,6 @@ export function renderStatsTabShell(container) {
                   </span>
                   <span class="stats-accuracy-pill" id="stats-header-accuracy">🧠 Khả năng nhớ: 0%</span>
                 </div>
-                <p class="stats-section-hint">Chỉ số toán học FSRS phản ánh trực tiếp khả năng lưu giữ từ vựng trong não</p>
               </div>
 
               <div class="journal-pnl-grid cognitive-quad-grid">
@@ -77,7 +75,6 @@ export function renderStatsTabShell(container) {
                     <span class="pnl-box-label">XÁC SUẤT NHỚ THẬT</span>
                   </div>
                   <div class="pnl-box-val" id="cog-stat-retrievability">0%</div>
-                  <span class="pnl-box-sub">Tỉ lệ giữ trong não lúc này</span>
                 </div>
 
                 <!-- Box 2: Độ bền trung bình -->
@@ -87,7 +84,6 @@ export function renderStatsTabShell(container) {
                     <span class="pnl-box-label">ĐỘ BỀN TRUNG BÌNH</span>
                   </div>
                   <div class="pnl-box-val" id="cog-stat-stability">0<span class="pnl-unit">ngày</span></div>
-                  <span class="pnl-box-sub">Lưu trữ trước khi cần ôn</span>
                 </div>
 
                 <!-- Box 3: Từ nhớ sâu -->
@@ -97,7 +93,6 @@ export function renderStatsTabShell(container) {
                     <span class="pnl-box-label">NHỚ SÂU VĨNH VIỄN</span>
                   </div>
                   <div class="pnl-box-val" id="cog-stat-deep">+0<span class="pnl-unit">từ</span></div>
-                  <span class="pnl-box-sub">Độ bền ≥ 30 ngày (Ôn 1-6 tháng)</span>
                 </div>
 
                 <!-- Box 4: Phản xạ nhanh -->
@@ -107,7 +102,6 @@ export function renderStatsTabShell(container) {
                     <span class="pnl-box-label">PHẢN XẠ NHANH</span>
                   </div>
                   <div class="pnl-box-val" id="cog-stat-accuracy">0%</div>
-                  <span class="pnl-box-sub" id="cog-stat-recovery-sub">Tỉ lệ nhớ tốt & dễ</span>
                 </div>
               </div>
             </div>
@@ -130,7 +124,6 @@ export function renderStatsTabShell(container) {
                     </button>
                   </div>
                 </div>
-                <p class="stats-section-hint">Dự báo số lượng từ vựng cần ôn lại trong 7 ngày tới theo FSRS-6</p>
               </div>
 
               <div class="forecast-capsules-grid" id="stats-review-forecast"></div>
@@ -163,7 +156,6 @@ export function renderStatsTabShell(container) {
                     </div>
                   </div>
                 </div>
-                <p class="stats-section-hint">Tần suất học tập và tích lũy từ vựng qua từng ngày</p>
               </div>
 
               <!-- Calendar Wrapper (Compact Card) -->
@@ -222,7 +214,6 @@ export function renderStatsTabShell(container) {
                   </span>
                   <span class="bento-badge-forecast" id="stats-pyramid-total">0 từ đã học</span>
                 </div>
-                <p class="stats-section-hint">Phân loại từ vựng theo thời gian lưu trữ trong trí nhớ dài hạn</p>
               </div>
 
               <div class="inset-grouped-card memory-pyramid-card">
@@ -243,7 +234,6 @@ export function renderStatsTabShell(container) {
                       <span class="tier-icon">💎</span>
                       <div class="tier-meta">
                         <strong class="tier-name">Tầng 5: Nhớ sâu vĩnh viễn</strong>
-                        <span class="tier-desc">Độ bền ≥ 30 ngày • Chu kỳ ôn 1 - 6 tháng</span>
                       </div>
                     </div>
                     <div class="tier-right">
@@ -258,7 +248,6 @@ export function renderStatsTabShell(container) {
                       <span class="tier-icon">🛡️</span>
                       <div class="tier-meta">
                         <strong class="tier-name">Tầng 4: Ghi nhớ bền vững</strong>
-                        <span class="tier-desc">Độ bền 14 - 30 ngày • Chu kỳ ôn 2 - 4 tuần</span>
                       </div>
                     </div>
                     <div class="tier-right">
@@ -273,7 +262,6 @@ export function renderStatsTabShell(container) {
                       <span class="tier-icon">🌳</span>
                       <div class="tier-meta">
                         <strong class="tier-name">Tầng 3: Ghi nhớ trung hạn</strong>
-                        <span class="tier-desc">Độ bền 7 - 14 ngày • Chu kỳ ôn 1 - 2 tuần</span>
                       </div>
                     </div>
                     <div class="tier-right">
@@ -288,7 +276,6 @@ export function renderStatsTabShell(container) {
                       <span class="tier-icon">🌿</span>
                       <div class="tier-meta">
                         <strong class="tier-name">Tầng 2: Trí nhớ ngắn hạn</strong>
-                        <span class="tier-desc">Độ bền 3 - 7 ngày • Chu kỳ ôn 3 - 7 ngày</span>
                       </div>
                     </div>
                     <div class="tier-right">
@@ -303,7 +290,6 @@ export function renderStatsTabShell(container) {
                       <span class="tier-icon">🌱</span>
                       <div class="tier-meta">
                         <strong class="tier-name">Tầng 1: Mới nạp vào não</strong>
-                        <span class="tier-desc">Độ bền &lt; 3 ngày • Cần củng cố hàng ngày</span>
                       </div>
                     </div>
                     <div class="tier-right">
@@ -327,7 +313,6 @@ export function renderStatsTabShell(container) {
                   </span>
                   <span class="bento-badge-forecast" id="stats-total-reviews-badge">0 lượt ôn</span>
                 </div>
-                <p class="stats-section-hint">Tỉ lệ lựa chọn 4 mức độ nhớ và tốc độ phục hồi khi quên</p>
               </div>
 
               <div class="inset-grouped-card reflex-quality-card">
@@ -373,8 +358,7 @@ export function renderStatsTabShell(container) {
                   <div class="recovery-left">
                     <span class="recovery-icon">🛡️</span>
                     <div class="recovery-text">
-                      <strong>Tỉ lệ phục hồi sau khi quên (Recovery):</strong>
-                      <span class="recovery-sub">Số từ từng quên đã ôn lại và nhớ bền vững</span>
+                      <strong>Tỉ lệ phục hồi sau khi quên:</strong>
                     </div>
                   </div>
                   <span class="recovery-badge" id="reflex-recovery-val">100%</span>

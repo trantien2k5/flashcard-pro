@@ -105,7 +105,17 @@ export function startFrontActiveRecallTimer() {
   const btn = document.getElementById('btn-main-flip');
   if (!btn) return;
 
-  const durationMs = 2500; // Khóa 2.5s ở Front để ép não truy xuất chủ động (Active Recall)
+  const prefs = getStudyPrefs();
+  const delaySec = Number(prefs.thinkDelaySec || 0);
+
+  if (delaySec <= 0) {
+    _isFlipLocked = false;
+    btn.classList.remove('is-locked');
+    btn.innerHTML = `<span>Xem đáp án</span>`;
+    return;
+  }
+
+  const durationMs = delaySec * 1000;
   const startTime = performance.now();
   _isFlipLocked = true;
   btn.classList.add('is-locked');
@@ -147,7 +157,9 @@ const DEFAULT_STUDY_PREFS = {
   showPos: false,
   showCefr: false,
   autoplayAudio: true,
-  showHint: false
+  showHint: false,
+  thinkDelaySec: 0,      // Mặc định tắt (0s) lật tức thì
+  enableBackLock: false  // Mặc định tắt khóa chống bấm nhầm mặt sau
 };
 
 export function getStudyPrefs() {
@@ -162,6 +174,8 @@ export function getStudyPrefs() {
       if (parsed.showExample !== undefined && parsed.showExampleVi === undefined) {
         parsed.showExampleVi = !!parsed.showExample;
       }
+      if (parsed.thinkDelaySec === undefined) parsed.thinkDelaySec = DEFAULT_STUDY_PREFS.thinkDelaySec;
+      if (parsed.enableBackLock === undefined) parsed.enableBackLock = DEFAULT_STUDY_PREFS.enableBackLock;
       return { ...DEFAULT_STUDY_PREFS, ...parsed };
     }
   } catch (e) {}
@@ -185,7 +199,7 @@ export function renderStudyOverlayShell() {
 
   if (!overlay.querySelector('.study-header-bar')) {
     overlay.innerHTML = `
-      <!-- 1. Top Ultra-thin 2px Progress Line (Browser Loading Style) -->
+      <!-- 1. Top Ultra-thin 2.5px Progress Line (Browser Loading Style) -->
       <div class="study-progress-line-track">
         <div id="study-progress-bar-fill" class="study-progress-line-fill" style="width: 0%;"></div>
       </div>
@@ -194,21 +208,24 @@ export function renderStudyOverlayShell() {
       <header class="study-header-bar">
         <div class="study-header-inner">
           <button id="btn-study-close" class="btn-study-exit" title="Thoát phiên học (Esc)" aria-label="Đóng phiên học">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
 
-          <!-- Middle Progress Counter & Live Study Timer -->
+          <!-- Middle Progress Counter & Live Study Timer Capsule -->
           <div class="study-header-center">
-            <span class="study-progress-counter" id="study-progress-text" title="Tiến độ học">
-              <span class="counter-num">0</span><span class="counter-sep">/</span><span class="counter-total">0</span>
-            </span>
-            <div class="study-live-timer" id="study-live-timer" title="Thời gian học chủ động FSRS (Tự dừng khi treo máy)">
-              <span class="timer-icon">⏱️</span>
-              <span class="timer-digits" id="study-timer-digits">00:00</span>
-              <span class="timer-status-dot is-active" id="study-timer-dot" title="Đang tính giờ"></span>
+            <div class="study-status-capsule">
+              <span class="study-progress-counter" id="study-progress-text" title="Tiến độ học">
+                <span class="counter-num">0</span><span class="counter-sep">/</span><span class="counter-total">0</span>
+              </span>
+              <span class="status-capsule-divider" aria-hidden="true"></span>
+              <div class="study-live-timer" id="study-live-timer" title="Thời gian học chủ động FSRS (Tự dừng khi treo máy)">
+                <span class="timer-icon">⏱️</span>
+                <span class="timer-digits" id="study-timer-digits">00:00</span>
+                <span class="timer-status-dot is-active" id="study-timer-dot" title="Đang tính giờ"></span>
+              </div>
             </div>
           </div>
 
@@ -494,6 +511,27 @@ export function renderStudyOverlayShell() {
               </div>
               <input type="checkbox" id="pref-toggle-hint" class="toggle-checkbox">
             </label>
+
+            <div class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">⏱️ Chờ suy nghĩ (Mặt trước)</span>
+                <span class="pref-sub">Đếm ngược trước khi mở nút lật đáp án</span>
+              </div>
+              <select id="pref-select-think-delay" class="pref-select-dropdown">
+                <option value="0">Tắt (0s - Lật tức thì)</option>
+                <option value="1">1 giây</option>
+                <option value="2">2 giây</option>
+                <option value="3">3 giây</option>
+              </select>
+            </div>
+
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🛡️ Khóa chống bấm nhầm (Mặt sau)</span>
+                <span class="pref-sub">Khóa nút đánh giá 1s - 1.5s để xem kỹ đáp án</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-back-lock" class="toggle-checkbox">
+            </label>
           </div>
 
           <div class="prefs-card-actions-section">
@@ -622,7 +660,7 @@ export function setupStudyControls(app) {
     const btnCloseDrawer = document.getElementById('btn-prefs-close');
     const btnResetPrefs = document.getElementById('btn-reset-prefs');
 
-    // Các checkbox tùy chọn
+    // Các điều khiển tùy chọn trong Drawer
     const toggleImg = document.getElementById('pref-toggle-image');
     const togglePhonetic = document.getElementById('pref-toggle-phonetic');
     const toggleDef = document.getElementById('pref-toggle-definition');
@@ -632,11 +670,13 @@ export function setupStudyControls(app) {
     const toggleCefr = document.getElementById('pref-toggle-cefr');
     const toggleAutoplay = document.getElementById('pref-toggle-autoplay');
     const toggleHint = document.getElementById('pref-toggle-hint');
+    const selectThinkDelay = document.getElementById('pref-select-think-delay');
+    const toggleBackLock = document.getElementById('pref-toggle-back-lock');
 
     if (!overlay || !flashcardEl || overlay._controlsBound) return;
     overlay._controlsBound = true;
 
-    // Khởi tạo trạng thái checkbox theo Preferences hiện tại
+    // Khởi tạo trạng thái điều khiển theo Preferences hiện tại
     const syncCheckboxesFromPrefs = () => {
       const p = getStudyPrefs();
       if (toggleImg) toggleImg.checked = !!p.showImage;
@@ -648,6 +688,8 @@ export function setupStudyControls(app) {
       if (toggleCefr) toggleCefr.checked = !!p.showCefr;
       if (toggleAutoplay) toggleAutoplay.checked = (app.settings?.autoPronounce === true) || !!p.autoplayAudio;
       if (toggleHint) toggleHint.checked = !!p.showHint;
+      if (selectThinkDelay) selectThinkDelay.value = String(p.thinkDelaySec ?? 0);
+      if (toggleBackLock) toggleBackLock.checked = !!p.enableBackLock;
     };
 
     const updatePrefFromCheckbox = () => {
@@ -661,7 +703,9 @@ export function setupStudyControls(app) {
         showPos: !!togglePos?.checked,
         showCefr: !!toggleCefr?.checked,
         autoplayAudio: isAutoplay,
-        showHint: !!toggleHint?.checked
+        showHint: !!toggleHint?.checked,
+        thinkDelaySec: Number(selectThinkDelay?.value || 0),
+        enableBackLock: !!toggleBackLock?.checked
       };
       saveStudyPrefs(p);
       if (app.settings) {
@@ -678,11 +722,15 @@ export function setupStudyControls(app) {
 
     syncCheckboxesFromPrefs();
 
-    [toggleImg, togglePhonetic, toggleDef, toggleEx, toggleExVi, togglePos, toggleCefr, toggleAutoplay, toggleHint].forEach(cb => {
+    [toggleImg, togglePhonetic, toggleDef, toggleEx, toggleExVi, togglePos, toggleCefr, toggleAutoplay, toggleHint, toggleBackLock].forEach(cb => {
       if (cb) {
         cb.addEventListener('change', updatePrefFromCheckbox);
       }
     });
+
+    if (selectThinkDelay) {
+      selectThinkDelay.addEventListener('change', updatePrefFromCheckbox);
+    }
 
     if (btnResetPrefs) {
       btnResetPrefs.addEventListener('click', () => {
@@ -849,28 +897,32 @@ export function setupStudyControls(app) {
       if (!app.studySession || !app.studySession.isActive) return;
       if (!app.studySession.isFlipped) return;
       
-      // Khóa thông minh ở mặt sau (giảm dần): Quên 2.0s, Khó 1.5s, Nhớ 1.0s, Dễ 0s
+      const prefs = getStudyPrefs();
       const backViewMs = _backShowTime > 0 ? (performance.now() - _backShowTime) : 0;
-      let minLockMs = 0;
-      if (rating === Rating.Again) minLockMs = 2000;
-      else if (rating === Rating.Hard) minLockMs = 1500;
-      else if (rating === Rating.Good) minLockMs = 1000;
-      else if (rating === Rating.Easy) minLockMs = 0;
 
-      if (backViewMs < minLockMs) {
-        const ratingClassMap = {
-          [Rating.Again]: '.btn-fsrs-rating.again',
-          [Rating.Hard]: '.btn-fsrs-rating.hard',
-          [Rating.Good]: '.btn-fsrs-rating.good',
-          [Rating.Easy]: '.btn-fsrs-rating.easy'
-        };
-        const targetBtn = document.querySelector(ratingClassMap[rating]);
-        if (targetBtn) {
-          targetBtn.classList.remove('shake-cue');
-          void targetBtn.offsetWidth;
-          targetBtn.classList.add('shake-cue');
+      // Khóa thông minh ở mặt sau (nếu người dùng bật trong Menu 3 chấm)
+      if (prefs.enableBackLock) {
+        let minLockMs = 0;
+        if (rating === Rating.Again) minLockMs = 1500;
+        else if (rating === Rating.Hard) minLockMs = 1000;
+        else if (rating === Rating.Good) minLockMs = 500;
+        else if (rating === Rating.Easy) minLockMs = 0;
+
+        if (backViewMs < minLockMs) {
+          const ratingClassMap = {
+            [Rating.Again]: '.btn-fsrs-rating.again',
+            [Rating.Hard]: '.btn-fsrs-rating.hard',
+            [Rating.Good]: '.btn-fsrs-rating.good',
+            [Rating.Easy]: '.btn-fsrs-rating.easy'
+          };
+          const targetBtn = document.querySelector(ratingClassMap[rating]);
+          if (targetBtn) {
+            targetBtn.classList.remove('shake-cue');
+            void targetBtn.offsetWidth;
+            targetBtn.classList.add('shake-cue');
+          }
+          return;
         }
-        return;
       }
 
       if (_isRatingInProgress) return;
@@ -886,7 +938,7 @@ export function setupStudyControls(app) {
       } finally {
         setTimeout(() => {
           _isRatingInProgress = false;
-        }, 120);
+        }, 100);
       }
     };
 
