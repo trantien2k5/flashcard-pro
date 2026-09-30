@@ -493,6 +493,11 @@ export class FlashcardApp {
   async startStudySession(deckId = null, subtopic = null, customCards = null, options = {}) {
     try {
       let queue = [];
+      // Hỗ trợ truyền mảng customCards ở tham số đầu tiên (polymorphic)
+      if (Array.isArray(deckId)) {
+        customCards = deckId;
+        deckId = null;
+      }
       if (Array.isArray(customCards) && customCards.length > 0) {
         queue = customCards;
       } else {
@@ -521,7 +526,12 @@ export class FlashcardApp {
 
   startQuizSession(queue = null, options = {}) {
     try {
-      startQuizSession(this, queue, options);
+      // Hỗ trợ nếu truyền customCards ở vị trí linh hoạt
+      if (Array.isArray(queue)) {
+        startQuizSession(this, queue, options);
+      } else {
+        startQuizSession(this, null, options);
+      }
     } catch (err) {
       console.error('Lỗi startQuizSession:', err);
       this.showToast('Lỗi khi mở phiên trắc nghiệm: ' + (err?.message || err), 'error');

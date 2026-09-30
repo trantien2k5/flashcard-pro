@@ -715,6 +715,7 @@ export function setupStudyControls(app) {
 
         overlay.classList.remove('active');
         drawer?.classList.remove('active');
+        app.studySession.isActive = false;
 
         app.startQuizSession(remainingQueue);
         app.showToast('🎯 Đã chuyển sang chế độ Trắc nghiệm', 'info', 2000);
@@ -728,6 +729,14 @@ export function setupStudyControls(app) {
       btnModeSwitch.addEventListener('click', (e) => {
         e.stopPropagation();
         switchToQuizMode();
+      });
+    }
+
+    const btnModeFlashcard = document.getElementById('btn-mode-flashcard');
+    if (btnModeFlashcard) {
+      btnModeFlashcard.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeDrawer();
       });
     }
 

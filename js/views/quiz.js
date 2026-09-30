@@ -290,7 +290,7 @@ function setupQuizEvents() {
         }
 
         closeQuizSession(false);
-        _quizApp?.startStudySession(remainingQueue);
+        _quizApp?.startStudySession(null, null, remainingQueue);
         _quizApp?.showToast('🎴 Đã chuyển sang chế độ Flashcard 3D', 'info', 2000);
       } catch (err) {
         console.error('Lỗi chuyển sang Flashcard:', err);
