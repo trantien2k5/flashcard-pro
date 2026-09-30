@@ -533,6 +533,15 @@ export class StorageManager {
     return timeMap[todayKey] || 0;
   }
 
+  static getTotalStudySeconds() {
+    try {
+      const timeMap = this.getStudyTimeMap();
+      return Object.values(timeMap).reduce((sum, sec) => sum + (Number(sec) || 0), 0);
+    } catch (e) {
+      return 0;
+    }
+  }
+
   static addStudySeconds(seconds) {
     if (!seconds || seconds <= 0) return 0;
     try {

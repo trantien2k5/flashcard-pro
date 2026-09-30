@@ -276,7 +276,7 @@ export function renderStudyOverlayShell() {
       <!-- Study Canvas Center Area -->
       <main class="study-body-wrapper">
         <div class="flashcard-stage">
-          <div id="flashcard-element" class="flashcard-3d-wrapper" role="button" tabindex="0" aria-label="Thẻ học từ vựng (Nhấn Space hoặc chạm để lật)">
+          <div id="flashcard-element" class="flashcard-3d-wrapper" role="button" tabindex="0" aria-label="Thẻ học từ vựng (Chạm để xem đáp án)">
             
             <!-- ================= MẶT TRƯỚC (FRONT FACE) ================= -->
             <div class="flashcard-face face-front">
@@ -328,7 +328,7 @@ export function renderStudyOverlayShell() {
 
               <!-- Footer Gợi Ý Thao Tác Lật Thẻ -->
               <div class="card-bottom-bar" id="card-front-hint">
-                <span class="card-hint-text">Chạm thẻ hoặc phím Space để xem đáp án</span>
+                <span class="card-hint-text">Chạm thẻ để xem đáp án</span>
               </div>
             </div>
 

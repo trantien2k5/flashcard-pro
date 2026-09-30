@@ -5,17 +5,23 @@
 #tab-review.tab-pane.active {
   display: flex;
   flex-direction: column;
-  padding: 20px 16px 36px 16px;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: calc(100vh - 140px);
+  min-height: calc(100dvh - 140px);
+  padding: 16px 16px 28px 16px;
   box-sizing: border-box;
 }
 
 .review-minimal-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: center;
+  gap: 22px;
   width: 100%;
   max-width: 500px;
-  margin: 0 auto;
+  margin: auto 0;
   box-sizing: border-box;
 }
 

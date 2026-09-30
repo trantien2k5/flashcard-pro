@@ -307,13 +307,16 @@ export function showDueWordsModal(app = _cachedApp) {
    POPUP 2: TỔNG QUAN THỜI GIAN ĐÃ HỌC (STUDY TIME OVERVIEW MODAL)
    ========================================================================== */
 export function showStudyTimeModal(app = _cachedApp) {
-  const todaySecs = StorageManager.getTodayStudySeconds() + Math.floor(globalStudyTimer?.unflushedSeconds || 0);
+  const todaySecs = (StorageManager.getTodayStudySeconds?.() || 0) + Math.floor(globalStudyTimer?.unflushedSeconds || 0);
   const todayMins = Math.max(0, Math.floor(todaySecs / 60));
-  const totalSecs = StorageManager.getTotalStudySeconds() + Math.floor(globalStudyTimer?.unflushedSeconds || 0);
+  const totalStored = typeof StorageManager.getTotalStudySeconds === 'function'
+    ? StorageManager.getTotalStudySeconds()
+    : Object.values(StorageManager.getStudyTimeMap?.() || {}).reduce((s, v) => s + (Number(v) || 0), 0);
+  const totalSecs = totalStored + Math.floor(globalStudyTimer?.unflushedSeconds || 0);
   const totalHours = Math.floor(totalSecs / 3600);
   const totalRemainingMins = Math.floor((totalSecs % 3600) / 60);
 
-  const logs = StorageManager.getStudyLogs();
+  const logs = StorageManager.getStudyLogs() || [];
   const streak = StatsManager.calculateStreak(logs);
   const totalReviews = logs.length;
 
