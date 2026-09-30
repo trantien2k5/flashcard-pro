@@ -186,6 +186,8 @@ export function preloadWordAudio(cleanText, accent = 'us', cardObj = null) {
   }
 
   const urls = getNativeAudioUrls(safeText, safeAccent, cardObj);
+  if (!urls || urls.length === 0) return null;
+
   const audio = new Audio();
   audio.preload = 'auto';
 
@@ -202,27 +204,19 @@ export function preloadWordAudio(cleanText, accent = 'us', cardObj = null) {
   }, { once: true });
 
   audio.addEventListener('error', () => {
-    if (entry.urlIndex < urls.length - 1) {
-      entry.urlIndex++;
-      entry.ready = false;
-      try {
-        audio.src = urls[entry.urlIndex];
-        audio.load();
-      } catch (e) {}
-    } else {
-      entry.failed = true;
-    }
-  });
+    // Dừng preload khi URL đầu không tải được, tránh cascade hàng chục request làm nghẽn main thread
+    entry.failed = true;
+  }, { once: true });
 
   try {
-    audio.src = urls[entry.urlIndex];
+    audio.src = urls[0];
     audio.load();
   } catch (e) {
     entry.failed = true;
   }
 
-  // Giới hạn bộ nhớ cache âm thanh (tối đa 150 phần tử) để tránh rò rỉ RAM khi học nhiều giờ
-  if (_audioCache.size > 150) {
+  // Giới hạn bộ nhớ cache âm thanh (tối đa 100 phần tử) để tránh rò rỉ RAM khi học nhiều giờ
+  if (_audioCache.size > 100) {
     const oldestKey = _audioCache.keys().next().value;
     const oldestEntry = _audioCache.get(oldestKey);
     if (oldestEntry && oldestEntry.audio) {

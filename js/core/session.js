@@ -157,49 +157,34 @@ export class StudySession {
   }
 
   /**
-   * Tải trước toàn bộ âm thanh trong phiên học (Cả giọng US & UK):
-   * - Nạp ngay 3 từ đầu tiên tức thì để phát 0ms không chờ đợi.
-   * - Tự động tải ngầm toàn bộ các từ còn lại trong phiên học (10 từ) để sẵn sàng 100%.
+   * Tải trước âm thanh cho thẻ hiện tại và thẻ kế tiếp (nhẹ nhàng, không nghẽn mạng)
    */
   preloadSessionAudio(cards) {
     if (!cards || !Array.isArray(cards) || typeof Audio === 'undefined') return;
-
-    // 1. Tải ngay 3 từ đầu tiên tức thì cả 2 giọng US & UK
-    const immediateBatch = cards.slice(0, 3);
-    immediateBatch.forEach(card => {
+    const accent = (this.settings?.audioAccent || 'us').toLowerCase();
+    const batch = cards.slice(0, 2);
+    batch.forEach(card => {
       if (card && card.word) {
-        const w = card.word.trim();
-        preloadWordAudio(w, 'us', card);
-        preloadWordAudio(w, 'uk', card);
+        preloadWordAudio(card.word.trim(), accent, card);
       }
     });
-
-    // 2. Tải ngầm toàn bộ các từ còn lại trong phiên học (từ 4 đến 10)
-    if (cards.length > 3) {
-      const remainingBatch = cards.slice(3);
-      setTimeout(() => {
-        remainingBatch.forEach((card, idx) => {
-          setTimeout(() => {
-            if (card && card.word) {
-              const w = card.word.trim();
-              preloadWordAudio(w, 'us', card);
-              preloadWordAudio(w, 'uk', card);
-            }
-          }, idx * 40);
-        });
-      }, 100);
-    }
   }
 
   /**
-   * Tải trước toàn bộ hình ảnh trong phiên học vào RAM/Browser Cache và giải mã trước
-   * Giúp chuyển sang thẻ tiếp theo hiển thị ảnh tức thì 0ms, không bị chớp hay trễ mạng
+   * Tải trước hình ảnh trong phiên học chỉ khi người dùng BẬT hiển thị hình ảnh
    */
   preloadSessionImages(cards) {
     if (!cards || !Array.isArray(cards) || typeof Image === 'undefined') return;
+    let isImageEnabled = false;
+    try {
+      const raw = localStorage.getItem('study_display_prefs');
+      if (raw) isImageEnabled = JSON.parse(raw).showImage === true;
+    } catch (e) {}
 
-    // Tải và giải mã ngay lập tức toàn bộ ảnh của các từ trong phiên học
-    cards.forEach(card => {
+    if (!isImageEnabled) return;
+
+    const batch = cards.slice(0, 2);
+    batch.forEach(card => {
       const src = card?.img || card?.image;
       if (src && typeof src === 'string') {
         preloadCardImage(src);
@@ -251,15 +236,19 @@ export class StudySession {
       this.speak(cardToSpeak.word);
     }
 
-    // Tải trước trượt 3 từ tiếp theo trong hàng đợi (Sliding Window JIT) cả âm thanh và hình ảnh
-    for (let offset = 1; offset <= 3; offset++) {
-      const nextCard = this.queue[this.currentIndex + offset];
-      if (nextCard) {
-        if (nextCard.word) {
-          const cleanWord = nextCard.word.trim();
-          preloadWordAudio(cleanWord, 'us', nextCard);
-          preloadWordAudio(cleanWord, 'uk', nextCard);
-        }
+    // Tải trước trượt 1 từ tiếp theo trong hàng đợi (Sliding Window 1 thẻ)
+    const nextCard = this.queue[this.currentIndex + 1];
+    if (nextCard && nextCard.word) {
+      const accent = (this.settings?.audioAccent || 'us').toLowerCase();
+      preloadWordAudio(nextCard.word.trim(), accent, nextCard);
+
+      let isImageEnabled = false;
+      try {
+        const raw = localStorage.getItem('study_display_prefs');
+        if (raw) isImageEnabled = JSON.parse(raw).showImage === true;
+      } catch (e) {}
+
+      if (isImageEnabled) {
         const nextImg = nextCard.img || nextCard.image;
         if (nextImg && typeof nextImg === 'string') {
           preloadCardImage(nextImg);

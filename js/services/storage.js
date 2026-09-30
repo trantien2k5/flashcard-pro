@@ -39,6 +39,9 @@ let _customDecksCache = null;
 let _userProgressCache = null;
 let _dbPromise = null;
 let _stateRevision = 1;
+let _debouncedCardsTimer = null;
+let _debouncedLogsTimer = null;
+let _debouncedTimeTimer = null;
 
 // Map ngược để tra cứu 2 chiều Canonical ID ⇋ Legacy ID
 const REVERSE_ID_MAP = {};
@@ -321,7 +324,7 @@ export class StorageManager {
       _cardsCache = cards;
       _stateRevision++;
 
-      // 1. Lưu trữ IndexedDB bền vững (First-class persistence)
+      // 1. Lưu trữ IndexedDB bền vững (First-class persistence, không block UI thread)
       if (_dbPromise) {
         _dbPromise.then(db => {
           this._putToStore(db, STORES.CARDS, normalizedState);
@@ -330,17 +333,75 @@ export class StorageManager {
         });
       }
 
-      // 2. Backup an toàn sang LocalStorage (với try/catch độc lập chống tràn quota)
-      if (typeof localStorage !== 'undefined') {
-        try {
-          localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(cards));
-        } catch (lsErr) {
-          console.warn('[StorageManager] LocalStorage full or blocked, IndexedDB remains source of truth:', lsErr);
-        }
-      }
+      // 2. Backup LocalStorage thông minh dạng Debounce (Không serialize JSON đồng bộ gây giật lag khi đang lật thẻ)
+      this._scheduleCardsLocalStorageSync();
     } catch (e) {
       console.error('Error saving card state:', e);
     }
+  }
+
+  static _scheduleCardsLocalStorageSync() {
+    if (typeof localStorage === 'undefined') return;
+    if (_debouncedCardsTimer) clearTimeout(_debouncedCardsTimer);
+    _debouncedCardsTimer = setTimeout(() => {
+      _debouncedCardsTimer = null;
+      try {
+        if (_cardsCache) {
+          localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(_cardsCache));
+        }
+      } catch (lsErr) {
+        console.warn('[StorageManager] LocalStorage full or blocked:', lsErr);
+      }
+    }, 600);
+  }
+
+  static _scheduleLogsLocalStorageSync() {
+    if (typeof localStorage === 'undefined') return;
+    if (_debouncedLogsTimer) clearTimeout(_debouncedLogsTimer);
+    _debouncedLogsTimer = setTimeout(() => {
+      _debouncedLogsTimer = null;
+      try {
+        if (_logsCache) {
+          localStorage.setItem(STORAGE_KEYS.STUDY_LOGS, JSON.stringify(_logsCache.slice(-500)));
+        }
+      } catch (lsErr) {
+        console.warn('[StorageManager] LocalStorage log quota warning:', lsErr);
+      }
+    }, 800);
+  }
+
+  static _scheduleTimeLocalStorageSync() {
+    if (typeof localStorage === 'undefined') return;
+    if (_debouncedTimeTimer) clearTimeout(_debouncedTimeTimer);
+    _debouncedTimeTimer = setTimeout(() => {
+      _debouncedTimeTimer = null;
+      try {
+        if (_timeMapCache) {
+          localStorage.setItem(STORAGE_KEYS.STUDY_TIME, JSON.stringify(_timeMapCache));
+        }
+      } catch (lsErr) {}
+    }, 1000);
+  }
+
+  static flushPendingSync() {
+    if (typeof localStorage === 'undefined') return;
+    try {
+      if (_debouncedCardsTimer && _cardsCache) {
+        clearTimeout(_debouncedCardsTimer);
+        _debouncedCardsTimer = null;
+        localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(_cardsCache));
+      }
+      if (_debouncedLogsTimer && _logsCache) {
+        clearTimeout(_debouncedLogsTimer);
+        _debouncedLogsTimer = null;
+        localStorage.setItem(STORAGE_KEYS.STUDY_LOGS, JSON.stringify(_logsCache.slice(-500)));
+      }
+      if (_debouncedTimeTimer && _timeMapCache) {
+        clearTimeout(_debouncedTimeTimer);
+        _debouncedTimeTimer = null;
+        localStorage.setItem(STORAGE_KEYS.STUDY_TIME, JSON.stringify(_timeMapCache));
+      }
+    } catch (e) {}
   }
 
   static saveMultipleCardStates(cardStatesMap) {
@@ -369,13 +430,7 @@ export class StorageManager {
         }).catch(() => {});
       }
 
-      if (typeof localStorage !== 'undefined') {
-        try {
-          localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(cards));
-        } catch (lsErr) {
-          console.warn('[StorageManager] LocalStorage quota error on batch save:', lsErr);
-        }
-      }
+      this._scheduleCardsLocalStorageSync();
     } catch (e) {
       console.error('Error saving batch cards:', e);
     }
@@ -489,13 +544,7 @@ export class StorageManager {
         }).catch(() => {});
       }
 
-      if (typeof localStorage !== 'undefined') {
-        try {
-          localStorage.setItem(STORAGE_KEYS.STUDY_LOGS, JSON.stringify(logs.slice(-500)));
-        } catch (lsErr) {
-          console.warn('LocalStorage quota warning on logReview:', lsErr);
-        }
-      }
+      this._scheduleLogsLocalStorageSync();
     } catch (e) {
       console.error('Error logging review:', e);
     }
@@ -552,15 +601,13 @@ export class StorageManager {
       timeMap[todayKey] = updated;
       _timeMapCache = timeMap;
 
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem(STORAGE_KEYS.STUDY_TIME, JSON.stringify(timeMap));
-      }
       if (_dbPromise) {
         _dbPromise.then(db => {
           this._putToStore(db, STORES.STUDY_TIME, { date: todayKey, seconds: updated });
         }).catch(() => {});
       }
 
+      this._scheduleTimeLocalStorageSync();
       return updated;
     } catch (e) {
       console.error('Error saving study time:', e);
@@ -1292,4 +1339,14 @@ export class BackupService {
     return await StorageManager.clearAllData();
   }
 }
+
+if (typeof window !== 'undefined') {
+  window.addEventListener('beforeunload', () => {
+    try { StorageManager.flushPendingSync(); } catch (e) {}
+  });
+  window.addEventListener('pagehide', () => {
+    try { StorageManager.flushPendingSync(); } catch (e) {}
+  });
+}
+
 

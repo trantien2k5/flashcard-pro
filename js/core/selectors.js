@@ -541,15 +541,16 @@ export class DeckManager {
     } else if (mode === 'new_only') {
       // Chỉ học các thẻ MỚI CHƯA TỪNG HỌC
       queueCards = selectedNew;
-    } else if (mode === 'auto') {
-      // Tự động: Ưu tiên ôn các thẻ đến hạn trước
+    } else if (mode === 'due_first' || mode === 'auto') {
+      // Tự động / Ưu tiên ôn tập: Nếu có từ đến hạn thì CHỈ ôn tập toàn bộ từ đến hạn (không mix từ mới)
+      // Khi đã hoàn thành hết từ đến hạn (selectedDue.length === 0) thì mới học từ mới
       if (selectedDue.length > 0) {
         queueCards = selectedDue;
       } else {
         queueCards = selectedNew;
       }
-    } else {
-      // 3. KỸ THUẬT ĐAN XEN NHẬN THỨC (Cognitive Interleaving: 2 ôn -> 1 mới -> 2 ôn -> 1 mới)
+    } else if (mode === 'mixed' || mode === 'interleave') {
+      // KỸ THUẬT ĐAN XEN NHẬN THỨC (Cognitive Interleaving: 2 ôn -> 1 mới -> 2 ôn -> 1 mới)
       const interleaved = [];
       let dIdx = 0;
       let nIdx = 0;
@@ -561,12 +562,19 @@ export class DeckManager {
         if (nIdx < selectedNew.length) interleaved.push(selectedNew[nIdx++]);
       }
       queueCards = interleaved;
+    } else {
+      // Mặc định: Ưu tiên ôn tập nếu có từ đến hạn
+      if (selectedDue.length > 0) {
+        queueCards = selectedDue;
+      } else {
+        queueCards = selectedNew;
+      }
     }
 
     // 4. BẢO VỆ CHỐNG QUÁ TẢI NHẬN THỨC (Adaptive Backlog Protection)
-    // Nếu có >= 25 từ đến hạn dồn ứ, tạm thời không nạp từ mới để người học tập trung dọn sạch hàng đợi
+    // Nếu có >= 25 từ đến hạn dồn ứ, chỉ tập trung dọn sạch hàng đợi đến hạn
     const isBacklogProtected = dueCards.length >= 25;
-    if (isBacklogProtected && mode === 'auto') {
+    if (isBacklogProtected && (mode === 'auto' || mode === 'due_first')) {
       queueCards = selectedDue;
     }
 

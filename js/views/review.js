@@ -298,7 +298,7 @@ export function showDueWordsModal(app = _cachedApp) {
   if (btnStartDue) {
     btnStartDue.onclick = () => {
       modal.classList.remove('active');
-      app.startStudySession(null, null, null, { mode: 'due_first' });
+      app.startStudySession(null, null, null, { mode: 'due_only' });
     };
   }
 }

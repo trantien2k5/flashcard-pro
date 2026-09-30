@@ -1620,18 +1620,6 @@ export function handleCardChange(app, card, progress) {
       }
     }
 
-    // Tải và giải mã trước ảnh của 3 thẻ kế tiếp
-    if (app.studySession?.queue && app.studySession.currentIndex !== undefined) {
-      const nextIdx = app.studySession.currentIndex + 1;
-      const nextBatch = app.studySession.queue.slice(nextIdx, nextIdx + 3);
-      nextBatch.forEach(nc => {
-        const nSrc = nc?.img || nc?.image;
-        if (nSrc && typeof nSrc === 'string') {
-          preloadCardImage(nSrc);
-        }
-      });
-    }
-
     const wordText = card.word || '';
     if (dom.wordFront) {
       dom.wordFront.textContent = wordText;
