@@ -217,15 +217,14 @@ export function renderStudyOverlayShell() {
             </svg>
           </button>
 
-          <!-- Middle Progress Counter & Live Study Timer Capsule (Separated & Unified) -->
+          <!-- Middle Progress Counter & Today Study Time Capsules -->
           <div class="study-header-center">
             <div class="study-header-pill study-progress-pill" id="study-progress-text" title="Tiến độ thẻ">
               <span class="counter-num">0</span><span class="counter-sep">/</span><span class="counter-total">0</span>
             </div>
-            <div class="study-header-pill study-timer-pill" id="study-live-timer" title="Thời gian học chủ động FSRS (Tự dừng khi treo máy)">
+            <div class="study-header-pill study-timer-pill" id="study-live-timer" title="Tổng thời gian học hôm nay">
               <span class="timer-icon">⏱️</span>
-              <span class="timer-digits" id="study-timer-digits">00:00</span>
-              <span class="timer-status-dot is-active" id="study-timer-dot" title="Đang tính giờ"></span>
+              <span class="timer-digits" id="study-timer-digits">0 phút</span>
             </div>
           </div>
 
@@ -1392,19 +1391,27 @@ function updateStudyLiveTimerUI(state) {
   if (!state) return;
   const elDigits = document.getElementById('study-timer-digits');
   const elContainer = document.getElementById('study-live-timer');
-  const elDot = document.getElementById('study-timer-dot');
   if (!elDigits || !elContainer) return;
 
-  elDigits.textContent = state.formattedSessionTime || '00:00';
+  const todaySecs = StorageManager.getTodayStudySeconds();
+  const liveSecs = todaySecs + Math.floor(globalStudyTimer?.unflushedSeconds || 0);
+  const totalMins = liveSecs > 0 && liveSecs < 60 ? 1 : Math.round(liveSecs / 60);
+
+  let timeText = `${totalMins} phút`;
+  if (totalMins >= 60) {
+    const hrs = Math.floor(totalMins / 60);
+    const remMins = totalMins % 60;
+    timeText = `${hrs}h ${remMins}p`;
+  }
+
+  elDigits.textContent = timeText;
 
   if (state.isIdle || state.isPaused) {
     elContainer.classList.add('is-idle');
-    elContainer.setAttribute('title', 'Tạm dừng tính giờ (Đang treo máy - tương tác lại để tiếp tục)');
-    if (elDot) elDot.className = 'timer-status-dot is-idle';
+    elContainer.setAttribute('title', `Tổng thời gian đã học hôm nay: ${timeText} (Tạm dừng)`);
   } else {
     elContainer.classList.remove('is-idle');
-    elContainer.setAttribute('title', 'Thời gian học chủ động FSRS (Tự dừng khi treo máy)');
-    if (elDot) elDot.className = 'timer-status-dot is-active';
+    elContainer.setAttribute('title', `Tổng thời gian đã học hôm nay: ${timeText}`);
   }
 }
 

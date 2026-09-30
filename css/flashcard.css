@@ -285,13 +285,13 @@
   color: var(--text-muted);
 }
 
-/* Ô 2: Đồng hồ đếm giờ học */
+/* Ô 2: Thống kê thời gian học hôm nay */
 .study-timer-pill {
-  font-family: var(--font-mono, monospace);
+  font-family: inherit;
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   transition: all 0.25s ease;
 }
 
@@ -301,28 +301,14 @@
 }
 
 .study-timer-pill .timer-digits {
+  font-family: var(--font-mono, monospace);
   font-variant-numeric: tabular-nums;
   color: var(--text-primary);
-}
-
-.study-timer-pill .timer-status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  background: #10b981;
-  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
-  animation: timerDotPulse 1.8s infinite ease-in-out;
+  font-weight: 700;
 }
 
 .study-timer-pill.is-idle {
-  opacity: 0.65;
-}
-
-.study-timer-pill.is-idle .timer-status-dot {
-  background: #f59e0b;
-  box-shadow: none;
-  animation: none;
+  opacity: 0.7;
 }
 
 .study-timer-pill.is-idle .timer-digits {
