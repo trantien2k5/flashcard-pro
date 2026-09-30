@@ -623,10 +623,10 @@ export function setupSettingsUI(app) {
               await reg.update();
             }
           }
-          // Xóa cache và tải lại
+          // Xóa toàn bộ cache cũ và tải lại
           if ('caches' in window) {
             const keys = await caches.keys();
-            await Promise.all(keys.filter(k => !k.includes('flashcard-pro-v3.27.0')).map(k => caches.delete(k)));
+            await Promise.all(keys.map(k => caches.delete(k)));
           }
           setTimeout(() => {
             showToast('✨ Đang tải lại với mã nguồn mới nhất...', 'success', 1500);

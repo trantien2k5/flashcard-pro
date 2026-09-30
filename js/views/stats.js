@@ -529,15 +529,16 @@ export function renderStatsTab(app) {
       elStability.innerHTML = `${memoryIntel.avgStability}<span class="pnl-unit">ngày</span>`;
     }
     if (elTotalTime) {
-      const totalSecs = typeof StorageManager.getTotalStudySeconds === 'function'
+      const totalSecs = (typeof StorageManager.getTotalStudySeconds === 'function'
         ? StorageManager.getTotalStudySeconds()
-        : 0;
+        : 0) + Math.floor(globalStudyTimer?.unflushedSeconds || 0);
       const hours = Math.floor(totalSecs / 3600);
-      const mins = Math.floor((totalSecs % 3600) / 60);
+      const mins = Math.round((totalSecs % 3600) / 60);
       if (hours > 0) {
         elTotalTime.innerHTML = `${hours}h ${mins}<span class="pnl-unit">phút</span>`;
       } else {
-        elTotalTime.innerHTML = `${mins}<span class="pnl-unit">phút</span>`;
+        const displayMins = totalSecs > 0 && totalSecs < 60 ? 1 : mins;
+        elTotalTime.innerHTML = `${displayMins}<span class="pnl-unit">phút</span>`;
       }
     }
     if (elRecovery) {

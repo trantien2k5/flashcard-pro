@@ -217,18 +217,15 @@ export function renderStudyOverlayShell() {
             </svg>
           </button>
 
-          <!-- Middle Progress Counter & Live Study Timer Capsule -->
+          <!-- Middle Progress Counter & Live Study Timer Capsule (Separated & Unified) -->
           <div class="study-header-center">
-            <div class="study-status-capsule">
-              <span class="study-progress-counter" id="study-progress-text" title="Tiến độ học">
-                <span class="counter-num">0</span><span class="counter-sep">/</span><span class="counter-total">0</span>
-              </span>
-              <span class="status-capsule-divider" aria-hidden="true"></span>
-              <div class="study-live-timer" id="study-live-timer" title="Thời gian học chủ động FSRS (Tự dừng khi treo máy)">
-                <span class="timer-icon">⏱️</span>
-                <span class="timer-digits" id="study-timer-digits">00:00</span>
-                <span class="timer-status-dot is-active" id="study-timer-dot" title="Đang tính giờ"></span>
-              </div>
+            <div class="study-header-pill study-progress-pill" id="study-progress-text" title="Tiến độ thẻ">
+              <span class="counter-num">0</span><span class="counter-sep">/</span><span class="counter-total">0</span>
+            </div>
+            <div class="study-header-pill study-timer-pill" id="study-live-timer" title="Thời gian học chủ động FSRS (Tự dừng khi treo máy)">
+              <span class="timer-icon">⏱️</span>
+              <span class="timer-digits" id="study-timer-digits">00:00</span>
+              <span class="timer-status-dot is-active" id="study-timer-dot" title="Đang tính giờ"></span>
             </div>
           </div>
 

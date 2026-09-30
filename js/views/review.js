@@ -106,7 +106,7 @@ export function renderReviewTab(app) {
         if (elTimer) {
           const todaySecs = StorageManager.getTodayStudySeconds();
           const liveSecs = todaySecs + Math.floor(globalStudyTimer.unflushedSeconds || 0);
-          const mins = Math.max(0, Math.floor(liveSecs / 60));
+          const mins = liveSecs > 0 && liveSecs < 60 ? 1 : Math.round(liveSecs / 60);
           elTimer.textContent = mins;
         }
       });
@@ -199,7 +199,7 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
   if (elTimer) {
     const todaySecs = StorageManager.getTodayStudySeconds();
     const liveSecs = todaySecs + Math.floor(globalStudyTimer?.unflushedSeconds || 0);
-    const mins = Math.max(0, Math.floor(liveSecs / 60));
+    const mins = liveSecs > 0 && liveSecs < 60 ? 1 : Math.round(liveSecs / 60);
     elTimer.textContent = mins;
   }
 
@@ -308,13 +308,13 @@ export function showDueWordsModal(app = _cachedApp) {
    ========================================================================== */
 export function showStudyTimeModal(app = _cachedApp) {
   const todaySecs = (StorageManager.getTodayStudySeconds?.() || 0) + Math.floor(globalStudyTimer?.unflushedSeconds || 0);
-  const todayMins = Math.max(0, Math.floor(todaySecs / 60));
+  const todayMins = todaySecs > 0 && todaySecs < 60 ? 1 : Math.round(todaySecs / 60);
   const totalStored = typeof StorageManager.getTotalStudySeconds === 'function'
     ? StorageManager.getTotalStudySeconds()
     : Object.values(StorageManager.getStudyTimeMap?.() || {}).reduce((s, v) => s + (Number(v) || 0), 0);
   const totalSecs = totalStored + Math.floor(globalStudyTimer?.unflushedSeconds || 0);
   const totalHours = Math.floor(totalSecs / 3600);
-  const totalRemainingMins = Math.floor((totalSecs % 3600) / 60);
+  const totalRemainingMins = Math.round((totalSecs % 3600) / 60);
 
   const logs = StorageManager.getStudyLogs() || [];
   const streak = StatsManager.calculateStreak(logs);
