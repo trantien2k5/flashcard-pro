@@ -1121,125 +1121,94 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
-  min-height: 56px;
+  gap: 2px;
+  min-height: 58px;
   padding: 8px 4px;
-  border-radius: 14px;
+  border-radius: 16px;
   cursor: pointer;
   transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   touch-action: manipulation;
   outline: none;
   user-select: none;
   -webkit-user-select: none;
-  border: 1px solid transparent;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  border: none;
+  color: #ffffff;
 }
 
 .btn-fsrs-rating:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
 }
 
 .btn-fsrs-rating:active {
-  transform: scale(0.96);
+  transform: scale(0.95);
 }
 
 .btn-fsrs-rating .fsrs-rating-title {
-  font-size: 1rem;
-  font-weight: 800;
+  font-size: 1.05rem;
+  font-weight: 850;
   line-height: 1.1;
+  color: #ffffff;
+  letter-spacing: 0.01em;
 }
 
 .btn-fsrs-rating .fsrs-badge-interval {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-family: var(--font-mono, monospace);
-  font-weight: 700;
-  opacity: 0.85;
+  font-weight: 750;
+  color: rgba(255, 255, 255, 0.95);
   line-height: 1.1;
 }
 
-/* 1. Nút Lại (Again) - Soft Rose */
+/* 1. Nút Lại (Again) - Đỏ chuẩn đậm đơn sắc */
 .btn-fsrs-rating.again {
-  background: rgba(239, 68, 68, 0.08);
-  border-color: rgba(239, 68, 68, 0.22);
-  color: #ef4444;
+  background: #ef4444;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.38);
 }
 .btn-fsrs-rating.again:hover {
-  background: rgba(239, 68, 68, 0.15);
-  border-color: rgba(239, 68, 68, 0.38);
-  color: #dc2626;
+  background: #dc2626;
+  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.48);
 }
-[data-theme="dark"] .btn-fsrs-rating.again {
-  background: rgba(239, 68, 68, 0.14);
-  border-color: rgba(239, 68, 68, 0.3);
-  color: #f87171;
-}
-[data-theme="dark"] .btn-fsrs-rating.again:hover {
-  background: rgba(239, 68, 68, 0.24);
-  border-color: rgba(239, 68, 68, 0.45);
+.btn-fsrs-rating.again:active {
+  background: #b91c1c;
 }
 
-/* 2. Nút Khó (Hard) - Soft Amber */
+/* 2. Nút Khó (Hard) - Cam / Hổ phách chuẩn đậm đơn sắc */
 .btn-fsrs-rating.hard {
-  background: rgba(245, 158, 11, 0.08);
-  border-color: rgba(245, 158, 11, 0.22);
-  color: #d97706;
+  background: #f59e0b;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.38);
 }
 .btn-fsrs-rating.hard:hover {
-  background: rgba(245, 158, 11, 0.15);
-  border-color: rgba(245, 158, 11, 0.38);
-  color: #b45309;
+  background: #d97706;
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.48);
 }
-[data-theme="dark"] .btn-fsrs-rating.hard {
-  background: rgba(245, 158, 11, 0.14);
-  border-color: rgba(245, 158, 11, 0.3);
-  color: #fbbf24;
-}
-[data-theme="dark"] .btn-fsrs-rating.hard:hover {
-  background: rgba(245, 158, 11, 0.24);
-  border-color: rgba(245, 158, 11, 0.45);
+.btn-fsrs-rating.hard:active {
+  background: #b45309;
 }
 
-/* 3. Nút Tốt (Good) - Soft Emerald */
+/* 3. Nút Tốt (Good) - Xanh lá ngọc lục bảo chuẩn đậm đơn sắc */
 .btn-fsrs-rating.good {
-  background: rgba(16, 185, 129, 0.08);
-  border-color: rgba(16, 185, 129, 0.22);
-  color: #059669;
+  background: #10b981;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.38);
 }
 .btn-fsrs-rating.good:hover {
-  background: rgba(16, 185, 129, 0.15);
-  border-color: rgba(16, 185, 129, 0.38);
-  color: #047857;
+  background: #059669;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.48);
 }
-[data-theme="dark"] .btn-fsrs-rating.good {
-  background: rgba(16, 185, 129, 0.14);
-  border-color: rgba(16, 185, 129, 0.3);
-  color: #34d399;
-}
-[data-theme="dark"] .btn-fsrs-rating.good:hover {
-  background: rgba(16, 185, 129, 0.24);
-  border-color: rgba(16, 185, 129, 0.45);
+.btn-fsrs-rating.good:active {
+  background: #047857;
 }
 
-/* 4. Nút Dễ (Easy) - Soft Sky / Blue */
+/* 4. Nút Dễ (Easy) - Xanh dương chuẩn đậm đơn sắc */
 .btn-fsrs-rating.easy {
-  background: rgba(59, 130, 246, 0.08);
-  border-color: rgba(59, 130, 246, 0.22);
-  color: #2563eb;
+  background: #3b82f6;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.38);
 }
 .btn-fsrs-rating.easy:hover {
-  background: rgba(59, 130, 246, 0.15);
-  border-color: rgba(59, 130, 246, 0.38);
-  color: #1d4ed8;
+  background: #2563eb;
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.48);
 }
-[data-theme="dark"] .btn-fsrs-rating.easy {
-  background: rgba(59, 130, 246, 0.14);
-  border-color: rgba(59, 130, 246, 0.3);
-  color: #60a5fa;
-}
-[data-theme="dark"] .btn-fsrs-rating.easy:hover {
-  background: rgba(59, 130, 246, 0.24);
-  border-color: rgba(59, 130, 246, 0.45);
+.btn-fsrs-rating.easy:active {
+  background: #1d4ed8;
 }
 
 .card-status-badge.state-relearning {
