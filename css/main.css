@@ -337,7 +337,7 @@ html, body {
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 24px;
+  padding-bottom: 0;
   position: relative;
 }
 
@@ -358,7 +358,7 @@ html, body {
 
 .tab-pane {
   display: none;
-  padding: 16px 16px 16px 16px;
+  padding: 16px 16px 24px 16px;
   animation: fadeIn 0.25s ease-out;
 }
 
@@ -371,6 +371,7 @@ html, body {
   flex-direction: column;
   flex: 1;
   min-height: 0;
+  padding: 12px 16px;
 }
 
 @media (max-width: 480px) {
