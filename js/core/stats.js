@@ -1225,33 +1225,40 @@ export class BehavioralOptimizer {
     }
     const rushedPct = validBackLogs.length > 0 ? Math.round((rushedCount / validBackLogs.length) * 100) : 0;
 
-    // 3. Tỉ lệ nhớ thực tế (Actual Retention Rate)
+    // 3. Tỉ lệ nhớ thực tế (Actual Retention Rate): Good/Easy = 100%, Hard = 70%
     const ratedReviews = logs.filter(l => l.rating >= 1 && l.rating <= 4);
-    const passReviews = logs.filter(l => l.rating === 3 || l.rating === 4); // Good + Easy
-    const actualRetention = ratedReviews.length > 0 ? (passReviews.length / ratedReviews.length) : 0.90;
+    let passScore = 0;
+    for (const l of ratedReviews) {
+      if (l.rating === 3 || l.rating === 4) passScore += 1;
+      else if (l.rating === 2) passScore += 0.7; // Hard: nhớ được nhưng khó
+    }
+    const actualRetention = ratedReviews.length > 0 ? (passScore / ratedReviews.length) : 0.90;
 
     // 4. Phân tích thói quen thời gian học thực tế (Daily Study Pace)
     const activeDates = Object.keys(studyTimeMap);
-    const activeDays = activeDates.length;
+    const activeDays = Math.max(1, activeDates.length);
     const totalStudySec = Object.values(studyTimeMap).reduce((a, b) => a + (Number(b) || 0), 0);
     const avgDailyMinutes = activeDays > 0 ? (totalStudySec / activeDays / 60) : 0;
 
     // 5. Tổng hợp phân loại phong cách học (Cognitive Style Profile)
     let speedType = 'Chuẩn mực';
     let speedDesc = 'Nhịp độ suy ngẫm cân bằng, tối ưu cho ghi nhớ sâu.';
-    if (avgLatency > 0 && avgLatency < 2.2) {
+    if (avgLatency > 0 && avgLatency < 2.5) {
       speedType = 'Phản xạ nhanh';
       speedDesc = 'Tốc độ truy xuất từ vựng tức thì, tư duy nhạy bén.';
-    } else if (avgLatency > 4.5) {
+    } else if (avgLatency >= 4.5) {
       speedType = 'Suy ngẫm kỹ';
       speedDesc = 'Cần thời gian kích hoạt ngữ cảnh trước khi lật đáp án.';
     }
 
-    let verificationType = 'Kiểm chứng kỹ';
+    let verificationType = 'Kiểm chứng chuẩn';
     let verificationDesc = 'Dành thời gian đọc kỹ ví dụ và phát âm mặt sau.';
-    if (rushedPct >= 40) {
+    if (avgBackView >= 3.5) {
+      verificationType = 'Đọc kỹ & ngẫm sâu';
+      verificationDesc = 'Dành thời gian quan sát kỹ ngữ cảnh, ví dụ và phát âm.';
+    } else if (avgBackView < 1.2 && rushedPct >= 40) {
       verificationType = 'Có xu hướng bấm vội';
-      verificationDesc = `Có ${rushedPct}% lượt bấm đánh giá dưới 0.45s. Chú ý nhìn lại phiên âm/ví dụ để tránh ảo tưởng trí nhớ.`;
+      verificationDesc = `Có ${rushedPct}% lượt bấm đánh giá dưới 0.45s. Chú ý nhìn lại phiên âm/ví dụ để củng cố trí nhớ.`;
     }
 
     // 6. Xây dựng danh sách đề xuất tối ưu hóa (Actionable Recommendations)

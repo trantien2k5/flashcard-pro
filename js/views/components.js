@@ -812,25 +812,30 @@ export function openBehavioralOptimizerModal(app) {
       </div>
 
       <div class="modal-body optimizer-body">
+        <!-- 0. Giới thiệu ngắn gọn cơ chế hoạt động -->
+        <div style="background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 12px; padding: 10px 12px; margin-bottom: 14px; font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45;">
+          💡 <strong>Cách hoạt động:</strong> Hệ thống AI phân tích thời gian bạn suy nghĩ trước khi lật thẻ và tỷ lệ quên thực tế để tự động tinh chỉnh: <em>Độ giãn chu kỳ ôn FSRS, tốc độ đọc phát âm và hạn mức từ mới/ngày</em> cho phù hợp nhất với não bộ của bạn.
+        </div>
+
         <!-- 1. Behavioral Profile Metrics -->
-        <div class="optimizer-section-label">📊 Hồ sơ Nhận thức & Thói quen học tập</div>
+        <div class="optimizer-section-label">📊 Hồ sơ Phản xạ & Trí nhớ Thực tế</div>
         <div class="optimizer-profile-grid">
           <div class="profile-stat-box">
             <div class="stat-top">
               <span class="stat-icon">⏱️</span>
               <span class="stat-num">${profile.avgLatencySec > 0 ? profile.avgLatencySec + 's' : '—'}</span>
             </div>
-            <div class="stat-title">Tốc độ phản xạ</div>
+            <div class="stat-title">Tốc độ nhớ lại</div>
             <div class="stat-desc text-muted">${profile.speedType}</div>
           </div>
 
           <div class="profile-stat-box">
             <div class="stat-top">
               <span class="stat-icon">🎯</span>
-              <span class="stat-num ${profile.actualRetentionPct >= 85 ? 'text-success' : 'text-warning'}">${profile.actualRetentionPct}%</span>
+              <span class="stat-num ${profile.actualRetentionPct >= 80 ? 'text-success' : 'text-warning'}">${profile.totalReviews > 0 ? profile.actualRetentionPct + '%' : '90%'}</span>
             </div>
-            <div class="stat-title">Tỉ lệ nhớ thực tế</div>
-            <div class="stat-desc text-muted">${profile.totalReviews} lượt ôn</div>
+            <div class="stat-title">Tỉ lệ nhớ thành công</div>
+            <div class="stat-desc text-muted">${profile.totalReviews > 0 ? `${profile.totalReviews} lượt đánh giá` : 'Đang thu thập'}</div>
           </div>
 
           <div class="profile-stat-box">
@@ -838,7 +843,7 @@ export function openBehavioralOptimizerModal(app) {
               <span class="stat-icon">👁️</span>
               <span class="stat-num">${profile.avgBackViewSec > 0 ? profile.avgBackViewSec + 's' : '0s'}</span>
             </div>
-            <div class="stat-title">Kiểm chứng đáp án</div>
+            <div class="stat-title">Thời gian xem đáp án</div>
             <div class="stat-desc text-muted">${profile.verificationType}</div>
           </div>
 
@@ -848,22 +853,22 @@ export function openBehavioralOptimizerModal(app) {
               <span class="stat-num">${profile.avgDailyMinutes > 0 ? profile.avgDailyMinutes + 'p' : '0p'}</span>
             </div>
             <div class="stat-title">Thời gian học/ngày</div>
-            <div class="stat-desc text-muted">${profile.activeDays} ngày active</div>
+            <div class="stat-desc text-muted">${profile.activeDays} ngày ghi nhận</div>
           </div>
         </div>
 
         <!-- 2. Insights & Warnings if any -->
-        ${profile.rushedRatingPct >= 40 ? `
-          <div class="optimizer-alert warning">
+        ${profile.totalReviews >= 6 && profile.rushedRatingPct >= 40 && profile.avgBackViewSec < 1.2 ? `
+          <div class="optimizer-alert warning" style="margin-top: 10px;">
             <span class="alert-icon">⚠️</span>
             <div class="alert-content">
-              <strong>Cảnh báo vội vàng (Rush Bias):</strong> Có ${profile.rushedRatingPct}% số lượt bấm đánh giá dưới 0.45s. Hãy dành 1-2s kiểm chứng phát âm & ví dụ để FSRS tính độ bền chính xác nhất.
+              <strong>Lưu ý:</strong> Bạn đang chuyển thẻ khá nhanh. Dành thêm 1-2 giây nghe phát âm và đọc ví dụ ở mặt sau sẽ giúp FSRS củng cố trí nhớ sâu hơn.
             </div>
           </div>
         ` : ''}
 
         <!-- 3. Recommendations -->
-        <div class="optimizer-section-label" style="margin-top: 18px;">✨ Đề xuất Tối ưu hóa Cá nhân hóa</div>
+        <div class="optimizer-section-label" style="margin-top: 16px;">✨ Đề xuất Cân chỉnh Thuật toán FSRS-6</div>
         ${hasOptimizations ? `
           <div class="recommendations-list">
             ${recommendations.map(rec => `
@@ -884,8 +889,11 @@ export function openBehavioralOptimizerModal(app) {
         ` : `
           <div class="optimizer-perfect-state">
             <div class="perfect-icon">🎉</div>
-            <h4>Cấu hình hiện tại đã tối ưu hóa 100%!</h4>
-            <p>Mục tiêu ghi nhớ FSRS, tốc độ giọng đọc và tải trọng học tập của bạn đang hoàn toàn đồng bộ với nhịp độ tiếp thu thực tế.</p>
+            <h4>Cấu hình hiện tại đã tối ưu hóa hoàn hảo!</h4>
+            <p>${profile.totalReviews < 8 
+              ? `Hệ thống FSRS đang theo dõi nhịp độ học của bạn (${profile.totalReviews}/8 lượt ôn). Thuật toán sẽ tiếp tục tự động học đường cong ghi nhớ khi bạn học thêm.`
+              : 'Tỷ lệ ghi nhớ mục tiêu 90%, tốc độ audio và hạn mức học tập hiện tại đang hoàn toàn đồng bộ với năng lực tiếp thu của bạn.'
+            }</p>
           </div>
         `}
       </div>
