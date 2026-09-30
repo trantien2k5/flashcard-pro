@@ -10,7 +10,7 @@ import { State, Rating, isCardDue } from '../core/fsrs.js';
 import { globalStudyTimer, StatsManager } from '../core/stats.js';
 import { escapeHTML, getLocalDateKey } from '../utils.js';
 import { speak } from '../services/audio.js';
-import { MASTERY_STABILITY_THRESHOLD } from '../config.js';
+import { MASTERY_STABILITY_THRESHOLD, LEARNING_GOALS } from '../config.js';
 
 let _cachedApp = null;
 let _isTimerListening = false;
@@ -20,9 +20,44 @@ export function renderReviewShell(container) {
   if (!container.querySelector('.review-minimal-container')) {
     container.innerHTML = `
       <div class="review-minimal-container">
-        <!-- 1. Hero Greeting Banner -->
-        <div class="review-hero-greeting">
-          <h1 class="greeting-title" id="home-greeting-title">Hôm nay sẵn sàng ôn tập!</h1>
+        <!-- 1. Thanh Mục Tiêu Học Tập Cá Nhân Hóa (Master Goal Header Bar) -->
+        <div class="home-goal-bar-card" id="home-goal-card">
+          <div class="goal-bar-header">
+            <div class="goal-badge-wrap">
+              <span class="goal-icon-badge" id="home-goal-icon">🎯</span>
+              <div class="goal-titles">
+                <span class="goal-eyebrow">MỤC TIÊU HỌC TẬP</span>
+                <h2 class="goal-main-title" id="home-goal-title">TOEIC 500 - 650+ (B1)</h2>
+              </div>
+            </div>
+            <button type="button" class="btn-edit-goal" id="btn-edit-goal" title="Tùy chỉnh mục tiêu & nhịp độ học">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+              </svg>
+              <span>Đổi mục tiêu</span>
+            </button>
+          </div>
+
+          <div class="goal-progress-section">
+            <div class="goal-progress-meta">
+              <span class="goal-progress-label">Tiến độ: <strong id="home-goal-progress-words">0 / 600 từ</strong></span>
+              <span class="goal-percent-badge" id="home-goal-percent">0%</span>
+            </div>
+            <div class="goal-progress-track">
+              <div class="goal-progress-fill" id="home-goal-progress-fill" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <div class="goal-daily-status-row">
+            <div class="goal-daily-badge">
+              <span class="goal-stat-icon">🌱</span>
+              <span>Từ mới hôm nay: <strong id="home-goal-today-new">0 / 10 từ</strong></span>
+            </div>
+            <div class="goal-eta-badge" id="home-goal-eta">
+              <span class="goal-stat-icon">🏁</span>
+              <span>Dự kiến: <strong id="home-goal-eta-text">60 ngày</strong></span>
+            </div>
+          </div>
         </div>
 
         <!-- 2. Thẻ 4 chỉ số: Từ tới hạn, Đã ôn hôm nay, Thời gian đã học, Từ đã thuộc -->
@@ -129,7 +164,14 @@ export function renderReviewTab(app) {
       });
     }
 
-    // Gán sự kiện cho Nút CTA To
+    // Nút Đổi Mục Tiêu Học Tập
+    const btnEditGoal = document.getElementById('btn-edit-goal');
+    if (btnEditGoal && !btnEditGoal._bound) {
+      btnEditGoal._bound = true;
+      btnEditGoal.onclick = () => showGoalCustomizerModal(app);
+    }
+
+    // Gán sự kiện cho Nút CTA To: Tự động nạp [Từ tới hạn] + [Đủ số lượng mục tiêu từ mới hôm nay]
     const btnFlashcard = document.getElementById('btn-home-start-flashcard');
     if (btnFlashcard && !btnFlashcard._bound) {
       btnFlashcard._bound = true;
@@ -209,29 +251,24 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
     elDue.textContent = dueCount;
   }
 
-  // Cập nhật text phụ của nút CTA
-  const elCtaSub = document.getElementById('home-cta-subtext');
-  if (elCtaSub) {
-    if (dueCount > 0) {
-      elCtaSub.textContent = `⚡ ${dueCount} từ đến hạn cần ôn ngay • FSRS-6`;
-    } else {
-      elCtaSub.textContent = `🎉 Đã hoàn thành ôn tập • Nhấn để luyện từ mới`;
+  // 2. Số thẻ đã ôn hôm nay
+  const logs = StorageManager.getStudyLogs() || [];
+  const todayKey = getLocalDateKey();
+  let todayCount = 0;
+  let todayNewCount = 0;
+  for (let i = logs.length - 1; i >= 0; i--) {
+    const log = logs[i];
+    if (!log || !log.timestamp) continue;
+    if (getLocalDateKey(log.timestamp) === todayKey) {
+      todayCount++;
+      if (log.oldState === State.New || log.oldState === 0 || (log.oldState === undefined && (log.state === State.New || log.state === 0 || log.isNew))) {
+        todayNewCount++;
+      }
     }
   }
 
-  // 2. Số thẻ đã ôn hôm nay
   const elReviewed = document.getElementById('home-reviewed-count');
   if (elReviewed) {
-    const logs = StorageManager.getStudyLogs() || [];
-    const todayKey = getLocalDateKey();
-    let todayCount = 0;
-    for (let i = logs.length - 1; i >= 0; i--) {
-      const log = logs[i];
-      if (!log || !log.timestamp) continue;
-      if (getLocalDateKey(log.timestamp) === todayKey) {
-        todayCount++;
-      }
-    }
     elReviewed.textContent = todayCount;
   }
 
@@ -248,6 +285,82 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
   const elRetention = document.getElementById('home-retention-rate');
   if (elRetention) {
     elRetention.textContent = masteredCount;
+  }
+
+  // 5. THANH MỤC TIÊU HỌC TẬP (MASTER GOAL BAR)
+  const activeGoalId = app.settings?.activeGoal?.id || 'toeic-b1';
+  const activeGoal = LEARNING_GOALS.find(g => g.id === activeGoalId) || LEARNING_GOALS[0];
+  const targetDecksSet = new Set(activeGoal.targetDecks || []);
+  const targetCefrSet = new Set((activeGoal.targetCefr || []).map(c => c.toUpperCase()));
+  const dailyNewTarget = Number(app.settings?.activeGoal?.dailyNew) || Number(app.settings?.dailyNewLimit) || 10;
+  const targetWords = Number(app.settings?.activeGoal?.targetWords) || activeGoal.defaultTargetWords || 600;
+
+  let learnedGoalCount = 0;
+  for (const card of allCards) {
+    const state = StorageManager.getCardState(card.id);
+    const isLearned = state && state.state !== State.New && state.state !== 0 && !state.suspended;
+    if (!isLearned) continue;
+
+    if (activeGoal.id === 'all-dictionary' || activeGoal.id === 'custom') {
+      learnedGoalCount++;
+    } else {
+      const cardLevel = (card.level || card.cefr || '').toUpperCase();
+      const isCefrMatch = targetCefrSet.has(cardLevel);
+      const isDeckMatch = targetDecksSet.has(card.deckId) || (Array.isArray(card.topicIds) && card.topicIds.some(tid => Array.from(targetDecksSet).some(d => tid.startsWith(d))));
+      if (isCefrMatch || isDeckMatch) {
+        learnedGoalCount++;
+      }
+    }
+  }
+
+  const goalPct = Math.min(100, Math.round((learnedGoalCount / targetWords) * 100));
+  const remainingWords = Math.max(0, targetWords - learnedGoalCount);
+  const etaDays = dailyNewTarget > 0 ? Math.ceil(remainingWords / dailyNewTarget) : 0;
+  const remainingNewToday = Math.max(0, dailyNewTarget - todayNewCount);
+
+  const elGoalIcon = document.getElementById('home-goal-icon');
+  if (elGoalIcon) elGoalIcon.textContent = activeGoal.icon || '🎯';
+
+  const elGoalTitle = document.getElementById('home-goal-title');
+  if (elGoalTitle) elGoalTitle.textContent = app.settings?.activeGoal?.customTitle || activeGoal.title;
+
+  const elGoalWords = document.getElementById('home-goal-progress-words');
+  if (elGoalWords) elGoalWords.textContent = `${learnedGoalCount} / ${targetWords} từ`;
+
+  const elGoalPct = document.getElementById('home-goal-percent');
+  if (elGoalPct) elGoalPct.textContent = `${goalPct}%`;
+
+  const elGoalFill = document.getElementById('home-goal-progress-fill');
+  if (elGoalFill) elGoalFill.style.width = `${goalPct}%`;
+
+  const elTodayNew = document.getElementById('home-goal-today-new');
+  if (elTodayNew) {
+    if (todayNewCount >= dailyNewTarget) {
+      elTodayNew.textContent = `✓ Đạt ${todayNewCount}/${dailyNewTarget} từ`;
+      elTodayNew.style.color = '#10b981';
+    } else {
+      elTodayNew.textContent = `${todayNewCount} / ${dailyNewTarget} từ`;
+      elTodayNew.style.color = '';
+    }
+  }
+
+  const elGoalEta = document.getElementById('home-goal-eta-text');
+  if (elGoalEta) {
+    elGoalEta.textContent = remainingWords === 0 ? '✓ Đã hoàn thành' : `${etaDays} ngày`;
+  }
+
+  // Cập nhật text phụ của nút CTA
+  const elCtaSub = document.getElementById('home-cta-subtext');
+  if (elCtaSub) {
+    if (dueCount > 0 && remainingNewToday > 0) {
+      elCtaSub.textContent = `⚡ ${dueCount} từ tới hạn + 🌱 ${remainingNewToday} từ mới hôm nay • FSRS-6`;
+    } else if (dueCount > 0) {
+      elCtaSub.textContent = `⚡ ${dueCount} từ đến hạn cần ôn ngay • FSRS-6`;
+    } else if (remainingNewToday > 0) {
+      elCtaSub.textContent = `🌱 Học ${remainingNewToday} từ mới hôm nay • ${activeGoal.shortTitle}`;
+    } else {
+      elCtaSub.textContent = `🎉 Đã xong chỉ tiêu hôm nay • Nhấn để luyện thêm`;
+    }
   }
 }
 
@@ -675,4 +788,191 @@ export function showMasteredTiersModal(app = _cachedApp) {
   modal.onclick = (e) => {
     if (e.target === modal) modal.classList.remove('active');
   };
+}
+
+/* ==========================================================================
+   POPUP 4: THIẾT LẬP & CÁ NHÂN HÓA MỤC TIÊU (GOAL CUSTOMIZER MODAL)
+   ========================================================================== */
+export function showGoalCustomizerModal(app = _cachedApp) {
+  if (!app) return;
+  const allCards = app.deckManager ? app.deckManager.getAllCards() : [];
+  let currentGoalId = app.settings?.activeGoal?.id || 'toeic-b1';
+  let selectedGoalId = currentGoalId;
+  let selectedDailyNew = Number(app.settings?.activeGoal?.dailyNew) || Number(app.settings?.dailyNewLimit) || 10;
+  let selectedTargetWords = Number(app.settings?.activeGoal?.targetWords) || 600;
+
+  let modal = document.getElementById('modal-quick-goal-customizer');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'modal-quick-goal-customizer';
+    modal.className = 'modal-backdrop';
+    document.body.appendChild(modal);
+  }
+
+  const renderModalContent = () => {
+    const goalObj = LEARNING_GOALS.find(g => g.id === selectedGoalId) || LEARNING_GOALS[0];
+    const targetWords = selectedGoalId === 'custom' ? selectedTargetWords : (goalObj.defaultTargetWords || 600);
+    const targetDecksSet = new Set(goalObj.targetDecks || []);
+    const targetCefrSet = new Set((goalObj.targetCefr || []).map(c => c.toUpperCase()));
+
+    let currentLearned = 0;
+    for (const card of allCards) {
+      const state = StorageManager.getCardState(card.id);
+      const isLearned = state && state.state !== State.New && state.state !== 0 && !state.suspended;
+      if (!isLearned) continue;
+
+      if (selectedGoalId === 'all-dictionary' || selectedGoalId === 'custom') {
+        currentLearned++;
+      } else {
+        const cardLevel = (card.level || card.cefr || '').toUpperCase();
+        const isCefrMatch = targetCefrSet.has(cardLevel);
+        const isDeckMatch = targetDecksSet.has(card.deckId) || (Array.isArray(card.topicIds) && card.topicIds.some(tid => Array.from(targetDecksSet).some(d => tid.startsWith(d))));
+        if (isCefrMatch || isDeckMatch) {
+          currentLearned++;
+        }
+      }
+    }
+
+    const remaining = Math.max(0, targetWords - currentLearned);
+    const etaDays = selectedDailyNew > 0 ? Math.ceil(remaining / selectedDailyNew) : 0;
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + etaDays);
+    const targetDateFormatted = targetDate.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    const estDailyMins = Math.round(selectedDailyNew * 1.2 + 5);
+
+    modal.innerHTML = `
+      <div class="modal-dialog quick-preview-dialog goal-customizer-dialog">
+        <div class="quick-modal-header">
+          <div class="quick-modal-title-wrap">
+            <div class="quick-modal-icon badge-due">🎯</div>
+            <div class="quick-modal-headings">
+              <h3 class="quick-modal-title">Cá Nhân Hóa Mục Tiêu</h3>
+              <span class="quick-modal-sub">Chọn lộ trình & nhịp độ học phù hợp với bạn</span>
+            </div>
+          </div>
+          <button class="btn-icon-close btn-quick-close" type="button" title="Đóng">✕</button>
+        </div>
+
+        <div class="quick-modal-body">
+          <!-- 1. Danh sách Lộ trình mục tiêu -->
+          <div>
+            <span class="goal-sec-label">1. Chọn Lộ trình / Chứng chỉ:</span>
+            <div class="goal-presets-list">
+              ${LEARNING_GOALS.map(g => `
+                <div class="goal-preset-item ${g.id === selectedGoalId ? 'active' : ''}" data-goal-id="${g.id}">
+                  <div class="goal-preset-left">
+                    <span class="goal-preset-icon">${g.icon}</span>
+                    <div class="goal-preset-meta">
+                      <span class="goal-preset-title">${escapeHTML(g.title)}</span>
+                      <span class="goal-preset-desc">${escapeHTML(g.desc)} (~${g.defaultTargetWords} từ)</span>
+                    </div>
+                  </div>
+                  <div class="goal-preset-check">${g.id === selectedGoalId ? '✓' : ''}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- 2. Nhịp độ từ mới mỗi ngày -->
+          <div>
+            <span class="goal-sec-label">2. Nhịp độ học mỗi ngày:</span>
+            <div class="pace-selector-group">
+              ${[5, 10, 15, 20, 30].map(p => `
+                <button type="button" class="pace-pill-btn ${p === selectedDailyNew ? 'active' : ''}" data-pace="${p}">
+                  <strong>${p}</strong>
+                  <span>từ/ngày</span>
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- 3. Bảng đo lường & Dự báo thông minh -->
+          <div>
+            <span class="goal-sec-label">3. Kế hoạch hoàn thành dự kiến:</span>
+            <div class="goal-live-calc-card">
+              <div class="goal-calc-box">
+                <span class="goal-calc-label">Vốn từ cần học</span>
+                <span class="goal-calc-val" style="color: var(--primary);">${remaining} <small style="font-size: 0.72rem; color: var(--text-secondary);">/ ${targetWords} từ</small></span>
+                <span class="goal-calc-sub">Đã có: ${currentLearned} từ</span>
+              </div>
+              <div class="goal-calc-box">
+                <span class="goal-calc-label">Thời gian về đích</span>
+                <span class="goal-calc-val" style="color: #10b981;">${etaDays} ngày</span>
+                <span class="goal-calc-sub">Dự kiến: ${targetDateFormatted}</span>
+              </div>
+              <div class="goal-calc-box">
+                <span class="goal-calc-label">Mỗi ngày ôn tập</span>
+                <span class="goal-calc-val" style="color: #f59e0b;">~${estDailyMins} phút</span>
+                <span class="goal-calc-sub">${selectedDailyNew} mới + từ tới hạn</span>
+              </div>
+              <div class="goal-calc-box">
+                <span class="goal-calc-label">Độ bền mong muốn</span>
+                <span class="goal-calc-val" style="color: #6366f1;">90% FSRS</span>
+                <span class="goal-calc-sub">Ghi nhớ dài hạn</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quick-modal-footer" style="display: flex; gap: 8px;">
+          <button type="button" class="btn-quick-action-secondary btn-quick-close" style="flex: 1;">
+            <span>Hủy</span>
+          </button>
+          <button type="button" class="btn-confirm-primary" id="btn-save-goal-settings" style="flex: 2; min-height: 42px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; cursor: pointer; background: var(--primary); color: #fff; border: none;">
+            <span>Áp Dụng Mục Tiêu</span>
+          </button>
+        </div>
+      </div>
+    `;
+
+    // Gán sự kiện chọn Lộ trình
+    const presetItems = modal.querySelectorAll('.goal-preset-item');
+    presetItems.forEach(item => {
+      item.onclick = () => {
+        selectedGoalId = item.getAttribute('data-goal-id');
+        renderModalContent();
+      };
+    });
+
+    // Gán sự kiện chọn Pace
+    const paceBtns = modal.querySelectorAll('.pace-pill-btn');
+    paceBtns.forEach(btn => {
+      btn.onclick = () => {
+        selectedDailyNew = Number(btn.getAttribute('data-pace')) || 10;
+        renderModalContent();
+      };
+    });
+
+    // Gán sự kiện Lưu
+    const btnSave = modal.querySelector('#btn-save-goal-settings');
+    if (btnSave) {
+      btnSave.onclick = () => {
+        const goalObj = LEARNING_GOALS.find(g => g.id === selectedGoalId) || LEARNING_GOALS[0];
+        if (!app.settings) app.settings = {};
+        app.settings.dailyNewLimit = selectedDailyNew;
+        app.settings.activeGoal = {
+          id: selectedGoalId,
+          dailyNew: selectedDailyNew,
+          targetWords: selectedGoalId === 'custom' ? selectedTargetWords : (goalObj.defaultTargetWords || 600),
+          customTitle: ''
+        };
+
+        StorageManager.saveSettings(app.settings);
+        modal.classList.remove('active');
+        updateHomeStatsRealtime(app);
+        if (app.deckManager) app.deckManager.invalidateStatsCache();
+        app.showToast(`🎯 Đã áp dụng mục tiêu: ${goalObj.shortTitle} (${selectedDailyNew} từ/ngày)`, 'success', 3000);
+      };
+    }
+
+    // Gán sự kiện đóng modal
+    const closeBtns = modal.querySelectorAll('.btn-quick-close');
+    closeBtns.forEach(b => b.onclick = () => modal.classList.remove('active'));
+    modal.onclick = (e) => {
+      if (e.target === modal) modal.classList.remove('active');
+    };
+  };
+
+  renderModalContent();
+  modal.classList.add('active');
 }

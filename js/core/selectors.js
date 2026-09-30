@@ -4,7 +4,7 @@
 
 import { StorageManager } from '../services/storage.js';
 import { FSRS, State, isCardDue } from './fsrs.js';
-import { MASTERY_STABILITY_THRESHOLD } from '../config.js';
+import { MASTERY_STABILITY_THRESHOLD, LEARNING_GOALS } from '../config.js';
 import { getLocalDateKey } from '../utils.js';
 import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords, WORDS_MAP } from '../../data/index.js';
 
@@ -501,8 +501,50 @@ export class DeckManager {
       return new Date(a.fsrsState.due) - new Date(b.fsrsState.due);
     });
 
-    // 2. Tính hạn mức từ mới và thẻ đến hạn
-    let maxNew = Number(settings.dailyNewLimit) || 10;
+    // 2. SẮP XẾP TỪ MỚI THEO MỤC TIÊU HỌC TẬP & ĐỘ PHỔ BIẾN ƯU TIÊN CAO NHẤT (Smart Goal Priority)
+    const activeGoalId = settings.activeGoal?.id || 'toeic-b1';
+    const activeGoal = LEARNING_GOALS.find(g => g.id === activeGoalId) || LEARNING_GOALS[0];
+    const targetDecksSet = new Set(activeGoal?.targetDecks || []);
+    const targetCefrSet = new Set((activeGoal?.targetCefr || []).map(c => c.toUpperCase()));
+
+    // Hàm chấm điểm độ ưu tiên của từ mới (Từ ưu tiên cao nhất, phổ biến nhất, liên quan mục tiêu lên đầu)
+    const scoreNewCard = (c) => {
+      let score = 0;
+      const cardLevel = (c.level || c.cefr || 'A1').toUpperCase();
+      const topicIds = Array.isArray(c.topicIds) ? c.topicIds : [];
+      const deckId = c.deckId || '';
+
+      // 1. Trùng khớp với mục tiêu học tập (Target Goal Match)
+      if (targetCefrSet.has(cardLevel)) score += 500;
+      if (targetDecksSet.has(deckId)) score += 400;
+      for (const tid of topicIds) {
+        if (targetDecksSet.has(tid) || Array.from(targetDecksSet).some(d => tid.startsWith(d))) {
+          score += 300;
+          break;
+        }
+      }
+
+      // 2. Độ phổ biến & Cấp độ nền tảng cốt lõi (Phổ biến dùng nhiều nhất)
+      if (cardLevel === 'A1') score += 120;
+      else if (cardLevel === 'A2') score += 100;
+      else if (cardLevel === 'B1') score += 80;
+      else if (cardLevel === 'B2') score += 60;
+      else if (cardLevel === 'C1') score += 40;
+      else if (cardLevel === 'C2') score += 20;
+
+      // 3. Ưu tiên từ thuộc 1000 từ cốt lõi
+      if (deckId === 'top-1000-core' || topicIds.some(t => t.startsWith('top-1000-core'))) {
+        score += 150;
+      }
+
+      return score;
+    };
+
+    newCards.sort((a, b) => scoreNewCard(b) - scoreNewCard(a));
+
+    // 3. Tính hạn mức từ mới và thẻ đến hạn hôm nay
+    const dailyGoalNew = Number(settings.activeGoal?.dailyNew) || Number(settings.dailyNewLimit) || 10;
+    let maxNew = dailyGoalNew;
     let maxReview = Number(settings.dailyReviewLimit) || 50;
     const rolloverHour = Number(settings.rolloverHour) || 0;
 
@@ -515,9 +557,9 @@ export class DeckManager {
     ).length;
 
     if (!deckId && !subtopic) {
-      maxNew = Math.max(0, maxNew - newCardsStudiedToday);
+      maxNew = Math.max(0, dailyGoalNew - newCardsStudiedToday);
     } else {
-      maxNew = Math.max(1, Number(settings.dailyNewLimit) || 10);
+      maxNew = Math.max(1, dailyGoalNew);
     }
 
     // Thẻ đến hạn: Luôn cho phép ôn tập khi có từ đến hạn (không bị chặn về 0)
@@ -526,12 +568,12 @@ export class DeckManager {
       selectedDue = dueCards.slice(0, maxReview);
     }
 
-    // Thẻ mới: Khi học chủ đề con cụ thể, nạp trọn vẹn danh sách từ mới của chủ đề con đó
+    // Thẻ mới: Lấy vừa đủ số lượng mục tiêu từ mới hôm nay rồi thôi
     let selectedNew;
     if (subtopic) {
       selectedNew = newCards;
     } else {
-      selectedNew = newCards.slice(0, mode === 'new_only' ? Math.max(1, Number(settings.dailyNewLimit) || 10) : maxNew);
+      selectedNew = newCards.slice(0, mode === 'new_only' ? Math.max(1, dailyGoalNew) : maxNew);
     }
 
     let queueCards = [];
@@ -541,39 +583,27 @@ export class DeckManager {
     } else if (mode === 'new_only') {
       // Chỉ học các thẻ MỚI CHƯA TỪNG HỌC
       queueCards = selectedNew;
-    } else if (mode === 'due_first' || mode === 'auto') {
-      // Tự động / Ưu tiên ôn tập: Nếu có từ đến hạn thì CHỈ ôn tập toàn bộ từ đến hạn (không mix từ mới)
-      // Khi đã hoàn thành hết từ đến hạn (selectedDue.length === 0) thì mới học từ mới
-      if (selectedDue.length > 0) {
-        queueCards = selectedDue;
-      } else {
-        queueCards = selectedNew;
-      }
-    } else if (mode === 'mixed' || mode === 'interleave') {
+    } else if (mode === 'due_first' || mode === 'auto' || mode === 'mixed') {
+      // BẮT ĐẦU ÔN FLASHCARD: Mix trọn vẹn [Tất cả từ đến hạn cần ôn] + [Đủ số lượng mục tiêu từ mới hôm nay]
+      queueCards = [...selectedDue, ...selectedNew];
+    } else if (mode === 'interleave') {
       // KỸ THUẬT ĐAN XEN NHẬN THỨC (Cognitive Interleaving: 2 ôn -> 1 mới -> 2 ôn -> 1 mới)
       const interleaved = [];
       let dIdx = 0;
       let nIdx = 0;
       while (dIdx < selectedDue.length || nIdx < selectedNew.length) {
-        // Lấy 2 thẻ ôn
         if (dIdx < selectedDue.length) interleaved.push(selectedDue[dIdx++]);
         if (dIdx < selectedDue.length) interleaved.push(selectedDue[dIdx++]);
-        // Lấy 1 thẻ mới
         if (nIdx < selectedNew.length) interleaved.push(selectedNew[nIdx++]);
       }
       queueCards = interleaved;
     } else {
-      // Mặc định: Ưu tiên ôn tập nếu có từ đến hạn
-      if (selectedDue.length > 0) {
-        queueCards = selectedDue;
-      } else {
-        queueCards = selectedNew;
-      }
+      queueCards = [...selectedDue, ...selectedNew];
     }
 
     // 4. BẢO VỆ CHỐNG QUÁ TẢI NHẬN THỨC (Adaptive Backlog Protection)
-    // Nếu có >= 25 từ đến hạn dồn ứ, chỉ tập trung dọn sạch hàng đợi đến hạn
-    const isBacklogProtected = dueCards.length >= 25;
+    // Nếu có >= 35 từ đến hạn dồn ứ, ưu tiên dọn sạch hàng đợi đến hạn
+    const isBacklogProtected = dueCards.length >= 35;
     if (isBacklogProtected && (mode === 'auto' || mode === 'due_first')) {
       queueCards = selectedDue;
     }
