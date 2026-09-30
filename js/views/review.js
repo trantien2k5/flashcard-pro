@@ -6,9 +6,10 @@
  */
 
 import { StorageManager } from '../services/storage.js';
-import { State, isCardDue } from '../core/fsrs.js';
+import { State, Rating, isCardDue } from '../core/fsrs.js';
 import { globalStudyTimer, StatsManager } from '../core/stats.js';
-import { escapeHTML } from '../utils.js';
+import { escapeHTML, getLocalDateKey } from '../utils.js';
+import { speak } from '../services/audio.js';
 
 let _cachedApp = null;
 let _isTimerListening = false;
@@ -23,28 +24,43 @@ export function renderReviewShell(container) {
           <h1 class="greeting-title" id="home-greeting-title">Hôm nay sẵn sàng ôn tập!</h1>
         </div>
 
-        <!-- 2. Thẻ 3 chỉ số: Từ tới hạn, Thời gian đã học, Từ đã thuộc -->
+        <!-- 2. Thẻ 4 chỉ số: Từ tới hạn, Đã ôn hôm nay, Thời gian đã học, Từ đã thuộc -->
         <div class="home-metrics-card inset-grouped-card">
           <!-- Cột 1: Từ tới hạn -->
           <div class="home-metric-item" id="metric-card-due" role="button" tabindex="0" title="Nhấn để xem danh sách từ tới hạn">
             <div class="metric-icon-badge badge-due">⚡</div>
             <div class="metric-info">
-              <span class="metric-label">TỪ TỚI HẠN</span>
+              <span class="metric-label">TỚI HẠN</span>
               <div class="metric-val-row">
                 <strong class="metric-val" id="home-due-count">0</strong>
                 <span class="metric-unit">từ</span>
               </div>
             </div>
-            <span class="metric-tap-hint">Xem danh sách ❯</span>
+            <span class="metric-tap-hint">Danh sách ❯</span>
           </div>
 
           <div class="metric-divider"></div>
 
-          <!-- Cột 2: Thời gian đã học -->
+          <!-- Cột 2: Đã ôn hôm nay -->
+          <div class="home-metric-item" id="metric-card-reviewed" role="button" tabindex="0" title="Nhấn để xem các thẻ đã ôn hôm nay">
+            <div class="metric-icon-badge badge-reviewed">✅</div>
+            <div class="metric-info">
+              <span class="metric-label">ĐÃ ÔN H.NAY</span>
+              <div class="metric-val-row">
+                <strong class="metric-val" id="home-reviewed-count">0</strong>
+                <span class="metric-unit">thẻ</span>
+              </div>
+            </div>
+            <span class="metric-tap-hint">Chi tiết ❯</span>
+          </div>
+
+          <div class="metric-divider"></div>
+
+          <!-- Cột 3: Thời gian đã học -->
           <div class="home-metric-item" id="metric-card-time" role="button" tabindex="0" title="Nhấn để xem tổng quan thời gian học">
             <div class="metric-icon-badge badge-time">⏱️</div>
             <div class="metric-info">
-              <span class="metric-label">THỜI GIAN ĐÃ HỌC</span>
+              <span class="metric-label">THỜI GIAN</span>
               <div class="metric-val-row">
                 <strong class="metric-val" id="home-study-timer">0</strong>
                 <span class="metric-unit">phút</span>
@@ -55,11 +71,11 @@ export function renderReviewShell(container) {
 
           <div class="metric-divider"></div>
 
-          <!-- Cột 3: Từ đã thuộc -->
+          <!-- Cột 4: Từ đã thuộc -->
           <div class="home-metric-item" id="metric-card-mastered" role="button" tabindex="0" title="Nhấn để xem 5 cấp độ trí nhớ FSRS">
             <div class="metric-icon-badge badge-mastered">💎</div>
             <div class="metric-info">
-              <span class="metric-label">TỪ ĐÃ THUỘC</span>
+              <span class="metric-label">ĐÃ THUỘC</span>
               <div class="metric-val-row">
                 <strong class="metric-val" id="home-retention-rate">0</strong>
                 <span class="metric-unit">từ</span>
@@ -121,12 +137,19 @@ export function renderReviewTab(app) {
       };
     }
 
-    // Gán sự kiện bấm vào 3 thẻ chỉ số để mở Popup xem nhanh
+    // Gán sự kiện bấm vào 4 thẻ chỉ số để mở Popup xem nhanh
     const cardDue = document.getElementById('metric-card-due');
     if (cardDue && !cardDue._bound) {
       cardDue._bound = true;
       cardDue.onclick = () => showDueWordsModal(app);
       cardDue.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showDueWordsModal(app); } };
+    }
+
+    const cardReviewed = document.getElementById('metric-card-reviewed');
+    if (cardReviewed && !cardReviewed._bound) {
+      cardReviewed._bound = true;
+      cardReviewed.onclick = () => showReviewedTodayModal(app);
+      cardReviewed.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showReviewedTodayModal(app); } };
     }
 
     const cardTime = document.getElementById('metric-card-time');
@@ -194,7 +217,23 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
     }
   }
 
-  // 2. Thời gian đã học
+  // 2. Số thẻ đã ôn hôm nay
+  const elReviewed = document.getElementById('home-reviewed-count');
+  if (elReviewed) {
+    const logs = StorageManager.getStudyLogs() || [];
+    const todayKey = getLocalDateKey();
+    let todayCount = 0;
+    for (let i = logs.length - 1; i >= 0; i--) {
+      const log = logs[i];
+      if (!log || !log.timestamp) continue;
+      if (getLocalDateKey(log.timestamp) === todayKey) {
+        todayCount++;
+      }
+    }
+    elReviewed.textContent = todayCount;
+  }
+
+  // 3. Thời gian đã học
   const elTimer = document.getElementById('home-study-timer');
   if (elTimer) {
     const todaySecs = StorageManager.getTodayStudySeconds();
@@ -203,7 +242,7 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
     elTimer.textContent = mins;
   }
 
-  // 3. Từ đã thuộc
+  // 4. Từ đã thuộc
   const elRetention = document.getElementById('home-retention-rate');
   if (elRetention) {
     elRetention.textContent = masteredCount;
@@ -301,6 +340,117 @@ export function showDueWordsModal(app = _cachedApp) {
       app.startStudySession(null, null, null, { mode: 'due_only' });
     };
   }
+}
+
+/* ==========================================================================
+   POPUP: DANH SÁCH THẺ ĐÃ ÔN HÔM NAY (REVIEWED TODAY MODAL)
+   ========================================================================== */
+export function showReviewedTodayModal(app = _cachedApp) {
+  if (!app || !app.deckManager) return;
+  const logs = StorageManager.getStudyLogs() || [];
+  const todayKey = getLocalDateKey();
+  const allCardsMap = new Map();
+  app.deckManager.getAllCards().forEach(c => allCardsMap.set(c.id, c));
+
+  const todayLogs = [];
+  const ratingCounts = { [Rating.Easy]: 0, [Rating.Good]: 0, [Rating.Hard]: 0, [Rating.Again]: 0 };
+
+  for (let i = logs.length - 1; i >= 0; i--) {
+    const log = logs[i];
+    if (!log || !log.timestamp) continue;
+    if (getLocalDateKey(log.timestamp) === todayKey) {
+      todayLogs.push(log);
+      if (ratingCounts[log.rating] !== undefined) {
+        ratingCounts[log.rating]++;
+      }
+    }
+  }
+
+  let modal = document.getElementById('modal-quick-reviewed-today');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'modal-quick-reviewed-today';
+    modal.className = 'modal-backdrop';
+    document.body.appendChild(modal);
+  }
+
+  const ratingLabelMap = {
+    [Rating.Easy]: { text: 'DỄ', icon: '⚡', color: '#10b981' },
+    [Rating.Good]: { text: 'TỐT', icon: '✨', color: '#6366f1' },
+    [Rating.Hard]: { text: 'KHÓ', icon: '⏳', color: '#f59e0b' },
+    [Rating.Again]: { text: 'QUÊN', icon: '❌', color: '#ef4444' }
+  };
+
+  const wordListHTML = todayLogs.length > 0
+    ? todayLogs.map(log => {
+        const card = allCardsMap.get(log.cardId) || { word: log.word || log.cardId, phonetic: '', pos: 'word', meaning: '' };
+        const ratingInfo = ratingLabelMap[log.rating] || { text: 'ÔN', icon: '📝', color: '#6366f1' };
+        const timeStr = new Date(log.timestamp).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+
+        return `
+          <div class="due-word-row reviewed-word-row">
+            <div class="due-word-left">
+              <span class="due-word-text">${escapeHTML(card.word)}</span>
+              ${card.phonetic ? `<span class="due-word-ipa">${escapeHTML(card.phonetic)}</span>` : ''}
+              ${card.meaning ? `<span class="reviewed-word-meaning">${escapeHTML(card.meaning)}</span>` : ''}
+            </div>
+            <div class="due-word-right" style="display: flex; align-items: center; gap: 8px;">
+              <span class="reviewed-rating-tag" style="background: ${ratingInfo.color}18; color: ${ratingInfo.color}; border: 1px solid ${ratingInfo.color}40; padding: 2px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 700;">
+                ${ratingInfo.icon} ${ratingInfo.text}
+              </span>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">${timeStr}</span>
+            </div>
+          </div>
+        `;
+      }).join('')
+    : `
+      <div class="quick-modal-empty">
+        <span class="empty-emoji">📝</span>
+        <h4 class="empty-title">Chưa có lượt ôn nào hôm nay</h4>
+        <p class="empty-desc">Nhấn "Bắt đầu ôn Flashcard" để củng cố từ vựng và ghi nhận thành tích ngay nhé!</p>
+      </div>
+    `;
+
+  modal.innerHTML = `
+    <div class="modal-dialog quick-preview-dialog">
+      <div class="quick-modal-header">
+        <div class="quick-modal-title-wrap">
+          <div class="quick-modal-icon badge-reviewed">✅</div>
+          <div class="quick-modal-headings">
+            <h3 class="quick-modal-title">Thẻ Đã Ôn Hôm Nay</h3>
+            <span class="quick-modal-sub">${todayLogs.length} lượt ôn tập đã hoàn thành</span>
+          </div>
+        </div>
+        <button class="btn-icon-close btn-quick-close" type="button" title="Đóng">✕</button>
+      </div>
+      <div class="quick-modal-body">
+        ${todayLogs.length > 0 ? `
+          <div style="display: flex; gap: 6px; margin-bottom: 12px; justify-content: space-between;">
+            <span style="flex: 1; text-align: center; background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 6px; border-radius: 8px; font-size: 0.78rem; font-weight: 700;">⚡ Dễ: ${ratingCounts[Rating.Easy]}</span>
+            <span style="flex: 1; text-align: center; background: rgba(99, 102, 241, 0.1); color: #6366f1; padding: 6px; border-radius: 8px; font-size: 0.78rem; font-weight: 700;">✨ Tốt: ${ratingCounts[Rating.Good]}</span>
+            <span style="flex: 1; text-align: center; background: rgba(245, 158, 11, 0.1); color: #f59e0b; padding: 6px; border-radius: 8px; font-size: 0.78rem; font-weight: 700;">⏳ Khó: ${ratingCounts[Rating.Hard]}</span>
+            <span style="flex: 1; text-align: center; background: rgba(239, 68, 68, 0.1); color: #ef4444; padding: 6px; border-radius: 8px; font-size: 0.78rem; font-weight: 700;">❌ Quên: ${ratingCounts[Rating.Again]}</span>
+          </div>
+        ` : ''}
+        <div class="due-word-list">
+          ${wordListHTML}
+        </div>
+      </div>
+      <div class="quick-modal-footer">
+        <button type="button" class="btn-quick-action-secondary btn-quick-close" style="width: 100%;">
+          <span>Đóng</span>
+        </button>
+      </div>
+    </div>
+  `;
+
+  modal.classList.add('active');
+
+  const closeBtns = modal.querySelectorAll('.btn-quick-close');
+  closeBtns.forEach(b => b.onclick = () => modal.classList.remove('active'));
+  modal.onclick = (e) => {
+    if (e.target === modal) modal.classList.remove('active');
+  };
 }
 
 /* ==========================================================================
