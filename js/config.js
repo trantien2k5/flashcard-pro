@@ -5,7 +5,7 @@
 
 export const APP_CONFIG = {
   name: 'Flashcard English Pro',
-  version: '2.12.0',
+  version: '2.13.0',
   storagePrefix: 'fc_pro_',
   dbName: 'FlashcardProDB',
   dbVersion: 1
@@ -20,7 +20,7 @@ export const STORAGE_KEYS = {
   SYNC_HISTORY: 'fc_pro_sync_history'
 };
 
-export const MASTERY_STABILITY_THRESHOLD = 21; // Ngưỡng thành thạo thống nhất toàn hệ thống (≥ 21 ngày)
+export const MASTERY_STABILITY_THRESHOLD = 30; // Ngưỡng đã thuộc / ghi nhớ sâu thống nhất toàn hệ thống (Mức 5: ≥ 30 ngày)
 
 export const DEFAULT_SETTINGS = {
   requestRetention: 0.90, // 90% target retention

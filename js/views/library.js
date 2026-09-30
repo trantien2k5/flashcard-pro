@@ -7,6 +7,7 @@ import { StorageManager } from '../services/storage.js';
 import { State, isCardDue } from '../core/fsrs.js';
 import { escapeHTML, scrollToTop } from '../utils.js';
 import { speak, onAudioPlayStateChange } from '../services/audio.js';
+import { MASTERY_STABILITY_THRESHOLD } from '../config.js';
 
 // Trạng thái bộ lọc và tìm kiếm cục bộ của Thư viện (bảo toàn khi chuyển tab)
 let _libState = {
@@ -116,10 +117,10 @@ function formatFSRSDueText(state, now = new Date()) {
     dueFullText = dueDateFormatted;
   }
 
-  if (s >= 21) {
+  if (s >= MASTERY_STABILITY_THRESHOLD) {
     return {
       statusClass: 'status-mastered',
-      statusLabel: 'Thuần thục',
+      statusLabel: 'Thuần thục (Mức 5)',
       statusIcon: '🏆',
       shortDueText,
       tierLabel,
@@ -436,8 +437,8 @@ function getFilteredAndSortedCards(app) {
 
       if (statusFilter === 'due') return isDue;
       if (statusFilter === 'new') return isNew;
-      if (statusFilter === 'learning') return !isNew && s < 21;
-      if (statusFilter === 'mastered') return !isNew && s >= 21;
+      if (statusFilter === 'learning') return !isNew && s < MASTERY_STABILITY_THRESHOLD;
+      if (statusFilter === 'mastered') return !isNew && s >= MASTERY_STABILITY_THRESHOLD;
       return true;
     });
   }

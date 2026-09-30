@@ -787,13 +787,13 @@ export class StatsManager {
             item.goodReviews += 0.5;
           }
 
-          // Tầng 4 & 5 FSRS: Độ bền stability >= 14 ngày (Từ đã thuộc)
+          // Mức 5 FSRS: Độ bền stability >= 30 ngày (Ghi nhớ sâu / Đã thuộc)
           const stab = Number(log.stability) || Number(log.scheduledDays) || 0;
-          if (stab >= 14 || (log.newState === State.Review && stab >= 14)) {
+          if (stab >= MASTERY_STABILITY_THRESHOLD || (log.newState === State.Review && stab >= MASTERY_STABILITY_THRESHOLD)) {
             item.masteredWords.add(cardId);
           } else if (log.rating === Rating.Good || log.rating === Rating.Easy) {
             const curState = cardStates[cardId];
-            if (curState && Number(curState.stability) >= 14) {
+            if (curState && Number(curState.stability) >= MASTERY_STABILITY_THRESHOLD) {
               item.masteredWords.add(cardId);
             }
           }

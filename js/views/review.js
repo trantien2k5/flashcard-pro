@@ -10,6 +10,7 @@ import { State, Rating, isCardDue } from '../core/fsrs.js';
 import { globalStudyTimer, StatsManager } from '../core/stats.js';
 import { escapeHTML, getLocalDateKey } from '../utils.js';
 import { speak } from '../services/audio.js';
+import { MASTERY_STABILITY_THRESHOLD } from '../config.js';
 
 let _cachedApp = null;
 let _isTimerListening = false;
@@ -195,7 +196,8 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
         dueCount++;
       }
       const s = Number(state.stability) || 0;
-      if (s >= 14 && !isDue) {
+      // Khớp chính xác Mức 5: Ghi nhớ sâu (Độ bền S >= 30 ngày)
+      if (s >= MASTERY_STABILITY_THRESHOLD) {
         masteredCount++;
       }
     }

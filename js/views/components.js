@@ -8,6 +8,7 @@ import { State } from '../core/fsrs.js';
 import { escapeHTML, highlightKeyword } from '../utils.js';
 import { speak } from '../services/audio.js';
 import { BehavioralOptimizer, StatsManager } from '../core/stats.js';
+import { MASTERY_STABILITY_THRESHOLD } from '../config.js';
 
 /* ==========================================================================
    0. MODALS DYNAMIC MOUNTING (APP SHELL ARCHITECTURE)
@@ -662,7 +663,7 @@ export function setupSearch(app) {
         if (isMatch) {
           const state = cardStates[card.id];
           const isLearned = state && state.state !== State.New && state.state !== 0;
-          const isMastered = isLearned && state.stability >= 21;
+          const isMastered = isLearned && state.stability >= MASTERY_STABILITY_THRESHOLD;
 
           if (currentFilter === 'pos:noun' && pos !== 'noun') continue;
           if (currentFilter === 'pos:verb' && pos !== 'verb') continue;
@@ -954,7 +955,7 @@ export function openGoalPlannerModal(app, onSaveCallback = null) {
     if (state && state.state !== State.New && state.state !== 0 && !state.suspended) {
       learnedCount++;
       const s = Number(state.stability) || 0;
-      if (s >= 14) masteredCount++;
+      if (s >= MASTERY_STABILITY_THRESHOLD) masteredCount++;
     }
   }
 
