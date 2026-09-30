@@ -38,15 +38,14 @@ export function renderStatsTabShell(container) {
               </svg>
             </div>
             <div class="stats-hero-text">
-              <h2 class="stats-hero-title">Năng Lực & Phân Tích Trí Nhớ</h2>
+              <h2 class="stats-hero-title">Thống Kê & Năng Lực Trí Nhớ</h2>
+              <span class="stats-hero-subtitle">Phân tích khoa học chu kỳ lặp lại FSRS-6</span>
             </div>
           </div>
           <div class="stats-hero-badges">
             <button type="button" class="btn-open-calendar-modal" id="btn-open-optimizer-from-stats" title="Tối ưu hóa FSRS theo hành vi" style="cursor: pointer; background: var(--primary-light, rgba(99, 102, 241, 0.12)); border: 1px solid var(--border-focus, #6366f1); color: var(--primary, #6366f1); font-weight: 600;">
               <span>🧠 Tối ưu hóa FSRS</span>
             </button>
-            <span class="stats-pill-badge stats-rank-pill" id="stats-hero-rank">🌱 Khởi Động</span>
-            <span class="stats-pill-badge stats-score-pill" id="stats-hero-score">⚡ 0/1000</span>
           </div>
         </div>
 
@@ -63,7 +62,6 @@ export function renderStatsTabShell(container) {
                     </svg>
                     NĂNG LỰC TRÍ NHỚ THẬT
                   </span>
-                  <span class="stats-accuracy-pill" id="stats-header-accuracy">🧠 Khả năng nhớ: 0%</span>
                 </div>
               </div>
 
@@ -86,22 +84,22 @@ export function renderStatsTabShell(container) {
                   <div class="pnl-box-val" id="cog-stat-stability">0<span class="pnl-unit">ngày</span></div>
                 </div>
 
-                <!-- Box 3: Từ nhớ sâu -->
-                <div class="pnl-stat-box cog-stat-deep">
+                <!-- Box 3: Tổng thời gian học -->
+                <div class="pnl-stat-box cog-stat-time">
                   <div class="pnl-box-header">
-                    <span class="pnl-box-icon">💎</span>
-                    <span class="pnl-box-label">NHỚ SÂU VĨNH VIỄN</span>
+                    <span class="pnl-box-icon">⏱️</span>
+                    <span class="pnl-box-label">TỔNG THỜI GIAN HỌC</span>
                   </div>
-                  <div class="pnl-box-val" id="cog-stat-deep">+0<span class="pnl-unit">từ</span></div>
+                  <div class="pnl-box-val" id="cog-stat-total-time">0<span class="pnl-unit">phút</span></div>
                 </div>
 
-                <!-- Box 4: Phản xạ nhanh -->
-                <div class="pnl-stat-box cog-stat-reflex">
+                <!-- Box 4: Tỉ lệ phục hồi sau khi quên -->
+                <div class="pnl-stat-box cog-stat-recovery">
                   <div class="pnl-box-header">
-                    <span class="pnl-box-icon">⚡</span>
-                    <span class="pnl-box-label">PHẢN XẠ NHANH</span>
+                    <span class="pnl-box-icon">🛡️</span>
+                    <span class="pnl-box-label">TỈ LỆ PHỤC HỒI</span>
                   </div>
-                  <div class="pnl-box-val" id="cog-stat-accuracy">0%</div>
+                  <div class="pnl-box-val" id="cog-stat-recovery">100%</div>
                 </div>
               </div>
             </div>
@@ -129,7 +127,29 @@ export function renderStatsTabShell(container) {
               <div class="forecast-capsules-grid" id="stats-review-forecast"></div>
             </div>
 
-            <!-- 4. KHỐI 3: LỊCH HỌC TẬP THEO NGÀY (Heatmap Ô Vuông & Matrix Năm) -->
+            <!-- 4. KHỐI 3: BỆNH ÁN TỪ VỰNG HAY QUÊN (WEAK WORDS CLINIC) -->
+            <div class="stats-section-group" id="stats-weak-words-group">
+              <div class="stats-section-header">
+                <div class="stats-section-top-row">
+                  <span class="stats-section-title">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <path d="m19 14-7 7-7-7"/>
+                      <path d="M12 3v18"/>
+                    </svg>
+                    TỪ VỰNG CẦN CHÚ Ý (HAY QUÊN)
+                  </span>
+                  <span class="bento-badge-forecast" id="stats-weak-words-count" style="background: rgba(239, 68, 68, 0.12); color: #ef4444; border-color: rgba(239, 68, 68, 0.28);">0 từ</span>
+                </div>
+              </div>
+
+              <div class="weak-words-list" id="stats-weak-words-list">
+                <div class="weak-words-empty">
+                  <span>🎉 Tuyệt vời! Bạn không có từ vựng nào bị quên dồn ứ.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. KHỐI 4: LỊCH HỌC TẬP THEO NGÀY (Heatmap Ô Vuông) -->
             <div class="stats-section-group" id="journal-main-container">
               <div class="stats-section-header">
                 <div class="stats-section-top-row">
@@ -141,10 +161,6 @@ export function renderStatsTabShell(container) {
                   </span>
                   
                   <div class="section-header-actions">
-                    <div class="journal-view-toggle">
-                      <button type="button" class="btn-toggle-mode active" data-mode="month" id="btn-mode-month">Tháng</button>
-                      <button type="button" class="btn-toggle-mode" data-mode="year" id="btn-mode-year">Năm</button>
-                    </div>
                     <div class="journal-legend">
                       <span>Ít</span>
                       <span class="legend-cell heat-0"></span>
@@ -195,14 +211,9 @@ export function renderStatsTabShell(container) {
                   <span id="journal-cal-summary-text">Tháng này: <strong>+0</strong> từ • <strong>0</strong> ngày học</span>
                 </div>
               </div>
-
-              <!-- Year Matrix Grid (Hidden in Month Mode) -->
-              <div class="bento-card" id="journal-year-section" style="display: none;">
-                <div class="year-matrix-grid" id="journal-year-grid"></div>
-              </div>
             </div>
 
-            <!-- 5. KHỐI 4: THÁP 5 TẦNG TRÍ NHỚ FSRS-6 (MEMORY STABILITY PYRAMID) -->
+            <!-- 6. KHỐI 5: THÁP 5 TẦNG TRÍ NHỚ FSRS-6 (MEMORY STABILITY PYRAMID) -->
             <div class="stats-section-group">
               <div class="stats-section-header">
                 <div class="stats-section-top-row">
@@ -233,7 +244,7 @@ export function renderStatsTabShell(container) {
                     <div class="tier-left">
                       <span class="tier-icon">💎</span>
                       <div class="tier-meta">
-                        <strong class="tier-name">Tầng 5: Nhớ sâu vĩnh viễn</strong>
+                        <strong class="tier-name">Tầng 5: Nhớ sâu vĩnh viễn (≥ 30 ngày)</strong>
                       </div>
                     </div>
                     <div class="tier-right">
@@ -247,7 +258,7 @@ export function renderStatsTabShell(container) {
                     <div class="tier-left">
                       <span class="tier-icon">🛡️</span>
                       <div class="tier-meta">
-                        <strong class="tier-name">Tầng 4: Ghi nhớ bền vững</strong>
+                        <strong class="tier-name">Tầng 4: Ghi nhớ bền vững (14 - 30 ngày)</strong>
                       </div>
                     </div>
                     <div class="tier-right">
@@ -261,7 +272,7 @@ export function renderStatsTabShell(container) {
                     <div class="tier-left">
                       <span class="tier-icon">🌳</span>
                       <div class="tier-meta">
-                        <strong class="tier-name">Tầng 3: Ghi nhớ trung hạn</strong>
+                        <strong class="tier-name">Tầng 3: Ghi nhớ trung hạn (7 - 14 ngày)</strong>
                       </div>
                     </div>
                     <div class="tier-right">
@@ -275,7 +286,7 @@ export function renderStatsTabShell(container) {
                     <div class="tier-left">
                       <span class="tier-icon">🌿</span>
                       <div class="tier-meta">
-                        <strong class="tier-name">Tầng 2: Trí nhớ ngắn hạn</strong>
+                        <strong class="tier-name">Tầng 2: Trí nhớ ngắn hạn (3 - 7 ngày)</strong>
                       </div>
                     </div>
                     <div class="tier-right">
@@ -289,7 +300,7 @@ export function renderStatsTabShell(container) {
                     <div class="tier-left">
                       <span class="tier-icon">🌱</span>
                       <div class="tier-meta">
-                        <strong class="tier-name">Tầng 1: Mới nạp vào não</strong>
+                        <strong class="tier-name">Tầng 1: Mới nạp vào não (< 3 ngày)</strong>
                       </div>
                     </div>
                     <div class="tier-right">
@@ -301,7 +312,7 @@ export function renderStatsTabShell(container) {
               </div>
             </div>
 
-            <!-- 6. KHỐI 5: PHÂN TÍCH PHẢN XẠ & TỈ LỆ PHỤC HỒI (RECALL REFLEX QUALITY) -->
+            <!-- 7. KHỐI 6: PHÂN BỐ PHẢN XẠ ĐÁNH GIÁ (RECALL REFLEX BREAKDOWN) -->
             <div class="stats-section-group">
               <div class="stats-section-header">
                 <div class="stats-section-top-row">
@@ -309,7 +320,7 @@ export function renderStatsTabShell(container) {
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                       <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
                     </svg>
-                    CHẤT LƯỢNG PHẢN XẠ & PHỤC HỒI
+                    PHÂN BỐ ĐÁNH GIÁ PHẢN XẠ
                   </span>
                   <span class="bento-badge-forecast" id="stats-total-reviews-badge">0 lượt ôn</span>
                 </div>
@@ -353,16 +364,6 @@ export function renderStatsTabShell(container) {
                     <span class="reflex-pill-pct" id="reflex-pct-again">0%</span>
                   </div>
                 </div>
-
-                <div class="recovery-strip">
-                  <div class="recovery-left">
-                    <span class="recovery-icon">🛡️</span>
-                    <div class="recovery-text">
-                      <strong>Tỉ lệ phục hồi sau khi quên:</strong>
-                    </div>
-                  </div>
-                  <span class="recovery-badge" id="reflex-recovery-val">100%</span>
-                </div>
               </div>
             </div>
           </div>
@@ -381,19 +382,13 @@ function setupJournalEvents(container) {
   const btnPrev = container.querySelector('#btn-journal-prev');
   const btnNext = container.querySelector('#btn-journal-next');
   const btnToday = container.querySelector('#btn-journal-today');
-  const btnMonth = container.querySelector('#btn-mode-month');
-  const btnYear = container.querySelector('#btn-mode-year');
 
   if (btnPrev) {
     btnPrev.onclick = () => {
       hideDayPopover();
-      if (_viewMode === 'month') {
-        _currentMonth--;
-        if (_currentMonth < 1) {
-          _currentMonth = 12;
-          _currentYear--;
-        }
-      } else {
+      _currentMonth--;
+      if (_currentMonth < 1) {
+        _currentMonth = 12;
         _currentYear--;
       }
       if (_cachedApp) renderStatsTab(_cachedApp);
@@ -403,13 +398,9 @@ function setupJournalEvents(container) {
   if (btnNext) {
     btnNext.onclick = () => {
       hideDayPopover();
-      if (_viewMode === 'month') {
-        _currentMonth++;
-        if (_currentMonth > 12) {
-          _currentMonth = 1;
-          _currentYear++;
-        }
-      } else {
+      _currentMonth++;
+      if (_currentMonth > 12) {
+        _currentMonth = 1;
         _currentYear++;
       }
       if (_cachedApp) renderStatsTab(_cachedApp);
@@ -422,32 +413,6 @@ function setupJournalEvents(container) {
       const now = new Date();
       _currentYear = now.getFullYear();
       _currentMonth = now.getMonth() + 1;
-      if (_cachedApp) renderStatsTab(_cachedApp);
-    };
-  }
-
-  if (btnMonth && btnYear) {
-    btnMonth.onclick = () => {
-      hideDayPopover();
-      _viewMode = 'month';
-      btnMonth.classList.add('active');
-      btnYear.classList.remove('active');
-      const secMonth = container.querySelector('#journal-month-section');
-      const secYear = container.querySelector('#journal-year-section');
-      if (secMonth) secMonth.style.display = 'flex';
-      if (secYear) secYear.style.display = 'none';
-      if (_cachedApp) renderStatsTab(_cachedApp);
-    };
-
-    btnYear.onclick = () => {
-      hideDayPopover();
-      _viewMode = 'year';
-      btnYear.classList.add('active');
-      btnMonth.classList.remove('active');
-      const secMonth = container.querySelector('#journal-month-section');
-      const secYear = container.querySelector('#journal-year-section');
-      if (secMonth) secMonth.style.display = 'none';
-      if (secYear) secYear.style.display = 'flex';
       if (_cachedApp) renderStatsTab(_cachedApp);
     };
   }
@@ -540,24 +505,6 @@ export function renderStatsTab(app) {
     // 1. Phân Tích Năng Lực Trí Nhớ Thật & Tháp FSRS-6
     const memoryIntel = StatsManager.getMemoryIntelligence(WORDS);
 
-    // Header Badges
-    const heroRank = container.querySelector('#stats-hero-rank');
-    const heroScore = container.querySelector('#stats-hero-score');
-    const headerAccuracy = container.querySelector('#stats-header-accuracy');
-
-    if (heroRank) {
-      heroRank.textContent = memoryIntel.rank.title;
-      heroRank.style.color = memoryIntel.rank.color;
-      heroRank.style.background = `${memoryIntel.rank.color}1a`;
-      heroRank.style.borderColor = `${memoryIntel.rank.color}40`;
-    }
-    if (heroScore) {
-      heroScore.textContent = `⚡ Điểm: ${memoryIntel.score}/1000`;
-    }
-    if (headerAccuracy) {
-      headerAccuracy.textContent = `🧠 Khả năng nhớ: ${memoryIntel.currentRetrievability}%`;
-    }
-
     const btnOpenOpt = container.querySelector('#btn-open-optimizer-from-stats');
     if (btnOpenOpt) {
       btnOpenOpt.onclick = () => {
@@ -572,8 +519,8 @@ export function renderStatsTab(app) {
     // 4 Khối Chỉ Số Trí Nhớ Thật
     const elRetrievability = container.querySelector('#cog-stat-retrievability');
     const elStability = container.querySelector('#cog-stat-stability');
-    const elDeep = container.querySelector('#cog-stat-deep');
-    const elAccuracy = container.querySelector('#cog-stat-accuracy');
+    const elTotalTime = container.querySelector('#cog-stat-total-time');
+    const elRecovery = container.querySelector('#cog-stat-recovery');
 
     if (elRetrievability) {
       elRetrievability.textContent = `${memoryIntel.currentRetrievability}%`;
@@ -581,11 +528,20 @@ export function renderStatsTab(app) {
     if (elStability) {
       elStability.innerHTML = `${memoryIntel.avgStability}<span class="pnl-unit">ngày</span>`;
     }
-    if (elDeep) {
-      elDeep.innerHTML = `+${memoryIntel.tiers.tier5.count}<span class="pnl-unit">từ</span>`;
+    if (elTotalTime) {
+      const totalSecs = typeof StorageManager.getTotalStudySeconds === 'function'
+        ? StorageManager.getTotalStudySeconds()
+        : 0;
+      const hours = Math.floor(totalSecs / 3600);
+      const mins = Math.floor((totalSecs % 3600) / 60);
+      if (hours > 0) {
+        elTotalTime.innerHTML = `${hours}h ${mins}<span class="pnl-unit">phút</span>`;
+      } else {
+        elTotalTime.innerHTML = `${mins}<span class="pnl-unit">phút</span>`;
+      }
     }
-    if (elAccuracy) {
-      elAccuracy.textContent = `${memoryIntel.firstTryAccuracy}%`;
+    if (elRecovery) {
+      elRecovery.textContent = `${memoryIntel.recoveryRate}%`;
     }
 
     // 2. DỰ BÁO LỊCH ÔN 7 NGÀY TỚI (FSRS-6 Forecast)
@@ -679,14 +635,74 @@ export function renderStatsTab(app) {
       }
     }
 
-    // 3. LỊCH HỌC TẬP THEO NGÀY (Activity Heatmap & Year Matrix)
+    // 3. BỆNH ÁN TỪ VỰNG HAY QUÊN (Top Weak Words Clinic)
+    const weakWords = app.deckManager?.getWeakWords ? app.deckManager.getWeakWords(5) : [];
+    const elWeakCount = container.querySelector('#stats-weak-words-count');
+    const elWeakList = container.querySelector('#stats-weak-words-list');
+
+    if (elWeakCount) {
+      elWeakCount.textContent = `${weakWords.length} từ`;
+    }
+
+    if (elWeakList) {
+      if (weakWords.length === 0) {
+        elWeakList.innerHTML = `
+          <div class="weak-words-empty">
+            <span>🎉 Tuyệt vời! Bạn không có từ vựng nào bị quên dồn ứ.</span>
+          </div>
+        `;
+      } else {
+        elWeakList.innerHTML = '';
+        weakWords.forEach(w => {
+          const item = document.createElement('div');
+          item.className = 'weak-word-item';
+          const wordText = escapeHTML(w.word || '');
+          const ipaText = escapeHTML(w.phonetic || w.ipa || '');
+          const posText = escapeHTML((w.pos || 'word').toUpperCase());
+          const meaningText = escapeHTML(w.meaning || '');
+          const lapses = w._lapses || (w.fsrsState?.lapses || 1);
+
+          item.innerHTML = `
+            <div class="weak-word-left">
+              <div class="weak-word-head">
+                <span class="weak-word-text">${wordText}</span>
+                ${ipaText ? `<span class="weak-word-ipa">${ipaText}</span>` : ''}
+                <span class="weak-word-pos">${posText}</span>
+                <span class="weak-word-badge">⚠️ Quên x${lapses}</span>
+              </div>
+              <div class="weak-word-meaning">${meaningText}</div>
+            </div>
+            <div class="weak-word-right">
+              <button type="button" class="btn-weak-sound" title="Phát âm">🔊</button>
+              <button type="button" class="btn-weak-study-one" title="Ôn ngay từ này">⚡ Ôn ngay</button>
+            </div>
+          `;
+
+          const btnSound = item.querySelector('.btn-weak-sound');
+          if (btnSound) {
+            btnSound.onclick = (e) => {
+              e.stopPropagation();
+              speak(w.word, { cardObj: w });
+            };
+          }
+
+          const btnStudyOne = item.querySelector('.btn-weak-study-one');
+          if (btnStudyOne) {
+            btnStudyOne.onclick = (e) => {
+              e.stopPropagation();
+              app.startStudySession(w.deckId || null, null, [w]);
+            };
+          }
+
+          elWeakList.appendChild(item);
+        });
+      }
+    }
+
+    // 4. LỊCH HỌC TẬP THEO NGÀY (Monthly Activity Heatmap)
     const periodTitle = container.querySelector('#journal-period-title');
     if (periodTitle) {
-      if (_viewMode === 'month') {
-        periodTitle.textContent = `Tháng ${_currentMonth}, ${_currentYear}`;
-      } else {
-        periodTitle.textContent = `Năm ${_currentYear}`;
-      }
+      periodTitle.textContent = `Tháng ${_currentMonth}, ${_currentYear}`;
     }
 
     const monthData = StatsManager.getMonthJournalData(_currentYear, _currentMonth);
@@ -740,50 +756,6 @@ export function renderStatsTab(app) {
       });
 
       grid.appendChild(frag);
-    }
-
-    // Render Ma Trận 12 Tháng Năm
-    const yearGrid = container.querySelector('#journal-year-grid');
-    if (yearGrid) {
-      yearGrid.innerHTML = '';
-      const yearData = StatsManager.getYearJournalData(_currentYear);
-      const fragYear = document.createDocumentFragment();
-
-      yearData.months.forEach(mObj => {
-        const mCard = document.createElement('div');
-        mCard.className = `year-month-card ${mObj.isCurrentMonth ? 'is-current' : ''}`;
-        mCard.innerHTML = `
-          <div class="year-month-header">
-            <span class="year-month-name">${mObj.monthName}</span>
-            <span class="year-month-words">${mObj.wordsCount > 0 ? '+' + mObj.wordsCount : '0'}</span>
-          </div>
-          <div class="year-month-bar">
-            <div class="year-month-bar-fill" style="width: ${mObj.wordsCount > 0 ? Math.min(100, Math.max(8, Math.round((mObj.wordsCount / (yearData.maxMonthWords || 1)) * 100))) : 0}%;"></div>
-          </div>
-          <div class="year-month-footer">
-            <span>${mObj.activeDays} ngày học</span>
-            <span>${mObj.minutes}p</span>
-          </div>
-        `;
-
-        mCard.onclick = () => {
-          _currentMonth = mObj.month;
-          _viewMode = 'month';
-          const btnMonth = container.querySelector('#btn-mode-month');
-          const btnYear = container.querySelector('#btn-mode-year');
-          if (btnMonth) btnMonth.classList.add('active');
-          if (btnYear) btnYear.classList.remove('active');
-          const secMonth = container.querySelector('#journal-month-section');
-          const secYear = container.querySelector('#journal-year-section');
-          if (secMonth) secMonth.style.display = 'flex';
-          if (secYear) secYear.style.display = 'none';
-          renderStatsTab(app);
-        };
-
-        fragYear.appendChild(mCard);
-      });
-
-      yearGrid.appendChild(fragYear);
     }
 
     // 4. Tháp 5 Tầng Trí Nhớ (Memory Pyramid)
