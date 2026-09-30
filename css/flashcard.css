@@ -1197,11 +1197,6 @@
   background: #1d4ed8;
 }
 
-.card-status-badge.state-relearning {
-  background: rgba(245, 158, 11, 0.15);
-  color: #f59e0b;
-  border: 1px solid rgba(245, 158, 11, 0.3);
-}
 
 /* --------------------------------------------------------------------------
    6. Study Preferences Drawer (Menu 3 Chấm)
