@@ -79,11 +79,11 @@ export function renderSettingsTabShell(container) {
             </div>
 
             <!-- 1-Tap Learning Profile Presets -->
-            <div class="setting-row profile-presets-row" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+            <div class="setting-row profile-presets-row">
               <div class="setting-info">
                 <span class="setting-title">Gói mục tiêu học</span>
               </div>
-              <div class="settings-profile-chips-grid" id="settings-profile-chips" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; width: 100%;">
+              <div class="settings-profile-chips-grid" id="settings-profile-chips">
                 <button type="button" class="btn-profile-preset" data-preset="casual">
                   <span class="preset-icon">☕</span>
                   <span class="preset-name">Bận Rộn</span>
@@ -102,7 +102,7 @@ export function renderSettingsTabShell(container) {
               </div>
             </div>
 
-            <div class="setting-row">
+            <div class="setting-row setting-select-row">
               <div class="setting-info">
                 <span class="setting-title">Tỷ lệ nhớ mong muốn</span>
               </div>
@@ -115,7 +115,7 @@ export function renderSettingsTabShell(container) {
               </select>
             </div>
 
-            <div class="setting-row">
+            <div class="setting-row setting-select-row">
               <div class="setting-info">
                 <span class="setting-title">Từ mới mỗi ngày</span>
               </div>
@@ -128,7 +128,7 @@ export function renderSettingsTabShell(container) {
               </select>
             </div>
 
-            <div class="setting-row">
+            <div class="setting-row setting-select-row">
               <div class="setting-info">
                 <span class="setting-title">Giới hạn ôn tập / phiên</span>
               </div>
@@ -140,7 +140,7 @@ export function renderSettingsTabShell(container) {
               </select>
             </div>
 
-            <div class="setting-row">
+            <div class="setting-row setting-switch-row">
               <div class="setting-info">
                 <span class="setting-title">Chống dồn lịch ôn (Fuzz)</span>
               </div>
@@ -150,7 +150,7 @@ export function renderSettingsTabShell(container) {
               </label>
             </div>
 
-            <div class="setting-row">
+            <div class="setting-row setting-select-row">
               <div class="setting-info">
                 <span class="setting-title">Mốc bắt đầu ngày mới</span>
               </div>
@@ -162,7 +162,7 @@ export function renderSettingsTabShell(container) {
               </select>
             </div>
 
-            <div class="setting-row">
+            <div class="setting-row setting-select-row">
               <div class="setting-info">
                 <span class="setting-title">Ngưỡng từ khó (Leech)</span>
               </div>
@@ -173,7 +173,7 @@ export function renderSettingsTabShell(container) {
               </select>
             </div>
 
-            <div class="setting-row">
+            <div class="setting-row setting-select-row">
               <div class="setting-info">
                 <span class="setting-title">Xử lý khi gặp từ khó</span>
               </div>
@@ -198,7 +198,7 @@ export function renderSettingsTabShell(container) {
             </div>
 
             <div class="inset-grouped-card">
-              <div class="setting-row">
+              <div class="setting-row setting-switch-row">
                 <div class="setting-info">
                   <span class="setting-title">Tự động phát âm</span>
                 </div>
@@ -208,7 +208,7 @@ export function renderSettingsTabShell(container) {
                 </label>
               </div>
 
-              <div class="setting-row">
+              <div class="setting-row setting-select-row">
                 <div class="setting-info">
                   <span class="setting-title">Giọng phát âm ưu tiên</span>
                 </div>
@@ -219,7 +219,7 @@ export function renderSettingsTabShell(container) {
                 </select>
               </div>
 
-              <div class="setting-row">
+              <div class="setting-row setting-select-row">
                 <div class="setting-info">
                   <span class="setting-title">Tốc độ phát âm</span>
                 </div>
@@ -231,7 +231,7 @@ export function renderSettingsTabShell(container) {
                 </select>
               </div>
 
-              <div class="setting-row">
+              <div class="setting-row setting-switch-row">
                 <div class="setting-info">
                   <span class="setting-title">Chế độ nền tối (Dark Mode)</span>
                 </div>
