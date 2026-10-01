@@ -10,7 +10,7 @@ import { State, Rating, isCardDue } from '../core/fsrs.js';
 import { globalStudyTimer, StatsManager } from '../core/stats.js';
 import { escapeHTML, getLocalDateKey } from '../utils.js';
 import { speak } from '../services/audio.js';
-import { MASTERY_STABILITY_THRESHOLD, LEARNING_GOALS } from '../config.js';
+import { MASTERY_STABILITY_THRESHOLD, LEARNING_GOALS, getLearningGoal } from '../config.js';
 
 let _cachedApp = null;
 let _isTimerListening = false;
@@ -27,7 +27,7 @@ export function renderReviewShell(container) {
               <span class="goal-icon-badge" id="home-goal-icon">🎯</span>
               <div class="goal-titles">
                 <span class="goal-eyebrow">MỤC TIÊU HỌC TẬP</span>
-                <h2 class="goal-main-title" id="home-goal-title">TOEIC 500 - 650+ (B1)</h2>
+                <h2 class="goal-main-title" id="home-goal-title">Trình Độ B1 (Trung Cấp Thực Chiến)</h2>
               </div>
             </div>
             <button type="button" class="btn-edit-goal" id="btn-edit-goal" title="Tùy chỉnh mục tiêu & nhịp độ học">
@@ -288,12 +288,12 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
   }
 
   // 5. THANH MỤC TIÊU HỌC TẬP (MASTER GOAL BAR)
-  const activeGoalId = app.settings?.activeGoal?.id || 'toeic-b1';
-  const activeGoal = LEARNING_GOALS.find(g => g.id === activeGoalId) || LEARNING_GOALS[0];
+  const activeGoalId = app.settings?.activeGoal?.id || 'cefr-b1';
+  const activeGoal = getLearningGoal(activeGoalId);
   const targetDecksSet = new Set(activeGoal.targetDecks || []);
   const targetCefrSet = new Set((activeGoal.targetCefr || []).map(c => c.toUpperCase()));
   const dailyNewTarget = Number(app.settings?.activeGoal?.dailyNew) || Number(app.settings?.dailyNewLimit) || 10;
-  const targetWords = Number(app.settings?.activeGoal?.targetWords) || activeGoal.defaultTargetWords || 600;
+  const targetWords = Number(app.settings?.activeGoal?.targetWords) || activeGoal.defaultTargetWords || 2877;
 
   let learnedGoalCount = 0;
   for (const card of allCards) {
@@ -796,10 +796,10 @@ export function showMasteredTiersModal(app = _cachedApp) {
 export function showGoalCustomizerModal(app = _cachedApp) {
   if (!app) return;
   const allCards = app.deckManager ? app.deckManager.getAllCards() : [];
-  let currentGoalId = app.settings?.activeGoal?.id || 'toeic-b1';
+  let currentGoalId = app.settings?.activeGoal?.id || 'cefr-b1';
   let selectedGoalId = currentGoalId;
   let selectedDailyNew = Number(app.settings?.activeGoal?.dailyNew) || Number(app.settings?.dailyNewLimit) || 10;
-  let selectedTargetWords = Number(app.settings?.activeGoal?.targetWords) || 600;
+  let selectedTargetWords = Number(app.settings?.activeGoal?.targetWords) || 2877;
 
   let modal = document.getElementById('modal-quick-goal-customizer');
   if (!modal) {
@@ -810,8 +810,8 @@ export function showGoalCustomizerModal(app = _cachedApp) {
   }
 
   const renderModalContent = () => {
-    const goalObj = LEARNING_GOALS.find(g => g.id === selectedGoalId) || LEARNING_GOALS[0];
-    const targetWords = selectedGoalId === 'custom' ? selectedTargetWords : (goalObj.defaultTargetWords || 600);
+    const goalObj = getLearningGoal(selectedGoalId);
+    const targetWords = selectedGoalId === 'custom' ? selectedTargetWords : (goalObj.defaultTargetWords || 2877);
     const targetDecksSet = new Set(goalObj.targetDecks || []);
     const targetCefrSet = new Set((goalObj.targetCefr || []).map(c => c.toUpperCase()));
 
@@ -947,13 +947,13 @@ export function showGoalCustomizerModal(app = _cachedApp) {
     const btnSave = modal.querySelector('#btn-save-goal-settings');
     if (btnSave) {
       btnSave.onclick = () => {
-        const goalObj = LEARNING_GOALS.find(g => g.id === selectedGoalId) || LEARNING_GOALS[0];
+        const goalObj = getLearningGoal(selectedGoalId);
         if (!app.settings) app.settings = {};
         app.settings.dailyNewLimit = selectedDailyNew;
         app.settings.activeGoal = {
           id: selectedGoalId,
           dailyNew: selectedDailyNew,
-          targetWords: selectedGoalId === 'custom' ? selectedTargetWords : (goalObj.defaultTargetWords || 600),
+          targetWords: selectedGoalId === 'custom' ? selectedTargetWords : (goalObj.defaultTargetWords || 2877),
           customTitle: ''
         };
 

@@ -4,7 +4,7 @@
 
 import { StorageManager } from '../services/storage.js';
 import { FSRS, State, isCardDue } from './fsrs.js';
-import { MASTERY_STABILITY_THRESHOLD, LEARNING_GOALS } from '../config.js';
+import { MASTERY_STABILITY_THRESHOLD, LEARNING_GOALS, getLearningGoal } from '../config.js';
 import { getLocalDateKey } from '../utils.js';
 import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords, WORDS_MAP } from '../../data/index.js';
 
@@ -502,8 +502,8 @@ export class DeckManager {
     });
 
     // 2. SẮP XẾP TỪ MỚI THEO MỤC TIÊU HỌC TẬP & ĐỘ PHỔ BIẾN ƯU TIÊN CAO NHẤT (Smart Goal Priority)
-    const activeGoalId = settings.activeGoal?.id || 'toeic-b1';
-    const activeGoal = LEARNING_GOALS.find(g => g.id === activeGoalId) || LEARNING_GOALS[0];
+    const activeGoalId = settings.activeGoal?.id || 'cefr-b1';
+    const activeGoal = getLearningGoal(activeGoalId);
     const targetDecksSet = new Set(activeGoal?.targetDecks || []);
     const targetCefrSet = new Set((activeGoal?.targetCefr || []).map(c => c.toUpperCase()));
 

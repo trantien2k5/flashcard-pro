@@ -5,7 +5,7 @@
 
 export const APP_CONFIG = {
   name: 'Flashcard English Pro',
-  version: '2.17.0',
+  version: '2.18.0',
   storagePrefix: 'fc_pro_',
   dbName: 'FlashcardProDB',
   dbVersion: 1
@@ -23,89 +23,97 @@ export const STORAGE_KEYS = {
 export const MASTERY_STABILITY_THRESHOLD = 30; // Ngưỡng đã thuộc / ghi nhớ sâu thống nhất toàn hệ thống (Mức 5: ≥ 30 ngày)
 
 /**
- * Danh mục mục tiêu học tập chuẩn hóa & cá nhân hóa (Personalized Learning Goals)
+ * Danh mục mục tiêu trình độ chuẩn hóa theo Khung Tham Chiếu Châu Âu CEFR & Chứng chỉ Quốc Tế
+ * Đồng bộ chính xác với cơ sở dữ liệu từ vựng (A1: 357, A2: 832, B1: 1688, B2: 743, C1: 203)
  */
 export const LEARNING_GOALS = [
   {
-    id: 'toeic-b1',
-    title: 'TOEIC 500 - 650+ (B1 Giao Tiếp)',
-    shortTitle: 'TOEIC 650+ (B1)',
-    badge: '🎯 TOEIC B1',
-    icon: '🎯',
-    color: '#6366f1',
-    desc: 'Trọng tâm từ vựng B1 công sở, giao tiếp văn phòng và bài thi TOEIC cơ bản.',
-    targetCefr: ['A2', 'B1'],
-    targetDecks: ['toeic-b1', 'top-1000-toeic', 'work-jobs'],
-    defaultTargetWords: 600,
+    id: 'cefr-a1',
+    aliases: ['a1', 'starter'],
+    title: 'Trình Độ A1 (Căn Bản Khởi Đầu)',
+    shortTitle: 'Trình độ A1',
+    badge: '🌱 CEFR A1',
+    icon: '🌱',
+    color: '#10b981',
+    desc: 'Vốn từ vựng nền tảng ban đầu, làm quen phát âm, số đếm, gia đình & chào hỏi.',
+    targetCefr: ['A1'],
+    targetDecks: ['daily-life-routines', 'people-relationships'],
+    defaultTargetWords: 357,
     defaultDailyNew: 10
   },
   {
-    id: 'toeic-b2',
-    title: 'TOEIC 700 - 900+ (B2 Chuyên Sâu)',
-    shortTitle: 'TOEIC 850+ (B2)',
-    badge: '🚀 TOEIC B2',
-    icon: '🚀',
-    color: '#8b5cf6',
-    desc: 'Trọng tâm từ vựng B2 kinh doanh thương mại và đàm phán hợp đồng điểm cao.',
-    targetCefr: ['B1', 'B2', 'C1'],
-    targetDecks: ['toeic-b2-mastery', 'top-1000-toeic', 'finance-banking', 'technology-internet'],
-    defaultTargetWords: 850,
-    defaultDailyNew: 10
-  },
-  {
-    id: 'core-1000',
-    title: '1.000 Từ Cốt Lõi (A1 - A2 Nền Tảng)',
-    shortTitle: '1.000 Từ Cốt Lõi',
-    badge: '🔥 1000 Core',
+    id: 'cefr-a2',
+    aliases: ['a2', 'core-1000', '1000-core'],
+    title: 'Trình Độ A2 (Giao Tiếp Đời Sống Cơ Bản)',
+    shortTitle: 'Trình độ A2',
+    badge: '🔥 CEFR A2',
     icon: '🔥',
     color: '#f59e0b',
-    desc: '1000 từ thực chiến tần suất cao nhất, bao phủ 90% giao tiếp hằng ngày.',
+    desc: 'Tích lũy vốn từ A1 + A2: Mua sắm, ẩm thực, du lịch, chỉ đường & giao tiếp hàng ngày.',
     targetCefr: ['A1', 'A2'],
-    targetDecks: ['top-1000-core', 'daily-life-routines', 'people-relationships'],
-    defaultTargetWords: 1000,
+    targetDecks: ['top-1000-core', 'daily-life-routines', 'food-drink', 'shopping-money', 'travel-places'],
+    defaultTargetWords: 1189,
     defaultDailyNew: 10
   },
   {
-    id: 'daily-comm',
-    title: 'Tiếng Anh Giao Tiếp Đời Sống',
-    shortTitle: 'Giao Tiếp Thực Tế',
-    badge: '💬 Giao Tiếp',
-    icon: '💬',
-    color: '#10b981',
-    desc: '1200+ từ vựng đời sống: Gia đình, mua sắm, ẩm thực, du lịch & sức khỏe.',
+    id: 'cefr-b1',
+    aliases: ['b1', 'toeic-b1', 'toeic-650'],
+    title: 'Trình Độ B1 (Trung Cấp Thực Chiến • TOEIC 500 - 650+)',
+    shortTitle: 'Trình độ B1',
+    badge: '🎯 CEFR B1',
+    icon: '🎯',
+    color: '#6366f1',
+    desc: 'Tích lũy vốn từ A1-B1: Tự tin giao tiếp công sở, viết email, thuyết trình & bài thi TOEIC B1.',
     targetCefr: ['A1', 'A2', 'B1'],
-    targetDecks: ['daily-life-routines', 'food-drink', 'home-living', 'shopping-money', 'travel-places', 'health-body', 'communication-feelings'],
-    defaultTargetWords: 1200,
-    defaultDailyNew: 10
-  },
-  {
-    id: 'ielts-academic',
-    title: 'IELTS 6.5+ / C1 Học Thuật',
-    shortTitle: 'IELTS 6.5+ (C1)',
-    badge: '💎 IELTS C1',
-    icon: '💎',
-    color: '#ec4899',
-    desc: 'Từ vựng học thuật, xã hội, giáo dục, công nghệ & phát triển bản thân nâng cao.',
-    targetCefr: ['B2', 'C1', 'C2'],
-    targetDecks: ['education-learning', 'society-world', 'technology-internet', 'finance-banking'],
-    defaultTargetWords: 750,
-    defaultDailyNew: 10
-  },
-  {
-    id: 'all-dictionary',
-    title: 'Toàn Thư 2.582 Từ Vựng (A1 - C2)',
-    shortTitle: 'Toàn Bộ Từ Điển',
-    badge: '👑 2.582 Từ',
-    icon: '👑',
-    color: '#3b82f6',
-    desc: 'Chinh phục toàn bộ kho từ vựng từ cơ bản đến cao cấp trong ứng dụng.',
-    targetCefr: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
-    targetDecks: [],
-    defaultTargetWords: 2582,
+    targetDecks: ['toeic-b1', 'top-1000-toeic', 'work-jobs', 'communication-feelings'],
+    defaultTargetWords: 2877,
     defaultDailyNew: 15
   },
   {
+    id: 'cefr-b2',
+    aliases: ['b2', 'toeic-b2', 'toeic-850'],
+    title: 'Trình Độ B2 (Trung Cao Cấp • TOEIC 700 - 900+)',
+    shortTitle: 'Trình độ B2',
+    badge: '🚀 CEFR B2',
+    icon: '🚀',
+    color: '#8b5cf6',
+    desc: 'Tích lũy vốn từ A1-B2: Kinh doanh thương mại, đàm phán hợp đồng, phân tích báo cáo chuyên sâu.',
+    targetCefr: ['A1', 'A2', 'B1', 'B2'],
+    targetDecks: ['toeic-b2-mastery', 'top-1000-toeic', 'finance-banking', 'technology-internet'],
+    defaultTargetWords: 3620,
+    defaultDailyNew: 15
+  },
+  {
+    id: 'cefr-c1',
+    aliases: ['c1', 'ielts-academic', 'ielts-c1'],
+    title: 'Trình Độ C1 (Cao Cấp Học Thuật • IELTS 6.5 - 8.0+)',
+    shortTitle: 'Trình độ C1',
+    badge: '💎 CEFR C1',
+    icon: '💎',
+    color: '#ec4899',
+    desc: 'Tích lũy toàn diện A1-C1: Từ vựng học thuật chuyên sâu, công nghệ, xã hội & IELTS điểm cao.',
+    targetCefr: ['A1', 'A2', 'B1', 'B2', 'C1'],
+    targetDecks: ['education-learning', 'society-world', 'technology-internet', 'finance-banking'],
+    defaultTargetWords: 3823,
+    defaultDailyNew: 15
+  },
+  {
+    id: 'all-dictionary',
+    aliases: ['all', 'dictionary'],
+    title: 'Toàn Thư 3.823 Từ Vựng (A1 - C1)',
+    shortTitle: 'Toàn Bộ Từ Điển',
+    badge: '👑 3.823 Từ',
+    icon: '👑',
+    color: '#3b82f6',
+    desc: 'Chinh phục toàn bộ 3.823 từ vựng từ cơ bản đến cao cấp trong cơ sở dữ liệu ứng dụng.',
+    targetCefr: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
+    targetDecks: [],
+    defaultTargetWords: 3823,
+    defaultDailyNew: 20
+  },
+  {
     id: 'custom',
+    aliases: ['custom-goal'],
     title: 'Mục Tiêu Tùy Chỉnh Cá Nhân Hóa',
     shortTitle: 'Tùy Chỉnh',
     badge: '⚙️ Tùy Chỉnh',
@@ -114,19 +122,25 @@ export const LEARNING_GOALS = [
     desc: 'Tự thiết lập số lượng từ mục tiêu và nhịp độ học theo kế hoạch riêng của bạn.',
     targetCefr: [],
     targetDecks: [],
-    defaultTargetWords: 500,
+    defaultTargetWords: 1000,
     defaultDailyNew: 10
   }
 ];
+
+export function getLearningGoal(goalId) {
+  if (!goalId) return LEARNING_GOALS[2]; // Mặc định B1
+  const goal = LEARNING_GOALS.find(g => g.id === goalId || (Array.isArray(g.aliases) && g.aliases.includes(goalId)));
+  return goal || LEARNING_GOALS[2];
+}
 
 export const DEFAULT_SETTINGS = {
   requestRetention: 0.90, // 90% target retention
   dailyNewLimit: 10,
   dailyReviewLimit: 20,
   activeGoal: {
-    id: 'toeic-b1',
+    id: 'cefr-b1',
     dailyNew: 10,
-    targetWords: 600,
+    targetWords: 2877,
     customTitle: ''
   },
   autoPronounce: true,
