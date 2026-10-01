@@ -23,18 +23,18 @@ export function renderReviewShell(container) {
         <!-- 1. Thanh Tiến Độ Trình Độ CEFR & Nhịp Độ Cá Nhân Hóa (CEFR Level & Roadmap Header Bar) -->
         <div class="home-goal-bar-card" id="home-goal-card" role="button" tabindex="0" title="Nhấn để xem phân tích lộ trình CEFR & nhịp độ cá nhân hóa">
           <div class="goal-bar-header">
-            <div class="goal-header-left">
+            <div class="goal-top-meta-row">
+              <div class="goal-eyebrow-wrap">
+                <span class="goal-eyebrow">TRÌNH ĐỘ HIỆN TẠI</span>
+                <span class="goal-level-badge" id="home-current-level-badge">A1 (0%)</span>
+              </div>
+              <span class="goal-target-tag" id="home-target-tag">Mục tiêu: B1 ❯</span>
+            </div>
+            <div class="goal-main-title-row">
               <span class="goal-icon-badge" id="home-goal-icon">🎯</span>
-              <div class="goal-titles">
-                <div class="goal-eyebrow-row">
-                  <span class="goal-eyebrow">TRÌNH ĐỘ HIỆN TẠI</span>
-                  <span class="goal-level-badge" id="home-current-level-badge">Cấp A1 (0%)</span>
-                </div>
+              <div class="goal-title-content">
                 <h2 class="goal-main-title" id="home-goal-title">Trình Độ A1 (Căn Bản Khởi Đầu)</h2>
               </div>
-            </div>
-            <div class="goal-header-right">
-              <span class="goal-target-tag" id="home-target-tag">Mục tiêu: B1 ❯</span>
             </div>
           </div>
 
