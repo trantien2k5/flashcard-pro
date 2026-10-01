@@ -19,6 +19,7 @@ export function isCardLearned(cardState) {
  */
 export function isCardDue(cardState, now = new Date()) {
   if (!cardState || cardState.state === State.New || cardState.state === 0) return false;
+  if (cardState.suspended) return false;
   if (!cardState.due) return false;
   
   const dueDate = new Date(cardState.due);
