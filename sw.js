@@ -4,7 +4,7 @@
  * Tự động phát hiện và cập nhật code mới tức thời khi Online (Zero-Friction Live Update).
  */
 
-const CACHE_NAME = 'flashcard-pro-v3.39.0';
+const CACHE_NAME = 'flashcard-pro-v3.40.0';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -45,7 +45,13 @@ const PRECACHE_ASSETS = [
   './data/schemas.js',
   './data/validators.js',
   './data/topics.js',
-  './data/words.js'
+  './data/words.js',
+  './data/words/legacy.js',
+  './data/words/a1.js',
+  './data/words/a2.js',
+  './data/words/b1.js',
+  './data/words/b2.js',
+  './data/words/c1.js'
 ];
 
 // 1. Install: Precache toàn bộ ứng dụng và skipWaiting để kích hoạt ngay lập tức
