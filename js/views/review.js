@@ -149,19 +149,19 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 3. NÚT CTA TO BỰ: BẮT ĐẦU ÔN FLASHCARD -->
+        <!-- 3. NÚT CTA HỌC TẬP TINH GIẢN & HIỆN ĐẠI -->
         <div class="home-cta-section">
           <button type="button" class="btn-hero-flashcard-cta" id="btn-home-start-flashcard">
             <div class="btn-cta-glare"></div>
             <div class="btn-cta-body">
               <div class="btn-cta-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                   <polygon points="5 3 19 12 5 21 5 3"></polygon>
                 </svg>
               </div>
               <div class="btn-cta-texts">
-                <span class="btn-cta-main-text">BẮT ĐẦU ÔN FLASHCARD</span>
-                <span class="btn-cta-sub-text" id="home-cta-subtext">Nhấn để vào phiên ôn tập FSRS-6</span>
+                <span class="btn-cta-main-text">BẮT ĐẦU HỌC</span>
+                <span class="btn-cta-sub-text" id="home-cta-subtext">⚡ Nhấn để bắt đầu phiên ôn tập</span>
               </div>
             </div>
           </button>
@@ -428,17 +428,17 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
     elEtaIcon.textContent = forecast.isUsingRealBehavior ? '⚡' : '🏁';
   }
 
-  // Cập nhật text phụ của nút CTA
+  // Cập nhật text phụ của nút CTA (tinh giản, súc tích)
   const elCtaSub = document.getElementById('home-cta-subtext');
   if (elCtaSub) {
     if (dueCount > 0 && remainingNewToday > 0) {
-      elCtaSub.textContent = `⚡ ${dueCount} từ tới hạn + 🌱 ${remainingNewToday} từ mới hôm nay • FSRS-6`;
+      elCtaSub.textContent = `⚡ ${dueCount} ôn tập + 🌱 ${remainingNewToday} từ mới`;
     } else if (dueCount > 0) {
-      elCtaSub.textContent = `⚡ ${dueCount} từ đến hạn cần ôn ngay • FSRS-6`;
+      elCtaSub.textContent = `⚡ ${dueCount} từ cần ôn tập`;
     } else if (remainingNewToday > 0) {
-      elCtaSub.textContent = `🌱 Học ${remainingNewToday} từ mới hôm nay • ${goal.shortTitle}`;
+      elCtaSub.textContent = `🌱 ${remainingNewToday} từ mới hôm nay`;
     } else {
-      elCtaSub.textContent = `🎉 Đã xong chỉ tiêu hôm nay • Nhấn để luyện thêm`;
+      elCtaSub.textContent = `🎉 Đã hoàn thành chỉ tiêu hôm nay`;
     }
   }
 }

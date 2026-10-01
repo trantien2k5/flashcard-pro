@@ -504,8 +504,8 @@
 
 .btn-hero-flashcard-cta {
   width: 100%;
-  padding: 22px 24px;
-  border-radius: 22px;
+  padding: 16px 20px;
+  border-radius: 18px;
   border: none;
   background: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #4338ca 100%);
   color: #ffffff;
@@ -515,19 +515,19 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.38), 0 2px 10px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35), 0 2px 8px rgba(99, 102, 241, 0.18);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-tap-highlight-color: transparent;
 }
 
 .btn-hero-flashcard-cta:hover {
-  transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 14px 36px rgba(99, 102, 241, 0.48), 0 4px 14px rgba(99, 102, 241, 0.3);
+  transform: translateY(-2px) scale(1.005);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.45), 0 4px 12px rgba(99, 102, 241, 0.25);
 }
 
 .btn-hero-flashcard-cta:active {
   transform: translateY(1px) scale(0.99);
-  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
 }
 
 .btn-cta-glare {
@@ -551,15 +551,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
   position: relative;
   z-index: 1;
 }
 
 .btn-cta-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 15px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -567,11 +567,11 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
 .btn-cta-icon svg {
-  margin-left: 3px;
+  margin-left: 2px;
 }
 
 .btn-cta-texts {
@@ -579,22 +579,23 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  gap: 2px;
+  gap: 1px;
 }
 
 .btn-cta-main-text {
-  font-size: 1.18rem;
-  font-weight: 900;
-  letter-spacing: 0.03em;
+  font-size: 1.06rem;
+  font-weight: 850;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #ffffff;
   line-height: 1.2;
 }
 
 .btn-cta-sub-text {
-  font-size: 0.84rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.25;
 }
 
 /* ==========================================================================
@@ -1462,16 +1463,21 @@
   }
 
   .btn-hero-flashcard-cta {
-    padding: 18px 16px;
-    border-radius: 18px;
+    padding: 14px 16px;
+    border-radius: 16px;
   }
 
   .btn-cta-main-text {
-    font-size: 1.05rem;
+    font-size: 1.0rem;
+  }
+
+  .btn-cta-sub-text {
+    font-size: 0.74rem;
   }
 
   .btn-cta-icon {
-    width: 44px;
-    height: 44px;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
   }
 }
