@@ -57835,8 +57835,7 @@ export const WORDS = [
       "top-1000-toeic-chặng-100"
     ],
     "tags": []
-  }
-,
+  },
   {
     "id": "substantially-adv",
     "word": "Substantially",
@@ -63562,6 +63561,3350 @@ export const WORDS = [
     "tags": [
       "tax"
     ]
+  },
+  {
+    "id": "wake",
+    "word": "wake",
+    "meaning": "Thức dậy",
+    "ipa": "/weɪk/",
+    "definition": "To stop sleeping.",
+    "example": "I usually wake up at six in the morning.",
+    "exampleVi": "Tôi thường thức dậy lúc 6 giờ sáng.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/w/wake.webp",
+    "topicIds": [
+      "daily-life-routines-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "sleep",
+    "word": "sleep",
+    "meaning": "Ngủ",
+    "ipa": "/sliːp/",
+    "definition": "To rest with eyes closed.",
+    "example": "Babies sleep for many hours each day.",
+    "exampleVi": "Trẻ sơ sinh ngủ nhiều giờ mỗi ngày.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/s/sleep.webp",
+    "topicIds": [
+      "daily-life-routines-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "sit",
+    "word": "sit",
+    "meaning": "Ngồi",
+    "ipa": "/sɪt/",
+    "definition": "To rest on your bottom.",
+    "example": "Please sit down on the chair.",
+    "exampleVi": "Xin vui lòng ngồi xuống ghế.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/s/sit.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "stand",
+    "word": "stand",
+    "meaning": "Đứng",
+    "ipa": "/stænd/",
+    "definition": "To be upright on your feet.",
+    "example": "We stand up when the teacher enters.",
+    "exampleVi": "Chúng tôi đứng dậy khi giáo viên bước vào.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/s/stand.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "see",
+    "word": "see",
+    "meaning": "Nhìn thấy",
+    "ipa": "/siː/",
+    "definition": "To perceive with eyes.",
+    "example": "I can see the high mountains.",
+    "exampleVi": "Tôi có thể nhìn thấy những ngọn núi cao.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/s/see.webp",
+    "topicIds": [
+      "nature-weather-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "buy",
+    "word": "buy",
+    "meaning": "Mua",
+    "ipa": "/baɪ/",
+    "definition": "To acquire by paying money.",
+    "example": "I want to buy some fresh fruits.",
+    "exampleVi": "Tôi muốn mua một ít hoa quả tươi.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/b/buy.webp",
+    "topicIds": [
+      "shopping-money-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "sell",
+    "word": "sell",
+    "meaning": "Bán",
+    "ipa": "/sel/",
+    "definition": "To give in exchange for money.",
+    "example": "They sell fresh bread here.",
+    "exampleVi": "Họ bán bánh mì tươi ở đây.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/s/sell.webp",
+    "topicIds": [
+      "shopping-money-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "start",
+    "word": "start",
+    "meaning": "Bắt đầu",
+    "ipa": "/stɑːt/",
+    "definition": "To begin.",
+    "example": "Class starts at eight AM.",
+    "exampleVi": "Lớp học bắt đầu lúc 8 giờ sáng.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/s/start.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "finish",
+    "word": "finish",
+    "meaning": "Kết thúc, hoàn thành",
+    "ipa": "/ˈfɪn.ɪʃ/",
+    "definition": "To end an activity.",
+    "example": "I will finish this task soon.",
+    "exampleVi": "Tôi sẽ sớm hoàn thành nhiệm vụ này.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/f/finish.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "teach",
+    "word": "teach",
+    "meaning": "Dạy học",
+    "ipa": "/tiːtʃ/",
+    "definition": "To give knowledge.",
+    "example": "She teaches math at school.",
+    "exampleVi": "Cô ấy dạy toán ở trường.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/t/teach.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "live",
+    "word": "live",
+    "meaning": "Sống, cư trú",
+    "ipa": "/lɪv/",
+    "definition": "To have your home in a place.",
+    "example": "I live in a peaceful city.",
+    "exampleVi": "Tôi sống ở một thành phố yên bình.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/l/live.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "clean",
+    "word": "clean",
+    "meaning": "Dọn dẹp, làm sạch",
+    "ipa": "/kliːn/",
+    "definition": "To make free of dirt.",
+    "example": "We clean the room every Saturday.",
+    "exampleVi": "Chúng tôi dọn phòng vào mỗi thứ Bảy.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/c/clean.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "smile",
+    "word": "smile",
+    "meaning": "Mỉm cười",
+    "ipa": "/smaɪl/",
+    "definition": "To show happy facial expression.",
+    "example": "She smiles warmly at guests.",
+    "exampleVi": "Cô ấy mỉm cười ấm áp với khách.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/s/smile.webp",
+    "topicIds": [
+      "communication-feelings-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "laugh",
+    "word": "laugh",
+    "meaning": "Cười",
+    "ipa": "/lɑːf/",
+    "definition": "To make sound of amusement.",
+    "example": "The joke made us laugh.",
+    "exampleVi": "Câu chuyện cười làm chúng tôi cười nghiêng ngả.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/l/laugh.webp",
+    "topicIds": [
+      "communication-feelings-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "cry",
+    "word": "cry",
+    "meaning": "Khóc",
+    "ipa": "/kraɪ/",
+    "definition": "To shed tears.",
+    "example": "Babies cry when hungry.",
+    "exampleVi": "Em bé khóc khi đói.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/c/cry.webp",
+    "topicIds": [
+      "communication-feelings-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "stop",
+    "word": "stop",
+    "meaning": "Dừng lại",
+    "ipa": "/stɒp/",
+    "definition": "To come to an end.",
+    "example": "The bus stops here.",
+    "exampleVi": "Xe buýt dừng lại ở đây.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/s/stop.webp",
+    "topicIds": [
+      "transport-directions-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "swim",
+    "word": "swim",
+    "meaning": "Bơi lội",
+    "ipa": "/swɪm/",
+    "definition": "To propel body through water.",
+    "example": "I like to swim in summer.",
+    "exampleVi": "Tôi thích bơi vào mùa hè.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/s/swim.webp",
+    "topicIds": [
+      "entertainment-hobbies-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "ride",
+    "word": "ride",
+    "meaning": "Đi xe (đạp, máy), cưỡi",
+    "ipa": "/raɪd/",
+    "definition": "To sit on and control a bike or animal.",
+    "example": "She rides a bicycle to work.",
+    "exampleVi": "Cô ấy đi xe đạp đến chỗ làm.",
+    "level": "A1",
+    "pos": "verb",
+    "img": "assets/images/words/r/ride.webp",
+    "topicIds": [
+      "transport-directions-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "bread",
+    "word": "bread",
+    "meaning": "Bánh mì",
+    "ipa": "/bred/",
+    "definition": "Baked flour food.",
+    "example": "Fresh bread smells great.",
+    "exampleVi": "Bánh mì tươi có mùi thơm tuyệt vời.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/b/bread.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "rice",
+    "word": "rice",
+    "meaning": "Cơm, gạo",
+    "ipa": "/raɪs/",
+    "definition": "Grains eaten as staple.",
+    "example": "Rice is eaten daily in Vietnam.",
+    "exampleVi": "Cơm được ăn hàng ngày ở Việt Nam.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/r/rice.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "milk",
+    "word": "milk",
+    "meaning": "Sữa",
+    "ipa": "/mɪlk/",
+    "definition": "White nutrient liquid.",
+    "example": "Add milk to your coffee.",
+    "exampleVi": "Thêm sữa vào cà phê của bạn.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/m/milk.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "tea",
+    "word": "tea",
+    "meaning": "Trà",
+    "ipa": "/tiː/",
+    "definition": "Hot drink from steeped leaves.",
+    "example": "A cup of warm tea.",
+    "exampleVi": "Một tách trà ấm.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/t/tea.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "coffee",
+    "word": "coffee",
+    "meaning": "Cà phê",
+    "ipa": "/ˈkɒf.i/",
+    "definition": "Dark roasted bean beverage.",
+    "example": "I drink hot coffee every morning.",
+    "exampleVi": "Tôi uống cà phê nóng mỗi sáng.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/c/coffee.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "sugar",
+    "word": "sugar",
+    "meaning": "Đường",
+    "ipa": "/ˈʃʊɡ.ər/",
+    "definition": "Sweet substance.",
+    "example": "Two spoons of sugar please.",
+    "exampleVi": "Làm ơn cho tôi hai muỗng đường.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/s/sugar.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "salt",
+    "word": "salt",
+    "meaning": "Muối",
+    "ipa": "/sɒlt/",
+    "definition": "White seasoning mineral.",
+    "example": "Add a pinch of salt.",
+    "exampleVi": "Thêm một nhúm muối vào nhé.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/s/salt.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "table",
+    "word": "table",
+    "meaning": "Cái bàn",
+    "ipa": "/ˈteɪ.bəl/",
+    "definition": "Flat top furniture with legs.",
+    "example": "Put the glasses on the table.",
+    "exampleVi": "Đặt những chiếc ly lên bàn.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/t/table.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "chair",
+    "word": "chair",
+    "meaning": "Cái ghế",
+    "ipa": "/tʃeər/",
+    "definition": "Seat for one person.",
+    "example": "Sit on this wooden chair.",
+    "exampleVi": "Hãy ngồi trên chiếc ghế gỗ này.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/c/chair.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "door",
+    "word": "door",
+    "meaning": "Cánh cửa",
+    "ipa": "/dɔːr/",
+    "definition": "Movable entrance barrier.",
+    "example": "Lock the front door at night.",
+    "exampleVi": "Khóa cửa chính vào ban đêm.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/d/door.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "window",
+    "word": "window",
+    "meaning": "Cửa sổ",
+    "ipa": "/ˈwɪn.dəʊ/",
+    "definition": "Wall opening with glass.",
+    "example": "Look through the window.",
+    "exampleVi": "Nhìn qua ô cửa sổ.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/w/window.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "room",
+    "word": "room",
+    "meaning": "Căn phòng",
+    "ipa": "/ruːm/",
+    "definition": "Enclosed space in a building.",
+    "example": "The meeting room is ready.",
+    "exampleVi": "Phòng họp đã sẵn sàng.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/r/room.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "house",
+    "word": "house",
+    "meaning": "Ngôi nhà",
+    "ipa": "/haʊs/",
+    "definition": "Residential building.",
+    "example": "A lovely house with garden.",
+    "exampleVi": "Một ngôi nhà xinh xắn có sân vườn.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/h/house.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "street",
+    "word": "street",
+    "meaning": "Đường phố",
+    "ipa": "/striːt/",
+    "definition": "Public road in city.",
+    "example": "A quiet tree-lined street.",
+    "exampleVi": "Một con phố yên tĩnh rợp bóng cây.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/s/street.webp",
+    "topicIds": [
+      "transport-directions-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "city",
+    "word": "city",
+    "meaning": "Thành phố",
+    "ipa": "/ˈsɪt.i/",
+    "definition": "Large urban area.",
+    "example": "Living in a busy city.",
+    "exampleVi": "Sống ở một thành phố bận rộn.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/c/city.webp",
+    "topicIds": [
+      "travel-places-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "money",
+    "word": "money",
+    "meaning": "Tiền bạc",
+    "ipa": "/ˈmʌn.i/",
+    "definition": "Medium of exchange.",
+    "example": "Manage your money wisely.",
+    "exampleVi": "Quản lý tiền bạc một cách khôn ngoan.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/m/money.webp",
+    "topicIds": [
+      "shopping-money-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "time",
+    "word": "time",
+    "meaning": "Thời gian",
+    "ipa": "/taɪm/",
+    "definition": "Measured period.",
+    "example": "Time flies fast.",
+    "exampleVi": "Thời gian trôi thật nhanh.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/t/time.webp",
+    "topicIds": [
+      "daily-life-routines-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "friend",
+    "word": "friend",
+    "meaning": "Bạn bè",
+    "ipa": "/frend/",
+    "definition": "Person you know well.",
+    "example": "A true friend is precious.",
+    "exampleVi": "Một người bạn chân thành rất đáng quý.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/f/friend.webp",
+    "topicIds": [
+      "people-relationships-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "family",
+    "word": "family",
+    "meaning": "Gia đình",
+    "ipa": "/ˈfæm.əl.i/",
+    "definition": "Parents and children.",
+    "example": "I love my family dearly.",
+    "exampleVi": "Tôi yêu gia đình tôi tha thiết.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/f/family.webp",
+    "topicIds": [
+      "people-relationships-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "pen",
+    "word": "pen",
+    "meaning": "Cây bút",
+    "ipa": "/pen/",
+    "definition": "Writing instrument.",
+    "example": "Write with a blue pen.",
+    "exampleVi": "Viết bằng một cây bút xanh.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/p/pen.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "bag",
+    "word": "bag",
+    "meaning": "Cái túi, cặp",
+    "ipa": "/bæɡ/",
+    "definition": "Flexible container.",
+    "example": "Pack your bag carefully.",
+    "exampleVi": "Thu dọn hành lý cẩn thận nhé.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/b/bag.webp",
+    "topicIds": [
+      "shopping-money-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "big",
+    "word": "big",
+    "meaning": "To lớn",
+    "ipa": "/bɪɡ/",
+    "definition": "Of large size.",
+    "example": "A big bright room.",
+    "exampleVi": "Một căn phòng rộng rãi và sáng sủa.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/b/big.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "small",
+    "word": "small",
+    "meaning": "Nhỏ bé",
+    "ipa": "/smɔːl/",
+    "definition": "Little in size.",
+    "example": "A small red box.",
+    "exampleVi": "Một chiếc hộp màu đỏ nhỏ nhắn.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/s/small.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "hot",
+    "word": "hot",
+    "meaning": "Nóng",
+    "ipa": "/hɒt/",
+    "definition": "High temperature.",
+    "example": "Hot summer sun.",
+    "exampleVi": "Nắng hè nóng bức.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/h/hot.webp",
+    "topicIds": [
+      "nature-weather-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "good",
+    "word": "good",
+    "meaning": "Tốt",
+    "ipa": "/ɡʊd/",
+    "definition": "Of satisfactory quality.",
+    "example": "Have a good day!",
+    "exampleVi": "Chúc một ngày tốt lành!",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/g/good.webp",
+    "topicIds": [
+      "communication-feelings-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "bad",
+    "word": "bad",
+    "meaning": "Xấu, tồi",
+    "ipa": "/bæd/",
+    "definition": "Not good; poor quality.",
+    "example": "Bad habits must change.",
+    "exampleVi": "Những thói quen xấu cần phải thay đổi.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/b/bad.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "happy",
+    "word": "happy",
+    "meaning": "Vui vẻ, hạnh phúc",
+    "ipa": "/ˈhæp.i/",
+    "definition": "Feeling pleasure.",
+    "example": "Happy smiling faces.",
+    "exampleVi": "Những khuôn mặt tươi cười vui vẻ.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/h/happy.webp",
+    "topicIds": [
+      "communication-feelings-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "sad",
+    "word": "sad",
+    "meaning": "Buồn bã",
+    "ipa": "/sæd/",
+    "definition": "Feeling sorrow.",
+    "example": "Why do you look so sad?",
+    "exampleVi": "Sao trông bạn buồn thế?",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/s/sad.webp",
+    "topicIds": [
+      "communication-feelings-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "fast",
+    "word": "fast",
+    "meaning": "Nhanh",
+    "ipa": "/fɑːst/",
+    "definition": "High speed.",
+    "example": "A fast runner.",
+    "exampleVi": "Một người chạy rất nhanh.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/f/fast.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "slow",
+    "word": "slow",
+    "meaning": "Chậm",
+    "ipa": "/sləʊ/",
+    "definition": "Low speed.",
+    "example": "Take slow deep breaths.",
+    "exampleVi": "Hãy hít thở chậm và sâu.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/s/slow.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "easy",
+    "word": "easy",
+    "meaning": "Dễ dàng",
+    "ipa": "/ˈiː.zi/",
+    "definition": "Not difficult.",
+    "example": "An easy exercise.",
+    "exampleVi": "Một bài tập dễ dàng.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/e/easy.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "hard",
+    "word": "hard",
+    "meaning": "Khó khăn, chăm chỉ",
+    "ipa": "/hɑːd/",
+    "definition": "Difficult; diligent.",
+    "example": "Work hard every day.",
+    "exampleVi": "Làm việc chăm chỉ mỗi ngày.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/h/hard.webp",
+    "topicIds": [
+      "work-jobs-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "rich",
+    "word": "rich",
+    "meaning": "Giàu có",
+    "ipa": "/rɪtʃ/",
+    "definition": "Having wealth.",
+    "example": "A rich cultural history.",
+    "exampleVi": "Một bề dày lịch sử văn hóa phong phú.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/r/rich.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "poor",
+    "word": "poor",
+    "meaning": "Nghèo khó",
+    "ipa": "/pɔːr/",
+    "definition": "Lacking resources.",
+    "example": "Helping poor families.",
+    "exampleVi": "Giúp đỡ các gia đình nghèo.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/p/poor.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "hungry",
+    "word": "hungry",
+    "meaning": "Đói bụng",
+    "ipa": "/ˈhʌŋ.ɡri/",
+    "definition": "Needing food.",
+    "example": "Are you hungry yet?",
+    "exampleVi": "Bạn đã đói bụng chưa?",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/h/hungry.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "thirsty",
+    "word": "thirsty",
+    "meaning": "Khát nước",
+    "ipa": "/ˈθɜː.sti/",
+    "definition": "Needing drink.",
+    "example": "Drink when thirsty.",
+    "exampleVi": "Hãy uống nước khi khát.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/t/thirsty.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "ready",
+    "word": "ready",
+    "meaning": "Sẵn sàng",
+    "ipa": "/ˈred.i/",
+    "definition": "Prepared for action.",
+    "example": "I am ready to start.",
+    "exampleVi": "Tôi đã sẵn sàng để bắt đầu.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/r/ready.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "invite",
+    "word": "invite",
+    "meaning": "Mời",
+    "ipa": "/ɪnˈvaɪt/",
+    "definition": "To ask someone to an event.",
+    "example": "Let's invite our neighbors for dinner.",
+    "exampleVi": "Hãy mời những người hàng xóm đến dùng bữa tối nhé.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/i/invite.webp",
+    "topicIds": [
+      "people-relationships-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "explain",
+    "word": "explain",
+    "meaning": "Giải thích",
+    "ipa": "/ɪkˈspleɪn/",
+    "definition": "To make clear or plain.",
+    "example": "The teacher will explain the grammar rule clearly.",
+    "exampleVi": "Thầy giáo sẽ giải thích quy tắc ngữ pháp một cách rõ ràng.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/e/explain.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "happen",
+    "word": "happen",
+    "meaning": "Xảy ra, diễn ra",
+    "ipa": "/ˈhæp.ən/",
+    "definition": "To take place.",
+    "example": "Accidents happen when drivers are careless.",
+    "exampleVi": "Tai nạn xảy ra khi các tài xế bất cẩn.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/h/happen.webp",
+    "topicIds": [
+      "transport-directions-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "forget",
+    "word": "forget",
+    "meaning": "Quên",
+    "ipa": "/fəˈɡet/",
+    "definition": "To fail to remember.",
+    "example": "Don't forget to lock the doors.",
+    "exampleVi": "Đừng quên khóa các cánh cửa nhé.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/f/forget.webp",
+    "topicIds": [
+      "communication-feelings-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "remember",
+    "word": "remember",
+    "meaning": "Ghi nhớ",
+    "ipa": "/rɪˈmem.bər/",
+    "definition": "To retain in memory.",
+    "example": "I remember meeting her last summer.",
+    "exampleVi": "Tôi nhớ đã gặp cô ấy vào mùa hè năm ngoái.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/r/remember.webp",
+    "topicIds": [
+      "communication-feelings-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "protect",
+    "word": "protect",
+    "meaning": "Bảo vệ",
+    "ipa": "/prəˈtekt/",
+    "definition": "To keep safe from harm.",
+    "example": "Wearing a helmet protects your head.",
+    "exampleVi": "Đội mũ bảo hiểm giúp bảo vệ đầu của bạn.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/p/protect.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "traveler",
+    "word": "traveler",
+    "meaning": "Khách du lịch, người lữ hành",
+    "ipa": "/ˈtræv.əl.ər/",
+    "definition": "Person who travels.",
+    "example": "Many travelers visit Da Nang every summer.",
+    "exampleVi": "Nhiều du khách đến thăm Đà Nẵng vào mỗi mùa hè.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/t/traveler.webp",
+    "topicIds": [
+      "travel-places-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "journey",
+    "word": "journey",
+    "meaning": "Hành trình, chuyến đi",
+    "ipa": "/ˈdʒɜː.ni/",
+    "definition": "Act of traveling from one place to another.",
+    "example": "Have a safe and pleasant journey!",
+    "exampleVi": "Chúc bạn có một chuyến đi an toàn và vui vẻ!",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/j/journey.webp",
+    "topicIds": [
+      "travel-places-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "neighbor",
+    "word": "neighbor",
+    "meaning": "Người hàng xóm",
+    "ipa": "/ˈneɪ.bər/",
+    "definition": "Person living next door.",
+    "example": "Our kind neighbor helped water the plants.",
+    "exampleVi": "Người hàng xóm tốt bụng đã giúp tưới cây.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/n/neighbor.webp",
+    "topicIds": [
+      "people-relationships-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "storm",
+    "word": "storm",
+    "meaning": "Cơn bão",
+    "ipa": "/stɔːm/",
+    "definition": "Violent weather condition.",
+    "example": "Stay indoors during the severe storm.",
+    "exampleVi": "Hãy ở trong nhà trong suốt cơn bão lớn.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/s/storm.webp",
+    "topicIds": [
+      "nature-weather-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "danger",
+    "word": "danger",
+    "meaning": "Sự nguy hiểm",
+    "ipa": "/ˈdeɪn.dʒər/",
+    "definition": "Possibility of suffering harm.",
+    "example": "Warning signs alert people to danger.",
+    "exampleVi": "Các biển cảnh báo nhắc nhở mọi người về mối nguy hiểm.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/d/danger.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "useful",
+    "word": "useful",
+    "meaning": "Hữu ích",
+    "ipa": "/ˈjuːs.fəl/",
+    "definition": "Able to be used for a practical purpose.",
+    "example": "Flashcard apps are very useful for memory.",
+    "exampleVi": "Ứng dụng flashcard rất hữu ích cho việc ghi nhớ.",
+    "level": "A2",
+    "pos": "adjective",
+    "img": "assets/images/words/u/useful.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "popular",
+    "word": "popular",
+    "meaning": "Phổ biến, được yêu thích",
+    "ipa": "/ˈpɒp.jə.lər/",
+    "definition": "Liked or admired by many people.",
+    "example": "Coffee shops are popular meeting spots.",
+    "exampleVi": "Các quán cà phê là địa điểm tụ tập rất được ưa chuộng.",
+    "level": "A2",
+    "pos": "adjective",
+    "img": "assets/images/words/p/popular.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "modern",
+    "word": "modern",
+    "meaning": "Hiện đại",
+    "ipa": "/ˈmɒd.ən/",
+    "definition": "Relating to present times.",
+    "example": "Modern technology makes communication instant.",
+    "exampleVi": "Công nghệ hiện đại giúp việc liên lạc trở nên tức thời.",
+    "level": "A2",
+    "pos": "adjective",
+    "img": "assets/images/words/m/modern.webp",
+    "topicIds": [
+      "technology-internet-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "traditional",
+    "word": "traditional",
+    "meaning": "Truyền thống",
+    "ipa": "/trəˈdɪʃ.ən.əl/",
+    "definition": "Part of long-standing custom.",
+    "example": "Ao Dai is the traditional dress of Vietnam.",
+    "exampleVi": "Áo dài là trang phục truyền thống của Việt Nam.",
+    "level": "A2",
+    "pos": "adjective",
+    "img": "assets/images/words/t/traditional.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "comfortable",
+    "word": "comfortable",
+    "meaning": "Thoải mái, dễ chịu",
+    "ipa": "/ˈkʌm.fə.tə.bəl/",
+    "definition": "Providing physical ease.",
+    "example": "Wear comfortable shoes for walking.",
+    "exampleVi": "Hãy mang giày thoải mái để đi bộ.",
+    "level": "A2",
+    "pos": "adjective",
+    "img": "assets/images/words/c/comfortable.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "crowded",
+    "word": "crowded",
+    "meaning": "Đông đúc",
+    "ipa": "/ˈkraʊ.dɪd/",
+    "definition": "Full of people.",
+    "example": "The night market is crowded on weekends.",
+    "exampleVi": "Chợ đêm rất đông đúc vào các ngày cuối tuần.",
+    "level": "A2",
+    "pos": "adjective",
+    "img": "assets/images/words/c/crowded.webp",
+    "topicIds": [
+      "travel-places-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "quiet",
+    "word": "quiet",
+    "meaning": "Yên tĩnh",
+    "ipa": "/ˈkwaɪ.ət/",
+    "definition": "Making little noise.",
+    "example": "The library is a quiet place to read.",
+    "exampleVi": "Thư viện là một nơi yên tĩnh để đọc sách.",
+    "level": "A2",
+    "pos": "adjective",
+    "img": "assets/images/words/q/quiet.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "noisy",
+    "word": "noisy",
+    "meaning": "Ồn ào",
+    "ipa": "/ˈnɔɪ.zi/",
+    "definition": "Making loud noise.",
+    "example": "Construction sites can be very noisy.",
+    "exampleVi": "Các công trường xây dựng có thể rất ồn ào.",
+    "level": "A2",
+    "pos": "adjective",
+    "img": "assets/images/words/n/noisy.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "manage",
+    "word": "manage",
+    "meaning": "Quản lý, điều hành",
+    "ipa": "/ˈmæn.ɪdʒ/",
+    "definition": "To be in charge of; administer.",
+    "example": "She manages the marketing department efficiently.",
+    "exampleVi": "Cô ấy quản lý phòng tiếp thị một cách hiệu quả.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/m/manage.webp",
+    "topicIds": [
+      "work-jobs-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "improve",
+    "word": "improve",
+    "meaning": "Cải thiện, nâng cao",
+    "ipa": "/ɪmˈpruːv/",
+    "definition": "To make or become better.",
+    "example": "Daily practice will improve your listening skills.",
+    "exampleVi": "Luyện tập hàng ngày sẽ cải thiện kỹ năng nghe của bạn.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/i/improve.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "participate",
+    "word": "participate",
+    "meaning": "Tham gia",
+    "ipa": "/pɑːˈtɪs.ɪ.peɪt/",
+    "definition": "To take part in an activity.",
+    "example": "Over fifty students participate in the contest.",
+    "exampleVi": "Hơn 50 sinh viên tham gia vào cuộc thi.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/p/participate.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "efficient",
+    "word": "efficient",
+    "meaning": "Hiệu quả, năng suất",
+    "ipa": "/ɪˈfɪʃ.ənt/",
+    "definition": "Achieving maximum productivity with minimum wasted effort.",
+    "example": "Automated systems make work more efficient.",
+    "exampleVi": "Các hệ thống tự động giúp công việc hiệu quả hơn.",
+    "level": "B1",
+    "pos": "adjective",
+    "img": "assets/images/words/e/efficient.webp",
+    "topicIds": [
+      "technology-internet-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "reliable",
+    "word": "reliable",
+    "meaning": "Đáng tin cậy",
+    "ipa": "/rɪˈlaɪ.ə.bəl/",
+    "definition": "Consistently good in quality or performance.",
+    "example": "He is a reliable partner in every project.",
+    "exampleVi": "Anh ấy là một đối tác đáng tin cậy trong mọi dự án.",
+    "level": "B1",
+    "pos": "adjective",
+    "img": "assets/images/words/r/reliable.webp",
+    "topicIds": [
+      "work-jobs-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "flexible",
+    "word": "flexible",
+    "meaning": "Linh hoạt",
+    "ipa": "/ˈflek.sə.bəl/",
+    "definition": "Capable of bending easily or adapting.",
+    "example": "We offer flexible working hours for our staff.",
+    "exampleVi": "Chúng tôi cung cấp giờ làm việc linh hoạt cho nhân viên.",
+    "level": "B1",
+    "pos": "adjective",
+    "img": "assets/images/words/f/flexible.webp",
+    "topicIds": [
+      "work-jobs-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "substantiate",
+    "word": "substantiate",
+    "meaning": "Chứng minh, xác thực",
+    "ipa": "/səbˈstæn.ʃi.eɪt/",
+    "definition": "To provide evidence to support or prove the truth of.",
+    "example": "Data is needed to substantiate your hypothesis.",
+    "exampleVi": "Dữ liệu là cần thiết để chứng minh cho giả thuyết của bạn.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/s/substantiate.webp",
+    "topicIds": [
+      "toeic-b2-mastery-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "fluctuate",
+    "word": "fluctuate",
+    "meaning": "Dao động, biến động",
+    "ipa": "/ˈflʌk.tʃu.eɪt/",
+    "definition": "To rise and fall irregularly in number or amount.",
+    "example": "Stock prices fluctuate according to market demand.",
+    "exampleVi": "Giá cổ phiếu biến động tùy theo nhu cầu thị trường.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/f/fluctuate.webp",
+    "topicIds": [
+      "finance-banking-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "sustainable",
+    "word": "sustainable",
+    "meaning": "Bền vững",
+    "ipa": "/səˈsteɪ.nə.bəl/",
+    "definition": "Able to be maintained at a certain rate or level.",
+    "example": "Solar power is a clean and sustainable energy source.",
+    "exampleVi": "Năng lượng mặt trời là nguồn năng lượng sạch và bền vững.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/s/sustainable.webp",
+    "topicIds": [
+      "nature-weather-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "innovative",
+    "word": "innovative",
+    "meaning": "Đổi mới sáng tạo",
+    "ipa": "/ˈɪn.ə.və.tɪv/",
+    "definition": "Featuring new methods; advanced and original.",
+    "example": "Innovative technology transforms modern healthcare.",
+    "exampleVi": "Công nghệ đổi mới sáng tạo đang làm thay đổi nền y tế hiện đại.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/i/innovative.webp",
+    "topicIds": [
+      "technology-internet-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "comprehensive",
+    "word": "comprehensive",
+    "meaning": "Toàn diện, bao quát",
+    "ipa": "/ˌkɒm.prɪˈhen.sɪv/",
+    "definition": "Including or dealing with all or nearly all elements.",
+    "example": "The guide provides a comprehensive overview of FSRS.",
+    "exampleVi": "Tài liệu này cung cấp một cái nhìn tổng quan toàn diện về FSRS.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/c/comprehensive.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "amplify",
+    "word": "amplify",
+    "meaning": "Khuếch đại, làm tăng cường",
+    "ipa": "/ˈæm.plɪ.faɪ/",
+    "definition": "To increase the volume or intensity of.",
+    "example": "Social media can amplify both positive and negative news.",
+    "exampleVi": "Mạng xã hội có thể khuếch đại cả tin tức tích cực lẫn tiêu cực.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/a/amplify.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "exacerbate",
+    "word": "exacerbate",
+    "meaning": "Làm trầm trọng thêm",
+    "ipa": "/ɪɡˈzæs.ə.beɪt/",
+    "definition": "To make a problem or bad situation worse.",
+    "example": "Drought can exacerbate existing water shortages.",
+    "exampleVi": "Hạn hán có thể làm trầm trọng thêm tình trạng thiếu nước vốn có.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/e/exacerbate.webp",
+    "topicIds": [
+      "nature-weather-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "ubiquitous",
+    "word": "ubiquitous",
+    "meaning": "Có mặt khắp nơi, phổ biến rộng khắp",
+    "ipa": "/juːˈbɪk.wɪ.təs/",
+    "definition": "Present, appearing, or found everywhere.",
+    "example": "Smartphones have become ubiquitous in daily modern life.",
+    "exampleVi": "Điện thoại thông minh đã trở nên hiện diện ở khắp mọi nơi trong đời sống hiện đại.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/u/ubiquitous.webp",
+    "topicIds": [
+      "technology-internet-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "unprecedented",
+    "word": "unprecedented",
+    "meaning": "Chưa từng có tiền lệ",
+    "ipa": "/ʌnˈpres.ɪ.den.tɪd/",
+    "definition": "Never done or known before.",
+    "example": "The global economy faced unprecedented growth in AI adoption.",
+    "exampleVi": "Nền kinh tế toàn cầu đối mặt với sự phát triển chưa từng có tiền lệ trong việc ứng dụng AI.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/u/unprecedented.webp",
+    "topicIds": [
+      "technology-internet-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "poignant",
+    "word": "poignant",
+    "meaning": "Thấm thía, sâu sắc",
+    "ipa": "/ˈpɔɪ.njənt/",
+    "definition": "Evoking a keen sense of sadness or regret.",
+    "example": "The documentary offered a poignant look at climate change.",
+    "exampleVi": "Bộ phim tài liệu mang lại cái nhìn sâu sắc và thấm thía về biến đổi khí hậu.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/p/poignant.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "paradigm",
+    "word": "paradigm",
+    "meaning": "Hình mẫu, hệ hình tư duy",
+    "ipa": "/ˈpær.ə.daɪm/",
+    "definition": "A typical example or pattern of something; a model.",
+    "example": "Quantum computing represents a major shift in computing paradigm.",
+    "exampleVi": "Điện toán lượng tử đại diện cho một bước chuyển mình lớn trong hệ hình điện toán.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/p/paradigm.webp",
+    "topicIds": [
+      "technology-internet-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "resilience",
+    "word": "resilience",
+    "meaning": "Khả năng phục hồi, sự kiên cường",
+    "ipa": "/rɪˈzɪl.jəns/",
+    "definition": "The capacity to recover quickly from difficulties.",
+    "example": "Economic resilience helped the nation withstand market volatility.",
+    "exampleVi": "Khả năng phục hồi kinh tế đã giúp quốc gia này đứng vững trước biến động thị trường.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/r/resilience.webp",
+    "topicIds": [
+      "finance-banking-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "apple",
+    "word": "apple",
+    "meaning": "Quả táo",
+    "ipa": "/ˈæp.əl/",
+    "definition": "A round red or green fruit.",
+    "example": "An apple a day is good for health.",
+    "exampleVi": "Một quả táo mỗi ngày rất tốt cho sức khỏe.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/a/apple.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "banana",
+    "word": "banana",
+    "meaning": "Quả chuối",
+    "ipa": "/bəˈnɑː.nə/",
+    "definition": "A long curved yellow fruit.",
+    "example": "Bananas give quick energy.",
+    "exampleVi": "Chuối cung cấp năng lượng nhanh chóng.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/b/banana.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "orange",
+    "word": "orange",
+    "meaning": "Quả cam",
+    "ipa": "/ˈɒr.ɪndʒ/",
+    "definition": "A round sweet citrus fruit.",
+    "example": "Fresh orange juice in the morning.",
+    "exampleVi": "Nước cam tươi vào buổi sáng.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/o/orange.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "lemon",
+    "word": "lemon",
+    "meaning": "Quả chanh vàng",
+    "ipa": "/ˈlem.ən/",
+    "definition": "A sour yellow citrus fruit.",
+    "example": "Add a slice of lemon to tea.",
+    "exampleVi": "Thêm một lát chanh vào tách trà.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/l/lemon.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "potato",
+    "word": "potato",
+    "meaning": "Củ khoai tây",
+    "ipa": "/pəˈteɪ.təʊ/",
+    "definition": "A starchy edible tuber.",
+    "example": "Mashed potato with butter.",
+    "exampleVi": "Khoai tây nghiền với bơ.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/p/potato.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "tomato",
+    "word": "tomato",
+    "meaning": "Quả cà chua",
+    "ipa": "/təˈmɑː.təʊ/",
+    "definition": "A juicy red edible fruit.",
+    "example": "Fresh tomato salad.",
+    "exampleVi": "Món salad cà chua tươi ngon.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/t/tomato.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "carrot",
+    "word": "carrot",
+    "meaning": "Củ cà rốt",
+    "ipa": "/ˈkær.ət/",
+    "definition": "An orange root vegetable.",
+    "example": "Carrots are rich in vitamin A.",
+    "exampleVi": "Cà rốt rất giàu vitamin A.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/c/carrot.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "onion",
+    "word": "onion",
+    "meaning": "Củ hành tây",
+    "ipa": "/ˈʌn.jən/",
+    "definition": "A pungent round bulb vegetable.",
+    "example": "Chop an onion for the soup.",
+    "exampleVi": "Thái một củ hành tây cho món súp.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/o/onion.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "butter",
+    "word": "butter",
+    "meaning": "Bơ",
+    "ipa": "/ˈbʌt.ər/",
+    "definition": "A yellow dairy product.",
+    "example": "Spread butter on toast.",
+    "exampleVi": "Quết bơ lên bánh mì nướng.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/b/butter.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "cheese",
+    "word": "cheese",
+    "meaning": "Phô mai",
+    "ipa": "/tʃiːz/",
+    "definition": "A dairy product made from curdled milk.",
+    "example": "Melted cheese on pizza.",
+    "exampleVi": "Phô mai tan chảy trên bánh pizza.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/c/cheese.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "soup",
+    "word": "soup",
+    "meaning": "Món canh, món súp",
+    "ipa": "/suːp/",
+    "definition": "Liquid dish made by boiling meat and veg.",
+    "example": "A bowl of warm vegetable soup.",
+    "exampleVi": "Một bát súp rau củ ấm nóng.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/s/soup.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "salad",
+    "word": "salad",
+    "meaning": "Món rau trộn, xà lách",
+    "ipa": "/ˈsæl.əd/",
+    "definition": "A cold dish of mixed raw vegetables.",
+    "example": "Green salad with olive oil.",
+    "exampleVi": "Món xà lách tươi trộn dầu ô liu.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/s/salad.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "spoon",
+    "word": "spoon",
+    "meaning": "Cái thìa (muỗng)",
+    "ipa": "/spuːn/",
+    "definition": "An eating utensil with small shallow bowl.",
+    "example": "Eat soup with a spoon.",
+    "exampleVi": "Ăn súp bằng thìa.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/s/spoon.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "fork",
+    "word": "fork",
+    "meaning": "Cái dĩa (nĩa)",
+    "ipa": "/fɔːk/",
+    "definition": "An eating utensil with prongs.",
+    "example": "Use a fork for pasta.",
+    "exampleVi": "Dùng nĩa để ăn mì Ý.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/f/fork.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "knife",
+    "word": "knife",
+    "meaning": "Con dao",
+    "ipa": "/naɪf/",
+    "definition": "An instrument for cutting.",
+    "example": "Cut the bread with a knife.",
+    "exampleVi": "Cắt bánh mì bằng một con dao.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/k/knife.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "plate",
+    "word": "plate",
+    "meaning": "Cái đĩa",
+    "ipa": "/pleɪt/",
+    "definition": "A flat dish for holding food.",
+    "example": "Put dinner on a clean plate.",
+    "exampleVi": "Đặt thức ăn tối lên một chiếc đĩa sạch.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/p/plate.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "cup",
+    "word": "cup",
+    "meaning": "Cái tách, cái cốc",
+    "ipa": "/kʌp/",
+    "definition": "A small bowl-shaped container for drinking.",
+    "example": "A hot cup of coffee.",
+    "exampleVi": "Một tách cà phê nóng hổi.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/c/cup.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "glass",
+    "word": "glass",
+    "meaning": "Cái ly thủy tinh",
+    "ipa": "/ɡlɑːs/",
+    "definition": "A drinking vessel made of glass.",
+    "example": "A tall glass of ice water.",
+    "exampleVi": "Một ly nước đá lớn.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/g/glass.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "bottle",
+    "word": "bottle",
+    "meaning": "Chai nước",
+    "ipa": "/ˈbɒt.əl/",
+    "definition": "A container with a narrow neck.",
+    "example": "Carry a refillable water bottle.",
+    "exampleVi": "Mang theo một chai nước có thể châm thêm.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/b/bottle.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "clock",
+    "word": "clock",
+    "meaning": "Đồng hồ treo tường",
+    "ipa": "/klɒk/",
+    "definition": "An instrument for measuring time.",
+    "example": "The wall clock shows eight.",
+    "exampleVi": "Đồng hồ treo tường chỉ 8 giờ.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/c/clock.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "phone",
+    "word": "phone",
+    "meaning": "Điện thoại",
+    "ipa": "/fəʊn/",
+    "definition": "A telephone device.",
+    "example": "My phone is charging.",
+    "exampleVi": "Điện thoại của tôi đang sạc pin.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/p/phone.webp",
+    "topicIds": [
+      "technology-internet-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "eye",
+    "word": "eye",
+    "meaning": "Con mắt",
+    "ipa": "/aɪ/",
+    "definition": "Organ of sight.",
+    "example": "Protect your eyes from strong sunlight.",
+    "exampleVi": "Bảo vệ đôi mắt khỏi ánh nắng chói chang.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/e/eye.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "ear",
+    "word": "ear",
+    "meaning": "Cái tai",
+    "ipa": "/ɪər/",
+    "definition": "Organ of hearing.",
+    "example": "Listen with careful ears.",
+    "exampleVi": "Hãy lắng nghe bằng đôi tai cẩn thận.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/e/ear.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "nose",
+    "word": "nose",
+    "meaning": "Cái mũi",
+    "ipa": "/nəʊz/",
+    "definition": "Organ of smell on face.",
+    "example": "Breathe fresh air through your nose.",
+    "exampleVi": "Hít thở không khí trong lành qua mũi.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/n/nose.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "mouth",
+    "word": "mouth",
+    "meaning": "Cái miệng",
+    "ipa": "/maʊθ/",
+    "definition": "The opening in face for eating and speaking.",
+    "example": "Cover your mouth when coughing.",
+    "exampleVi": "Che miệng khi bạn ho.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/m/mouth.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "hand",
+    "word": "hand",
+    "meaning": "Bàn tay",
+    "ipa": "/hænd/",
+    "definition": "The end part of a person's arm.",
+    "example": "Wash your hands before eating.",
+    "exampleVi": "Rửa sạch tay trước khi ăn.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/h/hand.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "foot",
+    "word": "foot",
+    "meaning": "Bàn chân",
+    "ipa": "/fʊt/",
+    "definition": "Lower extremity of the leg.",
+    "example": "Walking on foot is healthy.",
+    "exampleVi": "Đi bộ bằng chân rất có lợi cho sức khỏe.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/f/foot.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "advice",
+    "word": "advice",
+    "meaning": "Lời khuyên",
+    "ipa": "/ədˈvaɪs/",
+    "definition": "Guidance or recommendations.",
+    "example": "Ask your teacher for good advice.",
+    "exampleVi": "Xin giáo viên những lời khuyên hữu ích.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/a/advice.webp",
+    "topicIds": [
+      "communication-feelings-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "celebrate",
+    "word": "celebrate",
+    "meaning": "Ăn mừng, tổ chức lễ",
+    "ipa": "/ˈsel.ə.breɪt/",
+    "definition": "To acknowledge a significant day or event.",
+    "example": "We celebrate New Year with family.",
+    "exampleVi": "Chúng tôi đón mừng năm mới cùng gia đình.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/c/celebrate.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "describe",
+    "word": "describe",
+    "meaning": "Mô tả, miêu tả",
+    "ipa": "/dɪˈskraɪb/",
+    "definition": "To give an account of in words.",
+    "example": "Can you describe your hometown?",
+    "exampleVi": "Bạn có thể miêu tả quê hương của mình không?",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/d/describe.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "health",
+    "word": "health",
+    "meaning": "Sức khỏe",
+    "ipa": "/helθ/",
+    "definition": "The state of being free from illness.",
+    "example": "Good health is true wealth.",
+    "exampleVi": "Sức khỏe tốt là tài sản quý giá nhất.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/h/health.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "village",
+    "word": "village",
+    "meaning": "Ngôi làng",
+    "ipa": "/ˈvɪl.ɪdʒ/",
+    "definition": "A group of houses in rural area.",
+    "example": "A peaceful ceramic village.",
+    "exampleVi": "Một ngôi làng gốm yên bình.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/v/village.webp",
+    "topicIds": [
+      "travel-places-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "document",
+    "word": "document",
+    "meaning": "Tài liệu văn bản",
+    "ipa": "/ˈdɒk.jə.mənt/",
+    "definition": "A piece of written or printed matter.",
+    "example": "Sign the confidential legal document.",
+    "exampleVi": "Ký vào tài liệu pháp lý bảo mật.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/d/document.webp",
+    "topicIds": [
+      "work-jobs-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "equipment",
+    "word": "equipment",
+    "meaning": "Trang thiết bị",
+    "ipa": "/ɪˈkwɪp.mənt/",
+    "definition": "The necessary items for a particular purpose.",
+    "example": "Modern laboratory equipment.",
+    "exampleVi": "Trang thiết bị phòng thí nghiệm hiện đại.",
+    "level": "B1",
+    "pos": "noun",
+    "img": "assets/images/words/e/equipment.webp",
+    "topicIds": [
+      "work-jobs-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "qualify",
+    "word": "qualify",
+    "meaning": "Đủ điều kiện, đạt chuẩn",
+    "ipa": "/ˈkwɒl.ɪ.faɪ/",
+    "definition": "To become entitled to something.",
+    "example": "Score 650+ to qualify for the scholarship.",
+    "exampleVi": "Đạt 650+ để đủ điều kiện nhận học bổng.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/q/qualify.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "diminish",
+    "word": "diminish",
+    "meaning": "Làm suy giảm, thu nhỏ",
+    "ipa": "/dɪˈmɪn.ɪʃ/",
+    "definition": "To make or become less.",
+    "example": "New updates diminish load times dramatically.",
+    "exampleVi": "Các bản cập nhật mới làm giảm thời gian tải trang một cách rõ rệt.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/d/diminish.webp",
+    "topicIds": [
+      "technology-internet-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "legislation",
+    "word": "legislation",
+    "meaning": "Pháp luật, đạo luật",
+    "ipa": "/ˌledʒ.ɪˈsleɪ.ʃən/",
+    "definition": "Laws, considered collectively.",
+    "example": "New environmental legislation was approved.",
+    "exampleVi": "Bộ luật môi trường mới đã được thông qua.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/l/legislation.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "perspective",
+    "word": "perspective",
+    "meaning": "Góc nhìn, quan điểm",
+    "ipa": "/pəˈspek.tɪv/",
+    "definition": "A particular attitude toward or way of regarding something.",
+    "example": "Consider problems from a global perspective.",
+    "exampleVi": "Hãy xem xét các vấn đề từ một góc nhìn toàn cầu.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/p/perspective.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "ambivalent",
+    "word": "ambivalent",
+    "meaning": "Nước đôi, vừa yêu vừa ghét",
+    "ipa": "/æmˈbɪv.ə.lənt/",
+    "definition": "Having mixed feelings or contradictory ideas.",
+    "example": "Many citizens felt ambivalent about the new policy.",
+    "exampleVi": "Nhiều người dân cảm thấy băn khoăn nửa muốn nửa không về chính sách mới.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/a/ambivalent.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "anomaly",
+    "word": "anomaly",
+    "meaning": "Sự dị thường, điểm bất thường",
+    "ipa": "/əˈnɒm.ə.li/",
+    "definition": "Something that deviates from what is standard.",
+    "example": "Scientists detected a temperature anomaly in the ocean.",
+    "exampleVi": "Các nhà khoa học phát hiện một điểm dị thường về nhiệt độ dưới đại dương.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/a/anomaly.webp",
+    "topicIds": [
+      "nature-weather-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "catalyst",
+    "word": "catalyst",
+    "meaning": "Chất xúc tác, nhân tố thúc đẩy",
+    "ipa": "/ˈkæt.əl.ɪst/",
+    "definition": "A person or thing that precipitates an event.",
+    "example": "The crisis acted as a catalyst for educational reform.",
+    "exampleVi": "Cuộc khủng hoảng đã đóng vai trò như một chất xúc tác thúc đẩy cải cách giáo dục.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/catalyst.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "connoisseur",
+    "word": "connoisseur",
+    "meaning": "Người sành sỏi, chuyên gia thưởng ngoạn",
+    "ipa": "/ˌkɒn.əˈsɜːr/",
+    "definition": "An expert judge in matters of taste.",
+    "example": "A connoisseur of fine Italian coffee.",
+    "exampleVi": "Một người sành thưởng thức cà phê Ý hảo hạng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/c/connoisseur.webp",
+    "topicIds": [
+      "entertainment-hobbies-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "dichotomy",
+    "word": "dichotomy",
+    "meaning": "Sự phân đôi, thế lưỡng phân",
+    "ipa": "/daɪˈkɒt.ə.mi/",
+    "definition": "A division or contrast between two things.",
+    "example": "The false dichotomy between theory and practice.",
+    "exampleVi": "Sự phân đôi sai lầm giữa lý thuyết và thực hành.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/d/dichotomy.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "elucidate",
+    "word": "elucidate",
+    "meaning": "Làm sáng tỏ, giải nghĩa tường tận",
+    "ipa": "/iˈluː.sɪ.deɪt/",
+    "definition": "To make something clear; explain.",
+    "example": "The professor elucidated the complex theorem.",
+    "exampleVi": "Giáo sư đã làm sáng tỏ định lý phức tạp một cách tường tận.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/e/elucidate.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "ephemeral",
+    "word": "ephemeral",
+    "meaning": "Phù du, chóng tàn",
+    "ipa": "/ɪˈfem.ər.əl/",
+    "definition": "Lasting for a very short time.",
+    "example": "Social media trends are often ephemeral.",
+    "exampleVi": "Các xu hướng trên mạng xã hội thường rất chóng tàn.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/e/ephemeral.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "juxtapose",
+    "word": "juxtapose",
+    "meaning": "Đặt cạnh nhau để so sánh đối chiếu",
+    "ipa": "/ˌdʒʌk.stəˈpəʊz/",
+    "definition": "To place close together for contrasting effect.",
+    "example": "The artist juxtaposed bright colors with dark shadows.",
+    "exampleVi": "Người nghệ sĩ đã đặt các gam màu sáng cạnh bóng tối để tạo sự tương phản.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/j/juxtapose.webp",
+    "topicIds": [
+      "entertainment-hobbies-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "quintessential",
+    "word": "quintessential",
+    "meaning": "Tinh túy, điển hình hoàn hảo",
+    "ipa": "/ˌkwɪn.tɪˈsen.ʃəl/",
+    "definition": "Representing the most perfect or typical example.",
+    "example": "Pho is the quintessential Vietnamese national dish.",
+    "exampleVi": "Phở là món ăn mang nét tinh túy điển hình của ẩm thực Việt Nam.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/q/quintessential.webp",
+    "topicIds": [
+      "food-drink-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "vindicate",
+    "word": "vindicate",
+    "meaning": "Minh oan, chứng minh là đúng",
+    "ipa": "/ˈvɪn.dɪ.keɪt/",
+    "definition": "To clear of blame or suspicion; prove right.",
+    "example": "Subsequent evidence vindicated his initial hypothesis.",
+    "exampleVi": "Bằng chứng thu thập sau đó đã chứng minh giả thuyết ban đầu của ông là hoàn toàn đúng.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/v/vindicate.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "yellow",
+    "word": "yellow",
+    "meaning": "Màu vàng",
+    "ipa": "/ˈjel.əʊ/",
+    "definition": "Color of sunshine and lemons.",
+    "example": "A bright yellow sunflower.",
+    "exampleVi": "Bông hoa hướng dương màu vàng rực rỡ.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/y/yellow.webp",
+    "topicIds": [
+      "nature-weather-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "green",
+    "word": "green",
+    "meaning": "Màu xanh lá cây",
+    "ipa": "/ɡriːn/",
+    "definition": "Color of grass and leaves.",
+    "example": "Green tea is refreshing.",
+    "exampleVi": "Trà xanh rất thanh mát.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/g/green.webp",
+    "topicIds": [
+      "nature-weather-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "blue",
+    "word": "blue",
+    "meaning": "Màu xanh da trời",
+    "ipa": "/bluː/",
+    "definition": "Color of clear sky and sea.",
+    "example": "The deep blue ocean.",
+    "exampleVi": "Đại dương xanh thẳm.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/b/blue.webp",
+    "topicIds": [
+      "nature-weather-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "black",
+    "word": "black",
+    "meaning": "Màu đen",
+    "ipa": "/blæk/",
+    "definition": "The darkest color.",
+    "example": "She wears a black coat.",
+    "exampleVi": "Cô ấy mặc một chiếc áo khoác đen.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/b/black.webp",
+    "topicIds": [
+      "shopping-money-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "white",
+    "word": "white",
+    "meaning": "Màu trắng",
+    "ipa": "/waɪt/",
+    "definition": "The color of fresh snow.",
+    "example": "Clean white paper.",
+    "exampleVi": "Trang giấy trắng tinh.",
+    "level": "A1",
+    "pos": "adjective",
+    "img": "assets/images/words/w/white.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "shirt",
+    "word": "shirt",
+    "meaning": "Áo sơ mi",
+    "ipa": "/ʃɜːt/",
+    "definition": "Garment for upper body.",
+    "example": "Iron your white shirt.",
+    "exampleVi": "Ủi chiếc áo sơ mi trắng của bạn.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/s/shirt.webp",
+    "topicIds": [
+      "shopping-money-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "pants",
+    "word": "pants",
+    "meaning": "Quần dài",
+    "ipa": "/pænts/",
+    "definition": "Trousers.",
+    "example": "Comfortable denim pants.",
+    "exampleVi": "Chiếc quần bò thoải mái.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/p/pants.webp",
+    "topicIds": [
+      "shopping-money-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "dress",
+    "word": "dress",
+    "meaning": "Váy đầm",
+    "ipa": "/dres/",
+    "definition": "One-piece garment for women.",
+    "example": "She wears a pretty dress.",
+    "exampleVi": "Cô ấy mặc một chiếc váy đầm xinh xắn.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/d/dress.webp",
+    "topicIds": [
+      "shopping-money-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "shoes",
+    "word": "shoes",
+    "meaning": "Đôi giày",
+    "ipa": "/ʃuːz/",
+    "definition": "Footwear.",
+    "example": "Put on your running shoes.",
+    "exampleVi": "Hãy đi đôi giày chạy của bạn vào.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/s/shoes.webp",
+    "topicIds": [
+      "shopping-money-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "hat",
+    "word": "hat",
+    "meaning": "Cái mũ, cái nón",
+    "ipa": "/hæt/",
+    "definition": "Head covering.",
+    "example": "Wear a hat under the sun.",
+    "exampleVi": "Đội mũ khi đi dưới trời nắng.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/h/hat.webp",
+    "topicIds": [
+      "shopping-money-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "sunshine",
+    "word": "sunshine",
+    "meaning": "Ánh nắng mặt trời",
+    "ipa": "/ˈsʌn.ʃaɪn/",
+    "definition": "Direct light from the sun.",
+    "example": "Enjoy the gentle morning sunshine.",
+    "exampleVi": "Tận hưởng ánh nắng dịu dàng buổi sớm.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/s/sunshine.webp",
+    "topicIds": [
+      "nature-weather-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "wind",
+    "word": "wind",
+    "meaning": "Cơn gió",
+    "ipa": "/wɪnd/",
+    "definition": "Current of air.",
+    "example": "A cool breeze wind.",
+    "exampleVi": "Một cơn gió thoảng mát rượi.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/w/wind.webp",
+    "topicIds": [
+      "nature-weather-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "night",
+    "word": "night",
+    "meaning": "Ban đêm",
+    "ipa": "/naɪt/",
+    "definition": "Time between sunset and sunrise.",
+    "example": "Have a restful good night.",
+    "exampleVi": "Chúc bạn một đêm ngon giấc.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/n/night.webp",
+    "topicIds": [
+      "daily-life-routines-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "today",
+    "word": "today",
+    "meaning": "Hôm nay",
+    "ipa": "/təˈdeɪ/",
+    "definition": "On or during the present day.",
+    "example": "Start your goals today.",
+    "exampleVi": "Hãy bắt đầu những mục tiêu của bạn ngay hôm nay.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/t/today.webp",
+    "topicIds": [
+      "daily-life-routines-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "tomorrow",
+    "word": "tomorrow",
+    "meaning": "Ngày mai",
+    "ipa": "/təˈmɒr.əʊ/",
+    "definition": "On the day after today.",
+    "example": "See you again tomorrow morning.",
+    "exampleVi": "Hẹn gặp lại bạn vào sáng mai nhé.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/t/tomorrow.webp",
+    "topicIds": [
+      "daily-life-routines-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "yesterday",
+    "word": "yesterday",
+    "meaning": "Hôm qua",
+    "ipa": "/ˈjes.tə.deɪ/",
+    "definition": "On the day before today.",
+    "example": "I completed the assignment yesterday.",
+    "exampleVi": "Tôi đã hoàn thành bài tập vào ngày hôm qua.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/y/yesterday.webp",
+    "topicIds": [
+      "daily-life-routines-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "week",
+    "word": "week",
+    "meaning": "Tuần lễ",
+    "ipa": "/wiːk/",
+    "definition": "Period of seven days.",
+    "example": "Study vocabulary every week.",
+    "exampleVi": "Học từ vựng đều đặn mỗi tuần.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/w/week.webp",
+    "topicIds": [
+      "daily-life-routines-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "month",
+    "word": "month",
+    "meaning": "Tháng",
+    "ipa": "/mʌnθ/",
+    "definition": "One of the twelve periods of year.",
+    "example": "A new learning plan this month.",
+    "exampleVi": "Một kế hoạch học tập mới trong tháng này.",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/m/month.webp",
+    "topicIds": [
+      "daily-life-routines-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "year",
+    "word": "year",
+    "meaning": "Năm",
+    "ipa": "/jɪər/",
+    "definition": "Period of 365 days.",
+    "example": "Happy New Year to all!",
+    "exampleVi": "Chúc mừng năm mới tới tất cả mọi người!",
+    "level": "A1",
+    "pos": "noun",
+    "img": "assets/images/words/y/year.webp",
+    "topicIds": [
+      "daily-life-routines-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "activity",
+    "word": "activity",
+    "meaning": "Hoạt động",
+    "ipa": "/ækˈtɪv.ə.ti/",
+    "definition": "A thing that a person or group does.",
+    "example": "Outdoor sports activities.",
+    "exampleVi": "Các hoạt động thể thao ngoài trời.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/a/activity.webp",
+    "topicIds": [
+      "entertainment-hobbies-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "adventure",
+    "word": "adventure",
+    "meaning": "Cuộc phiêu lưu",
+    "ipa": "/ədˈven.tʃər/",
+    "definition": "An unusual and exciting experience.",
+    "example": "Trekking in the jungle is a thrilling adventure.",
+    "exampleVi": "Đi bộ đường dài trong rừng là một chuyến phiêu lưu ly kỳ.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/a/adventure.webp",
+    "topicIds": [
+      "travel-places-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "average",
+    "word": "average",
+    "meaning": "Trung bình",
+    "ipa": "/ˈæv.ər.ɪdʒ/",
+    "definition": "A standard or level that is considered normal.",
+    "example": "The average temperature in April is mild.",
+    "exampleVi": "Nhiệt độ trung bình trong tháng Tư rất ôn hòa.",
+    "level": "A2",
+    "pos": "adjective",
+    "img": "assets/images/words/a/average.webp",
+    "topicIds": [
+      "nature-weather-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "behavior",
+    "word": "behavior",
+    "meaning": "Hành vi, cách ứng xử",
+    "ipa": "/bɪˈheɪ.vjər/",
+    "definition": "The way in which one acts or conducts oneself.",
+    "example": "Good behavior creates harmony in team.",
+    "exampleVi": "Cách ứng xử tốt tạo nên sự hòa thuận trong nhóm.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/b/behavior.webp",
+    "topicIds": [
+      "people-relationships-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "belong",
+    "word": "belong",
+    "meaning": "Thuộc về",
+    "ipa": "/bɪˈlɒŋ/",
+    "definition": "To be the property of.",
+    "example": "This notebook belongs to the teacher.",
+    "exampleVi": "Cuốn sổ ghi chép này thuộc về giáo viên.",
+    "level": "A2",
+    "pos": "verb",
+    "img": "assets/images/words/b/belong.webp",
+    "topicIds": [
+      "home-living-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "calendar",
+    "word": "calendar",
+    "meaning": "Lịch theo dõi",
+    "ipa": "/ˈkæl.ən.dər/",
+    "definition": "A chart showing days, weeks, and months.",
+    "example": "Mark the examination date on your calendar.",
+    "exampleVi": "Hãy đánh dấu ngày thi vào lịch của bạn.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/calendar.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "century",
+    "word": "century",
+    "meaning": "Thế kỷ (100 năm)",
+    "ipa": "/ˈsen.tʃər.i/",
+    "definition": "A period of one hundred years.",
+    "example": "We live in the twenty-first century.",
+    "exampleVi": "Chúng ta đang sống trong thế kỷ hai mươi mốt.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/century.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "challenge",
+    "word": "challenge",
+    "meaning": "Thử thách",
+    "ipa": "/ˈtʃæl.ɪndʒ/",
+    "definition": "A task that tests someone's abilities.",
+    "example": "Overcoming learning challenges builds confidence.",
+    "exampleVi": "Vượt qua các thử thách học tập giúp xây dựng sự tự tin.",
+    "level": "A2",
+    "pos": "noun",
+    "img": "assets/images/words/c/challenge.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "abroad",
+    "word": "abroad",
+    "meaning": "Ở nước ngoài, ra nước ngoài",
+    "ipa": "/əˈbrɔːd/",
+    "definition": "In or to a foreign country.",
+    "example": "Studying abroad expands your horizons.",
+    "exampleVi": "Du học nước ngoài giúp mở rộng tầm nhìn của bạn.",
+    "level": "B1",
+    "pos": "adverb",
+    "img": "assets/images/words/a/abroad.webp",
+    "topicIds": [
+      "travel-places-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "absolute",
+    "word": "absolute",
+    "meaning": "Tuyệt đối, hoàn toàn",
+    "ipa": "/ˈæb.sə.luːt/",
+    "definition": "Not qualified or diminished in any way.",
+    "example": "We need absolute silence during the test.",
+    "exampleVi": "Chúng tôi cần sự im lặng tuyệt đối trong suốt bài kiểm tra.",
+    "level": "B1",
+    "pos": "adjective",
+    "img": "assets/images/words/a/absolute.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "academic",
+    "word": "academic",
+    "meaning": "Mang tính học thuật",
+    "ipa": "/ˌæk.əˈdem.ɪk/",
+    "definition": "Relating to education and scholarship.",
+    "example": "Publish academic research papers.",
+    "exampleVi": "Xuất bản các bài báo nghiên cứu mang tính học thuật.",
+    "level": "B1",
+    "pos": "adjective",
+    "img": "assets/images/words/a/academic.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "acceptable",
+    "word": "acceptable",
+    "meaning": "Có thể chấp nhận được",
+    "ipa": "/əkˈsep.tə.bəl/",
+    "definition": "Able to be agreed on; suitable.",
+    "example": "The terms of agreement are acceptable.",
+    "exampleVi": "Các điều khoản thỏa thuận là có thể chấp nhận được.",
+    "level": "B1",
+    "pos": "adjective",
+    "img": "assets/images/words/a/acceptable.webp",
+    "topicIds": [
+      "toeic-b1-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "accommodate",
+    "word": "accommodate",
+    "meaning": "Cung cấp chỗ ở, đáp ứng nhu cầu",
+    "ipa": "/əˈkɒm.ə.deɪt/",
+    "definition": "To provide lodging or sufficient space for.",
+    "example": "The hotel can accommodate up to five hundred guests.",
+    "exampleVi": "Khách sạn có thể cung cấp chỗ nghỉ cho tới 500 khách.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/a/accommodate.webp",
+    "topicIds": [
+      "travel-places-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "accurate",
+    "word": "accurate",
+    "meaning": "Chính xác, chuẩn xác",
+    "ipa": "/ˈæk.jə.rət/",
+    "definition": "Correct in all details.",
+    "example": "FSRS provides accurate memory forecast.",
+    "exampleVi": "Thuật toán FSRS cung cấp dự báo trí nhớ chuẩn xác.",
+    "level": "B1",
+    "pos": "adjective",
+    "img": "assets/images/words/a/accurate.webp",
+    "topicIds": [
+      "technology-internet-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "additional",
+    "word": "additional",
+    "meaning": "Bổ sung, thêm vào",
+    "ipa": "/əˈdɪʃ.ən.əl/",
+    "definition": "Added, extra, or supplementary.",
+    "example": "We provide additional study materials for free.",
+    "exampleVi": "Chúng tôi cung cấp thêm tài liệu học tập bổ sung miễn phí.",
+    "level": "B1",
+    "pos": "adjective",
+    "img": "assets/images/words/a/additional.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "admire",
+    "word": "admire",
+    "meaning": "Ngưỡng mộ, khâm phục",
+    "ipa": "/ədˈmaɪər/",
+    "definition": "To regard with respect and warm approval.",
+    "example": "I admire her dedication to language mastery.",
+    "exampleVi": "Tôi rất ngưỡng mộ sự tận tâm làm chủ ngôn ngữ của cô ấy.",
+    "level": "B1",
+    "pos": "verb",
+    "img": "assets/images/words/a/admire.webp",
+    "topicIds": [
+      "people-relationships-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "advocate",
+    "word": "advocate",
+    "meaning": "Ủng hộ, tán thành",
+    "ipa": "/ˈæd.və.keɪt/",
+    "definition": "To publicly recommend or support.",
+    "example": "Experts advocate for digital transformation in schools.",
+    "exampleVi": "Các chuyên gia ủng hộ việc chuyển đổi số trong trường học.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/a/advocate.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "aesthetic",
+    "word": "aesthetic",
+    "meaning": "Mang tính thẩm mỹ",
+    "ipa": "/esˈθet.ɪk/",
+    "definition": "Concerned with beauty or the appreciation of beauty.",
+    "example": "The application interface possesses high aesthetic appeal.",
+    "exampleVi": "Giao diện ứng dụng sở hữu vẻ đẹp thẩm mỹ cao.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/a/aesthetic.webp",
+    "topicIds": [
+      "technology-internet-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "aggregate",
+    "word": "aggregate",
+    "meaning": "Tập hợp lại, tổng hợp",
+    "ipa": "/ˈæɡ.rɪ.ɡeɪt/",
+    "definition": "To form or group into a class or cluster.",
+    "example": "Data analytics aggregate review metrics across decks.",
+    "exampleVi": "Phân tích dữ liệu tổng hợp các chỉ số ôn tập trên khắp các chủ đề.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/a/aggregate.webp",
+    "topicIds": [
+      "technology-internet-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "aligned",
+    "word": "aligned",
+    "meaning": "Được căn chỉnh, thẳng hàng, đồng thuận",
+    "ipa": "/əˈlaɪnd/",
+    "definition": "Precisely adjusted or in agreement.",
+    "example": "Team goals must be aligned with overall strategy.",
+    "exampleVi": "Mục tiêu nhóm phải được thống nhất đồng thuận với chiến lược chung.",
+    "level": "B2",
+    "pos": "adjective",
+    "img": "assets/images/words/a/aligned.webp",
+    "topicIds": [
+      "work-jobs-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "alleviate",
+    "word": "alleviate",
+    "meaning": "Làm dịu bớt, giảm nhẹ",
+    "ipa": "/əˈliː.vi.eɪt/",
+    "definition": "To make suffering or problem less severe.",
+    "example": "FSRS intervals alleviate study overload effectively.",
+    "exampleVi": "Khoảng cách ngắt quãng của FSRS giúp giảm nhẹ tình trạng quá tải học tập một cách hiệu quả.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/a/alleviate.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "ambiguity",
+    "word": "ambiguity",
+    "meaning": "Sự mơ hồ, không rõ ràng",
+    "ipa": "/ˌæm.bɪˈɡjuː.ə.ti/",
+    "definition": "The quality of being open to more than one interpretation.",
+    "example": "Clear documentation eliminates unnecessary ambiguity.",
+    "exampleVi": "Tài liệu rõ ràng giúp loại bỏ sự mơ hồ không cần thiết.",
+    "level": "B2",
+    "pos": "noun",
+    "img": "assets/images/words/a/ambiguity.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "anticipate",
+    "word": "anticipate",
+    "meaning": "Lường trước, dự đoán",
+    "ipa": "/ænˈtɪs.ɪ.peɪt/",
+    "definition": "To regard as probable; expect or predict.",
+    "example": "Good managers anticipate potential market shifts.",
+    "exampleVi": "Các nhà quản lý giỏi luôn lường trước các biến động thị trường tiềm ẩn.",
+    "level": "B2",
+    "pos": "verb",
+    "img": "assets/images/words/a/anticipate.webp",
+    "topicIds": [
+      "work-jobs-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "acumen",
+    "word": "acumen",
+    "meaning": "Sự nhạy bén, óc phán đoán sắc sảo",
+    "ipa": "/ˈæk.jə.mən/",
+    "definition": "The ability to make good judgments and quick decisions.",
+    "example": "His financial acumen guided the company through recession.",
+    "exampleVi": "Sự nhạy bén tài chính của ông đã dẫn dắt công ty vượt qua thời kỳ suy thoái.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/a/acumen.webp",
+    "topicIds": [
+      "finance-banking-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "alacrity",
+    "word": "alacrity",
+    "meaning": "Sự sốt sắng, hăm hở nhanh nhẹn",
+    "ipa": "/əˈlæk.rə.ti/",
+    "definition": "Brisk and cheerful readiness.",
+    "example": "She accepted the promotion offer with great alacrity.",
+    "exampleVi": "Cô ấy đã đón nhận lời đề nghị thăng chức với sự sốt sắng và phấn khởi.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/a/alacrity.webp",
+    "topicIds": [
+      "work-jobs-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "altruistic",
+    "word": "altruistic",
+    "meaning": "Vị tha, vì lợi ích người khác",
+    "ipa": "/ˌæl.truˈɪs.tɪk/",
+    "definition": "Showing a selfless concern for the well-being of others.",
+    "example": "Philanthropic founders drive altruistic community projects.",
+    "exampleVi": "Các nhà sáng lập từ thiện luôn thúc đẩy các dự án cộng đồng mang tính vị tha.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/a/altruistic.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "anachronistic",
+    "word": "anachronistic",
+    "meaning": "Lỗi thời, sai niên đại",
+    "ipa": "/əˌnæk.rəˈnɪs.tɪk/",
+    "definition": "Belonging or appropriate to an earlier period.",
+    "example": "Using paper punch cards today is completely anachronistic.",
+    "exampleVi": "Sử dụng thẻ đục lỗ bằng giấy ngày nay là điều hoàn toàn lỗi thời.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/a/anachronistic.webp",
+    "topicIds": [
+      "technology-internet-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "antithesis",
+    "word": "antithesis",
+    "meaning": "Sự tương phản hoàn toàn, phản đề",
+    "ipa": "/ænˈtɪθ.ə.sɪs/",
+    "definition": "A person or thing that is the direct opposite of someone or something else.",
+    "example": "Greed is the absolute antithesis of generosity.",
+    "exampleVi": "Lòng tham là sự tương phản hoàn toàn đối lập với lòng hào phóng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/a/antithesis.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "assiduous",
+    "word": "assiduous",
+    "meaning": "Siêng năng, tận tụy kiên trì",
+    "ipa": "/əˈsɪdʒ.u.əs/",
+    "definition": "Showing great care and perseverance.",
+    "example": "Through assiduous practice, she mastered simultaneous interpretation.",
+    "exampleVi": "Nhờ sự rèn luyện siêng năng bền bỉ, cô ấy đã làm chủ kỹ năng phiên dịch song song.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/a/assiduous.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "bellwether",
+    "word": "bellwether",
+    "meaning": "Con đầu đàn, chỉ báo dẫn đường",
+    "ipa": "/ˈbelˌweð.ər/",
+    "definition": "An indicator or predictor of trends.",
+    "example": "Tech stock indices serve as a bellwether for the wider economy.",
+    "exampleVi": "Chỉ số cổ phiếu công nghệ đóng vai trò là một chỉ báo dẫn đường cho toàn bộ nền kinh tế.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/b/bellwether.webp",
+    "topicIds": [
+      "finance-banking-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "capitulate",
+    "word": "capitulate",
+    "meaning": "Đầu hàng, nhượng bộ sau tranh đấu",
+    "ipa": "/kəˈpɪtʃ.ə.leɪt/",
+    "definition": "To cease to resist an opponent or an unwelcome demand.",
+    "example": "The negotiators refused to capitulate on environmental terms.",
+    "exampleVi": "Các nhà đàm phán kiên quyết không nhượng bộ về các điều khoản bảo vệ môi trường.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/c/capitulate.webp",
+    "topicIds": [
+      "toeic-b2-mastery-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "cogent",
+    "word": "cogent",
+    "meaning": "Có sức thuyết phục, đanh thép",
+    "ipa": "/ˈkəʊ.dʒənt/",
+    "definition": "Clear, logical, and convincing.",
+    "example": "He put forward a cogent argument supported by robust data.",
+    "exampleVi": "Ông ấy đã đưa ra một lập luận đầy sức thuyết phục được bảo chứng bởi dữ liệu vững chắc.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/c/cogent.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "deleterious",
+    "word": "deleterious",
+    "meaning": "Có hại, gây tổn hại ngấm ngầm",
+    "ipa": "/ˌdel.ɪˈtɪə.ri.əs/",
+    "definition": "Causing harm or damage.",
+    "example": "Sleep deprivation exerts deleterious effects on memory retention.",
+    "exampleVi": "Thiếu ngủ gây ra những tác hại ngấm ngầm đối với khả năng ghi nhớ dài hạn.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/d/deleterious.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "diatribe",
+    "word": "diatribe",
+    "meaning": "Bài công kích gay gắt, chỉ trích cay độc",
+    "ipa": "/ˈdaɪ.ə.traɪb/",
+    "definition": "A forceful and bitter verbal attack against someone or something.",
+    "example": "The editorial was a scathing diatribe against corporate corruption.",
+    "exampleVi": "Bài xã luận là một lời công kích gay gắt chống lại nạn tham nhũng doanh nghiệp.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/d/diatribe.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "disingenuous",
+    "word": "disingenuous",
+    "meaning": "Thiếu chân thật, quanh co giả dối",
+    "ipa": "/ˌdɪs.ɪnˈdʒen.ju.əs/",
+    "definition": "Not candid or sincere, typically by pretending that one knows less than one does.",
+    "example": "It would be disingenuous to claim that success happened overnight.",
+    "exampleVi": "Sẽ là thiếu chân thật nếu tuyên bố rằng thành công đạt được chỉ sau một đêm.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/d/disingenuous.webp",
+    "topicIds": [
+      "communication-feelings-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "ebullient",
+    "word": "ebullient",
+    "meaning": "Hồ hởi, tràn trề sinh lực và nhiệt huyết",
+    "ipa": "/ɪˈbʊl.i.ənt/",
+    "definition": "Cheerful and full of energy.",
+    "example": "The ebullient atmosphere at the commencement ceremony was unforgettable.",
+    "exampleVi": "Bầu không khí hồ hởi tràn đầy nhiệt huyết tại lễ tốt nghiệp thật khó quên.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/e/ebullient.webp",
+    "topicIds": [
+      "communication-feelings-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "eclectic",
+    "word": "eclectic",
+    "meaning": "Đa dạng phong phú, chiết trung",
+    "ipa": "/ekˈlek.tɪk/",
+    "definition": "Deriving ideas, style, or taste from a broad and diverse range of sources.",
+    "example": "Her bookshelf holds an eclectic mix of philosophy and quantum physics.",
+    "exampleVi": "Kệ sách của cô ấy chứa đựng sự pha trộn đa dạng phong phú giữa triết học và vật lý lượng tử.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/e/eclectic.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "enervate",
+    "word": "enervate",
+    "meaning": "Làm suy kiệt, làm mất sức lực",
+    "ipa": "/ˈen.ə.veɪt/",
+    "definition": "To cause someone to feel drained of energy or vitality.",
+    "example": "Extreme humidity can quickly enervate athletes.",
+    "exampleVi": "Độ ẩm quá cao có thể nhanh chóng làm suy kiệt sức lực của các vận động viên.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/e/enervate.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "fastidious",
+    "word": "fastidious",
+    "meaning": "Cực kỳ kỹ tính, khắt khe từng tiểu tiết",
+    "ipa": "/fæsˈtɪd.i.əs/",
+    "definition": "Very attentive to and concerned about accuracy and detail.",
+    "example": "A fastidious editor spotted minor typos in the manuscript.",
+    "exampleVi": "Một biên tập viên cực kỳ kỹ tính đã phát hiện những lỗi chính tả nhỏ nhất trong bản thảo.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/f/fastidious.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "germane",
+    "word": "germane",
+    "meaning": "Thích hợp, có liên quan mật thiết",
+    "ipa": "/dʒɜːˈmeɪn/",
+    "definition": "Relevant to a subject under consideration.",
+    "example": "Please provide data that is directly germane to our study.",
+    "exampleVi": "Vui lòng cung cấp dữ liệu có liên quan mật thiết trực tiếp đến nghiên cứu của chúng tôi.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/g/germane.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "hegemony",
+    "word": "hegemony",
+    "meaning": "Quyền bá chủ, vị thế thống trị",
+    "ipa": "/hɪˈdʒem.ə.ni/",
+    "definition": "Leadership or dominance, especially by one country or social group over others.",
+    "example": "Technological hegemony shapes global trade standards.",
+    "exampleVi": "Vị thế bá chủ về công nghệ định hình các tiêu chuẩn thương mại toàn cầu.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/h/hegemony.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "idiosyncrasy",
+    "word": "idiosyncrasy",
+    "meaning": "Nét đặc trưng riêng, tính lập dị độc đáo",
+    "ipa": "/ˌɪd.i.əˈsɪŋ.krə.si/",
+    "definition": "A mode of behavior or way of thought peculiar to an individual.",
+    "example": "Every language possesses unique grammatical idiosyncrasies.",
+    "exampleVi": "Mỗi ngôn ngữ đều sở hữu những nét đặc trưng ngữ pháp độc đáo riêng.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/i/idiosyncrasy.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "inchoate",
+    "word": "inchoate",
+    "meaning": "Mới bắt đầu, còn sơ khai chưa định hình",
+    "ipa": "/ɪnˈkəʊ.eɪt/",
+    "definition": "Just begun and so not fully formed or developed.",
+    "example": "The team refined their inchoate concept into a viable startup.",
+    "exampleVi": "Nhóm đã mài giũa ý tưởng còn sơ khai của mình thành một công ty khởi nghiệp khả thi.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/i/inchoate.webp",
+    "topicIds": [
+      "work-jobs-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "laconic",
+    "word": "laconic",
+    "meaning": "Ngắn gọn, súc tích súc tích",
+    "ipa": "/ləˈkɒn.ɪk/",
+    "definition": "Using very few words.",
+    "example": "His laconic reply conveyed deep wisdom in just four words.",
+    "exampleVi": "Câu trả lời ngắn gọn súc tích của ông đã truyền tải trí tuệ sâu sắc chỉ trong 4 từ.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/l/laconic.webp",
+    "topicIds": [
+      "communication-feelings-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "malleable",
+    "word": "malleable",
+    "meaning": "Dễ uốn nắn, linh hoạt thích ứng",
+    "ipa": "/ˈmæl.i.ə.bəl/",
+    "definition": "Easily influenced, pliable, or adaptable.",
+    "example": "Young brains are extraordinarily malleable and receptive to languages.",
+    "exampleVi": "Bộ não người trẻ tuổi cực kỳ linh hoạt dễ uốn nắn và tiếp thu ngôn ngữ rất nhanh.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/m/malleable.webp",
+    "topicIds": [
+      "health-body-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "neophyte",
+    "word": "neophyte",
+    "meaning": "Người mới vào nghề, tập sự",
+    "ipa": "/ˈniː.ə.faɪt/",
+    "definition": "A person who is new to a subject, skill, or belief.",
+    "example": "Even a coding neophyte can grasp basic algorithms with persistence.",
+    "exampleVi": "Ngay cả một người mới tập sự cũng có thể nắm bắt thuật toán cơ bản nếu có sự kiên trì.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/n/neophyte.webp",
+    "topicIds": [
+      "education-learning-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "obfuscate",
+    "word": "obfuscate",
+    "meaning": "Làm rối rắm, che giấu sự thật",
+    "ipa": "/ˈɒb.fʌs.keɪt/",
+    "definition": "To render obscure, unclear, or unintelligible.",
+    "example": "Do not use technical jargon to obfuscate simple facts.",
+    "exampleVi": "Đừng sử dụng biệt ngữ kỹ thuật để làm rối rắm những sự thật đơn giản.",
+    "level": "C1",
+    "pos": "verb",
+    "img": "assets/images/words/o/obfuscate.webp",
+    "topicIds": [
+      "communication-feelings-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "panacea",
+    "word": "panacea",
+    "meaning": "Phương thuốc vạn năng, giải pháp bách bệnh",
+    "ipa": "/ˌpæn.əˈsiː.ə/",
+    "definition": "A solution or remedy for all difficulties or diseases.",
+    "example": "Technology is powerful, but it is not a panacea for all societal ills.",
+    "exampleVi": "Công nghệ rất mạnh mẽ, nhưng nó không phải là phương thuốc vạn năng cho mọi vấn nạn xã hội.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/p/panacea.webp",
+    "topicIds": [
+      "society-world-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "recalcitrant",
+    "word": "recalcitrant",
+    "meaning": "Bướng bỉnh ngoan cố, bất phục tùng",
+    "ipa": "/rɪˈkæl.sɪ.trənt/",
+    "definition": "Having an obstinately uncooperative attitude toward authority.",
+    "example": "The mediator handled recalcitrant parties with patience and tact.",
+    "exampleVi": "Người hòa giải đã xử lý các bên ngoan cố với sự kiên nhẫn và khéo léo.",
+    "level": "C1",
+    "pos": "adjective",
+    "img": "assets/images/words/r/recalcitrant.webp",
+    "topicIds": [
+      "people-relationships-chặng-1"
+    ],
+    "tags": []
+  },
+  {
+    "id": "sycophant",
+    "word": "sycophant",
+    "meaning": "Kẻ nịnh hót, kẻ bợ đỡ",
+    "ipa": "/ˈsɪk.ə.fænt/",
+    "definition": "A person who acts obsequiously toward someone important in order to gain advantage.",
+    "example": "True leaders value honest critics over flattery sycophants.",
+    "exampleVi": "Những nhà lãnh đạo chân chính luôn coi trọng người phản biện thẳng thắn hơn những kẻ nịnh hót bợ đỡ.",
+    "level": "C1",
+    "pos": "noun",
+    "img": "assets/images/words/s/sycophant.webp",
+    "topicIds": [
+      "work-jobs-chặng-1"
+    ],
+    "tags": []
   }
 ];
 

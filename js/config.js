@@ -5,7 +5,7 @@
 
 export const APP_CONFIG = {
   name: 'Flashcard English Pro',
-  version: '2.18.0',
+  version: '2.19.0',
   storagePrefix: 'fc_pro_',
   dbName: 'FlashcardProDB',
   dbVersion: 1
@@ -24,7 +24,7 @@ export const MASTERY_STABILITY_THRESHOLD = 30; // Ngưỡng đã thuộc / ghi n
 
 /**
  * Danh mục mục tiêu trình độ chuẩn hóa theo Khung Tham Chiếu Châu Âu CEFR & Chứng chỉ Quốc Tế
- * Đồng bộ chính xác với cơ sở dữ liệu từ vựng (A1: 357, A2: 832, B1: 1688, B2: 743, C1: 203)
+ * Đồng bộ chính xác với cơ sở dữ liệu từ vựng (A1: 458, A2: 864, B1: 1705, B2: 758, C1: 247 -> Tổng: 4.032 từ)
  */
 export const LEARNING_GOALS = [
   {
@@ -38,7 +38,7 @@ export const LEARNING_GOALS = [
     desc: 'Vốn từ vựng nền tảng ban đầu, làm quen phát âm, số đếm, gia đình & chào hỏi.',
     targetCefr: ['A1'],
     targetDecks: ['daily-life-routines', 'people-relationships'],
-    defaultTargetWords: 357,
+    defaultTargetWords: 458,
     defaultDailyNew: 10
   },
   {
@@ -52,7 +52,7 @@ export const LEARNING_GOALS = [
     desc: 'Tích lũy vốn từ A1 + A2: Mua sắm, ẩm thực, du lịch, chỉ đường & giao tiếp hàng ngày.',
     targetCefr: ['A1', 'A2'],
     targetDecks: ['top-1000-core', 'daily-life-routines', 'food-drink', 'shopping-money', 'travel-places'],
-    defaultTargetWords: 1189,
+    defaultTargetWords: 1322,
     defaultDailyNew: 10
   },
   {
@@ -66,7 +66,7 @@ export const LEARNING_GOALS = [
     desc: 'Tích lũy vốn từ A1-B1: Tự tin giao tiếp công sở, viết email, thuyết trình & bài thi TOEIC B1.',
     targetCefr: ['A1', 'A2', 'B1'],
     targetDecks: ['toeic-b1', 'top-1000-toeic', 'work-jobs', 'communication-feelings'],
-    defaultTargetWords: 2877,
+    defaultTargetWords: 3027,
     defaultDailyNew: 15
   },
   {
@@ -80,7 +80,7 @@ export const LEARNING_GOALS = [
     desc: 'Tích lũy vốn từ A1-B2: Kinh doanh thương mại, đàm phán hợp đồng, phân tích báo cáo chuyên sâu.',
     targetCefr: ['A1', 'A2', 'B1', 'B2'],
     targetDecks: ['toeic-b2-mastery', 'top-1000-toeic', 'finance-banking', 'technology-internet'],
-    defaultTargetWords: 3620,
+    defaultTargetWords: 3785,
     defaultDailyNew: 15
   },
   {
@@ -94,21 +94,21 @@ export const LEARNING_GOALS = [
     desc: 'Tích lũy toàn diện A1-C1: Từ vựng học thuật chuyên sâu, công nghệ, xã hội & IELTS điểm cao.',
     targetCefr: ['A1', 'A2', 'B1', 'B2', 'C1'],
     targetDecks: ['education-learning', 'society-world', 'technology-internet', 'finance-banking'],
-    defaultTargetWords: 3823,
+    defaultTargetWords: 4032,
     defaultDailyNew: 15
   },
   {
     id: 'all-dictionary',
     aliases: ['all', 'dictionary'],
-    title: 'Toàn Thư 3.823 Từ Vựng (A1 - C1)',
+    title: 'Toàn Thư 4.032 Từ Vựng (A1 - C1)',
     shortTitle: 'Toàn Bộ Từ Điển',
-    badge: '👑 3.823 Từ',
+    badge: '👑 4.032 Từ',
     icon: '👑',
     color: '#3b82f6',
-    desc: 'Chinh phục toàn bộ 3.823 từ vựng từ cơ bản đến cao cấp trong cơ sở dữ liệu ứng dụng.',
+    desc: 'Chinh phục toàn bộ 4.032 từ vựng từ cơ bản đến cao cấp trong cơ sở dữ liệu ứng dụng.',
     targetCefr: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
     targetDecks: [],
-    defaultTargetWords: 3823,
+    defaultTargetWords: 4032,
     defaultDailyNew: 20
   },
   {
@@ -140,7 +140,7 @@ export const DEFAULT_SETTINGS = {
   activeGoal: {
     id: 'cefr-b1',
     dailyNew: 10,
-    targetWords: 2877,
+    targetWords: 3027,
     customTitle: ''
   },
   autoPronounce: true,
