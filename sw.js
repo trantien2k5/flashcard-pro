@@ -4,7 +4,7 @@
  * Tự động phát hiện và cập nhật code mới tức thời khi Online (Zero-Friction Live Update).
  */
 
-const CACHE_NAME = 'flashcard-pro-v3.36.0';
+const CACHE_NAME = 'flashcard-pro-v3.37.0';
 const PRECACHE_ASSETS = [
   './',
   './index.html',

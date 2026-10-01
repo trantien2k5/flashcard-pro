@@ -7,18 +7,20 @@
    -------------------------------------------------------------------------- */
 .modal-backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.72);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 10000; /* Luôn hiển thị trên cùng, cao hơn cả Flashcard Study Overlay */
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .modal-backdrop.active {
@@ -31,11 +33,13 @@
   border-radius: var(--radius-lg);
   width: 100%;
   max-width: 440px;
-  max-height: 85vh;
+  max-height: min(88vh, calc(100dvh - 32px));
+  margin: auto;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  box-sizing: border-box;
 }
 
 [data-theme="light"] .modal-dialog {

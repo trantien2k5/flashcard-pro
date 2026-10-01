@@ -96,14 +96,13 @@
 }
 
 .goal-main-title {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 850;
   color: var(--text-primary);
   margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.25;
   letter-spacing: -0.01em;
+  word-break: break-word;
 }
 
 .btn-edit-goal {
@@ -476,6 +475,9 @@
    ========================================================================== */
 .quick-preview-dialog {
   max-width: 440px !important;
+  width: 100%;
+  max-height: min(88vh, calc(100dvh - 32px));
+  margin: auto;
   border-radius: 24px;
   background: var(--bg-card, #ffffff);
   border: 1px solid var(--border);
@@ -484,6 +486,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 [data-theme="light"] .quick-preview-dialog {
@@ -493,11 +496,12 @@
 }
 
 .quick-modal-header {
-  padding: 18px 20px 14px 20px;
+  padding: 16px 18px 14px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
 }
 
 .quick-modal-title-wrap {
@@ -538,20 +542,26 @@
 }
 
 .quick-modal-body {
-  padding: 16px 20px;
-  max-height: 55vh;
+  padding: 16px 18px;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  box-sizing: border-box;
 }
 
 .quick-modal-footer {
-  padding: 12px 20px 18px 20px;
+  padding: 12px 18px max(14px, env(safe-area-inset-bottom, 14px)) 18px;
   display: flex;
   align-items: center;
   gap: 10px;
   border-top: 1px solid var(--border);
+  background: var(--bg-card, #ffffff);
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 /* Quick Action Buttons */
@@ -848,15 +858,23 @@
 
 /* --- POPUP 4: Goal Customizer Modal Styles --- */
 .goal-customizer-dialog {
-  max-width: 480px;
-  width: 95%;
+  max-width: 480px !important;
+  width: 100%;
+  max-height: min(90vh, calc(100dvh - 32px));
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 .goal-customizer-dialog .quick-modal-body {
-  max-height: 72vh;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   gap: 16px;
-  padding-right: 4px;
+  padding: 16px 18px 20px 18px;
+  box-sizing: border-box;
 }
 
 .goal-sec-label {
@@ -880,13 +898,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 11px 13px;
+  gap: 12px;
+  padding: 12px 14px;
   border-radius: 14px;
   background: var(--bg-hover, rgba(0, 0, 0, 0.03));
   border: 1.5px solid var(--border);
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
+  box-sizing: border-box;
 }
 
 .goal-preset-item:hover {
@@ -903,50 +923,56 @@
 
 .goal-preset-left {
   display: flex;
-  align-items: center;
-  gap: 11px;
+  align-items: flex-start;
+  gap: 12px;
   min-width: 0;
+  flex: 1;
 }
 
 .goal-preset-icon {
   font-size: 1.35rem;
-  line-height: 1;
+  line-height: 1.2;
   flex-shrink: 0;
+  margin-top: 1px;
 }
 
 .goal-preset-meta {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   min-width: 0;
+  flex: 1;
 }
 
 .goal-preset-title {
-  font-size: 0.88rem;
+  font-size: 0.90rem;
   font-weight: 800;
   color: var(--text-primary);
-  line-height: 1.25;
+  line-height: 1.3;
+  word-break: break-word;
 }
 
 .goal-preset-desc {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   color: var(--text-secondary);
-  line-height: 1.2;
+  line-height: 1.35;
+  word-break: break-word;
 }
 
 .goal-preset-check {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   border: 2px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
   color: transparent;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 850;
   flex-shrink: 0;
   transition: all 0.2s ease;
+  margin-top: 2px;
 }
 
 .goal-preset-item.active .goal-preset-check {
