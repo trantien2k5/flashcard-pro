@@ -23,18 +23,18 @@ export function renderReviewShell(container) {
         <!-- 1. Thanh Tiến Độ Trình Độ CEFR & Nhịp Độ Cá Nhân Hóa (CEFR Level & Roadmap Header Bar) -->
         <div class="home-goal-bar-card" id="home-goal-card" role="button" tabindex="0" title="Nhấn để xem phân tích lộ trình CEFR & nhịp độ cá nhân hóa">
           <div class="goal-bar-header">
-            <div class="goal-badge-wrap">
+            <div class="goal-header-left">
               <span class="goal-icon-badge" id="home-goal-icon">🎯</span>
               <div class="goal-titles">
                 <div class="goal-eyebrow-row">
                   <span class="goal-eyebrow">TRÌNH ĐỘ HIỆN TẠI</span>
-                  <span class="goal-target-tag" id="home-target-tag">Mục tiêu: B1 ❯</span>
+                  <span class="goal-level-badge" id="home-current-level-badge">Cấp A1 (0%)</span>
                 </div>
                 <h2 class="goal-main-title" id="home-goal-title">Trình Độ A1 (Căn Bản Khởi Đầu)</h2>
               </div>
             </div>
             <div class="goal-header-right">
-              <span class="goal-level-badge" id="home-current-level-badge">Cấp A1</span>
+              <span class="goal-target-tag" id="home-target-tag">Mục tiêu: B1 ❯</span>
             </div>
           </div>
 
@@ -338,7 +338,7 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
 
   const elCurBadge = document.getElementById('home-current-level-badge');
   if (elCurBadge) {
-    elCurBadge.textContent = `Cấp ${currentLevel.id} (${currentLevel.progressPct}%)`;
+    elCurBadge.textContent = `${currentLevel.id} (${currentLevel.progressPct}%)`;
     elCurBadge.style.borderColor = `${currentLevel.color}40`;
     elCurBadge.style.color = currentLevel.color;
     elCurBadge.style.background = `${currentLevel.color}15`;
@@ -432,7 +432,7 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
   const elCtaSub = document.getElementById('home-cta-subtext');
   if (elCtaSub) {
     if (dueCount > 0 && remainingNewToday > 0) {
-      elCtaSub.textContent = `⚡ ${dueCount} ôn tập + 🌱 ${remainingNewToday} từ mới`;
+      elCtaSub.textContent = `⚡ ${dueCount} cần ôn • 🌱 ${remainingNewToday} từ mới`;
     } else if (dueCount > 0) {
       elCtaSub.textContent = `⚡ ${dueCount} từ cần ôn tập`;
     } else if (remainingNewToday > 0) {

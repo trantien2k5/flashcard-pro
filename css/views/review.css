@@ -73,14 +73,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
+  width: 100%;
 }
 
-.goal-badge-wrap {
+.goal-header-left {
   display: flex;
   align-items: center;
   gap: 10px;
   min-width: 0;
+  flex: 1;
 }
 
 .goal-icon-badge {
@@ -100,50 +102,48 @@
 .goal-titles {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
   min-width: 0;
+  flex: 1;
 }
 
 .goal-eyebrow-row {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 6px;
+  line-height: 1;
 }
 
 .goal-eyebrow {
-  font-size: 0.65rem;
+  font-size: 0.64rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--primary, #6366f1);
+  color: var(--text-muted);
 }
 
-.goal-target-tag {
+.goal-level-badge {
   font-size: 0.66rem;
-  font-weight: 750;
-  padding: 1px 7px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+  padding: 1px 6px;
   border-radius: 6px;
-  background: var(--bg-hover, rgba(0, 0, 0, 0.04));
-  color: var(--text-secondary);
-  border: 1px solid var(--border);
-  transition: all 0.2s ease;
-}
-
-.home-goal-bar-card:hover .goal-target-tag {
-  background: rgba(99, 102, 241, 0.12);
-  color: var(--primary);
-  border-color: rgba(99, 102, 241, 0.3);
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  white-space: nowrap;
 }
 
 .goal-main-title {
   font-size: 0.94rem;
   font-weight: 850;
   color: var(--text-primary);
-  margin: 0;
+  margin: 2px 0 0 0;
   line-height: 1.25;
   letter-spacing: -0.01em;
-  word-break: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .goal-header-right {
@@ -152,16 +152,22 @@
   flex-shrink: 0;
 }
 
-.goal-level-badge {
-  font-size: 0.74rem;
-  font-weight: 850;
-  font-family: var(--font-mono, monospace);
-  padding: 3px 9px;
+.goal-target-tag {
+  font-size: 0.70rem;
+  font-weight: 750;
+  padding: 4px 9px;
   border-radius: 8px;
-  background: rgba(16, 185, 129, 0.12);
-  color: #10b981;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: var(--bg-hover, rgba(0, 0, 0, 0.04));
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
   white-space: nowrap;
+}
+
+.home-goal-bar-card:hover .goal-target-tag {
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--primary);
+  border-color: rgba(99, 102, 241, 0.3);
 }
 
 /* ==========================================
