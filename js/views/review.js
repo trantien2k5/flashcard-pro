@@ -155,14 +155,11 @@ export function renderReviewShell(container) {
             <div class="btn-cta-glare"></div>
             <div class="btn-cta-body">
               <div class="btn-cta-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
                   <polygon points="5 3 19 12 5 21 5 3"></polygon>
                 </svg>
               </div>
-              <div class="btn-cta-texts">
-                <span class="btn-cta-main-text">BẮT ĐẦU HỌC</span>
-                <span class="btn-cta-sub-text" id="home-cta-subtext">⚡ Nhấn để bắt đầu phiên ôn tập</span>
-              </div>
+              <span class="btn-cta-main-text">BẮT ĐẦU HỌC</span>
             </div>
           </button>
         </div>
@@ -426,20 +423,6 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
   const elEtaIcon = document.getElementById('home-goal-eta-icon');
   if (elEtaIcon) {
     elEtaIcon.textContent = forecast.isUsingRealBehavior ? '⚡' : '🏁';
-  }
-
-  // Cập nhật text phụ của nút CTA (tinh giản, súc tích)
-  const elCtaSub = document.getElementById('home-cta-subtext');
-  if (elCtaSub) {
-    if (dueCount > 0 && remainingNewToday > 0) {
-      elCtaSub.textContent = `⚡ ${dueCount} cần ôn • 🌱 ${remainingNewToday} từ mới`;
-    } else if (dueCount > 0) {
-      elCtaSub.textContent = `⚡ ${dueCount} từ cần ôn tập`;
-    } else if (remainingNewToday > 0) {
-      elCtaSub.textContent = `🌱 ${remainingNewToday} từ mới hôm nay`;
-    } else {
-      elCtaSub.textContent = `🎉 Đã hoàn thành chỉ tiêu hôm nay`;
-    }
   }
 }
 

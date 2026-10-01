@@ -501,40 +501,102 @@ export class DeckManager {
       return new Date(a.fsrsState.due) - new Date(b.fsrsState.due);
     });
 
-    // 2. SẮP XẾP TỪ MỚI THEO MỤC TIÊU HỌC TẬP & ĐỘ PHỔ BIẾN ƯU TIÊN CAO NHẤT (Smart Goal Priority)
+    // 2. SẮP XẾP TỪ MỚI THEO NẤC THANG CEFR (A1 -> A2 -> B1 -> B2 -> C1) & ĐỘ PHỔ BIẾN CỐT LÕI
+    const cardStates = StorageManager.getAllCardStates() || {};
+    
+    // Đếm số từ đã học theo từng bậc CEFR để xác định nấc thang hiện tại
+    let a1Learned = 0, a1Total = 0;
+    let a2Learned = 0, a2Total = 0;
+    let b1Learned = 0, b1Total = 0;
+    let b2Learned = 0, b2Total = 0;
+
+    for (let i = 0; i < this.allCards.length; i++) {
+      const c = this.allCards[i];
+      const lvl = (c.level || c.cefr || 'A1').toUpperCase();
+      const s = cardStates[c.id];
+      const isLearned = s && s.state !== State.New && s.state !== 0 && !s.suspended;
+      if (lvl === 'A1') { a1Total++; if (isLearned) a1Learned++; }
+      else if (lvl === 'A2') { a2Total++; if (isLearned) a2Learned++; }
+      else if (lvl === 'B1') { b1Total++; if (isLearned) b1Learned++; }
+      else if (lvl === 'B2') { b2Total++; if (isLearned) b2Learned++; }
+    }
+
+    const a1Ratio = a1Total > 0 ? (a1Learned / a1Total) : 0;
+    const a2Ratio = a2Total > 0 ? (a2Learned / a2Total) : 0;
+    const b1Ratio = b1Total > 0 ? (b1Learned / b1Total) : 0;
+    const b2Ratio = b2Total > 0 ? (b2Learned / b2Total) : 0;
+
     const activeGoalId = settings.activeGoal?.id || 'cefr-b1';
     const activeGoal = getLearningGoal(activeGoalId);
     const targetDecksSet = new Set(activeGoal?.targetDecks || []);
     const targetCefrSet = new Set((activeGoal?.targetCefr || []).map(c => c.toUpperCase()));
 
-    // Hàm chấm điểm độ ưu tiên của từ mới (Từ ưu tiên cao nhất, phổ biến nhất, liên quan mục tiêu lên đầu)
+    const normalizePos = (pos) => {
+      if (!pos) return 'other';
+      const p = String(pos).toLowerCase();
+      if (p.includes('noun') || p === 'n') return 'noun';
+      if (p.includes('verb') || p === 'v') return 'verb';
+      if (p.includes('adj') || p === 'a') return 'adj';
+      return 'other';
+    };
+
+    // Hàm chấm điểm độ ưu tiên của từ mới (Strict CEFR Ladder Progression & Essential Vocabulary Ranking)
     const scoreNewCard = (c) => {
       let score = 0;
       const cardLevel = (c.level || c.cefr || 'A1').toUpperCase();
       const topicIds = Array.isArray(c.topicIds) ? c.topicIds : [];
       const deckId = c.deckId || '';
+      const posKey = normalizePos(c.pos);
 
-      // 1. Trùng khớp với mục tiêu học tập (Target Goal Match)
-      if (targetCefrSet.has(cardLevel)) score += 500;
-      if (targetDecksSet.has(deckId)) score += 400;
+      // 1. Trọng số Nấc thang CEFR tuần tự (A1 -> A2 -> B1 -> B2 -> C1)
+      if (a1Ratio < 0.80) {
+        if (cardLevel === 'A1') score += 3000;
+        else if (cardLevel === 'A2') score += 1500;
+        else if (cardLevel === 'B1') score += 800;
+        else if (cardLevel === 'B2') score += 400;
+        else score += 100;
+      } else if (a2Ratio < 0.80) {
+        if (cardLevel === 'A2') score += 3000;
+        else if (cardLevel === 'A1') score += 2000;
+        else if (cardLevel === 'B1') score += 1000;
+        else if (cardLevel === 'B2') score += 500;
+        else score += 100;
+      } else if (b1Ratio < 0.80) {
+        if (cardLevel === 'B1') score += 3000;
+        else if (cardLevel === 'A2') score += 2000;
+        else if (cardLevel === 'A1') score += 1500;
+        else if (cardLevel === 'B2') score += 800;
+        else score += 100;
+      } else if (b2Ratio < 0.80) {
+        if (cardLevel === 'B2') score += 3000;
+        else if (cardLevel === 'B1') score += 2000;
+        else if (cardLevel === 'A2') score += 1500;
+        else score += 500;
+      } else {
+        if (cardLevel === 'C1') score += 3000;
+        else if (cardLevel === 'B2') score += 2000;
+        else score += 1000;
+      }
+
+      // 2. Trùng khớp với Mục tiêu học tập người dùng đã chọn
+      if (targetCefrSet.has(cardLevel)) score += 600;
+      if (targetDecksSet.has(deckId)) score += 500;
       for (const tid of topicIds) {
         if (targetDecksSet.has(tid) || Array.from(targetDecksSet).some(d => tid.startsWith(d))) {
-          score += 300;
+          score += 400;
           break;
         }
       }
 
-      // 2. Độ phổ biến & Cấp độ nền tảng cốt lõi (Phổ biến dùng nhiều nhất)
-      if (cardLevel === 'A1') score += 120;
-      else if (cardLevel === 'A2') score += 100;
-      else if (cardLevel === 'B1') score += 80;
-      else if (cardLevel === 'B2') score += 60;
-      else if (cardLevel === 'C1') score += 40;
-      else if (cardLevel === 'C2') score += 20;
+      // 3. Phân loại từ loại thiết yếu (Động từ hành động -> Danh từ đời sống -> Tính từ mô tả)
+      if (posKey === 'verb') score += 300;
+      else if (posKey === 'noun') score += 250;
+      else if (posKey === 'adj') score += 200;
+      else score += 100;
 
-      // 3. Ưu tiên từ thuộc 1000 từ cốt lõi
+      // 4. Ưu tiên từ thuộc 1000 từ cốt lõi
       if (deckId === 'top-1000-core' || topicIds.some(t => t.startsWith('top-1000-core'))) {
-        score += 150;
+        score += 350;
       }
 
       return score;
