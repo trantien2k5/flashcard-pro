@@ -1,7 +1,6 @@
 import { StorageManager, BackupService } from '../services/storage.js';
 import { StatsManager } from '../core/stats.js';
-import { State } from '../core/fsrs.js';
-import { showConfirm, showToast, openBehavioralOptimizerModal, openGoalPlannerModal } from './components.js';
+import { showConfirm, showToast, openBehavioralOptimizerModal } from './components.js';
 
 function saveAppSettings(app) {
   StorageManager.saveSettings(app.settings);

@@ -5,7 +5,7 @@
  * 3. Tự động tính toán & ghi nhận FSRS-6 trực tiếp vào cùng luồng dữ liệu chuẩn
  */
 
-import { FSRS, Rating, State } from '../core/fsrs.js';
+import { FSRS, Rating } from '../core/fsrs.js';
 import { StorageManager } from '../services/storage.js';
 import { WORDS } from '../../data/index.js';
 import { escapeHTML, scrollToTop } from '../utils.js';

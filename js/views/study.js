@@ -7,7 +7,7 @@ import { Rating, State } from '../core/fsrs.js';
 import { StorageManager } from '../services/storage.js';
 import { showConfirm } from './components.js';
 import { globalStudyTimer } from '../core/stats.js';
-import { unlockAudioContext, preloadCardImage } from '../core/session.js';
+import { unlockAudioContext } from '../core/session.js';
 import { escapeHTML, formatCleanInterval, scrollToTop } from '../utils.js';
 import { onAudioPlayStateChange, speak, speakVi, stopAudio } from '../services/audio.js';
 

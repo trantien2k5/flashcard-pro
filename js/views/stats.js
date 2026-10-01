@@ -9,7 +9,7 @@
 
 import { WORDS } from '../../data/index.js';
 import { StorageManager } from '../services/storage.js';
-import { State, isCardDue } from '../core/fsrs.js';
+import { State } from '../core/fsrs.js';
 import { StatsManager, globalStudyTimer } from '../core/stats.js';
 import { escapeHTML } from '../utils.js';
 import { speak } from '../services/audio.js';
