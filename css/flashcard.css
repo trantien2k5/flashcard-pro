@@ -618,7 +618,7 @@
 
 .card-word-title {
   font-size: clamp(2.5rem, 7vw, 3.5rem);
-  font-weight: 850;
+  font-weight: 800;
   letter-spacing: -0.025em;
   color: #0f172a;
   margin: 0;
@@ -645,7 +645,7 @@
 .card-word-phonetic {
   font-size: clamp(1.15rem, 3.4vw, 1.35rem);
   color: #4338ca;
-  font-weight: 700;
+  font-weight: 600;
   font-family: var(--font-mono);
   background: rgba(99, 102, 241, 0.1);
   border: 1.5px solid rgba(99, 102, 241, 0.25);
@@ -801,7 +801,7 @@
 
 .card-back-meaning {
   font-size: clamp(2.1rem, 6vw, 2.85rem);
-  font-weight: 850;
+  font-weight: 750;
   color: #0d9488;
   line-height: 1.25;
   margin: 0;
@@ -835,7 +835,7 @@
 
 .card-back-def {
   font-size: clamp(0.98rem, 2.5vw, 1.12rem);
-  font-weight: 550;
+  font-weight: 500;
   color: #334155;
   line-height: 1.5;
   margin: 0;

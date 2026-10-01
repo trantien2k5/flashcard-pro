@@ -1423,16 +1423,32 @@
 }
 
 .word-example-en {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   font-style: italic;
-  line-height: 1.35;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.word-example-en .example-highlight {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--primary-light);
+  text-decoration: underline;
+  text-decoration-color: rgba(99, 102, 241, 0.4);
+  text-underline-offset: 2px;
+}
+
+[data-theme="dark"] .word-example-en .example-highlight {
+  color: #818cf8;
 }
 
 .word-example-vi {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  line-height: 1.35;
+  line-height: 1.4;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .word-card-bottom-actions {

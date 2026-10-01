@@ -867,13 +867,31 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
             statusTag = `<span class="word-status-tag status-learning">Đang nhớ · S: ${state?.stability?.toFixed(1) || '0'}d</span>`;
           }
 
+          let exampleHtml = '';
+          if (card.example) {
+            let enHtml = escapeHTML(card.example);
+            if (card.word) {
+              try {
+                const escapedWord = escapeHTML(card.word.trim()).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = new RegExp(`(${escapedWord})`, 'gi');
+                enHtml = enHtml.replace(regex, '<strong class="example-highlight">$1</strong>');
+              } catch (e) {}
+            }
+            exampleHtml = `
+              <div class="word-example-box">
+                <p class="word-example-en">"${enHtml}"</p>
+                ${card.exampleVi ? `<p class="word-example-vi">${escapeHTML(card.exampleVi)}</p>` : ''}
+              </div>
+            `;
+          }
+
           row.innerHTML = `
             <div class="word-card-top-row">
               <span class="word-order-num">#${startIndex + index + 1}</span>
               <div class="word-main-text-group">
                 <span class="word-term">${escapeHTML(card.word)}</span>
                 ${card.phonetic ? `<span class="word-phonetic">${escapeHTML(card.phonetic)}</span>` : ''}
-                ${card.pos ? `<span class="word-pos">${escapeHTML(card.pos)}</span>` : ''}
+                ${card.pos ? `<span class="word-pos">(${escapeHTML(card.pos)})</span>` : ''}
                 ${card.cefr ? `<span class="word-cefr ${card.cefr.toLowerCase()}">${card.cefr}</span>` : ''}
                 ${isLeech ? `<span class="word-leech-pill" title="Thẻ khó nhớ (lapses ≥ 6)">⚠️ Leech</span>` : ''}
               </div>
@@ -882,12 +900,7 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
 
             <div class="word-meaning-text">${escapeHTML(card.meaning)}</div>
 
-            ${card.example ? `
-              <div class="word-example-box">
-                <p class="word-example-en">"${escapeHTML(card.example)}"</p>
-                ${card.exampleVi ? `<p class="word-example-vi">${escapeHTML(card.exampleVi)}</p>` : ''}
-              </div>
-            ` : ''}
+            ${exampleHtml}
 
             <div class="word-card-bottom-actions">
               <button class="btn-word-audio" data-word="${escapeHTML(card.word)}" title="Phát âm">
