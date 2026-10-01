@@ -4,7 +4,7 @@
 
 import { StorageManager } from '../services/storage.js';
 import { State, Rating, FSRS } from './fsrs.js';
-import { MASTERY_STABILITY_THRESHOLD } from '../config.js';
+import { MASTERY_STABILITY_THRESHOLD, LEARNING_GOALS, getLearningGoal } from '../config.js';
 import { getLocalDateKey } from '../utils.js';
 
 export class StatsManager {
@@ -372,6 +372,212 @@ export class StatsManager {
       nextMilestone,
       badgeIcon,
       wordsNeededForNext: Math.max(0, nextMilestone - count)
+    };
+  }
+
+  /**
+   * Tính toán toàn diện Lộ trình Trình độ CEFR & Dự báo nhịp độ học thích ứng (Dynamic Adaptive ETA Engine)
+   */
+  static getCefrRoadmapAndForecast(allCards = [], settings = {}) {
+    const cardStates = StorageManager.getAllCardStates() || {};
+    const logs = StorageManager.getStudyLogs() || [];
+    const now = new Date();
+    const rolloverHour = Number(settings.rolloverHour) || 0;
+
+    // 1. Phân loại theo từng bậc CEFR (A1, A2, B1, B2, C1)
+    const levels = {
+      A1: { id: 'A1', name: 'Căn Bản', fullTitle: 'Trình Độ A1 (Căn Bản Khởi Đầu)', color: '#10b981', total: 0, learned: 0, mastered: 0, byPos: { noun: 0, verb: 0, adj: 0, other: 0 }, remainingByPos: { noun: 0, verb: 0, adj: 0, other: 0 } },
+      A2: { id: 'A2', name: 'Sơ Cấp', fullTitle: 'Trình Độ A2 (Giao Tiếp Đời Sống)', color: '#f59e0b', total: 0, learned: 0, mastered: 0, byPos: { noun: 0, verb: 0, adj: 0, other: 0 }, remainingByPos: { noun: 0, verb: 0, adj: 0, other: 0 } },
+      B1: { id: 'B1', name: 'Trung Cấp', fullTitle: 'Trình Độ B1 (Trung Cấp Thực Chiến)', color: '#6366f1', total: 0, learned: 0, mastered: 0, byPos: { noun: 0, verb: 0, adj: 0, other: 0 }, remainingByPos: { noun: 0, verb: 0, adj: 0, other: 0 } },
+      B2: { id: 'B2', name: 'Trung Cao Cấp', fullTitle: 'Trình Độ B2 (Chuyên Sâu Thương Mại)', color: '#8b5cf6', total: 0, learned: 0, mastered: 0, byPos: { noun: 0, verb: 0, adj: 0, other: 0 }, remainingByPos: { noun: 0, verb: 0, adj: 0, other: 0 } },
+      C1: { id: 'C1', name: 'Cao Cấp', fullTitle: 'Trình Độ C1 (Học Thuật Chuyên Sâu)', color: '#ec4899', total: 0, learned: 0, mastered: 0, byPos: { noun: 0, verb: 0, adj: 0, other: 0 }, remainingByPos: { noun: 0, verb: 0, adj: 0, other: 0 } }
+    };
+
+    const normalizePos = (pos) => {
+      if (!pos) return 'other';
+      const p = String(pos).toLowerCase();
+      if (p.includes('noun') || p === 'n') return 'noun';
+      if (p.includes('verb') || p === 'v') return 'verb';
+      if (p.includes('adj') || p === 'a') return 'adj';
+      return 'other';
+    };
+
+    // Quét toàn bộ từ vựng trong allCards
+    for (let i = 0; i < allCards.length; i++) {
+      const card = allCards[i];
+      const lvl = (card.level || card.cefr || 'A1').toUpperCase();
+      if (!levels[lvl]) continue;
+
+      levels[lvl].total++;
+      const posKey = normalizePos(card.pos);
+      levels[lvl].byPos[posKey] = (levels[lvl].byPos[posKey] || 0) + 1;
+
+      const state = cardStates[card.id] || StorageManager.getCardState(card.id);
+      const isLearned = state && state.state !== State.New && state.state !== 0 && !state.suspended;
+      const isMastered = isLearned && (Number(state.stability) >= MASTERY_STABILITY_THRESHOLD);
+
+      if (isLearned) {
+        levels[lvl].learned++;
+        if (isMastered) levels[lvl].mastered++;
+      } else {
+        levels[lvl].remainingByPos[posKey] = (levels[lvl].remainingByPos[posKey] || 0) + 1;
+      }
+    }
+
+    // 2. Xác định Trình độ hiện tại (Current Evaluated Level)
+    const a1Pct = levels.A1.total > 0 ? (levels.A1.learned / levels.A1.total) : 0;
+    const a2Pct = levels.A2.total > 0 ? (levels.A2.learned / levels.A2.total) : 0;
+    const b1Pct = levels.B1.total > 0 ? (levels.B1.learned / levels.B1.total) : 0;
+    const b2Pct = levels.B2.total > 0 ? (levels.B2.learned / levels.B2.total) : 0;
+    const c1Pct = levels.C1.total > 0 ? (levels.C1.learned / levels.C1.total) : 0;
+
+    let currentLevelId = 'A1';
+    let currentLevelProgress = 0;
+    let nextLevelId = 'A2';
+
+    if (a1Pct < 0.75) {
+      currentLevelId = 'A1';
+      currentLevelProgress = Math.round(a1Pct * 100);
+      nextLevelId = 'A2';
+    } else if (a2Pct < 0.75) {
+      currentLevelId = 'A2';
+      currentLevelProgress = Math.round(a2Pct * 100);
+      nextLevelId = 'B1';
+    } else if (b1Pct < 0.75) {
+      currentLevelId = 'B1';
+      currentLevelProgress = Math.round(b1Pct * 100);
+      nextLevelId = 'B2';
+    } else if (b2Pct < 0.75) {
+      currentLevelId = 'B2';
+      currentLevelProgress = Math.round(b2Pct * 100);
+      nextLevelId = 'C1';
+    } else {
+      currentLevelId = 'C1';
+      currentLevelProgress = Math.round(c1Pct * 100);
+      nextLevelId = 'Master';
+    }
+
+    // 3. Phân tích Mục tiêu đã chọn (Target Goal)
+    const activeGoalId = settings.activeGoal?.id || 'cefr-b1';
+    const activeGoal = getLearningGoal(activeGoalId);
+    const targetWords = Number(settings.activeGoal?.targetWords) || activeGoal.defaultTargetWords || 3027;
+    const targetCefrSet = new Set((activeGoal.targetCefr || ['A1', 'A2', 'B1']).map(c => c.toUpperCase()));
+    const targetDecksSet = new Set(activeGoal.targetDecks || []);
+
+    let learnedGoalWords = 0;
+    let remainingNeededPos = { noun: 0, verb: 0, adj: 0, other: 0 };
+
+    for (let i = 0; i < allCards.length; i++) {
+      const card = allCards[i];
+      const cardLevel = (card.level || card.cefr || 'A1').toUpperCase();
+      const isCefrMatch = targetCefrSet.has(cardLevel);
+      const isDeckMatch = targetDecksSet.has(card.deckId);
+      if (!isCefrMatch && !isDeckMatch && activeGoal.id !== 'all-dictionary' && activeGoal.id !== 'custom') {
+        continue;
+      }
+
+      const state = cardStates[card.id] || StorageManager.getCardState(card.id);
+      const isLearned = state && state.state !== State.New && state.state !== 0 && !state.suspended;
+      if (isLearned) {
+        learnedGoalWords++;
+      } else {
+        const posKey = normalizePos(card.pos);
+        remainingNeededPos[posKey] = (remainingNeededPos[posKey] || 0) + 1;
+      }
+    }
+
+    const remainingWordsToGoal = Math.max(0, targetWords - learnedGoalWords);
+    const goalCompletionPct = Math.min(100, Math.round((learnedGoalWords / targetWords) * 100));
+
+    // 4. THUẬT TOÁN DỰ BÁO THÍCH ỨNG THEO HÀNH VI THỰC TẾ (Dynamic Adaptive ETA Engine)
+    const sevenDaysAgo = new Date(now.getTime() - 7 * 86400000);
+    const recentNewLogs = logs.filter(l => {
+      if (!l.timestamp) return false;
+      const logDate = new Date(l.timestamp);
+      const isNew = l.oldState === State.New || l.oldState === 0 || l.isNew;
+      return isNew && logDate >= sevenDaysAgo;
+    });
+
+    const dailyNewCounts = {};
+    for (let i = 0; i < recentNewLogs.length; i++) {
+      const dKey = getLocalDateKey(recentNewLogs[i].timestamp, rolloverHour);
+      dailyNewCounts[dKey] = (dailyNewCounts[dKey] || 0) + 1;
+    }
+    const activeDaysCount = Object.keys(dailyNewCounts).length;
+    const totalRecentNew = recentNewLogs.length;
+
+    let actualDailyVelocity = 0;
+    if (activeDaysCount >= 2) {
+      actualDailyVelocity = Math.round((totalRecentNew / activeDaysCount) * 10) / 10;
+    } else if (totalRecentNew > 0) {
+      actualDailyVelocity = totalRecentNew;
+    }
+
+    const configuredDailyTarget = Number(settings.activeGoal?.dailyNew) || Number(settings.dailyNewLimit) || 12;
+    const benchmarkPace = 12; // Mặc định người học bình thường 12 từ/ngày
+    const effectiveVelocity = actualDailyVelocity > 0 
+      ? Math.max(3, actualDailyVelocity) 
+      : (configuredDailyTarget || benchmarkPace);
+
+    const isUsingRealBehavior = actualDailyVelocity > 0;
+    const etaDays = effectiveVelocity > 0 ? Math.ceil(remainingWordsToGoal / effectiveVelocity) : 0;
+
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + etaDays);
+    const targetDateFormatted = targetDate.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+    let paceStatus = 'Chuẩn nhịp FSRS';
+    let paceBadgeColor = '#10b981';
+    if (isUsingRealBehavior) {
+      if (actualDailyVelocity >= configuredDailyTarget * 1.2) {
+        paceStatus = `⚡ Vượt tiến độ (${actualDailyVelocity} từ/ngày)`;
+        paceBadgeColor = '#6366f1';
+      } else if (actualDailyVelocity >= configuredDailyTarget * 0.8) {
+        paceStatus = `🎯 Chuẩn nhịp (${actualDailyVelocity} từ/ngày)`;
+        paceBadgeColor = '#10b981';
+      } else {
+        paceStatus = `🌱 Cần tăng tốc (${actualDailyVelocity} từ/ngày)`;
+        paceBadgeColor = '#f59e0b';
+      }
+    } else {
+      paceStatus = `Tiêu chuẩn (~${effectiveVelocity} từ/ngày)`;
+      paceBadgeColor = '#64748b';
+    }
+
+    return {
+      levels,
+      currentLevel: {
+        id: currentLevelId,
+        name: levels[currentLevelId]?.name || 'Căn Bản',
+        fullTitle: levels[currentLevelId]?.fullTitle || '',
+        color: levels[currentLevelId]?.color || '#10b981',
+        progressPct: currentLevelProgress,
+        learned: levels[currentLevelId]?.learned || 0,
+        total: levels[currentLevelId]?.total || 458,
+        nextLevelId
+      },
+      goal: {
+        id: activeGoal.id,
+        title: activeGoal.title,
+        shortTitle: activeGoal.shortTitle,
+        icon: activeGoal.icon || '🎯',
+        badge: activeGoal.badge || '🎯 CEFR',
+        color: activeGoal.color || '#6366f1',
+        targetWords,
+        learnedWords: learnedGoalWords,
+        remainingWords: remainingWordsToGoal,
+        completionPct: goalCompletionPct,
+        remainingNeededPos
+      },
+      forecast: {
+        etaDays,
+        targetDateFormatted,
+        effectiveVelocity,
+        actualDailyVelocity,
+        isUsingRealBehavior,
+        paceStatus,
+        paceBadgeColor
+      }
     };
   }
 

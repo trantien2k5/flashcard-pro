@@ -20,27 +20,55 @@ export function renderReviewShell(container) {
   if (!container.querySelector('.review-minimal-container')) {
     container.innerHTML = `
       <div class="review-minimal-container">
-        <!-- 1. Thanh Mục Tiêu Học Tập Cá Nhân Hóa (Master Goal Header Bar) -->
-        <div class="home-goal-bar-card" id="home-goal-card">
+        <!-- 1. Thanh Tiến Độ Trình Độ CEFR & Nhịp Độ Cá Nhân Hóa (CEFR Level & Roadmap Header Bar) -->
+        <div class="home-goal-bar-card" id="home-goal-card" role="button" tabindex="0" title="Nhấn để xem phân tích lộ trình CEFR & nhịp độ cá nhân hóa">
           <div class="goal-bar-header">
             <div class="goal-badge-wrap">
               <span class="goal-icon-badge" id="home-goal-icon">🎯</span>
               <div class="goal-titles">
-                <span class="goal-eyebrow">MỤC TIÊU HỌC TẬP</span>
-                <h2 class="goal-main-title" id="home-goal-title">Trình Độ B1 (Trung Cấp Thực Chiến)</h2>
+                <div class="goal-eyebrow-row">
+                  <span class="goal-eyebrow">TRÌNH ĐỘ HIỆN TẠI</span>
+                  <span class="goal-target-tag" id="home-target-tag">Mục tiêu: B1 ❯</span>
+                </div>
+                <h2 class="goal-main-title" id="home-goal-title">Trình Độ A1 (Căn Bản Khởi Đầu)</h2>
               </div>
             </div>
-            <button type="button" class="btn-edit-goal" id="btn-edit-goal" title="Tùy chỉnh mục tiêu & nhịp độ học">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-              </svg>
-              <span>Đổi mục tiêu</span>
-            </button>
+            <div class="goal-header-right">
+              <span class="goal-level-badge" id="home-current-level-badge">Cấp A1</span>
+            </div>
+          </div>
+
+          <!-- Multi-Segment CEFR Roadmap Track (A1 -> A2 -> B1 -> B2 -> C1) -->
+          <div class="cefr-milestone-track" id="home-cefr-track">
+            <div class="cefr-step-item" data-step="A1">
+              <div class="cefr-step-dot" id="dot-A1">A1</div>
+              <span class="cefr-step-label">Căn bản</span>
+            </div>
+            <div class="cefr-step-line"><div class="cefr-step-line-fill" id="fill-A1-A2" style="width: 0%;"></div></div>
+            <div class="cefr-step-item" data-step="A2">
+              <div class="cefr-step-dot" id="dot-A2">A2</div>
+              <span class="cefr-step-label">Sơ cấp</span>
+            </div>
+            <div class="cefr-step-line"><div class="cefr-step-line-fill" id="fill-A2-B1" style="width: 0%;"></div></div>
+            <div class="cefr-step-item" data-step="B1">
+              <div class="cefr-step-dot" id="dot-B1">B1</div>
+              <span class="cefr-step-label">Trung cấp</span>
+            </div>
+            <div class="cefr-step-line"><div class="cefr-step-line-fill" id="fill-B1-B2" style="width: 0%;"></div></div>
+            <div class="cefr-step-item" data-step="B2">
+              <div class="cefr-step-dot" id="dot-B2">B2</div>
+              <span class="cefr-step-label">Trung cao</span>
+            </div>
+            <div class="cefr-step-line"><div class="cefr-step-line-fill" id="fill-B2-C1" style="width: 0%;"></div></div>
+            <div class="cefr-step-item" data-step="C1">
+              <div class="cefr-step-dot" id="dot-C1">C1</div>
+              <span class="cefr-step-label">Cao cấp</span>
+            </div>
           </div>
 
           <div class="goal-progress-section">
             <div class="goal-progress-meta">
-              <span class="goal-progress-label">Tiến độ: <strong id="home-goal-progress-words">0 / 600 từ</strong></span>
+              <span class="goal-progress-label">Đã tích lũy mục tiêu: <strong id="home-goal-progress-words">0 / 3027 từ</strong></span>
               <span class="goal-percent-badge" id="home-goal-percent">0%</span>
             </div>
             <div class="goal-progress-track">
@@ -51,11 +79,11 @@ export function renderReviewShell(container) {
           <div class="goal-daily-status-row">
             <div class="goal-daily-badge">
               <span class="goal-stat-icon">🌱</span>
-              <span>Từ mới hôm nay: <strong id="home-goal-today-new">0 / 10 từ</strong></span>
+              <span>Hôm nay: <strong id="home-goal-today-new">0 / 10 từ mới</strong></span>
             </div>
             <div class="goal-eta-badge" id="home-goal-eta">
-              <span class="goal-stat-icon">🏁</span>
-              <span>Dự kiến: <strong id="home-goal-eta-text">60 ngày</strong></span>
+              <span class="goal-stat-icon" id="home-goal-eta-icon">⚡</span>
+              <span>Dự kiến: <strong id="home-goal-eta-text">-- ngày</strong></span>
             </div>
           </div>
         </div>
@@ -164,11 +192,12 @@ export function renderReviewTab(app) {
       });
     }
 
-    // Nút Đổi Mục Tiêu Học Tập
-    const btnEditGoal = document.getElementById('btn-edit-goal');
-    if (btnEditGoal && !btnEditGoal._bound) {
-      btnEditGoal._bound = true;
-      btnEditGoal.onclick = () => showGoalCustomizerModal(app);
+    // Nhấn vào Thẻ Trình độ & Lộ trình CEFR để mở Modal Phân tích & Tùy chỉnh nhịp độ
+    const cardGoal = document.getElementById('home-goal-card');
+    if (cardGoal && !cardGoal._bound) {
+      cardGoal._bound = true;
+      cardGoal.onclick = () => showGoalCustomizerModal(app);
+      cardGoal.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showGoalCustomizerModal(app); } };
     }
 
     // Gán sự kiện cho Nút CTA To: Tự động nạp [Từ tới hạn] + [Đủ số lượng mục tiêu từ mới hôm nay]
@@ -287,52 +316,90 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
     elRetention.textContent = masteredCount;
   }
 
-  // 5. THANH MỤC TIÊU HỌC TẬP (MASTER GOAL BAR)
-  const activeGoalId = app.settings?.activeGoal?.id || 'cefr-b1';
-  const activeGoal = getLearningGoal(activeGoalId);
-  const targetDecksSet = new Set(activeGoal.targetDecks || []);
-  const targetCefrSet = new Set((activeGoal.targetCefr || []).map(c => c.toUpperCase()));
+  // 5. PHÂN TÍCH LỘ TRÌNH CEFR & THUẬT TOÁN DỰ BÁO NHỊP ĐỘ HỌC TẬP (FSRS Dynamic Engine)
+  const cefrData = StatsManager.getCefrRoadmapAndForecast(allCards, app.settings || {});
+  const { levels, currentLevel, goal, forecast } = cefrData;
   const dailyNewTarget = Number(app.settings?.activeGoal?.dailyNew) || Number(app.settings?.dailyNewLimit) || 10;
-  const targetWords = Number(app.settings?.activeGoal?.targetWords) || activeGoal.defaultTargetWords || 2877;
-
-  let learnedGoalCount = 0;
-  for (const card of allCards) {
-    const state = StorageManager.getCardState(card.id);
-    const isLearned = state && state.state !== State.New && state.state !== 0 && !state.suspended;
-    if (!isLearned) continue;
-
-    if (activeGoal.id === 'all-dictionary' || activeGoal.id === 'custom') {
-      learnedGoalCount++;
-    } else {
-      const cardLevel = (card.level || card.cefr || '').toUpperCase();
-      const isCefrMatch = targetCefrSet.has(cardLevel);
-      const isDeckMatch = targetDecksSet.has(card.deckId) || (Array.isArray(card.topicIds) && card.topicIds.some(tid => Array.from(targetDecksSet).some(d => tid.startsWith(d))));
-      if (isCefrMatch || isDeckMatch) {
-        learnedGoalCount++;
-      }
-    }
-  }
-
-  const goalPct = Math.min(100, Math.round((learnedGoalCount / targetWords) * 100));
-  const remainingWords = Math.max(0, targetWords - learnedGoalCount);
-  const etaDays = dailyNewTarget > 0 ? Math.ceil(remainingWords / dailyNewTarget) : 0;
   const remainingNewToday = Math.max(0, dailyNewTarget - todayNewCount);
 
+  // Icon & Tiêu đề Trình độ hiện tại
   const elGoalIcon = document.getElementById('home-goal-icon');
-  if (elGoalIcon) elGoalIcon.textContent = activeGoal.icon || '🎯';
+  if (elGoalIcon) elGoalIcon.textContent = goal.icon || '🎯';
 
   const elGoalTitle = document.getElementById('home-goal-title');
-  if (elGoalTitle) elGoalTitle.textContent = app.settings?.activeGoal?.customTitle || activeGoal.title;
+  if (elGoalTitle) {
+    elGoalTitle.textContent = currentLevel.fullTitle || `Trình Độ ${currentLevel.id} (${currentLevel.name})`;
+  }
 
+  const elTargetTag = document.getElementById('home-target-tag');
+  if (elTargetTag) {
+    elTargetTag.textContent = `Mục tiêu: ${goal.shortTitle || goal.title} ❯`;
+  }
+
+  const elCurBadge = document.getElementById('home-current-level-badge');
+  if (elCurBadge) {
+    elCurBadge.textContent = `Cấp ${currentLevel.id} (${currentLevel.progressPct}%)`;
+    elCurBadge.style.borderColor = `${currentLevel.color}40`;
+    elCurBadge.style.color = currentLevel.color;
+    elCurBadge.style.background = `${currentLevel.color}15`;
+  }
+
+  // Cập nhật 5 nấc CEFR Track (A1 -> A2 -> B1 -> B2 -> C1)
+  const cefrTiers = ['A1', 'A2', 'B1', 'B2', 'C1'];
+  cefrTiers.forEach((tierId) => {
+    const dot = document.getElementById(`dot-${tierId}`);
+    if (dot) {
+      const tier = levels[tierId];
+      const tierPct = tier && tier.total > 0 ? (tier.learned / tier.total) : 0;
+      dot.className = 'cefr-step-dot';
+      if (tierPct >= 0.9) {
+        dot.classList.add('completed');
+        dot.innerHTML = '✓';
+      } else if (tierId === currentLevel.id) {
+        dot.classList.add('active');
+        dot.innerHTML = tierId;
+      } else if (tierPct > 0) {
+        dot.classList.add('in-progress');
+        dot.innerHTML = tierId;
+      } else {
+        dot.innerHTML = tierId;
+      }
+    }
+  });
+
+  // Cập nhật thanh fill nối giữa các chặng
+  const updateLineFill = (lineId, fromTierId) => {
+    const elLine = document.getElementById(lineId);
+    if (elLine) {
+      const fromTier = levels[fromTierId];
+      const fromPct = fromTier && fromTier.total > 0 ? (fromTier.learned / fromTier.total) : 0;
+      const fillPct = Math.min(100, Math.round(fromPct * 100));
+      elLine.style.width = `${fillPct}%`;
+    }
+  };
+
+  updateLineFill('fill-A1-A2', 'A1');
+  updateLineFill('fill-A2-B1', 'A2');
+  updateLineFill('fill-B1-B2', 'B1');
+  updateLineFill('fill-B2-C1', 'B2');
+
+  // Cập nhật Tiến độ Mục tiêu tổng thể
   const elGoalWords = document.getElementById('home-goal-progress-words');
-  if (elGoalWords) elGoalWords.textContent = `${learnedGoalCount} / ${targetWords} từ`;
+  if (elGoalWords) {
+    elGoalWords.textContent = `${goal.learnedWords} / ${goal.targetWords} từ`;
+  }
 
   const elGoalPct = document.getElementById('home-goal-percent');
-  if (elGoalPct) elGoalPct.textContent = `${goalPct}%`;
+  if (elGoalPct) {
+    elGoalPct.textContent = `${goal.completionPct}%`;
+  }
 
   const elGoalFill = document.getElementById('home-goal-progress-fill');
-  if (elGoalFill) elGoalFill.style.width = `${goalPct}%`;
+  if (elGoalFill) {
+    elGoalFill.style.width = `${goal.completionPct}%`;
+  }
 
+  // Hôm nay nạp mới
   const elTodayNew = document.getElementById('home-goal-today-new');
   if (elTodayNew) {
     if (todayNewCount >= dailyNewTarget) {
@@ -344,9 +411,21 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
     }
   }
 
+  // Dự kiến hoàn thành (Adaptive realtime)
   const elGoalEta = document.getElementById('home-goal-eta-text');
   if (elGoalEta) {
-    elGoalEta.textContent = remainingWords === 0 ? '✓ Đã hoàn thành' : `${etaDays} ngày`;
+    if (goal.remainingWords === 0) {
+      elGoalEta.textContent = '✓ Đạt mục tiêu';
+    } else {
+      elGoalEta.textContent = forecast.isUsingRealBehavior 
+        ? `~${forecast.etaDays} ngày (${forecast.actualDailyVelocity} từ/ng)` 
+        : `~${forecast.etaDays} ngày`;
+    }
+  }
+
+  const elEtaIcon = document.getElementById('home-goal-eta-icon');
+  if (elEtaIcon) {
+    elEtaIcon.textContent = forecast.isUsingRealBehavior ? '⚡' : '🏁';
   }
 
   // Cập nhật text phụ của nút CTA
@@ -357,7 +436,7 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
     } else if (dueCount > 0) {
       elCtaSub.textContent = `⚡ ${dueCount} từ đến hạn cần ôn ngay • FSRS-6`;
     } else if (remainingNewToday > 0) {
-      elCtaSub.textContent = `🌱 Học ${remainingNewToday} từ mới hôm nay • ${activeGoal.shortTitle}`;
+      elCtaSub.textContent = `🌱 Học ${remainingNewToday} từ mới hôm nay • ${goal.shortTitle}`;
     } else {
       elCtaSub.textContent = `🎉 Đã xong chỉ tiêu hôm nay • Nhấn để luyện thêm`;
     }
@@ -791,7 +870,7 @@ export function showMasteredTiersModal(app = _cachedApp) {
 }
 
 /* ==========================================================================
-   POPUP 4: THIẾT LẬP & CÁ NHÂN HÓA MỤC TIÊU (GOAL CUSTOMIZER MODAL)
+   POPUP 4: LỘ TRÌNH CEFR, PHÂN LOẠI TỪ VỰNG & DỰ BÁO NHỊP ĐỘ CÁ NHÂN HÓA
    ========================================================================== */
 export function showGoalCustomizerModal(app = _cachedApp) {
   if (!app) return;
@@ -799,7 +878,7 @@ export function showGoalCustomizerModal(app = _cachedApp) {
   let currentGoalId = app.settings?.activeGoal?.id || 'cefr-b1';
   let selectedGoalId = currentGoalId;
   let selectedDailyNew = Number(app.settings?.activeGoal?.dailyNew) || Number(app.settings?.dailyNewLimit) || 10;
-  let selectedTargetWords = Number(app.settings?.activeGoal?.targetWords) || 2877;
+  let selectedTargetWords = Number(app.settings?.activeGoal?.targetWords) || 3027;
 
   let modal = document.getElementById('modal-quick-goal-customizer');
   if (!modal) {
@@ -810,53 +889,171 @@ export function showGoalCustomizerModal(app = _cachedApp) {
   }
 
   const renderModalContent = () => {
-    const goalObj = getLearningGoal(selectedGoalId);
-    const targetWords = selectedGoalId === 'custom' ? selectedTargetWords : (goalObj.defaultTargetWords || 2877);
-    const targetDecksSet = new Set(goalObj.targetDecks || []);
-    const targetCefrSet = new Set((goalObj.targetCefr || []).map(c => c.toUpperCase()));
-
-    let currentLearned = 0;
-    for (const card of allCards) {
-      const state = StorageManager.getCardState(card.id);
-      const isLearned = state && state.state !== State.New && state.state !== 0 && !state.suspended;
-      if (!isLearned) continue;
-
-      if (selectedGoalId === 'all-dictionary' || selectedGoalId === 'custom') {
-        currentLearned++;
-      } else {
-        const cardLevel = (card.level || card.cefr || '').toUpperCase();
-        const isCefrMatch = targetCefrSet.has(cardLevel);
-        const isDeckMatch = targetDecksSet.has(card.deckId) || (Array.isArray(card.topicIds) && card.topicIds.some(tid => Array.from(targetDecksSet).some(d => tid.startsWith(d))));
-        if (isCefrMatch || isDeckMatch) {
-          currentLearned++;
-        }
+    // 1. Phân tích dữ liệu CEFR Roadmap & Dynamic Forecast từ StatsManager
+    const tempSettings = {
+      ...app.settings,
+      activeGoal: {
+        id: selectedGoalId,
+        dailyNew: selectedDailyNew,
+        targetWords: selectedTargetWords
       }
-    }
+    };
+    const cefrData = StatsManager.getCefrRoadmapAndForecast(allCards, tempSettings);
+    const { levels, currentLevel, goal, forecast } = cefrData;
 
-    const remaining = Math.max(0, targetWords - currentLearned);
-    const etaDays = selectedDailyNew > 0 ? Math.ceil(remaining / selectedDailyNew) : 0;
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + etaDays);
-    const targetDateFormatted = targetDate.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    // Phân tích từ còn thiếu cho cấp độ kế tiếp (Next Level Requirements)
+    const targetNextId = currentLevel.nextLevelId !== 'Master' ? currentLevel.nextLevelId : 'C1';
+    const nextLevelObj = levels[targetNextId] || levels.A1;
+    const wordsRemainingToNext = Math.max(0, nextLevelObj.total - nextLevelObj.learned);
+    const nextPosRemaining = nextLevelObj.remainingByPos || { noun: 0, verb: 0, adj: 0, other: 0 };
+
     const estDailyMins = Math.round(selectedDailyNew * 1.2 + 5);
 
     modal.innerHTML = `
-      <div class="modal-dialog quick-preview-dialog goal-customizer-dialog">
+      <div class="modal-dialog quick-preview-dialog goal-customizer-dialog cefr-roadmap-modal">
         <div class="quick-modal-header">
           <div class="quick-modal-title-wrap">
-            <div class="quick-modal-icon badge-due">🎯</div>
+            <div class="quick-modal-icon badge-due">🗺️</div>
             <div class="quick-modal-headings">
-              <h3 class="quick-modal-title">Cá Nhân Hóa Mục Tiêu</h3>
-              <span class="quick-modal-sub">Chọn lộ trình & nhịp độ học phù hợp với bạn</span>
+              <h3 class="quick-modal-title">Lộ Trình CEFR & Nhịp Độ Cá Nhân Hóa</h3>
+              <span class="quick-modal-sub">Đo lường năng lực thực tế, phân loại từ vựng & dự báo thích ứng</span>
             </div>
           </div>
           <button class="btn-icon-close btn-quick-close" type="button" title="Đóng">✕</button>
         </div>
 
         <div class="quick-modal-body">
-          <!-- 1. Danh sách Lộ trình mục tiêu -->
-          <div>
-            <span class="goal-sec-label">1. Chọn Lộ trình / Chứng chỉ:</span>
+          <!-- KHUNG 1: ĐÁNH GIÁ TRÌNH ĐỘ & NHU CẦU TỪ VỰNG CỤ THỂ (POS Breakdown) -->
+          <div class="cefr-analyzer-section">
+            <div class="cefr-cur-level-card" style="border-left: 4px solid ${currentLevel.color};">
+              <div class="cefr-cur-level-header">
+                <div>
+                  <span class="cefr-card-eyebrow">ĐÁNH GIÁ NĂNG LỰC HIỆN TẠI</span>
+                  <h4 class="cefr-cur-title">${escapeHTML(currentLevel.fullTitle)}</h4>
+                </div>
+                <span class="cefr-cur-badge" style="background: ${currentLevel.color}18; color: ${currentLevel.color}; border: 1px solid ${currentLevel.color}40;">
+                  Cấp ${currentLevel.id} (${currentLevel.progressPct}%)
+                </span>
+              </div>
+
+              <p class="cefr-cur-desc">
+                Bạn đã tích lũy <strong>${currentLevel.learned} / ${currentLevel.total} từ</strong> thuộc chuẩn CEFR ${currentLevel.id}.
+                ${wordsRemainingToNext > 0 
+                  ? `Để thăng cấp lên <strong>${nextLevelObj.fullTitle}</strong>, bạn cần tích lũy thêm <strong>${wordsRemainingToNext} từ</strong> nữa:` 
+                  : `🎉 Chúc mừng bạn đã hoàn thành trọn vẹn bậc ${currentLevel.id}!`}
+              </p>
+
+              ${wordsRemainingToNext > 0 ? `
+                <div class="pos-breakdown-grid">
+                  <div class="pos-chip pos-noun">
+                    <span class="pos-chip-icon">📘</span>
+                    <div class="pos-chip-info">
+                      <span class="pos-chip-name">Danh từ (Nouns)</span>
+                      <strong class="pos-chip-count">còn ${nextPosRemaining.noun} từ</strong>
+                    </div>
+                  </div>
+                  <div class="pos-chip pos-verb">
+                    <span class="pos-chip-icon">⚡</span>
+                    <div class="pos-chip-info">
+                      <span class="pos-chip-name">Động từ (Verbs)</span>
+                      <strong class="pos-chip-count">còn ${nextPosRemaining.verb} từ</strong>
+                    </div>
+                  </div>
+                  <div class="pos-chip pos-adj">
+                    <span class="pos-chip-icon">🎨</span>
+                    <div class="pos-chip-info">
+                      <span class="pos-chip-name">Tính từ (Adj)</span>
+                      <strong class="pos-chip-count">còn ${nextPosRemaining.adj} từ</strong>
+                    </div>
+                  </div>
+                  <div class="pos-chip pos-other">
+                    <span class="pos-chip-icon">🧩</span>
+                    <div class="pos-chip-info">
+                      <span class="pos-chip-name">Khác (Phrases/Adv)</span>
+                      <strong class="pos-chip-count">còn ${nextPosRemaining.other} từ</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="cefr-priority-hint">
+                  <span class="hint-icon">💡</span>
+                  <span><strong>Thứ tự ưu tiên nạp từ:</strong> Thuật toán tự động ưu tiên nạp Động từ cốt lõi ➔ Danh từ thông dụng nhất ➔ Tính từ mô tả ➔ Cụm từ thành ngữ theo chuẩn Oxford Core.</span>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+
+          <!-- KHUNG 2: BẢN ĐỒ TOÀN DIỆN 5 BẬC CEFR (A1 -> A2 -> B1 -> B2 -> C1) -->
+          <div class="cefr-analyzer-section">
+            <span class="goal-sec-label">Tiến độ phân bổ theo 5 Bậc CEFR:</span>
+            <div class="cefr-5levels-grid">
+              ${['A1', 'A2', 'B1', 'B2', 'C1'].map(lvlId => {
+                const lvl = levels[lvlId];
+                const pct = lvl.total > 0 ? Math.round((lvl.learned / lvl.total) * 100) : 0;
+                const isCur = lvlId === currentLevel.id;
+                return `
+                  <div class="cefr-level-row-item ${isCur ? 'is-current' : ''}">
+                    <div class="cefr-level-row-left">
+                      <span class="cefr-lvl-tag" style="background: ${lvl.color}15; color: ${lvl.color}; border: 1px solid ${lvl.color}35;">${lvlId}</span>
+                      <div class="cefr-lvl-meta">
+                        <div class="cefr-lvl-title-row">
+                          <strong class="cefr-lvl-name">${lvl.fullTitle}</strong>
+                          ${isCur ? `<span class="cefr-current-indicator">Đang học</span>` : ''}
+                        </div>
+                        <div class="cefr-lvl-sub-row">
+                          <span>${lvl.learned} / ${lvl.total} từ</span>
+                          <span>•</span>
+                          <span style="color: #10b981;">💎 Thuộc: ${lvl.mastered} từ</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cefr-level-row-right">
+                      <span class="cefr-lvl-pct-text">${pct}%</span>
+                      <div class="cefr-lvl-bar-mini">
+                        <div class="cefr-lvl-fill-mini" style="width: ${pct}%; background: ${lvl.color};"></div>
+                      </div>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+
+          <!-- KHUNG 3: DỰ BÁO TIẾN ĐỘ THÍCH ỨNG THEO HÀNH VI USER (Dynamic Adaptive ETA Engine) -->
+          <div class="cefr-analyzer-section">
+            <div class="cefr-forecast-header-row">
+              <span class="goal-sec-label">Dự báo nhịp độ & thời gian hoàn thành:</span>
+              <span class="pace-status-badge" style="background: ${forecast.paceBadgeColor}18; color: ${forecast.paceBadgeColor}; border: 1px solid ${forecast.paceBadgeColor}40;">
+                ${forecast.paceStatus}
+              </span>
+            </div>
+            
+            <div class="goal-live-calc-card">
+              <div class="goal-calc-box">
+                <span class="goal-calc-label">Vốn từ cần nạp thêm</span>
+                <span class="goal-calc-val" style="color: var(--primary);">${goal.remainingWords} <small style="font-size: 0.72rem; color: var(--text-secondary);">/ ${goal.targetWords} từ</small></span>
+                <span class="goal-calc-sub">Đã nạp: ${goal.learnedWords} từ (${goal.completionPct}%)</span>
+              </div>
+              <div class="goal-calc-box">
+                <span class="goal-calc-label">Thời gian về đích</span>
+                <span class="goal-calc-val" style="color: #10b981;">~${forecast.etaDays} ngày</span>
+                <span class="goal-calc-sub">Dự kiến: ${forecast.targetDateFormatted}</span>
+              </div>
+              <div class="goal-calc-box">
+                <span class="goal-calc-label">Tốc độ thích ứng (Live)</span>
+                <span class="goal-calc-val" style="color: #f59e0b;">${forecast.effectiveVelocity} từ/ngày</span>
+                <span class="goal-calc-sub">${forecast.isUsingRealBehavior ? 'Dựa trên nhật ký học thực tế' : 'Mặc định benchmark chuẩn'}</span>
+              </div>
+              <div class="goal-calc-box">
+                <span class="goal-calc-label">Thời gian ôn mỗi ngày</span>
+                <span class="goal-calc-val" style="color: #6366f1;">~${estDailyMins} phút</span>
+                <span class="goal-calc-sub">${selectedDailyNew} mới + từ tới hạn FSRS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- KHUNG 4: CHỌN MỤC TIÊU & NHỊP ĐỘ HỌC HÀNG NGÀY -->
+          <div class="cefr-analyzer-section">
+            <span class="goal-sec-label">Tùy chỉnh Mục tiêu mong muốn:</span>
             <div class="goal-presets-list">
               ${LEARNING_GOALS.map(g => `
                 <div class="goal-preset-item ${g.id === selectedGoalId ? 'active' : ''}" data-goal-id="${g.id}">
@@ -873,9 +1070,9 @@ export function showGoalCustomizerModal(app = _cachedApp) {
             </div>
           </div>
 
-          <!-- 2. Nhịp độ từ mới mỗi ngày -->
-          <div>
-            <span class="goal-sec-label">2. Nhịp độ học mỗi ngày:</span>
+          <!-- KHUNG 5: CHỌN NHỊP ĐỘ TỪ MỚI MỖI NGÀY -->
+          <div class="cefr-analyzer-section">
+            <span class="goal-sec-label">Nhịp độ nạp từ mới mỗi ngày:</span>
             <div class="pace-selector-group">
               ${[5, 10, 15, 20, 30].map(p => `
                 <button type="button" class="pace-pill-btn ${p === selectedDailyNew ? 'active' : ''}" data-pace="${p}">
@@ -885,41 +1082,14 @@ export function showGoalCustomizerModal(app = _cachedApp) {
               `).join('')}
             </div>
           </div>
-
-          <!-- 3. Bảng đo lường & Dự báo thông minh -->
-          <div>
-            <span class="goal-sec-label">3. Kế hoạch hoàn thành dự kiến:</span>
-            <div class="goal-live-calc-card">
-              <div class="goal-calc-box">
-                <span class="goal-calc-label">Vốn từ cần học</span>
-                <span class="goal-calc-val" style="color: var(--primary);">${remaining} <small style="font-size: 0.72rem; color: var(--text-secondary);">/ ${targetWords} từ</small></span>
-                <span class="goal-calc-sub">Đã có: ${currentLearned} từ</span>
-              </div>
-              <div class="goal-calc-box">
-                <span class="goal-calc-label">Thời gian về đích</span>
-                <span class="goal-calc-val" style="color: #10b981;">${etaDays} ngày</span>
-                <span class="goal-calc-sub">Dự kiến: ${targetDateFormatted}</span>
-              </div>
-              <div class="goal-calc-box">
-                <span class="goal-calc-label">Mỗi ngày ôn tập</span>
-                <span class="goal-calc-val" style="color: #f59e0b;">~${estDailyMins} phút</span>
-                <span class="goal-calc-sub">${selectedDailyNew} mới + từ tới hạn</span>
-              </div>
-              <div class="goal-calc-box">
-                <span class="goal-calc-label">Độ bền mong muốn</span>
-                <span class="goal-calc-val" style="color: #6366f1;">90% FSRS</span>
-                <span class="goal-calc-sub">Ghi nhớ dài hạn</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="quick-modal-footer" style="display: flex; gap: 8px;">
           <button type="button" class="btn-quick-action-secondary btn-quick-close" style="flex: 1;">
-            <span>Hủy</span>
+            <span>Đóng</span>
           </button>
-          <button type="button" class="btn-confirm-primary" id="btn-save-goal-settings" style="flex: 2; min-height: 42px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; cursor: pointer; background: var(--primary); color: #fff; border: none;">
-            <span>Áp Dụng Mục Tiêu</span>
+          <button type="button" class="btn-confirm-primary" id="btn-save-goal-settings" style="flex: 2; min-height: 44px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; cursor: pointer; background: var(--primary); color: #fff; border: none; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);">
+            <span>Lưu & Áp Dụng Lộ Trình</span>
           </button>
         </div>
       </div>
@@ -953,7 +1123,7 @@ export function showGoalCustomizerModal(app = _cachedApp) {
         app.settings.activeGoal = {
           id: selectedGoalId,
           dailyNew: selectedDailyNew,
-          targetWords: selectedGoalId === 'custom' ? selectedTargetWords : (goalObj.defaultTargetWords || 2877),
+          targetWords: selectedGoalId === 'custom' ? selectedTargetWords : (goalObj.defaultTargetWords || 3027),
           customTitle: ''
         };
 
@@ -961,7 +1131,7 @@ export function showGoalCustomizerModal(app = _cachedApp) {
         modal.classList.remove('active');
         updateHomeStatsRealtime(app);
         if (app.deckManager) app.deckManager.invalidateStatsCache();
-        app.showToast(`🎯 Đã áp dụng mục tiêu: ${goalObj.shortTitle} (${selectedDailyNew} từ/ngày)`, 'success', 3000);
+        app.showToast(`🎯 Đã áp dụng lộ trình: ${goalObj.shortTitle} (${selectedDailyNew} từ/ngày)`, 'success', 3000);
       };
     }
 
@@ -976,3 +1146,4 @@ export function showGoalCustomizerModal(app = _cachedApp) {
   renderModalContent();
   modal.classList.add('active');
 }
+

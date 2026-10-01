@@ -31,11 +31,11 @@
 .home-goal-bar-card {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   background: var(--bg-card, #ffffff);
   border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
-  border-radius: 18px;
-  padding: 13px 15px;
+  border-radius: 20px;
+  padding: 14px 16px;
   box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
   box-sizing: border-box;
   width: 100%;
@@ -44,12 +44,29 @@
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+}
+
+.home-goal-bar-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px -2px rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.home-goal-bar-card:active {
+  transform: scale(0.99);
 }
 
 [data-theme="dark"] .home-goal-bar-card {
   background: rgba(19, 27, 46, 0.85);
   border-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .home-goal-bar-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 8px 32px -4px rgba(99, 102, 241, 0.2);
 }
 
 .goal-bar-header {
@@ -83,8 +100,15 @@
 .goal-titles {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 2px;
   min-width: 0;
+}
+
+.goal-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .goal-eyebrow {
@@ -95,8 +119,25 @@
   color: var(--primary, #6366f1);
 }
 
+.goal-target-tag {
+  font-size: 0.66rem;
+  font-weight: 750;
+  padding: 1px 7px;
+  border-radius: 6px;
+  background: var(--bg-hover, rgba(0, 0, 0, 0.04));
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.home-goal-bar-card:hover .goal-target-tag {
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--primary);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
 .goal-main-title {
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   font-weight: 850;
   color: var(--text-primary);
   margin: 0;
@@ -105,32 +146,118 @@
   word-break: break-word;
 }
 
-.btn-edit-goal {
-  display: inline-flex;
+.goal-header-right {
+  display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 6px 11px;
-  border-radius: 10px;
-  background: var(--bg-hover, rgba(0, 0, 0, 0.04));
-  border: 1px solid var(--border);
-  font-size: 0.76rem;
-  font-weight: 750;
-  color: var(--text-secondary);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.2s ease;
   flex-shrink: 0;
 }
 
-.btn-edit-goal:hover {
-  background: var(--primary);
-  color: #ffffff;
-  border-color: var(--primary);
-  transform: translateY(-1px);
+.goal-level-badge {
+  font-size: 0.74rem;
+  font-weight: 850;
+  font-family: var(--font-mono, monospace);
+  padding: 3px 9px;
+  border-radius: 8px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  white-space: nowrap;
 }
 
-.btn-edit-goal:active {
-  transform: scale(0.96);
+/* ==========================================
+   Multi-Segment CEFR Roadmap Track (A1 -> A2 -> B1 -> B2 -> C1)
+   ========================================== */
+.cefr-milestone-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 4px 2px 2px 2px;
+  box-sizing: border-box;
+}
+
+.cefr-step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.cefr-step-dot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 850;
+  font-family: var(--font-mono, monospace);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.cefr-step-dot.completed {
+  background: #10b981;
+  border-color: #10b981;
+  color: #ffffff;
+  font-size: 0.72rem;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+}
+
+.cefr-step-dot.active {
+  background: var(--primary, #6366f1);
+  border-color: #ffffff;
+  color: #ffffff;
+  transform: scale(1.15);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.5);
+}
+
+.cefr-step-dot.in-progress {
+  border-color: var(--primary, #6366f1);
+  color: var(--primary, #6366f1);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.cefr-step-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.cefr-step-item[data-step="A1"] .cefr-step-dot.active { background: #10b981; box-shadow: 0 0 12px rgba(16, 185, 129, 0.5); }
+.cefr-step-item[data-step="A2"] .cefr-step-dot.active { background: #f59e0b; box-shadow: 0 0 12px rgba(245, 158, 11, 0.5); }
+.cefr-step-item[data-step="B1"] .cefr-step-dot.active { background: #6366f1; box-shadow: 0 0 12px rgba(99, 102, 241, 0.5); }
+.cefr-step-item[data-step="B2"] .cefr-step-dot.active { background: #8b5cf6; box-shadow: 0 0 12px rgba(139, 92, 246, 0.5); }
+.cefr-step-item[data-step="C1"] .cefr-step-dot.active { background: #ec4899; box-shadow: 0 0 12px rgba(236, 72, 153, 0.5); }
+
+.cefr-step-line {
+  flex: 1;
+  height: 4px;
+  background: var(--bg-hover, rgba(0, 0, 0, 0.06));
+  border-radius: 99px;
+  margin: 0 4px 16px 4px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="dark"] .cefr-step-line {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cefr-step-line-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #10b981, #6366f1);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Tiến độ mục tiêu */
@@ -1064,6 +1191,264 @@
 .goal-calc-sub {
   font-size: 0.66rem;
   color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   CEFR ROADMAP & PERSONALIZED PACE ANALYZER STYLES
+   ========================================================================== */
+.cefr-roadmap-modal {
+  max-width: 520px !important;
+}
+
+.cefr-analyzer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.cefr-cur-level-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--bg-tertiary, rgba(0, 0, 0, 0.025));
+  border: 1px solid var(--border);
+  box-sizing: border-box;
+}
+
+.cefr-cur-level-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cefr-card-eyebrow {
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.cefr-cur-title {
+  font-size: 0.95rem;
+  font-weight: 850;
+  color: var(--text-primary);
+  margin: 2px 0 0 0;
+}
+
+.cefr-cur-badge {
+  font-size: 0.74rem;
+  font-weight: 850;
+  font-family: var(--font-mono, monospace);
+  padding: 3px 8px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.cefr-cur-desc {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.cefr-cur-desc strong {
+  color: var(--text-primary);
+}
+
+/* POS Breakdown Chips (Danh từ, Động từ, Tính từ, Khác) */
+.pos-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.pos-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-sizing: border-box;
+}
+
+.pos-chip-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.pos-chip-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pos-chip-name {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.pos-chip-count {
+  font-size: 0.78rem;
+  font-weight: 850;
+  color: var(--text-primary);
+  font-family: var(--font-mono, monospace);
+}
+
+.cefr-priority-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.cefr-priority-hint strong {
+  color: var(--primary);
+}
+
+/* 5 Bậc CEFR Grid (A1 -> A2 -> B1 -> B2 -> C1) */
+.cefr-5levels-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.cefr-level-row-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.cefr-level-row-item.is-current {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.06);
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.15);
+}
+
+.cefr-level-row-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.cefr-lvl-tag {
+  font-size: 0.72rem;
+  font-weight: 850;
+  font-family: var(--font-mono, monospace);
+  padding: 3px 7px;
+  border-radius: 7px;
+  flex-shrink: 0;
+}
+
+.cefr-lvl-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.cefr-lvl-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cefr-lvl-name {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cefr-current-indicator {
+  font-size: 0.60rem;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--primary);
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.cefr-lvl-sub-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.70rem;
+  color: var(--text-muted);
+}
+
+.cefr-level-row-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  flex-shrink: 0;
+  width: 65px;
+}
+
+.cefr-lvl-pct-text {
+  font-size: 0.76rem;
+  font-weight: 850;
+  font-family: var(--font-mono, monospace);
+  color: var(--text-primary);
+}
+
+.cefr-lvl-bar-mini {
+  width: 100%;
+  height: 4px;
+  border-radius: 99px;
+  background: var(--bg-hover, rgba(0, 0, 0, 0.08));
+  overflow: hidden;
+}
+
+.cefr-lvl-fill-mini {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.3s ease;
+}
+
+/* Forecast Header & Badge */
+.cefr-forecast-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.pace-status-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 7px;
+  white-space: nowrap;
 }
 
 @media (max-width: 480px) {
