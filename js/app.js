@@ -237,7 +237,7 @@ export class FlashcardApp {
     });
 
     const btnHeaderSettings = document.getElementById('btn-header-settings') || document.getElementById('btn-header-profile');
-    if (btnHeaderSettings) {
+    if (btnHeaderSettings && typeof btnHeaderSettings.addEventListener === 'function') {
       btnHeaderSettings.addEventListener('click', () => {
         try {
           if (this.activeTab === 'tab-settings') {
@@ -252,7 +252,7 @@ export class FlashcardApp {
     }
 
     const btnThemeToggle = document.getElementById('btn-theme-toggle');
-    if (btnThemeToggle && !btnThemeToggle._themeBound) {
+    if (btnThemeToggle && typeof btnThemeToggle.addEventListener === 'function' && !btnThemeToggle._themeBound) {
       btnThemeToggle._themeBound = true;
       btnThemeToggle.addEventListener('click', (e) => {
         try {
@@ -270,7 +270,7 @@ export class FlashcardApp {
     }
 
     const btnBack = document.getElementById('btn-back-to-decks');
-    if (btnBack) {
+    if (btnBack && typeof btnBack.addEventListener === 'function') {
       btnBack.addEventListener('click', () => {
         try {
           this.switchTab(this.previousTab || 'tab-review');
@@ -281,7 +281,7 @@ export class FlashcardApp {
     }
 
     const btnBackSubtopic = document.getElementById('btn-back-to-subtopics');
-    if (btnBackSubtopic) {
+    if (btnBackSubtopic && typeof btnBackSubtopic.addEventListener === 'function') {
       btnBackSubtopic.addEventListener('click', () => {
         try {
           if (this.currentSubtopicsDeckId) {
@@ -296,7 +296,7 @@ export class FlashcardApp {
     }
 
     const btnBackToSubtopicDetail = document.getElementById('btn-back-to-subtopic-detail');
-    if (btnBackToSubtopicDetail) {
+    if (btnBackToSubtopicDetail && typeof btnBackToSubtopicDetail.addEventListener === 'function') {
       btnBackToSubtopicDetail.addEventListener('click', () => {
         try {
           if (this.currentSubtopicsDeckId) {

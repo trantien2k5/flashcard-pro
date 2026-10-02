@@ -230,6 +230,29 @@ export function renderLibraryTab(app) {
 
   const hasActiveFilter = isFilterActive();
 
+  // Danh mục nhãn hiển thị cho active chips
+  const cefrLabels = { a1: 'A1 - Căn bản', a2: 'A2 - Sơ cấp', b1: 'B1 - Trung cấp', b2: 'B2 - Trung cao cấp', c1: 'C1 - Cao cấp' };
+  const posLabels = {
+    noun: 'Danh từ (n)',
+    verb: 'Động từ (v)',
+    adjective: 'Tính từ (adj)',
+    adverb: 'Trạng từ (adv)',
+    phrase: 'Cụm từ (phrase)',
+    'phrasal verb': 'Cụm động từ (phrasal verb)',
+    idiom: 'Thành ngữ (idiom)',
+    preposition: 'Giới từ (prep)'
+  };
+  const statusLabels = {
+    due: '⏰ Cần ôn',
+    new: '✨ Chưa học',
+    learning: '🌱 Đang học',
+    hard: '⚠️ Hay quên',
+    mastered: '🏆 Thuần thục'
+  };
+
+  const selectedDeckObj = decks.find(d => d.id === _libState.selectedDeck);
+  const deckLabel = selectedDeckObj ? (selectedDeckObj.name || selectedDeckObj.id) : _libState.selectedDeck;
+
   // Khung cấu trúc tinh gọn & tối ưu không gian hiển thị (Clean Modern Design)
   container.innerHTML = `
     <div class="library-container">
@@ -264,23 +287,22 @@ export function renderLibraryTab(app) {
         </button>
       </div>
 
-      <!-- 2. Integrated Horizontal Filter Pills Bar (Sleek 1-Row Scroll) -->
+      <!-- 2. Row 1: Trạng thái FSRS (Quick Status Pills) -->
       <div class="library-pills-bar-wrapper">
         <div class="library-pills-scroll">
-          <!-- Quick Status Pills -->
-          <button class="filter-pill ${_libState.selectedStatus === 'all' && !hasActiveFilter ? 'active' : ''}" data-status="all">
+          <button class="filter-pill ${_libState.selectedStatus === 'all' ? 'active' : ''}" data-status="all">
             <span>Tất cả</span>
             <span class="pill-badge">${allCards.length.toLocaleString('vi-VN')}</span>
+          </button>
+
+          <button class="filter-pill ${_libState.selectedStatus === 'new' ? 'active' : ''}" data-status="new">
+            <span>✨ Chưa học</span>
+            <span class="pill-badge">${newCount.toLocaleString('vi-VN')}</span>
           </button>
 
           <button class="filter-pill ${_libState.selectedStatus === 'due' ? 'active' : ''}" data-status="due">
             <span>⏰ Cần ôn</span>
             <span class="pill-badge">${dueCount}</span>
-          </button>
-
-          <button class="filter-pill ${_libState.selectedStatus === 'new' ? 'active' : ''}" data-status="new">
-            <span>✨ Chưa học</span>
-            <span class="pill-badge">${newCount}</span>
           </button>
 
           <button class="filter-pill ${_libState.selectedStatus === 'learning' ? 'active' : ''}" data-status="learning">
@@ -297,7 +319,12 @@ export function renderLibraryTab(app) {
             <span>🏆 Thuần thục</span>
             <span class="pill-badge">${masteredCount}</span>
           </button>
+        </div>
+      </div>
 
+      <!-- 3. Row 2: Bộ lọc Chuyên sâu Song song (Trình độ, Loại từ, Chủ đề, Sắp xếp) -->
+      <div class="library-criteria-bar-wrapper">
+        <div class="library-criteria-scroll">
           <!-- Dropdown Pill: Trình độ CEFR -->
           <div class="filter-pill-select-wrapper ${_libState.selectedCefr !== 'all' ? 'active' : ''}">
             <span>🎓</span>
@@ -322,6 +349,8 @@ export function renderLibraryTab(app) {
               <option value="adverb" ${_libState.selectedPos === 'adverb' ? 'selected' : ''}>Trạng từ (adv)</option>
               <option value="phrase" ${_libState.selectedPos === 'phrase' ? 'selected' : ''}>Cụm từ (phrase)</option>
               <option value="phrasal verb" ${_libState.selectedPos === 'phrasal verb' ? 'selected' : ''}>Cụm động từ (phrasal verb)</option>
+              <option value="idiom" ${_libState.selectedPos === 'idiom' ? 'selected' : ''}>Thành ngữ (idiom)</option>
+              <option value="preposition" ${_libState.selectedPos === 'preposition' ? 'selected' : ''}>Giới từ (prep)</option>
             </select>
           </div>
 
@@ -351,17 +380,52 @@ export function renderLibraryTab(app) {
               <option value="difficulty_desc" ${_libState.sortBy === 'difficulty_desc' ? 'selected' : ''}>Độ khó cao nhất</option>
             </select>
           </div>
-
-          <!-- Nút Reset nếu có filter -->
-          ${hasActiveFilter ? `
-            <button class="btn-pill-reset" id="btn-reset-all-filters" title="Xóa tất cả bộ lọc">
-              <span>✕ Đặt lại</span>
-            </button>
-          ` : ''}
         </div>
       </div>
 
-      <!-- 3. Meta & Pagination Sub-Bar -->
+      <!-- 4. Active Filter Tags Bar (Hiển thị các tiêu chí lọc đang kết hợp song song) -->
+      ${hasActiveFilter ? `
+        <div class="library-active-tags-bar">
+          <span class="active-tags-title">Đang lọc:</span>
+          <div class="active-tags-list">
+            ${_libState.selectedStatus !== 'all' ? `
+              <span class="active-tag-chip" data-clear="status">
+                <span>${escapeHTML(statusLabels[_libState.selectedStatus] || _libState.selectedStatus)}</span>
+                <span class="tag-chip-remove" title="Bỏ lọc trạng thái">✕</span>
+              </span>
+            ` : ''}
+            ${_libState.selectedCefr !== 'all' ? `
+              <span class="active-tag-chip" data-clear="cefr">
+                <span>🎓 ${escapeHTML(cefrLabels[_libState.selectedCefr] || _libState.selectedCefr.toUpperCase())}</span>
+                <span class="tag-chip-remove" title="Bỏ lọc trình độ">✕</span>
+              </span>
+            ` : ''}
+            ${_libState.selectedPos !== 'all' ? `
+              <span class="active-tag-chip" data-clear="pos">
+                <span>🏷️ ${escapeHTML(posLabels[_libState.selectedPos] || _libState.selectedPos)}</span>
+                <span class="tag-chip-remove" title="Bỏ lọc loại từ">✕</span>
+              </span>
+            ` : ''}
+            ${_libState.selectedDeck !== 'all' ? `
+              <span class="active-tag-chip" data-clear="deck">
+                <span>📚 ${escapeHTML(deckLabel)}</span>
+                <span class="tag-chip-remove" title="Bỏ lọc chủ đề">✕</span>
+              </span>
+            ` : ''}
+            ${_libState.searchQuery ? `
+              <span class="active-tag-chip" data-clear="search">
+                <span>🔍 "${escapeHTML(_libState.searchQuery)}"</span>
+                <span class="tag-chip-remove" title="Bỏ từ khóa tìm kiếm">✕</span>
+              </span>
+            ` : ''}
+            <button class="btn-pill-reset" id="btn-reset-all-filters" title="Xóa toàn bộ bộ lọc">
+              <span>✕ Đặt lại tất cả</span>
+            </button>
+          </div>
+        </div>
+      ` : ''}
+
+      <!-- 5. Meta & Pagination Sub-Bar -->
       <div class="library-meta-bar">
         <div class="library-results-summary" id="lib-results-summary">
           <span><strong>${allCards.length.toLocaleString('vi-VN')}</strong> từ vựng</span>
@@ -376,12 +440,12 @@ export function renderLibraryTab(app) {
         </div>
       </div>
 
-      <!-- 4. Vocabulary Words Rows List Container (DocumentFragment Virtual Chunking) -->
+      <!-- 6. Vocabulary Words Rows List Container (DocumentFragment Virtual Chunking) -->
       <div class="library-words-list" id="lib-words-list">
         <!-- Rendered dynamically -->
       </div>
 
-      <!-- 5. Bottom Pagination Bar -->
+      <!-- 7. Bottom Pagination Bar -->
       <div class="library-pagination-bar" id="lib-pagination-bar">
         <!-- Rendered dynamically -->
       </div>
@@ -414,6 +478,20 @@ function setupLibraryEventListeners(app) {
     btn.onclick = () => {
       const status = btn.getAttribute('data-status');
       _libState.selectedStatus = status;
+      _libState.currentPage = 1;
+      renderLibraryTab(app);
+    };
+  });
+
+  // Individual active tag chip remove buttons
+  document.querySelectorAll('.active-tag-chip[data-clear]').forEach(chip => {
+    chip.onclick = () => {
+      const clearTarget = chip.getAttribute('data-clear');
+      if (clearTarget === 'status') _libState.selectedStatus = 'all';
+      else if (clearTarget === 'cefr') _libState.selectedCefr = 'all';
+      else if (clearTarget === 'pos') _libState.selectedPos = 'all';
+      else if (clearTarget === 'deck') _libState.selectedDeck = 'all';
+      else if (clearTarget === 'search') _libState.searchQuery = '';
       _libState.currentPage = 1;
       renderLibraryTab(app);
     };
@@ -545,7 +623,8 @@ function getFilteredAndSortedCards(app) {
 
     // 1. Lọc theo Topic / Deck
     if (deckFilter !== 'all') {
-      const inDeck = item.topicIds.some(tid => tid === deckFilter || tid.startsWith(deckFilter));
+      const inDeck = item.topicIds.some(tid => tid === deckFilter || tid.startsWith(deckFilter)) ||
+                     (c.deckId && (c.deckId === deckFilter || c.deckId.startsWith(deckFilter)));
       if (!inDeck) continue;
     }
 
@@ -554,9 +633,30 @@ function getFilteredAndSortedCards(app) {
       continue;
     }
 
-    // 3. Lọc theo POS (Loại từ)
-    if (posFilter !== 'all' && item.posLower !== posFilter) {
-      continue;
+    // 3. Lọc theo POS (Loại từ - Khớp chuẩn hóa đa dạng)
+    if (posFilter !== 'all') {
+      const p = item.posLower;
+      let matchesPos = false;
+      if (posFilter === 'noun') {
+        matchesPos = p.includes('noun') || p === 'n';
+      } else if (posFilter === 'verb') {
+        matchesPos = (p.includes('verb') && !p.includes('phrasal')) || p === 'v';
+      } else if (posFilter === 'adjective' || posFilter === 'adj') {
+        matchesPos = p.includes('adj') || p.includes('adjective') || p === 'a';
+      } else if (posFilter === 'adverb' || posFilter === 'adv') {
+        matchesPos = p.includes('adv') || p.includes('adverb');
+      } else if (posFilter === 'phrase') {
+        matchesPos = p.includes('phrase') || p.includes('idiom') || p.includes('expression');
+      } else if (posFilter === 'phrasal verb' || posFilter === 'phrasal') {
+        matchesPos = p.includes('phrasal');
+      } else if (posFilter === 'idiom') {
+        matchesPos = p.includes('idiom');
+      } else if (posFilter === 'preposition' || posFilter === 'prep') {
+        matchesPos = p.includes('prep');
+      } else {
+        matchesPos = p.includes(posFilter);
+      }
+      if (!matchesPos) continue;
     }
 
     // 4. Lọc theo Trạng thái & Tầng Trí nhớ FSRS
