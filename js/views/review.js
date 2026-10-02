@@ -120,10 +120,10 @@ export function renderReviewShell(container) {
           <div class="metric-divider"></div>
 
           <!-- Cột 3: Thời gian đã học -->
-          <div class="home-metric-item" id="metric-card-time" role="button" tabindex="0" title="Nhấn để xem tổng quan thời gian học">
+          <div class="home-metric-item" id="metric-card-time" role="button" tabindex="0" title="Nhấn để xem tổng quan thời gian đã học hôm nay">
             <div class="metric-icon-badge badge-time">⏱️</div>
             <div class="metric-info">
-              <span class="metric-label">THỜI GIAN</span>
+              <span class="metric-label">ĐÃ HỌC</span>
               <div class="metric-val-row">
                 <strong class="metric-val" id="home-study-timer">0</strong>
                 <span class="metric-unit">phút</span>

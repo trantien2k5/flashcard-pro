@@ -154,9 +154,10 @@ const DEFAULT_STUDY_PREFS = {
   showDefinition: false,     // Mặc định TẮT định nghĩa tiếng Anh dài dòng
   showExample: true,         // Mặc định BẬT câu ví dụ tiếng Anh
   showExampleVi: false,      // Mặc định TẮT bản dịch câu ví dụ
-  showPos: true,             // Mặc định BẬT từ loại (POS)
-  showCefr: false,           // Mặc định TẮT nhãn CEFR
+  showPos: true,             // Mặc định BẬT từ loại (POS) & CEFR
+  showCefr: true,            // Mặc định BẬT nhãn CEFR
   autoplayAudio: true,
+  audioAccent: 'us',
   showHint: true,
   thinkDelaySec: 0,          // Mặc định tắt (0s) lật tức thì
   enableBackLock: false      // Mặc định tắt khóa chống bấm nhầm mặt sau
@@ -177,6 +178,7 @@ export function getStudyPrefs() {
         showPos: parsed.showPos !== undefined ? !!parsed.showPos : DEFAULT_STUDY_PREFS.showPos,
         showCefr: parsed.showCefr !== undefined ? !!parsed.showCefr : DEFAULT_STUDY_PREFS.showCefr,
         autoplayAudio: parsed.autoplayAudio !== undefined ? !!parsed.autoplayAudio : DEFAULT_STUDY_PREFS.autoplayAudio,
+        audioAccent: parsed.audioAccent || DEFAULT_STUDY_PREFS.audioAccent,
         thinkDelaySec: parsed.thinkDelaySec !== undefined ? Number(parsed.thinkDelaySec) : DEFAULT_STUDY_PREFS.thinkDelaySec,
         enableBackLock: parsed.enableBackLock !== undefined ? !!parsed.enableBackLock : DEFAULT_STUDY_PREFS.enableBackLock
       };
@@ -202,12 +204,7 @@ export function renderStudyOverlayShell() {
 
   if (!overlay.querySelector('.study-header-bar')) {
     overlay.innerHTML = `
-      <!-- 1. Top Ultra-thin 2.5px Progress Line (Browser Loading Style) -->
-      <div class="study-progress-line-track">
-        <div id="study-progress-bar-fill" class="study-progress-line-fill" style="width: 0%;"></div>
-      </div>
-
-      <!-- 2. Minimalist Header -->
+      <!-- Minimalist Header Bar -->
       <header class="study-header-bar">
         <div class="study-header-inner">
           <button id="btn-study-close" class="btn-study-exit" title="Thoát phiên học (Esc)" aria-label="Đóng phiên học">
@@ -217,49 +214,17 @@ export function renderStudyOverlayShell() {
             </svg>
           </button>
 
-          <!-- Middle Progress Counter & Today Study Time Capsules -->
+          <!-- Middle Today Study Time Capsule -->
           <div class="study-header-center">
-            <div class="study-header-pill study-progress-pill" id="study-progress-text" title="Tiến độ thẻ">
-              <span class="counter-num">0</span><span class="counter-sep">/</span><span class="counter-total">0</span>
-            </div>
-            <div class="study-header-pill study-timer-pill" id="study-live-timer" title="Tổng thời gian học hôm nay">
-              <span class="timer-icon">⏱️</span>
-              <span class="timer-digits" id="study-timer-digits">0 phút</span>
+            <div class="study-header-pill study-timer-pill" id="study-live-timer" title="Thời gian đã học hôm nay">
+              <span class="timer-digits" id="study-timer-digits">⏱️ Đã học: 0 phút</span>
             </div>
           </div>
 
-          <!-- Right Actions (Mode Switch + Auto-Play + Dark/Light Toggle + 3 Dots Menu) -->
+          <!-- Right Action: 3 Dots Menu for Study Options -->
           <div class="study-header-right">
-            <button id="btn-study-mode-switch" class="btn-study-icon btn-study-mode-switch" title="Chuyển sang Trắc nghiệm (Quiz)" aria-label="Đổi sang Trắc nghiệm">
-              <span style="font-size: 1.05rem; line-height: 1;">🎯</span>
-            </button>
-
-            <button id="btn-study-autoplay" class="btn-study-icon btn-study-autoplay" title="Tự động lật thẻ & học rảnh tay" aria-label="Tự động học">
-              <svg class="icon-autoplay-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="6 4 20 12 6 20 6 4"></polygon>
-              </svg>
-              <svg class="icon-autoplay-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
-                <rect x="6" y="4" width="4" height="16"></rect>
-                <rect x="14" y="4" width="4" height="16"></rect>
-              </svg>
-            </button>
-
-            <button id="btn-study-theme" class="btn-study-icon" title="Chuyển chế độ Sáng / Tối" aria-label="Đổi giao diện">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-            </button>
-
-            <button id="btn-study-menu" class="btn-study-icon" title="Tùy chọn hiển thị" aria-label="Tùy chọn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <button id="btn-study-menu" class="btn-study-icon" title="Tùy chọn phiên học" aria-label="Tùy chọn phiên học">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="1.5"/>
                 <circle cx="19" cy="12" r="1.5"/>
                 <circle cx="5" cy="12" r="1.5"/>
@@ -444,23 +409,19 @@ export function renderStudyOverlayShell() {
             </button>
           </div>
           
-          <p class="prefs-desc">Tùy chỉnh chế độ học, nhịp độ và cấu hình phiên học FSRS:</p>
+          <p class="prefs-desc">Tùy chỉnh chế độ học, nhịp độ và cấu hình hiển thị thẻ FSRS:</p>
 
           <div class="prefs-list">
             <!-- 1. Chế độ ôn tập -->
-            <div class="pref-item pref-mode-selector-item">
+            <div class="pref-item">
               <div class="pref-info">
                 <span class="pref-label">🎮 Chế độ ôn tập</span>
-                <span class="pref-sub">Chuyển sang bài thi trắc nghiệm 4 đáp án</span>
+                <span class="pref-sub">Chọn phương pháp học trong phiên</span>
               </div>
-              <div class="study-mode-toggle-group">
-                <button type="button" class="btn-mode-pill active" id="btn-mode-flashcard" title="Chế độ Flashcard 3D">
-                  <span>🎴 Thẻ 3D</span>
-                </button>
-                <button type="button" class="btn-mode-pill" id="btn-mode-quiz" title="Chế độ Trắc nghiệm 4 đáp án">
-                  <span>🎯 Trắc nghiệm</span>
-                </button>
-              </div>
+              <select id="pref-select-study-mode" class="pref-select-dropdown">
+                <option value="flashcard" selected>🎴 Thẻ Flashcard 3D</option>
+                <option value="quiz">🎯 Trắc nghiệm (Quiz)</option>
+              </select>
             </div>
 
             <!-- 2. Tự động phát âm -->
@@ -472,7 +433,73 @@ export function renderStudyOverlayShell() {
               <input type="checkbox" id="pref-toggle-autoplay" class="toggle-checkbox">
             </label>
 
-            <!-- 3. Chờ suy nghĩ mặt trước -->
+            <!-- 3. Giọng phát âm -->
+            <div class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🗣️ Giọng đọc tiếng Anh</span>
+                <span class="pref-sub">Chọn giọng bản xứ chuẩn Mỹ / Anh</span>
+              </div>
+              <select id="pref-select-accent" class="pref-select-dropdown">
+                <option value="us">🇺🇸 Giọng Mỹ (US)</option>
+                <option value="uk">🇬🇧 Giọng Anh (UK)</option>
+              </select>
+            </div>
+
+            <!-- 4. Hình ảnh minh họa -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🖼️ Hình ảnh minh họa</span>
+                <span class="pref-sub">Hiển thị hình ảnh minh họa ở mặt trước</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-show-image" class="toggle-checkbox">
+            </label>
+
+            <!-- 5. Phiên âm IPA -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🔤 Phiên âm quốc tế IPA</span>
+                <span class="pref-sub">Hiển thị ký hiệu phát âm ở mặt trước</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-show-phonetic" class="toggle-checkbox">
+            </label>
+
+            <!-- 6. Từ loại & Trình độ CEFR -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🏷️ Từ loại & Trình độ CEFR</span>
+                <span class="pref-sub">Hiển thị nhãn loại từ và CEFR (A1-C1)</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-show-pos" class="toggle-checkbox">
+            </label>
+
+            <!-- 7. Câu ví dụ tiếng Anh -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">💬 Câu ví dụ tiếng Anh</span>
+                <span class="pref-sub">Hiển thị câu ví dụ ngữ cảnh ở mặt sau</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-show-example" class="toggle-checkbox">
+            </label>
+
+            <!-- 8. Dịch nghĩa câu ví dụ -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🇻🇳 Dịch nghĩa câu ví dụ</span>
+                <span class="pref-sub">Hiển thị bản dịch tiếng Việt của ví dụ</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-show-example-vi" class="toggle-checkbox">
+            </label>
+
+            <!-- 9. Định nghĩa Anh - Anh -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">📖 Định nghĩa Anh - Anh</span>
+                <span class="pref-sub">Hiển thị giải thích nghĩa bằng tiếng Anh</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-show-def" class="toggle-checkbox">
+            </label>
+
+            <!-- 10. Chờ suy nghĩ mặt trước -->
             <div class="pref-item">
               <div class="pref-info">
                 <span class="pref-label">⏱️ Chờ suy nghĩ (Mặt trước)</span>
@@ -483,14 +510,15 @@ export function renderStudyOverlayShell() {
                 <option value="1">1 giây</option>
                 <option value="2">2 giây</option>
                 <option value="3">3 giây</option>
+                <option value="5">5 giây</option>
               </select>
             </div>
 
-            <!-- 4. Khóa chống bấm nhầm mặt sau -->
+            <!-- 11. Khóa chống bấm nhầm mặt sau -->
             <label class="pref-item">
               <div class="pref-info">
                 <span class="pref-label">🛡️ Khóa chống bấm nhầm (Mặt sau)</span>
-                <span class="pref-sub">Khóa nút đánh giá 1s - 1.5s để xem kỹ đáp án</span>
+                <span class="pref-sub">Khóa nút đánh giá 1.2s để xem kỹ đáp án</span>
               </div>
               <input type="checkbox" id="pref-toggle-back-lock" class="toggle-checkbox">
             </label>
@@ -518,7 +546,7 @@ export function renderStudyOverlayShell() {
 
           <div class="prefs-footer">
             <button type="button" class="btn-reset-prefs" id="btn-reset-prefs">
-              🔄 Khôi phục tối giản mặc định
+              🔄 Khôi phục mặc định
             </button>
           </div>
         </div>
@@ -623,7 +651,15 @@ export function setupStudyControls(app) {
     const btnResetPrefs = document.getElementById('btn-reset-prefs');
 
     // Các điều khiển tùy chọn trong Drawer
+    const selectStudyMode = document.getElementById('pref-select-study-mode');
     const toggleAutoplay = document.getElementById('pref-toggle-autoplay');
+    const selectAccent = document.getElementById('pref-select-accent');
+    const toggleShowImage = document.getElementById('pref-toggle-show-image');
+    const toggleShowPhonetic = document.getElementById('pref-toggle-show-phonetic');
+    const toggleShowPos = document.getElementById('pref-toggle-show-pos');
+    const toggleShowExample = document.getElementById('pref-toggle-show-example');
+    const toggleShowExampleVi = document.getElementById('pref-toggle-show-example-vi');
+    const toggleShowDef = document.getElementById('pref-toggle-show-def');
     const selectThinkDelay = document.getElementById('pref-select-think-delay');
     const toggleBackLock = document.getElementById('pref-toggle-back-lock');
 
@@ -633,22 +669,39 @@ export function setupStudyControls(app) {
     // Khởi tạo trạng thái điều khiển theo Preferences hiện tại
     const syncCheckboxesFromPrefs = () => {
       const p = getStudyPrefs();
-      if (toggleAutoplay) toggleAutoplay.checked = (app.settings?.autoPronounce === true) || !!p.autoplayAudio;
+      if (selectStudyMode) selectStudyMode.value = 'flashcard';
+      if (toggleAutoplay) toggleAutoplay.checked = (app.settings?.autoPronounce !== false) && !!p.autoplayAudio;
+      if (selectAccent) selectAccent.value = (app.settings?.audioAccent || p.audioAccent || 'us').toLowerCase();
+      if (toggleShowImage) toggleShowImage.checked = !!p.showImage;
+      if (toggleShowPhonetic) toggleShowPhonetic.checked = p.showPhonetic !== false;
+      if (toggleShowPos) toggleShowPos.checked = p.showPos !== false;
+      if (toggleShowExample) toggleShowExample.checked = p.showExample !== false;
+      if (toggleShowExampleVi) toggleShowExampleVi.checked = !!p.showExampleVi;
+      if (toggleShowDef) toggleShowDef.checked = !!p.showDefinition;
       if (selectThinkDelay) selectThinkDelay.value = String(p.thinkDelaySec ?? 0);
       if (toggleBackLock) toggleBackLock.checked = !!p.enableBackLock;
     };
 
-    const updatePrefFromCheckbox = () => {
+    const updatePrefFromControls = () => {
       const isAutoplay = !!toggleAutoplay?.checked;
       const p = {
         ...DEFAULT_STUDY_PREFS,
         autoplayAudio: isAutoplay,
+        audioAccent: selectAccent?.value || 'us',
+        showImage: !!toggleShowImage?.checked,
+        showPhonetic: !!toggleShowPhonetic?.checked,
+        showPos: !!toggleShowPos?.checked,
+        showCefr: !!toggleShowPos?.checked,
+        showExample: !!toggleShowExample?.checked,
+        showExampleVi: !!toggleShowExampleVi?.checked,
+        showDefinition: !!toggleShowDef?.checked,
         thinkDelaySec: Number(selectThinkDelay?.value || 0),
         enableBackLock: !!toggleBackLock?.checked
       };
       saveStudyPrefs(p);
       if (app.settings) {
         app.settings.autoPronounce = isAutoplay;
+        if (selectAccent?.value) app.settings.audioAccent = selectAccent.value;
         StorageManager.saveSettings(app.settings);
       }
       if (app.studySession) {
@@ -661,15 +714,23 @@ export function setupStudyControls(app) {
 
     syncCheckboxesFromPrefs();
 
-    if (toggleAutoplay) toggleAutoplay.addEventListener('change', updatePrefFromCheckbox);
-    if (toggleBackLock) toggleBackLock.addEventListener('change', updatePrefFromCheckbox);
-    if (selectThinkDelay) selectThinkDelay.addEventListener('change', updatePrefFromCheckbox);
+    if (toggleAutoplay) toggleAutoplay.addEventListener('change', updatePrefFromControls);
+    if (selectAccent) selectAccent.addEventListener('change', updatePrefFromControls);
+    if (toggleShowImage) toggleShowImage.addEventListener('change', updatePrefFromControls);
+    if (toggleShowPhonetic) toggleShowPhonetic.addEventListener('change', updatePrefFromControls);
+    if (toggleShowPos) toggleShowPos.addEventListener('change', updatePrefFromControls);
+    if (toggleShowExample) toggleShowExample.addEventListener('change', updatePrefFromControls);
+    if (toggleShowExampleVi) toggleShowExampleVi.addEventListener('change', updatePrefFromControls);
+    if (toggleShowDef) toggleShowDef.addEventListener('change', updatePrefFromControls);
+    if (toggleBackLock) toggleBackLock.addEventListener('change', updatePrefFromControls);
+    if (selectThinkDelay) selectThinkDelay.addEventListener('change', updatePrefFromControls);
 
     if (btnResetPrefs) {
       btnResetPrefs.addEventListener('click', () => {
         saveStudyPrefs(DEFAULT_STUDY_PREFS);
         if (app.settings) {
           app.settings.autoPronounce = true;
+          app.settings.audioAccent = 'us';
           StorageManager.saveSettings(app.settings);
         }
         if (app.studySession) {
@@ -679,18 +740,7 @@ export function setupStudyControls(app) {
         if (app.studySession?.currentCard) {
           applyFieldVisibility(DEFAULT_STUDY_PREFS, app.studySession.currentCard);
         }
-      });
-    }
-
-    const btnTheme = document.getElementById('btn-study-theme');
-    if (btnTheme) {
-      btnTheme.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const currentTheme = app.settings?.theme || 'dark';
-        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        if (app.settings) app.settings.theme = nextTheme;
-        app.applyTheme(nextTheme);
-        StorageManager.saveSettings(app.settings);
+        app.showToast?.('Đã khôi phục cài đặt mặc định', 'success', 1500);
       });
     }
 
@@ -702,7 +752,7 @@ export function setupStudyControls(app) {
         const remainingQueue = (app.studySession.queue || []).slice(currentIndex);
         
         if (!remainingQueue || remainingQueue.length === 0) {
-          app.showToast('Không có thẻ nào còn lại trong hàng đợi.', 'info');
+          app.showToast?.('Không có thẻ nào còn lại trong hàng đợi.', 'info');
           return;
         }
 
@@ -718,33 +768,18 @@ export function setupStudyControls(app) {
         app.studySession.isActive = false;
 
         app.startQuizSession(remainingQueue);
-        app.showToast('🎯 Đã chuyển sang chế độ Trắc nghiệm', 'info', 2000);
+        app.showToast?.('🎯 Đã chuyển sang chế độ Trắc nghiệm', 'info', 2000);
       } catch (err) {
         console.error('Lỗi chuyển sang chế độ Trắc nghiệm:', err);
       }
     };
 
-    const btnModeSwitch = document.getElementById('btn-study-mode-switch');
-    if (btnModeSwitch) {
-      btnModeSwitch.addEventListener('click', (e) => {
-        e.stopPropagation();
-        switchToQuizMode();
-      });
-    }
-
-    const btnModeFlashcard = document.getElementById('btn-mode-flashcard');
-    if (btnModeFlashcard) {
-      btnModeFlashcard.addEventListener('click', (e) => {
-        e.stopPropagation();
-        closeDrawer();
-      });
-    }
-
-    const btnModeQuiz = document.getElementById('btn-mode-quiz');
-    if (btnModeQuiz) {
-      btnModeQuiz.addEventListener('click', (e) => {
-        e.stopPropagation();
-        switchToQuizMode();
+    if (selectStudyMode) {
+      selectStudyMode.addEventListener('change', (e) => {
+        if (e.target.value === 'quiz') {
+          e.target.value = 'flashcard';
+          switchToQuizMode();
+        }
       });
     }
 
@@ -1413,14 +1448,14 @@ function updateStudyLiveTimerUI(state) {
     timeText = `${hrs}h ${remMins}p`;
   }
 
-  elDigits.textContent = timeText;
+  elDigits.textContent = `⏱️ Đã học: ${timeText}`;
 
   if (state.isIdle || state.isPaused) {
     elContainer.classList.add('is-idle');
-    elContainer.setAttribute('title', `Tổng thời gian đã học hôm nay: ${timeText} (Tạm dừng)`);
+    elContainer.setAttribute('title', `Thời gian đã học hôm nay: ${timeText} (Tạm dừng)`);
   } else {
     elContainer.classList.remove('is-idle');
-    elContainer.setAttribute('title', `Tổng thời gian đã học hôm nay: ${timeText}`);
+    elContainer.setAttribute('title', `Thời gian đã học hôm nay: ${timeText}`);
   }
 }
 
