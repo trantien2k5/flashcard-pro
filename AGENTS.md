@@ -69,9 +69,9 @@ simple-flashcard/
     ├── validators.js             # Hàm kiểm tra toàn vẹn dữ liệu từ vựng
     ├── topics.js                 # Danh mục 21 chủ đề phân cấp
     ├── words.js                  # Barrel Module hợp nhất tập trung (Re-export)
-    └── words/                    # Từ điển 4.032 từ vựng phân mảnh theo chuẩn CEFR
+    └── words/                    # Từ điển 4.138 từ vựng phân mảnh theo chuẩn CEFR
         ├── legacy.js             # Ánh xạ ID từ vựng tương thích ngược
-        ├── a1.js                 # 458 từ vựng Trình độ A1 (Căn bản)
+        ├── a1.js                 # 564 từ vựng Trình độ A1 (Căn bản)
         ├── a2.js                 # 864 từ vựng Trình độ A2 (Sơ cấp)
         ├── b1.js                 # 1.705 từ vựng Trình độ B1 (Trung cấp)
         ├── b2.js                 # 758 từ vựng Trình độ B2 (Trung cao cấp)
