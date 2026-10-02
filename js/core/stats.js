@@ -457,7 +457,7 @@ export class StatsManager {
       nextLevelId = 'Master';
     }
 
-    // 3. Phân tích Mục tiêu đã chọn (Target Goal)
+    // 3. Phân tích Mục tiêu đã chọn (Target Goal) & Trọng số Độ Bền Thực Tế
     const activeGoalId = settings.activeGoal?.id || 'cefr-b1';
     const activeGoal = getLearningGoal(activeGoalId);
     const targetWords = Number(settings.activeGoal?.targetWords) || activeGoal.defaultTargetWords || 3027;
@@ -465,6 +465,8 @@ export class StatsManager {
     const targetDecksSet = new Set(activeGoal.targetDecks || []);
 
     let learnedGoalWords = 0;
+    let matureMasteredWords = 0; // Stability >= 21d
+    let solidProgressPoints = 0; // Trọng số độ bền tích lũy (0.25 -> 1.0)
     let remainingNeededPos = { noun: 0, verb: 0, adj: 0, other: 0 };
 
     for (let i = 0; i < allCards.length; i++) {
@@ -480,6 +482,17 @@ export class StatsManager {
       const isLearned = state && state.state !== State.New && state.state !== 0 && !state.suspended;
       if (isLearned) {
         learnedGoalWords++;
+        const s = Number(state.stability) || 0;
+        if (s >= 21) {
+          matureMasteredWords++;
+          solidProgressPoints += 1.0;
+        } else if (s >= 7) {
+          solidProgressPoints += 0.75;
+        } else if (s >= 3) {
+          solidProgressPoints += 0.50;
+        } else {
+          solidProgressPoints += 0.25;
+        }
       } else {
         const posKey = normalizePos(card.pos);
         remainingNeededPos[posKey] = (remainingNeededPos[posKey] || 0) + 1;
@@ -488,8 +501,34 @@ export class StatsManager {
 
     const remainingWordsToGoal = Math.max(0, targetWords - learnedGoalWords);
     const goalCompletionPct = Math.min(100, Math.round((learnedGoalWords / targetWords) * 100));
+    const goalMasteryPct = Math.min(100, Math.round((solidProgressPoints / targetWords) * 100));
 
-    // 4. THUẬT TOÁN DỰ BÁO THÍCH ỨNG THEO HÀNH VI THỰC TẾ (Dynamic Adaptive ETA Engine)
+    // 4. THUẬT TOÁN DỰ BÁO TIẾN ĐỘ THỰC TẾ DỰA TRÊN TỶ LỆ TIẾN BỘ TỰ CHẤM & FSRS CONSOLIDATION
+    // A. Phân tích Tỷ lệ Nhớ Thật & Tỷ lệ Quên từ lịch sử tự chấm
+    let totalRatings = 0;
+    let successfulRatings = 0; // Good (3) + Easy (4)
+    let lapseRatings = 0; // Again (1)
+
+    for (let i = 0; i < logs.length; i++) {
+      const r = logs[i].rating;
+      if (r === Rating.Good || r === Rating.Easy) {
+        successfulRatings++;
+        totalRatings++;
+      } else if (r === Rating.Again || r === Rating.Hard) {
+        if (r === Rating.Again) lapseRatings++;
+        totalRatings++;
+      }
+    }
+
+    const empiricalAccuracy = totalRatings >= 5 
+      ? Math.max(0.60, Math.min(0.98, successfulRatings / totalRatings))
+      : 0.88; // Mặc định chuẩn 88%
+    const empiricalLapseRate = 1 - empiricalAccuracy;
+
+    // Hệ số lặp lại trung bình để 1 từ ngấm sâu vào trí nhớ dài hạn (Reps per word to mature)
+    const expectedRepsPerWord = Math.round((3.2 / (1 - empiricalLapseRate * 0.65)) * 10) / 10;
+
+    // B. Phân tích Tốc độ nạp mới và số ngày hoạt động thực tế 7 ngày qua
     const sevenDaysAgo = new Date(now.getTime() - 7 * 86400000);
     const recentNewLogs = logs.filter(l => {
       if (!l.timestamp) return false;
@@ -530,10 +569,10 @@ export class StatsManager {
     let paceBadgeColor = '#10b981';
     if (isUsingRealBehavior) {
       if (actualDailyVelocity >= configuredDailyTarget * 1.2) {
-        paceStatus = `⚡ Vượt tiến độ (${actualDailyVelocity} từ/ngày)`;
+        paceStatus = `⚡ Vượt tiến độ (${actualDailyVelocity} từ/ngày • Độ nhớ ${Math.round(empiricalAccuracy * 100)}%)`;
         paceBadgeColor = '#6366f1';
       } else if (actualDailyVelocity >= configuredDailyTarget * 0.8) {
-        paceStatus = `🎯 Chuẩn nhịp (${actualDailyVelocity} từ/ngày)`;
+        paceStatus = `🎯 Chuẩn nhịp (${actualDailyVelocity} từ/ngày • Độ nhớ ${Math.round(empiricalAccuracy * 100)}%)`;
         paceBadgeColor = '#10b981';
       } else {
         paceStatus = `🌱 Cần tăng tốc (${actualDailyVelocity} từ/ngày)`;
@@ -565,6 +604,8 @@ export class StatsManager {
         color: activeGoal.color || '#6366f1',
         targetWords,
         learnedWords: learnedGoalWords,
+        matureMasteredWords,
+        masteryPct: goalMasteryPct,
         remainingWords: remainingWordsToGoal,
         completionPct: goalCompletionPct,
         remainingNeededPos
@@ -574,6 +615,8 @@ export class StatsManager {
         targetDateFormatted,
         effectiveVelocity,
         actualDailyVelocity,
+        empiricalAccuracy: Math.round(empiricalAccuracy * 100),
+        expectedRepsPerWord,
         isUsingRealBehavior,
         paceStatus,
         paceBadgeColor
