@@ -1461,10 +1461,14 @@ function updateStudyLiveTimerUI(state) {
 
 export function startStudySession(app, queue) {
   try {
-    unlockAudioContext();
     const overlay = document.getElementById('study-overlay');
     if (!overlay) return;
     overlay.classList.add('active');
+    
+    // Mở khóa âm thanh song song không làm nghẽn luồng render giao diện
+    setTimeout(() => {
+      unlockAudioContext();
+    }, 0);
     
     globalStudyTimer.startSession();
     if (_studyTimerUnsubscribe) _studyTimerUnsubscribe();
@@ -1472,7 +1476,6 @@ export function startStudySession(app, queue) {
       updateStudyLiveTimerUI(state);
     });
 
-    _dom = null;
     app.studySession.start(queue);
   } catch (err) {
     console.error('Lỗi khi bắt đầu startStudySession:', err);

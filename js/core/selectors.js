@@ -488,17 +488,15 @@ export class DeckManager {
     });
 
     dueCards.forEach(c => {
-      const r = fsrsInstance.getRetrievability(c.fsrsState, now);
-      c._retrievability = r;
+      c._retrievability = fsrsInstance.getRetrievability(c.fsrsState, now);
+      c._dueTime = c.fsrsState?.due ? new Date(c.fsrsState.due).getTime() : 0;
     });
 
     dueCards.sort((a, b) => {
-      // 1.1 Thẻ có R(t) thấp hơn xếp trước (nguy cơ quên cao hơn)
       if (a._retrievability !== b._retrievability) {
         return a._retrievability - b._retrievability;
       }
-      // 1.2 Nếu cùng R(t), thẻ đến hạn trước xếp trước
-      return new Date(a.fsrsState.due) - new Date(b.fsrsState.due);
+      return a._dueTime - b._dueTime;
     });
 
     // 2. SẮP XẾP TỪ MỚI THEO NẤC THANG CEFR (A1 -> A2 -> B1 -> B2 -> C1) & ĐỘ PHỔ BIẾN CỐT LÕI
@@ -529,6 +527,7 @@ export class DeckManager {
     const activeGoalId = settings.activeGoal?.id || 'cefr-b1';
     const activeGoal = getLearningGoal(activeGoalId);
     const targetDecksSet = new Set(activeGoal?.targetDecks || []);
+    const targetDecksList = Array.from(targetDecksSet);
     const targetCefrSet = new Set((activeGoal?.targetCefr || []).map(c => c.toUpperCase()));
 
     const normalizePos = (pos) => {
@@ -540,8 +539,9 @@ export class DeckManager {
       return 'other';
     };
 
-    // Hàm chấm điểm độ ưu tiên của từ mới (Strict CEFR Ladder Progression & Essential Vocabulary Ranking)
-    const scoreNewCard = (c) => {
+    // Pre-calculate score for every new card in a single O(N) pass
+    for (let i = 0; i < newCards.length; i++) {
+      const c = newCards[i];
       let score = 0;
       const cardLevel = (c.level || c.cefr || 'A1').toUpperCase();
       const topicIds = Array.isArray(c.topicIds) ? c.topicIds : [];
@@ -581,14 +581,15 @@ export class DeckManager {
       // 2. Trùng khớp với Mục tiêu học tập người dùng đã chọn
       if (targetCefrSet.has(cardLevel)) score += 600;
       if (targetDecksSet.has(deckId)) score += 500;
-      for (const tid of topicIds) {
-        if (targetDecksSet.has(tid) || Array.from(targetDecksSet).some(d => tid.startsWith(d))) {
+      for (let j = 0; j < topicIds.length; j++) {
+        const tid = topicIds[j];
+        if (targetDecksSet.has(tid) || targetDecksList.some(d => tid.startsWith(d))) {
           score += 400;
           break;
         }
       }
 
-      // 3. Phân loại từ loại thiết yếu (Động từ hành động -> Danh từ đời sống -> Tính từ mô tả)
+      // 3. Phân loại từ loại thiết yếu
       if (posKey === 'verb') score += 300;
       else if (posKey === 'noun') score += 250;
       else if (posKey === 'adj') score += 200;
@@ -599,10 +600,10 @@ export class DeckManager {
         score += 350;
       }
 
-      return score;
-    };
+      c._score = score;
+    }
 
-    newCards.sort((a, b) => scoreNewCard(b) - scoreNewCard(a));
+    newCards.sort((a, b) => b._score - a._score);
 
     // 3. Tính hạn mức từ mới và thẻ đến hạn hôm nay
     const dailyGoalNew = Number(settings.activeGoal?.dailyNew) || Number(settings.dailyNewLimit) || 10;
