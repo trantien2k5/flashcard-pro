@@ -6,7 +6,7 @@
  */
 
 import { StorageManager } from '../services/storage.js';
-import { State, isCardDue } from '../core/fsrs.js';
+import { State, Rating, isCardDue } from '../core/fsrs.js';
 import { globalStudyTimer, StatsManager } from '../core/stats.js';
 import { escapeHTML, getLocalDateKey } from '../utils.js';
 import { MASTERY_STABILITY_THRESHOLD, LEARNING_GOALS, getLearningGoal } from '../config.js';
