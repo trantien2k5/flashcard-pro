@@ -82,7 +82,13 @@ export class StudySession {
       hard: 0,
       good: 0,
       easy: 0,
-      total: 0
+      total: 0,
+      reviewedCount: 0,
+      newLearned: 0,
+      strengthened: 0,
+      promotedMature: 0,
+      recovered: 0,
+      relearnCount: 0
     };
   }
 
@@ -310,11 +316,36 @@ export class StudySession {
       });
     }
 
-    // Cập nhật thống kê và tiến độ hoàn thành phiên học
-    if (rating === Rating.Again) this.sessionStats.again++;
-    else if (rating === Rating.Hard) this.sessionStats.hard++;
-    else if (rating === Rating.Good) this.sessionStats.good++;
-    else if (rating === Rating.Easy) this.sessionStats.easy++;
+    // Cập nhật thống kê và tiến độ chuyển hóa trí nhớ FSRS
+    const isOldNew = oldState.state === State.New || oldState.state === 0;
+    const isOldRelearning = oldState.state === State.Relearning || oldState.state === 3;
+    const oldStability = Number(oldState.stability) || 0;
+    const nextStability = Number(nextState.stability) || 0;
+
+    if (isOldNew) {
+      this.sessionStats.newLearned = (this.sessionStats.newLearned || 0) + 1;
+    }
+
+    if (rating === Rating.Again) {
+      this.sessionStats.again++;
+      this.sessionStats.relearnCount = (this.sessionStats.relearnCount || 0) + 1;
+    } else {
+      if (rating === Rating.Hard) this.sessionStats.hard++;
+      else if (rating === Rating.Good) this.sessionStats.good++;
+      else if (rating === Rating.Easy) this.sessionStats.easy++;
+
+      if (isOldRelearning || (oldState.lapses && oldState.lapses > 0 && (rating === Rating.Good || rating === Rating.Easy))) {
+        this.sessionStats.recovered = (this.sessionStats.recovered || 0) + 1;
+      }
+
+      if (nextStability > oldStability) {
+        this.sessionStats.strengthened = (this.sessionStats.strengthened || 0) + 1;
+      }
+
+      if (nextStability >= 21 && oldStability < 21) {
+        this.sessionStats.promotedMature = (this.sessionStats.promotedMature || 0) + 1;
+      }
+    }
     this.sessionStats.reviewedCount++;
 
     if (shouldPersist) {

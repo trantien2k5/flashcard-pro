@@ -1796,10 +1796,10 @@ export function showSummaryModal(app, stats, isEarlyExit = false) {
     
     if (isEarlyExit) {
       if (titleEl) titleEl.textContent = '📊 Tổng kết phiên học';
-      if (subtitleEl) subtitleEl.textContent = 'Tiến trình của các từ bạn vừa ôn đã được lưu an toàn!';
+      if (subtitleEl) subtitleEl.textContent = 'Tiến trình của các từ bạn vừa ôn đã được FSRS lưu an toàn!';
     } else {
-      if (titleEl) titleEl.textContent = '🎉 Xuất sắc! Hoàn thành mục tiêu';
-      if (subtitleEl) subtitleEl.textContent = 'Trí nhớ dài hạn của bạn đã được củng cố với thuật toán FSRS-6';
+      if (titleEl) titleEl.textContent = '🎉 Hoàn thành phiên học!';
+      if (subtitleEl) subtitleEl.textContent = 'Trí nhớ của bạn vừa được củng cố theo chu kỳ giãn cách FSRS-6';
     }
 
     const reviewed = stats.reviewedCount || (stats.again + stats.hard + stats.good + stats.easy) || 0;
@@ -1808,17 +1808,34 @@ export function showSummaryModal(app, stats, isEarlyExit = false) {
 
     const sumTotal = document.getElementById('sum-stat-total');
     const sumRetention = document.getElementById('sum-stat-retention');
-    const sumAgain = document.getElementById('sum-stat-again');
-    const sumHard = document.getElementById('sum-stat-hard');
-    const sumGood = document.getElementById('sum-stat-good');
-    const sumEasy = document.getElementById('sum-stat-easy');
+    const sumNew = document.getElementById('sum-stat-new');
+    const sumStrengthened = document.getElementById('sum-stat-strengthened');
+    const sumRecovered = document.getElementById('sum-stat-recovered');
+    const sumRelearn = document.getElementById('sum-stat-relearn');
+    const insightTextEl = document.getElementById('summary-insight-text');
 
     if (sumTotal) sumTotal.textContent = reviewed;
     if (sumRetention) sumRetention.textContent = `${retentionRate}%`;
-    if (sumAgain) sumAgain.textContent = stats.again || 0;
-    if (sumHard) sumHard.textContent = stats.hard || 0;
-    if (sumGood) sumGood.textContent = stats.good || 0;
-    if (sumEasy) sumEasy.textContent = stats.easy || 0;
+
+    const newLearnedCount = stats.newLearned || 0;
+    const strengthenedCount = stats.strengthened || (stats.good + stats.easy) || 0;
+    const recoveredCount = stats.recovered || 0;
+    const relearnCount = stats.relearnCount || stats.again || 0;
+
+    if (sumNew) sumNew.textContent = `+${newLearnedCount} từ`;
+    if (sumStrengthened) sumStrengthened.textContent = `+${strengthenedCount} từ`;
+    if (sumRecovered) sumRecovered.textContent = `+${recoveredCount} từ`;
+    if (sumRelearn) sumRelearn.textContent = `${relearnCount} từ`;
+
+    if (insightTextEl) {
+      if (relearnCount > 0 && retentionRate < 60) {
+        insightTextEl.textContent = `FSRS-6 đã tự động lên lịch củng cố sớm cho ${relearnCount} từ khó để bạn sớm chuyển hóa chúng sang trí nhớ dài hạn!`;
+      } else if (retentionRate >= 80) {
+        insightTextEl.textContent = `Tuyệt vời! Tỉ lệ ghi nhớ ${retentionRate}% chứng minh não bộ của bạn đang tiếp thu và củng cố từ vựng cực kỳ vững chắc!`;
+      } else {
+        insightTextEl.textContent = `Chu kỳ giãn cách FSRS-6 đã cập nhật độ bền cho toàn bộ ${reviewed} từ vựng bạn vừa ôn luyện.`;
+      }
+    }
 
     modal.classList.add('active');
   } catch (err) {

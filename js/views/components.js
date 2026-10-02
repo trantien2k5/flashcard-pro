@@ -121,41 +121,59 @@ export function mountGlobalModals() {
     summaryModal.innerHTML = `
       <div class="modal-dialog study-summary-dialog">
         <div class="summary-hero-badge">
-          <span class="summary-trophy-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H7.5a1.5 1.5 0 0 0-1.5 1.5v.5h12v-.5a1.5 1.5 0 0 0-1.5-1.5H15c-.55 0-1-.45-1-1v-2.34"/><path d="M18 4H6v7a6 6 0 0 0 12 0V4Z"/></svg>
-          </span>
+          <span class="summary-trophy-icon">🏆</span>
         </div>
-        <h3 class="summary-title" id="summary-modal-title">Xuất sắc! Đã hoàn thành</h3>
-        <p class="summary-subtitle" id="summary-modal-subtitle">Trí nhớ của bạn đã được củng cố với thuật toán FSRS-6</p>
+        <h3 class="summary-title" id="summary-modal-title">Xuất sắc! Hoàn thành phiên học</h3>
+        <p class="summary-subtitle" id="summary-modal-subtitle">Trí nhớ của bạn vừa được củng cố với thuật toán FSRS-6</p>
 
         <div class="summary-stats-grid">
           <div class="summary-stat-box total">
             <span class="summary-stat-num" id="sum-stat-total">0</span>
-            <span class="summary-stat-lbl">Thẻ đã học</span>
+            <span class="summary-stat-lbl">Thẻ đã ôn luyện</span>
           </div>
           <div class="summary-stat-box retention">
             <span class="summary-stat-num" id="sum-stat-retention">100%</span>
-            <span class="summary-stat-lbl">Tỉ lệ nhớ</span>
+            <span class="summary-stat-lbl">Tỉ lệ nhớ phiên này</span>
           </div>
         </div>
 
-        <div class="summary-fsrs-breakdown">
-          <div class="summary-fsrs-pill again">
-            <span class="fsrs-pill-dot"></span>
-            <span>Quên: <strong id="sum-stat-again">0</strong></span>
+        <div class="summary-progression-section">
+          <span class="summary-sec-header">Chuyển hóa & Tiến bộ Trí nhớ</span>
+          <div class="summary-progression-grid">
+            <div class="progression-pill-card prog-new">
+              <span class="prog-icon">🌱</span>
+              <div class="prog-info">
+                <span class="prog-label">Tiếp thu từ mới</span>
+                <strong class="prog-val" id="sum-stat-new">+0 từ</strong>
+              </div>
+            </div>
+            <div class="progression-pill-card prog-strengthened">
+              <span class="prog-icon">⚡</span>
+              <div class="prog-info">
+                <span class="prog-label">Tăng độ bền (S)</span>
+                <strong class="prog-val" id="sum-stat-strengthened">+0 từ</strong>
+              </div>
+            </div>
+            <div class="progression-pill-card prog-recovered">
+              <span class="prog-icon">🛡️</span>
+              <div class="prog-info">
+                <span class="prog-label">Phục hồi trí nhớ</span>
+                <strong class="prog-val" id="sum-stat-recovered">+0 từ</strong>
+              </div>
+            </div>
+            <div class="progression-pill-card prog-relearn">
+              <span class="prog-icon">🔄</span>
+              <div class="prog-info">
+                <span class="prog-label">Đã lên lịch ôn bù</span>
+                <strong class="prog-val" id="sum-stat-relearn">0 từ</strong>
+              </div>
+            </div>
           </div>
-          <div class="summary-fsrs-pill hard">
-            <span class="fsrs-pill-dot"></span>
-            <span>Khó: <strong id="sum-stat-hard">0</strong></span>
-          </div>
-          <div class="summary-fsrs-pill good">
-            <span class="fsrs-pill-dot"></span>
-            <span>Nhớ: <strong id="sum-stat-good">0</strong></span>
-          </div>
-          <div class="summary-fsrs-pill easy">
-            <span class="fsrs-pill-dot"></span>
-            <span>Dễ: <strong id="sum-stat-easy">0</strong></span>
-          </div>
+        </div>
+
+        <div class="summary-insight-banner" id="summary-insight-banner">
+          <span class="insight-icon">💡</span>
+          <span class="insight-text" id="summary-insight-text">Thuật toán FSRS-6 đã tự động tối ưu hóa lịch giãn cách để bạn sớm thuần thục toàn bộ từ vựng!</span>
         </div>
 
         <div class="summary-actions">
