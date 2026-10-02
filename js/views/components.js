@@ -129,11 +129,11 @@ export function mountGlobalModals() {
         <div class="summary-stats-grid">
           <div class="summary-stat-box total">
             <span class="summary-stat-num" id="sum-stat-total">0</span>
-            <span class="summary-stat-lbl">Thẻ đã ôn luyện</span>
+            <span class="summary-stat-lbl">Thẻ đã học</span>
           </div>
           <div class="summary-stat-box retention">
-            <span class="summary-stat-num" id="sum-stat-retention">100%</span>
-            <span class="summary-stat-lbl">Tỉ lệ nhớ phiên này</span>
+            <span class="summary-stat-num" id="sum-stat-remembered">0</span>
+            <span class="summary-stat-lbl">Từ đã nhớ tốt</span>
           </div>
         </div>
 

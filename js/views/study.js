@@ -1839,10 +1839,9 @@ export function showSummaryModal(app, stats, isEarlyExit = false) {
 
     const reviewed = stats.reviewedCount || (stats.again + stats.hard + stats.good + stats.easy) || 0;
     const remembered = (stats.hard || 0) + (stats.good || 0) + (stats.easy || 0);
-    const retentionRate = reviewed > 0 ? Math.round((remembered / reviewed) * 100) : 100;
 
     const sumTotal = document.getElementById('sum-stat-total');
-    const sumRetention = document.getElementById('sum-stat-retention');
+    const sumRemembered = document.getElementById('sum-stat-remembered') || document.getElementById('sum-stat-retention');
     const sumNew = document.getElementById('sum-stat-new');
     const sumStrengthened = document.getElementById('sum-stat-strengthened');
     const sumRecovered = document.getElementById('sum-stat-recovered');
@@ -1850,7 +1849,7 @@ export function showSummaryModal(app, stats, isEarlyExit = false) {
     const insightTextEl = document.getElementById('summary-insight-text');
 
     if (sumTotal) sumTotal.textContent = reviewed;
-    if (sumRetention) sumRetention.textContent = `${retentionRate}%`;
+    if (sumRemembered) sumRemembered.textContent = `${remembered} / ${reviewed}`;
 
     const newLearnedCount = stats.newLearned || 0;
     const strengthenedCount = stats.strengthened || (stats.good + stats.easy) || 0;
@@ -1863,12 +1862,10 @@ export function showSummaryModal(app, stats, isEarlyExit = false) {
     if (sumRelearn) sumRelearn.textContent = `${relearnCount} từ`;
 
     if (insightTextEl) {
-      if (relearnCount > 0 && retentionRate < 60) {
-        insightTextEl.textContent = `FSRS-6 đã tự động lên lịch củng cố sớm cho ${relearnCount} từ khó để bạn sớm chuyển hóa chúng sang trí nhớ dài hạn!`;
-      } else if (retentionRate >= 80) {
-        insightTextEl.textContent = `Tuyệt vời! Tỉ lệ ghi nhớ ${retentionRate}% chứng minh não bộ của bạn đang tiếp thu và củng cố từ vựng cực kỳ vững chắc!`;
+      if (relearnCount > 0) {
+        insightTextEl.textContent = `FSRS-6 đã tự động lên lịch ôn bù sớm cho ${relearnCount} từ khó để bạn củng cố kịp thời!`;
       } else {
-        insightTextEl.textContent = `Chu kỳ giãn cách FSRS-6 đã cập nhật độ bền cho toàn bộ ${reviewed} từ vựng bạn vừa ôn luyện.`;
+        insightTextEl.textContent = `Tuyệt vời! Toàn bộ ${remembered} từ vựng trong phiên học đã được củng cố độ bền vững chắc!`;
       }
     }
 
