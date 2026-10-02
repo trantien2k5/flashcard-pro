@@ -813,12 +813,26 @@ function renderLibraryWords(app) {
   const now = new Date();
   const frag = document.createDocumentFragment();
 
+function formatShortPos(pos) {
+  if (!pos) return '';
+  const p = String(pos).toLowerCase().trim();
+  if (p === 'noun' || p === 'n') return 'n.';
+  if (p === 'verb' || p === 'v') return 'v.';
+  if (p === 'adjective' || p === 'adj' || p === 'a') return 'adj.';
+  if (p === 'adverb' || p === 'adv') return 'adv.';
+  if (p === 'phrasal verb' || p === 'phrasal') return 'phr v.';
+  if (p === 'phrase') return 'phr.';
+  if (p === 'idiom') return 'idiom';
+  if (p === 'preposition' || p === 'prep') return 'prep.';
+  return p;
+}
+
   pageCards.forEach(card => {
     const state = StorageManager.getCardState(card.id);
     const fsrs = formatFSRSDueText(state, now);
     const cefr = (card.cefr || card.level || 'a1').toUpperCase();
     const phonetic = card.phonetic || card.ipa || '';
-    const pos = card.pos ? card.pos.toUpperCase() : '';
+    const shortPos = formatShortPos(card.pos);
 
     const rowEl = document.createElement('div');
     rowEl.className = 'library-word-row';
@@ -843,7 +857,7 @@ function renderLibraryWords(app) {
           <span class="library-row-word">${escapeHTML(card.word || '')}</span>
           ${phonetic ? `<span class="library-row-ipa">${escapeHTML(phonetic)}</span>` : ''}
           <span class="badge-cefr-mini" data-cefr="${cefr.toLowerCase()}">${cefr}</span>
-          ${pos ? `<span class="badge-pos-mini">${escapeHTML(pos)}</span>` : ''}
+          ${shortPos ? `<span class="library-pos-text">${escapeHTML(shortPos)}</span>` : ''}
         </div>
         <div class="library-row-meaning">${escapeHTML(card.meaning || '')}</div>
       </div>
@@ -854,7 +868,7 @@ function renderLibraryWords(app) {
           <span class="status-dot"></span>
           <span>${fsrs.shortDueText}</span>
         </span>
-        <svg class="library-chevron-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="library-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="9 18 15 12 9 6"/>
         </svg>
       </div>
