@@ -1,6 +1,6 @@
 /**
  * Thư Viện Từ Vựng - Quản lý toàn diện kho từ vựng & Hệ thống bộ lọc FSRS-6 chuyên sâu
- * Tối ưu hóa hiệu năng cực cao: RAM Pre-indexed Search, DocumentFragment Virtual Chunking & Zero-Lag DOM.
+ * Tối ưu hóa giao diện tinh gọn, thanh lịch (Modern Clean UI) & Zero-Lag DOM.
  */
 
 import { StorageManager } from '../services/storage.js';
@@ -18,8 +18,7 @@ let _libState = {
   selectedDeck: 'all',        // all, or any deck/topic id
   sortBy: 'due_asc',          // due_asc, due_desc, alpha_asc, alpha_desc, cefr_asc, cefr_desc, stability_desc, stability_asc, difficulty_desc, reps_desc
   pageSize: 20,               // 15, 20, 50, 100
-  currentPage: 1,
-  quickFilter: 'all'          // all, due, new, learning, hard, mastered
+  currentPage: 1
 };
 
 // RAM Search Index Cache (Tối ưu sub-millisecond filtering)
@@ -63,7 +62,7 @@ function formatFSRSDueText(state, now = new Date()) {
   if (!state || state.state === State.New || state.state === 0 || !state.due) {
     return {
       statusClass: 'status-new',
-      statusLabel: 'Chưa học',
+      statusLabel: 'Mới',
       statusIcon: '✨',
       shortDueText: 'Mới',
       tierLabel: 'Chưa học',
@@ -147,7 +146,7 @@ function formatFSRSDueText(state, now = new Date()) {
   if (s >= MASTERY_STABILITY_THRESHOLD) {
     return {
       statusClass: 'status-mastered',
-      statusLabel: 'Thuần thục (Mức 5)',
+      statusLabel: 'Thuần thục',
       statusIcon: '🏆',
       shortDueText,
       tierLabel,
@@ -189,8 +188,7 @@ function isFilterActive() {
     _libState.selectedPos !== 'all' ||
     _libState.selectedStatus !== 'all' ||
     _libState.selectedDeck !== 'all' ||
-    _libState.sortBy !== 'due_asc' ||
-    _libState.quickFilter !== 'all'
+    _libState.sortBy !== 'due_asc'
   );
 }
 
@@ -230,79 +228,81 @@ export function renderLibraryTab(app) {
     }
   }
 
-  // Khung cấu trúc tinh gọn & tối ưu không gian hiển thị
+  const hasActiveFilter = isFilterActive();
+
+  // Khung cấu trúc tinh gọn & tối ưu không gian hiển thị (Clean Modern Design)
   container.innerHTML = `
     <div class="library-container">
-      <!-- 1. Header & Quick Filter Chips -->
-      <div class="library-quick-chips-wrapper">
-        <div class="library-quick-chips">
-          <button class="lib-quick-chip ${_libState.quickFilter === 'all' && _libState.selectedStatus === 'all' ? 'active' : ''}" data-quick="all">
-            <span>📚 Tất cả</span>
-            <span class="chip-count">${allCards.length.toLocaleString('vi-VN')}</span>
-          </button>
-          <button class="lib-quick-chip ${_libState.quickFilter === 'due' || _libState.selectedStatus === 'due' ? 'active' : ''}" data-quick="due">
-            <span>⏰ Cần ôn ngay</span>
-            <span class="chip-count">${dueCount.toLocaleString('vi-VN')}</span>
-          </button>
-          <button class="lib-quick-chip ${_libState.quickFilter === 'new' || _libState.selectedStatus === 'new' ? 'active' : ''}" data-quick="new">
-            <span>✨ Thẻ mới</span>
-            <span class="chip-count">${newCount.toLocaleString('vi-VN')}</span>
-          </button>
-          <button class="lib-quick-chip ${_libState.quickFilter === 'learning' || _libState.selectedStatus === 'learning' ? 'active' : ''}" data-quick="learning">
-            <span>🌱 Đang học</span>
-            <span class="chip-count">${learningCount.toLocaleString('vi-VN')}</span>
-          </button>
-          <button class="lib-quick-chip ${_libState.quickFilter === 'hard' || _libState.selectedStatus === 'hard' ? 'active' : ''}" data-quick="hard">
-            <span>⚠️ Từ khó / Hay quên</span>
-            <span class="chip-count">${hardCount.toLocaleString('vi-VN')}</span>
-          </button>
-          <button class="lib-quick-chip ${_libState.quickFilter === 'mastered' || _libState.selectedStatus === 'mastered' ? 'active' : ''}" data-quick="mastered">
-            <span>🏆 Thuần thục</span>
-            <span class="chip-count">${masteredCount.toLocaleString('vi-VN')}</span>
-          </button>
+      <!-- 1. Search Bar & Action Row -->
+      <div class="library-top-bar">
+        <div class="library-search-wrapper">
+          <span class="library-search-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </span>
+          <input 
+            type="text" 
+            id="lib-search-input" 
+            class="library-search-input" 
+            placeholder="Tìm từ vựng, nghĩa tiếng Việt, IPA..." 
+            value="${escapeHTML(_libState.searchQuery)}"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          ${_libState.searchQuery ? `
+            <button class="btn-clear-search" id="btn-clear-search" title="Xóa tìm kiếm">✕</button>
+          ` : ''}
         </div>
+        
+        <button class="btn-library-study-compact" id="btn-lib-study-filtered" title="Bắt đầu học danh sách từ đang lọc">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          <span id="btn-lib-study-label">Học (${Math.min(50, allCards.length)})</span>
+        </button>
       </div>
 
-      <!-- 2. Main Search & Advanced Filter Grid -->
-      <div class="library-controls-panel">
-        <!-- Row 1: Search Input & Action Button -->
-        <div class="library-search-action-row">
-          <div class="library-search-wrapper">
-            <span class="library-search-icon">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"/>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-              </svg>
-            </span>
-            <input 
-              type="text" 
-              id="lib-search-input" 
-              class="library-search-input" 
-              placeholder="Tìm kiếm theo từ, nghĩa tiếng Việt, IPA, câu ví dụ..." 
-              value="${escapeHTML(_libState.searchQuery)}"
-              autocomplete="off"
-              spellcheck="false"
-            />
-            ${_libState.searchQuery ? `
-              <button class="btn-clear-search" id="btn-clear-search" title="Xóa tìm kiếm">✕</button>
-            ` : ''}
-          </div>
-          
-          <button class="btn-library-study-compact" id="btn-lib-study-filtered" title="Bắt đầu phiên học với danh sách đang lọc">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"/>
-            </svg>
-            <span id="btn-lib-study-label">Học danh sách</span>
+      <!-- 2. Integrated Horizontal Filter Pills Bar (Sleek 1-Row Scroll) -->
+      <div class="library-pills-bar-wrapper">
+        <div class="library-pills-scroll">
+          <!-- Quick Status Pills -->
+          <button class="filter-pill ${_libState.selectedStatus === 'all' && !hasActiveFilter ? 'active' : ''}" data-status="all">
+            <span>Tất cả</span>
+            <span class="pill-badge">${allCards.length.toLocaleString('vi-VN')}</span>
           </button>
-        </div>
 
-        <!-- Row 2: 5 Advanced Filter Selects Grid -->
-        <div class="library-compact-filter-grid">
-          <!-- Trình độ CEFR -->
-          <div class="compact-select-wrapper">
-            <span class="compact-select-icon">🎓</span>
-            <select id="lib-cefr-select" class="compact-select" aria-label="Lọc theo trình độ CEFR">
-              <option value="all" ${!_libState.selectedCefr || _libState.selectedCefr === 'all' ? 'selected' : ''}>Mọi trình độ (A1 - C1)</option>
+          <button class="filter-pill ${_libState.selectedStatus === 'due' ? 'active' : ''}" data-status="due">
+            <span>⏰ Cần ôn</span>
+            <span class="pill-badge">${dueCount}</span>
+          </button>
+
+          <button class="filter-pill ${_libState.selectedStatus === 'new' ? 'active' : ''}" data-status="new">
+            <span>✨ Chưa học</span>
+            <span class="pill-badge">${newCount}</span>
+          </button>
+
+          <button class="filter-pill ${_libState.selectedStatus === 'learning' ? 'active' : ''}" data-status="learning">
+            <span>🌱 Đang học</span>
+            <span class="pill-badge">${learningCount}</span>
+          </button>
+
+          <button class="filter-pill ${_libState.selectedStatus === 'hard' ? 'active' : ''}" data-status="hard">
+            <span>⚠️ Hay quên</span>
+            <span class="pill-badge">${hardCount}</span>
+          </button>
+
+          <button class="filter-pill ${_libState.selectedStatus === 'mastered' ? 'active' : ''}" data-status="mastered">
+            <span>🏆 Thuần thục</span>
+            <span class="pill-badge">${masteredCount}</span>
+          </button>
+
+          <!-- Dropdown Pill: Trình độ CEFR -->
+          <div class="filter-pill-select-wrapper ${_libState.selectedCefr !== 'all' ? 'active' : ''}">
+            <span>🎓</span>
+            <select id="lib-cefr-select" class="filter-pill-select" aria-label="Lọc theo trình độ CEFR">
+              <option value="all" ${_libState.selectedCefr === 'all' ? 'selected' : ''}>Trình độ (Tất cả)</option>
               <option value="a1" ${_libState.selectedCefr === 'a1' ? 'selected' : ''}>A1 - Căn bản</option>
               <option value="a2" ${_libState.selectedCefr === 'a2' ? 'selected' : ''}>A2 - Sơ cấp</option>
               <option value="b1" ${_libState.selectedCefr === 'b1' ? 'selected' : ''}>B1 - Trung cấp</option>
@@ -311,44 +311,25 @@ export function renderLibraryTab(app) {
             </select>
           </div>
 
-          <!-- Loại từ (Part of Speech) -->
-          <div class="compact-select-wrapper">
-            <span class="compact-select-icon">🏷️</span>
-            <select id="lib-pos-select" class="compact-select" aria-label="Lọc theo loại từ">
-              <option value="all" ${!_libState.selectedPos || _libState.selectedPos === 'all' ? 'selected' : ''}>Mọi loại từ (All POS)</option>
-              <option value="noun" ${_libState.selectedPos === 'noun' ? 'selected' : ''}>Danh từ (Noun)</option>
-              <option value="verb" ${_libState.selectedPos === 'verb' ? 'selected' : ''}>Động từ (Verb)</option>
-              <option value="adjective" ${_libState.selectedPos === 'adjective' ? 'selected' : ''}>Tính từ (Adjective)</option>
-              <option value="adverb" ${_libState.selectedPos === 'adverb' ? 'selected' : ''}>Trạng từ (Adverb)</option>
-              <option value="phrase" ${_libState.selectedPos === 'phrase' ? 'selected' : ''}>Cụm từ (Phrase)</option>
-              <option value="phrasal verb" ${_libState.selectedPos === 'phrasal verb' ? 'selected' : ''}>Cụm động từ (Phrasal Verb)</option>
-              <option value="idiom" ${_libState.selectedPos === 'idiom' ? 'selected' : ''}>Thành ngữ (Idiom)</option>
-              <option value="preposition" ${_libState.selectedPos === 'preposition' ? 'selected' : ''}>Giới từ (Preposition)</option>
+          <!-- Dropdown Pill: Loại từ POS -->
+          <div class="filter-pill-select-wrapper ${_libState.selectedPos !== 'all' ? 'active' : ''}">
+            <span>🏷️</span>
+            <select id="lib-pos-select" class="filter-pill-select" aria-label="Lọc theo loại từ">
+              <option value="all" ${_libState.selectedPos === 'all' ? 'selected' : ''}>Loại từ (Tất cả)</option>
+              <option value="noun" ${_libState.selectedPos === 'noun' ? 'selected' : ''}>Danh từ (n)</option>
+              <option value="verb" ${_libState.selectedPos === 'verb' ? 'selected' : ''}>Động từ (v)</option>
+              <option value="adjective" ${_libState.selectedPos === 'adjective' ? 'selected' : ''}>Tính từ (adj)</option>
+              <option value="adverb" ${_libState.selectedPos === 'adverb' ? 'selected' : ''}>Trạng từ (adv)</option>
+              <option value="phrase" ${_libState.selectedPos === 'phrase' ? 'selected' : ''}>Cụm từ (phrase)</option>
+              <option value="phrasal verb" ${_libState.selectedPos === 'phrasal verb' ? 'selected' : ''}>Cụm động từ (phrasal verb)</option>
             </select>
           </div>
 
-          <!-- Trạng thái Trí nhớ FSRS-6 & 5 Tầng Stability -->
-          <div class="compact-select-wrapper">
-            <span class="compact-select-icon">⚡</span>
-            <select id="lib-status-select" class="compact-select" aria-label="Lọc theo trạng thái trí nhớ">
-              <option value="all" ${!_libState.selectedStatus || _libState.selectedStatus === 'all' ? 'selected' : ''}>Mọi trạng thái FSRS</option>
-              <option value="due" ${_libState.selectedStatus === 'due' ? 'selected' : ''}>⏰ Cần ôn ngay (Due)</option>
-              <option value="new" ${_libState.selectedStatus === 'new' ? 'selected' : ''}>✨ Thẻ mới chưa học (New)</option>
-              <option value="learning" ${_libState.selectedStatus === 'learning' ? 'selected' : ''}>🌱 Đang học (Learning)</option>
-              <option value="hard" ${_libState.selectedStatus === 'hard' ? 'selected' : ''}>⚠️ Dễ quên / Hay lapsed</option>
-              <option value="tier1" ${_libState.selectedStatus === 'tier1' ? 'selected' : ''}>📊 Mức 1: Mới học (S &lt; 3 ngày)</option>
-              <option value="tier2" ${_libState.selectedStatus === 'tier2' ? 'selected' : ''}>📊 Mức 2: Ngắn hạn (3 ≤ S &lt; 7 ngày)</option>
-              <option value="tier3" ${_libState.selectedStatus === 'tier3' ? 'selected' : ''}>📊 Mức 3: Trung hạn (7 ≤ S &lt; 14 ngày)</option>
-              <option value="tier4" ${_libState.selectedStatus === 'tier4' ? 'selected' : ''}>📊 Mức 4: Bền vững (14 ≤ S &lt; 30 ngày)</option>
-              <option value="tier5" ${_libState.selectedStatus === 'tier5' ? 'selected' : ''}>🏆 Mức 5: Ghi nhớ sâu (S ≥ 30 ngày)</option>
-            </select>
-          </div>
-
-          <!-- Chủ đề (Decks / Topics) -->
-          <div class="compact-select-wrapper">
-            <span class="compact-select-icon">📚</span>
-            <select id="lib-deck-select" class="compact-select" aria-label="Lọc theo chủ đề">
-              <option value="all" ${_libState.selectedDeck === 'all' ? 'selected' : ''}>Tất cả chủ đề (${decks.length})</option>
+          <!-- Dropdown Pill: Chủ đề -->
+          <div class="filter-pill-select-wrapper ${_libState.selectedDeck !== 'all' ? 'active' : ''}">
+            <span>📚</span>
+            <select id="lib-deck-select" class="filter-pill-select" aria-label="Lọc theo chủ đề">
+              <option value="all" ${_libState.selectedDeck === 'all' ? 'selected' : ''}>Chủ đề (${decks.length})</option>
               ${decks.map(d => `
                 <option value="${escapeHTML(d.id)}" ${_libState.selectedDeck === d.id ? 'selected' : ''}>
                   ${escapeHTML(d.name || d.id)}
@@ -357,50 +338,36 @@ export function renderLibraryTab(app) {
             </select>
           </div>
 
-          <!-- Sắp xếp Đa chiều (Sorting) -->
-          <div class="compact-select-wrapper">
-            <span class="compact-select-icon">⇅</span>
-            <select id="lib-sort-select" class="compact-select" aria-label="Sắp xếp danh sách">
-              <option value="due_asc" ${_libState.sortBy === 'due_asc' ? 'selected' : ''}>Hạn ôn (Gần nhất trước)</option>
-              <option value="due_desc" ${_libState.sortBy === 'due_desc' ? 'selected' : ''}>Hạn ôn (Xa nhất trước)</option>
+          <!-- Dropdown Pill: Sắp xếp -->
+          <div class="filter-pill-select-wrapper ${_libState.sortBy !== 'due_asc' ? 'active' : ''}">
+            <span>⇅</span>
+            <select id="lib-sort-select" class="filter-pill-select" aria-label="Sắp xếp danh sách">
+              <option value="due_asc" ${_libState.sortBy === 'due_asc' ? 'selected' : ''}>Hạn ôn (Gần nhất)</option>
+              <option value="due_desc" ${_libState.sortBy === 'due_desc' ? 'selected' : ''}>Hạn ôn (Xa nhất)</option>
               <option value="alpha_asc" ${_libState.sortBy === 'alpha_asc' ? 'selected' : ''}>Từ A ➔ Z</option>
               <option value="alpha_desc" ${_libState.sortBy === 'alpha_desc' ? 'selected' : ''}>Từ Z ➔ A</option>
               <option value="cefr_asc" ${_libState.sortBy === 'cefr_asc' ? 'selected' : ''}>Cấp độ (A1 ➔ C1)</option>
-              <option value="cefr_desc" ${_libState.sortBy === 'cefr_desc' ? 'selected' : ''}>Cấp độ (C1 ➔ A1)</option>
-              <option value="stability_desc" ${_libState.sortBy === 'stability_desc' ? 'selected' : ''}>Độ nhớ cao nhất (Stability ↓)</option>
-              <option value="stability_asc" ${_libState.sortBy === 'stability_asc' ? 'selected' : ''}>Độ nhớ thấp nhất (Stability ↑)</option>
-              <option value="difficulty_desc" ${_libState.sortBy === 'difficulty_desc' ? 'selected' : ''}>Độ khó cao nhất (Difficulty ↓)</option>
-              <option value="reps_desc" ${_libState.sortBy === 'reps_desc' ? 'selected' : ''}>Ôn nhiều nhất (Reps ↓)</option>
+              <option value="stability_desc" ${_libState.sortBy === 'stability_desc' ? 'selected' : ''}>Độ nhớ cao nhất</option>
+              <option value="difficulty_desc" ${_libState.sortBy === 'difficulty_desc' ? 'selected' : ''}>Độ khó cao nhất</option>
             </select>
           </div>
-        </div>
 
-        <!-- Row 3: Filter Reset & Active Tag Bar -->
-        ${isFilterActive() ? `
-          <div class="library-active-filters-bar">
-            <div class="active-filters-text">
-              <span class="filter-indicator-dot"></span>
-              Đang áp dụng bộ lọc nâng cao
-            </div>
-            <button class="btn-reset-filters" id="btn-reset-all-filters" title="Xóa tất cả bộ lọc về mặc định">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-                <path d="M3 3v5h5"/>
-              </svg>
-              <span>Xóa bộ lọc</span>
+          <!-- Nút Reset nếu có filter -->
+          ${hasActiveFilter ? `
+            <button class="btn-pill-reset" id="btn-reset-all-filters" title="Xóa tất cả bộ lọc">
+              <span>✕ Đặt lại</span>
             </button>
-          </div>
-        ` : ''}
+          ` : ''}
+        </div>
       </div>
 
-      <!-- 3. Meta & Pagination Summary Bar -->
+      <!-- 3. Meta & Pagination Sub-Bar -->
       <div class="library-meta-bar">
         <div class="library-results-summary" id="lib-results-summary">
-          Đang tải dữ liệu từ vựng...
+          <span><strong>${allCards.length.toLocaleString('vi-VN')}</strong> từ vựng</span>
         </div>
         <div class="library-meta-right">
           <select id="lib-pagesize-select" class="compact-pagesize-select" aria-label="Số lượng từ mỗi trang">
-            <option value="15" ${_libState.pageSize === 15 ? 'selected' : ''}>15 từ / trang</option>
             <option value="20" ${_libState.pageSize === 20 ? 'selected' : ''}>20 từ / trang</option>
             <option value="50" ${_libState.pageSize === 50 ? 'selected' : ''}>50 từ / trang</option>
             <option value="100" ${_libState.pageSize === 100 ? 'selected' : ''}>100 từ / trang</option>
@@ -436,19 +403,17 @@ function setupLibraryEventListeners(app) {
   const btnClearSearch = document.getElementById('btn-clear-search');
   const selectCefr = document.getElementById('lib-cefr-select');
   const selectPos = document.getElementById('lib-pos-select');
-  const selectStatus = document.getElementById('lib-status-select');
   const selectDeck = document.getElementById('lib-deck-select');
   const selectSort = document.getElementById('lib-sort-select');
   const selectPageSize = document.getElementById('lib-pagesize-select');
   const btnStudyFiltered = document.getElementById('btn-lib-study-filtered');
   const btnResetFilters = document.getElementById('btn-reset-all-filters');
 
-  // Quick chips
-  document.querySelectorAll('.lib-quick-chip').forEach(btn => {
+  // Quick Status Pills
+  document.querySelectorAll('.filter-pill[data-status]').forEach(btn => {
     btn.onclick = () => {
-      const q = btn.getAttribute('data-quick');
-      _libState.quickFilter = q;
-      _libState.selectedStatus = q;
+      const status = btn.getAttribute('data-status');
+      _libState.selectedStatus = status;
       _libState.currentPage = 1;
       renderLibraryTab(app);
     };
@@ -489,7 +454,7 @@ function setupLibraryEventListeners(app) {
     selectCefr.addEventListener('change', (e) => {
       _libState.selectedCefr = e.target.value || 'all';
       _libState.currentPage = 1;
-      renderLibraryWords(app);
+      renderLibraryTab(app);
     });
   }
 
@@ -498,17 +463,7 @@ function setupLibraryEventListeners(app) {
     selectPos.addEventListener('change', (e) => {
       _libState.selectedPos = e.target.value || 'all';
       _libState.currentPage = 1;
-      renderLibraryWords(app);
-    });
-  }
-
-  // Status select
-  if (selectStatus) {
-    selectStatus.addEventListener('change', (e) => {
-      _libState.selectedStatus = e.target.value || 'all';
-      _libState.quickFilter = e.target.value || 'all';
-      _libState.currentPage = 1;
-      renderLibraryWords(app);
+      renderLibraryTab(app);
     });
   }
 
@@ -517,7 +472,7 @@ function setupLibraryEventListeners(app) {
     selectDeck.addEventListener('change', (e) => {
       _libState.selectedDeck = e.target.value || 'all';
       _libState.currentPage = 1;
-      renderLibraryWords(app);
+      renderLibraryTab(app);
     });
   }
 
@@ -547,7 +502,6 @@ function setupLibraryEventListeners(app) {
       _libState.selectedStatus = 'all';
       _libState.selectedDeck = 'all';
       _libState.sortBy = 'due_asc';
-      _libState.quickFilter = 'all';
       _libState.currentPage = 1;
       renderLibraryTab(app);
     });
@@ -619,11 +573,6 @@ function getFilteredAndSortedCards(app) {
       if (statusFilter === 'learning' && (isNew || s >= MASTERY_STABILITY_THRESHOLD)) continue;
       if (statusFilter === 'mastered' && (isNew || s < MASTERY_STABILITY_THRESHOLD)) continue;
       if (statusFilter === 'hard' && (isNew || (d < 7 && lapses === 0))) continue;
-      if (statusFilter === 'tier1' && (isNew || s >= 3)) continue;
-      if (statusFilter === 'tier2' && (isNew || s < 3 || s >= 7)) continue;
-      if (statusFilter === 'tier3' && (isNew || s < 7 || s >= 14)) continue;
-      if (statusFilter === 'tier4' && (isNew || s < 14 || s >= 30)) continue;
-      if (statusFilter === 'tier5' && (isNew || s < 30)) continue;
     }
 
     // 5. Lọc theo từ khóa tìm kiếm (Full-text index)
@@ -676,10 +625,6 @@ function getFilteredAndSortedCards(app) {
       const dA = stateA?.difficulty || 0;
       const dB = stateB?.difficulty || 0;
       return dB - dA;
-    } else if (_libState.sortBy === 'reps_desc') {
-      const rA = stateA?.reps || 0;
-      const rB = stateB?.reps || 0;
-      return rB - rA;
     } else if (_libState.sortBy === 'alpha_desc') {
       return (b.word || '').localeCompare(a.word || '');
     } else {
@@ -692,7 +637,7 @@ function getFilteredAndSortedCards(app) {
 }
 
 /**
- * Hiển thị danh sách từ vựng dạng 1 dòng/từ kèm phân trang siêu nhẹ
+ * Hiển thị danh sách từ vựng dạng 1 dòng/từ siêu gọn đẹp kèm phân trang
  */
 function renderLibraryWords(app) {
   const listContainer = document.getElementById('lib-words-list');
@@ -741,9 +686,9 @@ function renderLibraryWords(app) {
       <div class="library-empty-state">
         <span class="library-empty-icon">🔍</span>
         <h3 class="library-empty-title">Không tìm thấy từ vựng nào</h3>
-        <p class="library-empty-desc">Hãy thử thay đổi từ khóa tìm kiếm hoặc chọn lại các bộ lọc bên trên.</p>
+        <p class="library-empty-desc">Hãy thử thay đổi từ khóa tìm kiếm hoặc bấm đặt lại bộ lọc.</p>
         <button class="btn-clear-empty-filter" id="btn-empty-reset">
-          🔄 Đặt lại tất cả bộ lọc
+          🔄 Đặt lại bộ lọc
         </button>
       </div>
     `;
@@ -756,7 +701,6 @@ function renderLibraryWords(app) {
         _libState.selectedStatus = 'all';
         _libState.selectedDeck = 'all';
         _libState.sortBy = 'due_asc';
-        _libState.quickFilter = 'all';
         _libState.currentPage = 1;
         renderLibraryTab(app);
       };
@@ -772,9 +716,9 @@ function renderLibraryWords(app) {
   pageCards.forEach(card => {
     const state = StorageManager.getCardState(card.id);
     const fsrs = formatFSRSDueText(state, now);
-    const cefr = (card.cefr || card.level || 'a1').toLowerCase();
+    const cefr = (card.cefr || card.level || 'a1').toUpperCase();
     const phonetic = card.phonetic || card.ipa || '';
-    const pos = card.pos || '';
+    const pos = card.pos ? card.pos.toUpperCase() : '';
 
     const rowEl = document.createElement('div');
     rowEl.className = 'library-word-row';
@@ -784,38 +728,33 @@ function renderLibraryWords(app) {
     rowEl.setAttribute('aria-label', `Xem chi tiết từ ${card.word}`);
 
     rowEl.innerHTML = `
-      <!-- Cột 1: Nút phát âm thanh -->
+      <!-- Cột 1: Nút phát âm thanh mini -->
       <button class="btn-row-sound" title="Phát âm từ vựng" aria-label="Phát âm ${escapeHTML(card.word)}">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
           <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
           <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
         </svg>
       </button>
 
-      <!-- Cột 2: Nội dung chính từ vựng (Từ, IPA, POS & Nghĩa) -->
+      <!-- Cột 2: Nội dung chính từ vựng -->
       <div class="library-row-main">
-        <div class="library-row-header-group">
+        <div class="library-row-top-line">
           <span class="library-row-word">${escapeHTML(card.word || '')}</span>
           ${phonetic ? `<span class="library-row-ipa">${escapeHTML(phonetic)}</span>` : ''}
-          <span class="badge-cefr badge-cefr-sm" data-cefr="${cefr}">${cefr.toUpperCase()}</span>
-          ${pos ? `<span class="badge-pos-tag">${escapeHTML(pos)}</span>` : ''}
+          <span class="badge-cefr-mini" data-cefr="${cefr.toLowerCase()}">${cefr}</span>
+          ${pos ? `<span class="badge-pos-mini">${escapeHTML(pos)}</span>` : ''}
         </div>
         <div class="library-row-meaning">${escapeHTML(card.meaning || '')}</div>
       </div>
 
-      <!-- Cột 3: Trạng thái FSRS & Hạn ôn tập -->
-      <div class="library-row-status-wrap">
-        <span class="library-status-pill ${fsrs.statusClass}" title="${escapeHTML(fsrs.dueFullText)}">
+      <!-- Cột 3: Trạng thái FSRS & Chevron -->
+      <div class="library-row-end">
+        <span class="library-status-badge ${fsrs.statusClass}">
           <span class="status-dot"></span>
-          <span class="status-label-text">${fsrs.statusLabel}</span>
+          <span>${fsrs.shortDueText}</span>
         </span>
-        <span class="library-due-hint">${fsrs.shortDueText}</span>
-      </div>
-
-      <!-- Cột 4: Mũi tên xem chi tiết -->
-      <div class="library-row-chevron" title="Xem chi tiết từ vựng">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="library-chevron-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="9 18 15 12 9 6"/>
         </svg>
       </div>
@@ -868,14 +807,14 @@ function renderPaginationBar(app, totalPages, currentPage) {
 
   let html = `
     <button class="btn-page-nav" id="btn-page-prev" ${currentPage === 1 ? 'disabled' : ''}>
-      ◀ Trước
+      ◀
     </button>
     <div class="pagination-pages-list">
   `;
 
   // Tạo dải số trang thông minh
   const pageNumbers = [];
-  if (totalPages <= 7) {
+  if (totalPages <= 5) {
     for (let i = 1; i <= totalPages; i++) pageNumbers.push(i);
   } else {
     pageNumbers.push(1);
@@ -902,7 +841,7 @@ function renderPaginationBar(app, totalPages, currentPage) {
   html += `
     </div>
     <button class="btn-page-nav" id="btn-page-next" ${currentPage === totalPages ? 'disabled' : ''}>
-      Sau ▶
+      ▶
     </button>
   `;
 
