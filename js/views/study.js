@@ -953,8 +953,23 @@ export function setupStudyControls(app) {
         globalStudyTimer.recordActivity();
         const latencySec = _lastFlipLatencyMs > 0 ? Number((_lastFlipLatencyMs / 1000).toFixed(2)) : null;
         const backViewSec = Number((backViewMs / 1000).toFixed(2));
+        const currentCardObj = app.studySession.currentCard;
+        const oldState = currentCardObj ? StorageManager.getCardState(currentCardObj.id) : null;
+        const cardWord = currentCardObj?.word || '';
 
         app.studySession.rateCard(rating, { latencySec, backViewSec, backViewMs: Math.round(backViewMs) });
+
+        if (currentCardObj) {
+          const newState = StorageManager.getCardState(currentCardObj.id);
+          if (newState && newState.isLeech && (!oldState || !oldState.isLeech)) {
+            const action = app.settings?.leechAction || 'tag';
+            if (action === 'suspend') {
+              if (app.showToast) app.showToast(`⏸️ Từ "${cardWord}" đã tạm dừng vì quên ${newState.lapses} lần liên tiếp`, 'warning', 3500);
+            } else {
+              if (app.showToast) app.showToast(`⚠️ Từ "${cardWord}" đã gắn nhãn "Khó nhớ" (${newState.lapses} lần quên). Hãy đọc kỹ câu ví dụ!`, 'warning', 3500);
+            }
+          }
+        }
       } catch (err) {
         console.error('Lỗi rating thẻ:', err);
       } finally {

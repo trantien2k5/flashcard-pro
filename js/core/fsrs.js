@@ -274,6 +274,11 @@ export class FSRS {
         next.scheduled_days = 0; // < 1m
         next.raw_days = 0;
         next.due = new Date(nowDate.getTime() + 1 * 60 * 1000).toISOString();
+        next.lapses = (card.lapses || 0) + 1;
+        if (next.lapses >= leechThreshold) {
+          next.isLeech = true;
+          if (leechAction === 'suspend') next.suspended = true;
+        }
       } else if (rating === Rating.Hard) {
         next.state = State.Learning;
         next.stability = this.initStability(Rating.Hard);
@@ -300,6 +305,12 @@ export class FSRS {
         next.scheduled_days = 0; // < 1m
         next.raw_days = 0;
         next.due = new Date(nowDate.getTime() + 1 * 60 * 1000).toISOString();
+        next.lapses = (card.lapses || 0) + 1;
+        next.difficulty = Math.min(10, currentD + 0.4);
+        if (next.lapses >= leechThreshold) {
+          next.isLeech = true;
+          if (leechAction === 'suspend') next.suspended = true;
+        }
       } else if (rating === Rating.Hard) {
         next.scheduled_days = 0; // 10m
         next.raw_days = 0;
