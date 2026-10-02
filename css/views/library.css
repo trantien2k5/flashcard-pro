@@ -13,6 +13,80 @@
 }
 
 /* --------------------------------------------------------------------------
+   0. Quick Filter Chips Bar (1-Touch Filter)
+   -------------------------------------------------------------------------- */
+.library-quick-chips-wrapper {
+  overflow-x: auto;
+  padding-bottom: 2px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.library-quick-chips-wrapper::-webkit-scrollbar {
+  height: 3px;
+}
+.library-quick-chips-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.25);
+  border-radius: 4px;
+}
+
+.library-quick-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: max-content;
+}
+
+.lib-quick-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--card-bg, #161b22);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+  border-radius: 20px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+[data-theme="light"] .lib-quick-chip {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  color: #475569;
+}
+
+.lib-quick-chip:hover {
+  border-color: var(--primary, #6366f1);
+  color: var(--primary, #6366f1);
+  transform: translateY(-1px);
+}
+
+.lib-quick-chip.active {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(79, 70, 229, 0.2));
+  border-color: var(--primary, #6366f1);
+  color: var(--primary, #6366f1);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
+}
+
+[data-theme="light"] .lib-quick-chip.active {
+  background: #e0e7ff;
+  border-color: #6366f1;
+  color: #4338ca;
+}
+
+.chip-count {
+  font-size: 0.72rem;
+  background: rgba(99, 102, 241, 0.12);
+  color: inherit;
+  padding: 1px 6px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
    1. Compact Control & Filter Bar
    -------------------------------------------------------------------------- */
 .library-controls-panel {
@@ -139,10 +213,10 @@
   transform: scale(0.97);
 }
 
-/* Row 2: 4 Compact Filter Selects Grid */
+/* Row 2: Advanced Filter Selects Grid (Responsive) */
 .library-compact-filter-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 6px;
 }
 
@@ -152,16 +226,91 @@
   }
 }
 
-.compact-select-wrapper {
+/* Row 3: Active Filters & Reset Action Bar */
+.library-active-filters-bar {
   display: flex;
   align-items: center;
-  background: var(--bg-tertiary, #0d1117);
-  border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+  justify-content: space-between;
+  padding: 6px 4px 0;
+  border-top: 1px dashed var(--border, rgba(255, 255, 255, 0.08));
+  margin-top: 2px;
+}
+
+[data-theme="light"] .library-active-filters-bar {
+  border-top-color: #e2e8f0;
+}
+
+.active-filters-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary, #6366f1);
+}
+
+.filter-indicator-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+  animation: pulse 2s infinite;
+}
+
+.btn-reset-filters {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-reset-filters:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+}
+
+.badge-pos-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(99, 102, 241, 0.08);
+  color: var(--text-secondary);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+[data-theme="light"] .badge-pos-tag {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+.btn-clear-empty-filter {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: var(--primary, #6366f1);
+  color: #ffffff;
+  border: none;
   border-radius: 8px;
-  padding: 0 8px;
-  height: 34px;
-  min-width: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
   transition: all 0.2s ease;
+}
+
+.btn-clear-empty-filter:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 [data-theme="light"] .compact-select-wrapper {
@@ -283,6 +432,9 @@
   user-select: none;
   position: relative;
   outline: none;
+  contain: layout style paint;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 68px;
 }
 
 [data-theme="light"] .library-word-row {

@@ -40,6 +40,7 @@ simple-flashcard/
 │       ├── decks.css             # Giao diện duyệt Chủ đề 4 cấp & Danh sách từ vựng
 │       ├── stats.css             # Giao diện Báo cáo thống kê FSRS-6 chuyên sâu & Biểu đồ 7 ngày
 │       ├── settings.css          # Giao diện Cài đặt hệ thống & Hồ sơ cá nhân (Profile)
+│       ├── library.css           # Giao diện Thư viện Từ vựng & Bộ lọc FSRS-6 chuyên sâu
 │       └── quiz.css              # Giao diện Trắc nghiệm Ôn tập FSRS-6 Smart Quiz
 │
 ├── js/                           # Kiến trúc JavaScript tinh gọn (~10 files, Clean Modules)
@@ -57,6 +58,7 @@ simple-flashcard/
 │   └── views/                    # Giao diện các màn hình chức năng
 │       ├── review.js             # Màn hình Trang chủ Ôn tập: Nhiệm vụ ngày & CTA học tập
 │       ├── decks.js              # Duyệt 4 cấp độ chủ đề (Chủ đề lớn -> Chặng -> Chi tiết -> Danh sách từ)
+│       ├── library.js            # Màn hình Thư viện Từ vựng & Bộ lọc FSRS-6 chuyên sâu, Virtual Chunking
 │       ├── study.js              # Trình phát Flashcard 3D, phím tắt & cử chỉ vuốt
 │       ├── quiz.js               # Trình ôn tập Trắc nghiệm FSRS Smart Quiz (Phản xạ & Anti-spam)
 │       ├── stats.js              # Báo cáo thống kê FSRS-6, Dự báo 7 ngày & Lịch học tập Heatmap
