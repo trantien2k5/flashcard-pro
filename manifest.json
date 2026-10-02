@@ -67,10 +67,10 @@
       ]
     },
     {
-      "name": "Báo cáo thống kê",
-      "short_name": "Thống kê",
-      "description": "Xem tiến trình và phân bố độ bền trí nhớ",
-      "url": "./index.html#tab-stats",
+      "name": "Cài đặt hệ thống",
+      "short_name": "Cài đặt",
+      "description": "Tùy chỉnh cấu hình học tập và âm thanh",
+      "url": "./index.html#tab-settings",
       "icons": [
         {
           "src": "assets/icons/icon-192.png",

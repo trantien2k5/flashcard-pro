@@ -344,7 +344,6 @@ export class FlashcardApp {
       this.updateHeaderBadges();
 
       if (tabId === 'tab-review' || tabId === 'tab-home') this.renderReviewTab();
-      else if (tabId === 'tab-stats') this.renderStatsTab();
       else if (tabId === 'tab-settings') this.renderSettingsTab();
       else if (tabId === 'tab-decks') this.renderDecksTab();
       else if (tabId === 'tab-library') this.renderLibraryTab();
@@ -368,8 +367,6 @@ export class FlashcardApp {
       this.renderLibraryTab();
     } else if (this.activeTab === 'tab-decks') {
       this.renderDecksTab();
-    } else if (this.activeTab === 'tab-stats') {
-      this.renderStatsTab();
     } else if (this.activeTab === 'tab-settings') {
       this.renderSettingsTab();
     } else if (this.activeTab === 'tab-subtopics' && this.currentSubtopicsDeckId) {
@@ -383,7 +380,6 @@ export class FlashcardApp {
     if (typeof requestAnimationFrame !== 'undefined') {
       requestAnimationFrame(() => {
         if (this.activeTab !== 'tab-decks') this.renderDecksTab();
-        if (this.activeTab !== 'tab-stats') this.renderStatsTab();
       });
     }
   }
