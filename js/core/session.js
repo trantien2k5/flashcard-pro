@@ -2,7 +2,7 @@
  * Study Session Manager - Core Learning Orchestrator
  */
 
-import { FSRS, Rating } from './fsrs.js';
+import { FSRS, Rating, State } from './fsrs.js';
 import { StorageManager } from '../services/storage.js';
 import { 
   unlockAudioContext, 
