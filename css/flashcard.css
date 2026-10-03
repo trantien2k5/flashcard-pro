@@ -891,7 +891,7 @@
 }
 
 .card-example-en {
-  font-style: italic;
+  font-style: normal;
   font-size: clamp(1.06rem, 2.8vw, 1.22rem);
   font-weight: 500;
   color: #334155;

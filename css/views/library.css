@@ -947,7 +947,7 @@
 
 .word-detail-example-en {
   font-size: 0.88rem;
-  font-style: italic;
+  font-style: normal;
   color: var(--text-primary);
   margin-bottom: 4px;
 }

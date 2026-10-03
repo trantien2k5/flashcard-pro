@@ -283,7 +283,7 @@ export function renderLibraryTab(app) {
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="5 3 19 12 5 21 5 3"/>
           </svg>
-          <span id="btn-lib-study-label">Học (${Math.min(50, allCards.length)})</span>
+          <span id="btn-lib-study-label">Học (${allCards.length})</span>
         </button>
       </div>
 
@@ -585,7 +585,7 @@ function setupLibraryEventListeners(app) {
     });
   }
 
-  // Học nhanh danh sách từ đang lọc
+  // Học nhanh danh sách từ đang lọc (Học toàn bộ không giới hạn)
   if (btnStudyFiltered) {
     btnStudyFiltered.addEventListener('click', () => {
       const filtered = getFilteredAndSortedCards(app);
@@ -593,7 +593,7 @@ function setupLibraryEventListeners(app) {
         if (app.showToast) app.showToast('Không có từ nào trong danh sách đang lọc để học.', 'info');
         return;
       }
-      app.startStudySession(null, null, filtered.slice(0, 50));
+      app.startStudySession(null, null, filtered);
     });
   }
 }
@@ -761,9 +761,9 @@ function renderLibraryWords(app) {
   const endIndex = Math.min(startIndex + pageSize, totalFiltered);
   const pageCards = filteredCards.slice(startIndex, endIndex);
 
-  // Cập nhật số lượng trên nút Học
+  // Cập nhật số lượng trên nút Học (Hiển thị toàn bộ số từ đang lọc)
   if (btnStudyLabel) {
-    btnStudyLabel.textContent = `Học (${Math.min(50, totalFiltered)})`;
+    btnStudyLabel.textContent = `Học (${totalFiltered.toLocaleString('vi-VN')})`;
   }
 
   // Cập nhật Summary & Pagination Info

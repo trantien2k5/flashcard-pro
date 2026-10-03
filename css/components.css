@@ -886,7 +886,7 @@
 .search-card-example {
   font-size: 0.78rem;
   color: var(--text-secondary);
-  font-style: italic;
+  font-style: normal;
   line-height: 1.3;
   margin-top: 1px;
 }

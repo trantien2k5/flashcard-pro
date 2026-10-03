@@ -118,16 +118,14 @@ export class StudySession {
     unlockAudioContext();
     this.updateSettings();
     
-    // Đảm bảo không bao giờ bị trùng lặp thẻ trong hàng đợi ban đầu & Giới hạn phiên học linh hoạt
+    // Đảm bảo không bao giờ bị trùng lặp thẻ trong hàng đợi ban đầu (Nạp trọn vẹn toàn bộ danh sách ôn tập)
     const seenQueueIds = new Set();
     this.queue = [];
-    const maxSessionBatch = Math.max(25, Number(this.settings?.sessionBatchSize) || 30);
     const rawQueue = Array.isArray(queue) ? queue : [];
     for (const c of rawQueue) {
       if (c && c.id && !seenQueueIds.has(c.id)) {
         seenQueueIds.add(c.id);
         this.queue.push(c);
-        if (this.queue.length >= maxSessionBatch) break;
       }
     }
     this.totalCards = this.queue.length;

@@ -625,11 +625,8 @@ export class DeckManager {
       maxNew = Math.max(1, dailyGoalNew);
     }
 
-    // Thẻ đến hạn: Luôn cho phép ôn tập khi có từ đến hạn (không bị chặn về 0)
+    // Thẻ đến hạn: Lấy TOÀN BỘ từ đến hạn cần ôn (bỏ giới hạn trần - có bao nhiêu ôn bấy nhiêu)
     let selectedDue = dueCards;
-    if (mode !== 'due_only' && dueCards.length > maxReview) {
-      selectedDue = dueCards.slice(0, maxReview);
-    }
 
     // Thẻ mới: Lấy vừa đủ số lượng mục tiêu từ mới hôm nay rồi thôi
     let selectedNew;
