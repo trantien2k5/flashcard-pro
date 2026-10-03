@@ -293,7 +293,7 @@ export function renderLibraryTab(app) {
         <div class="filter-dropdown-card ${_libState.selectedStatus !== 'all' ? 'active' : ''}">
           <span class="filter-dropdown-icon">⚡</span>
           <select id="lib-status-select" class="filter-dropdown-select" aria-label="Lọc theo trạng thái ôn tập">
-            <option value="all" ${_libState.selectedStatus === 'all' ? 'selected' : ''}>Trạng thái (Tất cả)</option>
+            <option value="all" ${_libState.selectedStatus === 'all' ? 'selected' : ''}>Trạng thái</option>
             <option value="new" ${_libState.selectedStatus === 'new' ? 'selected' : ''}>✨ Chưa học (${newCount})</option>
             <option value="due" ${_libState.selectedStatus === 'due' ? 'selected' : ''}>⏰ Cần ôn (${dueCount})</option>
             <option value="learning" ${_libState.selectedStatus === 'learning' ? 'selected' : ''}>🌱 Đang học (${learningCount})</option>
@@ -311,11 +311,11 @@ export function renderLibraryTab(app) {
         <div class="filter-dropdown-card ${_libState.selectedCefr !== 'all' ? 'active' : ''}">
           <span class="filter-dropdown-icon">🎓</span>
           <select id="lib-cefr-select" class="filter-dropdown-select" aria-label="Lọc theo trình độ CEFR">
-            <option value="all" ${_libState.selectedCefr === 'all' ? 'selected' : ''}>Trình độ (Tất cả)</option>
+            <option value="all" ${_libState.selectedCefr === 'all' ? 'selected' : ''}>Trình độ</option>
             <option value="a1" ${_libState.selectedCefr === 'a1' ? 'selected' : ''}>A1 - Căn bản</option>
             <option value="a2" ${_libState.selectedCefr === 'a2' ? 'selected' : ''}>A2 - Sơ cấp</option>
             <option value="b1" ${_libState.selectedCefr === 'b1' ? 'selected' : ''}>B1 - Trung cấp</option>
-            <option value="b2" ${_libState.selectedCefr === 'b2' ? 'selected' : ''}>B2 - Trung cao cấp</option>
+            <option value="b2" ${_libState.selectedCefr === 'b2' ? 'selected' : ''}>B2 - Trung cao</option>
             <option value="c1" ${_libState.selectedCefr === 'c1' ? 'selected' : ''}>C1 - Cao cấp</option>
           </select>
           <span class="filter-dropdown-arrow">
@@ -329,13 +329,13 @@ export function renderLibraryTab(app) {
         <div class="filter-dropdown-card ${_libState.selectedPos !== 'all' ? 'active' : ''}">
           <span class="filter-dropdown-icon">🏷️</span>
           <select id="lib-pos-select" class="filter-dropdown-select" aria-label="Lọc theo loại từ">
-            <option value="all" ${_libState.selectedPos === 'all' ? 'selected' : ''}>Loại từ (Tất cả)</option>
+            <option value="all" ${_libState.selectedPos === 'all' ? 'selected' : ''}>Loại từ</option>
             <option value="noun" ${_libState.selectedPos === 'noun' ? 'selected' : ''}>Danh từ (n)</option>
             <option value="verb" ${_libState.selectedPos === 'verb' ? 'selected' : ''}>Động từ (v)</option>
             <option value="adjective" ${_libState.selectedPos === 'adjective' ? 'selected' : ''}>Tính từ (adj)</option>
             <option value="adverb" ${_libState.selectedPos === 'adverb' ? 'selected' : ''}>Trạng từ (adv)</option>
             <option value="phrase" ${_libState.selectedPos === 'phrase' ? 'selected' : ''}>Cụm từ (phrase)</option>
-            <option value="phrasal verb" ${_libState.selectedPos === 'phrasal verb' ? 'selected' : ''}>Cụm động từ (phrasal verb)</option>
+            <option value="phrasal verb" ${_libState.selectedPos === 'phrasal verb' ? 'selected' : ''}>Cụm ĐT (phrasal)</option>
             <option value="idiom" ${_libState.selectedPos === 'idiom' ? 'selected' : ''}>Thành ngữ (idiom)</option>
             <option value="preposition" ${_libState.selectedPos === 'preposition' ? 'selected' : ''}>Giới từ (prep)</option>
           </select>
@@ -410,19 +410,18 @@ export function renderLibraryTab(app) {
       <!-- 5. Meta & Pagination Sub-Bar -->
       <div class="library-meta-bar">
         <div class="library-results-summary" id="lib-results-summary">
-          <span>Hiển thị <strong>${allCards.length.toLocaleString('vi-VN')}</strong> từ</span>
+          <span><strong>${allCards.length.toLocaleString('vi-VN')}</strong> từ</span>
         </div>
         <div class="library-meta-right">
           <div class="meta-select-wrap">
-            <span class="meta-select-icon">⇅</span>
             <select id="lib-sort-select" class="compact-meta-select" aria-label="Sắp xếp danh sách">
-              <option value="due_asc" ${_libState.sortBy === 'due_asc' ? 'selected' : ''}>Hạn ôn (Gần nhất)</option>
-              <option value="due_desc" ${_libState.sortBy === 'due_desc' ? 'selected' : ''}>Hạn ôn (Xa nhất)</option>
-              <option value="alpha_asc" ${_libState.sortBy === 'alpha_asc' ? 'selected' : ''}>Từ A ➔ Z</option>
-              <option value="alpha_desc" ${_libState.sortBy === 'alpha_desc' ? 'selected' : ''}>Từ Z ➔ A</option>
-              <option value="cefr_asc" ${_libState.sortBy === 'cefr_asc' ? 'selected' : ''}>Cấp độ (A1 ➔ C1)</option>
-              <option value="stability_desc" ${_libState.sortBy === 'stability_desc' ? 'selected' : ''}>Độ nhớ cao</option>
-              <option value="difficulty_desc" ${_libState.sortBy === 'difficulty_desc' ? 'selected' : ''}>Độ khó cao</option>
+              <option value="due_asc" ${_libState.sortBy === 'due_asc' ? 'selected' : ''}>⇅ Hạn ôn</option>
+              <option value="due_desc" ${_libState.sortBy === 'due_desc' ? 'selected' : ''}>⇅ Hạn ôn xa</option>
+              <option value="alpha_asc" ${_libState.sortBy === 'alpha_asc' ? 'selected' : ''}>⇅ A ➔ Z</option>
+              <option value="alpha_desc" ${_libState.sortBy === 'alpha_desc' ? 'selected' : ''}>⇅ Z ➔ A</option>
+              <option value="cefr_asc" ${_libState.sortBy === 'cefr_asc' ? 'selected' : ''}>⇅ Cấp độ</option>
+              <option value="stability_desc" ${_libState.sortBy === 'stability_desc' ? 'selected' : ''}>⇅ Độ nhớ</option>
+              <option value="difficulty_desc" ${_libState.sortBy === 'difficulty_desc' ? 'selected' : ''}>⇅ Độ khó</option>
             </select>
           </div>
 
@@ -763,16 +762,19 @@ function renderLibraryWords(app) {
 
   // Cập nhật Summary & Pagination Info
   if (resultsSummary) {
+    const countText = totalFiltered === totalAllCards 
+      ? `<strong>${totalFiltered.toLocaleString('vi-VN')}</strong> từ`
+      : `<strong>${totalFiltered.toLocaleString('vi-VN')}</strong>/${totalAllCards.toLocaleString('vi-VN')} từ`;
     resultsSummary.innerHTML = `
-      <span>Hiển thị <strong>${totalFiltered.toLocaleString('vi-VN')}</strong> / ${totalAllCards.toLocaleString('vi-VN')} từ</span>
+      <span>${countText}</span>
       ${_libState.searchQuery ? `<span class="filter-badge-keyword">"${escapeHTML(_libState.searchQuery)}"</span>` : ''}
     `;
   }
 
   if (paginationInfo) {
     paginationInfo.textContent = totalFiltered > 0 
-      ? `Trang ${currentPage} / ${totalPages}`
-      : 'Không có dữ liệu';
+      ? `${currentPage}/${totalPages}`
+      : '0/0';
   }
 
   // Nếu không có kết quả
