@@ -80,9 +80,10 @@ export function renderReviewShell(container) {
               <span class="goal-stat-icon">🌱</span>
               <span>Hôm nay: <strong id="home-goal-today-new">0 / 10 từ mới</strong></span>
             </div>
-            <div class="goal-eta-badge" id="home-goal-eta">
+            <div class="goal-eta-badge" id="home-goal-eta" role="button" tabindex="0" title="Nhấn để xem phân tích & công thức dự báo chi tiết FSRS">
               <span class="goal-stat-icon" id="home-goal-eta-icon">⚡</span>
-              <span>Dự kiến: <strong id="home-goal-eta-text">-- ngày</strong></span>
+              <span id="home-goal-eta-wrapper">Dự kiến: <strong id="home-goal-eta-text">-- ngày</strong></span>
+              <span class="goal-eta-info-btn" id="btn-goal-eta-info" title="Xem chi tiết cách tính">ⓘ</span>
             </div>
           </div>
         </div>
@@ -194,6 +195,23 @@ export function renderReviewTab(app) {
       cardGoal._bound = true;
       cardGoal.onclick = () => showGoalCustomizerModal(app);
       cardGoal.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showGoalCustomizerModal(app); } };
+    }
+
+    // Gán sự kiện bấm vào Badge Dự Báo ETA để mở Popup chi tiết FSRS Forecast
+    const badgeEta = document.getElementById('home-goal-eta');
+    if (badgeEta && !badgeEta._bound) {
+      badgeEta._bound = true;
+      badgeEta.onclick = (e) => {
+        e.stopPropagation();
+        showForecastDetailModal(app);
+      };
+      badgeEta.onkeydown = (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          showForecastDetailModal(app);
+        }
+      };
     }
 
     // Gán sự kiện cho Nút CTA To: Tự động nạp [Từ tới hạn] + [Đủ số lượng mục tiêu từ mới hôm nay]
@@ -407,15 +425,20 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
     }
   }
 
-  // Dự kiến hoàn thành (Adaptive realtime)
+  // Dự kiến hoàn thành (Adaptive realtime dựa trên Mức 5 FSRS S >= 30 ngày)
   const elGoalEta = document.getElementById('home-goal-eta-text');
+  const elGoalEtaWrapper = document.getElementById('home-goal-eta-wrapper');
   if (elGoalEta) {
-    if (goal.remainingWords === 0) {
-      elGoalEta.textContent = '✓ Đạt mục tiêu';
+    if (goal.unmasteredWords === 0) {
+      elGoalEta.textContent = `✓ Thuộc ${forecast.shortGoalTitle}`;
+      if (elGoalEtaWrapper) {
+        elGoalEtaWrapper.innerHTML = `<strong>✓ Thuộc ${forecast.shortGoalTitle} (100%)</strong>`;
+      }
     } else {
-      elGoalEta.textContent = forecast.isUsingRealBehavior 
-        ? `~${forecast.etaDays} ngày (${forecast.actualDailyVelocity} từ/ng)` 
-        : `~${forecast.etaDays} ngày`;
+      elGoalEta.textContent = `Đạt ${forecast.shortGoalTitle} sau ~${forecast.etaDays} ngày`;
+      if (elGoalEtaWrapper) {
+        elGoalEtaWrapper.innerHTML = `<span>Đạt <strong>${forecast.shortGoalTitle}</strong> sau <strong>~${forecast.etaDays} ngày</strong></span>`;
+      }
     }
   }
 
@@ -1127,5 +1150,132 @@ export function showGoalCustomizerModal(app = _cachedApp) {
 
   renderModalContent();
   modal.classList.add('active');
+}
+
+/* ==========================================================================
+   POPUP 5: CHI TIẾT DỰ BÁO THÔNG MINH FSRS (MỨC 5 THUẦN THỤC S >= 30 NGÀY)
+   ========================================================================== */
+export function showForecastDetailModal(app = _cachedApp) {
+  if (!app) return;
+  const allCards = app.deckManager ? app.deckManager.getAllCards() : [];
+  const cefrData = StatsManager.getCefrRoadmapAndForecast(allCards, app.settings || {});
+  const { goal, forecast } = cefrData;
+
+  let modal = document.getElementById('modal-forecast-detail');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'modal-forecast-detail';
+    modal.className = 'modal-backdrop';
+    document.body.appendChild(modal);
+  }
+
+  modal.innerHTML = `
+    <div class="modal-dialog quick-preview-dialog forecast-detail-dialog">
+      <div class="quick-modal-header">
+        <div class="quick-modal-title-wrap">
+          <div class="quick-modal-icon badge-due">⚡</div>
+          <div class="quick-modal-headings">
+            <h3 class="quick-modal-title">Dự Báo Cán Đích FSRS-6</h3>
+            <span class="quick-modal-sub">Dựa trên tiêu chuẩn Mức 5 (Thuần thục S ≥ 30 ngày)</span>
+          </div>
+        </div>
+        <button class="btn-icon-close btn-quick-close" type="button" title="Đóng">✕</button>
+      </div>
+
+      <div class="quick-modal-body">
+        <!-- 1. Thẻ Kết Quả Dự Báo Nổi Bật -->
+        <div class="forecast-hero-card">
+          <div class="forecast-hero-badge">${forecast.isUsingRealBehavior ? '⚡ Thích Ứng Thời Gian Thực' : '🏁 Theo Kế Hoạch Chuẩn'}</div>
+          <h4 class="forecast-hero-title">
+            ${goal.unmasteredWords === 0 
+              ? `Đã thuần thục 100% mục tiêu ${forecast.shortGoalTitle}! 🎉` 
+              : `Bạn sẽ đạt <strong>${goal.title}</strong> sau <strong>~${forecast.etaDays} ngày</strong>`}
+          </h4>
+          <p class="forecast-hero-sub">
+            ${goal.unmasteredWords === 0 
+              ? `Toàn bộ ${goal.targetWords.toLocaleString('vi-VN')} từ vựng đã đạt độ bền trí nhớ sâu (S ≥ 30 ngày).` 
+              : `Dự kiến cán đích vào: <strong style="color: #10b981;">${forecast.targetDateFormatted}</strong> nếu duy trì nhịp độ học hiện tại.`}
+          </p>
+        </div>
+
+        <!-- 2. Bảng 4 Chỉ Số Cốt Lõi Tính Toán -->
+        <div class="forecast-metrics-grid">
+          <div class="forecast-metric-box">
+            <span class="forecast-box-icon">💎</span>
+            <div class="forecast-box-info">
+              <span class="forecast-box-label">Đã thuần thục (S ≥ 30d)</span>
+              <strong class="forecast-box-val" style="color: #10b981;">${goal.matureMasteredWords.toLocaleString('vi-VN')} <small>/ ${goal.targetWords.toLocaleString('vi-VN')}</small></strong>
+              <span class="forecast-box-sub">Tiến độ vững chắc: ${goal.masteryPct}%</span>
+            </div>
+          </div>
+
+          <div class="forecast-metric-box">
+            <span class="forecast-box-icon">📖</span>
+            <div class="forecast-box-info">
+              <span class="forecast-box-label">Đã nạp / Tiếp cận</span>
+              <strong class="forecast-box-val" style="color: var(--primary, #6366f1);">${goal.learnedWords.toLocaleString('vi-VN')} <small>/ ${goal.targetWords.toLocaleString('vi-VN')}</small></strong>
+              <span class="forecast-box-sub">Độ phủ từ vựng: ${goal.completionPct}%</span>
+            </div>
+          </div>
+
+          <div class="forecast-metric-box">
+            <span class="forecast-box-icon">⚡</span>
+            <div class="forecast-box-info">
+              <span class="forecast-box-label">Tốc độ nạp mới</span>
+              <strong class="forecast-box-val" style="color: #f59e0b;">${forecast.effectiveVelocity} <small>từ/ngày</small></strong>
+              <span class="forecast-box-sub">${forecast.isUsingRealBehavior ? 'Đo từ 7 ngày gần nhất' : 'Mục tiêu thiết lập'}</span>
+            </div>
+          </div>
+
+          <div class="forecast-metric-box">
+            <span class="forecast-box-icon">🎯</span>
+            <div class="forecast-box-info">
+              <span class="forecast-box-label">Độ nhớ phản xạ FSRS</span>
+              <strong class="forecast-box-val" style="color: #10b981;">${forecast.empiricalAccuracy}%</strong>
+              <span class="forecast-box-sub">~${forecast.expectedRepsPerWord} lượt ôn để ngấm sâu</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Giải thích công thức khoa học minh bạch -->
+        <div class="forecast-formula-card">
+          <div class="formula-card-title">
+            <span>🔬</span>
+            <strong>Công thức tính toán FSRS-6 minh bạch:</strong>
+          </div>
+          <ul class="formula-steps-list">
+            <li><strong>Mốc thuần thục (Mức 5):</strong> Từ vựng chỉ được tính là "Đạt" khi đạt <em>Độ bền S ≥ 30 ngày</em> (trí nhớ dài hạn), không tính từ mới vừa lướt qua một lần.</li>
+            <li><strong>Thời gian nạp từ mới:</strong> Cần khoảng <strong>${forecast.daysToAcquireAllNew || 0} ngày</strong> để tiếp cận toàn bộ ${goal.remainingWords.toLocaleString('vi-VN')} từ chưa học theo nhịp độ ${forecast.effectiveVelocity} từ/ngày.</li>
+            <li><strong>Chu kỳ củng cố FSRS:</strong> Mẻ từ cuối cùng cần thêm khoảng <strong>~${forecast.consolidationBuffer || 0} ngày</strong> giãn cách để chuyển hóa vững chắc vào trí nhớ dài hạn.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quick-modal-footer" style="display: flex; gap: 8px;">
+        <button type="button" class="btn-quick-action-secondary btn-quick-close" style="flex: 1;">
+          <span>Đóng</span>
+        </button>
+        <button type="button" class="btn-confirm-primary" id="btn-forecast-change-goal" style="flex: 1.5; min-height: 44px; border-radius: 12px; font-weight: 800; font-size: 0.88rem; cursor: pointer; background: var(--primary, #6366f1); color: #fff; border: none; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);">
+          <span>⚙️ Đổi Mục Tiêu</span>
+        </button>
+      </div>
+    </div>
+  `;
+
+  modal.classList.add('active');
+
+  const btnChangeGoal = modal.querySelector('#btn-forecast-change-goal');
+  if (btnChangeGoal) {
+    btnChangeGoal.onclick = () => {
+      modal.classList.remove('active');
+      showGoalCustomizerModal(app);
+    };
+  }
+
+  const closeBtns = modal.querySelectorAll('.btn-quick-close');
+  closeBtns.forEach(b => b.onclick = () => modal.classList.remove('active'));
+  modal.onclick = (e) => {
+    if (e.target === modal) modal.classList.remove('active');
+  };
 }
 

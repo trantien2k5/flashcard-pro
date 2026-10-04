@@ -483,15 +483,18 @@ export class StatsManager {
       if (isLearned) {
         learnedGoalWords++;
         const s = Number(state.stability) || 0;
-        if (s >= 21) {
+        // Mức 5 FSRS (Stability >= 30 ngày) - Chuẩn vàng ghi nhớ sâu / Thuần thục dài hạn
+        if (s >= 30) {
           matureMasteredWords++;
           solidProgressPoints += 1.0;
-        } else if (s >= 7) {
+        } else if (s >= 14) {
           solidProgressPoints += 0.75;
-        } else if (s >= 3) {
+        } else if (s >= 7) {
           solidProgressPoints += 0.50;
-        } else {
+        } else if (s >= 3) {
           solidProgressPoints += 0.25;
+        } else {
+          solidProgressPoints += 0.10;
         }
       } else {
         const posKey = normalizePos(card.pos);
@@ -500,14 +503,17 @@ export class StatsManager {
     }
 
     const remainingWordsToGoal = Math.max(0, targetWords - learnedGoalWords);
+    const unmasteredWords = Math.max(0, targetWords - matureMasteredWords);
+    const inLearningWords = Math.max(0, learnedGoalWords - matureMasteredWords);
     const goalCompletionPct = Math.min(100, Math.round((learnedGoalWords / targetWords) * 100));
-    const goalMasteryPct = Math.min(100, Math.round((solidProgressPoints / targetWords) * 100));
+    const goalMasteryPct = Math.min(100, Math.round((matureMasteredWords / targetWords) * 100));
 
-    // 4. THUẬT TOÁN DỰ BÁO TIẾN ĐỘ THỰC TẾ DỰA TRÊN TỶ LỆ TIẾN BỘ TỰ CHẤM & FSRS CONSOLIDATION
+    // 4. THUẬT TOÁN DỰ BÁO TIẾN ĐỘ FSRS THUẦN THỤC (Stability >= 30d) DỰA TRÊN HÀNH VI TỰ CHẤM
     // A. Phân tích Tỷ lệ Nhớ Thật & Tỷ lệ Quên từ lịch sử tự chấm
     let totalRatings = 0;
     let successfulRatings = 0; // Good (3) + Easy (4)
     let lapseRatings = 0; // Again (1)
+    let hardRatings = 0; // Hard (2)
 
     for (let i = 0; i < logs.length; i++) {
       const r = logs[i].rating;
@@ -516,6 +522,7 @@ export class StatsManager {
         totalRatings++;
       } else if (r === Rating.Again || r === Rating.Hard) {
         if (r === Rating.Again) lapseRatings++;
+        if (r === Rating.Hard) hardRatings++;
         totalRatings++;
       }
     }
@@ -525,8 +532,8 @@ export class StatsManager {
       : 0.88; // Mặc định chuẩn 88%
     const empiricalLapseRate = 1 - empiricalAccuracy;
 
-    // Hệ số lặp lại trung bình để 1 từ ngấm sâu vào trí nhớ dài hạn (Reps per word to mature)
-    const expectedRepsPerWord = Math.round((3.2 / (1 - empiricalLapseRate * 0.65)) * 10) / 10;
+    // Hệ số lặp lại trung bình để 1 từ ngấm sâu vào trí nhớ dài hạn (Reps per word to mature S >= 30d)
+    const expectedRepsPerWord = Math.round((4.2 / (1 - empiricalLapseRate * 0.75)) * 10) / 10;
 
     // B. Phân tích Tốc độ nạp mới và số ngày hoạt động thực tế 7 ngày qua
     const sevenDaysAgo = new Date(now.getTime() - 7 * 86400000);
@@ -559,7 +566,22 @@ export class StatsManager {
       : (configuredDailyTarget || benchmarkPace);
 
     const isUsingRealBehavior = actualDailyVelocity > 0;
-    const etaDays = effectiveVelocity > 0 ? Math.ceil(remainingWordsToGoal / effectiveVelocity) : 0;
+
+    // C. Tính toán Thời gian Cán Đích Thuần Thục FSRS Mức 5 (S >= 30 ngày)
+    // 1. Số ngày nạp hết các từ mới còn lại:
+    const daysToAcquireAllNew = remainingWordsToGoal > 0 && effectiveVelocity > 0 
+      ? Math.ceil(remainingWordsToGoal / effectiveVelocity) 
+      : 0;
+
+    // 2. Thời gian củng cố (Consolidation Lead-time) để từ cuối cùng đạt S >= 30 ngày qua chu kỳ FSRS:
+    const baseConsolidationLeadDays = Math.round(32 / Math.max(0.65, empiricalAccuracy));
+    const consolidationBuffer = remainingWordsToGoal > 0
+      ? Math.round(baseConsolidationLeadDays * (remainingWordsToGoal / targetWords))
+      : (inLearningWords > 0 ? Math.round(20 * (inLearningWords / targetWords)) : 0);
+
+    const etaDays = unmasteredWords === 0 
+      ? 0 
+      : Math.max(1, daysToAcquireAllNew + consolidationBuffer);
 
     const targetDate = new Date();
     targetDate.setDate(targetDate.getDate() + etaDays);
@@ -583,6 +605,8 @@ export class StatsManager {
       paceBadgeColor = '#64748b';
     }
 
+    const shortGoalTitle = activeGoal.shortTitle || activeGoal.title || 'Mục tiêu';
+
     return {
       levels,
       currentLevel: {
@@ -598,13 +622,15 @@ export class StatsManager {
       goal: {
         id: activeGoal.id,
         title: activeGoal.title,
-        shortTitle: activeGoal.shortTitle,
+        shortTitle: shortGoalTitle,
         icon: activeGoal.icon || '🎯',
         badge: activeGoal.badge || '🎯 CEFR',
         color: activeGoal.color || '#6366f1',
         targetWords,
         learnedWords: learnedGoalWords,
         matureMasteredWords,
+        unmasteredWords,
+        inLearningWords,
         masteryPct: goalMasteryPct,
         remainingWords: remainingWordsToGoal,
         completionPct: goalCompletionPct,
@@ -617,9 +643,12 @@ export class StatsManager {
         actualDailyVelocity,
         empiricalAccuracy: Math.round(empiricalAccuracy * 100),
         expectedRepsPerWord,
+        daysToAcquireAllNew,
+        consolidationBuffer,
         isUsingRealBehavior,
         paceStatus,
-        paceBadgeColor
+        paceBadgeColor,
+        shortGoalTitle
       }
     };
   }
