@@ -605,7 +605,8 @@ export class StatsManager {
       paceBadgeColor = '#64748b';
     }
 
-    const shortGoalTitle = activeGoal.shortTitle || activeGoal.title || 'Mục tiêu';
+    const rawShortTitle = activeGoal.shortTitle || activeGoal.title || 'Mục tiêu';
+    const shortGoalTitle = rawShortTitle.replace(/^Trình độ\s+/i, '').trim();
 
     return {
       levels,

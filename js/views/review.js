@@ -76,14 +76,13 @@ export function renderReviewShell(container) {
           </div>
 
           <div class="goal-daily-status-row">
-            <div class="goal-daily-badge">
+            <div class="goal-daily-badge" id="home-goal-daily-badge">
               <span class="goal-stat-icon">🌱</span>
-              <span>Hôm nay: <strong id="home-goal-today-new">0 / 10 từ mới</strong></span>
+              <span id="home-goal-today-wrapper">Hôm nay: <strong id="home-goal-today-new">0/10 từ</strong></span>
             </div>
             <div class="goal-eta-badge" id="home-goal-eta" role="button" tabindex="0" title="Nhấn để xem phân tích & công thức dự báo chi tiết FSRS">
               <span class="goal-stat-icon" id="home-goal-eta-icon">⚡</span>
-              <span id="home-goal-eta-wrapper">Dự kiến: <strong id="home-goal-eta-text">-- ngày</strong></span>
-              <span class="goal-eta-info-btn" id="btn-goal-eta-info" title="Xem chi tiết cách tính">ⓘ</span>
+              <span id="home-goal-eta-wrapper">Đạt B1: <strong id="home-goal-eta-text">-- ngày</strong></span>
             </div>
           </div>
         </div>
@@ -415,13 +414,14 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
 
   // Hôm nay nạp mới
   const elTodayNew = document.getElementById('home-goal-today-new');
+  const elTodayWrapper = document.getElementById('home-goal-today-wrapper');
   if (elTodayNew) {
     if (todayNewCount >= dailyNewTarget) {
-      elTodayNew.textContent = `✓ Đạt ${todayNewCount}/${dailyNewTarget} từ`;
-      elTodayNew.style.color = '#10b981';
+      elTodayNew.textContent = `${todayNewCount}/${dailyNewTarget} từ`;
+      if (elTodayWrapper) elTodayWrapper.innerHTML = `<span>Hôm nay: <strong style="color: #10b981;">✓ ${todayNewCount}/${dailyNewTarget} từ</strong></span>`;
     } else {
-      elTodayNew.textContent = `${todayNewCount} / ${dailyNewTarget} từ`;
-      elTodayNew.style.color = '';
+      elTodayNew.textContent = `${todayNewCount}/${dailyNewTarget} từ`;
+      if (elTodayWrapper) elTodayWrapper.innerHTML = `<span>Hôm nay: <strong>${todayNewCount}/${dailyNewTarget} từ</strong></span>`;
     }
   }
 
@@ -432,12 +432,12 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
     if (goal.unmasteredWords === 0) {
       elGoalEta.textContent = `✓ Thuộc ${forecast.shortGoalTitle}`;
       if (elGoalEtaWrapper) {
-        elGoalEtaWrapper.innerHTML = `<strong>✓ Thuộc ${forecast.shortGoalTitle} (100%)</strong>`;
+        elGoalEtaWrapper.innerHTML = `<strong style="color: #10b981;">✓ Thuộc ${forecast.shortGoalTitle} (100%)</strong>`;
       }
     } else {
-      elGoalEta.textContent = `Đạt ${forecast.shortGoalTitle} sau ~${forecast.etaDays} ngày`;
+      elGoalEta.textContent = `~${forecast.etaDays} ngày`;
       if (elGoalEtaWrapper) {
-        elGoalEtaWrapper.innerHTML = `<span>Đạt <strong>${forecast.shortGoalTitle}</strong> sau <strong>~${forecast.etaDays} ngày</strong></span>`;
+        elGoalEtaWrapper.innerHTML = `<span>Đạt <strong>${forecast.shortGoalTitle}</strong>: <strong>~${forecast.etaDays} ngày</strong></span>`;
       }
     }
   }
