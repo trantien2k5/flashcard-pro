@@ -478,6 +478,18 @@ export class StorageManager {
   }
 
   /**
+   * Đặt lại cờ thẻ khó và đưa thẻ trở lại hàng đợi học tập
+   */
+  static resetLeechStatus(cardId) {
+    if (!cardId) return null;
+    let state = this.getCardState(cardId);
+    if (!state) return null;
+    state = { ...state, isLeech: false, lapses: 0, suspended: false };
+    this.saveCardState(state);
+    return state;
+  }
+
+  /**
    * Đảo trạng thái tạm dừng của thẻ
    */
   static toggleCardSuspended(cardId) {
@@ -879,7 +891,7 @@ export class StorageManager {
       const lapses = s.lapses ?? 0;
       const stability = Number((s.stability || 0).toFixed(2));
       const difficulty = Number((s.difficulty || 5).toFixed(2));
-      const isLeech = s.isLeech === true || (s.lapses && s.lapses >= 6);
+      const isLeech = s.isLeech === true || (s.lapses && s.lapses >= 8);
       const isSuspended = s.suspended === true;
 
       // Chỉ lưu thẻ người học đã tương tác hoặc có trạng thái cá nhân hóa
@@ -980,7 +992,7 @@ export class StorageManager {
       difficulty: raw.difficulty ?? raw.d ?? 5,
       due: due,
       last_review: lastReview,
-      isLeech: Boolean(raw.isLeech === true || (raw.lapses && raw.lapses >= 6)),
+      isLeech: Boolean(raw.isLeech === true || (raw.lapses && raw.lapses >= 8)),
       suspended: Boolean(raw.suspended === true),
       elapsed_days: raw.elapsed_days ?? 0,
       scheduled_days: raw.scheduled_days ?? 0

@@ -48,8 +48,8 @@ export class FSRS {
     this.requestRetention = params.requestRetention || DEFAULT_FSRS_PARAMS.requestRetention; // Mặc định 90%
     this.maximumInterval = params.maximumInterval || DEFAULT_FSRS_PARAMS.maximumInterval; // 100 năm
     this.enableFuzz = params.enableFuzz !== undefined ? params.enableFuzz : true; // FSRS Fuzzing
-    this.leechThreshold = params.leechThreshold || 6; // Ngưỡng thẻ khó (Leech)
-    this.leechAction = params.leechAction || 'tag'; // 'tag' | 'suspend'
+    this.leechThreshold = params.leechThreshold || 8; // Ngưỡng thẻ khó (Leech - Chuẩn Anki mặc định 8 lần)
+    this.leechAction = params.leechAction || 'suspend'; // 'suspend' | 'tag'
     this.decay = 0.5;
     this.factor = 19 / 81; // ~0.2345679 -> R(S, S) = (1 + (19/81)*1)^(-0.5) = (100/81)^(-0.5) = 9/10 = 0.90
   }
@@ -250,8 +250,8 @@ export class FSRS {
     const elapsedDays = card.state === State.New ? 0 : Math.max(0, (nowDate.getTime() - lastReviewDate.getTime()) / (1000 * 60 * 60 * 24));
     const isPreview = options.isPreview === true;
     const shouldFuzz = !isPreview && (options.enableFuzz !== undefined ? options.enableFuzz : this.enableFuzz);
-    const leechThreshold = options.leechThreshold || this.leechThreshold || 6;
-    const leechAction = options.leechAction || this.leechAction || 'tag';
+    const leechThreshold = options.leechThreshold || this.leechThreshold || 8;
+    const leechAction = options.leechAction || this.leechAction || 'suspend';
     
     let retrievability = 0;
     if (card.state !== State.New && card.stability > 0) {

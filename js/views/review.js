@@ -297,17 +297,18 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
   const logs = StorageManager.getStudyLogs() || [];
   const todayKey = getLocalDateKey();
   let todayCount = 0;
-  let todayNewCount = 0;
+  const todayNewCardIds = new Set();
   for (let i = logs.length - 1; i >= 0; i--) {
     const log = logs[i];
     if (!log || !log.timestamp) continue;
     if (getLocalDateKey(log.timestamp) === todayKey) {
       todayCount++;
       if (log.oldState === State.New || log.oldState === 0 || (log.oldState === undefined && (log.state === State.New || log.state === 0 || log.isNew))) {
-        todayNewCount++;
+        if (log.cardId) todayNewCardIds.add(log.cardId);
       }
     }
   }
+  const todayNewCount = todayNewCardIds.size;
 
   const elReviewed = document.getElementById('home-reviewed-count');
   if (elReviewed) {

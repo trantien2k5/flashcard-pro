@@ -65,8 +65,8 @@ export class StudySession {
     this.fsrs = new FSRS({
       requestRetention: this.settings?.requestRetention || 0.90,
       enableFuzz: this.settings?.enableFuzz !== false,
-      leechThreshold: this.settings?.leechThreshold || 6,
-      leechAction: this.settings?.leechAction || 'tag'
+      leechThreshold: this.settings?.leechThreshold || 8,
+      leechAction: this.settings?.leechAction || 'suspend'
     });
     this.onFinish = options.onFinish || (() => {});
     this.onCardChange = options.onCardChange || (() => {});
@@ -106,8 +106,8 @@ export class StudySession {
     this.fsrs = new FSRS({
       requestRetention: this.settings?.requestRetention || 0.90,
       enableFuzz: this.settings?.enableFuzz !== false,
-      leechThreshold: this.settings?.leechThreshold || 6,
-      leechAction: this.settings?.leechAction || 'tag'
+      leechThreshold: this.settings?.leechThreshold || 8,
+      leechAction: this.settings?.leechAction || 'suspend'
     });
   }
 
@@ -287,8 +287,8 @@ export class StudySession {
     const oldState = this.currentCard.fsrsState;
     const nextState = this.fsrs.calculateNextState(oldState, rating, now, {
       enableFuzz: this.settings?.enableFuzz !== false,
-      leechThreshold: this.settings?.leechThreshold || 6,
-      leechAction: this.settings?.leechAction || 'tag'
+      leechThreshold: this.settings?.leechThreshold || 8,
+      leechAction: this.settings?.leechAction || 'suspend'
     });
 
     const cardId = this.currentCard.id;
@@ -298,6 +298,11 @@ export class StudySession {
     // Lưu trạng thái thẻ
     if (shouldPersist) {
       StorageManager.saveCardState(nextState);
+
+      // Nếu thẻ bị tự động tạm dừng (Leech suspend), loại bỏ các bản sao còn lại khỏi hàng đợi hiện tại
+      if (nextState.suspended) {
+        this.queue = this.queue.filter((c, idx) => idx <= this.currentIndex || c.id !== cardId);
+      }
 
       // Ghi nhật ký học tập
       StorageManager.logReview({

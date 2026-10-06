@@ -44,7 +44,7 @@ export class StatsManager {
       if (state && state.suspended === true) {
         suspendedCount++;
       }
-      if (state && (state.isLeech === true || (state.lapses && state.lapses >= 6))) {
+      if (state && (state.isLeech === true || (state.lapses && state.lapses >= 8))) {
         leechCount++;
       }
       if (!state || state.state === State.New || state.state === 0) {
@@ -537,12 +537,21 @@ export class StatsManager {
 
     // B. Phân tích Tốc độ nạp mới và số ngày hoạt động thực tế 7 ngày qua
     const sevenDaysAgo = new Date(now.getTime() - 7 * 86400000);
-    const recentNewLogs = logs.filter(l => {
-      if (!l.timestamp) return false;
+    const seenNewCardIds = new Set();
+    const recentNewLogs = [];
+    for (let i = 0; i < logs.length; i++) {
+      const l = logs[i];
+      if (!l || !l.timestamp) continue;
       const logDate = new Date(l.timestamp);
       const isNew = l.oldState === State.New || l.oldState === 0 || l.isNew;
-      return isNew && logDate >= sevenDaysAgo;
-    });
+      if (isNew && logDate >= sevenDaysAgo) {
+        const cId = l.cardId || l.word || `${i}`;
+        if (!seenNewCardIds.has(cId)) {
+          seenNewCardIds.add(cId);
+          recentNewLogs.push(l);
+        }
+      }
+    }
 
     const dailyNewCounts = {};
     for (let i = 0; i < recentNewLogs.length; i++) {

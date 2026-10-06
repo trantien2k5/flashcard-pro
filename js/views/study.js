@@ -962,11 +962,11 @@ export function setupStudyControls(app) {
         if (currentCardObj) {
           const newState = StorageManager.getCardState(currentCardObj.id);
           if (newState && newState.isLeech && (!oldState || !oldState.isLeech)) {
-            const action = app.settings?.leechAction || 'tag';
+            const action = app.settings?.leechAction || 'suspend';
             if (action === 'suspend') {
-              if (app.showToast) app.showToast(`⏸️ Từ "${cardWord}" đã tạm dừng vì quên ${newState.lapses} lần liên tiếp`, 'warning', 3500);
+              if (app.showToast) app.showToast(`⏸️ Thẻ khó (Leech): Từ "${cardWord}" đã quên ${newState.lapses} lần. Hệ thống tự động tạm treo khỏi hàng đợi để tránh nghẽn. Bạn có thể mở lại trong Thư viện.`, 'warning', 5000);
             } else {
-              if (app.showToast) app.showToast(`⚠️ Từ "${cardWord}" đã gắn nhãn "Khó nhớ" (${newState.lapses} lần quên). Hãy đọc kỹ câu ví dụ!`, 'warning', 3500);
+              if (app.showToast) app.showToast(`⚠️ Từ "${cardWord}" đã gắn nhãn "Thẻ khó nhớ" (${newState.lapses} lần quên). Hãy đọc kỹ câu ví dụ!`, 'warning', 4000);
             }
           }
         }
@@ -1623,7 +1623,7 @@ export function handleCardChange(app, card, progress) {
     const cardState = card.fsrsState || StorageManager.getCardState(card.id) || { state: State.New, reps: 0 };
     const stateNum = cardState.state !== undefined ? cardState.state : State.New;
     const repsCount = cardState.reps || 0;
-    const isLeech = Boolean(cardState.isLeech === true || (cardState.lapses && cardState.lapses >= (app.settings?.leechThreshold || 6)));
+    const isLeech = Boolean(cardState.isLeech === true || (cardState.lapses && cardState.lapses >= (app.settings?.leechThreshold || 8)));
 
     let stateText = 'Từ mới';
     let stateClass = 'state-new';

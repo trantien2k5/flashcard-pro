@@ -852,7 +852,7 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
           const status = getCardStatus(card);
           const state = StorageManager.getCardState(card.id);
           const isSuspended = Boolean(state && state.suspended === true);
-          const isLeech = Boolean(state && (state.isLeech === true || (state.lapses && state.lapses >= 6)));
+          const isLeech = Boolean(state && (state.isLeech === true || (state.lapses && state.lapses >= 8)));
           const row = document.createElement('div');
           row.className = `word-item-card status-${status} ${isSuspended ? 'is-suspended' : ''}`;
 
@@ -862,7 +862,7 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
           } else if (status === 'due') {
             statusTag = '<span class="word-status-tag status-due">Cần ôn</span>';
           } else if (status === 'done') {
-            statusTag = `<span class="word-status-tag status-done">Thuần thục · S: ${state?.stability?.toFixed(1) || '21'}d</span>`;
+            statusTag = `<span class="word-status-tag status-done">Thuần thục · S: ${state?.stability?.toFixed(1) || '30'}d</span>`;
           } else if (status === 'learning') {
             statusTag = `<span class="word-status-tag status-learning">Đang nhớ · S: ${state?.stability?.toFixed(1) || '0'}d</span>`;
           }
@@ -893,7 +893,7 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
                 ${card.phonetic ? `<span class="word-phonetic">${escapeHTML(card.phonetic)}</span>` : ''}
                 ${card.pos ? `<span class="word-pos">(${escapeHTML(card.pos)})</span>` : ''}
                 ${card.cefr ? `<span class="word-cefr ${card.cefr.toLowerCase()}">${card.cefr}</span>` : ''}
-                ${isLeech ? `<span class="word-leech-pill" title="Thẻ khó nhớ (lapses ≥ 6)">⚠️ Leech</span>` : ''}
+                ${isLeech ? `<span class="word-leech-pill" title="Thẻ khó nhớ (Quên ≥ 8 lần)">⚠️ Leech</span>` : ''}
               </div>
               <div class="word-status-col">${statusTag}</div>
             </div>

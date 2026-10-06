@@ -168,18 +168,18 @@ export function renderSettingsTabShell(container) {
               </div>
               <select id="setting-leech-threshold" class="setting-select">
                 <option value="4">4 lần quên</option>
-                <option value="6" selected>6 lần quên (Khuyên dùng)</option>
-                <option value="8">8 lần quên (Chuẩn Anki)</option>
+                <option value="6">6 lần quên</option>
+                <option value="8" selected>8 lần quên (Chuẩn Anki mặc định)</option>
               </select>
             </div>
 
             <div class="setting-row setting-select-row">
               <div class="setting-info">
-                <span class="setting-title">Xử lý khi gặp từ khó</span>
+                <span class="setting-title">Xử lý khi gặp từ khó (Leech)</span>
               </div>
               <select id="setting-leech-action" class="setting-select">
-                <option value="tag">⚠️ Gắn cờ cảnh báo</option>
-                <option value="suspend">⏸️ Tự động tạm dừng thẻ</option>
+                <option value="suspend" selected>⏸️ Tự động tạm dừng thẻ (Chuẩn Anki)</option>
+                <option value="tag">⚠️ Gắn nhãn cảnh báo</option>
               </select>
             </div>
           </div>
@@ -508,7 +508,7 @@ export function setupSettingsUI(app) {
 
     const leechThresholdSelect = document.getElementById('setting-leech-threshold');
     if (leechThresholdSelect) {
-      leechThresholdSelect.value = String(app.settings.leechThreshold || 6);
+      leechThresholdSelect.value = String(app.settings.leechThreshold || 8);
       leechThresholdSelect.addEventListener('change', (e) => {
         try {
           app.settings.leechThreshold = parseInt(e.target.value, 10);
@@ -521,7 +521,7 @@ export function setupSettingsUI(app) {
 
     const leechActionSelect = document.getElementById('setting-leech-action');
     if (leechActionSelect) {
-      leechActionSelect.value = app.settings.leechAction || 'tag';
+      leechActionSelect.value = app.settings.leechAction || 'suspend';
       leechActionSelect.addEventListener('change', (e) => {
         try {
           app.settings.leechAction = e.target.value;

@@ -149,8 +149,8 @@ export const DEFAULT_SETTINGS = {
   audioAccent: 'us', // 'us' (Anh - Mỹ) or 'uk' (Anh - Anh)
   theme: 'light',
   enableFuzz: true, // Chống dồn lịch ôn tập (FSRS Fuzz Factor)
-  leechThreshold: 6, // Số lần quên để tính là thẻ khó (Leech)
-  leechAction: 'tag', // 'tag' (gắn nhãn) hoặc 'suspend' (tự động tạm dừng)
+  leechThreshold: 8, // Số lần quên để tính là thẻ khó (Leech - Chuẩn Anki mặc định 8 lần)
+  leechAction: 'suspend', // 'suspend' (tự động tạm dừng đưa ra khỏi hàng đợi) hoặc 'tag' (gắn nhãn)
   rolloverHour: 4 // Mốc bắt đầu ngày mới lúc 04:00 AM (chuẩn Anki)
 };
 

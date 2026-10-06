@@ -107,13 +107,36 @@ function formatFSRSDueText(state, now = new Date()) {
   const dueYear = dueDate.getFullYear();
   const dueDateFormatted = `${dueDay}/${dueMonth}/${dueYear}`;
 
+  const isSuspended = state.suspended === true;
+  const isLeech = Boolean(state.isLeech === true || lapses >= 8);
+
+  if (isSuspended) {
+    return {
+      statusClass: 'status-suspended',
+      statusLabel: 'Tạm treo',
+      statusIcon: '⏸️',
+      shortDueText: 'Tạm treo',
+      tierLabel: isLeech ? 'Thẻ khó (Leech)' : tierLabel,
+      tierLevel,
+      dueFullText: isLeech ? `Tạm treo do quên ${lapses} lần (Leech)` : 'Thẻ đang tạm dừng',
+      stability: s,
+      difficulty: d,
+      reps,
+      lapses,
+      interval,
+      dueDateFormatted,
+      isSuspended: true,
+      isLeech
+    };
+  }
+
   if (isDue) {
     return {
       statusClass: 'status-due',
       statusLabel: 'Cần ôn ngay',
-      statusIcon: '⏰',
-      shortDueText: 'Đến hạn',
-      tierLabel,
+      statusIcon: isLeech ? '⚠️' : '⏰',
+      shortDueText: isLeech ? 'Thẻ khó' : 'Đến hạn',
+      tierLabel: isLeech ? 'Thẻ khó (Leech)' : tierLabel,
       tierLevel,
       dueFullText: `Đã đến hạn ôn hôm nay (${dueDateFormatted})`,
       stability: s,
@@ -121,7 +144,9 @@ function formatFSRSDueText(state, now = new Date()) {
       reps,
       lapses,
       interval,
-      dueDateFormatted
+      dueDateFormatted,
+      isSuspended: false,
+      isLeech
     };
   }
 
@@ -141,6 +166,10 @@ function formatFSRSDueText(state, now = new Date()) {
   } else {
     shortDueText = dueDateFormatted;
     dueFullText = dueDateFormatted;
+  }
+
+  if (isLeech) {
+    shortDueText = 'Thẻ khó';
   }
 
   if (s >= MASTERY_STABILITY_THRESHOLD) {
@@ -208,6 +237,8 @@ export function renderLibraryTab(app) {
   let newCount = 0;
   let learningCount = 0;
   let hardCount = 0;
+  let leechCount = 0;
+  let suspendedCount = 0;
   let masteredCount = 0;
 
   for (let i = 0; i < allCards.length; i++) {
@@ -220,11 +251,15 @@ export function renderLibraryTab(app) {
       const s = Number(state.stability) || 0;
       const d = Number(state.difficulty) || 0;
       const lapses = Number(state.lapses) || 0;
+      const isLeech = Boolean(state.isLeech === true || lapses >= 8);
+      const isSuspended = Boolean(state.suspended === true);
 
       if (isDue) dueCount++;
       if (s >= MASTERY_STABILITY_THRESHOLD) masteredCount++;
       else learningCount++;
       if (d >= 7 || lapses > 0) hardCount++;
+      if (isLeech) leechCount++;
+      if (isSuspended) suspendedCount++;
     }
   }
 
@@ -246,7 +281,9 @@ export function renderLibraryTab(app) {
     due: '⏰ Cần ôn',
     new: '✨ Chưa học',
     learning: '🌱 Đang học',
-    hard: '⚠️ Hay quên',
+    hard: '⏳ Khó nhớ',
+    leech: '⚠️ Thẻ khó (Leech)',
+    suspended: '⏸️ Tạm treo',
     mastered: '🏆 Thuần thục'
   };
 
@@ -297,7 +334,9 @@ export function renderLibraryTab(app) {
             <option value="new" ${_libState.selectedStatus === 'new' ? 'selected' : ''}>✨ Chưa học (${newCount})</option>
             <option value="due" ${_libState.selectedStatus === 'due' ? 'selected' : ''}>⏰ Cần ôn (${dueCount})</option>
             <option value="learning" ${_libState.selectedStatus === 'learning' ? 'selected' : ''}>🌱 Đang học (${learningCount})</option>
-            <option value="hard" ${_libState.selectedStatus === 'hard' ? 'selected' : ''}>⚠️ Hay quên (${hardCount})</option>
+            <option value="hard" ${_libState.selectedStatus === 'hard' ? 'selected' : ''}>⏳ Khó nhớ (${hardCount})</option>
+            <option value="leech" ${_libState.selectedStatus === 'leech' ? 'selected' : ''}>⚠️ Thẻ khó / Leech (${leechCount})</option>
+            <option value="suspended" ${_libState.selectedStatus === 'suspended' ? 'selected' : ''}>⏸️ Tạm treo (${suspendedCount})</option>
             <option value="mastered" ${_libState.selectedStatus === 'mastered' ? 'selected' : ''}>🏆 Thuần thục (${masteredCount})</option>
           </select>
           <span class="filter-dropdown-arrow">
@@ -662,11 +701,16 @@ function getFilteredAndSortedCards(app) {
       const d = state ? (Number(state.difficulty) || 0) : 0;
       const lapses = state ? (Number(state.lapses) || 0) : 0;
 
+      const isLeech = state ? Boolean(state.isLeech === true || (state.lapses && state.lapses >= 8)) : false;
+      const isSuspended = state ? Boolean(state.suspended === true) : false;
+
       if (statusFilter === 'due' && !isDue) continue;
       if (statusFilter === 'new' && !isNew) continue;
       if (statusFilter === 'learning' && (isNew || s >= MASTERY_STABILITY_THRESHOLD)) continue;
       if (statusFilter === 'mastered' && (isNew || s < MASTERY_STABILITY_THRESHOLD)) continue;
       if (statusFilter === 'hard' && (isNew || (d < 7 && lapses === 0))) continue;
+      if (statusFilter === 'leech' && (isNew || !isLeech)) continue;
+      if (statusFilter === 'suspended' && !isSuspended) continue;
     }
 
     // 5. Lọc theo từ khóa tìm kiếm (Full-text index)
@@ -1138,7 +1182,12 @@ export function openWordDetailModal(card, app) {
       </div>
 
       <!-- Modal Footer CTA -->
-      <div class="word-detail-footer">
+      <div class="word-detail-footer" style="display: flex; gap: 10px; align-items: center; justify-content: flex-end; flex-wrap: wrap;">
+        ${(state && (state.suspended || state.isLeech || (state.lapses && state.lapses >= 8))) ? `
+          <button class="btn-modal-unsuspend" id="btn-modal-unsuspend-card" style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3); color: #ef4444; padding: 10px 16px; border-radius: 12px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 0.88rem; transition: all 0.2s;">
+            <span>🔄 Bỏ tạm treo & Học lại</span>
+          </button>
+        ` : ''}
         <button class="btn-modal-study-now" id="btn-modal-study-single">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="5 3 19 12 5 21 5 3"/>
@@ -1197,6 +1246,17 @@ export function openWordDetailModal(card, app) {
     btnStudySingle.onclick = () => {
       closeModal();
       app.startStudySession(null, null, [card]);
+    };
+  }
+
+  // Nút bỏ tạm treo và học lại thẻ khó
+  const btnUnsuspend = document.getElementById('btn-modal-unsuspend-card');
+  if (btnUnsuspend) {
+    btnUnsuspend.onclick = () => {
+      StorageManager.resetLeechStatus(card.id);
+      if (app.showToast) app.showToast(`✅ Đã khôi phục từ "${card.word}" về hàng đợi ôn tập!`, 'success');
+      closeModal();
+      renderLibraryTab(app);
     };
   }
 }
