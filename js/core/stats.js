@@ -4,7 +4,7 @@
 
 import { StorageManager } from '../services/storage.js';
 import { State, Rating, FSRS } from './fsrs.js';
-import { MASTERY_STABILITY_THRESHOLD, getLearningGoal } from '../config.js';
+import { MASTERY_STABILITY_THRESHOLD, getLearningGoal, STREAK_COOLDOWN_DAYS, FREEZE_REWARD_INTERVAL } from '../config.js';
 import { getLocalDateKey } from '../utils.js';
 
 export class StatsManager {
@@ -274,9 +274,15 @@ export class StatsManager {
 
   /**
    * Tính toán chuỗi ngày học liên tục (Streak)
+   * Tự động tích hợp Khiên bảo vệ (frozenDates) và Ngày cứu (recoveredDates)
+   * Tự động kiểm tra thưởng Khiên đóng băng khi đạt mốc liên tục 7 ngày
    */
-  static calculateStreak(logs) {
+  static calculateStreak(logs, explicitStreakState = null) {
     if (!logs || logs.length === 0) return 0;
+
+    const streakState = explicitStreakState || StorageManager.getStreakState();
+    const frozenSet = new Set(streakState?.frozenDates || []);
+    const recoveredSet = new Set(streakState?.recoveredDates || []);
 
     const dateSet = new Set();
     for (let i = 0; i < logs.length; i++) {
@@ -295,7 +301,11 @@ export class StatsManager {
       d.setDate(today.getDate() - i);
       const key = getLocalDateKey(d);
       
-      if (dateSet.has(key)) {
+      const isStudied = dateSet.has(key);
+      const isFrozen = frozenSet.has(key);
+      const isRecovered = recoveredSet.has(key);
+
+      if (isStudied || isFrozen || isRecovered) {
         streak++;
       } else {
         // Nếu hôm nay chưa học thì vẫn cho phép tính streak từ ngày hôm qua
@@ -304,7 +314,93 @@ export class StatsManager {
       }
     }
 
+    // Tự động kiểm tra thưởng khiên đóng băng và cập nhật kỷ lục
+    if (streak > 0 && typeof StorageManager.checkAndAwardStreakFreeze === 'function') {
+      try {
+        StorageManager.checkAndAwardStreakFreeze(streak);
+      } catch (e) {}
+    }
+
     return streak;
+  }
+
+  /**
+   * Tự động phân tích xem chuỗi ngày học có vừa bị đứt trong 24h - 48h gần nhất hay không
+   * Trả về thông tin chi tiết để phục vụ việc cứu chuỗi (Dùng khiên hoặc Thử thách chuộc lỗi)
+   */
+  static detectBrokenStreak(logs, explicitStreakState = null) {
+    if (!logs || logs.length === 0) {
+      return { isBroken: false, canRecover: false };
+    }
+
+    const streakState = explicitStreakState || StorageManager.getStreakState();
+    const frozenSet = new Set(streakState?.frozenDates || []);
+    const recoveredSet = new Set(streakState?.recoveredDates || []);
+
+    const dateSet = new Set();
+    for (let i = 0; i < logs.length; i++) {
+      const ts = logs[i].timestamp;
+      if (ts) dateSet.add(getLocalDateKey(ts));
+    }
+
+    const isValidDate = (key) => dateSet.has(key) || frozenSet.has(key) || recoveredSet.has(key);
+
+    const today = new Date();
+    const todayKey = getLocalDateKey(today);
+
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    const yesterdayKey = getLocalDateKey(yesterday);
+
+    // Nếu hôm qua đã học / đã đóng băng / đã cứu -> Streak KHÔNG bị đứt!
+    if (isValidDate(yesterdayKey)) {
+      return { isBroken: false, canRecover: false };
+    }
+
+    // Hôm qua bị lỡ (missed). Kiểm tra xem từ hôm kia (D-2) trở về trước có chuỗi nỗ lực không:
+    let pastStreakBeforeMiss = 0;
+    for (let i = 2; i < 365; i++) {
+      const d = new Date(today);
+      d.setDate(today.getDate() - i);
+      const k = getLocalDateKey(d);
+      if (isValidDate(k)) {
+        pastStreakBeforeMiss++;
+      } else {
+        break;
+      }
+    }
+
+    // Nếu trước hôm qua không có ngày nào học liên tục -> Không có chuỗi để cứu
+    if (pastStreakBeforeMiss === 0) {
+      return { isBroken: false, canRecover: false };
+    }
+
+    const studiedToday = dateSet.has(todayKey);
+    const potentialRestoredStreak = pastStreakBeforeMiss + 1 + (studiedToday ? 1 : 0);
+
+    const freezes = Number(streakState?.freezes || 0);
+    const canUseFreeze = freezes > 0;
+
+    // Cooldown 14 ngày cho Thử Thách Chuộc Lỗi
+    const cooldownMs = (STREAK_COOLDOWN_DAYS || 14) * 86400000;
+    const lastRecovery = Number(streakState?.lastRecoveryTimestamp || 0);
+    const timeSinceLast = Date.now() - lastRecovery;
+    const isCooldownActive = lastRecovery > 0 && timeSinceLast < cooldownMs;
+    const cooldownDaysLeft = isCooldownActive ? Math.ceil((cooldownMs - timeSinceLast) / 86400000) : 0;
+    const canRedeem = !isCooldownActive;
+
+    return {
+      isBroken: true,
+      canRecover: true,
+      missedDate: yesterdayKey,
+      pastStreakBeforeMiss,
+      potentialRestoredStreak,
+      studiedToday,
+      freezesAvailable: freezes,
+      canUseFreeze,
+      canRedeem,
+      cooldownDaysLeft
+    };
   }
 
   /**
@@ -954,6 +1050,10 @@ export class StatsManager {
     let currentStreak = 0;
     let maxStreakInMonth = 0;
 
+    const streakState = StorageManager.getStreakState();
+    const frozenSet = new Set(streakState?.frozenDates || []);
+    const recoveredSet = new Set(streakState?.recoveredDates || []);
+
     for (let d = 1; d <= daysInMonth; d++) {
       const dateKey = `${year}-${String(month).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
       const item = dailyMap[dateKey];
@@ -970,8 +1070,11 @@ export class StatsManager {
       monthTotalReviews += item.totalReviews;
       monthGoodReviews += item.goodReviews;
 
+      const isFrozen = frozenSet.has(dateKey);
+      const isRecovered = recoveredSet.has(dateKey);
+
       let heatLevel = 0;
-      if (count > 0) {
+      if (count > 0 || isFrozen || isRecovered) {
         activeDaysCount++;
         currentStreak++;
         if (currentStreak > maxStreakInMonth) maxStreakInMonth = currentStreak;
@@ -999,7 +1102,9 @@ export class StatsManager {
         minutes: Math.round(item.studySeconds / 60),
         heatLevel,
         isToday: item.isToday,
-        isFuture: item.isFuture
+        isFuture: item.isFuture,
+        isFrozen,
+        isRecovered
       });
     }
 

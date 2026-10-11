@@ -861,6 +861,16 @@
   z-index: 10;
 }
 
+.calendar-day-cell.is-frozen {
+  background: rgba(2, 132, 199, 0.12) !important;
+  border-color: rgba(2, 132, 199, 0.45) !important;
+}
+
+.calendar-day-cell.is-recovered {
+  background: rgba(99, 102, 241, 0.12) !important;
+  border-color: rgba(99, 102, 241, 0.45) !important;
+}
+
 .calendar-day-cell.is-future {
   cursor: default;
   background: rgba(255, 255, 255, 0.02);

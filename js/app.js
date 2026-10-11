@@ -29,7 +29,7 @@ import {
   handleStudyFinish 
 } from './views/study.js';
 import { startQuizSession } from './views/quiz.js';
-import { setupSearch, showToast, showConfirm, mountGlobalModals } from './views/components.js';
+import { setupSearch, showToast, showConfirm, mountGlobalModals, showStreakHubModal } from './views/components.js';
 
 // Xuất các hằng số và Enum để tương thích toàn hệ thống
 export { DECK_ENGLISH_NAMES, SUBTOPIC_ICONS, getSubtopicIcon, getSubtopicColor, Rating, State, STABILITY_TIERS } from './config.js';
@@ -236,6 +236,19 @@ export class FlashcardApp {
       });
     });
 
+    const headerStreakBadge = document.getElementById('header-streak-badge');
+    if (headerStreakBadge && !headerStreakBadge._bound) {
+      headerStreakBadge._bound = true;
+      headerStreakBadge.style.cursor = 'pointer';
+      headerStreakBadge.addEventListener('click', () => {
+        try {
+          showStreakHubModal(this);
+        } catch (err) {
+          console.error('Lỗi mở Streak Hub Modal:', err);
+        }
+      });
+    }
+
     const btnHeaderSettings = document.getElementById('btn-header-settings') || document.getElementById('btn-header-profile');
     if (btnHeaderSettings && typeof btnHeaderSettings.addEventListener === 'function') {
       btnHeaderSettings.addEventListener('click', () => {
@@ -388,6 +401,7 @@ export class FlashcardApp {
     try {
       const logs = StorageManager.getStudyLogs();
       const streak = StatsManager.calculateStreak(logs);
+      const brokenInfo = StatsManager.detectBrokenStreak(logs);
       
       const streakEl = document.getElementById('streak-count');
       if (streakEl) streakEl.textContent = `${streak} ngày`;
@@ -397,6 +411,17 @@ export class FlashcardApp {
 
       const topHeaderStreakEl = document.getElementById('header-streak-count');
       if (topHeaderStreakEl) topHeaderStreakEl.textContent = streak;
+
+      const headerStreakBadge = document.getElementById('header-streak-badge');
+      if (headerStreakBadge) {
+        if (brokenInfo.isBroken && brokenInfo.canRecover) {
+          headerStreakBadge.classList.add('streak-broken-alert');
+          headerStreakBadge.title = `⚠️ Chuỗi ${brokenInfo.pastStreakBeforeMiss} ngày vừa bị đứt hôm qua! Bấm để khôi phục`;
+        } else {
+          headerStreakBadge.classList.remove('streak-broken-alert');
+          headerStreakBadge.title = `Chuỗi ngày học liên tục (🔥 ${streak} ngày) — Bấm để mở Hồ sơ Streak & Khiên bảo vệ`;
+        }
+      }
     } catch (err) {
       console.error('Lỗi updateHeaderBadges:', err);
     }

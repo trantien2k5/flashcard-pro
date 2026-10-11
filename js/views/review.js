@@ -10,6 +10,7 @@ import { State, Rating, isCardDue } from '../core/fsrs.js';
 import { globalStudyTimer, StatsManager } from '../core/stats.js';
 import { escapeHTML, getLocalDateKey } from '../utils.js';
 import { MASTERY_STABILITY_THRESHOLD, LEARNING_GOALS, getLearningGoal } from '../config.js';
+import { showStreakHubModal } from './components.js';
 
 let _cachedApp = null;
 let _isTimerListening = false;
@@ -86,6 +87,9 @@ export function renderReviewShell(container) {
             </div>
           </div>
         </div>
+
+        <!-- 1.5. Cảnh báo khôi phục chuỗi ngày học bị đứt (Streak Recovery Banner) -->
+        <div id="home-streak-alert-container"></div>
 
         <!-- 2. Thẻ 4 chỉ số: Từ tới hạn, Đã ôn hôm nay, Thời gian đã học, Từ đã thuộc -->
         <div class="home-metrics-card inset-grouped-card">
@@ -447,6 +451,40 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
   if (elEtaIcon) {
     elEtaIcon.textContent = forecast.isUsingRealBehavior ? '⚡' : '🏁';
   }
+
+  // 7. Cảnh báo khôi phục Streak nếu vừa bị đứt hôm qua
+  const alertContainer = document.getElementById('home-streak-alert-container');
+  if (alertContainer) {
+    const brokenInfo = StatsManager.detectBrokenStreak(logs);
+    if (brokenInfo && brokenInfo.isBroken && brokenInfo.canRecover) {
+      alertContainer.innerHTML = `
+        <div class="streak-recovery-alert-card" id="btn-open-streak-hub-banner" role="button" tabindex="0" title="Nhấn để mở Trung tâm bảo vệ & cứu chuỗi ngày học">
+          <div class="alert-pulse-dot"></div>
+          <div class="recovery-icon-badge">⚠️</div>
+          <div class="recovery-text-group">
+            <div class="recovery-title-row">
+              <strong class="recovery-main-title">Chuỗi ${brokenInfo.pastStreakBeforeMiss} ngày vừa bị gián đoạn!</strong>
+              <span class="recovery-badge-pill">Có thể cứu</span>
+            </div>
+            <span class="recovery-sub-text">Dùng Khiên Đóng Băng hoặc làm Thử Thách Chuộc Lỗi để nối lại chuỗi ngay.</span>
+          </div>
+          <button type="button" class="btn-recovery-cta">Cứu Streak ❯</button>
+        </div>
+      `;
+      const bannerBtn = alertContainer.querySelector('#btn-open-streak-hub-banner');
+      if (bannerBtn) {
+        bannerBtn.onclick = () => showStreakHubModal(app);
+        bannerBtn.onkeydown = (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            showStreakHubModal(app);
+          }
+        };
+      }
+    } else {
+      alertContainer.innerHTML = '';
+    }
+  }
 }
 
 /* ==========================================================================
@@ -699,10 +737,10 @@ export function showStudyTimeModal(app = _cachedApp) {
               <strong class="tile-val text-primary">${todayMins} <span class="tile-unit">phút</span></strong>
             </div>
           </div>
-          <div class="quick-stat-tile">
+          <div class="quick-stat-tile" id="quick-tile-streak-link" role="button" tabindex="0" style="cursor: pointer;" title="Nhấn để mở Hồ sơ Streak & Khiên bảo vệ">
             <div class="tile-icon">🔥</div>
             <div class="tile-info">
-              <span class="tile-label">Chuỗi ngày (Streak)</span>
+              <span class="tile-label">Chuỗi ngày (Streak) ❯</span>
               <strong class="tile-val text-warning">${streak} <span class="tile-unit">ngày</span></strong>
             </div>
           </div>
@@ -735,6 +773,14 @@ export function showStudyTimeModal(app = _cachedApp) {
   `;
 
   modal.classList.add('active');
+
+  const tileStreakLink = modal.querySelector('#quick-tile-streak-link');
+  if (tileStreakLink) {
+    tileStreakLink.onclick = () => {
+      modal.classList.remove('active');
+      showStreakHubModal(app);
+    };
+  }
 
   const closeBtns = modal.querySelectorAll('.btn-quick-close');
   closeBtns.forEach(b => b.onclick = () => modal.classList.remove('active'));

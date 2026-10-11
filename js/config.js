@@ -16,9 +16,23 @@ export const STORAGE_KEYS = {
   CARDS: 'fc_pro_cards',
   LOGS: 'fc_pro_logs',
   STREAK: 'fc_pro_streak',
+  STREAK_STATE: 'fc_pro_streak_state_v1',
   STUDY_TIME: 'fc_pro_study_time_v2',
   SYNC_HISTORY: 'fc_pro_sync_history'
 };
+
+export const DEFAULT_STREAK_STATE = {
+  freezes: 1, // Tặng 1 khiên đóng băng cho người học ban đầu
+  maxFreezes: 2,
+  frozenDates: [],
+  recoveredDates: [],
+  lastRecoveryTimestamp: 0,
+  longestStreak: 0,
+  lastAwardedMilestone: 0
+};
+
+export const STREAK_COOLDOWN_DAYS = 14; // Số ngày cooldown giữa các lần Thử Thách Chuộc Lỗi
+export const FREEZE_REWARD_INTERVAL = 7; // Học đủ 7 ngày liên tục được thưởng 1 khiên đóng băng
 
 export const MASTERY_STABILITY_THRESHOLD = 30; // Ngưỡng đã thuộc / ghi nhớ sâu thống nhất toàn hệ thống (Mức 5: ≥ 30 ngày)
 

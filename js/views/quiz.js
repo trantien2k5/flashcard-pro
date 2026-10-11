@@ -24,6 +24,7 @@ let _isAnswerLocked = false;
 let _audioCtx = null;
 let _timerUnsubscribe = null;
 let _autoSpeakTimer = null;
+let _quizOptions = {};
 
 // Thống kê phiên trắc nghiệm
 let _quizStats = {
@@ -354,28 +355,42 @@ export function startQuizSession(app, customQueue = null, options = {}) {
   try {
     unlockAudioContext();
     _quizApp = app;
+    _quizOptions = { ...options };
 
     let queue = customQueue;
     if (!queue || queue.length === 0) {
-      const studyQueue = app.deckManager.getStudyQueue(null, app.settings);
-      
-      if (options && options.mode === 'new_only') {
-        queue = studyQueue.newCards || [];
-      } else if (options && options.mode === 'due_only') {
-        queue = studyQueue.dueCards || [];
+      if (options && options.mode === 'redemption') {
+        // Thử Thách Chuộc Lỗi: Lấy 15 từ vựng (ưu tiên từ đã học)
+        const allCards = app.deckManager ? app.deckManager.getAllCards() : WORDS;
+        const cardStates = StorageManager.getAllCardStates() || {};
+        const learnedPool = allCards.filter(c => {
+          const s = cardStates[c.id];
+          return s && (s.state > 0 || s.reps > 0);
+        });
+        const pool = learnedPool.length >= 15 ? learnedPool : allCards;
+        const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
+        queue = shuffle(pool).slice(0, 15);
       } else {
-        // Mặc định: Ưu tiên dueCards, nếu không có dueCards thì dùng newCards, nếu không có newCards thì dùng queue
-        if (studyQueue.dueCards && studyQueue.dueCards.length > 0) {
-          queue = studyQueue.dueCards;
-        } else if (studyQueue.newCards && studyQueue.newCards.length > 0) {
-          queue = studyQueue.newCards;
-        } else if (studyQueue.queue && studyQueue.queue.length > 0) {
-          queue = studyQueue.queue;
+        const studyQueue = app.deckManager.getStudyQueue(null, app.settings);
+        
+        if (options && options.mode === 'new_only') {
+          queue = studyQueue.newCards || [];
+        } else if (options && options.mode === 'due_only') {
+          queue = studyQueue.dueCards || [];
         } else {
-          // Lấy 10 từ ngẫu nhiên để luyện phản xạ
-          const allCards = app.deckManager.getAllCards() || WORDS;
-          const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
-          queue = shuffle(allCards).slice(0, 10);
+          // Mặc định: Ưu tiên dueCards, nếu không có dueCards thì dùng newCards, nếu không có newCards thì dùng queue
+          if (studyQueue.dueCards && studyQueue.dueCards.length > 0) {
+            queue = studyQueue.dueCards;
+          } else if (studyQueue.newCards && studyQueue.newCards.length > 0) {
+            queue = studyQueue.newCards;
+          } else if (studyQueue.queue && studyQueue.queue.length > 0) {
+            queue = studyQueue.queue;
+          } else {
+            // Lấy 10 từ ngẫu nhiên để luyện phản xạ
+            const allCards = app.deckManager.getAllCards() || WORDS;
+            const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
+            queue = shuffle(allCards).slice(0, 10);
+          }
         }
       }
     }
@@ -735,17 +750,59 @@ function showQuizSummaryModal(stats) {
   const accuracyPct = Math.round((correct / total) * 100);
   const avgLatencySec = total > 0 ? ((stats.totalLatencyMs / total) / 1000).toFixed(1) : '0.0';
 
+  const isRedemptionMode = _quizOptions && _quizOptions.mode === 'redemption';
+  const isRedemptionSuccess = isRedemptionMode && accuracyPct >= 80;
+
+  if (isRedemptionSuccess && _quizOptions.targetDateKey) {
+    try {
+      StorageManager.redeemStreak(_quizOptions.targetDateKey);
+      if (_quizApp && typeof _quizApp.updateHeaderBadges === 'function') {
+        _quizApp.updateHeaderBadges();
+      }
+    } catch (e) {
+      console.warn('Lỗi ghi nhận chuộc lỗi streak:', e);
+    }
+  }
+
+  let headerIcon = '🎯';
+  let headerTitle = 'Hoàn Thành Bài Trắc Nghiệm!';
+  let headerDesc = 'Toàn bộ tiến trình đã được thuật toán FSRS-6 ghi nhận chính xác.';
+  let specialBadge = '';
+
+  if (isRedemptionMode) {
+    if (isRedemptionSuccess) {
+      headerIcon = '🎉';
+      headerTitle = 'Cứu Chuỗi Streak Thành Công!';
+      headerDesc = `Xuất sắc! Độ chính xác đạt ${accuracyPct}% (≥ 80%). Chuỗi ngày học của bạn đã được kết nối lại trọn vẹn!`;
+      specialBadge = `
+        <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.28); color: #10b981; border-radius: 999px; padding: 6px 14px; font-weight: 800; font-size: 0.85rem; margin: 0 auto 14px auto; display: inline-flex; align-items: center; gap: 6px;">
+          🔥 Chuỗi ngày học đã được khôi phục
+        </div>
+      `;
+    } else {
+      headerIcon = '💪';
+      headerTitle = 'Chưa Đạt Mục Tiêu Chuộc Lỗi';
+      headerDesc = `Độ chính xác hiện tại là ${accuracyPct}% (Yêu cầu ≥ 80%). Bạn chỉ cần nỗ lực thêm một chút nữa thôi!`;
+      specialBadge = `
+        <div style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.28); color: #f59e0b; border-radius: 999px; padding: 6px 14px; font-weight: 800; font-size: 0.85rem; margin: 0 auto 14px auto; display: inline-flex; align-items: center; gap: 6px;">
+          ⏳ Cần đạt từ 80% để cứu streak
+        </div>
+      `;
+    }
+  }
+
   modal.innerHTML = `
     <div class="confirm-dialog-card" style="max-width: 440px; text-align: center;">
-      <div style="font-size: 2.4rem; margin-bottom: 6px;">🎯</div>
-      <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0 0 4px 0;">Hoàn Thành Bài Trắc Nghiệm!</h3>
-      <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0 0 16px 0;">Toàn bộ tiến trình đã được thuật toán FSRS-6 ghi nhận chính xác.</p>
+      <div style="font-size: 2.4rem; margin-bottom: 6px;">${headerIcon}</div>
+      <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0 0 4px 0;">${headerTitle}</h3>
+      <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0 0 12px 0;">${headerDesc}</p>
+      ${specialBadge}
 
       <!-- 4 Bento Metrics Grid -->
       <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 16px; text-align: left;">
         <div style="background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px;">
           <span style="font-size: 0.66rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Độ chính xác</span>
-          <div style="font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: #10b981;">${accuracyPct}%</div>
+          <div style="font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: ${accuracyPct >= 80 ? '#10b981' : '#f59e0b'};">${accuracyPct}%</div>
           <span style="font-size: 0.64rem; color: var(--text-secondary);">${correct}/${total} câu đúng</span>
         </div>
 
@@ -773,11 +830,31 @@ function showQuizSummaryModal(stats) {
         </div>
       </div>
 
-      <button type="button" id="btn-quiz-summary-done" class="btn-confirm-primary" style="width: 100%; min-height: 42px; border-radius: 10px; font-weight: 700; font-size: 0.9rem; cursor: pointer;">
-        Về Trang Chủ Ôn Tập
-      </button>
+      <div style="display: flex; gap: 8px;">
+        ${isRedemptionMode && !isRedemptionSuccess ? `
+          <button type="button" id="btn-quiz-retry-redemption" class="btn-confirm-primary" style="flex: 1; min-height: 42px; border-radius: 10px; font-weight: 700; font-size: 0.88rem; cursor: pointer; background: var(--primary); color: white;">
+            ⚡ Thử Lại Ngay
+          </button>
+        ` : ''}
+        <button type="button" id="btn-quiz-summary-done" class="${isRedemptionMode && !isRedemptionSuccess ? 'btn-confirm-secondary' : 'btn-confirm-primary'}" style="flex: 1; min-height: 42px; border-radius: 10px; font-weight: 700; font-size: 0.9rem; cursor: pointer;">
+          ${isRedemptionSuccess ? '🔥 Xem Chuỗi & Tiếp Tục' : 'Về Trang Chủ'}
+        </button>
+      </div>
     </div>
   `;
+
+  const btnRetry = modal.querySelector('#btn-quiz-retry-redemption');
+  if (btnRetry) {
+    btnRetry.onclick = () => {
+      modal.className = 'confirm-dialog-overlay';
+      setTimeout(() => {
+        if (modal.parentNode) modal.parentNode.removeChild(modal);
+      }, 200);
+      if (_quizApp) {
+        startQuizSession(_quizApp, null, _quizOptions);
+      }
+    };
+  }
 
   const btnDone = modal.querySelector('#btn-quiz-summary-done');
   if (btnDone) {

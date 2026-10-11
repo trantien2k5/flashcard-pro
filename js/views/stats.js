@@ -437,10 +437,14 @@ function showDayPopover(cell, dayObj) {
   const formatted = `${parts[2]}/${parts[1]}/${parts[0]}`;
   const dateTitle = dayObj.isToday ? `Hôm nay (${formatted})` : `Ngày ${formatted}`;
 
+  let totalBadge = dayObj.count > 0 ? '+' + dayObj.count + ' từ' : '0 từ';
+  if (dayObj.isFrozen) totalBadge = '❄️ Khiên đóng băng';
+  else if (dayObj.isRecovered) totalBadge = '🛡️ Đã chuộc lỗi';
+
   tooltip.innerHTML = `
     <div class="popover-header">
       <span class="popover-date">📅 ${dateTitle}</span>
-      <span class="popover-badge-total">${dayObj.count > 0 ? '+' + dayObj.count + ' từ' : '0 từ'}</span>
+      <span class="popover-badge-total">${totalBadge}</span>
     </div>
     <div class="popover-body">
       <div class="popover-item">
@@ -729,10 +733,12 @@ export function renderStatsTab(app) {
       monthData.days.forEach(dayObj => {
         const cell = document.createElement('button');
         cell.type = 'button';
-        cell.className = `calendar-day-cell heat-${dayObj.heatLevel} ${dayObj.isToday ? 'is-today' : ''} ${dayObj.isFuture ? 'is-future' : ''}`;
+        cell.className = `calendar-day-cell heat-${dayObj.heatLevel} ${dayObj.isToday ? 'is-today' : ''} ${dayObj.isFuture ? 'is-future' : ''} ${dayObj.isFrozen ? 'is-frozen' : ''} ${dayObj.isRecovered ? 'is-recovered' : ''}`;
         cell.dataset.dateKey = dayObj.dateKey;
 
-        const countText = dayObj.count > 0 ? `+${dayObj.count}` : (dayObj.isFuture ? '' : '0');
+        let countText = dayObj.count > 0 ? `+${dayObj.count}` : (dayObj.isFuture ? '' : '0');
+        if (dayObj.isFrozen) countText = '❄️';
+        else if (dayObj.isRecovered) countText = '🛡️';
 
         cell.innerHTML = `
           <div class="day-cell-top">

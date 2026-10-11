@@ -2382,3 +2382,407 @@
 .btn-planner-save:active {
   transform: scale(0.97);
 }
+
+/* ==========================================================================
+   STREAK RECOVERY BANNER (HOME DASHBOARD ALERT)
+   ========================================================================== */
+
+.streak-recovery-alert-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(239, 68, 68, 0.08));
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: var(--radius-lg, 16px);
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.08);
+}
+
+.streak-recovery-alert-card:hover {
+  transform: translateY(-1.5px);
+  border-color: rgba(245, 158, 11, 0.55);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.16);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.16), rgba(239, 68, 68, 0.12));
+}
+
+.alert-pulse-dot {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 0 rgba(239, 68, 68, 0.6);
+  animation: pulseBrokenStreak 1.8s infinite;
+}
+
+.recovery-icon-badge {
+  font-size: 1.5rem;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245, 158, 11, 0.18);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  flex-shrink: 0;
+}
+
+.recovery-text-group {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.recovery-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.recovery-main-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.recovery-badge-pill {
+  font-size: 0.64rem;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  text-transform: uppercase;
+}
+
+.recovery-sub-text {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.btn-recovery-cta {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(245, 158, 11, 0.3);
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.btn-recovery-cta:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+/* ==========================================================================
+   STREAK HUB & RECOVERY MODAL
+   ========================================================================== */
+
+.streak-hub-dialog {
+  max-width: 480px;
+}
+
+.badge-streak-hub {
+  background: rgba(245, 158, 11, 0.16);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #f59e0b;
+}
+
+.streak-hub-grid {
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 8px !important;
+  margin-bottom: 14px !important;
+}
+
+.streak-hub-grid .quick-stat-tile {
+  position: relative;
+  padding: 10px 8px !important;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.streak-hub-grid .tile-icon {
+  font-size: 1.35rem;
+  margin-bottom: 2px;
+}
+
+.streak-hub-grid .tile-val {
+  font-size: 1.15rem !important;
+}
+
+.streak-hub-grid .tile-label {
+  font-size: 0.65rem !important;
+  white-space: nowrap;
+}
+
+.tile-broken-state {
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  background: rgba(239, 68, 68, 0.06) !important;
+}
+
+.tile-tag-broken {
+  display: inline-block;
+  font-size: 0.58rem;
+  font-weight: 800;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.12);
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin-top: 2px;
+}
+
+/* Broken Alert Section */
+.streak-hub-broken-alert {
+  background: var(--bg-tertiary);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.broken-alert-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.broken-alert-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.broken-alert-title {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 2px 0;
+}
+
+.broken-alert-sub {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+.broken-alert-desc {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Option Cards */
+.streak-recovery-option-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  transition: all 0.2s ease;
+}
+
+.streak-recovery-option-card.option-available {
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.streak-recovery-option-card.option-disabled {
+  opacity: 0.6;
+}
+
+.option-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.option-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.option-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 3px;
+  flex-wrap: wrap;
+}
+
+.option-name {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.option-badge {
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.option-badge.badge-ok {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.option-badge.badge-empty {
+  background: rgba(148, 163, 184, 0.15);
+  color: var(--text-muted);
+}
+
+.option-badge.badge-quiz {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--primary);
+}
+
+.option-badge.badge-cooldown {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.option-desc {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.btn-use-streak-freeze {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+}
+
+.btn-use-streak-freeze:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-use-streak-freeze:disabled {
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.btn-start-redemption-quiz {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+}
+
+.btn-start-redemption-quiz:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-start-redemption-quiz:disabled {
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* Safe State Card */
+.streak-hub-safe-card {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.safe-status-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.safe-status-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.safe-status-title {
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 2px 0;
+}
+
+.safe-status-sub {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+/* Rules Box */
+.streak-hub-rules-box {
+  background: var(--bg-tertiary) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  padding: 10px 12px !important;
+}
+
+@media (max-width: 480px) {
+  .streak-recovery-option-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .btn-use-streak-freeze,
+  .btn-start-redemption-quiz {
+    width: 100%;
+    text-align: center;
+  }
+}
+

@@ -1,6 +1,6 @@
 import { StorageManager, BackupService } from '../services/storage.js';
 import { StatsManager } from '../core/stats.js';
-import { showConfirm, showToast, openBehavioralOptimizerModal } from './components.js';
+import { showConfirm, showToast, openBehavioralOptimizerModal, showStreakHubModal } from './components.js';
 
 function saveAppSettings(app) {
   StorageManager.saveSettings(app.settings);
@@ -384,6 +384,12 @@ export function setupSettingsUI(app) {
       const streakPill = document.getElementById('settings-streak-pill');
       if (streakPill) {
         streakPill.textContent = `🔥 ${streak} ngày học`;
+        streakPill.style.cursor = 'pointer';
+        streakPill.title = 'Nhấn để mở Hồ sơ Streak & Khiên bảo vệ';
+        if (!streakPill._bound) {
+          streakPill._bound = true;
+          streakPill.onclick = () => showStreakHubModal(app);
+        }
       }
     } catch (e) {}
 

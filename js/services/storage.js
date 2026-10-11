@@ -5,7 +5,7 @@
 
 import { LEGACY_ID_MAP } from '../../data/index.js';
 import { getLocalDateKey } from '../utils.js';
-import { DEFAULT_SETTINGS, APP_CONFIG } from '../config.js';
+import { DEFAULT_SETTINGS, APP_CONFIG, DEFAULT_STREAK_STATE, FREEZE_REWARD_INTERVAL } from '../config.js';
 
 export { DEFAULT_SETTINGS };
 
@@ -28,11 +28,13 @@ const STORAGE_KEYS = {
   STUDY_LOGS: 'fsrs_study_logs_v1',
   STUDY_TIME: 'fsrs_study_time_v1',
   USER_PROGRESS: 'fsrs_user_progress_v1',
+  STREAK_STATE: 'fsrs_streak_state_v1',
   SAFETY_SNAPSHOT: 'fsrs_safety_snapshot_v1'
 };
 
 let _cardsCache = null;
 let _settingsCache = null;
+let _streakStateCache = null;
 let _logsCache = null;
 let _timeMapCache = null;
 let _customDecksCache = null;
@@ -177,11 +179,20 @@ export class StorageManager {
         _logsCache = logs;
       }
 
-      if (settings && settings.length > 0 && !_settingsCache) {
-        const found = settings.find(s => s.key === 'user_settings');
-        if (found) {
-          const { key, ...rest } = found;
-          _settingsCache = { ...DEFAULT_SETTINGS, ...rest };
+      if (settings && settings.length > 0) {
+        if (!_settingsCache) {
+          const found = settings.find(s => s.key === 'user_settings');
+          if (found) {
+            const { key, ...rest } = found;
+            _settingsCache = { ...DEFAULT_SETTINGS, ...rest };
+          }
+        }
+        if (!_streakStateCache) {
+          const foundStreak = settings.find(s => s.key === 'streak_state');
+          if (foundStreak) {
+            const { key, ...rest } = foundStreak;
+            _streakStateCache = { ...DEFAULT_STREAK_STATE, ...rest };
+          }
         }
       }
 
@@ -243,6 +254,7 @@ export class StorageManager {
   static invalidateCache() {
     _cardsCache = null;
     _settingsCache = null;
+    _streakStateCache = null;
     _logsCache = null;
     _timeMapCache = null;
     _customDecksCache = null;
@@ -715,6 +727,108 @@ export class StorageManager {
     return isPinned;
   }
 
+  // ==========================================
+  // STREAK STATE & SHIELD RECOVERY MANAGEMENT
+  // ==========================================
+
+  static getStreakState() {
+    if (_streakStateCache !== null) return _streakStateCache;
+    try {
+      if (typeof localStorage === 'undefined') return { ...DEFAULT_STREAK_STATE };
+      const data = localStorage.getItem(STORAGE_KEYS.STREAK_STATE);
+      _streakStateCache = data ? { ...DEFAULT_STREAK_STATE, ...JSON.parse(data) } : { ...DEFAULT_STREAK_STATE };
+      return _streakStateCache;
+    } catch (e) {
+      console.error('Error reading streak state:', e);
+      return { ...DEFAULT_STREAK_STATE };
+    }
+  }
+
+  static saveStreakState(state) {
+    if (!state || typeof state !== 'object') return;
+    try {
+      _streakStateCache = { ...state };
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem(STORAGE_KEYS.STREAK_STATE, JSON.stringify(_streakStateCache));
+      }
+      if (_dbPromise) {
+        _dbPromise.then(db => {
+          this._putToStore(db, STORES.SETTINGS, { key: 'streak_state', ..._streakStateCache });
+        }).catch(() => {});
+      }
+    } catch (e) {
+      console.error('Error saving streak state:', e);
+    }
+  }
+
+  static useStreakFreeze(dateKey) {
+    if (!dateKey) return false;
+    const state = this.getStreakState();
+    if ((state.freezes || 0) <= 0) return false;
+
+    const frozen = Array.isArray(state.frozenDates) ? [...state.frozenDates] : [];
+    if (!frozen.includes(dateKey)) {
+      frozen.push(dateKey);
+    }
+    const updated = {
+      ...state,
+      freezes: Math.max(0, state.freezes - 1),
+      frozenDates: frozen
+    };
+    this.saveStreakState(updated);
+    this.bumpStateRevision();
+    return true;
+  }
+
+  static redeemStreak(dateKey) {
+    if (!dateKey) return false;
+    const state = this.getStreakState();
+    const recovered = Array.isArray(state.recoveredDates) ? [...state.recoveredDates] : [];
+    if (!recovered.includes(dateKey)) {
+      recovered.push(dateKey);
+    }
+    const updated = {
+      ...state,
+      recoveredDates: recovered,
+      lastRecoveryTimestamp: Date.now()
+    };
+    this.saveStreakState(updated);
+    this.bumpStateRevision();
+    return true;
+  }
+
+  static checkAndAwardStreakFreeze(currentStreak) {
+    if (typeof currentStreak !== 'number' || currentStreak < FREEZE_REWARD_INTERVAL) {
+      return { awarded: false, freezes: (this.getStreakState()?.freezes || 0) };
+    }
+    const state = this.getStreakState();
+    const milestone = Math.floor(currentStreak / FREEZE_REWARD_INTERVAL) * FREEZE_REWARD_INTERVAL;
+    const lastAwarded = state.lastAwardedMilestone || 0;
+    const maxFreezes = state.maxFreezes || 2;
+    let awarded = false;
+    let newFreezes = state.freezes || 0;
+
+    if (milestone > lastAwarded) {
+      if (newFreezes < maxFreezes) {
+        newFreezes += 1;
+        awarded = true;
+      }
+      const updated = {
+        ...state,
+        freezes: newFreezes,
+        lastAwardedMilestone: milestone,
+        longestStreak: Math.max(state.longestStreak || 0, currentStreak)
+      };
+      this.saveStreakState(updated);
+      return { awarded, freezes: newFreezes, milestone };
+    }
+
+    if (currentStreak > (state.longestStreak || 0)) {
+      this.saveStreakState({ ...state, longestStreak: currentStreak });
+    }
+    return { awarded: false, freezes: newFreezes, milestone: lastAwarded };
+  }
+
   static getCustomDecks() {
     if (_customDecksCache !== null) return _customDecksCache;
     try {
@@ -937,6 +1051,7 @@ export class StorageManager {
       d: this.getCustomDecks(),
       st: this.getStudyTimeMap(),
       up: this.getUserProgress(),
+      streak: this.getStreakState(),
       prefs: this.getUserPreferences()
     };
   }
@@ -1152,6 +1267,12 @@ export class StorageManager {
         localStorage.setItem('fc_pro_pinned_decks', JSON.stringify(rawPinnedDecks));
       }
 
+      // 7.5. Trạng thái Streak & Bảo vệ chuỗi ngày
+      const rawStreak = data.streak || data.streakState;
+      if (rawStreak && typeof rawStreak === 'object') {
+        this.saveStreakState({ ...DEFAULT_STREAK_STATE, ...rawStreak });
+      }
+
       // 8. Ghi đè đồng bộ vào IndexedDB bền vững
       if (_dbPromise) {
         const db = await _dbPromise;
@@ -1228,6 +1349,7 @@ export class StorageManager {
       _customDecksCache = [];
       _timeMapCache = {};
       _userProgressCache = { id: 'global_progress', completedSubtopics: [], pinnedTopics: [] };
+      _streakStateCache = { ...DEFAULT_STREAK_STATE };
       _settingsCache = { ...DEFAULT_SETTINGS };
 
       if (typeof localStorage !== 'undefined') {
@@ -1236,6 +1358,7 @@ export class StorageManager {
         localStorage.removeItem(STORAGE_KEYS.CUSTOM_DECKS);
         localStorage.removeItem(STORAGE_KEYS.STUDY_TIME);
         localStorage.removeItem(STORAGE_KEYS.USER_PROGRESS);
+        localStorage.removeItem(STORAGE_KEYS.STREAK_STATE);
         localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(DEFAULT_SETTINGS));
       }
 
