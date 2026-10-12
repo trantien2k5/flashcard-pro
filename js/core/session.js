@@ -4,6 +4,7 @@
 
 import { FSRS, Rating, State } from './fsrs.js';
 import { StorageManager } from '../services/storage.js';
+import { DEFAULT_BATCH_SIZE, RELEARN_STEP_OFFSET } from '../config.js';
 import { 
   unlockAudioContext, 
   preloadWordAudio, 
@@ -70,6 +71,14 @@ export class StudySession {
     });
     this.onFinish = options.onFinish || (() => {});
     this.onCardChange = options.onCardChange || (() => {});
+    this.onBatchCheckpoint = options.onBatchCheckpoint || null;
+
+    this.relearnInSession = options.relearnInSession !== false;
+    this.relearnStepOffset = options.relearnStepOffset || RELEARN_STEP_OFFSET || 3;
+    this.batchSize = options.batchSize || DEFAULT_BATCH_SIZE || 15;
+    this.batchNumber = 1;
+    this.cardsReviewedInCurrentBatch = 0;
+    this.relearningCardIds = new Set();
 
     this.queue = [];
     this.currentIndex = 0;
@@ -88,7 +97,8 @@ export class StudySession {
       strengthened: 0,
       promotedMature: 0,
       recovered: 0,
-      relearnCount: 0
+      relearnCount: 0,
+      inSessionRecovered: 0
     };
   }
 
@@ -137,12 +147,17 @@ export class StudySession {
     this.sessionId = `session_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
     this.ratedReviewKeys.clear();
     this.failedInSessionIds = new Set();
+    this.relearningCardIds = new Set();
+    this.batchNumber = 1;
+    this.cardsReviewedInCurrentBatch = 0;
+    this.batchSize = this.settings?.batchSize || DEFAULT_BATCH_SIZE || 15;
     this.sessionStats = {
       again: 0,
       hard: 0,
       good: 0,
       easy: 0,
       reviewedCount: 0,
+      inSessionRecovered: 0,
       total: this.totalCards
     };
 
@@ -225,7 +240,9 @@ export class StudySession {
       index: this.currentIndex,
       completed: this.completedCount,
       total: this.totalCards || this.queue.length,
-      remaining: this.queue.length - this.currentIndex
+      remaining: this.queue.length - this.currentIndex,
+      isRelearnPass: !!this.currentCard._isRelearnPass,
+      isAudioBlind: !!this.currentCard._audioBlind
     });
 
     // Hủy timer phát âm cũ nếu có
@@ -276,6 +293,7 @@ export class StudySession {
     if (!this.currentCard) return null;
     this.updateSettings();
     const shouldPersist = options !== false && options.persist !== false;
+    const isRelearnPass = this.currentCard._isRelearnPass === true;
 
     const reviewKey = `${this.sessionId || 'session'}_${this.currentIndex}_${this.currentCard.id}`;
     if (this.ratedReviewKeys.has(reviewKey)) {
@@ -283,6 +301,35 @@ export class StudySession {
     }
     this.ratedReviewKeys.add(reviewKey);
 
+    const cardId = this.currentCard.id;
+    const latencySec = typeof options.latencySec === 'number' ? options.latencySec : null;
+    const backViewSec = typeof options.backViewSec === 'number' ? options.backViewSec : null;
+
+    // ====================================================
+    // TRƯỜNG HỢP 1: LƯỢT ÔN LẠI TRONG PHIÊN (RELEARN PASS)
+    // ====================================================
+    if (isRelearnPass) {
+      if (rating === Rating.Again) {
+        // Vẫn chưa nhớ -> tiếp tục lùi lại sau 3 thẻ để ôn lại tiếp
+        if (this.relearnInSession) {
+          const insertIdx = Math.min(this.queue.length, this.currentIndex + 1 + this.relearnStepOffset);
+          this.queue.splice(insertIdx, 0, { ...this.currentCard, _isRelearnPass: true });
+        }
+      } else {
+        // Đã nhớ lại thành công (Hard, Good hoặc Easy)!
+        this.relearningCardIds.delete(cardId);
+        this.completedUniqueIds.add(cardId);
+        this.completedCount = this.completedUniqueIds.size;
+        this.sessionStats.inSessionRecovered = (this.sessionStats.inSessionRecovered || 0) + 1;
+      }
+
+      this.currentIndex++;
+      return this.loadCurrentCard();
+    }
+
+    // ====================================================
+    // TRƯỜNG HỢP 2: LƯỢT ĐÁNH GIÁ ĐẦU TIÊN CỦA THẺ
+    // ====================================================
     const now = new Date();
     const oldState = this.currentCard.fsrsState;
     const nextState = this.fsrs.calculateNextState(oldState, rating, now, {
@@ -291,11 +338,7 @@ export class StudySession {
       leechAction: this.settings?.leechAction || 'suspend'
     });
 
-    const cardId = this.currentCard.id;
-    const latencySec = typeof options.latencySec === 'number' ? options.latencySec : null;
-    const backViewSec = typeof options.backViewSec === 'number' ? options.backViewSec : null;
-
-    // Lưu trạng thái thẻ
+    // Lưu trạng thái thẻ vào Storage & IndexedDB
     if (shouldPersist) {
       StorageManager.saveCardState(nextState);
 
@@ -332,6 +375,16 @@ export class StudySession {
     if (rating === Rating.Again) {
       this.sessionStats.again++;
       this.sessionStats.relearnCount = (this.sessionStats.relearnCount || 0) + 1;
+
+      // VÒNG LẶP CỦNG CỐ IN-SESSION: Đưa thẻ vào kiểm tra lại sau 3 thẻ
+      if (this.relearnInSession) {
+        this.relearningCardIds.add(cardId);
+        const insertIdx = Math.min(this.queue.length, this.currentIndex + 1 + this.relearnStepOffset);
+        this.queue.splice(insertIdx, 0, { ...this.currentCard, _isRelearnPass: true });
+        // Thẻ chưa vượt qua nên CHƯA tính hoàn thành
+      } else {
+        this.completedUniqueIds.add(cardId);
+      }
     } else {
       if (rating === Rating.Hard) this.sessionStats.hard++;
       else if (rating === Rating.Good) this.sessionStats.good++;
@@ -348,8 +401,11 @@ export class StudySession {
       if (nextStability >= 21 && oldStability < 21) {
         this.sessionStats.promotedMature = (this.sessionStats.promotedMature || 0) + 1;
       }
+
+      this.completedUniqueIds.add(cardId);
     }
     this.sessionStats.reviewedCount++;
+    this.completedCount = this.completedUniqueIds.size;
 
     if (shouldPersist) {
       try {
@@ -361,9 +417,22 @@ export class StudySession {
       } catch (e) {}
     }
 
-    // Ghi nhận hoàn thành thẻ trong phiên học
-    this.completedUniqueIds.add(cardId);
-    this.completedCount = this.completedUniqueIds.size;
+    // CHECKPOINT CHIA NHỎ PHIÊN THÔNG MINH (Smart Micro-Batching)
+    this.cardsReviewedInCurrentBatch++;
+    if (this.cardsReviewedInCurrentBatch >= this.batchSize && (this.currentIndex + 1) < this.queue.length) {
+      if (typeof this.onBatchCheckpoint === 'function') {
+        const checkpointData = {
+          batchNumber: this.batchNumber,
+          cardsInBatch: this.cardsReviewedInCurrentBatch,
+          completedCount: this.completedCount,
+          totalCards: this.totalCards,
+          remaining: this.queue.length - (this.currentIndex + 1)
+        };
+        this.cardsReviewedInCurrentBatch = 0;
+        this.batchNumber++;
+        this.onBatchCheckpoint(checkpointData);
+      }
+    }
 
     this.currentIndex++;
     return this.loadCurrentCard();

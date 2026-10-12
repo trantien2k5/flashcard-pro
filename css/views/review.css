@@ -1659,3 +1659,172 @@
 .formula-steps-list strong {
   color: var(--text-primary);
 }
+
+/* ==========================================================================
+   BỘ CHẾ ĐỘ HỌC CÓ CHỦ ĐÍCH (Targeted Systematic Study Modes)
+   ========================================================================== */
+.home-study-modes-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.modes-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.modes-header-title {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.modes-header-sub {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.home-modes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .home-modes-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+.home-mode-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+  text-align: left;
+  user-select: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-mode-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.home-mode-card:active {
+  transform: scale(0.98);
+}
+
+.home-mode-card.mode-weak:hover {
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.12);
+}
+
+.home-mode-card.mode-audio:hover {
+  border-color: rgba(14, 165, 233, 0.4);
+  box-shadow: 0 6px 18px rgba(14, 165, 233, 0.12);
+}
+
+.home-mode-card.mode-sprint:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.12);
+}
+
+.mode-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.mode-weak .mode-icon-wrap {
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.mode-audio .mode-icon-wrap {
+  background: rgba(14, 165, 233, 0.12);
+}
+
+.mode-sprint .mode-icon-wrap {
+  background: rgba(245, 158, 11, 0.12);
+}
+
+.mode-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.mode-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.mode-name {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mode-badge {
+  font-size: 0.6rem;
+  font-weight: 750;
+  padding: 2px 5px;
+  border-radius: 99px;
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  white-space: nowrap;
+}
+
+.badge-audio {
+  background: rgba(14, 165, 233, 0.12);
+  color: #0284c7;
+}
+
+.badge-sprint {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+}
+
+.mode-desc {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-theme="dark"] .home-mode-card {
+  background: rgba(19, 27, 46, 0.85);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+

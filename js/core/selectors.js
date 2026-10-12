@@ -4,7 +4,7 @@
 
 import { StorageManager } from '../services/storage.js';
 import { FSRS, State, isCardDue } from './fsrs.js';
-import { MASTERY_STABILITY_THRESHOLD, getLearningGoal } from '../config.js';
+import { MASTERY_STABILITY_THRESHOLD, STUDY_MODES, getLearningGoal } from '../config.js';
 import { getLocalDateKey } from '../utils.js';
 import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords, WORDS_MAP } from '../../data/index.js';
 
@@ -395,6 +395,13 @@ export class DeckManager {
     };
 
     const mode = options?.mode || (options?.onlyDue ? 'due_only' : 'auto');
+    const isAudioBlind = mode === STUDY_MODES.AUDIO_BLIND || options?.audioBlind === true || mode === 'audio_blind';
+    const stateRev = StorageManager.getStateRevision();
+    const cacheKey = `${deckId || 'all'}_${subtopic || 'none'}_${mode}_${isAudioBlind ? 'ab' : 'norm'}_${stateRev}`;
+
+    if (this._studyQueueCache && this._studyQueueCache.has(cacheKey)) {
+      return this._studyQueueCache.get(cacheKey);
+    }
 
     let targetCards = [];
 
@@ -442,29 +449,48 @@ export class DeckManager {
         targetCards = this.getCardsByDeckId(deckId);
       }
     } else {
-      // Toàn bộ ứng dụng
+      // Toàn bộ ứng dụng (Đã deduplicate sẵn từ trước trong rebuildAllCardsList)
       targetCards = this.allCards;
     }
 
-    // Đảm bảo không bao giờ có thẻ trùng lặp ID trong danh sách học
-    const seenTargetIds = new Set();
-    const uniqueTargetCards = [];
-    for (const c of targetCards) {
-      if (c && c.id && !seenTargetIds.has(c.id)) {
-        seenTargetIds.add(c.id);
-        uniqueTargetCards.push(c);
+    const isAppWide = (deckId === null || deckId === undefined);
+    if (!isAppWide) {
+      // Đảm bảo không bao giờ có thẻ trùng lặp ID trong danh sách học theo chủ đề
+      const seenTargetIds = new Set();
+      const uniqueTargetCards = [];
+      for (const c of targetCards) {
+        if (c && c.id && !seenTargetIds.has(c.id)) {
+          seenTargetIds.add(c.id);
+          uniqueTargetCards.push(c);
+        }
       }
+      targetCards = uniqueTargetCards;
     }
-    targetCards = uniqueTargetCards;
 
     const now = new Date();
     const dueCards = [];
     const newCards = [];
     const learningCards = [];
+    const weakCards = [];
 
-    for (const card of targetCards) {
-      const hydratedCard = this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card;
-      const state = StorageManager.getCardState(card.id);
+    const cardStates = StorageManager.getAllCardStates() || {};
+    let a1Learned = 0, a1Total = 0;
+    let a2Learned = 0, a2Total = 0;
+    let b1Learned = 0, b1Total = 0;
+    let b2Learned = 0, b2Total = 0;
+
+    for (let i = 0; i < targetCards.length; i++) {
+      const card = targetCards[i];
+      const hydratedCard = isAppWide ? card : (this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card);
+      const state = cardStates[card.id];
+
+      // Tích hợp đếm số từ theo bậc CEFR ngay trong lượt duyệt này (Zero duplicate loops)
+      const lvl = (card.level || card.cefr || 'A1').toUpperCase();
+      const isLearned = state && state.state !== State.New && state.state !== 0 && !state.suspended;
+      if (lvl === 'A1') { a1Total++; if (isLearned) a1Learned++; }
+      else if (lvl === 'A2') { a2Total++; if (isLearned) a2Learned++; }
+      else if (lvl === 'B1') { b1Total++; if (isLearned) b1Learned++; }
+      else if (lvl === 'B2') { b2Total++; if (isLearned) b2Learned++; }
 
       // Bỏ qua thẻ đã tạm dừng (Suspended)
       if (state && state.suspended === true) {
@@ -478,7 +504,27 @@ export class DeckManager {
       } else if (state.state === State.Learning || state.state === State.Relearning) {
         learningCards.push({ ...hydratedCard, fsrsState: state });
       }
+
+      // Thu thập thẻ khó / từ hay quên (Leech & Low Stability Hunter)
+      if (state && state.state !== State.New && state.state !== 0 && !state.suspended) {
+        const s = Number(state.stability) || 0;
+        const d = Number(state.difficulty) || 0;
+        const lapses = Number(state.lapses) || 0;
+        const isLeech = state.isLeech === true || lapses >= 2;
+        const isLowStability = s < 3;
+        const isHighDifficulty = d >= 7.0;
+        if (isLeech || isLowStability || isHighDifficulty) {
+          weakCards.push({
+            ...hydratedCard,
+            fsrsState: state,
+            _weakScore: (lapses * 15) + ((10 - Math.min(10, s)) * 2) + d
+          });
+        }
+      }
     }
+
+    // Sắp xếp từ khó nhất và hay quên nhất lên đầu
+    weakCards.sort((a, b) => (b._weakScore || 0) - (a._weakScore || 0));
 
     // 1. SẮP XẾP ƯU TIÊN THEO ĐỘ KHẨN CẤP FSRS R(t) (Urgency Sorting)
     // Tính toán xác suất nhớ thực tế R(t). Thẻ có R(t) thấp nhất (nguy cơ quên cao nhất) được đưa lên đầu để cứu nguy trước
@@ -500,25 +546,6 @@ export class DeckManager {
     });
 
     // 2. SẮP XẾP TỪ MỚI THEO NẤC THANG CEFR (A1 -> A2 -> B1 -> B2 -> C1) & ĐỘ PHỔ BIẾN CỐT LÕI
-    const cardStates = StorageManager.getAllCardStates() || {};
-    
-    // Đếm số từ đã học theo từng bậc CEFR để xác định nấc thang hiện tại
-    let a1Learned = 0, a1Total = 0;
-    let a2Learned = 0, a2Total = 0;
-    let b1Learned = 0, b1Total = 0;
-    let b2Learned = 0, b2Total = 0;
-
-    for (let i = 0; i < this.allCards.length; i++) {
-      const c = this.allCards[i];
-      const lvl = (c.level || c.cefr || 'A1').toUpperCase();
-      const s = cardStates[c.id];
-      const isLearned = s && s.state !== State.New && s.state !== 0 && !s.suspended;
-      if (lvl === 'A1') { a1Total++; if (isLearned) a1Learned++; }
-      else if (lvl === 'A2') { a2Total++; if (isLearned) a2Learned++; }
-      else if (lvl === 'B1') { b1Total++; if (isLearned) b1Learned++; }
-      else if (lvl === 'B2') { b2Total++; if (isLearned) b2Learned++; }
-    }
-
     const a1Ratio = a1Total > 0 ? (a1Learned / a1Total) : 0;
     const a2Ratio = a2Total > 0 ? (a2Learned / a2Total) : 0;
     const b1Ratio = b1Total > 0 ? (b1Learned / b1Total) : 0;
@@ -643,6 +670,28 @@ export class DeckManager {
     } else if (mode === 'new_only') {
       // Chỉ học các thẻ MỚI CHƯA TỪNG HỌC
       queueCards = selectedNew;
+    } else if (mode === 'weak_hunter' || mode === STUDY_MODES.WEAK_HUNTER) {
+      // Chế độ TIÊU DIỆT TỪ KHÓ (Leech & Weak Words Hunter)
+      queueCards = weakCards.length > 0 ? weakCards.slice(0, 20) : selectedDue.slice(0, 20);
+    } else if (mode === 'sprint_10' || mode === STUDY_MODES.SPRINT_10) {
+      // Chế độ TỐC CHIẾN 3 PHÚT (Quick 10-Card Sprint)
+      if (selectedDue.length >= 10) {
+        queueCards = selectedDue.slice(0, 10);
+      } else {
+        const pool = [...selectedDue, ...weakCards, ...selectedNew];
+        const seen = new Set();
+        queueCards = [];
+        for (const c of pool) {
+          if (c && c.id && !seen.has(c.id)) {
+            seen.add(c.id);
+            queueCards.push(c);
+            if (queueCards.length >= 10) break;
+          }
+        }
+      }
+    } else if (mode === 'audio_blind' || mode === STUDY_MODES.AUDIO_BLIND) {
+      // Chế độ LUYỆN NGHE PHẢN XẠ (Audio Blind Recall)
+      queueCards = selectedDue.length > 0 ? selectedDue : [...selectedDue, ...selectedNew];
     } else if (mode === 'due_first' || mode === 'auto' || mode === 'mixed') {
       // BẮT ĐẦU ÔN FLASHCARD: Mix trọn vẹn [Tất cả từ đến hạn cần ôn] + [Đủ số lượng mục tiêu từ mới hôm nay]
       queueCards = [...selectedDue, ...selectedNew];
@@ -674,23 +723,52 @@ export class DeckManager {
     for (const card of queueCards) {
       if (card && card.id && !seenQueueIds.has(card.id)) {
         seenQueueIds.add(card.id);
-        queue.push({
+        const cardObj = {
           ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
           fsrsState: card.fsrsState || StorageManager.getCardState(card.id) || FSRS.createEmptyCard(card.id)
-        });
+        };
+        if (isAudioBlind) {
+          cardObj._audioBlind = true;
+        }
+        queue.push(cardObj);
       }
     }
 
-    return {
+    const result = {
       dueCards: selectedDue,
       newCards: selectedNew,
+      weakCards,
       learningCards,
       isBacklogProtected,
       totalDue: dueCards.length,
       totalNew: newCards.length,
+      totalWeak: weakCards.length,
       totalLearned: targetCards.length - newCards.length,
       totalCards: targetCards.length,
       queue
+    };
+
+    if (!this._studyQueueCache) this._studyQueueCache = new Map();
+    if (this._studyQueueCache.size > 20) this._studyQueueCache.clear();
+    this._studyQueueCache.set(cacheKey, result);
+
+    return result;
+  }
+
+  /**
+   * Thống kê số lượng thẻ tương ứng cho từng Chế Độ Học Có Chủ Đích (Targeted Modes)
+   */
+  getStudyModeCounts(deckId = null, userSettings = {}) {
+    const studyData = this.getStudyQueue(deckId, userSettings, null, { mode: 'due_first' });
+    const dueCount = studyData.totalDue || 0;
+    const newCount = studyData.newCards?.length || 0;
+    const weakCount = studyData.totalWeak || 0;
+    const sprintCount = Math.min(10, dueCount > 0 ? dueCount : (weakCount > 0 ? weakCount : (newCount > 0 ? newCount : 10)));
+    return {
+      dueCount,
+      newCount,
+      weakCount,
+      sprintCount
     };
   }
 

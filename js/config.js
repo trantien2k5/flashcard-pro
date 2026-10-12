@@ -37,6 +37,19 @@ export const FREEZE_REWARD_INTERVAL = 7; // Học đủ 7 ngày liên tục đư
 export const MASTERY_STABILITY_THRESHOLD = 30; // Ngưỡng đã thuộc / ghi nhớ sâu thống nhất toàn hệ thống (Mức 5: ≥ 30 ngày)
 
 /**
+ * Các chế độ học tập có chủ đích chuyên sâu (Targeted Systematic Study Modes)
+ */
+export const STUDY_MODES = {
+  DAILY: 'due_first',         // Chuẩn FSRS: Kết hợp từ đến hạn + mục tiêu từ mới
+  WEAK_HUNTER: 'weak_hunter', // Diệt từ khó: S < 3 ngày hoặc lapses >= 2
+  AUDIO_BLIND: 'audio_blind', // Luyện nghe phản xạ: Ẩn chữ mặt trước, chỉ nghe âm thanh
+  SPRINT_10: 'sprint_10'      // Tốc chiến 3 phút: 10 từ cấp bách nhất
+};
+
+export const DEFAULT_BATCH_SIZE = 15; // Kích thước chặng thông minh mặc định (15 từ/block)
+export const RELEARN_STEP_OFFSET = 3; // Số thẻ lùi lại khi bấm Again trong phiên học
+
+/**
  * Danh mục mục tiêu trình độ chuẩn hóa theo Khung Tham Chiếu Châu Âu CEFR & Chứng chỉ Quốc Tế
  * Đồng bộ chính xác với cơ sở dữ liệu từ vựng (A1: 564, A2: 864, B1: 1705, B2: 758, C1: 247 -> Tổng: 4.138 từ)
  */

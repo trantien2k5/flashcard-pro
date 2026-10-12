@@ -91,7 +91,19 @@ export class FlashcardApp {
       this.switchTab('tab-review');
       this.updateHeaderBadges();
 
-      // 7. Đăng ký Service Worker
+      // 7. Tự động Pre-warm queue học tập trong thời gian nhàn rỗi (Zero-lag khi bấm BẮT ĐẦU HỌC)
+      if (typeof window !== 'undefined') {
+        const scheduleIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 120));
+        scheduleIdle(() => {
+          try {
+            if (this.deckManager && this.settings) {
+              this.deckManager.getStudyQueue(null, this.settings, null, { mode: 'due_first' });
+            }
+          } catch (e) {}
+        });
+      }
+
+      // 8. Đăng ký Service Worker
       this.registerServiceWorker();
 
     } catch (err) {
@@ -532,6 +544,8 @@ export class FlashcardApp {
       if (!queue || queue.length === 0) {
         if (options && options.mode === 'due_only') {
           this.showToast('Tuyệt vời! Hiện chưa có từ nào đến hạn cần ôn trong mục này.', 'info');
+        } else if (options && options.mode === 'weak_hunter') {
+          this.showToast('Tuyệt vời! Bạn không có từ khó nào cần củng cố lúc này.', 'success');
         } else {
           this.showToast('Không có từ vựng nào để học trong mục này.', 'info');
         }

@@ -9,7 +9,6 @@ import { escapeHTML, highlightKeyword } from '../utils.js';
 import { speak } from '../services/audio.js';
 import { BehavioralOptimizer, StatsManager } from '../core/stats.js';
 import { MASTERY_STABILITY_THRESHOLD } from '../config.js';
-import { startQuizSession } from './quiz.js';
 
 /* ==========================================================================
    0. MODALS DYNAMIC MOUNTING (APP SHELL ARCHITECTURE)
@@ -1157,11 +1156,13 @@ export function showStreakHubModal(app) {
   if (btnStartRedeem && !btnStartRedeem.disabled) {
     btnStartRedeem.onclick = () => {
       modal.classList.remove('active');
-      startQuizSession(app, null, {
-        mode: 'redemption',
-        targetDateKey: brokenInfo.missedDate,
-        potentialStreak: brokenInfo.potentialRestoredStreak
-      });
+      if (typeof app.startQuizSession === 'function') {
+        app.startQuizSession(null, {
+          mode: 'redemption',
+          targetDateKey: brokenInfo.missedDate,
+          potentialStreak: brokenInfo.potentialRestoredStreak
+        });
+      }
     };
   }
 }

@@ -480,6 +480,19 @@ export class StatsManager {
     const now = new Date();
     const rolloverHour = Number(settings.rolloverHour) || 0;
 
+    const activeGoalId = settings.activeGoal?.id || 'cefr-b1';
+    const activeGoal = getLearningGoal(activeGoalId);
+    const targetWords = Number(settings.activeGoal?.targetWords) || activeGoal.defaultTargetWords || 3027;
+    const stateRev = StorageManager.getStateRevision ? StorageManager.getStateRevision() : 0;
+    const cacheKey = `${activeGoalId}_${targetWords}_${stateRev}_${logs.length}_${rolloverHour}_${allCards.length}`;
+
+    if (!StatsManager._cefrRoadmapCache) {
+      StatsManager._cefrRoadmapCache = new Map();
+    }
+    if (StatsManager._cefrRoadmapCache.has(cacheKey)) {
+      return StatsManager._cefrRoadmapCache.get(cacheKey);
+    }
+
     // 1. Phân loại theo từng bậc CEFR (A1, A2, B1, B2, C1)
     const levels = {
       A1: { id: 'A1', name: 'Căn Bản', fullTitle: 'Trình Độ A1 (Căn Bản Khởi Đầu)', color: '#10b981', total: 0, learned: 0, mastered: 0, byPos: { noun: 0, verb: 0, adj: 0, other: 0 }, remainingByPos: { noun: 0, verb: 0, adj: 0, other: 0 } },
@@ -498,25 +511,59 @@ export class StatsManager {
       return 'other';
     };
 
-    // Quét toàn bộ từ vựng trong allCards
+    const targetCefrSet = new Set((activeGoal.targetCefr || ['A1', 'A2', 'B1']).map(c => c.toUpperCase()));
+    const targetDecksSet = new Set(activeGoal.targetDecks || []);
+    const isSpecialGoal = activeGoal.id === 'all-dictionary' || activeGoal.id === 'custom';
+
+    let learnedGoalWords = 0;
+    let matureMasteredWords = 0; // Stability >= 30d
+    let solidProgressPoints = 0; // Trọng số độ bền tích lũy (0.25 -> 1.0)
+    let remainingNeededPos = { noun: 0, verb: 0, adj: 0, other: 0 };
+
+    // Duyệt qua 1 vòng duy nhất toàn bộ allCards (O(N) thay vì O(2N))
     for (let i = 0; i < allCards.length; i++) {
       const card = allCards[i];
       const lvl = (card.level || card.cefr || 'A1').toUpperCase();
-      if (!levels[lvl]) continue;
-
-      levels[lvl].total++;
       const posKey = normalizePos(card.pos);
-      levels[lvl].byPos[posKey] = (levels[lvl].byPos[posKey] || 0) + 1;
 
-      const state = cardStates[card.id] || StorageManager.getCardState(card.id);
+      const state = cardStates[card.id] || (StorageManager.getCardState ? StorageManager.getCardState(card.id) : null);
       const isLearned = state && state.state !== State.New && state.state !== 0 && !state.suspended;
-      const isMastered = isLearned && (Number(state.stability) >= MASTERY_STABILITY_THRESHOLD);
+      const s = isLearned ? (Number(state.stability) || 0) : 0;
+      const isMastered = isLearned && (s >= MASTERY_STABILITY_THRESHOLD);
 
-      if (isLearned) {
-        levels[lvl].learned++;
-        if (isMastered) levels[lvl].mastered++;
-      } else {
-        levels[lvl].remainingByPos[posKey] = (levels[lvl].remainingByPos[posKey] || 0) + 1;
+      if (levels[lvl]) {
+        levels[lvl].total++;
+        levels[lvl].byPos[posKey] = (levels[lvl].byPos[posKey] || 0) + 1;
+
+        if (isLearned) {
+          levels[lvl].learned++;
+          if (isMastered) levels[lvl].mastered++;
+        } else {
+          levels[lvl].remainingByPos[posKey] = (levels[lvl].remainingByPos[posKey] || 0) + 1;
+        }
+      }
+
+      // Thống kê Mục tiêu (Target Goal)
+      const isCefrMatch = targetCefrSet.has(lvl);
+      const isDeckMatch = targetDecksSet.has(card.deckId);
+      if (isCefrMatch || isDeckMatch || isSpecialGoal) {
+        if (isLearned) {
+          learnedGoalWords++;
+          if (s >= 30) {
+            matureMasteredWords++;
+            solidProgressPoints += 1.0;
+          } else if (s >= 14) {
+            solidProgressPoints += 0.75;
+          } else if (s >= 7) {
+            solidProgressPoints += 0.50;
+          } else if (s >= 3) {
+            solidProgressPoints += 0.25;
+          } else {
+            solidProgressPoints += 0.10;
+          }
+        } else {
+          remainingNeededPos[posKey] = (remainingNeededPos[posKey] || 0) + 1;
+        }
       }
     }
 
@@ -551,51 +598,6 @@ export class StatsManager {
       currentLevelId = 'C1';
       currentLevelProgress = Math.round(c1Pct * 100);
       nextLevelId = 'Master';
-    }
-
-    // 3. Phân tích Mục tiêu đã chọn (Target Goal) & Trọng số Độ Bền Thực Tế
-    const activeGoalId = settings.activeGoal?.id || 'cefr-b1';
-    const activeGoal = getLearningGoal(activeGoalId);
-    const targetWords = Number(settings.activeGoal?.targetWords) || activeGoal.defaultTargetWords || 3027;
-    const targetCefrSet = new Set((activeGoal.targetCefr || ['A1', 'A2', 'B1']).map(c => c.toUpperCase()));
-    const targetDecksSet = new Set(activeGoal.targetDecks || []);
-
-    let learnedGoalWords = 0;
-    let matureMasteredWords = 0; // Stability >= 21d
-    let solidProgressPoints = 0; // Trọng số độ bền tích lũy (0.25 -> 1.0)
-    let remainingNeededPos = { noun: 0, verb: 0, adj: 0, other: 0 };
-
-    for (let i = 0; i < allCards.length; i++) {
-      const card = allCards[i];
-      const cardLevel = (card.level || card.cefr || 'A1').toUpperCase();
-      const isCefrMatch = targetCefrSet.has(cardLevel);
-      const isDeckMatch = targetDecksSet.has(card.deckId);
-      if (!isCefrMatch && !isDeckMatch && activeGoal.id !== 'all-dictionary' && activeGoal.id !== 'custom') {
-        continue;
-      }
-
-      const state = cardStates[card.id] || StorageManager.getCardState(card.id);
-      const isLearned = state && state.state !== State.New && state.state !== 0 && !state.suspended;
-      if (isLearned) {
-        learnedGoalWords++;
-        const s = Number(state.stability) || 0;
-        // Mức 5 FSRS (Stability >= 30 ngày) - Chuẩn vàng ghi nhớ sâu / Thuần thục dài hạn
-        if (s >= 30) {
-          matureMasteredWords++;
-          solidProgressPoints += 1.0;
-        } else if (s >= 14) {
-          solidProgressPoints += 0.75;
-        } else if (s >= 7) {
-          solidProgressPoints += 0.50;
-        } else if (s >= 3) {
-          solidProgressPoints += 0.25;
-        } else {
-          solidProgressPoints += 0.10;
-        }
-      } else {
-        const posKey = normalizePos(card.pos);
-        remainingNeededPos[posKey] = (remainingNeededPos[posKey] || 0) + 1;
-      }
     }
 
     const remainingWordsToGoal = Math.max(0, targetWords - learnedGoalWords);
@@ -713,7 +715,7 @@ export class StatsManager {
     const rawShortTitle = activeGoal.shortTitle || activeGoal.title || 'Mục tiêu';
     const shortGoalTitle = rawShortTitle.replace(/^Trình độ\s+/i, '').trim();
 
-    return {
+    const result = {
       levels,
       currentLevel: {
         id: currentLevelId,
@@ -757,6 +759,13 @@ export class StatsManager {
         shortGoalTitle
       }
     };
+
+    if (StatsManager._cefrRoadmapCache.size > 20) {
+      StatsManager._cefrRoadmapCache.clear();
+    }
+    StatsManager._cefrRoadmapCache.set(cacheKey, result);
+
+    return result;
   }
 
 

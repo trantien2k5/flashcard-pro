@@ -162,9 +162,54 @@ export function renderReviewShell(container) {
                   <polygon points="5 3 19 12 5 21 5 3"></polygon>
                 </svg>
               </div>
-              <span class="btn-cta-main-text">BẮT ĐẦU HỌC</span>
+              <span class="btn-cta-main-text">BẮT ĐẦU HỌC (CHUẨN FSRS)</span>
             </div>
           </button>
+        </div>
+
+        <!-- 4. BỘ CHẾ ĐỘ HỌC CÓ CHỦ ĐÍCH (Targeted Systematic Study Modes) -->
+        <div class="home-study-modes-section">
+          <div class="modes-section-header">
+            <span class="modes-header-title">CHẾ ĐỘ HỌC CÓ CHỦ ĐÍCH</span>
+            <span class="modes-header-sub">Tối ưu phản xạ trí nhớ</span>
+          </div>
+          <div class="home-modes-grid">
+            <!-- Mode 1: Diệt từ khó (Leech Hunter) -->
+            <button type="button" class="home-mode-card mode-weak" id="btn-mode-weak-hunter" title="Học chuyên sâu các từ hay quên và có độ bền trí nhớ thấp">
+              <div class="mode-icon-wrap">🔥</div>
+              <div class="mode-info">
+                <div class="mode-title-row">
+                  <span class="mode-name">Diệt từ khó</span>
+                  <span class="mode-badge" id="badge-weak-count">0 từ</span>
+                </div>
+                <span class="mode-desc">Ưu tiên từ hay quên & S &lt; 3 ngày</span>
+              </div>
+            </button>
+
+            <!-- Mode 2: Luyện phản xạ Nghe (Audio Blind) -->
+            <button type="button" class="home-mode-card mode-audio" id="btn-mode-audio-blind" title="Mặt trước ẩn chữ, chỉ nghe phát âm để nhận diện từ vựng">
+              <div class="mode-icon-wrap">🎧</div>
+              <div class="mode-info">
+                <div class="mode-title-row">
+                  <span class="mode-name">Phản xạ Nghe</span>
+                  <span class="mode-badge badge-audio">Mù chữ</span>
+                </div>
+                <span class="mode-desc">Nghe âm thanh & đoán từ vựng</span>
+              </div>
+            </button>
+
+            <!-- Mode 3: Tốc chiến 3 phút (Sprint 10) -->
+            <button type="button" class="home-mode-card mode-sprint" id="btn-mode-sprint-10" title="Phiên học nhanh 10 từ cấp bách nhất">
+              <div class="mode-icon-wrap">⚡</div>
+              <div class="mode-info">
+                <div class="mode-title-row">
+                  <span class="mode-name">Tốc chiến 3p</span>
+                  <span class="mode-badge badge-sprint">10 từ</span>
+                </div>
+                <span class="mode-desc">10 từ cấp bách nhất khi rảnh</span>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     `;
@@ -223,6 +268,31 @@ export function renderReviewTab(app) {
       btnFlashcard._bound = true;
       btnFlashcard.onclick = () => {
         app.startStudySession(null, null, null, { mode: 'due_first' });
+      };
+    }
+
+    // Gán sự kiện cho các Chế Độ Học Có Chủ Đích (Targeted Modes)
+    const btnWeakHunter = document.getElementById('btn-mode-weak-hunter');
+    if (btnWeakHunter && !btnWeakHunter._bound) {
+      btnWeakHunter._bound = true;
+      btnWeakHunter.onclick = () => {
+        app.startStudySession(null, null, null, { mode: 'weak_hunter' });
+      };
+    }
+
+    const btnAudioBlind = document.getElementById('btn-mode-audio-blind');
+    if (btnAudioBlind && !btnAudioBlind._bound) {
+      btnAudioBlind._bound = true;
+      btnAudioBlind.onclick = () => {
+        app.startStudySession(null, null, null, { mode: 'audio_blind', audioBlind: true });
+      };
+    }
+
+    const btnSprint10 = document.getElementById('btn-mode-sprint-10');
+    if (btnSprint10 && !btnSprint10._bound) {
+      btnSprint10._bound = true;
+      btnSprint10.onclick = () => {
+        app.startStudySession(null, null, null, { mode: 'sprint_10' });
       };
     }
 
@@ -332,6 +402,15 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
   const elRetention = document.getElementById('home-retention-rate');
   if (elRetention) {
     elRetention.textContent = masteredCount;
+  }
+
+  // 4.5. Cập nhật số đếm từ yếu cho huy hiệu Diệt từ khó
+  if (app.deckManager?.getStudyModeCounts) {
+    try {
+      const modeCounts = app.deckManager.getStudyModeCounts(null, app.settings);
+      const elWeakBadge = document.getElementById('badge-weak-count');
+      if (elWeakBadge) elWeakBadge.textContent = `${modeCounts.weakCount} từ`;
+    } catch (e) {}
   }
 
   // 5. PHÂN TÍCH LỘ TRÌNH CEFR & THUẬT TOÁN DỰ BÁO NHỊP ĐỘ HỌC TẬP (FSRS Dynamic Engine)

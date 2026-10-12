@@ -156,6 +156,7 @@ const DEFAULT_STUDY_PREFS = {
   showExampleVi: false,      // Mặc định TẮT bản dịch câu ví dụ
   showPos: true,             // Mặc định BẬT từ loại (POS) & CEFR
   showCefr: true,            // Mặc định BẬT nhãn CEFR
+  showCloze: true,           // Mặc định BẬT gợi ý ngữ cảnh khuyết từ
   autoplayAudio: true,
   audioAccent: 'us',
   showHint: true,
@@ -177,6 +178,7 @@ export function getStudyPrefs() {
         showExampleVi: parsed.showExampleVi !== undefined ? !!parsed.showExampleVi : DEFAULT_STUDY_PREFS.showExampleVi,
         showPos: parsed.showPos !== undefined ? !!parsed.showPos : DEFAULT_STUDY_PREFS.showPos,
         showCefr: parsed.showCefr !== undefined ? !!parsed.showCefr : DEFAULT_STUDY_PREFS.showCefr,
+        showCloze: parsed.showCloze !== undefined ? !!parsed.showCloze : DEFAULT_STUDY_PREFS.showCloze,
         autoplayAudio: parsed.autoplayAudio !== undefined ? !!parsed.autoplayAudio : DEFAULT_STUDY_PREFS.autoplayAudio,
         audioAccent: parsed.audioAccent || DEFAULT_STUDY_PREFS.audioAccent,
         thinkDelaySec: parsed.thinkDelaySec !== undefined ? Number(parsed.thinkDelaySec) : DEFAULT_STUDY_PREFS.thinkDelaySec,
@@ -236,6 +238,54 @@ export function renderStudyOverlayShell() {
 
       <!-- Study Canvas Center Area -->
       <main class="study-body-wrapper">
+        <!-- Pomodoro Focus Tracker Bar (Nằm giữa header và flashcard) -->
+        <div class="study-pomodoro-bar" id="study-pomodoro-bar">
+          <div class="pomodoro-bar-inner">
+            <!-- 1. Trái: Biểu tượng + Đồng hồ đếm ngược + Nút Play/Pause -->
+            <div class="pomodoro-timer-side">
+              <span class="pomodoro-badge-icon" title="Phiên học Pomodoro">🍅</span>
+              <span class="pomodoro-time-display" id="pomodoro-countdown" title="Thời gian còn lại">25:00</span>
+              <button type="button" class="btn-pomodoro-control" id="btn-pomodoro-toggle" title="Tạm dừng / Tiếp tục Pomodoro" aria-label="Tạm dừng hoặc tiếp tục">
+                <span class="pomodoro-btn-icon" id="pomodoro-play-icon">⏸️</span>
+              </button>
+            </div>
+
+            <!-- 2. Giữa: Thống kê số lượng thẻ đã ôn trong chu kỳ -->
+            <div class="pomodoro-stats-side" id="pomodoro-stats-side" title="Số lượng thẻ đã ôn trong phiên này">
+              <span class="pomodoro-stats-lbl">Đã ôn:</span>
+              <span class="pomodoro-count-number" id="pomodoro-cards-count">0</span>
+              <span class="pomodoro-stats-unit">thẻ</span>
+            </div>
+
+            <!-- 3. Phải: Cho user điều chỉnh từ 5p đến 30p, 60p + Nút Reset -->
+            <div class="pomodoro-actions-side">
+              <div class="pomodoro-select-wrapper" title="Điều chỉnh thời gian Pomodoro (5p - 60p)">
+                <select class="pomodoro-select" id="pomodoro-duration-select" aria-label="Chọn thời lượng Pomodoro">
+                  <option value="5">5p</option>
+                  <option value="10">10p</option>
+                  <option value="15">15p</option>
+                  <option value="20">20p</option>
+                  <option value="25" selected>25p</option>
+                  <option value="30">30p</option>
+                  <option value="45">45p</option>
+                  <option value="60">60p</option>
+                </select>
+                <span class="select-chevron">▾</span>
+              </div>
+              <button type="button" class="btn-pomodoro-reset" id="btn-pomodoro-reset" title="Đặt lại chu kỳ" aria-label="Đặt lại">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Thanh tiến độ thời gian Pomodoro -->
+          <div class="pomodoro-progress-bar">
+            <div class="pomodoro-progress-fill" id="pomodoro-progress-fill" style="width: 100%;"></div>
+          </div>
+        </div>
+
         <div class="flashcard-stage">
           <div id="flashcard-element" class="flashcard-3d-wrapper" role="button" tabindex="0" aria-label="Thẻ học từ vựng (Chạm để xem đáp án)">
             
@@ -284,6 +334,22 @@ export function renderStudyOverlayShell() {
                 <!-- Phiên âm IPA -->
                 <div class="card-meta-row" id="card-front-meta-row">
                   <span class="card-word-phonetic fc-phonetic" id="card-front-phonetic">/ ... /</span>
+                </div>
+              </div>
+
+              <!-- Luyện Nghe Phản Xạ Mù (Audio Blind Waveform) -->
+              <div class="card-audio-blind-wrap" id="card-audio-blind-wrap" style="display: none;">
+                <div class="audio-wave-visualizer">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="audio-blind-prompt">🎧 Nghe kỹ âm thanh & đoán từ vựng</div>
+              </div>
+
+              <!-- Gợi ý ngữ cảnh khuyết từ (Contextual Cloze Deletion Hint) -->
+              <div class="card-cloze-hint-container" id="card-cloze-hint-container" style="display: none;">
+                <div class="card-cloze-pill" id="card-cloze-pill" title="Gợi ý câu ngữ cảnh khuyết từ">
+                  <span class="cloze-icon">💡</span>
+                  <span class="cloze-text" id="card-cloze-text">...</span>
                 </div>
               </div>
 
@@ -522,6 +588,15 @@ export function renderStudyOverlayShell() {
               </div>
               <input type="checkbox" id="pref-toggle-back-lock" class="toggle-checkbox">
             </label>
+
+            <!-- 12. Gợi ý ngữ cảnh khuyết từ -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">💡 Gợi ý ngữ cảnh khuyết từ</span>
+                <span class="pref-sub">Hiện câu ví dụ ẩn từ khóa ở mặt trước</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-show-cloze" class="toggle-checkbox">
+            </label>
           </div>
 
           <div class="prefs-card-actions-section">
@@ -625,6 +700,45 @@ export function renderStudyOverlayShell() {
           </div>
         </div>
       </div>
+
+      <!-- 5. Modal Checkpoint Chặng Học Thông Minh (Smart Micro-Batching Checkpoint) -->
+      <div class="study-checkpoint-modal" id="study-checkpoint-modal">
+        <div class="study-checkpoint-backdrop"></div>
+        <div class="study-checkpoint-card">
+          <div class="checkpoint-celebration-icon">🎯</div>
+          <h3 class="checkpoint-title" id="checkpoint-title">Hoàn thành Chặng 1!</h3>
+          <p class="checkpoint-desc" id="checkpoint-desc">Bạn vừa hoàn thành 15 thẻ tập trung. Dành một chút thời gian để não bộ củng cố trí nhớ ngắn hạn.</p>
+          
+          <div class="checkpoint-stats-row">
+            <div class="cp-stat-item">
+              <span class="cp-stat-val" id="cp-stat-done">15</span>
+              <span class="cp-stat-lbl">Đã học</span>
+            </div>
+            <div class="cp-stat-item">
+              <span class="cp-stat-val" id="cp-stat-remaining">0</span>
+              <span class="cp-stat-lbl">Còn lại</span>
+            </div>
+            <div class="cp-stat-item">
+              <span class="cp-stat-val" id="cp-stat-batch-num">1</span>
+              <span class="cp-stat-lbl">Chặng</span>
+            </div>
+          </div>
+
+          <div class="checkpoint-actions-wrap">
+            <button type="button" class="btn-checkpoint-continue" id="btn-checkpoint-continue">
+              <span class="btn-cp-icon">🚀</span>
+              <span>Tiếp tục chặng kế tiếp</span>
+            </button>
+            <button type="button" class="btn-checkpoint-rest" id="btn-checkpoint-rest">
+              <span class="btn-cp-icon">⏳</span>
+              <span id="btn-checkpoint-rest-text">Nghỉ ngơi 1 phút</span>
+            </button>
+            <button type="button" class="btn-checkpoint-finish" id="btn-checkpoint-finish">
+              <span>Hoàn thành phiên sớm</span>
+            </button>
+          </div>
+        </div>
+      </div>
     `;
   }
 }
@@ -662,6 +776,7 @@ export function setupStudyControls(app) {
     const toggleShowDef = document.getElementById('pref-toggle-show-def');
     const selectThinkDelay = document.getElementById('pref-select-think-delay');
     const toggleBackLock = document.getElementById('pref-toggle-back-lock');
+    const toggleShowCloze = document.getElementById('pref-toggle-show-cloze');
 
     if (!overlay || !flashcardEl || overlay._controlsBound) return;
     overlay._controlsBound = true;
@@ -678,6 +793,7 @@ export function setupStudyControls(app) {
       if (toggleShowExample) toggleShowExample.checked = p.showExample !== false;
       if (toggleShowExampleVi) toggleShowExampleVi.checked = !!p.showExampleVi;
       if (toggleShowDef) toggleShowDef.checked = !!p.showDefinition;
+      if (toggleShowCloze) toggleShowCloze.checked = p.showCloze !== false;
       if (selectThinkDelay) selectThinkDelay.value = String(p.thinkDelaySec ?? 0);
       if (toggleBackLock) toggleBackLock.checked = !!p.enableBackLock;
     };
@@ -695,6 +811,7 @@ export function setupStudyControls(app) {
         showExample: !!toggleShowExample?.checked,
         showExampleVi: !!toggleShowExampleVi?.checked,
         showDefinition: !!toggleShowDef?.checked,
+        showCloze: !!toggleShowCloze?.checked,
         thinkDelaySec: Number(selectThinkDelay?.value || 0),
         enableBackLock: !!toggleBackLock?.checked
       };
@@ -722,6 +839,7 @@ export function setupStudyControls(app) {
     if (toggleShowExample) toggleShowExample.addEventListener('change', updatePrefFromControls);
     if (toggleShowExampleVi) toggleShowExampleVi.addEventListener('change', updatePrefFromControls);
     if (toggleShowDef) toggleShowDef.addEventListener('change', updatePrefFromControls);
+    if (toggleShowCloze) toggleShowCloze.addEventListener('change', updatePrefFromControls);
     if (toggleBackLock) toggleBackLock.addEventListener('change', updatePrefFromControls);
     if (selectThinkDelay) selectThinkDelay.addEventListener('change', updatePrefFromControls);
 
@@ -761,6 +879,7 @@ export function setupStudyControls(app) {
           _studyTimerUnsubscribe();
           _studyTimerUnsubscribe = null;
         }
+        stopPomodoroTracker();
         app.studySession?.stopAudio();
 
         overlay.classList.remove('active');
@@ -907,7 +1026,8 @@ export function setupStudyControls(app) {
         e.target.closest('#btn-audio-speaker-back') || 
         e.target.closest('#btn-example-audio') ||
         e.target.closest('.btn-card-audio-mini') ||
-        e.target.closest('.btn-example-audio')
+        e.target.closest('.btn-example-audio') ||
+        e.target.closest('#card-audio-blind-wrap')
       ) {
         return;
       }
@@ -958,6 +1078,7 @@ export function setupStudyControls(app) {
         const cardWord = currentCardObj?.word || '';
 
         app.studySession.rateCard(rating, { latencySec, backViewSec, backViewMs: Math.round(backViewMs) });
+        recordPomodoroCardReviewed();
 
         if (currentCardObj) {
           const newState = StorageManager.getCardState(currentCardObj.id);
@@ -1029,6 +1150,23 @@ export function setupStudyControls(app) {
           }
         } catch (err) {
           console.error('Lỗi phát âm mặt trước:', err);
+        }
+      });
+    }
+
+    // Chạm vào Waveform Audio Blind để nghe lại phát âm
+    const audioBlindWrap = document.getElementById('card-audio-blind-wrap');
+    if (audioBlindWrap) {
+      audioBlindWrap.addEventListener('click', (e) => {
+        try {
+          e.stopPropagation();
+          globalStudyTimer.recordActivity();
+          if (app.studySession?.currentCard) {
+            const word = app.studySession.currentCard.word;
+            speak(word, { cardObj: app.studySession.currentCard });
+          }
+        } catch (err) {
+          console.error('Lỗi phát âm Audio Blind:', err);
         }
       });
     }
@@ -1306,6 +1444,7 @@ export function setupStudyControls(app) {
               _studyTimerUnsubscribe();
               _studyTimerUnsubscribe = null;
             }
+            stopPomodoroTracker();
             app.studySession?.stopAudio();
             globalStudyTimer.endSession();
             overlay.classList.remove('active');
@@ -1474,6 +1613,234 @@ function updateStudyLiveTimerUI(state) {
   }
 }
 
+// ==========================================================================
+// BỘ ĐIỀU PHỐI POMODORO FOCUS TRACKER (THỜI LƯỢNG TÙY CHỌN 5P - 60P)
+// ==========================================================================
+const POMODORO_STORAGE_KEY = 'flashcard_pomodoro_duration_min';
+
+let _pomodoroState = {
+  durationMinutes: 25,
+  remainingSeconds: 25 * 60,
+  isRunning: false,
+  cardsReviewed: 0,
+  intervalId: null
+};
+
+export function initPomodoroTracker(app) {
+  try {
+    const savedDuration = Number(localStorage.getItem(POMODORO_STORAGE_KEY)) || 25;
+    _pomodoroState.durationMinutes = savedDuration;
+    _pomodoroState.remainingSeconds = savedDuration * 60;
+    _pomodoroState.cardsReviewed = 0;
+    _pomodoroState.isRunning = true;
+
+    const selectEl = document.getElementById('pomodoro-duration-select');
+    if (selectEl) {
+      selectEl.value = String(savedDuration);
+      if (!selectEl._bound) {
+        selectEl._bound = true;
+        selectEl.addEventListener('change', (e) => {
+          const val = Number(e.target.value) || 25;
+          localStorage.setItem(POMODORO_STORAGE_KEY, String(val));
+          _pomodoroState.durationMinutes = val;
+          _pomodoroState.remainingSeconds = val * 60;
+          _pomodoroState.cardsReviewed = 0;
+          _pomodoroState.isRunning = true;
+          updatePomodoroUI();
+        });
+      }
+    }
+
+    const btnToggle = document.getElementById('btn-pomodoro-toggle');
+    if (btnToggle && !btnToggle._bound) {
+      btnToggle._bound = true;
+      btnToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        _pomodoroState.isRunning = !_pomodoroState.isRunning;
+        updatePomodoroUI();
+      });
+    }
+
+    const btnReset = document.getElementById('btn-pomodoro-reset');
+    if (btnReset && !btnReset._bound) {
+      btnReset._bound = true;
+      btnReset.addEventListener('click', (e) => {
+        e.stopPropagation();
+        _pomodoroState.remainingSeconds = _pomodoroState.durationMinutes * 60;
+        _pomodoroState.cardsReviewed = 0;
+        _pomodoroState.isRunning = true;
+        updatePomodoroUI();
+        if (app && app.showToast) {
+          app.showToast('🔄 Đã đặt lại chu kỳ Pomodoro', 'info', 1500);
+        }
+      });
+    }
+
+    startPomodoroTicker(app);
+    updatePomodoroUI();
+  } catch (err) {
+    console.error('Lỗi initPomodoroTracker:', err);
+  }
+}
+
+function startPomodoroTicker(app) {
+  if (_pomodoroState.intervalId) {
+    clearInterval(_pomodoroState.intervalId);
+    _pomodoroState.intervalId = null;
+  }
+
+  _pomodoroState.intervalId = setInterval(() => {
+    if (!_pomodoroState.isRunning) return;
+
+    if (_pomodoroState.remainingSeconds > 0) {
+      _pomodoroState.remainingSeconds--;
+      updatePomodoroUI();
+    } else {
+      // Hết chu kỳ Pomodoro!
+      _pomodoroState.isRunning = false;
+      updatePomodoroUI();
+      if (app && app.showToast) {
+        app.showToast(`🎉 Hoàn thành phiên Pomodoro ${_pomodoroState.durationMinutes} phút! Bạn đã ôn được ${_pomodoroState.cardsReviewed} thẻ.`, 'success', 5000);
+      }
+      // Tự động chuẩn bị chu kỳ tiếp theo
+      _pomodoroState.remainingSeconds = _pomodoroState.durationMinutes * 60;
+      _pomodoroState.cardsReviewed = 0;
+      _pomodoroState.isRunning = true;
+      updatePomodoroUI();
+    }
+  }, 1000);
+}
+
+export function stopPomodoroTracker() {
+  if (_pomodoroState.intervalId) {
+    clearInterval(_pomodoroState.intervalId);
+    _pomodoroState.intervalId = null;
+  }
+  _pomodoroState.isRunning = false;
+}
+
+export function recordPomodoroCardReviewed() {
+  _pomodoroState.cardsReviewed++;
+  const elCount = document.getElementById('pomodoro-cards-count');
+  if (elCount) {
+    elCount.textContent = String(_pomodoroState.cardsReviewed);
+  }
+}
+
+function updatePomodoroUI() {
+  const elCountdown = document.getElementById('pomodoro-countdown');
+  const elCount = document.getElementById('pomodoro-cards-count');
+  const elIcon = document.getElementById('pomodoro-play-icon');
+  const elFill = document.getElementById('pomodoro-progress-fill');
+  const elBar = document.getElementById('study-pomodoro-bar');
+
+  const totalSecs = Math.max(1, _pomodoroState.durationMinutes * 60);
+  const remSecs = Math.max(0, _pomodoroState.remainingSeconds);
+
+  const m = Math.floor(remSecs / 60);
+  const s = remSecs % 60;
+  const timeFormatted = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+
+  if (elCountdown) elCountdown.textContent = timeFormatted;
+  if (elCount) elCount.textContent = String(_pomodoroState.cardsReviewed);
+  if (elIcon) elIcon.textContent = _pomodoroState.isRunning ? '⏸️' : '▶️';
+
+  const pct = Math.max(0, Math.min(100, (remSecs / totalSecs) * 100));
+  if (elFill) elFill.style.width = `${pct}%`;
+
+  if (elBar) {
+    elBar.classList.toggle('is-paused', !_pomodoroState.isRunning);
+  }
+}
+
+export function generateClozeSentence(example, word) {
+  if (!example || !word) return '';
+  try {
+    const rawWord = word.trim();
+    const escaped = rawWord.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`\\b${escaped}[a-z]*\\b|${escaped}`, 'gi');
+    return example.replace(regex, '[ ... ]');
+  } catch (e) {
+    return example;
+  }
+}
+
+let _restCountdownTimer = null;
+
+export function showCheckpointModal(app, checkpointData) {
+  try {
+    const modal = document.getElementById('study-checkpoint-modal');
+    if (!modal) return;
+
+    const titleEl = document.getElementById('checkpoint-title');
+    const descEl = document.getElementById('checkpoint-desc');
+    const valDone = document.getElementById('cp-stat-done');
+    const valRemaining = document.getElementById('cp-stat-remaining');
+    const valBatchNum = document.getElementById('cp-stat-batch-num');
+    const btnRestText = document.getElementById('btn-checkpoint-rest-text');
+    const btnRest = document.getElementById('btn-checkpoint-rest');
+    const btnContinue = document.getElementById('btn-checkpoint-continue');
+    const btnFinish = document.getElementById('btn-checkpoint-finish');
+
+    const bNum = checkpointData.batchNumber || 1;
+    const cardsDone = checkpointData.cardsInBatch || 15;
+    const rem = checkpointData.remaining || 0;
+
+    if (titleEl) titleEl.textContent = `🎉 Hoàn thành Chặng ${bNum}!`;
+    if (descEl) descEl.textContent = `Bạn vừa hoàn thành ${cardsDone} thẻ tập trung. Dành chút thời gian để não bộ củng cố trí nhớ ngắn hạn.`;
+    if (valDone) valDone.textContent = cardsDone;
+    if (valRemaining) valRemaining.textContent = rem;
+    if (valBatchNum) valBatchNum.textContent = bNum;
+    if (btnRestText) btnRestText.textContent = 'Nghỉ ngơi 1 phút';
+
+    modal.classList.add('active');
+
+    if (btnContinue && !btnContinue._bound) {
+      btnContinue._bound = true;
+      btnContinue.addEventListener('click', () => {
+        if (_restCountdownTimer) {
+          clearInterval(_restCountdownTimer);
+          _restCountdownTimer = null;
+        }
+        modal.classList.remove('active');
+      });
+    }
+
+    if (btnRest && !btnRest._bound) {
+      btnRest._bound = true;
+      btnRest.addEventListener('click', () => {
+        let sec = 60;
+        if (btnRestText) btnRestText.textContent = `Nghỉ ngơi (${sec}s)`;
+        if (_restCountdownTimer) clearInterval(_restCountdownTimer);
+        _restCountdownTimer = setInterval(() => {
+          sec--;
+          if (sec <= 0) {
+            clearInterval(_restCountdownTimer);
+            _restCountdownTimer = null;
+            modal.classList.remove('active');
+          } else {
+            if (btnRestText) btnRestText.textContent = `Nghỉ ngơi (${sec}s)`;
+          }
+        }, 1000);
+      });
+    }
+
+    if (btnFinish && !btnFinish._bound) {
+      btnFinish._bound = true;
+      btnFinish.addEventListener('click', () => {
+        if (_restCountdownTimer) {
+          clearInterval(_restCountdownTimer);
+          _restCountdownTimer = null;
+        }
+        modal.classList.remove('active');
+        handleStudyFinish(app, app.studySession?.sessionStats || {});
+      });
+    }
+  } catch (e) {
+    console.error('Lỗi showCheckpointModal:', e);
+  }
+}
+
 export function startStudySession(app, queue) {
   try {
     const overlay = document.getElementById('study-overlay');
@@ -1490,6 +1857,13 @@ export function startStudySession(app, queue) {
     _studyTimerUnsubscribe = globalStudyTimer.subscribe((state) => {
       updateStudyLiveTimerUI(state);
     });
+    initPomodoroTracker(app);
+
+    if (app.studySession) {
+      app.studySession.onBatchCheckpoint = (checkpointData) => {
+        showCheckpointModal(app, checkpointData);
+      };
+    }
 
     app.studySession.start(queue);
   } catch (err) {
@@ -1763,6 +2137,59 @@ export function handleCardChange(app, card, progress) {
     // Áp dụng bật/tắt trường hiển thị theo preferences
     applyFieldVisibility(prefs, card);
 
+    // Chế độ Luyện Nghe Phản Xạ Mù (Audio Blind Recall)
+    const isAudioBlind = !!(progress.isAudioBlind || card._audioBlind);
+    const audioBlindWrap = document.getElementById('card-audio-blind-wrap');
+    if (isAudioBlind) {
+      dom.flashcardEl?.classList.add('is-audio-blind');
+      if (audioBlindWrap) audioBlindWrap.style.display = 'flex';
+      if (dom.wordFront) {
+        dom.wordFront.style.opacity = '0';
+        dom.wordFront.style.pointerEvents = 'none';
+      }
+      if (dom.phoneticFront) {
+        dom.phoneticFront.style.opacity = '0';
+      }
+      if (dom.imgContainer) {
+        dom.imgContainer.style.display = 'none';
+      }
+    } else {
+      dom.flashcardEl?.classList.remove('is-audio-blind');
+      if (audioBlindWrap) audioBlindWrap.style.display = 'none';
+      if (dom.wordFront) {
+        dom.wordFront.style.opacity = '1';
+        dom.wordFront.style.pointerEvents = 'auto';
+      }
+      if (dom.phoneticFront) {
+        dom.phoneticFront.style.opacity = '1';
+      }
+    }
+
+    // Gợi ý ngữ cảnh khuyết từ (Contextual Cloze Deletion Hint)
+    const clozeContainer = document.getElementById('card-cloze-hint-container');
+    const clozeTextEl = document.getElementById('card-cloze-text');
+    if (clozeContainer && clozeTextEl) {
+      const hasExample = !!(card.example && card.word);
+      const isClozeEnabled = prefs.showCloze !== false && !isAudioBlind;
+      if (hasExample && isClozeEnabled) {
+        const clozeSentence = generateClozeSentence(card.example, card.word);
+        clozeTextEl.textContent = `"${clozeSentence}"`;
+        clozeContainer.style.display = 'flex';
+      } else {
+        clozeContainer.style.display = 'none';
+      }
+    }
+
+    // Hiển thị trạng thái lượt ôn củng cố (Relearn Pass)
+    if (progress.isRelearnPass || card._isRelearnPass) {
+      if (dom.statusBadgeFront) {
+        dom.statusBadgeFront.className = 'card-status-badge state-relearning';
+      }
+      if (dom.statusTextFront) {
+        dom.statusTextFront.textContent = '🔄 Củng cố từ quên';
+      }
+    }
+
     // Cập nhật FSRS Dynamic Intervals trên 4 nút
     if (card.previews) {
       if (dom.iAgain) dom.iAgain.textContent = formatCleanInterval(card.previews[Rating.Again]?.intervalText, '1m');
@@ -1791,6 +2218,7 @@ export function handleCardChange(app, card, progress) {
 export function handleStudyFinish(app, sessionStats) {
   try {
     stopAutoPlay();
+    stopPomodoroTracker();
     app.studySession?.stopAudio();
     globalStudyTimer.endSession();
     const overlay = document.getElementById('study-overlay');
