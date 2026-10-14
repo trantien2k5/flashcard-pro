@@ -75,7 +75,7 @@ export class StudySession {
 
     this.relearnInSession = options.relearnInSession !== false;
     this.relearnStepOffset = options.relearnStepOffset || RELEARN_STEP_OFFSET || 3;
-    this.batchSize = options.batchSize || DEFAULT_BATCH_SIZE || 15;
+    this.batchSize = options.batchSize || 0;
     this.batchNumber = 1;
     this.cardsReviewedInCurrentBatch = 0;
     this.relearningCardIds = new Set();
@@ -150,7 +150,7 @@ export class StudySession {
     this.relearningCardIds = new Set();
     this.batchNumber = 1;
     this.cardsReviewedInCurrentBatch = 0;
-    this.batchSize = this.settings?.batchSize || DEFAULT_BATCH_SIZE || 15;
+    this.batchSize = this.settings?.batchSize || 0;
     this.sessionStats = {
       again: 0,
       hard: 0,
@@ -417,10 +417,10 @@ export class StudySession {
       } catch (e) {}
     }
 
-    // CHECKPOINT CHIA NHỎ PHIÊN THÔNG MINH (Smart Micro-Batching)
-    this.cardsReviewedInCurrentBatch++;
-    if (this.cardsReviewedInCurrentBatch >= this.batchSize && (this.currentIndex + 1) < this.queue.length) {
-      if (typeof this.onBatchCheckpoint === 'function') {
+    // CHECKPOINT CHIA NHỎ PHIÊN THÔNG MINH (Đã tắt mặc định theo yêu cầu)
+    if (this.batchSize > 0 && typeof this.onBatchCheckpoint === 'function') {
+      this.cardsReviewedInCurrentBatch++;
+      if (this.cardsReviewedInCurrentBatch >= this.batchSize && (this.currentIndex + 1) < this.queue.length) {
         const checkpointData = {
           batchNumber: this.batchNumber,
           cardsInBatch: this.cardsReviewedInCurrentBatch,

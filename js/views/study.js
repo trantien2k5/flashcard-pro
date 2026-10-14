@@ -287,7 +287,7 @@ export function renderStudyOverlayShell() {
         </div>
 
         <div class="flashcard-stage">
-          <div id="flashcard-element" class="flashcard-3d-wrapper" role="button" tabindex="0" aria-label="Thẻ học từ vựng (Chạm để xem đáp án)">
+          <div id="flashcard-element" class="flashcard-3d-wrapper" role="button" tabindex="0" aria-label="Thẻ học từ vựng">
             
             <!-- ================= MẶT TRƯỚC (FRONT FACE) ================= -->
             <div class="flashcard-face face-front">
@@ -353,10 +353,6 @@ export function renderStudyOverlayShell() {
                 </div>
               </div>
 
-              <!-- Footer Gợi Ý Thao Tác Lật Thẻ -->
-              <div class="card-bottom-bar" id="card-front-hint">
-                <span class="card-hint-text">Chạm thẻ để xem đáp án</span>
-              </div>
             </div>
 
             <!-- ================= MẶT SAU (BACK FACE) ================= -->
@@ -408,10 +404,6 @@ export function renderStudyOverlayShell() {
                 </div>
               </div>
 
-              <!-- Footer Gợi Ý Thao Tác Lật Lại -->
-              <div class="card-bottom-bar" id="card-back-hint">
-                <span class="card-hint-text">Chạm thẻ để lật lại mặt trước</span>
-              </div>
             </div>
           </div>
         </div>
@@ -701,44 +693,7 @@ export function renderStudyOverlayShell() {
         </div>
       </div>
 
-      <!-- 5. Modal Checkpoint Chặng Học Thông Minh (Smart Micro-Batching Checkpoint) -->
-      <div class="study-checkpoint-modal" id="study-checkpoint-modal">
-        <div class="study-checkpoint-backdrop"></div>
-        <div class="study-checkpoint-card">
-          <div class="checkpoint-celebration-icon">🎯</div>
-          <h3 class="checkpoint-title" id="checkpoint-title">Hoàn thành Chặng 1!</h3>
-          <p class="checkpoint-desc" id="checkpoint-desc">Bạn vừa hoàn thành 15 thẻ tập trung. Dành một chút thời gian để não bộ củng cố trí nhớ ngắn hạn.</p>
-          
-          <div class="checkpoint-stats-row">
-            <div class="cp-stat-item">
-              <span class="cp-stat-val" id="cp-stat-done">15</span>
-              <span class="cp-stat-lbl">Đã học</span>
-            </div>
-            <div class="cp-stat-item">
-              <span class="cp-stat-val" id="cp-stat-remaining">0</span>
-              <span class="cp-stat-lbl">Còn lại</span>
-            </div>
-            <div class="cp-stat-item">
-              <span class="cp-stat-val" id="cp-stat-batch-num">1</span>
-              <span class="cp-stat-lbl">Chặng</span>
-            </div>
-          </div>
-
-          <div class="checkpoint-actions-wrap">
-            <button type="button" class="btn-checkpoint-continue" id="btn-checkpoint-continue">
-              <span class="btn-cp-icon">🚀</span>
-              <span>Tiếp tục chặng kế tiếp</span>
-            </button>
-            <button type="button" class="btn-checkpoint-rest" id="btn-checkpoint-rest">
-              <span class="btn-cp-icon">⏳</span>
-              <span id="btn-checkpoint-rest-text">Nghỉ ngơi 1 phút</span>
-            </button>
-            <button type="button" class="btn-checkpoint-finish" id="btn-checkpoint-finish">
-              <span>Hoàn thành phiên sớm</span>
-            </button>
-          </div>
-        </div>
-      </div>
+      <!-- Modal Checkpoint đã được lược bỏ để học liên tục không bị ngắt quãng -->
     `;
   }
 }
@@ -1859,10 +1814,9 @@ export function startStudySession(app, queue) {
     });
     initPomodoroTracker(app);
 
+    // Bỏ qua modal nghỉ ngơi 15 từ để học liền mạch không gián đoạn
     if (app.studySession) {
-      app.studySession.onBatchCheckpoint = (checkpointData) => {
-        showCheckpointModal(app, checkpointData);
-      };
+      app.studySession.onBatchCheckpoint = null;
     }
 
     app.studySession.start(queue);
@@ -1939,12 +1893,8 @@ function applyFieldVisibility(prefs, card) {
     dom.exBoxBack.style.display = (hasExampleEn || hasExampleVi) ? 'flex' : 'none';
   }
 
-  if (dom.hintFront) {
-    dom.hintFront.style.display = prefs.showHint ? 'flex' : 'none';
-  }
-  if (dom.hintBack) {
-    dom.hintBack.style.display = prefs.showHint ? 'flex' : 'none';
-  }
+  if (dom.hintFront) dom.hintFront.style.display = 'none';
+  if (dom.hintBack) dom.hintBack.style.display = 'none';
 }
 
 export function handleCardChange(app, card, progress) {

@@ -162,7 +162,7 @@ export function renderReviewShell(container) {
                   <polygon points="5 3 19 12 5 21 5 3"></polygon>
                 </svg>
               </div>
-              <span class="btn-cta-main-text">BẮT ĐẦU HỌC (CHUẨN FSRS)</span>
+              <span class="btn-cta-main-text">BẮT ĐẦU HỌC</span>
             </div>
           </button>
         </div>

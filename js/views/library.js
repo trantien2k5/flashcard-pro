@@ -330,14 +330,14 @@ export function renderLibraryTab(app) {
         <div class="filter-dropdown-card ${_libState.selectedStatus !== 'all' ? 'active' : ''}">
           <span class="filter-dropdown-icon">⚡</span>
           <select id="lib-status-select" class="filter-dropdown-select" aria-label="Lọc theo trạng thái ôn tập">
-            <option value="all" ${_libState.selectedStatus === 'all' ? 'selected' : ''}>Trạng thái</option>
+            <option value="all" ${_libState.selectedStatus === 'all' ? 'selected' : ''}>Tất cả trạng thái</option>
             <option value="new" ${_libState.selectedStatus === 'new' ? 'selected' : ''}>✨ Chưa học (${newCount})</option>
-            <option value="due" ${_libState.selectedStatus === 'due' ? 'selected' : ''}>⏰ Cần ôn (${dueCount})</option>
-            <option value="learning" ${_libState.selectedStatus === 'learning' ? 'selected' : ''}>🌱 Đang học (${learningCount})</option>
-            <option value="hard" ${_libState.selectedStatus === 'hard' ? 'selected' : ''}>⏳ Khó nhớ (${hardCount})</option>
-            <option value="leech" ${_libState.selectedStatus === 'leech' ? 'selected' : ''}>⚠️ Thẻ khó / Leech (${leechCount})</option>
+            <option value="due" ${_libState.selectedStatus === 'due' ? 'selected' : ''}>⏰ Cần ôn hôm nay (${dueCount})</option>
+            <option value="learning" ${_libState.selectedStatus === 'learning' ? 'selected' : ''}>🌱 Đang ghi nhớ (${learningCount})</option>
+            <option value="mastered" ${_libState.selectedStatus === 'mastered' ? 'selected' : ''}>🏆 Thuần thục dài hạn (${masteredCount})</option>
+            <option value="hard" ${_libState.selectedStatus === 'hard' ? 'selected' : ''}>⚡ Hay quên / Cần củng cố (${hardCount})</option>
+            <option value="leech" ${_libState.selectedStatus === 'leech' ? 'selected' : ''}>⚠️ Hay quên liên tục (Leech ≥ 8) (${leechCount})</option>
             <option value="suspended" ${_libState.selectedStatus === 'suspended' ? 'selected' : ''}>⏸️ Tạm treo (${suspendedCount})</option>
-            <option value="mastered" ${_libState.selectedStatus === 'mastered' ? 'selected' : ''}>🏆 Thuần thục (${masteredCount})</option>
           </select>
           <span class="filter-dropdown-arrow">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -350,12 +350,12 @@ export function renderLibraryTab(app) {
         <div class="filter-dropdown-card ${_libState.selectedCefr !== 'all' ? 'active' : ''}">
           <span class="filter-dropdown-icon">🎓</span>
           <select id="lib-cefr-select" class="filter-dropdown-select" aria-label="Lọc theo trình độ CEFR">
-            <option value="all" ${_libState.selectedCefr === 'all' ? 'selected' : ''}>Trình độ</option>
-            <option value="a1" ${_libState.selectedCefr === 'a1' ? 'selected' : ''}>A1 - Căn bản</option>
-            <option value="a2" ${_libState.selectedCefr === 'a2' ? 'selected' : ''}>A2 - Sơ cấp</option>
-            <option value="b1" ${_libState.selectedCefr === 'b1' ? 'selected' : ''}>B1 - Trung cấp</option>
-            <option value="b2" ${_libState.selectedCefr === 'b2' ? 'selected' : ''}>B2 - Trung cao</option>
-            <option value="c1" ${_libState.selectedCefr === 'c1' ? 'selected' : ''}>C1 - Cao cấp</option>
+            <option value="all" ${_libState.selectedCefr === 'all' ? 'selected' : ''}>Tất cả trình độ</option>
+            <option value="a1" ${_libState.selectedCefr === 'a1' ? 'selected' : ''}>A1 • Căn bản</option>
+            <option value="a2" ${_libState.selectedCefr === 'a2' ? 'selected' : ''}>A2 • Sơ cấp</option>
+            <option value="b1" ${_libState.selectedCefr === 'b1' ? 'selected' : ''}>B1 • Trung cấp</option>
+            <option value="b2" ${_libState.selectedCefr === 'b2' ? 'selected' : ''}>B2 • Trung cao</option>
+            <option value="c1" ${_libState.selectedCefr === 'c1' ? 'selected' : ''}>C1 • Cao cấp</option>
           </select>
           <span class="filter-dropdown-arrow">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -368,14 +368,13 @@ export function renderLibraryTab(app) {
         <div class="filter-dropdown-card ${_libState.selectedPos !== 'all' ? 'active' : ''}">
           <span class="filter-dropdown-icon">🏷️</span>
           <select id="lib-pos-select" class="filter-dropdown-select" aria-label="Lọc theo loại từ">
-            <option value="all" ${_libState.selectedPos === 'all' ? 'selected' : ''}>Loại từ</option>
+            <option value="all" ${_libState.selectedPos === 'all' ? 'selected' : ''}>Tất cả loại từ</option>
             <option value="noun" ${_libState.selectedPos === 'noun' ? 'selected' : ''}>Danh từ (n)</option>
             <option value="verb" ${_libState.selectedPos === 'verb' ? 'selected' : ''}>Động từ (v)</option>
             <option value="adjective" ${_libState.selectedPos === 'adjective' ? 'selected' : ''}>Tính từ (adj)</option>
             <option value="adverb" ${_libState.selectedPos === 'adverb' ? 'selected' : ''}>Trạng từ (adv)</option>
-            <option value="phrase" ${_libState.selectedPos === 'phrase' ? 'selected' : ''}>Cụm từ (phrase)</option>
-            <option value="phrasal verb" ${_libState.selectedPos === 'phrasal verb' ? 'selected' : ''}>Cụm ĐT (phrasal)</option>
-            <option value="idiom" ${_libState.selectedPos === 'idiom' ? 'selected' : ''}>Thành ngữ (idiom)</option>
+            <option value="phrasal verb" ${_libState.selectedPos === 'phrasal verb' ? 'selected' : ''}>Cụm động từ (phrasal verb)</option>
+            <option value="phrase" ${_libState.selectedPos === 'phrase' ? 'selected' : ''}>Cụm từ & Thành ngữ (phrase)</option>
             <option value="preposition" ${_libState.selectedPos === 'preposition' ? 'selected' : ''}>Giới từ (prep)</option>
           </select>
           <span class="filter-dropdown-arrow">
@@ -389,7 +388,7 @@ export function renderLibraryTab(app) {
         <div class="filter-dropdown-card ${_libState.selectedDeck !== 'all' ? 'active' : ''}">
           <span class="filter-dropdown-icon">📚</span>
           <select id="lib-deck-select" class="filter-dropdown-select" aria-label="Lọc theo chủ đề">
-            <option value="all" ${_libState.selectedDeck === 'all' ? 'selected' : ''}>Chủ đề (${decks.length})</option>
+            <option value="all" ${_libState.selectedDeck === 'all' ? 'selected' : ''}>Tất cả chủ đề (${decks.length})</option>
             ${decks.map(d => `
               <option value="${escapeHTML(d.id)}" ${_libState.selectedDeck === d.id ? 'selected' : ''}>
                 ${escapeHTML(d.name || d.id)}
@@ -403,48 +402,6 @@ export function renderLibraryTab(app) {
           </span>
         </div>
       </div>
-
-      <!-- 4. Active Filter Tags Bar (Hiển thị các tiêu chí lọc đang kết hợp song song) -->
-      ${hasActiveFilter ? `
-        <div class="library-active-tags-bar">
-          <span class="active-tags-title">Đang lọc:</span>
-          <div class="active-tags-list">
-            ${_libState.selectedStatus !== 'all' ? `
-              <span class="active-tag-chip" data-clear="status">
-                <span>${escapeHTML(statusLabels[_libState.selectedStatus] || _libState.selectedStatus)}</span>
-                <span class="tag-chip-remove" title="Bỏ lọc trạng thái">✕</span>
-              </span>
-            ` : ''}
-            ${_libState.selectedCefr !== 'all' ? `
-              <span class="active-tag-chip" data-clear="cefr">
-                <span>🎓 ${escapeHTML(cefrLabels[_libState.selectedCefr] || _libState.selectedCefr.toUpperCase())}</span>
-                <span class="tag-chip-remove" title="Bỏ lọc trình độ">✕</span>
-              </span>
-            ` : ''}
-            ${_libState.selectedPos !== 'all' ? `
-              <span class="active-tag-chip" data-clear="pos">
-                <span>🏷️ ${escapeHTML(posLabels[_libState.selectedPos] || _libState.selectedPos)}</span>
-                <span class="tag-chip-remove" title="Bỏ lọc loại từ">✕</span>
-              </span>
-            ` : ''}
-            ${_libState.selectedDeck !== 'all' ? `
-              <span class="active-tag-chip" data-clear="deck">
-                <span>📚 ${escapeHTML(deckLabel)}</span>
-                <span class="tag-chip-remove" title="Bỏ lọc chủ đề">✕</span>
-              </span>
-            ` : ''}
-            ${_libState.searchQuery ? `
-              <span class="active-tag-chip" data-clear="search">
-                <span>🔍 "${escapeHTML(_libState.searchQuery)}"</span>
-                <span class="tag-chip-remove" title="Bỏ từ khóa tìm kiếm">✕</span>
-              </span>
-            ` : ''}
-            <button class="btn-pill-reset" id="btn-reset-all-filters" title="Xóa toàn bộ bộ lọc">
-              <span>✕ Đặt lại tất cả</span>
-            </button>
-          </div>
-        </div>
-      ` : ''}
 
       <!-- 5. Meta & Pagination Sub-Bar -->
       <div class="library-meta-bar">
@@ -679,7 +636,7 @@ function getFilteredAndSortedCards(app) {
       } else if (posFilter === 'adverb' || posFilter === 'adv') {
         matchesPos = p.includes('adv') || p.includes('adverb');
       } else if (posFilter === 'phrase') {
-        matchesPos = p.includes('phrase') || p.includes('idiom') || p.includes('expression');
+        matchesPos = (p.includes('phrase') || p.includes('idiom') || p.includes('expression')) && !p.includes('phrasal');
       } else if (posFilter === 'phrasal verb' || posFilter === 'phrasal') {
         matchesPos = p.includes('phrasal');
       } else if (posFilter === 'idiom') {
@@ -804,15 +761,36 @@ function renderLibraryWords(app) {
     btnStudyLabel.textContent = `Học (${totalFiltered.toLocaleString('vi-VN')})`;
   }
 
-  // Cập nhật Summary & Pagination Info
+  // Cập nhật Summary & Pagination Info kèm nút Đặt lại bộ lọc tinh gọn
   if (resultsSummary) {
+    const isFiltered = isFilterActive();
     const countText = totalFiltered === totalAllCards 
       ? `<strong>${totalFiltered.toLocaleString('vi-VN')}</strong> từ`
       : `<strong>${totalFiltered.toLocaleString('vi-VN')}</strong>/${totalAllCards.toLocaleString('vi-VN')} từ`;
     resultsSummary.innerHTML = `
-      <span>${countText}</span>
-      ${_libState.searchQuery ? `<span class="filter-badge-keyword">"${escapeHTML(_libState.searchQuery)}"</span>` : ''}
+      <div class="results-summary-content">
+        <span class="results-count-label">${countText}</span>
+        ${_libState.searchQuery ? `<span class="filter-badge-keyword" title="Bỏ từ khóa tìm kiếm">"${escapeHTML(_libState.searchQuery)}"</span>` : ''}
+        ${isFiltered ? `
+          <button type="button" class="btn-lib-reset-inline" id="btn-reset-all-filters" title="Xóa tất cả bộ lọc">
+            ✕ Đặt lại
+          </button>
+        ` : ''}
+      </div>
     `;
+    const btnResetFilters = resultsSummary.querySelector('#btn-reset-all-filters');
+    if (btnResetFilters) {
+      btnResetFilters.onclick = () => {
+        _libState.searchQuery = '';
+        _libState.selectedCefr = 'all';
+        _libState.selectedPos = 'all';
+        _libState.selectedStatus = 'all';
+        _libState.selectedDeck = 'all';
+        _libState.sortBy = 'due_asc';
+        _libState.currentPage = 1;
+        renderLibraryTab(app);
+      };
+    }
   }
 
   if (paginationInfo) {
