@@ -231,37 +231,7 @@ export function renderLibraryTab(app) {
   const allCards = app.deckManager ? app.deckManager.getAllCards() : [];
   const decks = app.deckManager ? app.deckManager.decks : [];
 
-  // Tính toán số lượng cho Quick Chips
-  const now = new Date();
-  let dueCount = 0;
-  let newCount = 0;
-  let learningCount = 0;
-  let hardCount = 0;
-  let leechCount = 0;
-  let suspendedCount = 0;
-  let masteredCount = 0;
 
-  for (let i = 0; i < allCards.length; i++) {
-    const state = StorageManager.getCardState(allCards[i].id);
-    const isNew = !state || state.state === 0 || state.state === State.New;
-    if (isNew) {
-      newCount++;
-    } else {
-      const isDue = isCardDue(state, now);
-      const s = Number(state.stability) || 0;
-      const d = Number(state.difficulty) || 0;
-      const lapses = Number(state.lapses) || 0;
-      const isLeech = Boolean(state.isLeech === true || lapses >= 8);
-      const isSuspended = Boolean(state.suspended === true);
-
-      if (isDue) dueCount++;
-      if (s >= MASTERY_STABILITY_THRESHOLD) masteredCount++;
-      else learningCount++;
-      if (d >= 7 || lapses > 0) hardCount++;
-      if (isLeech) leechCount++;
-      if (isSuspended) suspendedCount++;
-    }
-  }
 
   const hasActiveFilter = isFilterActive();
 
@@ -331,13 +301,13 @@ export function renderLibraryTab(app) {
           <span class="filter-dropdown-icon">⚡</span>
           <select id="lib-status-select" class="filter-dropdown-select" aria-label="Lọc theo trạng thái ôn tập">
             <option value="all" ${_libState.selectedStatus === 'all' ? 'selected' : ''}>Tất cả trạng thái</option>
-            <option value="new" ${_libState.selectedStatus === 'new' ? 'selected' : ''}>✨ Chưa học (${newCount})</option>
-            <option value="due" ${_libState.selectedStatus === 'due' ? 'selected' : ''}>⏰ Cần ôn hôm nay (${dueCount})</option>
-            <option value="learning" ${_libState.selectedStatus === 'learning' ? 'selected' : ''}>🌱 Đang ghi nhớ (${learningCount})</option>
-            <option value="mastered" ${_libState.selectedStatus === 'mastered' ? 'selected' : ''}>🏆 Thuần thục dài hạn (${masteredCount})</option>
-            <option value="hard" ${_libState.selectedStatus === 'hard' ? 'selected' : ''}>⚡ Hay quên / Cần củng cố (${hardCount})</option>
-            <option value="leech" ${_libState.selectedStatus === 'leech' ? 'selected' : ''}>⚠️ Hay quên liên tục (Leech ≥ 8) (${leechCount})</option>
-            <option value="suspended" ${_libState.selectedStatus === 'suspended' ? 'selected' : ''}>⏸️ Tạm treo (${suspendedCount})</option>
+            <option value="new" ${_libState.selectedStatus === 'new' ? 'selected' : ''}>✨ Chưa học</option>
+            <option value="due" ${_libState.selectedStatus === 'due' ? 'selected' : ''}>⏰ Cần ôn hôm nay</option>
+            <option value="learning" ${_libState.selectedStatus === 'learning' ? 'selected' : ''}>🌱 Đang ghi nhớ</option>
+            <option value="mastered" ${_libState.selectedStatus === 'mastered' ? 'selected' : ''}>🏆 Thuần thục dài hạn</option>
+            <option value="hard" ${_libState.selectedStatus === 'hard' ? 'selected' : ''}>⚡ Hay quên / Cần củng cố</option>
+            <option value="leech" ${_libState.selectedStatus === 'leech' ? 'selected' : ''}>⚠️ Hay quên liên tục (Leech)</option>
+            <option value="suspended" ${_libState.selectedStatus === 'suspended' ? 'selected' : ''}>⏸️ Tạm treo</option>
           </select>
           <span class="filter-dropdown-arrow">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -388,7 +358,7 @@ export function renderLibraryTab(app) {
         <div class="filter-dropdown-card ${_libState.selectedDeck !== 'all' ? 'active' : ''}">
           <span class="filter-dropdown-icon">📚</span>
           <select id="lib-deck-select" class="filter-dropdown-select" aria-label="Lọc theo chủ đề">
-            <option value="all" ${_libState.selectedDeck === 'all' ? 'selected' : ''}>Tất cả chủ đề (${decks.length})</option>
+            <option value="all" ${_libState.selectedDeck === 'all' ? 'selected' : ''}>Tất cả chủ đề</option>
             ${decks.map(d => `
               <option value="${escapeHTML(d.id)}" ${_libState.selectedDeck === d.id ? 'selected' : ''}>
                 ${escapeHTML(d.name || d.id)}
@@ -406,7 +376,9 @@ export function renderLibraryTab(app) {
       <!-- 5. Meta & Pagination Sub-Bar -->
       <div class="library-meta-bar">
         <div class="library-results-summary" id="lib-results-summary">
-          <span><strong>${allCards.length.toLocaleString('vi-VN')}</strong> từ</span>
+          <div class="results-summary-content">
+            <span class="results-count-label">Hiển thị <strong>${allCards.length.toLocaleString('vi-VN')}</strong> từ vựng</span>
+          </div>
         </div>
         <div class="library-meta-right">
           <div class="meta-select-wrap">
@@ -765,8 +737,8 @@ function renderLibraryWords(app) {
   if (resultsSummary) {
     const isFiltered = isFilterActive();
     const countText = totalFiltered === totalAllCards 
-      ? `<strong>${totalFiltered.toLocaleString('vi-VN')}</strong> từ`
-      : `<strong>${totalFiltered.toLocaleString('vi-VN')}</strong>/${totalAllCards.toLocaleString('vi-VN')} từ`;
+      ? `Hiển thị <strong>${totalFiltered.toLocaleString('vi-VN')}</strong> từ vựng`
+      : `Tìm thấy <strong>${totalFiltered.toLocaleString('vi-VN')}</strong> / ${totalAllCards.toLocaleString('vi-VN')} từ`;
     resultsSummary.innerHTML = `
       <div class="results-summary-content">
         <span class="results-count-label">${countText}</span>

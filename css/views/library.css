@@ -355,6 +355,24 @@
   gap: 8px;
 }
 
+.results-count-label {
+  font-size: 0.82rem;
+  color: var(--text-secondary, #475569);
+  font-weight: 550;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+[data-theme="dark"] .results-count-label {
+  color: #94a3b8;
+}
+
+.results-count-label strong {
+  color: var(--primary, #6366f1);
+  font-weight: 750;
+}
+
 .btn-lib-reset-inline {
   display: inline-flex;
   align-items: center;
