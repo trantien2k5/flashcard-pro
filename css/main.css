@@ -400,9 +400,12 @@ html, body {
 #tab-review.tab-pane.active {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   flex: 1;
-  min-height: 0;
-  padding: 12px 16px;
+  min-height: 100%;
+  height: auto;
+  padding: 12px 16px 32px 16px;
 }
 
 @media (max-width: 480px) {
