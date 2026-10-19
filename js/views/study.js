@@ -1572,6 +1572,7 @@ let _pomodoroState = {
   elapsedSeconds: 0,
   isRunning: false,
   cardsReviewed: 0,
+  hasNotifiedGoal: false,
   intervalId: null
 };
 
@@ -1581,6 +1582,7 @@ export function initPomodoroTracker(app) {
     _pomodoroState.durationMinutes = savedDuration;
     _pomodoroState.elapsedSeconds = 0;
     _pomodoroState.cardsReviewed = 0;
+    _pomodoroState.hasNotifiedGoal = false;
     _pomodoroState.isRunning = true;
 
     const selectEl = document.getElementById('pomodoro-duration-select');
@@ -1594,6 +1596,7 @@ export function initPomodoroTracker(app) {
           _pomodoroState.durationMinutes = val;
           _pomodoroState.elapsedSeconds = 0;
           _pomodoroState.cardsReviewed = 0;
+          _pomodoroState.hasNotifiedGoal = false;
           _pomodoroState.isRunning = true;
           updatePomodoroUI();
         });
@@ -1617,6 +1620,7 @@ export function initPomodoroTracker(app) {
         e.stopPropagation();
         _pomodoroState.elapsedSeconds = 0;
         _pomodoroState.cardsReviewed = 0;
+        _pomodoroState.hasNotifiedGoal = false;
         _pomodoroState.isRunning = true;
         updatePomodoroUI();
         if (app && app.showToast) {
@@ -1644,13 +1648,13 @@ function startPomodoroTicker(app) {
     _pomodoroState.elapsedSeconds++;
     const targetSecs = _pomodoroState.durationMinutes * 60;
 
-    if (_pomodoroState.elapsedSeconds >= targetSecs) {
-      // Đạt mốc mục tiêu Pomodoro!
+    // Chỉ thông báo DUY NHẤT 1 lần khi đạt mốc mục tiêu
+    if (_pomodoroState.elapsedSeconds >= targetSecs && !_pomodoroState.hasNotifiedGoal) {
+      _pomodoroState.hasNotifiedGoal = true;
       updatePomodoroUI();
       if (app && app.showToast) {
         app.showToast(`🎉 Xuất sắc! Bạn đã hoàn thành mục tiêu ${_pomodoroState.durationMinutes} phút và ôn được ${_pomodoroState.cardsReviewed} thẻ!`, 'success', 5000);
       }
-      // Tiếp tục đếm tăng dần hoặc chuyển chu kỳ tiếp theo
     } else {
       updatePomodoroUI();
     }
