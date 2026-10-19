@@ -615,20 +615,25 @@ function handleOptionSelected(selectedTile, selectedOpt, card, allOptions) {
     const fsrs = new FSRS({
       requestRetention: _quizApp?.settings?.requestRetention || 0.90,
       enableFuzz: _quizApp?.settings?.enableFuzz !== false,
-      leechThreshold: _quizApp?.settings?.leechThreshold || 6,
-      leechAction: _quizApp?.settings?.leechAction || 'tag'
+      leechThreshold: _quizApp?.settings?.leechThreshold || 8,
+      leechAction: _quizApp?.settings?.leechAction || 'suspend'
     });
 
     const now = new Date();
     const oldState = StorageManager.getCardState(card.id) || FSRS.createEmptyCard(card.id);
     const nextState = fsrs.calculateNextState(oldState, rating, now, {
       enableFuzz: _quizApp?.settings?.enableFuzz !== false,
-      leechThreshold: _quizApp?.settings?.leechThreshold || 6,
-      leechAction: _quizApp?.settings?.leechAction || 'tag'
+      leechThreshold: _quizApp?.settings?.leechThreshold || 8,
+      leechAction: _quizApp?.settings?.leechAction || 'suspend'
     });
 
     // Lưu bền vững vào IndexedDB & RAM Cache
     StorageManager.saveCardState(nextState);
+
+    // Nếu thẻ bị tự động tạm dừng (Leech suspend), loại bỏ các bản sao còn lại khỏi hàng đợi trắc nghiệm
+    if (nextState.suspended) {
+      _quizQueue = _quizQueue.filter((c, idx) => idx <= _quizIndex || c.id !== card.id);
+    }
 
     // Ghi nhật ký học tập chính xác
     StorageManager.logReview({

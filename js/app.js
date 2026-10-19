@@ -21,6 +21,7 @@ import { renderDecksTab,
 } from './views/decks.js';
 import { renderLibraryTab } from './views/library.js';
 import { renderStatsTab } from './views/stats.js';
+import { renderToeicTestTab } from './views/toeic-test.js';
 import { setupSettingsUI } from './views/settings.js';
 import { 
   setupStudyControls, 
@@ -372,6 +373,7 @@ export class FlashcardApp {
       else if (tabId === 'tab-settings') this.renderSettingsTab();
       else if (tabId === 'tab-decks') this.renderDecksTab();
       else if (tabId === 'tab-library') this.renderLibraryTab();
+      else if (tabId === 'tab-test') this.renderToeicTestTab();
       else if (tabId === 'tab-subtopics' && this.currentSubtopicsDeckId) {
         this.renderSubtopicsPage(this.currentSubtopicsDeckId);
       } else if (tabId === 'tab-subtopic-words' && this.currentSubtopicsDeckId && this.currentSubtopicName) {
@@ -392,6 +394,8 @@ export class FlashcardApp {
       this.renderLibraryTab();
     } else if (this.activeTab === 'tab-decks') {
       this.renderDecksTab();
+    } else if (this.activeTab === 'tab-test') {
+      this.renderToeicTestTab();
     } else if (this.activeTab === 'tab-settings') {
       this.renderSettingsTab();
     } else if (this.activeTab === 'tab-subtopics' && this.currentSubtopicsDeckId) {
@@ -521,6 +525,10 @@ export class FlashcardApp {
 
   renderSettingsTab() {
     try { setupSettingsUI(this); } catch (err) { console.error('Lỗi renderSettingsTab:', err); }
+  }
+
+  renderToeicTestTab() {
+    try { renderToeicTestTab(this); } catch (err) { console.error('Lỗi renderToeicTestTab:', err); }
   }
 
   async startStudySession(deckId = null, subtopic = null, customCards = null, options = {}) {

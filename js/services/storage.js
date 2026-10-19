@@ -29,7 +29,8 @@ const STORAGE_KEYS = {
   STUDY_TIME: 'fsrs_study_time_v1',
   USER_PROGRESS: 'fsrs_user_progress_v1',
   STREAK_STATE: 'fsrs_streak_state_v1',
-  SAFETY_SNAPSHOT: 'fsrs_safety_snapshot_v1'
+  SAFETY_SNAPSHOT: 'fsrs_safety_snapshot_v1',
+  TOEIC_TESTS: 'fsrs_toeic_tests_v1'
 };
 
 let _cardsCache = null;
@@ -636,6 +637,41 @@ export class StorageManager {
     } catch (e) {
       console.error('Error saving study time:', e);
       return 0;
+    }
+  }
+
+  // ==========================================
+  // TOEIC MINI TEST HISTORY MANAGEMENT
+  // ==========================================
+
+  static saveToeicTestResult(testResult) {
+    try {
+      const history = this.getToeicTestHistory();
+      const entry = {
+        id: `toeic_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
+        date: new Date().toISOString(),
+        ...testResult
+      };
+      history.unshift(entry);
+      if (history.length > 50) history.pop();
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem(STORAGE_KEYS.TOEIC_TESTS, JSON.stringify(history));
+      }
+      return entry;
+    } catch (e) {
+      console.error('Error saving TOEIC test result:', e);
+      return null;
+    }
+  }
+
+  static getToeicTestHistory() {
+    try {
+      if (typeof localStorage === 'undefined') return [];
+      const data = localStorage.getItem(STORAGE_KEYS.TOEIC_TESTS);
+      return data ? JSON.parse(data) : [];
+    } catch (e) {
+      console.error('Error reading TOEIC test history:', e);
+      return [];
     }
   }
 

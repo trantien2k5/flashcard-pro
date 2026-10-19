@@ -251,8 +251,7 @@ export function renderLibraryTab(app) {
     due: '⏰ Cần ôn',
     new: '✨ Chưa học',
     learning: '🌱 Đang học',
-    hard: '⏳ Khó nhớ',
-    leech: '⚠️ Thẻ khó (Leech)',
+    leech: '⚠️ Hay quên liên tục (Leech)',
     suspended: '⏸️ Tạm treo',
     mastered: '🏆 Thuần thục'
   };
@@ -305,8 +304,7 @@ export function renderLibraryTab(app) {
             <option value="due" ${_libState.selectedStatus === 'due' ? 'selected' : ''}>⏰ Cần ôn hôm nay</option>
             <option value="learning" ${_libState.selectedStatus === 'learning' ? 'selected' : ''}>🌱 Đang ghi nhớ</option>
             <option value="mastered" ${_libState.selectedStatus === 'mastered' ? 'selected' : ''}>🏆 Thuần thục dài hạn</option>
-            <option value="hard" ${_libState.selectedStatus === 'hard' ? 'selected' : ''}>⚡ Hay quên / Cần củng cố</option>
-            <option value="leech" ${_libState.selectedStatus === 'leech' ? 'selected' : ''}>⚠️ Hay quên liên tục (Leech)</option>
+            <option value="leech" ${_libState.selectedStatus === 'leech' || _libState.selectedStatus === 'hard' ? 'selected' : ''}>⚠️ Hay quên liên tục (Leech)</option>
             <option value="suspended" ${_libState.selectedStatus === 'suspended' ? 'selected' : ''}>⏸️ Tạm treo</option>
           </select>
           <span class="filter-dropdown-arrow">
@@ -637,8 +635,7 @@ function getFilteredAndSortedCards(app) {
       if (statusFilter === 'new' && !isNew) continue;
       if (statusFilter === 'learning' && (isNew || s >= MASTERY_STABILITY_THRESHOLD)) continue;
       if (statusFilter === 'mastered' && (isNew || s < MASTERY_STABILITY_THRESHOLD)) continue;
-      if (statusFilter === 'hard' && (isNew || (d < 7 && lapses === 0))) continue;
-      if (statusFilter === 'leech' && (isNew || !isLeech)) continue;
+      if ((statusFilter === 'leech' || statusFilter === 'hard') && (isNew || !isLeech)) continue;
       if (statusFilter === 'suspended' && !isSuspended) continue;
     }
 

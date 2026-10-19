@@ -47,6 +47,7 @@
   <link rel="stylesheet" href="css/views/settings.css?v=3.74.0">
   <link rel="stylesheet" href="css/views/library.css?v=3.74.0">
   <link rel="stylesheet" href="css/views/quiz.css?v=3.74.0">
+  <link rel="stylesheet" href="css/views/toeic-test.css?v=3.74.0">
 
   <!-- Script Module Preloading for Sub-100ms Bootstrap & Seamless Study Transition -->
   <link rel="modulepreload" href="js/app.js?v=3.74.0">
@@ -63,6 +64,8 @@
   <link rel="modulepreload" href="data/index.js">
   <link rel="modulepreload" href="data/topics.js">
   <link rel="modulepreload" href="data/words.js">
+  <link rel="modulepreload" href="data/toeic-tests.js">
+  <link rel="modulepreload" href="js/views/toeic-test.js">
 </head>
 
 <body>
@@ -182,6 +185,20 @@
           </span>
           <span class="nav-label">Thư viện</span>
         </button>
+
+        <button class="nav-item" data-tab="tab-test">
+          <span class="nav-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+              <polyline points="10 9 9 9 8 9" />
+            </svg>
+          </span>
+          <span class="nav-label">Thi thử</span>
+        </button>
       </div>
 
       <div class="sidebar-footer">
@@ -207,6 +224,7 @@
       <section id="tab-subtopics" class="tab-pane"></section>
       <section id="tab-subtopic-words" class="tab-pane"></section>
       <section id="tab-library" class="tab-pane"></section>
+      <section id="tab-test" class="tab-pane"></section>
       <section id="tab-settings" class="tab-pane"></section>
     </main>
   </div>
@@ -214,6 +232,7 @@
   <!-- Dynamic Overlay & Modal Mount Targets -->
   <div id="study-overlay" class="study-overlay"></div>
   <div id="quiz-overlay" class="quiz-overlay"></div>
+  <div id="toeic-arena-overlay" class="toeic-arena-overlay"></div>
   <div id="modals-root"></div>
   <div id="toast-container" class="toast-container"></div>
 

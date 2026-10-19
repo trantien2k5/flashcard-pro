@@ -1,0 +1,1035 @@
+/* ==========================================================================
+   TOEIC Mini Test Stylesheet - Authentic ETS Computer-Based Testing Style
+   Tối ưu hóa đa nền tảng (Mobile First + Dedicated PC Desktop >= 860px)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Dashboard Hub (Màn hình chọn bài thi & Lịch sử)
+   -------------------------------------------------------------------------- */
+.toeic-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px clamp(12px, 2.5vw, 24px) 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeIn 0.22s ease-out;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.toeic-hero-banner {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+  border-radius: 24px;
+  padding: 24px 28px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 12px 32px -4px rgba(49, 46, 129, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="light"] .toeic-hero-banner {
+  background: linear-gradient(135deg, #4338ca 0%, #4f46e5 50%, #6366f1 100%);
+  box-shadow: 0 10px 28px -4px rgba(99, 102, 241, 0.35);
+}
+
+.toeic-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
+  max-width: 620px;
+}
+
+.toeic-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.toeic-hero-title {
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  font-weight: 850;
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.toeic-hero-desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.toeic-hero-stats {
+  display: flex;
+  gap: 12px;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.hero-stat-box {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 12px 18px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  min-width: 85px;
+}
+
+.hero-stat-val {
+  font-size: 1.5rem;
+  font-weight: 850;
+  font-family: var(--font-mono, monospace);
+  line-height: 1.1;
+  color: #fbbf24;
+}
+
+.hero-stat-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 4px;
+}
+
+/* 4 Test Options Bento Grid */
+.toeic-tests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.toeic-test-card {
+  background: var(--bg-card, #ffffff);
+  border: 1.5px solid var(--border, #e2e8f0);
+  border-radius: 20px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.toeic-test-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary, #6366f1);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15);
+}
+
+.toeic-test-card.card-basic:hover {
+  border-color: #10b981;
+  box-shadow: 0 12px 30px rgba(16, 185, 129, 0.15);
+}
+
+.toeic-test-card.card-intermediate:hover {
+  border-color: #f59e0b;
+  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.15);
+}
+
+.toeic-test-card.card-advanced:hover {
+  border-color: #ef4444;
+  box-shadow: 0 12px 30px rgba(239, 68, 68, 0.15);
+}
+
+.toeic-test-card.card-progressive:hover {
+  border-color: #8b5cf6;
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.15);
+}
+
+.toeic-test-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 0.66rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.badge-basic {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+}
+
+.badge-intermediate {
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+}
+
+.badge-advanced {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+}
+
+.badge-progressive {
+  background: rgba(139, 92, 246, 0.12);
+  color: #8b5cf6;
+}
+
+.icon-basic { background: rgba(16, 185, 129, 0.12); color: #10b981; }
+.icon-intermediate { background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
+.icon-advanced { background: rgba(239, 68, 68, 0.12); color: #ef4444; }
+.icon-progressive { background: rgba(139, 92, 246, 0.12); color: #8b5cf6; }
+
+.test-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.test-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: var(--bg-tertiary, #f1f5f9);
+}
+
+.test-card-title {
+  font-size: 1.15rem;
+  font-weight: 850;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.test-card-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.test-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.test-card-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-start-toeic-test {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+}
+
+.btn-start-toeic-test:hover {
+  background: linear-gradient(135deg, #4338ca, #4f46e5);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.4);
+}
+
+/* History Section */
+.toeic-history-section {
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px 22px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.history-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.history-section-title {
+  font-size: 1.05rem;
+  font-weight: 850;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toeic-history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.toeic-history-table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 0.70rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1.5px solid var(--border);
+}
+
+.toeic-history-table td {
+  padding: 12px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.history-score-cell {
+  font-weight: 850;
+  font-family: var(--font-mono, monospace);
+  font-size: 1.05rem;
+  color: var(--primary, #6366f1);
+}
+
+.empty-history-placeholder {
+  text-align: center;
+  padding: 28px 12px;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. CBT Test Exam Arena (Phòng thi trực tuyến ETS)
+   -------------------------------------------------------------------------- */
+.toeic-arena-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-primary);
+  z-index: 5200;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.toeic-arena-overlay.active {
+  display: flex;
+}
+
+.arena-top-header {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.arena-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.btn-exit-arena {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 7px 12px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-exit-arena:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.arena-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.arena-exam-name {
+  font-size: 0.95rem;
+  font-weight: 850;
+  color: var(--text-primary);
+}
+
+.arena-exam-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.arena-timer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1.5px solid rgba(99, 102, 241, 0.3);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 1.15rem;
+  font-weight: 850;
+  color: var(--primary, #6366f1);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
+  transition: all 0.25s ease;
+}
+
+.arena-timer-pill.is-warning {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: #f59e0b;
+  color: #f59e0b;
+  animation: timerPulse 1.5s infinite;
+}
+
+.arena-timer-pill.is-critical {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: #ef4444;
+  color: #ef4444;
+  animation: timerPulse 0.8s infinite;
+}
+
+@keyframes timerPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+.btn-submit-arena {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 11px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  transition: all 0.2s ease;
+}
+
+.btn-submit-arena:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+}
+
+/* Arena Main Split Body (Stage & Question Nav Pallet) */
+.arena-split-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.arena-question-stage {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px clamp(16px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.question-stage-content {
+  max-width: 780px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.question-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.question-num-tag {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--primary, #6366f1);
+  background: rgba(99, 102, 241, 0.1);
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.question-cat-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  background: var(--bg-tertiary);
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.question-level-tag {
+  font-size: 0.72rem;
+  font-weight: 750;
+  padding: 4px 10px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.question-level-tag.level-basic {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+}
+
+.question-level-tag.level-intermediate {
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+}
+
+.question-level-tag.level-advanced {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+}
+
+.btn-flag-question {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.btn-flag-question:hover,
+.btn-flag-question.flagged {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: #f59e0b;
+  color: #d97706;
+}
+
+/* ETS Question Prompt Box */
+.question-prompt-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 24px 26px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+}
+
+.question-prompt-text {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.question-blank-highlight {
+  display: inline-block;
+  min-width: 90px;
+  border-bottom: 2.5px solid var(--primary, #6366f1);
+  color: var(--primary, #6366f1);
+  font-weight: 800;
+  text-align: center;
+  padding: 0 6px;
+}
+
+/* 4 Options Grid */
+.arena-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.arena-option-tile {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  text-align: left;
+}
+
+.arena-option-tile:hover {
+  border-color: var(--primary, #6366f1);
+  background: rgba(99, 102, 241, 0.03);
+  transform: translateX(3px);
+}
+
+.arena-option-tile.selected {
+  border-color: var(--primary, #6366f1);
+  background: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 1.5px var(--primary, #6366f1);
+}
+
+.arena-option-letter {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 850;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.arena-option-tile.selected .arena-option-letter {
+  background: var(--primary, #6366f1);
+  color: #ffffff;
+  border-color: var(--primary, #6366f1);
+}
+
+.arena-option-text {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+/* Arena Bottom Navigation Controls */
+.arena-nav-bar {
+  max-width: 780px;
+  margin: 18px auto 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.btn-arena-step {
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  font-weight: 750;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-arena-step:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--bg-hover);
+}
+
+.btn-arena-step:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Right Side: Question Navigator Pallet */
+.arena-pallet-sidebar {
+  width: 260px;
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border);
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.pallet-header-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.pallet-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.pallet-btn {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.18s ease;
+}
+
+.pallet-btn:hover {
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+.pallet-btn.current {
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+.pallet-btn.answered {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.pallet-btn.flagged::after {
+  content: '🚩';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  font-size: 0.65rem;
+}
+
+.pallet-legend-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.legend-dot.answered { background: var(--primary); }
+.legend-dot.unanswered { background: var(--bg-card); border: 1px solid var(--border); }
+.legend-dot.flagged { background: #f59e0b; }
+
+/* --------------------------------------------------------------------------
+   3. Result & Detailed Review Modal
+   -------------------------------------------------------------------------- */
+.toeic-result-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  z-index: 5500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.toeic-result-overlay.active {
+  display: flex;
+}
+
+.toeic-result-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 840px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  animation: modalPopIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.result-card-header {
+  padding: 24px 28px 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
+.result-card-body {
+  padding: 20px 28px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Score Hero Banner inside Result Modal */
+.result-score-hero {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(6, 182, 212, 0.08));
+  border: 1.5px solid rgba(99, 102, 241, 0.3);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.result-score-digits {
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: var(--font-mono, monospace);
+  color: var(--primary, #6366f1);
+  line-height: 1;
+}
+
+.result-score-denom {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.result-band-tag {
+  font-size: 1.05rem;
+  font-weight: 850;
+  color: var(--text-primary);
+  margin-top: 6px;
+}
+
+.result-feedback-text {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  max-width: 380px;
+}
+
+/* Question Explanation Review Item */
+.review-questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.review-item-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.review-item-card.is-correct {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.02);
+}
+
+.review-item-card.is-wrong {
+  border-color: rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.02);
+}
+
+.review-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.review-result-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.review-result-badge.correct {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.review-result-badge.wrong {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.review-prompt {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.review-translation {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0;
+}
+
+.review-options-pills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.review-opt-pill {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+}
+
+.review-opt-pill.correct-answer {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+  color: #10b981;
+  font-weight: 750;
+}
+
+.review-opt-pill.user-wrong-choice {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #ef4444;
+  color: #ef4444;
+  font-weight: 750;
+  text-decoration: line-through;
+}
+
+.review-explanation-box {
+  background: var(--bg-tertiary);
+  border-left: 3.5px solid var(--primary);
+  padding: 10px 14px;
+  border-radius: 4px 10px 10px 4px;
+  font-size: 0.84rem;
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+.result-card-footer {
+  padding: 16px 28px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  background: var(--bg-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   4. Desktop PC & Mobile Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+  .toeic-hero-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toeic-hero-stats {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hero-stat-box {
+    flex: 1;
+  }
+
+  .toeic-tests-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .arena-split-body {
+    flex-direction: column;
+  }
+
+  .arena-pallet-sidebar {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    max-height: 140px;
+    padding: 10px 16px;
+  }
+
+  .pallet-matrix-grid {
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  .pallet-legend-row {
+    display: none;
+  }
+
+  .review-options-pills {
+    grid-template-columns: 1fr;
+  }
+}
