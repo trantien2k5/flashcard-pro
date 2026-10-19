@@ -78,8 +78,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 500px;
-  gap: clamp(4px, 1.2vw, 8px);
+  max-width: 520px;
+  gap: clamp(6px, 1.5vw, 10px);
   box-sizing: border-box;
 }
 
@@ -309,7 +309,7 @@
   width: 100%;
   max-width: 520px;
   margin: 0 auto;
-  padding: 8px 16px 20px 16px;
+  padding: 12px 16px 20px 16px;
   gap: 16px;
   box-sizing: border-box;
   min-height: 0;
@@ -318,15 +318,15 @@
 }
 
 /* --------------------------------------------------------------------------
-   1.5. Study Pomodoro Focus Tracker Bar (Nằm giữa header và flashcard)
+   1.5. Study Pomodoro Focus Tracker Bar (Tích hợp liền mạch trong thanh Header)
    -------------------------------------------------------------------------- */
 .study-pomodoro-bar {
-  width: 100%;
-  max-width: 480px;
+  flex: 1;
+  min-width: 0;
   background: var(--bg-card, #ffffff);
   border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
-  border-radius: 14px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -334,8 +334,7 @@
   z-index: 5;
   transition: all 0.2s ease;
   user-select: none;
-  flex-shrink: 0;
-  margin-bottom: -4px;
+  box-sizing: border-box;
 }
 
 [data-theme="dark"] .study-pomodoro-bar {

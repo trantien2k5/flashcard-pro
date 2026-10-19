@@ -206,7 +206,7 @@ export function renderStudyOverlayShell() {
 
   if (!overlay.querySelector('.study-header-bar')) {
     overlay.innerHTML = `
-      <!-- Minimalist Header Bar -->
+      <!-- Minimalist Header Bar (Tích hợp Thanh đếm thời gian & Thống kê phiên học) -->
       <header class="study-header-bar">
         <div class="study-header-inner">
           <button id="btn-study-close" class="btn-study-exit" title="Thoát phiên học (Esc)" aria-label="Đóng phiên học">
@@ -216,10 +216,51 @@ export function renderStudyOverlayShell() {
             </svg>
           </button>
 
-          <!-- Middle Today Study Time Capsule -->
-          <div class="study-header-center">
-            <div class="study-header-pill study-timer-pill" id="study-live-timer" title="Thời gian đã học hôm nay">
-              <span class="timer-digits" id="study-timer-digits">⏱️ Đã học: 0 phút</span>
+          <!-- Unified Header Center: Pomodoro Focus Bar & Live Elapsed Timer -->
+          <div class="study-pomodoro-bar" id="study-pomodoro-bar">
+            <div class="pomodoro-bar-inner">
+              <!-- 1. Trái: Biểu tượng + Đồng hồ tăng dần + Nút Play/Pause -->
+              <div class="pomodoro-timer-side">
+                <span class="pomodoro-badge-icon" title="Phiên học Pomodoro">🍅</span>
+                <span class="pomodoro-time-display" id="pomodoro-countdown" title="Thời gian đã học trong phiên">00:00</span>
+                <button type="button" class="btn-pomodoro-control" id="btn-pomodoro-toggle" title="Tạm dừng / Tiếp tục Pomodoro" aria-label="Tạm dừng hoặc tiếp tục">
+                  <span class="pomodoro-btn-icon" id="pomodoro-play-icon">⏸️</span>
+                </button>
+              </div>
+
+              <!-- 2. Giữa: Thống kê số lượng thẻ đã ôn trong chu kỳ -->
+              <div class="pomodoro-stats-side" id="pomodoro-stats-side" title="Số lượng thẻ đã ôn trong phiên này">
+                <span class="pomodoro-stats-lbl">Đã ôn:</span>
+                <span class="pomodoro-count-number" id="pomodoro-cards-count">0</span>
+                <span class="pomodoro-stats-unit">thẻ</span>
+              </div>
+
+              <!-- 3. Phải: Cho user điều chỉnh mục tiêu 5p đến 60p + Nút Reset -->
+              <div class="pomodoro-actions-side">
+                <div class="pomodoro-select-wrapper" title="Mục tiêu phiên Pomodoro (5p - 60p)">
+                  <select class="pomodoro-select" id="pomodoro-duration-select" aria-label="Chọn thời lượng Pomodoro">
+                    <option value="5">5p</option>
+                    <option value="10">10p</option>
+                    <option value="15">15p</option>
+                    <option value="20">20p</option>
+                    <option value="25" selected>25p</option>
+                    <option value="30">30p</option>
+                    <option value="45">45p</option>
+                    <option value="60">60p</option>
+                  </select>
+                  <span class="select-chevron">▾</span>
+                </div>
+                <button type="button" class="btn-pomodoro-reset" id="btn-pomodoro-reset" title="Đặt lại chu kỳ" aria-label="Đặt lại">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Thanh tiến độ thời gian Pomodoro -->
+            <div class="pomodoro-progress-bar">
+              <div class="pomodoro-progress-fill" id="pomodoro-progress-fill" style="width: 0%;"></div>
             </div>
           </div>
 
@@ -238,53 +279,6 @@ export function renderStudyOverlayShell() {
 
       <!-- Study Canvas Center Area -->
       <main class="study-body-wrapper">
-        <!-- Pomodoro Focus Tracker Bar (Nằm giữa header và flashcard) -->
-        <div class="study-pomodoro-bar" id="study-pomodoro-bar">
-          <div class="pomodoro-bar-inner">
-            <!-- 1. Trái: Biểu tượng + Đồng hồ đếm ngược + Nút Play/Pause -->
-            <div class="pomodoro-timer-side">
-              <span class="pomodoro-badge-icon" title="Phiên học Pomodoro">🍅</span>
-              <span class="pomodoro-time-display" id="pomodoro-countdown" title="Thời gian còn lại">25:00</span>
-              <button type="button" class="btn-pomodoro-control" id="btn-pomodoro-toggle" title="Tạm dừng / Tiếp tục Pomodoro" aria-label="Tạm dừng hoặc tiếp tục">
-                <span class="pomodoro-btn-icon" id="pomodoro-play-icon">⏸️</span>
-              </button>
-            </div>
-
-            <!-- 2. Giữa: Thống kê số lượng thẻ đã ôn trong chu kỳ -->
-            <div class="pomodoro-stats-side" id="pomodoro-stats-side" title="Số lượng thẻ đã ôn trong phiên này">
-              <span class="pomodoro-stats-lbl">Đã ôn:</span>
-              <span class="pomodoro-count-number" id="pomodoro-cards-count">0</span>
-              <span class="pomodoro-stats-unit">thẻ</span>
-            </div>
-
-            <!-- 3. Phải: Cho user điều chỉnh từ 5p đến 30p, 60p + Nút Reset -->
-            <div class="pomodoro-actions-side">
-              <div class="pomodoro-select-wrapper" title="Điều chỉnh thời gian Pomodoro (5p - 60p)">
-                <select class="pomodoro-select" id="pomodoro-duration-select" aria-label="Chọn thời lượng Pomodoro">
-                  <option value="5">5p</option>
-                  <option value="10">10p</option>
-                  <option value="15">15p</option>
-                  <option value="20">20p</option>
-                  <option value="25" selected>25p</option>
-                  <option value="30">30p</option>
-                  <option value="45">45p</option>
-                  <option value="60">60p</option>
-                </select>
-                <span class="select-chevron">▾</span>
-              </div>
-              <button type="button" class="btn-pomodoro-reset" id="btn-pomodoro-reset" title="Đặt lại chu kỳ" aria-label="Đặt lại">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Thanh tiến độ thời gian Pomodoro -->
-          <div class="pomodoro-progress-bar">
-            <div class="pomodoro-progress-fill" id="pomodoro-progress-fill" style="width: 100%;"></div>
-          </div>
-        </div>
 
         <div class="flashcard-stage">
           <div id="flashcard-element" class="flashcard-3d-wrapper" role="button" tabindex="0" aria-label="Thẻ học từ vựng">
@@ -1569,13 +1563,13 @@ function updateStudyLiveTimerUI(state) {
 }
 
 // ==========================================================================
-// BỘ ĐIỀU PHỐI POMODORO FOCUS TRACKER (THỜI LƯỢNG TÙY CHỌN 5P - 60P)
+// BỘ ĐIỀU PHỐI POMODORO FOCUS TRACKER (THỜI LƯỢNG TÙY CHỌN 5P - 60P, ĐẾM TĂNG DẦN)
 // ==========================================================================
 const POMODORO_STORAGE_KEY = 'flashcard_pomodoro_duration_min';
 
 let _pomodoroState = {
   durationMinutes: 25,
-  remainingSeconds: 25 * 60,
+  elapsedSeconds: 0,
   isRunning: false,
   cardsReviewed: 0,
   intervalId: null
@@ -1585,7 +1579,7 @@ export function initPomodoroTracker(app) {
   try {
     const savedDuration = Number(localStorage.getItem(POMODORO_STORAGE_KEY)) || 25;
     _pomodoroState.durationMinutes = savedDuration;
-    _pomodoroState.remainingSeconds = savedDuration * 60;
+    _pomodoroState.elapsedSeconds = 0;
     _pomodoroState.cardsReviewed = 0;
     _pomodoroState.isRunning = true;
 
@@ -1598,7 +1592,7 @@ export function initPomodoroTracker(app) {
           const val = Number(e.target.value) || 25;
           localStorage.setItem(POMODORO_STORAGE_KEY, String(val));
           _pomodoroState.durationMinutes = val;
-          _pomodoroState.remainingSeconds = val * 60;
+          _pomodoroState.elapsedSeconds = 0;
           _pomodoroState.cardsReviewed = 0;
           _pomodoroState.isRunning = true;
           updatePomodoroUI();
@@ -1621,12 +1615,12 @@ export function initPomodoroTracker(app) {
       btnReset._bound = true;
       btnReset.addEventListener('click', (e) => {
         e.stopPropagation();
-        _pomodoroState.remainingSeconds = _pomodoroState.durationMinutes * 60;
+        _pomodoroState.elapsedSeconds = 0;
         _pomodoroState.cardsReviewed = 0;
         _pomodoroState.isRunning = true;
         updatePomodoroUI();
         if (app && app.showToast) {
-          app.showToast('🔄 Đã đặt lại chu kỳ Pomodoro', 'info', 1500);
+          app.showToast('🔄 Đã đặt lại thời gian phiên học', 'info', 1500);
         }
       });
     }
@@ -1647,20 +1641,17 @@ function startPomodoroTicker(app) {
   _pomodoroState.intervalId = setInterval(() => {
     if (!_pomodoroState.isRunning) return;
 
-    if (_pomodoroState.remainingSeconds > 0) {
-      _pomodoroState.remainingSeconds--;
-      updatePomodoroUI();
-    } else {
-      // Hết chu kỳ Pomodoro!
-      _pomodoroState.isRunning = false;
+    _pomodoroState.elapsedSeconds++;
+    const targetSecs = _pomodoroState.durationMinutes * 60;
+
+    if (_pomodoroState.elapsedSeconds >= targetSecs) {
+      // Đạt mốc mục tiêu Pomodoro!
       updatePomodoroUI();
       if (app && app.showToast) {
-        app.showToast(`🎉 Hoàn thành phiên Pomodoro ${_pomodoroState.durationMinutes} phút! Bạn đã ôn được ${_pomodoroState.cardsReviewed} thẻ.`, 'success', 5000);
+        app.showToast(`🎉 Xuất sắc! Bạn đã hoàn thành mục tiêu ${_pomodoroState.durationMinutes} phút và ôn được ${_pomodoroState.cardsReviewed} thẻ!`, 'success', 5000);
       }
-      // Tự động chuẩn bị chu kỳ tiếp theo
-      _pomodoroState.remainingSeconds = _pomodoroState.durationMinutes * 60;
-      _pomodoroState.cardsReviewed = 0;
-      _pomodoroState.isRunning = true;
+      // Tiếp tục đếm tăng dần hoặc chuyển chu kỳ tiếp theo
+    } else {
       updatePomodoroUI();
     }
   }, 1000);
@@ -1690,17 +1681,19 @@ function updatePomodoroUI() {
   const elBar = document.getElementById('study-pomodoro-bar');
 
   const totalSecs = Math.max(1, _pomodoroState.durationMinutes * 60);
-  const remSecs = Math.max(0, _pomodoroState.remainingSeconds);
+  const elapsedSecs = Math.max(0, _pomodoroState.elapsedSeconds);
 
-  const m = Math.floor(remSecs / 60);
-  const s = remSecs % 60;
+  // Đếm tăng dần: 00:00 -> 00:01 -> ...
+  const m = Math.floor(elapsedSecs / 60);
+  const s = elapsedSecs % 60;
   const timeFormatted = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 
   if (elCountdown) elCountdown.textContent = timeFormatted;
   if (elCount) elCount.textContent = String(_pomodoroState.cardsReviewed);
   if (elIcon) elIcon.textContent = _pomodoroState.isRunning ? '⏸️' : '▶️';
 
-  const pct = Math.max(0, Math.min(100, (remSecs / totalSecs) * 100));
+  // Tiến độ tăng dần từ 0% lên 100%
+  const pct = Math.min(100, (elapsedSecs / totalSecs) * 100);
   if (elFill) elFill.style.width = `${pct}%`;
 
   if (elBar) {
