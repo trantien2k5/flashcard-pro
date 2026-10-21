@@ -149,7 +149,7 @@ export function startFrontActiveRecallTimer() {
 
 // Cấu hình học tập (Mặc định: Từ tiếng Anh, Nghĩa tiếng Việt, Phiên âm, Từ loại, Câu ví dụ tiếng Anh)
 const DEFAULT_STUDY_PREFS = {
-  studyMode: 'flashcard',    // 'flashcard' (lật thẻ) hoặc 'type' (gõ từ đục lỗ)
+  studyMode: 'flashcard',    // 'flashcard' (lật thẻ)
   showImage: false,          // Mặc định TẮT hình ảnh (tránh lỗi/chiếm diện tích)
   showPhonetic: true,        // Mặc định BẬT phiên âm IPA
   showDefinition: false,     // Mặc định TẮT định nghĩa tiếng Anh dài dòng
@@ -172,7 +172,7 @@ export function getStudyPrefs() {
       const parsed = JSON.parse(raw);
       return {
         ...DEFAULT_STUDY_PREFS,
-        studyMode: parsed.studyMode === 'type' ? 'type' : 'flashcard',
+        studyMode: 'flashcard',
         showImage: parsed.showImage !== undefined ? !!parsed.showImage : DEFAULT_STUDY_PREFS.showImage,
         showPhonetic: parsed.showPhonetic !== undefined ? !!parsed.showPhonetic : DEFAULT_STUDY_PREFS.showPhonetic,
         showDefinition: parsed.showDefinition !== undefined ? !!parsed.showDefinition : DEFAULT_STUDY_PREFS.showDefinition,
@@ -266,12 +266,8 @@ export function renderStudyOverlayShell() {
             </div>
           </div>
 
-          <!-- Right Action: Quick Mode Toggle & 3 Dots Menu for Study Options -->
+          <!-- Right Action: 3 Dots Menu for Study Options -->
           <div class="study-header-right">
-            <button id="btn-toggle-study-mode" class="btn-study-mode-toggle" type="button" title="Chuyển chế độ: Lật thẻ ↔ Gõ từ đục lỗ" aria-label="Chuyển chế độ học">
-              <span class="mode-icon" id="mode-toggle-icon">⌨️</span>
-              <span class="mode-text" id="mode-toggle-text">Gõ từ</span>
-            </button>
             <button id="btn-study-menu" class="btn-study-icon" title="Tùy chọn phiên học" aria-label="Tùy chọn phiên học">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="1.5"/>
@@ -337,60 +333,6 @@ export function renderStudyOverlayShell() {
                 </div>
               </div>
 
-              <!-- Cụm Gõ Từ Đơn Giản & Trực Diện (Pure Direct Typing Mode) -->
-              <div class="card-typing-arena" id="card-front-typing-arena" style="display: none;">
-                <!-- Nghĩa Tiếng Việt To Rõ Căn Giữa -->
-                <div class="typing-meaning-prompt">
-                  <div class="typing-meaning-text" id="card-typing-meaning">...</div>
-                  <div class="typing-meta-sub" id="card-typing-meta-sub">
-                    <span class="typing-pos-badge" id="card-typing-pos">WORD</span>
-                    <span class="typing-cefr-badge" id="card-typing-cefr">A1</span>
-                  </div>
-                </div>
-
-                <!-- Gợi ý câu ví dụ có đục lỗ (nếu có) -->
-                <div class="typing-cloze-box" id="card-typing-cloze-box">
-                  <span class="cloze-prefix-icon">💡</span>
-                  <p class="typing-cloze-sentence" id="card-typing-cloze-sentence">...</p>
-                </div>
-
-                <!-- Ô nhập từ tiếng Anh -->
-                <div class="typing-input-wrap">
-                  <div class="typing-input-inner">
-                    <input type="text" id="card-typing-input" class="typing-text-field" placeholder="Gõ từ tiếng Anh vào đây..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-                    <span class="typing-char-count" id="card-typing-char-count" title="Số ký tự của từ">0 ký tự</span>
-                  </div>
-                  
-                  <div class="typing-actions-row">
-                    <button type="button" class="btn-typing-check" id="btn-typing-check">
-                      <span>Kiểm tra đáp án</span>
-                      <kbd class="key-hint">Enter ↵</kbd>
-                    </button>
-                    <button type="button" class="btn-typing-giveup" id="btn-typing-giveup" title="Xem đáp án mẫu">
-                      <span>Gợi ý</span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Khung hiển thị kết quả trực tiếp (Hiện đáp án, phát âm, từ chuẩn ngay tại chỗ) -->
-                <div class="typing-result-card" id="card-typing-result-card" style="display: none;">
-                  <div class="typing-result-header">
-                    <span class="typing-result-badge" id="typing-result-badge">Chính xác</span>
-                    <button type="button" class="btn-typing-speaker" id="btn-typing-speaker" title="Nghe phát âm từ này">
-                      🔊 <span id="typing-result-phonetic">/ ... /</span>
-                    </button>
-                  </div>
-                  <div class="typing-result-target" id="typing-result-target-word">apple</div>
-                  <div class="typing-result-user-diff" id="typing-result-user-diff"></div>
-                  
-                  <!-- Nút Chuyển Từ Tiếp Theo -->
-                  <button type="button" class="btn-typing-next-card" id="btn-typing-next-card">
-                    <span>Sang từ tiếp theo ➔</span>
-                    <kbd class="key-hint">Enter / Space</kbd>
-                  </button>
-                </div>
-              </div>
-
               <!-- Luyện Nghe Phản Xạ Mù (Audio Blind Waveform) -->
               <div class="card-audio-blind-wrap" id="card-audio-blind-wrap" style="display: none;">
                 <div class="audio-wave-visualizer">
@@ -429,18 +371,7 @@ export function renderStudyOverlayShell() {
                 </div>
               </div>
 
-                <!-- So sánh kết quả gõ từ (Chỉ hiện khi ở chế độ gõ từ) -->
-                <div class="card-typing-result-box" id="card-typing-result-box" style="display: none;">
-                  <div class="typing-result-title">
-                    <span class="result-icon" id="typing-result-icon">🎯</span>
-                    <span class="result-text" id="typing-result-text">Đối chiếu từ đã gõ:</span>
-                  </div>
-                  <div class="typing-diff-display" id="card-typing-diff-display">
-                    <!-- Dynamic diff content -->
-                  </div>
-                </div>
-
-                <!-- Nghĩa Tiếng Việt Chủ Đạo -->
+              <!-- Nghĩa Tiếng Việt Chủ Đạo -->
                 <div class="card-meaning-hero">
                   <h3 class="card-back-meaning fc-meaning" id="card-back-meaning">...</h3>
                 </div>
@@ -541,7 +472,6 @@ export function renderStudyOverlayShell() {
               </div>
               <select id="pref-select-study-mode" class="pref-select-dropdown">
                 <option value="flashcard" selected>🎴 Thẻ Flashcard 3D</option>
-                <option value="type">⌨️ Gõ từ đục lỗ (Cloze Typing)</option>
                 <option value="quiz">🎯 Trắc nghiệm (Quiz)</option>
               </select>
             </div>
@@ -905,197 +835,11 @@ export function setupStudyControls(app) {
       }
     };
 
-    // Helper hàm chuẩn hóa và so sánh chuỗi từ vựng
-    const normalizeWord = (str) => {
-      return (str || '')
-        .toLowerCase()
-        .trim()
-        .replace(/['’]/g, "'")
-        .replace(/\s+/g, ' ');
-    };
-
-    // Kiểm tra câu trả lời gõ từ trực tiếp tại chỗ (KHÔNG lật thẻ 3D, KHÔNG tự chấm FSRS)
-    const checkTypingAnswer = (isGiveUp = false) => {
-      try {
-        if (!app.studySession || !app.studySession.isActive) return;
-        const currentCard = app.studySession.currentCard;
-        if (!currentCard) return;
-
-        const dom = getStudyDom();
-        const rawInput = dom.typingInput ? dom.typingInput.value : '';
-        const userTyped = normalizeWord(rawInput);
-        const targetWord = normalizeWord(currentCard.word);
-        const isCorrect = !isGiveUp && userTyped === targetWord;
-
-        // Khóa input và ẩn nút Kiểm tra, hiện Result Card
-        if (dom.typingInput) {
-          dom.typingInput.disabled = true;
-          dom.typingInput.className = `typing-text-field ${isCorrect ? 'is-correct' : 'is-wrong'}`;
-        }
-
-        const actionsRow = document.querySelector('.typing-actions-row');
-        if (actionsRow) actionsRow.style.display = 'none';
-
-        if (dom.typingResultCard) {
-          dom.typingResultCard.style.display = 'flex';
-          
-          if (dom.typingResultBadge) {
-            dom.typingResultBadge.className = `typing-result-badge ${isCorrect ? 'is-correct' : 'is-wrong'}`;
-            dom.typingResultBadge.textContent = isCorrect ? '✓ Chính xác xuất sắc!' : (isGiveUp ? '💡 Đáp án mẫu' : '✗ Chưa chính xác');
-          }
-
-          if (dom.typingResultTargetWord) {
-            dom.typingResultTargetWord.textContent = currentCard.word;
-          }
-
-          if (dom.typingResultPhonetic) {
-            dom.typingResultPhonetic.textContent = currentCard.phonetic || currentCard.ipa || '';
-          }
-
-          if (dom.typingResultUserDiff) {
-            if (isCorrect) {
-              dom.typingResultUserDiff.innerHTML = `<span class="diff-correct-text">Bạn đã gõ đúng 100% chính tả!</span>`;
-            } else {
-              const typedText = rawInput.trim() ? escapeHTML(rawInput.trim()) : '(Bỏ trống)';
-              dom.typingResultUserDiff.innerHTML = `
-                <div class="diff-compare-row">
-                  <span class="diff-user-val">Bạn đã gõ: <del>${typedText}</del></span>
-                </div>
-              `;
-            }
-          }
-
-          // Tự động phát âm từ vựng để luyện tai
-          try {
-            app.studySession.speak(currentCard.word);
-          } catch (e) {}
-
-          // Tự động focus nút Tiếp Theo
-          setTimeout(() => {
-            try { dom.btnTypingNextCard?.focus(); } catch (e) {}
-          }, 100);
-        }
-      } catch (err) {
-        console.error('Lỗi checkTypingAnswer:', err);
-      }
-    };
-
-    // Chuyển sang thẻ tiếp theo trong chế độ Gõ từ (Ghi nhận điểm FSRS & Load từ mới)
-    const proceedToNextTypingCard = () => {
-      try {
-        if (!app.studySession || !app.studySession.isActive) return;
-        const dom = getStudyDom();
-        const isCorrect = dom.typingInput?.classList.contains('is-correct');
-        
-        // Ghi nhận FSRS rating: Đúng ➔ Good (3), Sai ➔ Again (1)
-        const rating = isCorrect ? Rating.Good : Rating.Again;
-        
-        // Reset input và result card trước khi load từ mới
-        if (dom.typingResultCard) dom.typingResultCard.style.display = 'none';
-        const actionsRow = document.querySelector('.typing-actions-row');
-        if (actionsRow) actionsRow.style.display = 'flex';
-        
-        if (dom.typingInput) {
-          dom.typingInput.disabled = false;
-          dom.typingInput.value = '';
-          dom.typingInput.className = 'typing-text-field';
-        }
-
-        globalStudyTimer.recordActivity();
-        recordPomodoroCardReviewed();
-        app.studySession.rateCard(rating, { latencySec: 2.0 });
-      } catch (err) {
-        console.error('Lỗi proceedToNextTypingCard:', err);
-      }
-    };
-
-    // Nút chuyển đổi nhanh chế độ học: Flashcard ↔ Gõ từ
-    const btnToggleStudyMode = document.getElementById('btn-toggle-study-mode');
-    const toggleStudyModeAction = () => {
-      const p = getStudyPrefs();
-      p.studyMode = p.studyMode === 'type' ? 'flashcard' : 'type';
-      saveStudyPrefs(p);
-      if (selectStudyMode) {
-        selectStudyMode.value = p.studyMode;
-      }
-      if (app.studySession?.currentCard) {
-        applyFieldVisibility(p, app.studySession.currentCard);
-      }
-      const modeLabel = p.studyMode === 'type' ? '⌨️ Gõ từ kiểm tra' : '🎴 Thẻ Flashcard 3D';
-      app.showToast?.(`Chế độ: ${modeLabel}`, 'info', 1800);
-    };
-
-    if (btnToggleStudyMode) {
-      btnToggleStudyMode.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleStudyModeAction();
-      });
-    }
-
     if (selectStudyMode) {
       selectStudyMode.addEventListener('change', (e) => {
         if (e.target.value === 'quiz') {
-          e.target.value = getStudyPrefs().studyMode || 'flashcard';
+          e.target.value = 'flashcard';
           switchToQuizMode();
-        } else if (e.target.value === 'type' || e.target.value === 'flashcard') {
-          const p = getStudyPrefs();
-          p.studyMode = e.target.value;
-          saveStudyPrefs(p);
-          if (app.studySession?.currentCard) {
-            applyFieldVisibility(p, app.studySession.currentCard);
-          }
-          const modeLabel = p.studyMode === 'type' ? '⌨️ Gõ từ kiểm tra' : '🎴 Thẻ Flashcard 3D';
-          app.showToast?.(`Chế độ: ${modeLabel}`, 'info', 1800);
-        }
-      });
-    }
-
-    // Sự kiện nhập liệu trong Typing Arena
-    const typingInput = document.getElementById('card-typing-input');
-    const btnTypingCheck = document.getElementById('btn-typing-check');
-    const btnTypingGiveup = document.getElementById('btn-typing-giveup');
-    const btnTypingNext = document.getElementById('btn-typing-next-card');
-    const btnTypingSpeaker = document.getElementById('btn-typing-speaker');
-
-    if (typingInput) {
-      typingInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          e.stopPropagation();
-          checkTypingAnswer(false);
-        }
-      });
-      typingInput.addEventListener('click', (e) => {
-        e.stopPropagation();
-      });
-    }
-
-    if (btnTypingCheck) {
-      btnTypingCheck.addEventListener('click', (e) => {
-        e.stopPropagation();
-        checkTypingAnswer(false);
-      });
-    }
-
-    if (btnTypingGiveup) {
-      btnTypingGiveup.addEventListener('click', (e) => {
-        e.stopPropagation();
-        checkTypingAnswer(true);
-      });
-    }
-
-    if (btnTypingNext) {
-      btnTypingNext.addEventListener('click', (e) => {
-        e.stopPropagation();
-        proceedToNextTypingCard();
-      });
-    }
-
-    if (btnTypingSpeaker) {
-      btnTypingSpeaker.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (app.studySession?.currentCard) {
-          app.studySession.speak(app.studySession.currentCard.word);
         }
       });
     }
@@ -1157,14 +901,10 @@ export function setupStudyControls(app) {
       }
     });
 
-    // Lật thẻ khi chạm hoặc bấm nút lật (Chỉ áp dụng khi ở chế độ Flashcard thông thường)
+    // Lật thẻ khi chạm hoặc bấm nút lật
     const triggerFlip = () => {
       try {
         if (!overlay.classList.contains('active')) return;
-        
-        // Không lật thẻ khi đang ở chế độ gõ từ (Typing Mode)
-        const prefs = getStudyPrefs();
-        if (prefs.studyMode === 'type') return;
         
         // Nếu đang ở mặt trước và đang trong 2.5s suy nghĩ
         if (!app.studySession.isFlipped && _isFlipLocked) {
@@ -1207,10 +947,6 @@ export function setupStudyControls(app) {
     }
 
     flashcardEl.addEventListener('click', (e) => {
-      const prefs = getStudyPrefs();
-      if (prefs.studyMode === 'type') {
-        return;
-      }
       if (
         e.target.closest('.card-sound-btn-inline') ||
         e.target.closest('.card-sound-btn') || 
@@ -1219,8 +955,7 @@ export function setupStudyControls(app) {
         e.target.closest('#btn-example-audio') ||
         e.target.closest('.btn-card-audio-mini') ||
         e.target.closest('.btn-example-audio') ||
-        e.target.closest('#card-audio-blind-wrap') ||
-        e.target.closest('#card-front-typing-arena')
+        e.target.closest('#card-audio-blind-wrap')
       ) {
         return;
       }
@@ -1299,8 +1034,6 @@ export function setupStudyControls(app) {
     let touchStartTime = 0;
 
     flashcardEl.addEventListener('touchstart', (e) => {
-      const prefs = getStudyPrefs();
-      if (prefs.studyMode === 'type') return;
       if (e.touches && e.touches.length === 1) {
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
@@ -1309,8 +1042,6 @@ export function setupStudyControls(app) {
     }, { passive: true });
 
     flashcardEl.addEventListener('touchend', (e) => {
-      const prefs = getStudyPrefs();
-      if (prefs.studyMode === 'type') return;
       if (!e.changedTouches || e.changedTouches.length === 0) return;
       const touchEndX = e.changedTouches[0].clientX;
       const touchEndY = e.changedTouches[0].clientY;
@@ -1676,26 +1407,12 @@ export function setupStudyControls(app) {
           return;
         }
 
-        const prefs = getStudyPrefs();
-        const isTypeMode = prefs.studyMode === 'type';
-
-        // Phím tắt trong chế độ Gõ từ: Nếu Result Card đang hiển thị, nhấn Space hoặc Enter để sang từ kế tiếp
-        if (isTypeMode) {
-          const dom = getStudyDom();
-          const isResultCardVisible = dom.typingResultCard && dom.typingResultCard.style.display !== 'none';
-          if (isResultCardVisible && (e.code === 'Space' || e.key === 'Enter')) {
-            e.preventDefault();
-            proceedToNextTypingCard();
-            return;
-          }
-        }
+        globalStudyTimer.recordActivity();
 
         if (e.code === 'Space') {
-          // Nếu đang focus trong ô gõ từ thì cho phép nhập phím cách bình thường (cho cụm từ / phrasal verbs)
           if (document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA')) {
             return;
           }
-          if (isTypeMode) return;
           e.preventDefault();
           triggerFlip();
         } else if (e.key === 'r' || e.key === 'R') {
@@ -1706,7 +1423,7 @@ export function setupStudyControls(app) {
         } else if (e.key === 'Escape') {
           e.preventDefault();
           if (btnClose) btnClose.click();
-        } else if (!isTypeMode && app.studySession.isFlipped) {
+        } else if (app.studySession.isFlipped) {
           let rating = null;
           if (e.key === '1') rating = Rating.Again;
           else if (e.key === '2') rating = Rating.Hard;
@@ -1794,27 +1511,7 @@ function getStudyDom() {
     leechBadgeFront: document.getElementById('card-front-leech-badge'),
     repsBadgeFront: document.getElementById('card-front-reps-badge'),
     repsTextFront: document.getElementById('card-front-reps-text'),
-    btnToggleStudyMode: document.getElementById('btn-toggle-study-mode'),
-    modeToggleIcon: document.getElementById('mode-toggle-icon'),
-    modeToggleText: document.getElementById('mode-toggle-text'),
-    flipCenter: document.getElementById('card-front-flip-center'),
-    typingArena: document.getElementById('card-front-typing-arena'),
-    typingMeaning: document.getElementById('card-typing-meaning'),
-    typingClozeBox: document.getElementById('card-typing-cloze-box'),
-    typingClozeSentence: document.getElementById('card-typing-cloze-sentence'),
-    typingInput: document.getElementById('card-typing-input'),
-    typingCharCount: document.getElementById('card-typing-char-count'),
-    btnTypingCheck: document.getElementById('btn-typing-check'),
-    btnTypingGiveup: document.getElementById('btn-typing-giveup'),
-    typingResultCard: document.getElementById('card-typing-result-card'),
-    typingResultBadge: document.getElementById('typing-result-badge'),
-    btnTypingSpeaker: document.getElementById('btn-typing-speaker'),
-    typingResultPhonetic: document.getElementById('typing-result-phonetic'),
-    typingResultTargetWord: document.getElementById('typing-result-target-word'),
-    typingResultUserDiff: document.getElementById('typing-result-user-diff'),
-    btnTypingNextCard: document.getElementById('btn-typing-next-card'),
-    typingPos: document.getElementById('card-typing-pos'),
-    typingCefr: document.getElementById('card-typing-cefr')
+    flipCenter: document.getElementById('card-front-flip-center')
   };
   return _dom;
 }
@@ -2179,82 +1876,6 @@ function applyFieldVisibility(prefs, card) {
 
   if (dom.hintFront) dom.hintFront.style.display = 'none';
   if (dom.hintBack) dom.hintBack.style.display = 'none';
-
-  // 6. Chế độ học: Flashcard vs Gõ từ trực tiếp (Direct Typing Arena)
-  const isTypeMode = prefs.studyMode === 'type';
-  if (dom.flashcardEl) {
-    dom.flashcardEl.classList.toggle('is-typing-mode', isTypeMode);
-  }
-  if (dom.overlay) {
-    dom.overlay.classList.toggle('is-typing-mode', isTypeMode);
-  }
-  if (dom.btnToggleStudyMode) {
-    dom.btnToggleStudyMode.classList.toggle('is-typing-active', isTypeMode);
-  }
-  if (dom.modeToggleIcon) {
-    dom.modeToggleIcon.textContent = isTypeMode ? '🎴' : '⌨️';
-  }
-  if (dom.modeToggleText) {
-    dom.modeToggleText.textContent = isTypeMode ? 'Lật thẻ' : 'Gõ từ';
-  }
-
-  // Ẩn toàn bộ nút điều khiển flashcard (Xem đáp án & 4 nút FSRS) khi đang ở chế độ gõ từ
-  if (dom.studyControlsWrapper) {
-    dom.studyControlsWrapper.style.display = isTypeMode ? 'none' : '';
-  }
-
-  if (dom.flipCenter) {
-    dom.flipCenter.style.display = isTypeMode ? 'none' : 'flex';
-  }
-  if (dom.typingArena) {
-    dom.typingArena.style.display = isTypeMode ? 'flex' : 'none';
-  }
-
-  // Cấu hình nội dung cho chế độ gõ từ nếu đang kích hoạt
-  if (isTypeMode && card) {
-    if (dom.typingMeaning) {
-      dom.typingMeaning.textContent = card.meaning || '...';
-    }
-    if (dom.typingPos) {
-      const posVal = (card.pos || 'word').toUpperCase();
-      dom.typingPos.textContent = posVal;
-      dom.typingPos.style.display = card.pos ? 'inline-block' : 'none';
-    }
-    if (dom.typingCefr) {
-      const cefrVal = (card.cefr || card.level || 'A1').toUpperCase();
-      dom.typingCefr.textContent = cefrVal;
-      dom.typingCefr.style.display = cefrVal ? 'inline-block' : 'none';
-    }
-    if (dom.typingClozeSentence && dom.typingClozeBox) {
-      if (card.example && card.word) {
-        const cloze = generateClozeSentence(card.example, card.word);
-        dom.typingClozeSentence.textContent = cloze;
-        dom.typingClozeBox.style.display = 'flex';
-      } else {
-        dom.typingClozeBox.style.display = 'none';
-      }
-    }
-    if (dom.typingCharCount) {
-      const len = (card.word || '').trim().length;
-      dom.typingCharCount.textContent = `${len} ký tự`;
-    }
-    // Đặt lại kết quả và input
-    if (dom.typingResultCard) {
-      dom.typingResultCard.style.display = 'none';
-    }
-    const actionsRow = document.querySelector('.typing-actions-row');
-    if (actionsRow) {
-      actionsRow.style.display = 'flex';
-    }
-    if (dom.typingInput) {
-      dom.typingInput.value = '';
-      dom.typingInput.className = 'typing-text-field';
-      dom.typingInput.disabled = false;
-      setTimeout(() => {
-        try { dom.typingInput.focus(); } catch (e) {}
-      }, 50);
-    }
-  }
 }
 
 export function handleCardChange(app, card, progress) {
