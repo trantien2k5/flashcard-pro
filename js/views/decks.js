@@ -909,9 +909,6 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
               <button class="btn-word-study-single" data-id="${escapeHTML(card.id)}" title="Bắt đầu học riêng từ này">
                 ⚡ Học từ này
               </button>
-              <button class="btn-word-toggle-suspend ${isSuspended ? 'active' : ''}" data-id="${escapeHTML(card.id)}" title="${isSuspended ? 'Mở lại thẻ này để ôn tập' : 'Tạm dừng thẻ này'}">
-                ${isSuspended ? '▶️ Mở lại' : '⏸️ Tạm dừng'}
-              </button>
               <button class="btn-word-reset-card" data-id="${escapeHTML(card.id)}" title="Đặt lại tiến độ về Từ mới">
                 🔄 Đặt lại
               </button>
@@ -929,16 +926,6 @@ export async function renderSubtopicWordsPage(app, deckId, subtopicName) {
             e.stopPropagation();
             app.startStudySession(deckId, null, [card]);
           };
-
-          const btnSuspend = row.querySelector('.btn-word-toggle-suspend');
-          if (btnSuspend) {
-            btnSuspend.onclick = (e) => {
-              e.stopPropagation();
-              const nowSuspended = StorageManager.toggleCardSuspended(card.id);
-              app.showToast(nowSuspended ? `⏸️ Đã tạm dừng thẻ "${card.word}"` : `▶️ Đã mở lại thẻ "${card.word}"`, 'info');
-              renderFilteredWords();
-            };
-          }
 
           const btnReset = row.querySelector('.btn-word-reset-card');
           if (btnReset) {

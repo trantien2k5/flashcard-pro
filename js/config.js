@@ -177,7 +177,7 @@ export const DEFAULT_SETTINGS = {
   theme: 'light',
   enableFuzz: true, // Chống dồn lịch ôn tập (FSRS Fuzz Factor)
   leechThreshold: 8, // Số lần quên để tính là thẻ khó (Leech - Chuẩn Anki mặc định 8 lần)
-  leechAction: 'suspend', // 'suspend' (tự động tạm dừng đưa ra khỏi hàng đợi) hoặc 'tag' (gắn nhãn)
+  leechAction: 'tag', // 'tag' (gắn nhãn nhắc nhở câu ví dụ)
   rolloverHour: 4 // Mốc bắt đầu ngày mới lúc 04:00 AM (chuẩn Anki)
 };
 

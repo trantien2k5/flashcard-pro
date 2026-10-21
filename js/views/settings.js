@@ -178,8 +178,7 @@ export function renderSettingsTabShell(container) {
                 <span class="setting-title">Xử lý khi gặp từ khó (Leech)</span>
               </div>
               <select id="setting-leech-action" class="setting-select">
-                <option value="suspend" selected>⏸️ Tự động tạm dừng thẻ (Chuẩn Anki)</option>
-                <option value="tag">⚠️ Gắn nhãn cảnh báo</option>
+                <option value="tag" selected>⚠️ Gắn nhãn & Nhắc nhở câu ví dụ</option>
               </select>
             </div>
           </div>

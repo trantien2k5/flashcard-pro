@@ -107,28 +107,7 @@ function formatFSRSDueText(state, now = new Date()) {
   const dueYear = dueDate.getFullYear();
   const dueDateFormatted = `${dueDay}/${dueMonth}/${dueYear}`;
 
-  const isSuspended = state.suspended === true;
   const isLeech = Boolean(state.isLeech === true || lapses >= 8);
-
-  if (isSuspended) {
-    return {
-      statusClass: 'status-suspended',
-      statusLabel: 'Tạm treo',
-      statusIcon: '⏸️',
-      shortDueText: 'Tạm treo',
-      tierLabel: isLeech ? 'Thẻ khó (Leech)' : tierLabel,
-      tierLevel,
-      dueFullText: isLeech ? `Tạm treo do quên ${lapses} lần (Leech)` : 'Thẻ đang tạm dừng',
-      stability: s,
-      difficulty: d,
-      reps,
-      lapses,
-      interval,
-      dueDateFormatted,
-      isSuspended: true,
-      isLeech
-    };
-  }
 
   if (isDue) {
     return {
@@ -252,7 +231,6 @@ export function renderLibraryTab(app) {
     new: '✨ Chưa học',
     learning: '🌱 Đang học',
     leech: '⚠️ Hay quên liên tục (Leech)',
-    suspended: '⏸️ Tạm treo',
     mastered: '🏆 Thuần thục'
   };
 
@@ -305,7 +283,6 @@ export function renderLibraryTab(app) {
             <option value="learning" ${_libState.selectedStatus === 'learning' ? 'selected' : ''}>🌱 Đang ghi nhớ</option>
             <option value="mastered" ${_libState.selectedStatus === 'mastered' ? 'selected' : ''}>🏆 Thuần thục dài hạn</option>
             <option value="leech" ${_libState.selectedStatus === 'leech' || _libState.selectedStatus === 'hard' ? 'selected' : ''}>⚠️ Hay quên liên tục (Leech)</option>
-            <option value="suspended" ${_libState.selectedStatus === 'suspended' ? 'selected' : ''}>⏸️ Tạm treo</option>
           </select>
           <span class="filter-dropdown-arrow">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -629,14 +606,12 @@ function getFilteredAndSortedCards(app) {
       const lapses = state ? (Number(state.lapses) || 0) : 0;
 
       const isLeech = state ? Boolean(state.isLeech === true || (state.lapses && state.lapses >= 8)) : false;
-      const isSuspended = state ? Boolean(state.suspended === true) : false;
 
       if (statusFilter === 'due' && !isDue) continue;
       if (statusFilter === 'new' && !isNew) continue;
       if (statusFilter === 'learning' && (isNew || s >= MASTERY_STABILITY_THRESHOLD)) continue;
       if (statusFilter === 'mastered' && (isNew || s < MASTERY_STABILITY_THRESHOLD)) continue;
       if ((statusFilter === 'leech' || statusFilter === 'hard') && (isNew || !isLeech)) continue;
-      if (statusFilter === 'suspended' && !isSuspended) continue;
     }
 
     // 5. Lọc theo từ khóa tìm kiếm (Full-text index)
@@ -1130,9 +1105,9 @@ export function openWordDetailModal(card, app) {
 
       <!-- Modal Footer CTA -->
       <div class="word-detail-footer" style="display: flex; gap: 10px; align-items: center; justify-content: flex-end; flex-wrap: wrap;">
-        ${(state && (state.suspended || state.isLeech || (state.lapses && state.lapses >= 8))) ? `
+        ${(state && (state.isLeech || (state.lapses && state.lapses >= 8))) ? `
           <button class="btn-modal-unsuspend" id="btn-modal-unsuspend-card" style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3); color: #ef4444; padding: 10px 16px; border-radius: 12px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 0.88rem; transition: all 0.2s;">
-            <span>🔄 Bỏ tạm treo & Học lại</span>
+            <span>🔄 Đặt lại thẻ khó & Học lại</span>
           </button>
         ` : ''}
         <button class="btn-modal-study-now" id="btn-modal-study-single">

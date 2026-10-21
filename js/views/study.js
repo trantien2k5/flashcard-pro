@@ -639,17 +639,10 @@ export function renderStudyOverlayShell() {
           <div class="prefs-card-actions-section">
             <h4 class="prefs-section-subtitle">Thao tác thẻ hiện tại</h4>
             <div class="prefs-actions-grid">
-              <button type="button" class="btn-study-card-action" id="btn-action-suspend-card" title="Tạm ngưng học từ này">
-                <span class="action-icon">⏸️</span>
-                <div class="action-text">
-                  <span class="action-title">Tạm dừng thẻ</span>
-                  <span class="action-desc">Ẩn khỏi hàng đợi ôn tập</span>
-                </div>
-              </button>
               <button type="button" class="btn-study-card-action" id="btn-action-reset-card" title="Học lại từ này từ đầu">
                 <span class="action-icon">🔄</span>
                 <div class="action-text">
-                  <span class="action-title">Đặt lại tiến độ</span>
+                  <span class="action-title">Đặt lại tiến độ thẻ</span>
                   <span class="action-desc">Xóa lịch sử về Từ mới</span>
                 </div>
               </button>
@@ -1074,18 +1067,6 @@ export function setupStudyControls(app) {
     }
     if (btnCloseDrawer) btnCloseDrawer.addEventListener('click', closeDrawer);
     if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
-
-    // Thao tác Thẻ: Tạm dừng (Suspend)
-    const btnActionSuspend = document.getElementById('btn-action-suspend-card');
-    if (btnActionSuspend) {
-      btnActionSuspend.addEventListener('click', () => {
-        if (!app.studySession?.currentCard) return;
-        const cardWord = app.studySession.currentCard.word || 'từ vựng';
-        closeDrawer();
-        app.studySession.suspendCurrentCard();
-        app.showToast(`⏸️ Đã tạm dừng thẻ "${cardWord}"`, 'info');
-      });
-    }
 
     // Thao tác Thẻ: Đặt lại tiến độ (Reset to New)
     const btnActionReset = document.getElementById('btn-action-reset-card');
