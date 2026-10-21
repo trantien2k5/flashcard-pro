@@ -347,6 +347,7 @@ export class FlashcardApp {
 
       document.body.classList.toggle('subpage-view-active', isSubpageTarget);
 
+      // 1. Chuyển Tab Pane ngay lập tức trong frame này để 0ms delay UI
       const panes = document.querySelectorAll('.tab-pane');
       panes.forEach(pane => {
         pane.classList.toggle('active', pane.id === tabId);
@@ -364,21 +365,21 @@ export class FlashcardApp {
 
       scrollToTop();
 
-      if (this.deckManager) {
-        this.deckManager.invalidateStatsCache();
-      }
-      this.updateHeaderBadges();
+      // 2. Chuyển render nội dung sang microtask / rAF để chuyển tab mượt mà tức thì
+      requestAnimationFrame(() => {
+        this.updateHeaderBadges();
 
-      if (tabId === 'tab-review' || tabId === 'tab-home') this.renderReviewTab();
-      else if (tabId === 'tab-settings') this.renderSettingsTab();
-      else if (tabId === 'tab-decks') this.renderDecksTab();
-      else if (tabId === 'tab-library') this.renderLibraryTab();
-      else if (tabId === 'tab-test') this.renderToeicTestTab();
-      else if (tabId === 'tab-subtopics' && this.currentSubtopicsDeckId) {
-        this.renderSubtopicsPage(this.currentSubtopicsDeckId);
-      } else if (tabId === 'tab-subtopic-words' && this.currentSubtopicsDeckId && this.currentSubtopicName) {
-        this.renderSubtopicWordsPage(this.currentSubtopicsDeckId, this.currentSubtopicName);
-      }
+        if (tabId === 'tab-review' || tabId === 'tab-home') this.renderReviewTab();
+        else if (tabId === 'tab-settings') this.renderSettingsTab();
+        else if (tabId === 'tab-decks') this.renderDecksTab();
+        else if (tabId === 'tab-library') this.renderLibraryTab();
+        else if (tabId === 'tab-test') this.renderToeicTestTab();
+        else if (tabId === 'tab-subtopics' && this.currentSubtopicsDeckId) {
+          this.renderSubtopicsPage(this.currentSubtopicsDeckId);
+        } else if (tabId === 'tab-subtopic-words' && this.currentSubtopicsDeckId && this.currentSubtopicName) {
+          this.renderSubtopicWordsPage(this.currentSubtopicsDeckId, this.currentSubtopicName);
+        }
+      });
     } catch (err) {
       console.error(`Lỗi trong switchTab(${tabId}):`, err);
     }
