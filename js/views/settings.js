@@ -1,6 +1,7 @@
 import { StorageManager, BackupService } from '../services/storage.js';
 import { StatsManager } from '../core/stats.js';
 import { showConfirm, showToast, openBehavioralOptimizerModal, showStreakHubModal } from './components.js';
+import { showGoalCustomizerModal, showForecastDetailModal } from './review.js';
 
 function saveAppSettings(app) {
   StorageManager.saveSettings(app.settings);
@@ -51,6 +52,74 @@ export function renderSettingsTabShell(container) {
               <span id="settings-rank-pill" style="font-size: 0.72rem; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: rgba(99,102,241,0.12); color: var(--primary);">Tập Sự</span>
               <span id="settings-streak-pill" style="font-size: 0.72rem; font-weight: 600; color: var(--text-secondary);">🔥 0 ngày</span>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thanh Tiến Độ Trình Độ CEFR & Lộ Trình (Relocated from Home) -->
+      <div class="home-goal-bar-card" id="home-goal-card" role="button" tabindex="0" title="Nhấn để xem phân tích lộ trình CEFR & nhịp độ cá nhân hóa" style="margin-bottom: 16px;">
+        <div class="goal-bar-header">
+          <div class="goal-top-meta-row">
+            <div class="goal-eyebrow-wrap">
+              <span class="goal-eyebrow">TRÌNH ĐỘ HIỆN TẠI</span>
+              <span class="goal-level-badge" id="home-current-level-badge">A1 (0%)</span>
+            </div>
+            <span class="goal-target-tag" id="home-target-tag">Mục tiêu: B1 ❯</span>
+          </div>
+          <div class="goal-main-title-row">
+            <span class="goal-icon-badge" id="home-goal-icon">🎯</span>
+            <div class="goal-title-content">
+              <h2 class="goal-main-title" id="home-goal-title">Trình Độ A1 (Căn Bản Khởi Đầu)</h2>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multi-Segment CEFR Roadmap Track (A1 -> A2 -> B1 -> B2 -> C1) -->
+        <div class="cefr-milestone-track" id="home-cefr-track">
+          <div class="cefr-step-item" data-step="A1">
+            <div class="cefr-step-dot" id="dot-A1">A1</div>
+            <span class="cefr-step-label">Căn bản</span>
+          </div>
+          <div class="cefr-step-line"><div class="cefr-step-line-fill" id="fill-A1-A2" style="width: 0%;"></div></div>
+          <div class="cefr-step-item" data-step="A2">
+            <div class="cefr-step-dot" id="dot-A2">A2</div>
+            <span class="cefr-step-label">Sơ cấp</span>
+          </div>
+          <div class="cefr-step-line"><div class="cefr-step-line-fill" id="fill-A2-B1" style="width: 0%;"></div></div>
+          <div class="cefr-step-item" data-step="B1">
+            <div class="cefr-step-dot" id="dot-B1">B1</div>
+            <span class="cefr-step-label">Trung cấp</span>
+          </div>
+          <div class="cefr-step-line"><div class="cefr-step-line-fill" id="fill-B1-B2" style="width: 0%;"></div></div>
+          <div class="cefr-step-item" data-step="B2">
+            <div class="cefr-step-dot" id="dot-B2">B2</div>
+            <span class="cefr-step-label">Trung cao</span>
+          </div>
+          <div class="cefr-step-line"><div class="cefr-step-line-fill" id="fill-B2-C1" style="width: 0%;"></div></div>
+          <div class="cefr-step-item" data-step="C1">
+            <div class="cefr-step-dot" id="dot-C1">C1</div>
+            <span class="cefr-step-label">Cao cấp</span>
+          </div>
+        </div>
+
+        <div class="goal-progress-section">
+          <div class="goal-progress-meta">
+            <span class="goal-progress-label">Đã tích lũy mục tiêu: <strong id="home-goal-progress-words">0 / 3027 từ</strong></span>
+            <span class="goal-percent-badge" id="home-goal-percent">0%</span>
+          </div>
+          <div class="goal-progress-track">
+            <div class="goal-progress-fill" id="home-goal-progress-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <div class="goal-daily-status-row">
+          <div class="goal-daily-badge" id="home-goal-daily-badge">
+            <span class="goal-stat-icon">🌱</span>
+            <span id="home-goal-today-wrapper">Hôm nay: <strong id="home-goal-today-new">0/10 từ</strong></span>
+          </div>
+          <div class="goal-eta-badge" id="home-goal-eta" role="button" tabindex="0" title="Nhấn để xem phân tích & công thức dự báo chi tiết FSRS">
+            <span class="goal-stat-icon" id="home-goal-eta-icon">⚡</span>
+            <span id="home-goal-eta-wrapper">Đạt B1: <strong id="home-goal-eta-text">-- ngày</strong></span>
           </div>
         </div>
       </div>
@@ -390,7 +459,123 @@ export function setupSettingsUI(app) {
           streakPill.onclick = () => showStreakHubModal(app);
         }
       }
-    } catch (e) {}
+
+      // Cập nhật Thanh Tiến Độ & Lộ Trình CEFR trong Tab Cài Đặt
+      const cefrData = StatsManager.getCefrRoadmapAndForecast(allCards, app.settings || {});
+      const { levels, currentLevel, goal, forecast } = cefrData;
+
+      const cardGoal = document.getElementById('home-goal-card');
+      if (cardGoal && !cardGoal._boundSettings) {
+        cardGoal._boundSettings = true;
+        cardGoal.onclick = () => showGoalCustomizerModal(app);
+        cardGoal.onkeydown = (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            showGoalCustomizerModal(app);
+          }
+        };
+      }
+
+      const badgeEta = document.getElementById('home-goal-eta');
+      if (badgeEta && !badgeEta._boundSettings) {
+        badgeEta._boundSettings = true;
+        badgeEta.onclick = (e) => {
+          e.stopPropagation();
+          showForecastDetailModal(app);
+        };
+        badgeEta.onkeydown = (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            e.stopPropagation();
+            showForecastDetailModal(app);
+          }
+        };
+      }
+
+      const elGoalIcon = document.getElementById('home-goal-icon');
+      if (elGoalIcon) elGoalIcon.textContent = goal.icon || '🎯';
+
+      const elGoalTitle = document.getElementById('home-goal-title');
+      if (elGoalTitle) elGoalTitle.textContent = currentLevel.fullTitle || `Trình Độ ${currentLevel.id} (${currentLevel.name})`;
+
+      const elTargetTag = document.getElementById('home-target-tag');
+      if (elTargetTag) elTargetTag.textContent = `Mục tiêu: ${goal.shortTitle || goal.title} ❯`;
+
+      const elCurBadge = document.getElementById('home-current-level-badge');
+      if (elCurBadge) {
+        elCurBadge.textContent = `${currentLevel.id} (${currentLevel.progressPct}%)`;
+        elCurBadge.style.borderColor = `${currentLevel.color}40`;
+        elCurBadge.style.color = currentLevel.color;
+        elCurBadge.style.background = `${currentLevel.color}15`;
+      }
+
+      ['A1', 'A2', 'B1', 'B2', 'C1'].forEach((tierId) => {
+        const dot = document.getElementById(`dot-${tierId}`);
+        if (dot) {
+          const tier = levels[tierId];
+          const tierPct = tier && tier.total > 0 ? (tier.learned / tier.total) : 0;
+          dot.className = 'cefr-step-dot';
+          if (tierPct >= 0.9) {
+            dot.classList.add('completed');
+            dot.innerHTML = '✓';
+          } else if (tierId === currentLevel.id) {
+            dot.classList.add('active');
+            dot.innerHTML = tierId;
+          } else if (tierPct > 0) {
+            dot.classList.add('in-progress');
+            dot.innerHTML = tierId;
+          } else {
+            dot.innerHTML = tierId;
+          }
+        }
+      });
+
+      const updateLineFill = (lineId, fromTierId) => {
+        const elLine = document.getElementById(lineId);
+        if (elLine) {
+          const fromTier = levels[fromTierId];
+          const fromPct = fromTier && fromTier.total > 0 ? (fromTier.learned / fromTier.total) : 0;
+          elLine.style.width = `${Math.min(100, Math.round(fromPct * 100))}%`;
+        }
+      };
+      updateLineFill('fill-A1-A2', 'A1');
+      updateLineFill('fill-A2-B1', 'A2');
+      updateLineFill('fill-B1-B2', 'B1');
+      updateLineFill('fill-B2-C1', 'B2');
+
+      const elGoalWords = document.getElementById('home-goal-progress-words');
+      if (elGoalWords) elGoalWords.textContent = `${goal.learnedWords} / ${goal.targetWords} từ`;
+
+      const elGoalPct = document.getElementById('home-goal-percent');
+      if (elGoalPct) elGoalPct.textContent = `${goal.completionPct}%`;
+
+      const elGoalFill = document.getElementById('home-goal-progress-fill');
+      if (elGoalFill) elGoalFill.style.width = `${goal.completionPct}%`;
+
+      const dailyNewTarget = Number(app.settings?.activeGoal?.dailyNew) || Number(app.settings?.dailyNewLimit) || 10;
+      const todayLogs = logs.filter(l => l.timestamp && new Date(l.timestamp).toDateString() === new Date().toDateString());
+      const todayNewCount = new Set(todayLogs.filter(l => l.oldState === 0 || l.isNew).map(l => l.cardId)).size;
+
+      const elTodayNew = document.getElementById('home-goal-today-new');
+      if (elTodayNew) elTodayNew.textContent = `${todayNewCount}/${dailyNewTarget} từ`;
+
+      const elGoalEta = document.getElementById('home-goal-eta-text');
+      const elGoalEtaWrapper = document.getElementById('home-goal-eta-wrapper');
+      if (elGoalEta) {
+        if (goal.unmasteredWords === 0) {
+          elGoalEta.textContent = `✓ Thuộc ${forecast.shortGoalTitle}`;
+          if (elGoalEtaWrapper) elGoalEtaWrapper.innerHTML = `<strong style="color: #10b981;">✓ Thuộc ${forecast.shortGoalTitle} (100%)</strong>`;
+        } else {
+          elGoalEta.textContent = `~${forecast.etaDays} ngày`;
+          if (elGoalEtaWrapper) elGoalEtaWrapper.innerHTML = `<span>Đạt <strong>${forecast.shortGoalTitle}</strong>: <strong>~${forecast.etaDays} ngày</strong></span>`;
+        }
+      }
+
+      const elEtaIcon = document.getElementById('home-goal-eta-icon');
+      if (elEtaIcon) elEtaIcon.textContent = forecast.isUsingRealBehavior ? '⚡' : '🏁';
+    } catch (e) {
+      console.warn('Lỗi cập nhật CEFR trong Settings:', e);
+    }
 
     if (!retentionSelect) return;
 

@@ -20,75 +20,7 @@ export function renderReviewShell(container) {
   if (!container.querySelector('.review-minimal-container')) {
     container.innerHTML = `
       <div class="review-minimal-container">
-        <!-- 1. Thanh Tiến Độ Trình Độ CEFR & Nhịp Độ Cá Nhân Hóa (CEFR Level & Roadmap Header Bar) -->
-        <div class="home-goal-bar-card" id="home-goal-card" role="button" tabindex="0" title="Nhấn để xem phân tích lộ trình CEFR & nhịp độ cá nhân hóa">
-          <div class="goal-bar-header">
-            <div class="goal-top-meta-row">
-              <div class="goal-eyebrow-wrap">
-                <span class="goal-eyebrow">TRÌNH ĐỘ HIỆN TẠI</span>
-                <span class="goal-level-badge" id="home-current-level-badge">A1 (0%)</span>
-              </div>
-              <span class="goal-target-tag" id="home-target-tag">Mục tiêu: B1 ❯</span>
-            </div>
-            <div class="goal-main-title-row">
-              <span class="goal-icon-badge" id="home-goal-icon">🎯</span>
-              <div class="goal-title-content">
-                <h2 class="goal-main-title" id="home-goal-title">Trình Độ A1 (Căn Bản Khởi Đầu)</h2>
-              </div>
-            </div>
-          </div>
-
-          <!-- Multi-Segment CEFR Roadmap Track (A1 -> A2 -> B1 -> B2 -> C1) -->
-          <div class="cefr-milestone-track" id="home-cefr-track">
-            <div class="cefr-step-item" data-step="A1">
-              <div class="cefr-step-dot" id="dot-A1">A1</div>
-              <span class="cefr-step-label">Căn bản</span>
-            </div>
-            <div class="cefr-step-line"><div class="cefr-step-line-fill" id="fill-A1-A2" style="width: 0%;"></div></div>
-            <div class="cefr-step-item" data-step="A2">
-              <div class="cefr-step-dot" id="dot-A2">A2</div>
-              <span class="cefr-step-label">Sơ cấp</span>
-            </div>
-            <div class="cefr-step-line"><div class="cefr-step-line-fill" id="fill-A2-B1" style="width: 0%;"></div></div>
-            <div class="cefr-step-item" data-step="B1">
-              <div class="cefr-step-dot" id="dot-B1">B1</div>
-              <span class="cefr-step-label">Trung cấp</span>
-            </div>
-            <div class="cefr-step-line"><div class="cefr-step-line-fill" id="fill-B1-B2" style="width: 0%;"></div></div>
-            <div class="cefr-step-item" data-step="B2">
-              <div class="cefr-step-dot" id="dot-B2">B2</div>
-              <span class="cefr-step-label">Trung cao</span>
-            </div>
-            <div class="cefr-step-line"><div class="cefr-step-line-fill" id="fill-B2-C1" style="width: 0%;"></div></div>
-            <div class="cefr-step-item" data-step="C1">
-              <div class="cefr-step-dot" id="dot-C1">C1</div>
-              <span class="cefr-step-label">Cao cấp</span>
-            </div>
-          </div>
-
-          <div class="goal-progress-section">
-            <div class="goal-progress-meta">
-              <span class="goal-progress-label">Đã tích lũy mục tiêu: <strong id="home-goal-progress-words">0 / 3027 từ</strong></span>
-              <span class="goal-percent-badge" id="home-goal-percent">0%</span>
-            </div>
-            <div class="goal-progress-track">
-              <div class="goal-progress-fill" id="home-goal-progress-fill" style="width: 0%;"></div>
-            </div>
-          </div>
-
-          <div class="goal-daily-status-row">
-            <div class="goal-daily-badge" id="home-goal-daily-badge">
-              <span class="goal-stat-icon">🌱</span>
-              <span id="home-goal-today-wrapper">Hôm nay: <strong id="home-goal-today-new">0/10 từ</strong></span>
-            </div>
-            <div class="goal-eta-badge" id="home-goal-eta" role="button" tabindex="0" title="Nhấn để xem phân tích & công thức dự báo chi tiết FSRS">
-              <span class="goal-stat-icon" id="home-goal-eta-icon">⚡</span>
-              <span id="home-goal-eta-wrapper">Đạt B1: <strong id="home-goal-eta-text">-- ngày</strong></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 1.5. Cảnh báo khôi phục chuỗi ngày học bị đứt (Streak Recovery Banner) -->
+        <!-- 1. Cảnh báo khôi phục chuỗi ngày học bị đứt (Streak Recovery Banner) -->
         <div id="home-streak-alert-container"></div>
 
         <!-- 2. Thẻ 4 chỉ số: Từ tới hạn, Đã ôn hôm nay, Thời gian đã học, Từ đã thuộc -->
@@ -152,19 +84,47 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 3. NÚT CTA HỌC TẬP TINH GIẢN & HIỆN ĐẠI -->
-        <div class="home-cta-section">
-          <button type="button" class="btn-hero-flashcard-cta" id="btn-home-start-flashcard">
+        <!-- 3. CẶP NÚT CTA HỌC TẬP TINH GỌN: ÔN TẬP TỚI HẠN & HỌC TỪ MỚI -->
+        <div class="home-cta-section home-cta-dual-grid">
+          <!-- Nút 1: Ôn tập / Bắt đầu học (Ưu tiên từ tới hạn) -->
+          <button type="button" class="btn-hero-flashcard-cta btn-cta-primary-due" id="btn-home-start-flashcard">
             <div class="btn-cta-glare"></div>
             <div class="btn-cta-body">
-              <div class="btn-cta-icon">
+              <div class="btn-cta-icon icon-due">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M8 5v14l11-7z"/>
                 </svg>
               </div>
               <div class="btn-cta-text-wrap">
-                <span class="btn-cta-main-text">Bắt đầu học</span>
-                <span class="btn-cta-sub-text">Luyện tập từ vựng hôm nay</span>
+                <div class="btn-cta-title-row">
+                  <span class="btn-cta-main-text">Ôn tập ngay</span>
+                  <span class="btn-cta-tag tag-due" id="badge-home-due-tag">0 từ</span>
+                </div>
+                <span class="btn-cta-sub-text">Ưu tiên từ đến hạn ôn</span>
+              </div>
+              <div class="btn-cta-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <!-- Nút 2: Học từ mới (Chỉ bốc từ mới theo mục tiêu, ưu tiên từ thông dụng) -->
+          <button type="button" class="btn-hero-flashcard-cta btn-cta-secondary-new" id="btn-home-start-new">
+            <div class="btn-cta-glare"></div>
+            <div class="btn-cta-body">
+              <div class="btn-cta-icon icon-new">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 5v14M5 12h14"/>
+                </svg>
+              </div>
+              <div class="btn-cta-text-wrap">
+                <div class="btn-cta-title-row">
+                  <span class="btn-cta-main-text">Học từ mới</span>
+                  <span class="btn-cta-tag tag-new" id="badge-home-new-tag">10 từ</span>
+                </div>
+                <span class="btn-cta-sub-text" id="subtext-home-new-progress">Ưu tiên từ thông dụng</span>
               </div>
               <div class="btn-cta-arrow">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -270,12 +230,21 @@ export function renderReviewTab(app) {
       };
     }
 
-    // Gán sự kiện cho Nút CTA To: Tự động nạp [Từ tới hạn] + [Đủ số lượng mục tiêu từ mới hôm nay]
+    // Gán sự kiện cho Nút CTA 1: Tự động nạp [Từ tới hạn] + [Đủ số lượng mục tiêu từ mới hôm nay]
     const btnFlashcard = document.getElementById('btn-home-start-flashcard');
     if (btnFlashcard && !btnFlashcard._bound) {
       btnFlashcard._bound = true;
       btnFlashcard.onclick = () => {
         app.startStudySession(null, null, null, { mode: 'due_first' });
+      };
+    }
+
+    // Gán sự kiện cho Nút CTA 2: Chỉ bốc từ mới chưa học theo số lượng mục tiêu (Ưu tiên từ thông dụng)
+    const btnStartNew = document.getElementById('btn-home-start-new');
+    if (btnStartNew && !btnStartNew._bound) {
+      btnStartNew._bound = true;
+      btnStartNew.onclick = () => {
+        app.startStudySession(null, null, null, { mode: 'new_only' });
       };
     }
 
@@ -373,6 +342,18 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
   const elDue = document.getElementById('home-due-count');
   if (elDue) {
     elDue.textContent = dueCount;
+  }
+
+  // Cập nhật huy hiệu trên Nút CTA Ôn tập ngay
+  const elDueTag = document.getElementById('badge-home-due-tag');
+  if (elDueTag) {
+    if (dueCount > 0) {
+      elDueTag.textContent = `${dueCount} từ`;
+      elDueTag.className = 'btn-cta-tag tag-due';
+    } else {
+      elDueTag.textContent = 'Đã xong';
+      elDueTag.className = 'btn-cta-tag tag-done';
+    }
   }
 
   // 2. Số thẻ đã ôn hôm nay
@@ -507,13 +488,23 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
   // Hôm nay nạp mới
   const elTodayNew = document.getElementById('home-goal-today-new');
   const elTodayWrapper = document.getElementById('home-goal-today-wrapper');
-  if (elTodayNew) {
+  // Cập nhật huy hiệu & tiến độ trên Nút CTA Học từ mới
+  const elNewTag = document.getElementById('badge-home-new-tag');
+  const elNewSubtext = document.getElementById('subtext-home-new-progress');
+  if (elNewTag) {
     if (todayNewCount >= dailyNewTarget) {
-      elTodayNew.textContent = `${todayNewCount}/${dailyNewTarget} từ`;
-      if (elTodayWrapper) elTodayWrapper.innerHTML = `<span>Hôm nay: <strong style="color: #10b981;">✓ ${todayNewCount}/${dailyNewTarget} từ</strong></span>`;
+      elNewTag.textContent = `✓ ${todayNewCount}/${dailyNewTarget} từ`;
+      elNewTag.className = 'btn-cta-tag tag-done';
     } else {
-      elTodayNew.textContent = `${todayNewCount}/${dailyNewTarget} từ`;
-      if (elTodayWrapper) elTodayWrapper.innerHTML = `<span>Hôm nay: <strong>${todayNewCount}/${dailyNewTarget} từ</strong></span>`;
+      elNewTag.textContent = `${todayNewCount}/${dailyNewTarget} từ`;
+      elNewTag.className = 'btn-cta-tag tag-new';
+    }
+  }
+  if (elNewSubtext) {
+    if (todayNewCount >= dailyNewTarget) {
+      elNewSubtext.textContent = 'Đã đạt chỉ tiêu • Học thêm';
+    } else {
+      elNewSubtext.textContent = `Còn thiếu ${remainingNewToday} từ • Phổ biến nhất`;
     }
   }
 

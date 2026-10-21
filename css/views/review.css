@@ -542,40 +542,69 @@
 }
 
 /* ==========================================
-   3. HERO CTA BUTTON (BẮT ĐẦU HỌC)
+/* ==========================================
+   3. HERO CTA BUTTONS (ÔN TẬP & HỌC TỪ MỚI)
    ========================================== */
 .home-cta-section {
   width: 100%;
 }
 
+.home-cta-dual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 480px) {
+  .home-cta-dual-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
 .btn-hero-flashcard-cta {
   width: 100%;
-  min-height: 58px;
-  padding: 12px 18px;
-  border-radius: 16px;
+  min-height: 64px;
+  padding: 12px 14px;
+  border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.22);
-  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
   color: #ffffff;
   cursor: pointer;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.25), 0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
 }
 
-.btn-hero-flashcard-cta:hover {
+/* Nút Ôn tập ngay (Primary Indigo/Violet Gradient) */
+.btn-cta-primary-due {
+  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.28), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.btn-cta-primary-due:hover {
   transform: translateY(-2px);
   background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%);
-  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.35), 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.38), 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Nút Học từ mới (Teal/Emerald Gradient) */
+.btn-cta-secondary-new {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.28), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.btn-cta-secondary-new:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+  box-shadow: 0 8px 24px rgba(5, 150, 105, 0.38), 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-hero-flashcard-cta:active {
   transform: translateY(1px) scale(0.99);
-  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2);
 }
 
 .btn-cta-glare {
@@ -584,9 +613,9 @@
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
   transform: skewX(-20deg);
-  animation: ctaGlare 5s infinite ease-in-out;
+  animation: ctaGlare 6s infinite ease-in-out;
   pointer-events: none;
 }
 
@@ -599,17 +628,17 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   position: relative;
   z-index: 1;
 }
 
 .btn-cta-icon {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -619,13 +648,8 @@
 }
 
 .btn-hero-flashcard-cta:hover .btn-cta-icon {
-  transform: scale(1.06);
-  background: rgba(255, 255, 255, 0.22);
-}
-
-.btn-cta-icon svg {
-  display: block;
-  margin-left: 2px;
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.24);
 }
 
 .btn-cta-text-wrap {
@@ -635,28 +659,61 @@
   align-items: flex-start;
   text-align: left;
   gap: 2px;
+  min-width: 0;
+}
+
+.btn-cta-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
 }
 
 .btn-cta-main-text {
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 750;
   letter-spacing: -0.01em;
   color: #ffffff;
-  line-height: 1.25;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.btn-cta-tag {
+  font-size: 0.65rem;
+  font-weight: 750;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  white-space: nowrap;
+}
+
+.btn-cta-tag.tag-due {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.btn-cta-tag.tag-done {
+  background: rgba(255, 255, 255, 0.28);
+  color: #ecfdf5;
 }
 
 .btn-cta-sub-text {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .btn-cta-arrow {
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -667,18 +724,19 @@
 
 .btn-hero-flashcard-cta:hover .btn-cta-arrow {
   transform: translateX(3px);
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.22);
 }
 
-[data-theme="dark"] .btn-hero-flashcard-cta {
+[data-theme="dark"] .btn-cta-primary-due {
   background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.14);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
-[data-theme="dark"] .btn-hero-flashcard-cta:hover {
-  background: linear-gradient(135deg, #4338ca 0%, #312e81 100%);
-  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+[data-theme="dark"] .btn-cta-secondary-new {
+  background: linear-gradient(135deg, #059669 0%, #064e3b 100%);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 /* ==========================================================================
