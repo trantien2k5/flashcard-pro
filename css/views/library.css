@@ -482,8 +482,51 @@
 }
 
 /* --------------------------------------------------------------------------
-   4. Vocabulary Words Rows List (Ultra-Clean, 1 Row, High-Density)
+   4. Vocabulary Table Header & Rows (Clean Table/Grid Layout)
    -------------------------------------------------------------------------- */
+.library-table-header {
+  display: grid;
+  grid-template-columns: 36px 130px 105px 50px 52px 1fr 100px;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  font-size: 0.73rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted, #64748b);
+  border-bottom: 1.5px solid var(--border, #e2e8f0);
+  user-select: none;
+}
+
+[data-theme="dark"] .library-table-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+}
+
+.th-col {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.th-sound {
+  text-align: center;
+}
+
+.th-cefr {
+  text-align: center;
+}
+
+.th-pos {
+  text-align: center;
+}
+
+.th-status {
+  text-align: right;
+  padding-right: 4px;
+}
+
 .library-words-list {
   display: flex;
   flex-direction: column;
@@ -492,11 +535,12 @@
 }
 
 .library-word-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 36px 130px 105px 50px 52px 1fr 100px;
   align-items: center;
   gap: 10px;
-  padding: 8px 12px;
-  min-height: 52px;
+  padding: 7px 14px;
+  min-height: 48px;
   background: var(--card-bg, #ffffff);
   border: 1px solid var(--border, #e2e8f0);
   border-radius: 10px;
@@ -506,9 +550,6 @@
   user-select: none;
   position: relative;
   outline: none;
-  contain: layout style paint;
-  content-visibility: auto;
-  contain-intrinsic-size: 0 52px;
 }
 
 [data-theme="dark"] .library-word-row {
@@ -529,10 +570,21 @@
   border-color: rgba(99, 102, 241, 0.5);
 }
 
+/* Discrete Column Cells */
+.col-cell {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.cell-sound {
+  justify-content: center;
+}
+
 /* Circular Sound Button */
 .btn-row-sound {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: rgba(99, 102, 241, 0.08);
   color: var(--primary, #6366f1);
@@ -548,7 +600,7 @@
 .btn-row-sound:hover {
   background: var(--primary, #6366f1);
   color: #ffffff;
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 .btn-row-sound.playing {
@@ -557,23 +609,9 @@
   animation: pulse 1s infinite;
 }
 
-/* Center Content */
-.library-row-main {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 3px;
-}
-
-.library-row-top-line {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: nowrap;
+/* Cell Word */
+.cell-word {
   overflow: hidden;
-  line-height: 1.2;
 }
 
 .library-row-word {
@@ -581,6 +619,8 @@
   font-weight: 750;
   color: var(--text-primary, #0f172a);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   letter-spacing: -0.01em;
 }
 
@@ -588,11 +628,18 @@
   color: #f8fafc;
 }
 
+/* Cell IPA */
+.cell-ipa {
+  overflow: hidden;
+}
+
 .library-row-ipa {
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   color: #8b5cf6;
   white-space: nowrap;
-  opacity: 0.88;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.9;
   font-family: inherit;
 }
 
@@ -600,11 +647,15 @@
   color: #a78bfa;
 }
 
-/* Mini CEFR Badge */
+/* Cell CEFR */
+.cell-cefr {
+  justify-content: center;
+}
+
 .badge-cefr-mini {
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   font-weight: 800;
-  padding: 1.5px 5px;
+  padding: 2px 6px;
   border-radius: 4px;
   text-transform: uppercase;
   background: #10b981;
@@ -614,6 +665,8 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  width: 28px;
+  text-align: center;
 }
 
 .badge-cefr-mini[data-cefr="a1"] { background: #10b981; }
@@ -622,22 +675,32 @@
 .badge-cefr-mini[data-cefr="b2"] { background: #8b5cf6; }
 .badge-cefr-mini[data-cefr="c1"] { background: #ec4899; }
 
-/* Short POS Text (italic, refined, no boxy clutter) */
+/* Cell POS */
+.cell-pos {
+  justify-content: center;
+}
+
 .library-pos-text {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 600;
   font-style: italic;
   color: var(--text-muted, #64748b);
   white-space: nowrap;
-  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 [data-theme="dark"] .library-pos-text {
   color: #94a3b8;
 }
 
+/* Cell Meaning */
+.cell-meaning {
+  overflow: hidden;
+}
+
 .library-row-meaning {
-  font-size: 0.82rem;
+  font-size: 0.83rem;
   color: var(--text-secondary, #475569);
   white-space: nowrap;
   overflow: hidden;
@@ -649,21 +712,17 @@
   color: #94a3b8;
 }
 
-/* Right Status Pill - Căn đều thẳng hàng tuyệt đối */
-.library-row-end {
-  display: flex;
-  align-items: center;
+/* Cell Status & Chevron */
+.cell-status {
   justify-content: flex-end;
   gap: 6px;
-  flex-shrink: 0;
-  margin-left: auto;
 }
 
 .library-status-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 4px;
   padding: 3px 8px;
   min-width: 68px;
   border-radius: 999px;
@@ -707,6 +766,68 @@
 .library-chevron-icon {
   color: var(--text-muted, #94a3b8);
   opacity: 0.6;
+  flex-shrink: 0;
+}
+
+/* Mobile & Tablet Responsive Table */
+@media (max-width: 768px) {
+  .library-table-header {
+    display: none;
+  }
+
+  .library-word-row {
+    display: grid;
+    grid-template-columns: 32px 1fr auto;
+    grid-template-areas:
+      "sound word status"
+      "sound meaning status";
+    row-gap: 2px;
+    column-gap: 8px;
+    padding: 8px 10px;
+    min-height: 52px;
+  }
+
+  .cell-sound {
+    grid-area: sound;
+    align-self: center;
+  }
+
+  .cell-word {
+    grid-area: word;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  /* Show inline micro badges on mobile in row header */
+  .cell-ipa {
+    display: inline;
+    grid-area: word;
+    margin-left: auto;
+    padding-left: 4px;
+    font-size: 0.72rem;
+  }
+
+  .cell-cefr {
+    display: inline-flex;
+    margin-left: 2px;
+  }
+
+  .cell-pos {
+    display: inline-flex;
+    margin-left: 2px;
+  }
+
+  .cell-meaning {
+    grid-area: meaning;
+  }
+
+  .cell-status {
+    grid-area: status;
+    align-self: center;
+  }
 }
 
 /* Empty State */

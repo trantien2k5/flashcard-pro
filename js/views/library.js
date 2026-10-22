@@ -377,12 +377,23 @@ export function renderLibraryTab(app) {
         </div>
       </div>
 
-      <!-- 6. Vocabulary Words Rows List Container (DocumentFragment Virtual Chunking) -->
+      <!-- 6. Vocabulary Table Header (Desktop/Tablet Grid Aligned) -->
+      <div class="library-table-header" aria-hidden="true">
+        <span class="th-col th-sound">Nghe</span>
+        <span class="th-col th-word">Từ vựng</span>
+        <span class="th-col th-ipa">Phiên âm</span>
+        <span class="th-col th-cefr">Cấp độ</span>
+        <span class="th-col th-pos">Loại từ</span>
+        <span class="th-col th-meaning">Nghĩa tiếng Việt</span>
+        <span class="th-col th-status">Trạng thái</span>
+      </div>
+
+      <!-- 7. Vocabulary Words Rows List Container (DocumentFragment Virtual Chunking) -->
       <div class="library-words-list" id="lib-words-list">
         <!-- Rendered dynamically -->
       </div>
 
-      <!-- 7. Bottom Pagination Bar -->
+      <!-- 8. Bottom Pagination Bar -->
       <div class="library-pagination-bar" id="lib-pagination-bar">
         <!-- Rendered dynamically -->
       </div>
@@ -806,27 +817,43 @@ function formatShortPos(pos) {
 
     rowEl.innerHTML = `
       <!-- Cột 1: Nút phát âm thanh mini -->
-      <button class="btn-row-sound" title="Phát âm từ vựng" aria-label="Phát âm ${escapeHTML(card.word)}">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
-        </svg>
-      </button>
-
-      <!-- Cột 2: Nội dung chính từ vựng -->
-      <div class="library-row-main">
-        <div class="library-row-top-line">
-          <span class="library-row-word">${escapeHTML(card.word || '')}</span>
-          ${phonetic ? `<span class="library-row-ipa">${escapeHTML(phonetic)}</span>` : ''}
-          <span class="badge-cefr-mini" data-cefr="${cefr.toLowerCase()}">${cefr}</span>
-          ${shortPos ? `<span class="library-pos-text">${escapeHTML(shortPos)}</span>` : ''}
-        </div>
-        <div class="library-row-meaning">${escapeHTML(card.meaning || '')}</div>
+      <div class="col-cell cell-sound">
+        <button class="btn-row-sound" title="Phát âm từ vựng" aria-label="Phát âm ${escapeHTML(card.word)}">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+        </button>
       </div>
 
-      <!-- Cột 3: Trạng thái FSRS & Chevron -->
-      <div class="library-row-end">
+      <!-- Cột 2: Từ vựng tiếng Anh -->
+      <div class="col-cell cell-word">
+        <span class="library-row-word">${escapeHTML(card.word || '')}</span>
+      </div>
+
+      <!-- Cột 3: Phiên âm IPA -->
+      <div class="col-cell cell-ipa">
+        <span class="library-row-ipa">${phonetic ? escapeHTML(phonetic) : '—'}</span>
+      </div>
+
+      <!-- Cột 4: Cấp độ CEFR -->
+      <div class="col-cell cell-cefr">
+        <span class="badge-cefr-mini" data-cefr="${cefr.toLowerCase()}">${cefr}</span>
+      </div>
+
+      <!-- Cột 5: Từ loại POS -->
+      <div class="col-cell cell-pos">
+        <span class="library-pos-text">${shortPos ? escapeHTML(shortPos) : '—'}</span>
+      </div>
+
+      <!-- Cột 6: Nghĩa tiếng Việt -->
+      <div class="col-cell cell-meaning">
+        <span class="library-row-meaning">${escapeHTML(card.meaning || '')}</span>
+      </div>
+
+      <!-- Cột 7: Trạng thái FSRS & Chevron -->
+      <div class="col-cell cell-status">
         <span class="library-status-badge ${fsrs.statusClass}">
           <span class="status-dot"></span>
           <span>${fsrs.shortDueText}</span>
