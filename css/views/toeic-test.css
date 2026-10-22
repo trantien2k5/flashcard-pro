@@ -349,19 +349,23 @@
 .arena-top-header {
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border);
-  padding: 12px 24px;
+  padding: 12px clamp(12px, 3vw, 24px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   flex-shrink: 0;
   z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .arena-header-left {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .btn-exit-arena {
@@ -1009,20 +1013,120 @@
     grid-template-columns: 1fr;
   }
 
+  /* Header phòng thi trên Mobile / Tablet */
+  .arena-top-header {
+    padding: 8px 12px;
+    gap: 8px;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .arena-header-left {
+    gap: 8px;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .btn-exit-arena {
+    padding: 6px 10px;
+    font-size: 0.76rem;
+    flex-shrink: 0;
+  }
+
+  .arena-title-wrap {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .arena-exam-name {
+    font-size: 0.82rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+  }
+
+  .arena-exam-sub {
+    font-size: 0.65rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+  }
+
+  .arena-timer-pill {
+    padding: 5px 10px;
+    font-size: 0.92rem;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .btn-submit-arena {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    gap: 4px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
   .arena-split-body {
     flex-direction: column;
+  }
+
+  .arena-question-stage {
+    padding: 14px 12px 10px 12px;
+  }
+
+  .question-prompt-card {
+    padding: 16px 14px;
+    border-radius: 16px;
+  }
+
+  .question-prompt-text {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .arena-option-tile {
+    padding: 10px 14px;
+    border-radius: 12px;
+    gap: 10px;
+  }
+
+  .arena-option-letter {
+    width: 28px;
+    height: 28px;
+    font-size: 0.82rem;
+    border-radius: 8px;
+  }
+
+  .arena-option-text {
+    font-size: 0.92rem;
   }
 
   .arena-pallet-sidebar {
     width: 100%;
     border-left: none;
     border-top: 1px solid var(--border);
-    max-height: 140px;
-    padding: 10px 16px;
+    max-height: 110px;
+    padding: 8px 12px;
+    gap: 6px;
+    background: var(--bg-card);
+  }
+
+  .pallet-header-title {
+    font-size: 0.72rem;
   }
 
   .pallet-matrix-grid {
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(32px, 1fr));
+    gap: 6px;
+  }
+
+  .pallet-btn {
+    border-radius: 8px;
+    font-size: 0.75rem;
+    min-height: 32px;
   }
 
   .pallet-legend-row {
@@ -1031,5 +1135,35 @@
 
   .review-options-pills {
     grid-template-columns: 1fr;
+  }
+
+  .arena-nav-bar {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+
+  .btn-arena-step {
+    padding: 7px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Màn hình siêu nhỏ <= 380px (iPhone SE, Galaxy A series thu nhỏ) */
+@media (max-width: 380px) {
+  .arena-exam-sub {
+    display: none;
+  }
+  .btn-exit-arena span {
+    display: none;
+  }
+  .btn-exit-arena {
+    padding: 6px 8px;
+  }
+  .arena-timer-pill {
+    padding: 4px 8px;
+    font-size: 0.85rem;
+  }
+  .btn-submit-arena {
+    padding: 6px 9px;
   }
 }
