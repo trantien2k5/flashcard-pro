@@ -40,10 +40,10 @@ export function renderToeicTestTab(app) {
       <!-- 1. Hero Banner -->
       <div class="toeic-hero-banner">
         <div class="toeic-hero-content">
-          <span class="toeic-hero-tag">🎯 TOEIC CBT Simulation</span>
-          <h2 class="toeic-hero-title">Thi Thử TOEIC Part 5 Mini Test</h2>
+          <span class="toeic-hero-tag">🎯 Chuẩn ETS Part 5</span>
+          <h2 class="toeic-hero-title">Luyện Thi TOEIC Part 5</h2>
           <p class="toeic-hero-desc">
-            Rèn luyện phản xạ ngữ pháp & từ vựng doanh nghiệp thực tế theo chuẩn định dạng đề thi ETS. Đồng hồ đếm ngược thời gian thực, bảng điểm quy đổi chuẩn Reading (10 - 495) và phân tích lỗi sai chi tiết.
+            Phản xạ ngữ pháp & từ vựng công sở • Bảng điểm quy đổi chuẩn ETS (10 - 495).
           </p>
         </div>
 
@@ -71,10 +71,9 @@ export function renderToeicTestTab(app) {
           <div class="test-card-header">
             <div class="test-card-icon icon-basic">🌱</div>
             <h3 class="test-card-title">TOEIC Căn Bản</h3>
-            <p class="test-card-desc">Ngữ pháp cốt lõi, đại từ, từ loại căn bản, thì hiện tại/tương lai và từ vựng thông dụng.</p>
           </div>
           <div class="test-card-meta">
-            <span class="test-card-meta-item">📝 15 câu hỏi</span>
+            <span class="test-card-meta-item">📝 15 câu</span>
             <span>•</span>
             <span class="test-card-meta-item">⏱️ 8 phút</span>
           </div>
@@ -89,10 +88,9 @@ export function renderToeicTestTab(app) {
           <div class="test-card-header">
             <div class="test-card-icon icon-intermediate">⚡</div>
             <h3 class="test-card-title">TOEIC Trung Cấp</h3>
-            <p class="test-card-desc">Bẫy từ loại nâng cao, mệnh đề quan hệ, thể bị động, liên từ phụ thuộc & từ vựng công sở.</p>
           </div>
           <div class="test-card-meta">
-            <span class="test-card-meta-item">📝 20 câu hỏi</span>
+            <span class="test-card-meta-item">📝 20 câu</span>
             <span>•</span>
             <span class="test-card-meta-item">⏱️ 10 phút</span>
           </div>
@@ -107,10 +105,9 @@ export function renderToeicTestTab(app) {
           <div class="test-card-header">
             <div class="test-card-icon icon-advanced">🔥</div>
             <h3 class="test-card-title">TOEIC Chuyên Sâu</h3>
-            <p class="test-card-desc">Rút gọn phân từ, bẫy ngữ nghĩa nâng cao, cụm collocation hiếm & từ vựng hợp đồng M&A.</p>
           </div>
           <div class="test-card-meta">
-            <span class="test-card-meta-item">📝 15 câu hỏi</span>
+            <span class="test-card-meta-item">📝 15 câu</span>
             <span>•</span>
             <span class="test-card-meta-item">⏱️ 10 phút</span>
           </div>
@@ -124,11 +121,10 @@ export function renderToeicTestTab(app) {
           <span class="toeic-test-badge badge-progressive">🏆 Chuẩn ETS (Dễ ➔ Khó)</span>
           <div class="test-card-header">
             <div class="test-card-icon icon-progressive">🎯</div>
-            <h3 class="test-card-title">Đề Thi Chuẩn ETS (30 Câu)</h3>
-            <p class="test-card-desc">Đề thi mô phỏng 100% tỷ lệ phân hóa thực tế: sắp xếp khoa học từ Dễ ➔ Trung bình ➔ Bẫy khó.</p>
+            <h3 class="test-card-title">Đề Chuẩn ETS</h3>
           </div>
           <div class="test-card-meta">
-            <span class="test-card-meta-item">📝 30 câu hỏi</span>
+            <span class="test-card-meta-item">📝 30 câu</span>
             <span>•</span>
             <span class="test-card-meta-item">⏱️ 15 phút</span>
           </div>
