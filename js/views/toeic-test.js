@@ -63,73 +63,45 @@ export function renderToeicTestTab(app) {
         </div>
       </div>
 
-      <!-- 2. Test Selection Grid (4 Cấp độ từ Căn bản đến Nâng cao) -->
+      <!-- 2. Test Selection Grid (2 Chế độ Rõ ràng: Luyện Tập vs Thi Thật) -->
       <div class="toeic-tests-grid">
-        <!-- Test Option 1: Căn Bản / Khởi Động (350 - 500+) -->
-        <div class="toeic-test-card card-basic">
-          <span class="toeic-test-badge badge-basic">🟢 Căn bản (350-500)</span>
+        <!-- Chế độ 1: Luyện Tập (Practice Mode) -->
+        <div class="toeic-test-card card-practice">
+          <span class="toeic-test-badge badge-practice">💡 Tự do • Có đáp án ngay</span>
           <div class="test-card-header">
-            <div class="test-card-icon icon-basic">🌱</div>
-            <h3 class="test-card-title">TOEIC Căn Bản</h3>
+            <div class="test-card-icon icon-practice">📖</div>
+            <h3 class="test-card-title">Chế Độ Luyện Tập</h3>
           </div>
+          <p class="test-card-summary">
+            Làm quen dạng đề, không giới hạn thời gian gắt gao. Xem ngay giải thích chi tiết, dịch nghĩa và bẫy ngữ pháp sau mỗi câu.
+          </p>
           <div class="test-card-meta">
-            <span class="test-card-meta-item">📝 15 câu</span>
+            <span class="test-card-meta-item">📝 8 câu Part 5</span>
             <span>•</span>
-            <span class="test-card-meta-item">⏱️ 8 phút</span>
+            <span class="test-card-meta-item">⏱️ Không áp lực</span>
           </div>
-          <button type="button" class="btn-start-toeic-test" data-count="15" data-duration="8" data-mode="basic" data-title="TOEIC Căn Bản (350-500)">
-            Bắt đầu thi ❯
+          <button type="button" class="btn-start-toeic-test btn-practice" data-count="8" data-duration="0" data-mode="practice" data-title="Luyện Tập Part 5">
+            Bắt đầu luyện tập ❯
           </button>
         </div>
 
-        <!-- Test Option 2: Trung Cấp / Tăng Tốc (550 - 750+) -->
-        <div class="toeic-test-card card-intermediate">
-          <span class="toeic-test-badge badge-intermediate">🟡 Trung cấp (550-750)</span>
+        <!-- Chế độ 2: Thi Thật (Exam Mode) -->
+        <div class="toeic-test-card card-exam">
+          <span class="toeic-test-badge badge-exam">⏱️ Đếm ngược • Chuẩn ETS</span>
           <div class="test-card-header">
-            <div class="test-card-icon icon-intermediate">⚡</div>
-            <h3 class="test-card-title">TOEIC Trung Cấp</h3>
+            <div class="test-card-icon icon-exam">🎯</div>
+            <h3 class="test-card-title">Chế Độ Thi Thật</h3>
           </div>
+          <p class="test-card-summary">
+            Mô phỏng áp lực phòng thi máy CBT thực tế. Đếm ngược 5 phút, ẩn toàn bộ đáp án cho đến khi nộp bài để đánh giá điểm chuẩn ETS.
+          </p>
           <div class="test-card-meta">
-            <span class="test-card-meta-item">📝 20 câu</span>
+            <span class="test-card-meta-item">📝 8 câu Part 5</span>
             <span>•</span>
-            <span class="test-card-meta-item">⏱️ 10 phút</span>
+            <span class="test-card-meta-item">⏱️ 5 phút</span>
           </div>
-          <button type="button" class="btn-start-toeic-test" data-count="20" data-duration="10" data-mode="intermediate" data-title="TOEIC Trung Cấp (550-750)">
-            Bắt đầu thi ❯
-          </button>
-        </div>
-
-        <!-- Test Option 3: Chuyên Sâu / Đột Phá (800 - 990+) -->
-        <div class="toeic-test-card card-advanced">
-          <span class="toeic-test-badge badge-advanced">🔴 Chuyên sâu (800-990)</span>
-          <div class="test-card-header">
-            <div class="test-card-icon icon-advanced">🔥</div>
-            <h3 class="test-card-title">TOEIC Chuyên Sâu</h3>
-          </div>
-          <div class="test-card-meta">
-            <span class="test-card-meta-item">📝 15 câu</span>
-            <span>•</span>
-            <span class="test-card-meta-item">⏱️ 10 phút</span>
-          </div>
-          <button type="button" class="btn-start-toeic-test" data-count="15" data-duration="10" data-mode="advanced" data-title="TOEIC Chuyên Sâu (800-990)">
-            Bắt đầu thi ❯
-          </button>
-        </div>
-
-        <!-- Test Option 4: Full Mini Test ETS (Lũy tiến từ Dễ ➔ Khó) -->
-        <div class="toeic-test-card card-progressive">
-          <span class="toeic-test-badge badge-progressive">🏆 Chuẩn ETS (Dễ ➔ Khó)</span>
-          <div class="test-card-header">
-            <div class="test-card-icon icon-progressive">🎯</div>
-            <h3 class="test-card-title">Đề Chuẩn ETS</h3>
-          </div>
-          <div class="test-card-meta">
-            <span class="test-card-meta-item">📝 30 câu</span>
-            <span>•</span>
-            <span class="test-card-meta-item">⏱️ 15 phút</span>
-          </div>
-          <button type="button" class="btn-start-toeic-test" data-count="30" data-duration="15" data-mode="progressive" data-title="Đề Chuẩn ETS (30 câu)">
-            Bắt đầu thi ❯
+          <button type="button" class="btn-start-toeic-test btn-exam" data-count="8" data-duration="5" data-mode="exam" data-title="Thi Thật ETS Part 5">
+            Vào phòng thi ❯
           </button>
         </div>
       </div>
@@ -138,14 +110,14 @@ export function renderToeicTestTab(app) {
       <div class="toeic-history-section">
         <div class="history-section-header">
           <h3 class="history-section-title">
-            <span>📊 Lịch Sử Thi Gần Đây</span>
+            <span>📊 Lịch Sử Làm Bài Gần Đây</span>
           </h3>
           <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">50 bài gần nhất</span>
         </div>
 
         ${history.length === 0 ? `
           <div class="empty-history-placeholder">
-            Bạn chưa làm bài thi thử nào. Hãy chọn một bài test ở trên để bắt đầu thử sức ngay!
+            Bạn chưa làm bài nào. Hãy chọn Chế độ Luyện tập hoặc Thi thật ở trên để bắt đầu!
           </div>
         ` : `
           <div style="overflow-x: auto;">
@@ -153,7 +125,7 @@ export function renderToeicTestTab(app) {
               <thead>
                 <tr>
                   <th>Thời gian</th>
-                  <th>Gói đề thi</th>
+                  <th>Chế độ</th>
                   <th>Số câu đúng</th>
                   <th>Điểm TOEIC</th>
                   <th>Thời gian làm</th>
@@ -166,7 +138,7 @@ export function renderToeicTestTab(app) {
                   const mins = Math.floor((h.timeSpentSeconds || 0) / 60);
                   const secs = (h.timeSpentSeconds || 0) % 60;
                   const timeFormatted = `${mins}m ${secs < 10 ? '0' : ''}${secs}s`;
-                  const testTitle = h.testTitle || `Mini Test ${h.totalCount || 10} câu`;
+                  const testTitle = h.testTitle || (h.mode === 'practice' ? 'Luyện tập' : 'Thi thật');
                   return `
                     <tr>
                       <td>${dateStr}</td>
@@ -189,22 +161,22 @@ export function renderToeicTestTab(app) {
   // Gán sự kiện click nút bắt đầu thi
   container.querySelectorAll('.btn-start-toeic-test').forEach(btn => {
     btn.onclick = () => {
-      const count = parseInt(btn.getAttribute('data-count'), 10) || 10;
-      const duration = parseInt(btn.getAttribute('data-duration'), 10) || 5;
-      const mode = btn.getAttribute('data-mode') || 'all';
-      const title = btn.getAttribute('data-title') || `Mini Test ${count} câu`;
+      const count = parseInt(btn.getAttribute('data-count'), 10) || 8;
+      const duration = parseInt(btn.getAttribute('data-duration'), 10) || 0;
+      const mode = btn.getAttribute('data-mode') || 'practice';
+      const title = btn.getAttribute('data-title') || 'TOEIC Part 5';
       startToeicTest(app, count, duration, mode, title);
     };
   });
 }
 
 /**
- * Khởi động phiên thi thử trong phòng thi trực tuyến
+ * Khởi động phiên làm bài / thi thử trong phòng thi trực tuyến
  */
-export function startToeicTest(app, questionCount = 10, durationMinutes = 5, mode = 'all', testTitle = '') {
+export function startToeicTest(app, questionCount = 8, durationMinutes = 5, mode = 'practice', testTitle = '') {
   _toeicApp = app;
-  _activeConfig = { questionCount, durationMinutes, mode, testTitle: testTitle || `Mini Test ${questionCount} câu` };
-  _currentQuestions = getRandomToeicQuestions(questionCount, mode);
+  _activeConfig = { questionCount, durationMinutes, mode, testTitle: testTitle || (mode === 'practice' ? 'Luyện Tập Part 5' : 'Thi Thật Part 5') };
+  _currentQuestions = getRandomToeicQuestions(questionCount, mode === 'exam');
   _userAnswers = {};
   _flaggedQuestions = new Set();
   _currentQuestionIndex = 0;
@@ -214,7 +186,9 @@ export function startToeicTest(app, questionCount = 10, durationMinutes = 5, mod
 
   ensureArenaOverlayCreated();
   renderArenaLayout();
-  startArenaTimer();
+  if (durationMinutes > 0) {
+    startArenaTimer();
+  }
 
   const overlay = document.getElementById('toeic-arena-overlay');
   if (overlay) overlay.classList.add('active');
@@ -249,27 +223,32 @@ function renderArenaLayout() {
     <!-- Top Header Bar -->
     <header class="arena-top-header">
       <div class="arena-header-left">
-        <button type="button" class="btn-exit-arena" id="btn-exit-toeic-arena" title="Thoát phòng thi">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <button type="button" class="btn-exit-arena" id="btn-exit-toeic-arena" title="Thoát">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 6 6 18M6 6l12 12"/>
           </svg>
           <span>Thoát</span>
         </button>
         <div class="arena-title-wrap">
-          <span class="arena-exam-name">ETS TOEIC Part 5 Mini Test</span>
-          <span class="arena-exam-sub" id="arena-exam-sub">Gói ${total} câu • Incomplete Sentences</span>
+          <span class="arena-exam-name">${_activeConfig?.mode === 'practice' ? 'Luyện Tập Part 5' : 'Thi Thật Part 5'}</span>
         </div>
       </div>
 
-      <!-- Live Countdown Timer -->
-      <div class="arena-timer-pill" id="arena-timer-pill" title="Thời gian còn lại">
-        <span style="font-size: 1rem;">⏱️</span>
-        <span id="arena-timer-digits">00:00</span>
-      </div>
+      <!-- Live Countdown Timer (Chỉ hiển thị khi thi thật) -->
+      ${_activeConfig?.durationMinutes > 0 ? `
+        <div class="arena-timer-pill" id="arena-timer-pill" title="Thời gian còn lại">
+          <span style="font-size: 0.95rem;">⏱️</span>
+          <span id="arena-timer-digits">00:00</span>
+        </div>
+      ` : `
+        <div class="arena-mode-badge practice-mode-badge">
+          💡 Chế độ Luyện Tập
+        </div>
+      `}
 
       <button type="button" class="btn-submit-arena" id="btn-submit-toeic-arena">
         <span>Nộp bài</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
         </svg>
       </button>
@@ -281,10 +260,8 @@ function renderArenaLayout() {
       <main class="arena-question-stage">
         <div class="question-stage-content">
           <div class="question-meta-row">
-            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 8px;">
               <span class="question-num-tag" id="arena-question-tag">Câu 1 / ${total}</span>
-              <span class="question-level-tag" id="arena-level-tag">🟢 Căn bản</span>
-              <span class="question-cat-tag" id="arena-category-tag">Từ loại</span>
             </div>
             <button type="button" class="btn-flag-question" id="btn-flag-question" title="Đánh dấu câu hỏi để xem lại sau (Phím F)">
               <span>🚩</span>
@@ -299,6 +276,9 @@ function renderArenaLayout() {
 
           <!-- 4 Options -->
           <div class="arena-options-grid" id="arena-options-grid"></div>
+
+          <!-- Practice Mode Instant Explanation Box -->
+          <div class="practice-explanation-box" id="practice-explanation-box" style="display: none;"></div>
         </div>
 
         <!-- Navigation Bar -->
@@ -403,32 +383,15 @@ function loadArenaQuestion(index) {
 
   const q = _currentQuestions[index];
   const total = _currentQuestions.length;
+  const isPracticeMode = _activeConfig?.mode === 'practice';
 
   // Cập nhật Tags
   const elTag = document.getElementById('arena-question-tag');
-  const elLevel = document.getElementById('arena-level-tag');
-  const elCat = document.getElementById('arena-category-tag');
   const elIndicator = document.getElementById('arena-progress-indicator');
   const btnPrev = document.getElementById('btn-arena-prev');
   const btnNext = document.getElementById('btn-arena-next');
 
   if (elTag) elTag.textContent = `Câu ${index + 1} / ${total}`;
-  
-  if (elLevel) {
-    const lvl = q.level || 'intermediate';
-    if (lvl === 'basic') {
-      elLevel.innerHTML = `🟢 Căn bản (${escapeHTML(q.difficulty || '350-500')})`;
-      elLevel.className = 'question-level-tag level-basic';
-    } else if (lvl === 'advanced') {
-      elLevel.innerHTML = `🔴 Nâng cao (${escapeHTML(q.difficulty || '800-990')})`;
-      elLevel.className = 'question-level-tag level-advanced';
-    } else {
-      elLevel.innerHTML = `🟡 Trung cấp (${escapeHTML(q.difficulty || '550-750')})`;
-      elLevel.className = 'question-level-tag level-intermediate';
-    }
-  }
-
-  if (elCat) elCat.textContent = q.category || 'Part 5';
   if (elIndicator) elIndicator.textContent = `${index + 1} / ${total}`;
 
   if (btnPrev) btnPrev.disabled = index === 0;
@@ -457,14 +420,28 @@ function loadArenaQuestion(index) {
 
   // Render 4 phương án
   const optionsGrid = document.getElementById('arena-options-grid');
+  const currentSelected = _userAnswers[index];
+  const isAnswered = currentSelected !== undefined;
+
   if (optionsGrid) {
     optionsGrid.innerHTML = '';
     const letters = ['A', 'B', 'C', 'D'];
-    const currentSelected = _userAnswers[index];
 
     (q.options || []).forEach((opt, optIdx) => {
       const tile = document.createElement('div');
-      tile.className = `arena-option-tile ${currentSelected === optIdx ? 'selected' : ''}`;
+      let statusClass = '';
+
+      if (isPracticeMode && isAnswered) {
+        if (optIdx === q.correctIndex) {
+          statusClass = 'practice-correct';
+        } else if (optIdx === currentSelected) {
+          statusClass = 'practice-wrong';
+        }
+      } else if (currentSelected === optIdx) {
+        statusClass = 'selected';
+      }
+
+      tile.className = `arena-option-tile ${statusClass}`;
       tile.innerHTML = `
         <span class="arena-option-letter">${letters[optIdx]}</span>
         <span class="arena-option-text">${escapeHTML(opt)}</span>
@@ -478,6 +455,26 @@ function loadArenaQuestion(index) {
 
       optionsGrid.appendChild(tile);
     });
+  }
+
+  // Hộp giải thích tức thì cho Chế độ Luyện Tập
+  const explanationBox = document.getElementById('practice-explanation-box');
+  if (explanationBox) {
+    if (isPracticeMode && isAnswered) {
+      const isCorrect = currentSelected === q.correctIndex;
+      explanationBox.style.display = 'block';
+      explanationBox.className = `practice-explanation-box ${isCorrect ? 'is-correct' : 'is-wrong'}`;
+      explanationBox.innerHTML = `
+        <div class="exp-header">
+          <span class="exp-badge">${isCorrect ? '✅ Chính xác' : '❌ Chưa chính xác'}</span>
+          <span class="exp-correct-info">Đáp án đúng: <strong>(${['A', 'B', 'C', 'D'][q.correctIndex]}) ${escapeHTML(q.options[q.correctIndex])}</strong></span>
+        </div>
+        ${q.questionVi ? `<div class="exp-translation"><strong>Dịch câu:</strong> ${escapeHTML(q.questionVi)}</div>` : ''}
+        ${q.explanation ? `<div class="exp-content"><strong>Giải thích:</strong> ${escapeHTML(q.explanation)}</div>` : ''}
+      `;
+    } else {
+      explanationBox.style.display = 'none';
+    }
   }
 
   updatePalletMatrix();

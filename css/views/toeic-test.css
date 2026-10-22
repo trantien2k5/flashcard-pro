@@ -108,23 +108,23 @@
   margin-top: 4px;
 }
 
-/* 4 Test Options Bento Grid */
+/* 2 Mode Selection Grid */
 .toeic-tests-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
   width: 100%;
 }
 
 .toeic-test-card {
   background: var(--bg-card, #ffffff);
   border: 1.5px solid var(--border, #e2e8f0);
-  border-radius: 18px;
-  padding: 16px 16px;
+  border-radius: 20px;
+  padding: 20px 20px 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 12px;
+  gap: 14px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
@@ -134,65 +134,48 @@
 
 .toeic-test-card:hover {
   transform: translateY(-3px);
-  border-color: var(--primary, #6366f1);
   box-shadow: 0 10px 24px rgba(99, 102, 241, 0.12);
 }
 
-.toeic-test-card.card-basic:hover {
+.toeic-test-card.card-practice {
+  border-color: rgba(16, 185, 129, 0.35);
+}
+.toeic-test-card.card-practice:hover {
   border-color: #10b981;
-  box-shadow: 0 10px 24px rgba(16, 185, 129, 0.12);
+  box-shadow: 0 10px 24px rgba(16, 185, 129, 0.15);
 }
 
-.toeic-test-card.card-intermediate:hover {
-  border-color: #f59e0b;
-  box-shadow: 0 10px 24px rgba(245, 158, 11, 0.12);
+.toeic-test-card.card-exam {
+  border-color: rgba(99, 102, 241, 0.35);
 }
-
-.toeic-test-card.card-advanced:hover {
-  border-color: #ef4444;
-  box-shadow: 0 10px 24px rgba(239, 68, 68, 0.12);
-}
-
-.toeic-test-card.card-progressive:hover {
-  border-color: #8b5cf6;
-  box-shadow: 0 10px 24px rgba(139, 92, 246, 0.12);
+.toeic-test-card.card-exam:hover {
+  border-color: #6366f1;
+  box-shadow: 0 10px 24px rgba(99, 102, 241, 0.18);
 }
 
 .toeic-test-badge {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  font-size: 0.66rem;
+  top: 16px;
+  right: 16px;
+  font-size: 0.68rem;
   font-weight: 800;
-  padding: 3px 8px;
+  padding: 3px 9px;
   border-radius: 999px;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
-.badge-basic {
+.badge-practice {
   background: rgba(16, 185, 129, 0.12);
   color: #10b981;
 }
 
-.badge-intermediate {
-  background: rgba(245, 158, 11, 0.12);
-  color: #f59e0b;
+.badge-exam {
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
 }
 
-.badge-advanced {
-  background: rgba(239, 68, 68, 0.12);
-  color: #ef4444;
-}
-
-.badge-progressive {
-  background: rgba(139, 92, 246, 0.12);
-  color: #8b5cf6;
-}
-
-.icon-basic { background: rgba(16, 185, 129, 0.12); color: #10b981; }
-.icon-intermediate { background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
-.icon-advanced { background: rgba(239, 68, 68, 0.12); color: #ef4444; }
-.icon-progressive { background: rgba(139, 92, 246, 0.12); color: #8b5cf6; }
+.icon-practice { background: rgba(16, 185, 129, 0.12); color: #10b981; }
+.icon-exam { background: rgba(99, 102, 241, 0.12); color: #6366f1; }
 
 .test-card-header {
   display: flex;
@@ -201,32 +184,38 @@
 }
 
 .test-card-icon {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.35rem;
-  background: var(--bg-tertiary, #f1f5f9);
+  font-size: 1.4rem;
   flex-shrink: 0;
 }
 
 .test-card-title {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 850;
   color: var(--text-primary);
   margin: 0;
   line-height: 1.25;
 }
 
+.test-card-summary {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
 .test-card-meta {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding-top: 8px;
+  padding-top: 10px;
   border-top: 1px dashed var(--border);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   font-weight: 600;
 }
@@ -241,8 +230,6 @@
   width: 100%;
   padding: 12px 18px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #4f46e5, #6366f1);
-  color: #ffffff;
   font-size: 0.92rem;
   font-weight: 800;
   border: none;
@@ -252,12 +239,31 @@
   justify-content: center;
   gap: 8px;
   transition: all 0.2s ease;
+}
+
+.btn-start-toeic-test.btn-practice {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+}
+
+.btn-start-toeic-test.btn-practice:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.4);
+}
+
+.btn-start-toeic-test.btn-exam {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #ffffff;
   box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
 }
 
-.btn-start-toeic-test:hover {
+.btn-start-toeic-test.btn-exam:hover {
   background: linear-gradient(135deg, #4338ca, #4f46e5);
   transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.4);
+}
   box-shadow: 0 6px 18px rgba(79, 70, 229, 0.4);
 }
 
@@ -615,6 +621,105 @@
   border-color: var(--primary, #6366f1);
   background: rgba(99, 102, 241, 0.1);
   box-shadow: 0 0 0 1.5px var(--primary, #6366f1);
+}
+
+/* Practice Mode Interactive States */
+.arena-option-tile.practice-correct {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  box-shadow: 0 0 0 1.5px #10b981;
+}
+
+.arena-option-tile.practice-correct .arena-option-letter {
+  background: #10b981;
+  color: #ffffff;
+  border-color: #10b981;
+}
+
+.arena-option-tile.practice-wrong {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  box-shadow: 0 0 0 1.5px #ef4444;
+}
+
+.arena-option-tile.practice-wrong .arena-option-letter {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
+/* Practice Explanation Box */
+.practice-explanation-box {
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-top: 10px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.practice-explanation-box.is-correct {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1.5px solid rgba(16, 185, 129, 0.3);
+}
+
+.practice-explanation-box.is-wrong {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1.5px solid rgba(239, 68, 68, 0.3);
+}
+
+.exp-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.exp-badge {
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.practice-explanation-box.is-correct .exp-badge {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.practice-explanation-box.is-wrong .exp-badge {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.exp-correct-info {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.exp-translation {
+  margin-bottom: 6px;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+}
+
+.exp-content {
+  color: var(--text-primary);
+  font-size: 0.86rem;
+}
+
+.practice-mode-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1.5px solid rgba(16, 185, 129, 0.35);
+  border-radius: 999px;
+  color: #10b981;
+  font-size: 0.84rem;
+  font-weight: 800;
 }
 
 .arena-option-letter {
