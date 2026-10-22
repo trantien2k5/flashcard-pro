@@ -37,49 +37,55 @@ export function renderToeicTestTab(app) {
 
   container.innerHTML = `
     <div class="toeic-container">
-      <!-- 1. Hero Banner -->
+      <!-- 1. Hero Banner (Compact & Modern) -->
       <div class="toeic-hero-banner">
         <div class="toeic-hero-content">
-          <span class="toeic-hero-tag">🎯 Chuẩn ETS Part 5</span>
-          <h2 class="toeic-hero-title">Luyện Thi TOEIC Part 5</h2>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="toeic-hero-tag">🎯 ETS Part 5</span>
+            <h2 class="toeic-hero-title">Luyện Thi TOEIC</h2>
+          </div>
           <p class="toeic-hero-desc">
-            Phản xạ ngữ pháp & từ vựng công sở • Bảng điểm quy đổi chuẩn ETS (10 - 495).
+            Phản xạ ngữ pháp & từ vựng công sở (ETS 10 - 495).
           </p>
         </div>
 
         <div class="toeic-hero-stats">
           <div class="hero-stat-box">
             <div class="hero-stat-val">${highestScore > 0 ? highestScore : '--'}</div>
-            <div class="hero-stat-label">Điểm cao nhất</div>
+            <div class="hero-stat-label">Điểm cao</div>
           </div>
           <div class="hero-stat-box">
             <div class="hero-stat-val">${totalTests}</div>
-            <div class="hero-stat-label">Bài đã thi</div>
+            <div class="hero-stat-label">Đã làm</div>
           </div>
           <div class="hero-stat-box">
             <div class="hero-stat-val">${avgAccuracy > 0 ? avgAccuracy + '%' : '--'}</div>
-            <div class="hero-stat-label">Độ chính xác</div>
+            <div class="hero-stat-label">Chính xác</div>
           </div>
         </div>
       </div>
 
-      <!-- 2. Test Selection Grid (2 Chế độ Rõ ràng: Luyện Tập vs Thi Thật) -->
+      <!-- 2. Test Selection Grid (2 Chế độ Gọn gàng) -->
       <div class="toeic-tests-grid">
         <!-- Chế độ 1: Luyện Tập (Practice Mode) -->
         <div class="toeic-test-card card-practice">
-          <span class="toeic-test-badge badge-practice">💡 Tự do • Có đáp án ngay</span>
-          <div class="test-card-header">
-            <div class="test-card-icon icon-practice">📖</div>
-            <h3 class="test-card-title">Chế Độ Luyện Tập</h3>
+          <div class="test-card-top-row">
+            <div class="test-card-left-info">
+              <span class="test-card-icon icon-practice">📖</span>
+              <div>
+                <h3 class="test-card-title">Chế Độ Luyện Tập</h3>
+                <span class="test-card-subtitle">Xem đáp án & giải thích tức thì</span>
+              </div>
+            </div>
+            <span class="toeic-test-badge badge-practice">Tự do</span>
           </div>
-          <p class="test-card-summary">
-            Làm quen dạng đề, không giới hạn thời gian gắt gao. Xem ngay giải thích chi tiết, dịch nghĩa và bẫy ngữ pháp sau mỗi câu.
-          </p>
+
           <div class="test-card-meta">
-            <span class="test-card-meta-item">📝 8 câu Part 5</span>
+            <span>📝 8 câu Part 5</span>
             <span>•</span>
-            <span class="test-card-meta-item">⏱️ Không áp lực</span>
+            <span>⏱️ Không giới hạn</span>
           </div>
+
           <button type="button" class="btn-start-toeic-test btn-practice" data-count="8" data-duration="0" data-mode="practice" data-title="Luyện Tập Part 5">
             Bắt đầu luyện tập ❯
           </button>
@@ -87,19 +93,23 @@ export function renderToeicTestTab(app) {
 
         <!-- Chế độ 2: Thi Thật (Exam Mode) -->
         <div class="toeic-test-card card-exam">
-          <span class="toeic-test-badge badge-exam">⏱️ Đếm ngược • Chuẩn ETS</span>
-          <div class="test-card-header">
-            <div class="test-card-icon icon-exam">🎯</div>
-            <h3 class="test-card-title">Chế Độ Thi Thật</h3>
+          <div class="test-card-top-row">
+            <div class="test-card-left-info">
+              <span class="test-card-icon icon-exam">🎯</span>
+              <div>
+                <h3 class="test-card-title">Chế Độ Thi Thật</h3>
+                <span class="test-card-subtitle">Bấm giờ 5 phút • Tính điểm chuẩn ETS</span>
+              </div>
+            </div>
+            <span class="toeic-test-badge badge-exam">Thi 5 phút</span>
           </div>
-          <p class="test-card-summary">
-            Mô phỏng áp lực phòng thi máy CBT thực tế. Đếm ngược 5 phút, ẩn toàn bộ đáp án cho đến khi nộp bài để đánh giá điểm chuẩn ETS.
-          </p>
+
           <div class="test-card-meta">
-            <span class="test-card-meta-item">📝 8 câu Part 5</span>
+            <span>📝 8 câu Part 5</span>
             <span>•</span>
-            <span class="test-card-meta-item">⏱️ 5 phút</span>
+            <span>⏱️ Đếm ngược</span>
           </div>
+
           <button type="button" class="btn-start-toeic-test btn-exam" data-count="8" data-duration="5" data-mode="exam" data-title="Thi Thật ETS Part 5">
             Vào phòng thi ❯
           </button>
@@ -110,48 +120,45 @@ export function renderToeicTestTab(app) {
       <div class="toeic-history-section">
         <div class="history-section-header">
           <h3 class="history-section-title">
-            <span>📊 Lịch Sử Làm Bài Gần Đây</span>
+            <span>📊 Lịch Sử Làm Bài</span>
           </h3>
-          <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">50 bài gần nhất</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Gần đây</span>
         </div>
 
         ${history.length === 0 ? `
           <div class="empty-history-placeholder">
-            Bạn chưa làm bài nào. Hãy chọn Chế độ Luyện tập hoặc Thi thật ở trên để bắt đầu!
+            Bạn chưa làm bài nào. Hãy chọn Luyện tập hoặc Thi thật để bắt đầu!
           </div>
         ` : `
-          <div style="overflow-x: auto;">
-            <table class="toeic-history-table">
-              <thead>
-                <tr>
-                  <th>Thời gian</th>
-                  <th>Chế độ</th>
-                  <th>Số câu đúng</th>
-                  <th>Điểm TOEIC</th>
-                  <th>Thời gian làm</th>
-                  <th>Trình độ đánh giá</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${history.slice(0, 10).map(h => {
-                  const dateStr = h.date ? new Date(h.date).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '--';
-                  const mins = Math.floor((h.timeSpentSeconds || 0) / 60);
-                  const secs = (h.timeSpentSeconds || 0) % 60;
-                  const timeFormatted = `${mins}m ${secs < 10 ? '0' : ''}${secs}s`;
-                  const testTitle = h.testTitle || (h.mode === 'practice' ? 'Luyện tập' : 'Thi thật');
-                  return `
-                    <tr>
-                      <td>${dateStr}</td>
-                      <td><strong>${escapeHTML(testTitle)}</strong></td>
-                      <td><span style="color: #10b981; font-weight: 750;">${h.correctCount}/${h.totalCount}</span> (${h.accuracyPct}%)</td>
-                      <td class="history-score-cell">${h.score} / 495</td>
-                      <td>${timeFormatted}</td>
-                      <td><span style="font-weight: 700; color: ${h.color || 'var(--text-primary)'};">${escapeHTML(h.band || '')}</span></td>
-                    </tr>
-                  `;
-                }).join('')}
-              </tbody>
-            </table>
+          <div class="toeic-history-list">
+            ${history.slice(0, 10).map(h => {
+              const dateStr = h.date ? new Date(h.date).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) : '--';
+              const mins = Math.floor((h.timeSpentSeconds || 0) / 60);
+              const secs = (h.timeSpentSeconds || 0) % 60;
+              const timeFormatted = `${mins}m ${secs < 10 ? '0' : ''}${secs}s`;
+              const isPractice = h.mode === 'practice';
+              return `
+                <div class="toeic-history-item">
+                  <div class="history-item-left">
+                    <span class="history-mode-pill ${isPractice ? 'practice' : 'exam'}">
+                      ${isPractice ? '📖 Luyện tập' : '🎯 Thi thật'}
+                    </span>
+                    <span class="history-item-date">${dateStr}</span>
+                  </div>
+                  <div class="history-item-middle">
+                    <span class="history-stat-score">
+                      ${h.correctCount}/${h.totalCount} <small>(${h.accuracyPct}%)</small>
+                    </span>
+                    <span class="history-item-time">⏱️ ${timeFormatted}</span>
+                  </div>
+                  <div class="history-item-right">
+                    <span class="history-score-badge" style="color: ${h.color || '#6366f1'};">
+                      ${h.score} <small>/ 495</small>
+                    </span>
+                  </div>
+                </div>
+              `;
+            }).join('')}
           </div>
         `}
       </div>
