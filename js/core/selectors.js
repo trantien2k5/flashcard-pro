@@ -6,7 +6,7 @@ import { StorageManager } from '../services/storage.js';
 import { FSRS, State, isCardDue } from './fsrs.js';
 import { MASTERY_STABILITY_THRESHOLD, STUDY_MODES, getLearningGoal } from '../config.js';
 import { getLocalDateKey } from '../utils.js';
-import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords, WORDS_MAP } from '../../data/index.js';
+import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords, WORDS_MAP, LEGACY_ID_MAP } from '../../data/index.js';
 
 export class DeckManager {
   constructor() {
@@ -227,6 +227,13 @@ export class DeckManager {
    */
   getCardById(cardId, deckId = null) {
     if (!cardId) return null;
+    const resolvedId = (LEGACY_ID_MAP && LEGACY_ID_MAP[cardId]) || cardId;
+    if (deckId && this.wordsMap.has(`${deckId}:${resolvedId}`)) {
+      return this.wordsMap.get(`${deckId}:${resolvedId}`);
+    }
+    if (this.wordsMap.has(resolvedId)) {
+      return this.wordsMap.get(resolvedId);
+    }
     if (deckId && this.wordsMap.has(`${deckId}:${cardId}`)) {
       return this.wordsMap.get(`${deckId}:${cardId}`);
     }
