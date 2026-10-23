@@ -245,10 +245,11 @@ export function startToeicTestBySet(app, testSet, mode = 'practice') {
   _toeicApp = app;
   _activeConfig = { 
     setId: testSet.id,
+    testCode: testSet.code || 'TEST 01',
+    testTitle: testSet.title || 'Part 5 Incomplete Sentences',
     questionCount: testSet.questionCount, 
     durationMinutes: mode === 'exam' ? testSet.durationMinutes : 0, 
-    mode, 
-    testTitle: `${testSet.code} (${mode === 'practice' ? 'Luyện tập' : 'Thi thật'})` 
+    mode 
   };
   _currentQuestions = getToeicQuestionsBySet(testSet.id, mode === 'exam');
   _userAnswers = {};
@@ -293,6 +294,19 @@ function ensureArenaOverlayCreated() {
 }
 
 /**
+ * Mở / Đóng Bảng câu hỏi (Drawer/Bottom Sheet)
+ */
+function togglePalletDrawer(forceState) {
+  const drawer = document.getElementById('arena-pallet-drawer');
+  const backdrop = document.getElementById('arena-pallet-backdrop');
+  if (!drawer || !backdrop) return;
+
+  const isOpen = forceState !== undefined ? forceState : !drawer.classList.contains('open');
+  drawer.classList.toggle('open', isOpen);
+  backdrop.classList.toggle('active', isOpen);
+}
+
+/**
  * Render bố cục phòng thi ETS CBT
  */
 function renderArenaLayout() {
@@ -300,19 +314,25 @@ function renderArenaLayout() {
   if (!overlay) return;
 
   const total = _currentQuestions.length;
+  const isPractice = _activeConfig?.mode === 'practice';
+  const testCode = _activeConfig?.testCode || 'TEST 01';
 
   overlay.innerHTML = `
-    <!-- Top Header Bar -->
+    <!-- Top Header Bar (Tinh gọn, không còn badge thô choán chỗ) -->
     <header class="arena-top-header">
       <div class="arena-header-left">
-        <button type="button" class="btn-exit-arena" id="btn-exit-toeic-arena" title="Thoát">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <button type="button" class="btn-exit-arena" id="btn-exit-toeic-arena" title="Thoát bài thi">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 6 6 18M6 6l12 12"/>
           </svg>
-          <span>Thoát</span>
         </button>
         <div class="arena-title-wrap">
-          <span class="arena-exam-name">${_activeConfig?.mode === 'practice' ? 'Luyện Tập Part 5' : 'Thi Thật Part 5'}</span>
+          <div class="arena-exam-name-row">
+            <span class="arena-exam-name">${escapeHTML(testCode)}</span>
+            <span class="arena-mode-pill ${isPractice ? 'is-practice' : 'is-exam'}">
+              ${isPractice ? 'Luyện tập' : 'Thi thật'}
+            </span>
+          </div>
         </div>
       </div>
 
@@ -322,11 +342,7 @@ function renderArenaLayout() {
           <span style="font-size: 0.95rem;">⏱️</span>
           <span id="arena-timer-digits">00:00</span>
         </div>
-      ` : `
-        <div class="arena-mode-badge practice-mode-badge">
-          💡 Chế độ Luyện Tập
-        </div>
-      `}
+      ` : `<div></div>`}
 
       <button type="button" class="btn-submit-arena" id="btn-submit-toeic-arena">
         <span>Nộp bài</span>
@@ -336,22 +352,22 @@ function renderArenaLayout() {
       </button>
     </header>
 
-    <!-- Main Split Body -->
+    <!-- Main Body: Tập trung toàn bộ vào câu hỏi -->
     <div class="arena-split-body">
-      <!-- Question Stage -->
       <main class="arena-question-stage">
         <div class="question-stage-content">
+          <!-- Thanh Meta tinh gọn: Số câu & Cờ đánh dấu -->
           <div class="question-meta-row">
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span class="question-num-tag" id="arena-question-tag">Câu 1 / ${total}</span>
-            </div>
+            <span class="question-seq-pill" id="arena-question-tag">Câu 1</span>
             <button type="button" class="btn-flag-question" id="btn-flag-question" title="Đánh dấu câu hỏi để xem lại sau (Phím F)">
-              <span>🚩</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/>
+              </svg>
               <span id="flag-btn-text">Đánh dấu</span>
             </button>
           </div>
 
-          <!-- Question Prompt -->
+          <!-- Question Prompt Card -->
           <div class="question-prompt-card">
             <p class="question-prompt-text" id="arena-question-text">Loading...</p>
           </div>
@@ -363,7 +379,7 @@ function renderArenaLayout() {
           <div class="practice-explanation-box" id="practice-explanation-box" style="display: none;"></div>
         </div>
 
-        <!-- Navigation Bar -->
+        <!-- Navigation Bar (Có nút mở Bảng câu hỏi ở giữa) -->
         <div class="arena-nav-bar">
           <button type="button" class="btn-arena-step" id="btn-arena-prev">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -372,9 +388,16 @@ function renderArenaLayout() {
             <span>Câu trước</span>
           </button>
 
-          <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;" id="arena-progress-indicator">
-            1 / ${total}
-          </span>
+          <!-- Nút mở Bảng câu hỏi -->
+          <button type="button" class="btn-pallet-trigger" id="btn-toggle-pallet" title="Bấm để mở danh sách toàn bộ câu hỏi">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/>
+            </svg>
+            <span id="arena-progress-indicator">1 / ${total}</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m18 15-6-6-6 6"/>
+            </svg>
+          </button>
 
           <button type="button" class="btn-arena-step" id="btn-arena-next">
             <span>Câu tiếp</span>
@@ -385,9 +408,17 @@ function renderArenaLayout() {
         </div>
       </main>
 
-      <!-- Right Pallet Sidebar -->
-      <aside class="arena-pallet-sidebar">
-        <span class="pallet-header-title">Bảng Câu Hỏi</span>
+      <!-- Bảng câu hỏi Drawer (Mặc định ẩn, bấm nút mới trượt hiện ra) -->
+      <div class="arena-pallet-backdrop" id="arena-pallet-backdrop"></div>
+      <aside class="arena-pallet-drawer" id="arena-pallet-drawer">
+        <div class="pallet-drawer-header">
+          <div class="pallet-title-group">
+            <span class="pallet-drawer-title">Bảng Câu Hỏi</span>
+            <span class="pallet-drawer-sub" id="pallet-answered-count">0 / ${total} đã làm</span>
+          </div>
+          <button type="button" class="btn-close-pallet" id="btn-close-pallet" title="Đóng bảng câu hỏi">✕</button>
+        </div>
+
         <div class="pallet-matrix-grid" id="arena-pallet-grid"></div>
 
         <div class="pallet-legend-row">
@@ -454,6 +485,22 @@ function renderArenaLayout() {
       toggleFlagCurrentQuestion();
     };
   }
+
+  // Sự kiện mở / đóng Bảng câu hỏi
+  const btnTogglePallet = document.getElementById('btn-toggle-pallet');
+  if (btnTogglePallet) {
+    btnTogglePallet.onclick = () => togglePalletDrawer();
+  }
+
+  const btnClosePallet = document.getElementById('btn-close-pallet');
+  if (btnClosePallet) {
+    btnClosePallet.onclick = () => togglePalletDrawer(false);
+  }
+
+  const backdrop = document.getElementById('arena-pallet-backdrop');
+  if (backdrop) {
+    backdrop.onclick = () => togglePalletDrawer(false);
+  }
 }
 
 /**
@@ -466,14 +513,16 @@ function loadArenaQuestion(index) {
   const q = _currentQuestions[index];
   const total = _currentQuestions.length;
   const isPracticeMode = _activeConfig?.mode === 'practice';
+  const currentSelected = _userAnswers[index];
+  const isAnswered = currentSelected !== undefined;
 
-  // Cập nhật Tags
+  // Cập nhật Tags & Navigation
   const elTag = document.getElementById('arena-question-tag');
   const elIndicator = document.getElementById('arena-progress-indicator');
   const btnPrev = document.getElementById('btn-arena-prev');
   const btnNext = document.getElementById('btn-arena-next');
 
-  if (elTag) elTag.textContent = `Câu ${index + 1} / ${total}`;
+  if (elTag) elTag.textContent = `Câu ${index + 1}`;
   if (elIndicator) elIndicator.textContent = `${index + 1} / ${total}`;
 
   if (btnPrev) btnPrev.disabled = index === 0;
@@ -492,18 +541,23 @@ function loadArenaQuestion(index) {
     if (flagText) flagText.textContent = isFlagged ? 'Đã gắn cờ' : 'Đánh dấu';
   }
 
-  // Cập nhật Text câu hỏi với chỗ trống highlight
+  // Cập nhật Chỗ đục lỗ (Không còn bị 2 gạch đè nhau, hiển thị từ đã chọn nếu có)
   const elPrompt = document.getElementById('arena-question-text');
   if (elPrompt) {
     const rawQuestion = q.question || '';
-    const formatted = rawQuestion.replace(/______/g, `<span class="question-blank-highlight">______</span>`);
+    let blankHtml = '';
+    if (isAnswered && q.options && q.options[currentSelected]) {
+      const selectedWord = escapeHTML(q.options[currentSelected]);
+      blankHtml = `<span class="question-blank-slot has-value" title="Từ đã chọn: ${selectedWord}">${selectedWord}</span>`;
+    } else {
+      blankHtml = `<span class="question-blank-slot is-empty" aria-label="Chỗ trống điền từ"></span>`;
+    }
+    const formatted = rawQuestion.replace(/_{3,}/g, blankHtml);
     elPrompt.innerHTML = formatted;
   }
 
   // Render 4 phương án
   const optionsGrid = document.getElementById('arena-options-grid');
-  const currentSelected = _userAnswers[index];
-  const isAnswered = currentSelected !== undefined;
 
   if (optionsGrid) {
     optionsGrid.innerHTML = '';
@@ -569,6 +623,15 @@ function updatePalletMatrix() {
   const pallet = document.getElementById('arena-pallet-grid');
   if (!pallet) return;
 
+  const total = _currentQuestions.length;
+  const answeredCount = Object.keys(_userAnswers).length;
+
+  // Cập nhật tóm tắt tiến độ trên header drawer
+  const elSub = document.getElementById('pallet-answered-count');
+  if (elSub) {
+    elSub.textContent = `${answeredCount} / ${total} đã làm`;
+  }
+
   pallet.innerHTML = '';
   _currentQuestions.forEach((q, idx) => {
     const btn = document.createElement('button');
@@ -583,6 +646,7 @@ function updatePalletMatrix() {
 
     btn.onclick = () => {
       loadArenaQuestion(idx);
+      togglePalletDrawer(false); // Bấm vào câu là tự động đóng bảng câu hỏi lại
     };
 
     pallet.appendChild(btn);
@@ -889,8 +953,19 @@ function setupArenaKeyShortcuts() {
     if (!overlay || !overlay.classList.contains('active')) return;
 
     if (e.key === 'Escape') {
+      const drawer = document.getElementById('arena-pallet-drawer');
+      if (drawer && drawer.classList.contains('open')) {
+        togglePalletDrawer(false);
+        return;
+      }
       const btnExit = document.getElementById('btn-exit-toeic-arena');
       if (btnExit) btnExit.click();
+      return;
+    }
+
+    if (e.key.toLowerCase() === 'm' || e.key.toLowerCase() === 'p') {
+      e.preventDefault();
+      togglePalletDrawer();
       return;
     }
 

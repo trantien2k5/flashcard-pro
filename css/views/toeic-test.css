@@ -601,14 +601,14 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-secondary);
-  padding: 7px 12px;
+  width: 36px;
+  height: 36px;
   border-radius: 10px;
-  font-size: 0.82rem;
-  font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  flex-shrink: 0;
   transition: all 0.2s ease;
 }
 
@@ -620,19 +620,43 @@
 
 .arena-title-wrap {
   display: flex;
-  flex-direction: column;
-  gap: 1px;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.arena-exam-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
 }
 
 .arena-exam-name {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   font-weight: 850;
   color: var(--text-primary);
+  white-space: nowrap;
 }
 
-.arena-exam-sub {
+.arena-mode-pill {
   font-size: 0.72rem;
-  color: var(--text-muted);
+  font-weight: 750;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.arena-mode-pill.is-practice {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.arena-mode-pill.is-exam {
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--primary, #6366f1);
+  border: 1px solid rgba(99, 102, 241, 0.25);
 }
 
 .arena-timer-pill {
@@ -641,10 +665,10 @@
   gap: 8px;
   background: rgba(99, 102, 241, 0.1);
   border: 1.5px solid rgba(99, 102, 241, 0.3);
-  padding: 8px 18px;
+  padding: 6px 14px;
   border-radius: 999px;
   font-family: var(--font-mono, monospace);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 850;
   color: var(--primary, #6366f1);
   box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
@@ -674,9 +698,9 @@
   background: linear-gradient(135deg, #10b981, #059669);
   color: #ffffff;
   border: none;
-  padding: 8px 18px;
+  padding: 8px 16px;
   border-radius: 11px;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 800;
   cursor: pointer;
   display: inline-flex;
@@ -684,6 +708,7 @@
   gap: 6px;
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
   transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 .btn-submit-arena:hover {
@@ -691,12 +716,13 @@
   box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
 }
 
-/* Arena Main Split Body (Stage & Question Nav Pallet) */
+/* Arena Main Body */
 .arena-split-body {
   flex: 1;
   display: flex;
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .arena-question-stage {
@@ -707,6 +733,7 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
+  width: 100%;
 }
 
 .question-stage-content {
@@ -715,7 +742,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
 .question-meta-row {
@@ -725,62 +752,28 @@
   gap: 12px;
 }
 
-.question-num-tag {
-  font-size: 0.82rem;
+.question-seq-pill {
+  font-size: 0.8rem;
   font-weight: 800;
   color: var(--primary, #6366f1);
-  background: rgba(99, 102, 241, 0.1);
-  padding: 4px 10px;
+  background: rgba(99, 102, 241, 0.08);
+  padding: 4px 12px;
   border-radius: 8px;
-}
-
-.question-cat-tag {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  background: var(--bg-tertiary);
-  padding: 4px 10px;
-  border-radius: 8px;
-}
-
-.question-level-tag {
-  font-size: 0.72rem;
-  font-weight: 750;
-  padding: 4px 10px;
-  border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.question-level-tag.level-basic {
-  background: rgba(16, 185, 129, 0.12);
-  color: #10b981;
-}
-
-.question-level-tag.level-intermediate {
-  background: rgba(245, 158, 11, 0.12);
-  color: #f59e0b;
-}
-
-.question-level-tag.level-advanced {
-  background: rgba(239, 68, 68, 0.12);
-  color: #ef4444;
+  border: 1px solid rgba(99, 102, 241, 0.15);
 }
 
 .btn-flag-question {
   background: transparent;
   border: 1px solid var(--border);
   color: var(--text-secondary);
-  padding: 5px 10px;
+  padding: 5px 12px;
   border-radius: 8px;
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   transition: all 0.2s ease;
 }
 
@@ -796,7 +789,7 @@
   background: var(--bg-card);
   border: 1.5px solid var(--border);
   border-radius: 20px;
-  padding: 24px 26px;
+  padding: 22px 24px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
 }
 
@@ -804,18 +797,53 @@
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.65;
   margin: 0;
 }
 
-.question-blank-highlight {
-  display: inline-block;
-  min-width: 90px;
-  border-bottom: 2.5px solid var(--primary, #6366f1);
+/* Chỗ đục lỗ thông minh, không có 2 gạch đè nhau */
+.question-blank-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 86px;
+  height: 32px;
+  padding: 0 12px;
+  margin: 0 5px;
+  vertical-align: middle;
+  border-radius: 8px;
+  font-size: 0.95em;
+  font-weight: 700;
+  box-sizing: border-box;
+  user-select: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.question-blank-slot.is-empty {
+  border: 1.5px dashed var(--primary, #6366f1);
+  background: rgba(99, 102, 241, 0.06);
+  color: var(--primary, #6366f1);
+}
+
+.question-blank-slot.is-empty::before {
+  content: "• • •";
+  letter-spacing: 2px;
+  opacity: 0.45;
+  font-size: 0.85em;
+}
+
+.question-blank-slot.has-value {
+  border: 1.5px solid var(--primary, #6366f1);
+  background: rgba(99, 102, 241, 0.12);
   color: var(--primary, #6366f1);
   font-weight: 800;
-  text-align: center;
-  padding: 0 6px;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
+  animation: blankPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes blankPop {
+  0% { transform: scale(0.92); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 /* 4 Options Grid */
@@ -994,17 +1022,17 @@
 }
 
 .btn-arena-step {
-  padding: 10px 18px;
+  padding: 9px 16px;
   border-radius: 12px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-primary);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 750;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   transition: all 0.2s ease;
 }
 
@@ -1015,45 +1043,143 @@
 }
 
 .btn-arena-step:disabled {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: not-allowed;
 }
 
-/* Right Side: Question Navigator Pallet */
-.arena-pallet-sidebar {
-  width: 260px;
-  background: var(--bg-secondary);
-  border-left: 1px solid var(--border);
-  padding: 18px 16px;
+/* Nút bấm mở Bảng câu hỏi ở giữa thanh điều hướng */
+.btn-pallet-trigger {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  color: var(--text-primary);
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 0.86rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.btn-pallet-trigger:hover {
+  border-color: var(--primary, #6366f1);
+  color: var(--primary, #6366f1);
+  background: rgba(99, 102, 241, 0.05);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   Bảng Câu Hỏi Drawer (Ẩn theo mặc định, bấm nút mới trượt hiện ra)
+   -------------------------------------------------------------------------- */
+.arena-pallet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 5100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.arena-pallet-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.arena-pallet-drawer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 105%);
+  width: 100%;
+  max-width: 520px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 24px 24px 0 0;
+  padding: 20px 20px 28px 20px;
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.25);
+  z-index: 5200;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-height: 80vh;
   overflow-y: auto;
-  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
 }
 
-.pallet-header-title {
-  font-size: 0.82rem;
-  font-weight: 800;
-  text-transform: uppercase;
+.arena-pallet-drawer.open {
+  transform: translate(-50%, 0);
+}
+
+.pallet-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pallet-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pallet-drawer-title {
+  font-size: 1.05rem;
+  font-weight: 850;
+  color: var(--text-primary);
+}
+
+.pallet-drawer-sub {
+  font-size: 0.76rem;
+  font-weight: 600;
   color: var(--text-muted);
-  letter-spacing: 0.05em;
+}
+
+.btn-close-pallet {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.btn-close-pallet:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
 }
 
 .pallet-matrix-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
   width: 100%;
 }
 
 .pallet-btn {
-  aspect-ratio: 1;
-  border-radius: 10px;
-  border: 1px solid var(--border);
+  height: 48px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
   background: var(--bg-card);
   color: var(--text-secondary);
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 800;
   cursor: pointer;
   display: flex;
@@ -1065,10 +1191,11 @@
 
 .pallet-btn:hover {
   border-color: var(--primary);
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .pallet-btn.current {
+  border-color: var(--primary);
   box-shadow: 0 0 0 2px var(--primary);
 }
 
@@ -1081,19 +1208,20 @@
 .pallet-btn.flagged::after {
   content: '🚩';
   position: absolute;
-  top: -4px;
-  right: -4px;
-  font-size: 0.65rem;
+  top: 3px;
+  right: 5px;
+  font-size: 0.68rem;
 }
 
 .pallet-legend-row {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   gap: 8px;
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   color: var(--text-muted);
   border-top: 1px solid var(--border);
-  padding-top: 12px;
+  padding-top: 14px;
 }
 
 .legend-item {
@@ -1452,33 +1580,21 @@
     font-size: 0.92rem;
   }
 
-  .arena-pallet-sidebar {
-    width: 100%;
-    border-left: none;
-    border-top: 1px solid var(--border);
-    max-height: 110px;
-    padding: 8px 12px;
-    gap: 6px;
-    background: var(--bg-card);
-  }
-
-  .pallet-header-title {
-    font-size: 0.72rem;
+  .arena-pallet-drawer {
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 16px 16px 24px 16px;
   }
 
   .pallet-matrix-grid {
-    grid-template-columns: repeat(auto-fill, minmax(32px, 1fr));
-    gap: 6px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
   }
 
   .pallet-btn {
-    border-radius: 8px;
-    font-size: 0.75rem;
-    min-height: 32px;
-  }
-
-  .pallet-legend-row {
-    display: none;
+    height: 44px;
+    font-size: 0.88rem;
+    border-radius: 10px;
   }
 
   .review-options-pills {
@@ -1494,24 +1610,38 @@
     padding: 7px 12px;
     font-size: 0.8rem;
   }
+
+  .btn-pallet-trigger {
+    padding: 7px 12px;
+    font-size: 0.8rem;
+    gap: 5px;
+  }
 }
 
 /* Màn hình siêu nhỏ <= 380px (iPhone SE, Galaxy A series thu nhỏ) */
 @media (max-width: 380px) {
-  .arena-exam-sub {
-    display: none;
-  }
-  .btn-exit-arena span {
-    display: none;
-  }
   .btn-exit-arena {
-    padding: 6px 8px;
+    width: 32px;
+    height: 32px;
+  }
+  .arena-exam-name {
+    font-size: 0.88rem;
+  }
+  .arena-mode-pill {
+    display: none;
   }
   .arena-timer-pill {
     padding: 4px 8px;
     font-size: 0.85rem;
   }
   .btn-submit-arena {
-    padding: 6px 9px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+  .btn-arena-step span {
+    display: none;
+  }
+  .btn-arena-step {
+    padding: 8px 12px;
   }
 }
