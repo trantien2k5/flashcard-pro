@@ -37,38 +37,43 @@ export function renderToeicTestTab(app) {
 
   container.innerHTML = `
     <div class="toeic-container">
-      <!-- 1. Hero Banner (Sleek, Balanced & Elegant) -->
-      <div class="toeic-hero-banner">
-        <div class="toeic-hero-top">
-          <div class="toeic-hero-title-group">
-            <span class="toeic-hero-tag">🎯 ETS PART 5</span>
-            <h2 class="toeic-hero-title">Đề Thi TOEIC Part 5</h2>
+      <!-- 1. Header & Integrated Metrics Strip (Flat, Precision, No Nested Cards) -->
+      <div class="toeic-hub-header">
+        <div class="toeic-hub-header-top">
+          <div class="toeic-hub-brand-row">
+            <span class="toeic-hub-badge">ETS PART 5</span>
+            <span class="toeic-hub-badge-sub">Incomplete Sentences</span>
           </div>
-          <p class="toeic-hero-desc">
-            Chọn đề thi bên dưới để bắt đầu luyện tập hoặc thi tính giờ chuẩn ETS.
+          <h2 class="toeic-hub-title">Thi Thử & Luyện Đề TOEIC</h2>
+          <p class="toeic-hub-desc">
+            Rèn luyện phản xạ ngữ pháp và từ vựng Part 5 theo chuẩn format đề thi ETS TOEIC thực tế.
           </p>
         </div>
 
-        <div class="toeic-hero-stats">
-          <div class="hero-stat-box">
-            <div class="hero-stat-val">${highestScore > 0 ? highestScore : '--'}</div>
-            <div class="hero-stat-label">Điểm cao</div>
+        <div class="toeic-metrics-strip">
+          <div class="metric-segment">
+            <span class="metric-val">${highestScore > 0 ? highestScore : '--'}</span>
+            <span class="metric-lbl">Điểm cao nhất</span>
           </div>
-          <div class="hero-stat-box">
-            <div class="hero-stat-val">${totalTests}</div>
-            <div class="hero-stat-label">Đã làm</div>
+          <div class="metric-divider"></div>
+          <div class="metric-segment">
+            <span class="metric-val">${totalTests}</span>
+            <span class="metric-lbl">Bài đã nộp</span>
           </div>
-          <div class="hero-stat-box">
-            <div class="hero-stat-val">${avgAccuracy > 0 ? avgAccuracy + '%' : '--'}</div>
-            <div class="hero-stat-label">Chính xác</div>
+          <div class="metric-divider"></div>
+          <div class="metric-segment">
+            <span class="metric-val">${avgAccuracy > 0 ? avgAccuracy + '%' : '--'}</span>
+            <span class="metric-lbl">Độ chính xác TB</span>
           </div>
         </div>
       </div>
 
       <!-- 2. Danh sách Bộ Đề Thi (Test Sets List) -->
-      <div class="toeic-section-title-wrap">
-        <h3 class="toeic-section-title">📚 Danh Sách Đề Thi</h3>
-        <span class="toeic-section-count">${TOEIC_TEST_SETS.length} đề thi</span>
+      <div class="toeic-section-bar">
+        <h3 class="toeic-section-title">
+          <span>📚 Danh Sách Đề Thi</span>
+        </h3>
+        <span class="toeic-section-count-tag">${TOEIC_TEST_SETS.length} đề thi</span>
       </div>
 
       <div class="toeic-sets-list">
@@ -76,24 +81,24 @@ export function renderToeicTestTab(app) {
           return `
             <div class="toeic-set-card" data-set-id="${set.id}">
               <div class="set-card-left">
-                <div class="set-card-code-badge">${escapeHTML(set.code)}</div>
+                <div class="set-card-code-tag">${escapeHTML(set.code)}</div>
                 <div class="set-card-main-info">
                   <div class="set-card-title-row">
                     <h4 class="set-card-title">${escapeHTML(set.title)}</h4>
-                    <span class="set-card-tag">${escapeHTML(set.tag)}</span>
+                    <span class="set-card-level-tag">${escapeHTML(set.tag)}</span>
                   </div>
                   <div class="set-card-meta">
                     <span class="meta-item">📝 ${set.questionCount} câu</span>
-                    <span class="meta-divider">•</span>
+                    <span class="meta-sep">•</span>
                     <span class="meta-item">⏱️ ${set.durationMinutes} phút</span>
-                    <span class="meta-divider">•</span>
-                    <span class="meta-badge-support">Luyện tập & Thi</span>
+                    <span class="meta-sep">•</span>
+                    <span class="meta-feature-tag">Luyện tập & Thi thật</span>
                   </div>
                 </div>
               </div>
               <button type="button" class="btn-open-set-mode" data-set-id="${set.id}">
-                <span>Làm bài</span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <span>Chọn bài</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="9 18 15 12 9 6"/>
                 </svg>
               </button>
@@ -102,21 +107,21 @@ export function renderToeicTestTab(app) {
         }).join('')}
       </div>
 
-      <!-- 3. Recent Test History -->
+      <!-- 3. Recent Test History (Flat List, No Card-Inside-Card) -->
       <div class="toeic-history-section">
-        <div class="history-section-header">
-          <h3 class="history-section-title">
+        <div class="toeic-section-bar">
+          <h3 class="toeic-section-title">
             <span>📊 Lịch Sử Làm Bài</span>
           </h3>
-          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Gần đây</span>
+          <span class="history-sub-tag">Gần đây</span>
         </div>
 
         ${history.length === 0 ? `
-          <div class="empty-history-placeholder">
-            Bạn chưa làm bài nào. Hãy chọn một đề thi ở trên để bắt đầu!
+          <div class="empty-history-box">
+            Chưa có bài thi nào. Chọn một đề thi phía trên để bắt đầu!
           </div>
         ` : `
-          <div class="toeic-history-list">
+          <div class="toeic-history-table">
             ${history.slice(0, 10).map(h => {
               const dateStr = h.date ? new Date(h.date).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) : '--';
               const mins = Math.floor((h.timeSpentSeconds || 0) / 60);
@@ -124,21 +129,21 @@ export function renderToeicTestTab(app) {
               const timeFormatted = `${mins}m ${secs < 10 ? '0' : ''}${secs}s`;
               const isPractice = h.mode === 'practice';
               return `
-                <div class="toeic-history-item">
-                  <div class="history-item-left">
-                    <span class="history-mode-pill ${isPractice ? 'practice' : 'exam'}">
-                      ${isPractice ? '📖 Luyện tập' : '🎯 Thi thật'}
+                <div class="history-table-row">
+                  <div class="history-col-mode">
+                    <span class="history-mode-tag ${isPractice ? 'practice' : 'exam'}">
+                      ${isPractice ? 'Luyện tập' : 'Thi thật'}
                     </span>
-                    <span class="history-item-date">${dateStr}</span>
+                    <span class="history-date">${dateStr}</span>
                   </div>
-                  <div class="history-item-middle">
-                    <span class="history-stat-score">
+                  <div class="history-col-accuracy">
+                    <span class="history-score-ratio">
                       ${h.correctCount}/${h.totalCount} <small>(${h.accuracyPct}%)</small>
                     </span>
-                    <span class="history-item-time">⏱️ ${timeFormatted}</span>
+                    <span class="history-duration">⏱️ ${timeFormatted}</span>
                   </div>
-                  <div class="history-item-right">
-                    <span class="history-score-badge" style="color: ${h.color || '#6366f1'};">
+                  <div class="history-col-points">
+                    <span class="history-score-pts" style="color: ${h.color || 'var(--primary, #6366f1)'};">
                       ${h.score} <small>/ 495</small>
                     </span>
                   </div>
