@@ -569,6 +569,20 @@
   flex-direction: column;
   overflow: hidden;
   box-sizing: border-box;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.toeic-arena-overlay::-webkit-scrollbar,
+.toeic-arena-overlay *::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.toeic-arena-overlay * {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
 .toeic-arena-overlay.active {
@@ -838,76 +852,53 @@
 .arena-question-stage {
   flex: 1;
   overflow-y: auto;
-  padding: 24px clamp(16px, 4vw, 48px);
+  padding: clamp(12px, 2vh, 20px) clamp(14px, 3vw, 32px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   box-sizing: border-box;
   width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.arena-question-stage::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .question-stage-content {
-  max-width: 780px;
+  max-width: 760px;
   margin: 0 auto;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-}
-
-.question-meta-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   gap: 12px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.question-seq-pill {
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: var(--primary, #6366f1);
-  background: rgba(99, 102, 241, 0.08);
-  padding: 4px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(99, 102, 241, 0.15);
+.question-stage-content::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
-.btn-flag-question {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 5px 12px;
-  border-radius: 8px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.2s ease;
-}
-
-.btn-flag-question:hover,
-.btn-flag-question.flagged {
-  background: rgba(245, 158, 11, 0.12);
-  border-color: #f59e0b;
-  color: #d97706;
-}
-
-/* ETS Question Prompt Box */
+/* ETS Question Prompt Box - Tinh gọn, vừa vặn không cuộn */
 .question-prompt-card {
   background: var(--bg-card);
   border: 1.5px solid var(--border);
-  border-radius: 20px;
-  padding: 22px 24px;
+  border-radius: 16px;
+  padding: 16px 20px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
 }
 
 .question-prompt-text {
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
   font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.65;
+  line-height: 1.55;
   margin: 0;
 }
 
@@ -960,22 +951,24 @@
 .arena-options-grid {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   width: 100%;
 }
 
 .arena-option-tile {
   background: var(--bg-card);
   border: 1.5px solid var(--border);
-  border-radius: 16px;
-  padding: 14px 18px;
+  border-radius: 12px;
+  padding: 10px 16px;
+  min-height: 46px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   cursor: pointer;
   transition: all 0.2s ease;
   user-select: none;
   text-align: left;
+  box-sizing: border-box;
 }
 
 .arena-option-tile:hover {
@@ -1015,13 +1008,13 @@
   border-color: #ef4444;
 }
 
-/* Practice Explanation Box */
+/* Practice Explanation Box - Thu gọn, lọt thỏm trong màn hình */
 .practice-explanation-box {
-  border-radius: 16px;
-  padding: 16px 18px;
-  margin-top: 10px;
-  font-size: 0.88rem;
-  line-height: 1.5;
+  border-radius: 14px;
+  padding: 12px 16px;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  line-height: 1.45;
   animation: fadeIn 0.2s ease-out;
 }
 
@@ -1038,15 +1031,15 @@
 .exp-header {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .exp-badge {
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 800;
-  padding: 3px 8px;
+  padding: 2px 7px;
   border-radius: 6px;
 }
 
@@ -1061,49 +1054,49 @@
 }
 
 .exp-correct-info {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: var(--text-primary);
 }
 
 .exp-translation {
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   color: var(--text-secondary);
-  font-size: 0.86rem;
+  font-size: 0.84rem;
 }
 
 .exp-content {
   color: var(--text-primary);
-  font-size: 0.86rem;
+  font-size: 0.84rem;
 }
 
 /* Nút chuyển câu ngay dưới hộp giải thích (Không cần cuộn) */
 .exp-quick-nav-row {
   display: flex;
   justify-content: flex-end;
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px dashed rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.08);
 }
 
 .btn-exp-quick-action {
   background: linear-gradient(135deg, var(--primary, #6366f1), #4f46e5);
   color: #ffffff;
   border: none;
-  padding: 8px 16px;
-  border-radius: 10px;
-  font-size: 0.85rem;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
   font-weight: 750;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  box-shadow: 0 3px 10px rgba(99, 102, 241, 0.28);
+  gap: 5px;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
   transition: all 0.2s ease;
 }
 
 .btn-exp-quick-action:hover {
   transform: translateY(-1px);
-  box-shadow: 0 5px 14px rgba(99, 102, 241, 0.38);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
 }
 
 .arena-option-letter {
