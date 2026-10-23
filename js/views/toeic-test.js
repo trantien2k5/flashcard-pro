@@ -318,10 +318,11 @@ function renderArenaLayout() {
   const testCode = _activeConfig?.testCode || 'TEST 01';
 
   overlay.innerHTML = `
-    <!-- Top Header Bar (Tinh gọn, không còn badge thô choán chỗ) -->
+    <!-- Top Header Bar (Bố cục 3 vùng đều đặn: Trái - Giữa - Phải) -->
     <header class="arena-top-header">
+      <!-- Vùng Trái: Nút Thoát & Tên Đề Thi -->
       <div class="arena-header-left">
-        <button type="button" class="btn-exit-arena" id="btn-exit-toeic-arena" title="Thoát bài thi">
+        <button type="button" class="btn-exit-arena" id="btn-exit-toeic-arena" title="Thoát phòng">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 6 6 18M6 6l12 12"/>
           </svg>
@@ -336,37 +337,64 @@ function renderArenaLayout() {
         </div>
       </div>
 
-      <!-- Live Countdown Timer (Chỉ hiển thị khi thi thật) -->
-      ${_activeConfig?.durationMinutes > 0 ? `
-        <div class="arena-timer-pill" id="arena-timer-pill" title="Thời gian còn lại">
-          <span style="font-size: 0.95rem;">⏱️</span>
-          <span id="arena-timer-digits">00:00</span>
-        </div>
-      ` : `<div></div>`}
+      <!-- Vùng Giữa: Cụm Điều Hướng & Tiến Độ Tích Hợp (Luôn cố định trên Top, cực kỳ đều) -->
+      <div class="arena-header-center">
+        <div class="arena-top-nav-cluster">
+          <button type="button" class="btn-arena-step-compact" id="btn-arena-prev" title="Câu trước (←)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+          </button>
 
-      <button type="button" class="btn-submit-arena" id="btn-submit-toeic-arena">
-        <span>Nộp bài</span>
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-        </svg>
-      </button>
+          <button type="button" class="btn-pallet-trigger-compact" id="btn-toggle-pallet" title="Bấm xem danh sách câu hỏi / Tiến độ (Phím M)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/>
+            </svg>
+            <span id="arena-progress-indicator">Câu 1 / ${total}</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+
+          <button type="button" class="btn-arena-step-compact" id="btn-arena-next" title="Câu tiếp theo (→)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Vùng Phải: Luyện tập chỉ có Đánh dấu (bỏ Nộp bài), Thi thật có Đồng hồ & Nộp bài -->
+      <div class="arena-header-right">
+        <button type="button" class="btn-flag-question" id="btn-flag-question" title="Đánh dấu câu hỏi để xem lại (Phím F)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/>
+          </svg>
+          <span id="flag-btn-text">Đánh dấu</span>
+        </button>
+
+        ${!isPractice ? `
+          ${_activeConfig?.durationMinutes > 0 ? `
+            <div class="arena-timer-pill" id="arena-timer-pill" title="Thời gian còn lại">
+              <span style="font-size: 0.95rem;">⏱️</span>
+              <span id="arena-timer-digits">00:00</span>
+            </div>
+          ` : ''}
+
+          <button type="button" class="btn-submit-arena" id="btn-submit-toeic-arena">
+            <span>Nộp bài</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </button>
+        ` : ''}
+      </div>
     </header>
 
     <!-- Main Body: Tập trung toàn bộ vào câu hỏi -->
     <div class="arena-split-body">
       <main class="arena-question-stage">
         <div class="question-stage-content">
-          <!-- Thanh Meta tinh gọn: Số câu & Cờ đánh dấu -->
-          <div class="question-meta-row">
-            <span class="question-seq-pill" id="arena-question-tag">Câu 1</span>
-            <button type="button" class="btn-flag-question" id="btn-flag-question" title="Đánh dấu câu hỏi để xem lại sau (Phím F)">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/>
-              </svg>
-              <span id="flag-btn-text">Đánh dấu</span>
-            </button>
-          </div>
-
           <!-- Question Prompt Card -->
           <div class="question-prompt-card">
             <p class="question-prompt-text" id="arena-question-text">Loading...</p>
@@ -378,37 +406,9 @@ function renderArenaLayout() {
           <!-- Practice Mode Instant Explanation Box -->
           <div class="practice-explanation-box" id="practice-explanation-box" style="display: none;"></div>
         </div>
-
-        <!-- Navigation Bar (Có nút mở Bảng câu hỏi ở giữa) -->
-        <div class="arena-nav-bar">
-          <button type="button" class="btn-arena-step" id="btn-arena-prev">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="m15 18-6-6 6-6"/>
-            </svg>
-            <span>Câu trước</span>
-          </button>
-
-          <!-- Nút mở Bảng câu hỏi -->
-          <button type="button" class="btn-pallet-trigger" id="btn-toggle-pallet" title="Bấm để mở danh sách toàn bộ câu hỏi">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/>
-            </svg>
-            <span id="arena-progress-indicator">1 / ${total}</span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="m18 15-6-6-6 6"/>
-            </svg>
-          </button>
-
-          <button type="button" class="btn-arena-step" id="btn-arena-next">
-            <span>Câu tiếp</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="m9 18 6-6-6-6"/>
-            </svg>
-          </button>
-        </div>
       </main>
 
-      <!-- Bảng câu hỏi Drawer (Mặc định ẩn, bấm nút mới trượt hiện ra) -->
+      <!-- Bảng câu hỏi Drawer (Mặc định ẩn, bấm nút tiến độ trên Top mới trượt hiện ra) -->
       <div class="arena-pallet-backdrop" id="arena-pallet-backdrop"></div>
       <aside class="arena-pallet-drawer" id="arena-pallet-drawer">
         <div class="pallet-drawer-header">
@@ -473,8 +473,10 @@ function renderArenaLayout() {
       if (_currentQuestionIndex + 1 < _currentQuestions.length) {
         _currentQuestionIndex++;
         loadArenaQuestion(_currentQuestionIndex);
-      } else {
+      } else if (!isPractice) {
         confirmAndSubmitTest(false);
+      } else {
+        togglePalletDrawer(true);
       }
     };
   }
@@ -516,20 +518,16 @@ function loadArenaQuestion(index) {
   const currentSelected = _userAnswers[index];
   const isAnswered = currentSelected !== undefined;
 
-  // Cập nhật Tags & Navigation
-  const elTag = document.getElementById('arena-question-tag');
+  // Cập nhật Tags & Navigation trên Top Nav
   const elIndicator = document.getElementById('arena-progress-indicator');
   const btnPrev = document.getElementById('btn-arena-prev');
   const btnNext = document.getElementById('btn-arena-next');
 
-  if (elTag) elTag.textContent = `Câu ${index + 1}`;
-  if (elIndicator) elIndicator.textContent = `${index + 1} / ${total}`;
+  if (elIndicator) elIndicator.textContent = `Câu ${index + 1} / ${total}`;
 
   if (btnPrev) btnPrev.disabled = index === 0;
   if (btnNext) {
-    btnNext.innerHTML = index === total - 1 
-      ? `<span>Nộp bài</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`
-      : `<span>Câu tiếp</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>`;
+    btnNext.disabled = isPracticeMode ? (index === total - 1) : false;
   }
 
   // Cập nhật Cờ Flag
@@ -538,7 +536,7 @@ function loadArenaQuestion(index) {
   const flagText = document.getElementById('flag-btn-text');
   if (btnFlag) {
     btnFlag.classList.toggle('flagged', isFlagged);
-    if (flagText) flagText.textContent = isFlagged ? 'Đã gắn cờ' : 'Đánh dấu';
+    if (flagText) flagText.textContent = isFlagged ? 'Đã cờ' : 'Đánh dấu';
   }
 
   // Cập nhật Chỗ đục lỗ (Không còn bị 2 gạch đè nhau, hiển thị từ đã chọn nếu có)
@@ -593,7 +591,7 @@ function loadArenaQuestion(index) {
     });
   }
 
-  // Hộp giải thích tức thì cho Chế độ Luyện Tập
+  // Hộp giải thích tức thì cho Chế độ Luyện Tập (Kèm nút bấm tiện tay sang câu kế)
   const explanationBox = document.getElementById('practice-explanation-box');
   if (explanationBox) {
     if (isPracticeMode && isAnswered) {
@@ -607,7 +605,26 @@ function loadArenaQuestion(index) {
         </div>
         ${q.questionVi ? `<div class="exp-translation"><strong>Dịch câu:</strong> ${escapeHTML(q.questionVi)}</div>` : ''}
         ${q.explanation ? `<div class="exp-content"><strong>Giải thích:</strong> ${escapeHTML(q.explanation)}</div>` : ''}
+        <div class="exp-quick-nav-row">
+          <button type="button" class="btn-exp-quick-action" id="btn-exp-quick-next">
+            <span>${index < total - 1 ? 'Sang câu tiếp theo' : 'Xem lại bảng câu hỏi'}</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
       `;
+
+      const btnExpQuickNext = document.getElementById('btn-exp-quick-next');
+      if (btnExpQuickNext) {
+        btnExpQuickNext.onclick = () => {
+          if (index < total - 1) {
+            loadArenaQuestion(index + 1);
+          } else {
+            togglePalletDrawer(true);
+          }
+        };
+      }
     } else {
       explanationBox.style.display = 'none';
     }
