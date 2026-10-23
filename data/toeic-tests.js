@@ -102,11 +102,6 @@ export const TOEIC_PART5_BANK = [
   }
 ];
 
-/**
- * Hàm hỗ trợ xác định cấp độ câu hỏi
- * @param {Object} q Câu hỏi
- * @returns {'basic' | 'intermediate' | 'advanced'}
- */
 export function getQuestionLevel(q) {
   if (q.level) return q.level;
   const d = String(q.difficulty || '');
@@ -116,21 +111,41 @@ export function getQuestionLevel(q) {
 }
 
 /**
- * Lấy danh sách câu hỏi theo số lượng
- * @param {number} count Số lượng câu hỏi cần lấy
- * @param {boolean} randomize Xáo trộn câu hỏi và đáp án hay không
+ * Danh sách các bộ đề thi TOEIC Part 5
+ * Dễ dàng mở rộng thêm nhiều đề (Test 01, Test 02...) khi có dữ liệu mới.
+ */
+export const TOEIC_TEST_SETS = [
+  {
+    id: "ets_p5_01",
+    code: "TEST 01",
+    title: "ETS TOEIC Part 5 — Đề 01",
+    subtitle: "Incomplete Sentences (Câu 101 - 108)",
+    questionCount: 8,
+    durationMinutes: 5,
+    tag: "ETS Actual Test",
+    questionIds: ["p5_101", "p5_102", "p5_103", "p5_104", "p5_105", "p5_106", "p5_107", "p5_108"]
+  }
+];
+
+/**
+ * Lấy danh sách câu hỏi cho một bộ đề cụ thể hoặc ngẫu nhiên
+ * @param {string} testSetId Mã bộ đề (mặc định 'ets_p5_01')
+ * @param {boolean} randomize Xáo trộn câu hỏi và đáp án hay không (trong thi thật)
  * @returns {Array} Danh sách câu hỏi
  */
-export function getRandomToeicQuestions(count = 8, randomize = false) {
-  let pool = [...TOEIC_PART5_BANK];
+export function getToeicQuestionsBySet(testSetId = 'ets_p5_01', randomize = false) {
+  const testSet = TOEIC_TEST_SETS.find(t => t.id === testSetId) || TOEIC_TEST_SETS[0];
+  let questions = TOEIC_PART5_BANK.filter(q => testSet.questionIds.includes(q.id));
 
-  if (randomize) {
-    pool.sort(() => Math.random() - 0.5);
+  if (questions.length === 0) {
+    questions = [...TOEIC_PART5_BANK];
   }
 
-  const selected = pool.slice(0, Math.min(count, pool.length));
+  if (randomize) {
+    questions = [...questions].sort(() => Math.random() - 0.5);
+  }
 
-  return selected.map((q, idx) => {
+  return questions.map((q, idx) => {
     let options = [...q.options];
     let correctIdx = q.correctIndex;
 
@@ -148,6 +163,13 @@ export function getRandomToeicQuestions(count = 8, randomize = false) {
       correctIndex: correctIdx
     };
   });
+}
+
+/**
+ * Hàm hỗ trợ lấy câu hỏi (Tương thích ngược)
+ */
+export function getRandomToeicQuestions(count = 8, randomize = false) {
+  return getToeicQuestionsBySet('ets_p5_01', randomize);
 }
 
 /**

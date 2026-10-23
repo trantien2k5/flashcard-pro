@@ -4,7 +4,7 @@
  * bảng điều hướng câu hỏi, phân tích điểm chuẩn ETS (10-495) và giải thích chi tiết.
  */
 
-import { getRandomToeicQuestions, calculateToeicScore } from '../../data/toeic-tests.js';
+import { TOEIC_TEST_SETS, getToeicQuestionsBySet, calculateToeicScore } from '../../data/toeic-tests.js';
 import { StorageManager } from '../services/storage.js';
 import { escapeHTML, scrollToTop } from '../utils.js';
 import { showConfirm } from './components.js';
@@ -21,7 +21,7 @@ let _testStartTime = 0;
 let _activeConfig = null;
 
 /**
- * Hiển thị Màn hình Hub của Tab Thi Thử TOEIC
+ * Hiển thị Màn hình Hub của Tab Thi Thử TOEIC (Danh sách đề thi)
  */
 export function renderToeicTestTab(app) {
   _toeicApp = app;
@@ -42,10 +42,10 @@ export function renderToeicTestTab(app) {
         <div class="toeic-hero-content">
           <div style="display: flex; align-items: center; gap: 8px;">
             <span class="toeic-hero-tag">🎯 ETS Part 5</span>
-            <h2 class="toeic-hero-title">Luyện Thi TOEIC</h2>
+            <h2 class="toeic-hero-title">Đề Thi TOEIC Part 5</h2>
           </div>
           <p class="toeic-hero-desc">
-            Phản xạ ngữ pháp & từ vựng công sở (ETS 10 - 495).
+            Chọn đề thi bên dưới để bắt đầu luyện tập hoặc thi tính giờ chuẩn ETS.
           </p>
         </div>
 
@@ -65,55 +65,37 @@ export function renderToeicTestTab(app) {
         </div>
       </div>
 
-      <!-- 2. Test Selection Grid (2 Chế độ Gọn gàng) -->
-      <div class="toeic-tests-grid">
-        <!-- Chế độ 1: Luyện Tập (Practice Mode) -->
-        <div class="toeic-test-card card-practice">
-          <div class="test-card-top-row">
-            <div class="test-card-left-info">
-              <span class="test-card-icon icon-practice">📖</span>
-              <div>
-                <h3 class="test-card-title">Chế Độ Luyện Tập</h3>
-                <span class="test-card-subtitle">Xem đáp án & giải thích tức thì</span>
+      <!-- 2. Danh sách Bộ Đề Thi (Test Sets List) -->
+      <div class="toeic-section-title-wrap">
+        <h3 class="toeic-section-title">📚 Danh Sách Đề Thi</h3>
+        <span class="toeic-section-count">${TOEIC_TEST_SETS.length} đề thi</span>
+      </div>
+
+      <div class="toeic-sets-list">
+        ${TOEIC_TEST_SETS.map(set => {
+          return `
+            <div class="toeic-set-card" data-set-id="${set.id}">
+              <div class="set-card-icon">📝</div>
+              <div class="set-card-content">
+                <div class="set-card-header">
+                  <span class="set-card-code">${escapeHTML(set.code)}</span>
+                  <span class="set-card-tag">${escapeHTML(set.tag)}</span>
+                </div>
+                <h4 class="set-card-title">${escapeHTML(set.title)}</h4>
+                <div class="set-card-meta">
+                  <span>📊 ${set.questionCount} câu hỏi</span>
+                  <span>•</span>
+                  <span>⏱️ 5 phút</span>
+                  <span>•</span>
+                  <span style="color: #10b981; font-weight: 700;">Hỗ trợ Luyện tập & Thi</span>
+                </div>
               </div>
+              <button type="button" class="btn-open-set-mode" data-set-id="${set.id}" title="Làm bài">
+                Làm bài ❯
+              </button>
             </div>
-            <span class="toeic-test-badge badge-practice">Tự do</span>
-          </div>
-
-          <div class="test-card-meta">
-            <span>📝 8 câu Part 5</span>
-            <span>•</span>
-            <span>⏱️ Không giới hạn</span>
-          </div>
-
-          <button type="button" class="btn-start-toeic-test btn-practice" data-count="8" data-duration="0" data-mode="practice" data-title="Luyện Tập Part 5">
-            Bắt đầu luyện tập ❯
-          </button>
-        </div>
-
-        <!-- Chế độ 2: Thi Thật (Exam Mode) -->
-        <div class="toeic-test-card card-exam">
-          <div class="test-card-top-row">
-            <div class="test-card-left-info">
-              <span class="test-card-icon icon-exam">🎯</span>
-              <div>
-                <h3 class="test-card-title">Chế Độ Thi Thật</h3>
-                <span class="test-card-subtitle">Bấm giờ 5 phút • Tính điểm chuẩn ETS</span>
-              </div>
-            </div>
-            <span class="toeic-test-badge badge-exam">Thi 5 phút</span>
-          </div>
-
-          <div class="test-card-meta">
-            <span>📝 8 câu Part 5</span>
-            <span>•</span>
-            <span>⏱️ Đếm ngược</span>
-          </div>
-
-          <button type="button" class="btn-start-toeic-test btn-exam" data-count="8" data-duration="5" data-mode="exam" data-title="Thi Thật ETS Part 5">
-            Vào phòng thi ❯
-          </button>
-        </div>
+          `;
+        }).join('')}
       </div>
 
       <!-- 3. Recent Test History -->
@@ -127,7 +109,7 @@ export function renderToeicTestTab(app) {
 
         ${history.length === 0 ? `
           <div class="empty-history-placeholder">
-            Bạn chưa làm bài nào. Hãy chọn Luyện tập hoặc Thi thật để bắt đầu!
+            Bạn chưa làm bài nào. Hãy chọn một đề thi ở trên để bắt đầu!
           </div>
         ` : `
           <div class="toeic-history-list">
@@ -165,35 +147,116 @@ export function renderToeicTestTab(app) {
     </div>
   `;
 
-  // Gán sự kiện click nút bắt đầu thi
-  container.querySelectorAll('.btn-start-toeic-test').forEach(btn => {
-    btn.onclick = () => {
-      const count = parseInt(btn.getAttribute('data-count'), 10) || 8;
-      const duration = parseInt(btn.getAttribute('data-duration'), 10) || 0;
-      const mode = btn.getAttribute('data-mode') || 'practice';
-      const title = btn.getAttribute('data-title') || 'TOEIC Part 5';
-      startToeicTest(app, count, duration, mode, title);
+  // Gán sự kiện click vào đề thi để mở Popup tùy chọn chế độ
+  container.querySelectorAll('.toeic-set-card').forEach(card => {
+    card.onclick = (e) => {
+      const setId = card.getAttribute('data-set-id');
+      const testSet = TOEIC_TEST_SETS.find(s => s.id === setId) || TOEIC_TEST_SETS[0];
+      showTestModeSelectorModal(app, testSet);
     };
   });
 }
 
 /**
- * Khởi động phiên làm bài / thi thử trong phòng thi trực tuyến
+ * Hiển thị Popup đơn giản tùy chọn: Luyện tập vs Thi thật
  */
-export function startToeicTest(app, questionCount = 8, durationMinutes = 5, mode = 'practice', testTitle = '') {
+function showTestModeSelectorModal(app, testSet) {
+  let modal = document.getElementById('toeic-mode-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'toeic-mode-modal';
+    modal.className = 'modal-backdrop toeic-mode-backdrop';
+    document.body.appendChild(modal);
+  }
+
+  modal.innerHTML = `
+    <div class="modal-dialog toeic-mode-dialog" role="dialog" aria-modal="true">
+      <div class="toeic-mode-header">
+        <div>
+          <span class="modal-pre-tag">${escapeHTML(testSet.code)}</span>
+          <h3 class="modal-test-title">${escapeHTML(testSet.title)}</h3>
+          <span class="modal-test-sub">${testSet.questionCount} câu hỏi • Incomplete Sentences</span>
+        </div>
+        <button type="button" class="btn-icon-close" id="btn-close-mode-modal" title="Đóng">✕</button>
+      </div>
+
+      <div class="toeic-mode-options">
+        <!-- Tùy chọn 1: Luyện Tập -->
+        <button type="button" class="btn-mode-choice choice-practice" id="btn-choose-practice">
+          <div class="mode-choice-icon">📖</div>
+          <div class="mode-choice-info">
+            <span class="mode-choice-title">Chế Độ Luyện Tập</span>
+            <span class="mode-choice-desc">Không áp lực thời gian • Hiện ngay đáp án & lời giải thích</span>
+          </div>
+          <span class="mode-choice-badge">Tự do</span>
+        </button>
+
+        <!-- Tùy chọn 2: Thi Thật -->
+        <button type="button" class="btn-mode-choice choice-exam" id="btn-choose-exam">
+          <div class="mode-choice-icon">🎯</div>
+          <div class="mode-choice-info">
+            <span class="mode-choice-title">Chế Độ Thi Thật</span>
+            <span class="mode-choice-desc">Đếm ngược ${testSet.durationMinutes} phút • Giữ bí mật đáp án & tính điểm ETS</span>
+          </div>
+          <span class="mode-choice-badge exam">Bấm giờ</span>
+        </button>
+      </div>
+    </div>
+  `;
+
+  modal.classList.add('active');
+
+  const closeModal = () => {
+    modal.classList.remove('active');
+  };
+
+  const btnClose = modal.querySelector('#btn-close-mode-modal');
+  if (btnClose) btnClose.onclick = closeModal;
+
+  modal.onclick = (e) => {
+    if (e.target === modal) closeModal();
+  };
+
+  const btnPractice = modal.querySelector('#btn-choose-practice');
+  if (btnPractice) {
+    btnPractice.onclick = () => {
+      closeModal();
+      startToeicTestBySet(app, testSet, 'practice');
+    };
+  }
+
+  const btnExam = modal.querySelector('#btn-choose-exam');
+  if (btnExam) {
+    btnExam.onclick = () => {
+      closeModal();
+      startToeicTestBySet(app, testSet, 'exam');
+    };
+  }
+}
+
+/**
+ * Khởi động phiên làm bài / thi thử theo bộ đề cụ thể
+ */
+export function startToeicTestBySet(app, testSet, mode = 'practice') {
   _toeicApp = app;
-  _activeConfig = { questionCount, durationMinutes, mode, testTitle: testTitle || (mode === 'practice' ? 'Luyện Tập Part 5' : 'Thi Thật Part 5') };
-  _currentQuestions = getRandomToeicQuestions(questionCount, mode === 'exam');
+  _activeConfig = { 
+    setId: testSet.id,
+    questionCount: testSet.questionCount, 
+    durationMinutes: mode === 'exam' ? testSet.durationMinutes : 0, 
+    mode, 
+    testTitle: `${testSet.code} (${mode === 'practice' ? 'Luyện tập' : 'Thi thật'})` 
+  };
+  _currentQuestions = getToeicQuestionsBySet(testSet.id, mode === 'exam');
   _userAnswers = {};
   _flaggedQuestions = new Set();
   _currentQuestionIndex = 0;
-  _totalDurationSeconds = durationMinutes * 60;
+  _totalDurationSeconds = _activeConfig.durationMinutes * 60;
   _remainingSeconds = _totalDurationSeconds;
   _testStartTime = Date.now();
 
   ensureArenaOverlayCreated();
   renderArenaLayout();
-  if (durationMinutes > 0) {
+  if (_activeConfig.durationMinutes > 0) {
     startArenaTimer();
   }
 
@@ -202,6 +265,14 @@ export function startToeicTest(app, questionCount = 8, durationMinutes = 5, mode
 
   loadArenaQuestion(_currentQuestionIndex);
   setupArenaKeyShortcuts();
+}
+
+/**
+ * Hàm hỗ trợ tương thích
+ */
+export function startToeicTest(app, questionCount = 8, durationMinutes = 5, mode = 'practice', testTitle = '') {
+  const defaultSet = TOEIC_TEST_SETS[0];
+  startToeicTestBySet(app, defaultSet, mode);
 }
 
 /**
