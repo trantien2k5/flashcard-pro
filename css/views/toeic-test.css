@@ -9,52 +9,57 @@
 .toeic-container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 10px clamp(10px, 2vw, 20px) 24px;
+  padding: 8px clamp(8px, 2vw, 16px) 24px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   animation: fadeIn 0.22s ease-out;
   box-sizing: border-box;
   width: 100%;
 }
 
 .toeic-hero-banner {
-  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #4338ca 100%);
   border-radius: 18px;
-  padding: 16px 20px;
+  padding: 16px 18px 14px;
   color: #ffffff;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  box-shadow: 0 8px 24px -4px rgba(49, 46, 129, 0.3);
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 8px 24px -4px rgba(49, 46, 129, 0.35);
   position: relative;
   overflow: hidden;
 }
 
 [data-theme="light"] .toeic-hero-banner {
-  background: linear-gradient(135deg, #4338ca 0%, #4f46e5 50%, #6366f1 100%);
+  background: linear-gradient(135deg, #4338ca 0%, #4f46e5 60%, #6366f1 100%);
   box-shadow: 0 6px 20px -4px rgba(99, 102, 241, 0.3);
 }
 
-.toeic-hero-content {
+.toeic-hero-top {
   display: flex;
   flex-direction: column;
   gap: 4px;
   z-index: 2;
-  max-width: 580px;
+}
+
+.toeic-hero-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .toeic-hero-tag {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 2px 8px;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 2.5px 8px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 999px;
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 850;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   width: fit-content;
@@ -69,27 +74,27 @@
 }
 
 .toeic-hero-desc {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.88);
   margin: 0;
   line-height: 1.35;
 }
 
 .toeic-hero-stats {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   z-index: 2;
-  flex-shrink: 0;
+  width: 100%;
 }
 
 .hero-stat-box {
   background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
-  padding: 8px 12px;
+  padding: 8px 6px;
   text-align: center;
   backdrop-filter: blur(8px);
-  min-width: 68px;
 }
 
 .hero-stat-val {
@@ -101,11 +106,12 @@
 }
 
 .hero-stat-label {
-  font-size: 0.64rem;
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.78);
   margin-top: 2px;
+  letter-spacing: 0.02em;
 }
 
 /* 2. Test Sets List (Danh sách đề thi) */
@@ -113,11 +119,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 4px;
+  padding: 0 2px;
+  margin-top: 2px;
 }
 
 .toeic-section-title {
-  font-size: 1.02rem;
+  font-size: 0.98rem;
   font-weight: 850;
   color: var(--text-primary);
   margin: 0;
@@ -127,8 +134,8 @@
 }
 
 .toeic-section-count {
-  font-size: 0.74rem;
-  font-weight: 700;
+  font-size: 0.72rem;
+  font-weight: 750;
   color: var(--primary, #6366f1);
   background: rgba(99, 102, 241, 0.1);
   padding: 2px 8px;
@@ -138,19 +145,20 @@
 .toeic-sets-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
 }
 
 .toeic-set-card {
   background: var(--bg-card, #ffffff);
   border: 1.5px solid var(--border, #e2e8f0);
-  border-radius: 16px;
-  padding: 14px 16px;
+  border-radius: 14px;
+  padding: 12px 14px;
   display: flex;
   align-items: center;
-  gap: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   user-select: none;
@@ -159,7 +167,7 @@
 .toeic-set-card:hover {
   transform: translateY(-2px);
   border-color: var(--primary, #6366f1);
-  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.12);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.12);
   background: var(--bg-hover, #f8faff);
 }
 
@@ -167,87 +175,109 @@
   background: rgba(99, 102, 241, 0.05);
 }
 
-.set-card-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(99, 102, 241, 0.1);
-  color: var(--primary, #6366f1);
+.set-card-left {
   display: flex;
   align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.set-card-code-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(99, 102, 241, 0.22));
+  color: var(--primary, #6366f1);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  line-height: 1.1;
+  border: 1.5px solid rgba(99, 102, 241, 0.2);
   flex-shrink: 0;
 }
 
-.set-card-content {
-  flex: 1;
-  min-width: 0;
+.set-card-main-info {
   display: flex;
   flex-direction: column;
   gap: 3px;
+  min-width: 0;
+  flex: 1;
 }
 
-.set-card-header {
+.set-card-title-row {
   display: flex;
   align-items: center;
   gap: 6px;
-}
-
-.set-card-code {
-  font-size: 0.74rem;
-  font-weight: 850;
-  color: var(--primary, #6366f1);
-  background: rgba(99, 102, 241, 0.12);
-  padding: 1.5px 6px;
-  border-radius: 4px;
-  letter-spacing: 0.03em;
-}
-
-.set-card-tag {
-  font-size: 0.68rem;
-  font-weight: 750;
-  color: var(--text-muted);
-  text-transform: uppercase;
+  flex-wrap: wrap;
 }
 
 .set-card-title {
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: var(--text-primary);
   margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.25;
+}
+
+.set-card-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #6366f1;
+  background: rgba(99, 102, 241, 0.08);
+  padding: 1px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .set-card-meta {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   color: var(--text-muted);
   flex-wrap: wrap;
+}
+
+.meta-divider {
+  color: var(--border, #cbd5e1);
+}
+
+.meta-badge-support {
+  color: #10b981;
+  font-weight: 750;
+  background: rgba(16, 185, 129, 0.08);
+  padding: 1px 6px;
+  border-radius: 4px;
 }
 
 .btn-open-set-mode {
   padding: 8px 14px;
   border-radius: 10px;
-  background: var(--primary, #6366f1);
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
   color: #ffffff;
   font-size: 0.82rem;
-  font-weight: 750;
+  font-weight: 800;
   border: none;
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.2s ease;
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .btn-open-set-mode:hover {
-  background: var(--primary-hover, #4f46e5);
-  transform: scale(1.03);
+  background: linear-gradient(135deg, #4338ca, #4f46e5);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
 }
 
 /* --------------------------------------------------------------------------
@@ -1294,21 +1324,41 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 860px) {
   .toeic-hero-banner {
-    flex-direction: column;
-    align-items: flex-start;
+    padding: 14px 14px 12px;
   }
 
   .toeic-hero-stats {
-    width: 100%;
-    justify-content: space-between;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
   }
 
   .hero-stat-box {
-    flex: 1;
+    padding: 6px 4px;
+    min-width: 0;
   }
 
-  .toeic-tests-grid {
-    grid-template-columns: 1fr;
+  .hero-stat-val {
+    font-size: 1.15rem;
+  }
+
+  .hero-stat-label {
+    font-size: 0.62rem;
+  }
+
+  .toeic-set-card {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .set-card-code-badge {
+    width: 42px;
+    height: 42px;
+    font-size: 0.7rem;
+  }
+
+  .btn-open-set-mode {
+    padding: 7px 11px;
+    font-size: 0.78rem;
   }
 
   /* Header phòng thi trên Mobile / Tablet */

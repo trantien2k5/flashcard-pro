@@ -37,11 +37,11 @@ export function renderToeicTestTab(app) {
 
   container.innerHTML = `
     <div class="toeic-container">
-      <!-- 1. Hero Banner (Compact & Modern) -->
+      <!-- 1. Hero Banner (Sleek, Balanced & Elegant) -->
       <div class="toeic-hero-banner">
-        <div class="toeic-hero-content">
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <span class="toeic-hero-tag">🎯 ETS Part 5</span>
+        <div class="toeic-hero-top">
+          <div class="toeic-hero-title-group">
+            <span class="toeic-hero-tag">🎯 ETS PART 5</span>
             <h2 class="toeic-hero-title">Đề Thi TOEIC Part 5</h2>
           </div>
           <p class="toeic-hero-desc">
@@ -75,23 +75,27 @@ export function renderToeicTestTab(app) {
         ${TOEIC_TEST_SETS.map(set => {
           return `
             <div class="toeic-set-card" data-set-id="${set.id}">
-              <div class="set-card-icon">📝</div>
-              <div class="set-card-content">
-                <div class="set-card-header">
-                  <span class="set-card-code">${escapeHTML(set.code)}</span>
-                  <span class="set-card-tag">${escapeHTML(set.tag)}</span>
-                </div>
-                <h4 class="set-card-title">${escapeHTML(set.title)}</h4>
-                <div class="set-card-meta">
-                  <span>📊 ${set.questionCount} câu hỏi</span>
-                  <span>•</span>
-                  <span>⏱️ 5 phút</span>
-                  <span>•</span>
-                  <span style="color: #10b981; font-weight: 700;">Hỗ trợ Luyện tập & Thi</span>
+              <div class="set-card-left">
+                <div class="set-card-code-badge">${escapeHTML(set.code)}</div>
+                <div class="set-card-main-info">
+                  <div class="set-card-title-row">
+                    <h4 class="set-card-title">${escapeHTML(set.title)}</h4>
+                    <span class="set-card-tag">${escapeHTML(set.tag)}</span>
+                  </div>
+                  <div class="set-card-meta">
+                    <span class="meta-item">📝 ${set.questionCount} câu</span>
+                    <span class="meta-divider">•</span>
+                    <span class="meta-item">⏱️ ${set.durationMinutes} phút</span>
+                    <span class="meta-divider">•</span>
+                    <span class="meta-badge-support">Luyện tập & Thi</span>
+                  </div>
                 </div>
               </div>
-              <button type="button" class="btn-open-set-mode" data-set-id="${set.id}" title="Làm bài">
-                Làm bài ❯
+              <button type="button" class="btn-open-set-mode" data-set-id="${set.id}">
+                <span>Làm bài</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
               </button>
             </div>
           `;
