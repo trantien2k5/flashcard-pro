@@ -4,7 +4,7 @@
  * Tự động phát hiện và cập nhật code mới tức thời khi Online (Zero-Friction Live Update).
  */
 
-const CACHE_NAME = 'flashcard-pro-v3.74.0';
+const CACHE_NAME = 'flashcard-pro-v3.75.0';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -24,6 +24,7 @@ const PRECACHE_ASSETS = [
   './css/views/stats.css',
   './css/views/settings.css',
   './css/views/quiz.css',
+  './css/views/toeic-test.css',
   './js/app.js',
   './js/config.js',
   './js/utils.js',
@@ -41,10 +42,12 @@ const PRECACHE_ASSETS = [
   './js/views/settings.js',
   './js/views/study.js',
   './js/views/quiz.js',
+  './js/views/toeic-test.js',
   './data/index.js',
   './data/schemas.js',
   './data/validators.js',
   './data/topics.js',
+  './data/toeic-tests.js',
   './data/words.js',
   './data/words/legacy.js',
   './data/words/a1.js',

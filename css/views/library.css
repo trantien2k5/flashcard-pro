@@ -778,9 +778,7 @@
   .library-word-row {
     display: grid;
     grid-template-columns: 32px 1fr auto;
-    grid-template-areas:
-      "sound word status"
-      "sound meaning status";
+    grid-template-areas: "sound word status" "sound meaning status";
     row-gap: 2px;
     column-gap: 8px;
     padding: 8px 10px;

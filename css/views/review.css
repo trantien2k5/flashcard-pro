@@ -552,21 +552,22 @@
 .home-cta-dual-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 10px;
+  width: 100%;
 }
 
 @media (max-width: 480px) {
   .home-cta-dual-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr 1fr; /* Luôn giữ 2 nút trên cùng 1 hàng */
+    gap: 8px;
   }
 }
 
 .btn-hero-flashcard-cta {
   width: 100%;
-  min-height: 64px;
-  padding: 12px 14px;
-  border-radius: 18px;
+  min-height: 52px;
+  padding: 10px 12px;
+  border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.22);
   color: #ffffff;
   cursor: pointer;
@@ -577,6 +578,14 @@
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .btn-hero-flashcard-cta {
+    min-height: 48px;
+    padding: 8px 10px;
+    border-radius: 14px;
+  }
 }
 
 /* Nút Ôn tập ngay (Primary Indigo/Violet Gradient) */
@@ -628,15 +637,15 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   position: relative;
   z-index: 1;
 }
 
 .btn-cta-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.18);
   border: 1px solid rgba(255, 255, 255, 0.28);
   display: flex;
@@ -645,6 +654,14 @@
   flex-shrink: 0;
   color: #ffffff;
   transition: transform 0.2s ease;
+}
+
+@media (max-width: 480px) {
+  .btn-cta-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
 }
 
 .btn-hero-flashcard-cta:hover .btn-cta-icon {
@@ -665,17 +682,24 @@
 .btn-cta-title-row {
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: space-between;
+  gap: 4px;
   width: 100%;
 }
 
 .btn-cta-main-text {
-  font-size: 0.98rem;
+  font-size: 0.92rem;
   font-weight: 750;
   letter-spacing: -0.01em;
   color: #ffffff;
   line-height: 1.2;
   white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .btn-cta-main-text {
+    font-size: 0.82rem;
+  }
 }
 
 .btn-cta-tag {

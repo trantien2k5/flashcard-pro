@@ -84,38 +84,32 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 3. CẶP NÚT CTA HỌC TẬP TINH GỌN: ÔN TẬP TỚI HẠN & HỌC TỪ MỚI -->
+        <!-- 3. CẶP NÚT CTA HỌC TẬP TINH GỌN: ÔN TẬP & HỌC TỪ MỚI (CÙNG MỘT HÀNG) -->
         <div class="home-cta-section home-cta-dual-grid">
-          <!-- Nút 1: Ôn tập / Bắt đầu học (Ưu tiên từ tới hạn) -->
-          <button type="button" class="btn-hero-flashcard-cta btn-cta-primary-due" id="btn-home-start-flashcard">
+          <!-- Nút 1: Ôn tập (Ưu tiên từ tới hạn, xen kẽ 5 ôn : 1 mới) -->
+          <button type="button" class="btn-hero-flashcard-cta btn-cta-primary-due" id="btn-home-start-flashcard" title="Bắt đầu phiên ôn tập">
             <div class="btn-cta-glare"></div>
             <div class="btn-cta-body">
               <div class="btn-cta-icon icon-due">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M8 5v14l11-7z"/>
                 </svg>
               </div>
               <div class="btn-cta-text-wrap">
                 <div class="btn-cta-title-row">
-                  <span class="btn-cta-main-text">Ôn tập ngay</span>
+                  <span class="btn-cta-main-text">Ôn tập</span>
                   <span class="btn-cta-tag tag-due" id="badge-home-due-tag">0 từ</span>
                 </div>
-                <span class="btn-cta-sub-text">Ưu tiên từ đến hạn ôn</span>
-              </div>
-              <div class="btn-cta-arrow">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
               </div>
             </div>
           </button>
 
-          <!-- Nút 2: Học từ mới (Chỉ bốc từ mới theo mục tiêu, ưu tiên từ thông dụng) -->
-          <button type="button" class="btn-hero-flashcard-cta btn-cta-secondary-new" id="btn-home-start-new">
+          <!-- Nút 2: Học từ mới (Chỉ học từ mới chưa từng học) -->
+          <button type="button" class="btn-hero-flashcard-cta btn-cta-secondary-new" id="btn-home-start-new" title="Học các từ mới chưa từng học">
             <div class="btn-cta-glare"></div>
             <div class="btn-cta-body">
               <div class="btn-cta-icon icon-new">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 5v14M5 12h14"/>
                 </svg>
               </div>
@@ -124,12 +118,6 @@ export function renderReviewShell(container) {
                   <span class="btn-cta-main-text">Học từ mới</span>
                   <span class="btn-cta-tag tag-new" id="badge-home-new-tag">10 từ</span>
                 </div>
-                <span class="btn-cta-sub-text" id="subtext-home-new-progress">Ưu tiên từ thông dụng</span>
-              </div>
-              <div class="btn-cta-arrow">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
               </div>
             </div>
           </button>

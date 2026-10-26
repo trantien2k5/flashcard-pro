@@ -489,7 +489,7 @@ export class DeckManager {
     for (let i = 0; i < targetCards.length; i++) {
       const card = targetCards[i];
       const hydratedCard = isAppWide ? card : (this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card);
-      const state = cardStates[card.id];
+      const state = cardStates[card.id] || StorageManager.getCardState(card.id);
 
       // Tích hợp đếm số từ theo bậc CEFR ngay trong lượt duyệt này (Zero duplicate loops)
       const lvl = (card.level || card.cefr || 'A1').toUpperCase();
@@ -504,7 +504,12 @@ export class DeckManager {
         continue;
       }
 
-      if (!state || state.state === State.New || state.state === 0) {
+      // Xác định thẻ thực sự là từ mới (chưa từng học hoặc không có lịch sử ôn tập)
+      const isCardActuallyNew = (!state || state.state === State.New || state.state === 0) &&
+                                (!state || !state.reps || state.reps === 0) &&
+                                (!state || !state.last_review);
+
+      if (isCardActuallyNew) {
         newCards.push({ ...hydratedCard, fsrsState: state || FSRS.createEmptyCard(card.id) });
       } else if (isCardDue(state, now)) {
         dueCards.push({ ...hydratedCard, fsrsState: state });
@@ -675,8 +680,13 @@ export class DeckManager {
       // Chỉ ôn tập các thẻ ĐÃ ĐẾN HẠN
       queueCards = selectedDue;
     } else if (mode === 'new_only') {
-      // Chỉ học các thẻ MỚI CHƯA TỪNG HỌC
-      queueCards = selectedNew;
+      // Chỉ học các thẻ MỚI CHƯA TỪNG HỌC (Lọc tuyệt đối 100%, không bao giờ lẫn từ tới hạn hoặc đã học)
+      queueCards = selectedNew.filter(c => {
+        const st = cardStates[c.id] || StorageManager.getCardState(c.id);
+        if (!st) return true;
+        const isActuallyNew = (st.state === State.New || st.state === 0) && (!st.reps || st.reps === 0) && !st.last_review;
+        return isActuallyNew && !st.suspended;
+      });
     } else if (mode === 'weak_hunter' || mode === STUDY_MODES.WEAK_HUNTER) {
       // Chế độ TIÊU DIỆT TỪ KHÓ (Leech & Weak Words Hunter)
       queueCards = weakCards.length > 0 ? weakCards.slice(0, 20) : selectedDue.slice(0, 20);
@@ -700,8 +710,19 @@ export class DeckManager {
       // Chế độ LUYỆN NGHE PHẢN XẠ (Audio Blind Recall)
       queueCards = selectedDue.length > 0 ? selectedDue : [...selectedDue, ...selectedNew];
     } else if (mode === 'due_first' || mode === 'auto' || mode === 'mixed') {
-      // BẮT ĐẦU ÔN FLASHCARD: Mix trọn vẹn [Tất cả từ đến hạn cần ôn] + [Đủ số lượng mục tiêu từ mới hôm nay]
-      queueCards = [...selectedDue, ...selectedNew];
+      // CƠ CHẾ ÔN TẬP THÔNG MINH: Cứ mỗi khi ôn 5 thẻ sẽ bốc 1 từ mới xen kẽ vào (5 due : 1 new)
+      const interleaved = [];
+      let dIdx = 0;
+      let nIdx = 0;
+      while (dIdx < selectedDue.length || nIdx < selectedNew.length) {
+        for (let step = 0; step < 5 && dIdx < selectedDue.length; step++) {
+          interleaved.push(selectedDue[dIdx++]);
+        }
+        if (nIdx < selectedNew.length) {
+          interleaved.push(selectedNew[nIdx++]);
+        }
+      }
+      queueCards = interleaved;
     } else if (mode === 'interleave') {
       // KỸ THUẬT ĐAN XEN NHẬN THỨC (Cognitive Interleaving: 2 ôn -> 1 mới -> 2 ôn -> 1 mới)
       const interleaved = [];
@@ -718,17 +739,20 @@ export class DeckManager {
     }
 
     // 4. BẢO VỆ CHỐNG QUÁ TẢI NHẬN THỨC (Adaptive Backlog Protection)
-    // Nếu có >= 35 từ đến hạn dồn ứ, ưu tiên dọn sạch hàng đợi đến hạn
     const isBacklogProtected = dueCards.length >= 35;
-    if (isBacklogProtected && (mode === 'auto' || mode === 'due_first')) {
-      queueCards = selectedDue;
-    }
 
     const queue = [];
     const seenQueueIds = new Set();
 
     for (const card of queueCards) {
       if (card && card.id && !seenQueueIds.has(card.id)) {
+        // Kiểm tra an toàn kép: Nếu là mode học từ mới (new_only), tuyệt đối không để thẻ đã học lọt vào
+        if (mode === 'new_only') {
+          const st = cardStates[card.id] || StorageManager.getCardState(card.id);
+          if (st && ((st.state !== State.New && st.state !== 0) || (st.reps && st.reps > 0) || st.last_review)) {
+            continue;
+          }
+        }
         seenQueueIds.add(card.id);
         const cardObj = {
           ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),

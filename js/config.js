@@ -5,7 +5,7 @@
 
 export const APP_CONFIG = {
   name: 'Flashcard English Pro',
-  version: '2.21.0',
+  version: '3.75.0',
   storagePrefix: 'fc_pro_',
   dbName: 'FlashcardProDB',
   dbVersion: 1
