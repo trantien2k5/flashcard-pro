@@ -233,36 +233,44 @@ export function renderDecksTab(app) {
       const card = document.createElement('div');
       card.className = `deck-item-card ${isPinned ? 'deck-item-pinned' : ''}`;
       card.dataset.deckId = deck.id;
+      card.style.setProperty('--deck-theme-color', deckColor);
 
       card.innerHTML = `
         <div class="deck-card-header">
-          <div class="deck-icon-badge" style="background: ${deckColor}22; color: ${deckColor}; border: 1px solid ${deckColor}44;">
+          <div class="deck-icon-badge" style="background: linear-gradient(135deg, ${deckColor}25, ${deckColor}12); color: ${deckColor}; border: 1px solid ${deckColor}35; box-shadow: 0 4px 14px ${deckColor}22;">
             <span>${deck.icon || '📚'}</span>
           </div>
           <div class="deck-info">
             <h3 class="deck-title">${escapeHTML(englishTitle)}</h3>
             <p class="deck-sub-title">${escapeHTML(vietnameseTitle)}</p>
+            <div class="deck-meta-strip">
+              <span>${subtopicsCount} chặng</span>
+              <span class="meta-dot">•</span>
+              <span>${stats.total} từ vựng</span>
+            </div>
           </div>
           ${allDecks.length > 1 ? `
-            <button class="btn-deck-pin ${isPinned ? 'pinned' : ''}" title="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" data-pin-id="${escapeHTML(deck.id)}">📌</button>
+            <button class="btn-deck-pin ${isPinned ? 'pinned' : ''}" title="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" data-pin-id="${escapeHTML(deck.id)}">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="${isPinned ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="17" x2="12" y2="22"></line>
+                <path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a1 1 0 0 0 0-2H8a1 1 0 0 0 0 2h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"></path>
+              </svg>
+            </button>
           ` : ''}
         </div>
         <div class="deck-card-footer">
-          <div class="deck-meta-strip">
-            <span>📁 ${subtopicsCount} phần</span>
-            <span>•</span>
-            <span>📝 ${stats.total} từ</span>
+          <div class="deck-progress-container">
+            <div class="deck-progress-bar-bg">
+              <div class="deck-progress-fill" style="width: ${stats.progressPercent}%; background: linear-gradient(90deg, ${deckColor}, ${deckColor}dd);"></div>
+            </div>
+            <span class="deck-stats-fraction">${stats.progressPercent}%</span>
           </div>
           <div class="deck-actions-group">
-            <span class="deck-stats-fraction">${stats.progressPercent}%</span>
             <button class="btn-deck-study ${stats.dueCount > 0 ? 'due' : ''}" data-study-id="${escapeHTML(deck.id)}">
-              ${stats.dueCount > 0 ? `⚡ Ôn ${stats.dueCount}` : '✨ Học'}
+              ${stats.dueCount > 0 ? `⚡ Ôn ${stats.dueCount}` : '✨ Học ngay'}
+              <span class="btn-study-arrow">›</span>
             </button>
-            <span class="deck-chevron">›</span>
           </div>
-        </div>
-        <div class="deck-progress-bar-bg">
-          <div class="deck-progress-fill" style="width: ${stats.progressPercent}%; background: ${deckColor};"></div>
         </div>
       `;
 
@@ -270,6 +278,9 @@ export function renderDecksTab(app) {
       if (pinBtn) {
         pinBtn.onclick = (e) => {
           e.stopPropagation();
+          if (typeof navigator !== 'undefined' && navigator.vibrate) {
+            try { navigator.vibrate(6); } catch (err) {}
+          }
           if (_pinnedDecks.has(deck.id)) {
             _pinnedDecks.delete(deck.id);
           } else {
@@ -284,11 +295,17 @@ export function renderDecksTab(app) {
       if (studyBtn) {
         studyBtn.onclick = (e) => {
           e.stopPropagation();
+          if (typeof navigator !== 'undefined' && navigator.vibrate) {
+            try { navigator.vibrate(10); } catch (err) {}
+          }
           app.startStudySession(deck.id, null, null, { mode: stats.dueCount > 0 ? 'due_only' : 'new_only' });
         };
       }
 
       card.onclick = () => {
+        if (typeof navigator !== 'undefined' && navigator.vibrate) {
+          try { navigator.vibrate(8); } catch (err) {}
+        }
         openSubtopicsPage(app, deck.id);
       };
 
@@ -560,11 +577,13 @@ export function renderSubtopicsPage(app, deckId) {
 
         card.onclick = () => {
           if (!isUnlocked) {
+            navigator.vibrate?.(25);
             card.classList.add('shake');
             setTimeout(() => card.classList.remove('shake'), 400);
             showToast('Phần này đang bị khóa, hãy hoàn thành phần trước đó!', 'warning');
             return;
           }
+          navigator.vibrate?.(8);
           openSubtopicDetailPage(app, deck.id, subName);
         };
 
