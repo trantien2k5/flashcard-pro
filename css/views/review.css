@@ -565,8 +565,8 @@
 
 .btn-hero-flashcard-cta {
   width: 100%;
-  min-height: 52px;
-  padding: 10px 12px;
+  min-height: 58px;
+  padding: 9px 12px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.22);
   color: #ffffff;
@@ -582,7 +582,7 @@
 
 @media (max-width: 480px) {
   .btn-hero-flashcard-cta {
-    min-height: 48px;
+    min-height: 54px;
     padding: 8px 10px;
     border-radius: 14px;
   }
@@ -637,15 +637,22 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   position: relative;
   z-index: 1;
 }
 
+@media (max-width: 480px) {
+  .btn-cta-body {
+    gap: 8px;
+  }
+}
+
 .btn-cta-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 11px;
   background: rgba(255, 255, 255, 0.18);
   border: 1px solid rgba(255, 255, 255, 0.28);
   display: flex;
@@ -658,9 +665,10 @@
 
 @media (max-width: 480px) {
   .btn-cta-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 9px;
   }
 }
 
@@ -674,43 +682,50 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   text-align: left;
-  gap: 2px;
+  gap: 3px;
   min-width: 0;
-}
-
-.btn-cta-title-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 4px;
-  width: 100%;
+  overflow: hidden;
 }
 
 .btn-cta-main-text {
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   font-weight: 750;
   letter-spacing: -0.01em;
   color: #ffffff;
-  line-height: 1.2;
+  line-height: 1.15;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 @media (max-width: 480px) {
   .btn-cta-main-text {
-    font-size: 0.82rem;
+    font-size: 0.88rem;
   }
 }
 
 .btn-cta-tag {
-  font-size: 0.65rem;
-  font-weight: 750;
-  padding: 1px 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 1.5px 7px;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.28);
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+}
+
+@media (max-width: 480px) {
+  .btn-cta-tag {
+    font-size: 0.64rem;
+    padding: 1.5px 6px;
+  }
 }
 
 .btn-cta-tag.tag-due {

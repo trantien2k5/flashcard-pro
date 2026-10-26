@@ -96,10 +96,8 @@ export function renderReviewShell(container) {
                 </svg>
               </div>
               <div class="btn-cta-text-wrap">
-                <div class="btn-cta-title-row">
-                  <span class="btn-cta-main-text">Ôn tập</span>
-                  <span class="btn-cta-tag tag-due" id="badge-home-due-tag">0 từ</span>
-                </div>
+                <span class="btn-cta-main-text">Ôn tập</span>
+                <span class="btn-cta-tag tag-due" id="badge-home-due-tag">0 từ</span>
               </div>
             </div>
           </button>
@@ -114,10 +112,8 @@ export function renderReviewShell(container) {
                 </svg>
               </div>
               <div class="btn-cta-text-wrap">
-                <div class="btn-cta-title-row">
-                  <span class="btn-cta-main-text">Học từ mới</span>
-                  <span class="btn-cta-tag tag-new" id="badge-home-new-tag">10 từ</span>
-                </div>
+                <span class="btn-cta-main-text">Học từ mới</span>
+                <span class="btn-cta-tag tag-new" id="badge-home-new-tag">10 từ</span>
               </div>
             </div>
           </button>
