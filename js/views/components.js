@@ -1256,7 +1256,7 @@ export async function openCustomStudyModal(app) {
               <span class="label-icon">📊</span>
               <span class="label-text">Cấp độ thông thạo CEFR</span>
             </label>
-            <div class="custom-study-chips-row" id="custom-cefr-chips">
+            <div class="custom-study-chips-grid custom-study-cefr-grid" id="custom-cefr-chips">
               <button type="button" class="custom-chip active" data-cefr="all">Tất cả</button>
               <button type="button" class="custom-chip" data-cefr="a1">A1</button>
               <button type="button" class="custom-chip" data-cefr="a2">A2</button>
@@ -1272,12 +1272,12 @@ export async function openCustomStudyModal(app) {
               <span class="label-icon">⏱️</span>
               <span class="label-text">Số lượng từ mỗi phiên</span>
             </label>
-            <div class="custom-study-chips-row" id="custom-limit-chips">
-              <button type="button" class="custom-chip" data-limit="10">10 thẻ</button>
-              <button type="button" class="custom-chip active" data-limit="20">20 thẻ</button>
-              <button type="button" class="custom-chip" data-limit="30">30 thẻ</button>
-              <button type="button" class="custom-chip" data-limit="50">50 thẻ</button>
-              <button type="button" class="custom-chip" data-limit="all">Toàn bộ</button>
+            <div class="custom-study-chips-grid custom-study-limit-grid" id="custom-limit-chips">
+              <button type="button" class="custom-chip" data-limit="10">10</button>
+              <button type="button" class="custom-chip active" data-limit="20">20</button>
+              <button type="button" class="custom-chip" data-limit="30">30</button>
+              <button type="button" class="custom-chip" data-limit="50">50</button>
+              <button type="button" class="custom-chip" data-limit="all">Tất cả</button>
             </div>
           </div>
 
@@ -1365,31 +1365,33 @@ export async function openCustomStudyModal(app) {
 
       currentMatchedCards = matched;
 
-      // Cập nhật giao diện Preview
+      // Cập nhật giao diện Preview dạng thanh Banner phẳng thoáng mắt
       if (matched.length === 0) {
         previewBox.innerHTML = `
-          <div class="preview-empty">
-            <span class="preview-empty-icon">⚠️</span>
-            <span class="preview-empty-desc">Không tìm thấy từ nào thỏa mãn bộ lọc đã chọn. Hãy thử nới lỏng điều kiện lọc!</span>
+          <div class="preview-banner-empty">
+            <span class="preview-banner-icon">⚠️</span>
+            <span class="preview-banner-text">Không có từ nào thỏa mãn bộ lọc đã chọn. Hãy thử nới lỏng điều kiện lọc!</span>
           </div>
         `;
         btnSubmit.disabled = true;
         btnSubmitText.textContent = 'Không có từ phù hợp';
       } else {
         const takeLimit = filterState.limit === 'all' ? matched.length : Math.min(Number(filterState.limit), matched.length);
+        const formattedTotal = matched.length.toLocaleString('vi-VN');
+        const formattedTake = takeLimit.toLocaleString('vi-VN');
         previewBox.innerHTML = `
-          <div class="preview-success">
-            <div class="preview-pill preview-pill-found">
-              <span class="pill-dot">●</span>
-              <span>Tìm thấy <strong>${matched.length}</strong> từ thỏa mãn</span>
+          <div class="preview-banner-row">
+            <div class="preview-banner-left">
+              <span class="preview-banner-icon">🎯</span>
+              <span class="preview-banner-text">Có sẵn <strong>${formattedTotal}</strong> từ phù hợp</span>
             </div>
-            <div class="preview-pill preview-pill-session">
-              <span>Sẽ nạp: <strong>${takeLimit}</strong> thẻ vào phiên</span>
+            <div class="preview-banner-badge">
+              <span>Học <strong>${formattedTake}</strong> thẻ</span>
             </div>
           </div>
         `;
         btnSubmit.disabled = false;
-        btnSubmitText.textContent = `Bắt đầu học (${takeLimit} thẻ)`;
+        btnSubmitText.textContent = `Bắt đầu học (${formattedTake} thẻ)`;
       }
     };
 
