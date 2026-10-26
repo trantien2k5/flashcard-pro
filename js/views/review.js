@@ -10,7 +10,7 @@ import { State, Rating, isCardDue } from '../core/fsrs.js';
 import { globalStudyTimer, StatsManager } from '../core/stats.js';
 import { escapeHTML, getLocalDateKey } from '../utils.js';
 import { MASTERY_STABILITY_THRESHOLD, LEARNING_GOALS, getLearningGoal } from '../config.js';
-import { showStreakHubModal } from './components.js';
+import { showStreakHubModal, openCustomStudyModal } from './components.js';
 
 let _cachedApp = null;
 let _isTimerListening = false;
@@ -119,6 +119,29 @@ export function renderReviewShell(container) {
           </button>
         </div>
 
+        <!-- 3b. NÚT ÔN TẬP TÙY CHỌN (CUSTOM FILTERED STUDY) -->
+        <div class="home-custom-study-row">
+          <button type="button" class="btn-custom-study-bar" id="btn-home-custom-study" title="Ôn tập tùy chọn theo chủ đề, cấp độ & trạng thái FSRS">
+            <div class="custom-study-bar-left">
+              <div class="custom-study-bar-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/>
+                </svg>
+              </div>
+              <div class="custom-study-bar-text">
+                <div class="custom-study-bar-title-wrap">
+                  <span class="custom-study-bar-title">Ôn tập Tùy chọn</span>
+                  <span class="custom-study-bar-badge">Bộ lọc riêng</span>
+                </div>
+                <span class="custom-study-bar-desc">Tự chọn bộ từ (TOEIC, Đời sống...), cấp độ CEFR & FSRS</span>
+              </div>
+            </div>
+            <div class="custom-study-bar-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </div>
+          </button>
+        </div>
+
         <!-- 4. BỘ CHẾ ĐỘ HỌC CÓ CHỦ ĐÍCH (Targeted Systematic Study Modes) -->
         <div class="home-study-modes-section">
           <div class="modes-section-header">
@@ -159,6 +182,18 @@ export function renderReviewShell(container) {
                   <span class="mode-badge badge-sprint">10 từ</span>
                 </div>
                 <span class="mode-desc">10 từ cấp bách nhất khi rảnh</span>
+              </div>
+            </button>
+
+            <!-- Mode 4: Ôn tập tùy chọn linh hoạt -->
+            <button type="button" class="home-mode-card mode-custom" id="btn-mode-custom-filter" title="Tự chọn bộ từ, trạng thái FSRS và cấp độ CEFR">
+              <div class="mode-icon-wrap">🎛️</div>
+              <div class="mode-info">
+                <div class="mode-title-row">
+                  <span class="mode-name">Ôn tùy chọn</span>
+                  <span class="mode-badge badge-custom">Tự chọn</span>
+                </div>
+                <span class="mode-desc">Lọc bộ từ, TOEIC, CEFR & FSRS</span>
               </div>
             </button>
           </div>
@@ -254,6 +289,25 @@ export function renderReviewTab(app) {
       btnSprint10._bound = true;
       btnSprint10.onclick = () => {
         app.startStudySession(null, null, null, { mode: 'sprint_10' });
+      };
+    }
+
+    // Gán sự kiện cho Nút Ôn tập Tùy chọn (Custom Filtered Study)
+    const btnCustomStudy = document.getElementById('btn-home-custom-study');
+    if (btnCustomStudy && !btnCustomStudy._bound) {
+      btnCustomStudy._bound = true;
+      btnCustomStudy.onclick = () => {
+        navigator.vibrate?.(8);
+        openCustomStudyModal(app);
+      };
+    }
+
+    const btnModeCustom = document.getElementById('btn-mode-custom-filter');
+    if (btnModeCustom && !btnModeCustom._bound) {
+      btnModeCustom._bound = true;
+      btnModeCustom.onclick = () => {
+        navigator.vibrate?.(8);
+        openCustomStudyModal(app);
       };
     }
 

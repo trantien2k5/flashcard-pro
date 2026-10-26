@@ -778,6 +778,125 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
+/* --------------------------------------------------------------------------
+   Custom Filtered Study Bar CTA (Ôn tập tùy chọn)
+   -------------------------------------------------------------------------- */
+.home-custom-study-row {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-custom-study-bar {
+  width: 100%;
+  min-height: 52px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+  transition: transform 0.16s cubic-bezier(0.2, 0.9, 0.3, 1.2), box-shadow 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.btn-custom-study-bar:hover {
+  transform: translateY(-1.5px);
+  border-color: var(--primary, #6366f1);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.1);
+}
+
+.btn-custom-study-bar:active {
+  transform: scale(0.98) translateY(1px);
+  filter: brightness(0.98);
+}
+
+.custom-study-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.custom-study-bar-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.12), rgba(99, 102, 241, 0.18));
+  border: 1px solid rgba(147, 51, 234, 0.25);
+  color: #8b5cf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.btn-custom-study-bar:hover .custom-study-bar-icon {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.custom-study-bar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.custom-study-bar-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.custom-study-bar-title {
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.custom-study-bar-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: rgba(147, 51, 234, 0.12);
+  color: #8b5cf6;
+  border: 1px solid rgba(147, 51, 234, 0.25);
+  letter-spacing: 0.02em;
+}
+
+.custom-study-bar-desc {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.custom-study-bar-arrow {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding-left: 8px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-custom-study-bar:hover .custom-study-bar-arrow {
+  transform: translateX(3px);
+  color: #8b5cf6;
+}
+
 /* ==========================================================================
    5. QUICK PREVIEW DIALOGS (Due Words, Study Time, Memory Tiers)
    ========================================================================== */
@@ -1837,14 +1956,21 @@
 
 .home-modes-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   width: 100%;
 }
 
+@media (max-width: 900px) {
+  .home-modes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
 @media (max-width: 480px) {
   .home-modes-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 6px;
   }
 }
@@ -1891,6 +2017,11 @@
   box-shadow: 0 6px 18px rgba(245, 158, 11, 0.12);
 }
 
+.home-mode-card.mode-custom:hover {
+  border-color: rgba(147, 51, 234, 0.4);
+  box-shadow: 0 6px 18px rgba(147, 51, 234, 0.12);
+}
+
 .mode-icon-wrap {
   width: 32px;
   height: 32px;
@@ -1913,6 +2044,10 @@
 
 .mode-sprint .mode-icon-wrap {
   background: rgba(245, 158, 11, 0.12);
+}
+
+.mode-custom .mode-icon-wrap {
+  background: rgba(147, 51, 234, 0.12);
 }
 
 .mode-info {
@@ -1957,6 +2092,11 @@
 .badge-sprint {
   background: rgba(245, 158, 11, 0.12);
   color: #d97706;
+}
+
+.badge-custom {
+  background: rgba(147, 51, 234, 0.12);
+  color: #8b5cf6;
 }
 
 .mode-desc {

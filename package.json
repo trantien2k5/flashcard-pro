@@ -1,6 +1,6 @@
 {
   "name": "flashcard-english-pro",
-  "version": "3.75.2",
+  "version": "3.75.3",
   "type": "module",
   "description": "Flashcard English Pro with FSRS-6 Spaced Repetition",
   "scripts": {
