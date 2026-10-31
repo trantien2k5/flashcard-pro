@@ -202,7 +202,6 @@
   scrollbar-width: none;
   position: relative;
   touch-action: pan-y;
-  will-change: scroll-position;
 }
 
 .reels-feed-container::-webkit-scrollbar {
@@ -217,14 +216,14 @@
   height: 100%;
   height: 100dvh;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-snap-stop: normal;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
   overflow: hidden;
-  padding: calc(48px + env(safe-area-inset-top, 0px)) 10px calc(72px + env(safe-area-inset-bottom, 12px)) 10px;
+  padding: calc(48px + env(safe-area-inset-top, 0px)) 12px calc(88px + env(safe-area-inset-bottom, 12px)) 12px;
   background: #090a0f;
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
@@ -238,22 +237,9 @@
   content-visibility: visible;
 }
 
-/* Backdrop Image (Optimized GPU Ambient) */
+/* Backdrop Image (Optimized High-Performance Ambient) */
 .reel-backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: blur(20px) brightness(0.24) saturate(1.3);
-  transform: scale(1.1);
-  pointer-events: none;
-  z-index: 1;
-  transition: opacity 0.3s ease;
-  will-change: transform;
+  display: none !important;
 }
 
 .reel-backdrop-gradient {
@@ -262,7 +248,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% 28%, rgba(99, 102, 241, 0.16) 0%, rgba(9, 10, 15, 0.96) 88%);
+  background: radial-gradient(circle at 50% 20%, #161928 0%, #0d0f17 55%, #050609 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -548,7 +534,7 @@
 .reel-action-bar {
   position: absolute;
   right: 10px;
-  bottom: calc(76px + env(safe-area-inset-bottom, 12px));
+  bottom: calc(90px + env(safe-area-inset-bottom, 12px));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -562,6 +548,7 @@
   flex-direction: column;
   align-items: center;
   gap: 3px;
+  cursor: pointer;
 }
 
 .btn-reel-action {
@@ -624,19 +611,18 @@
 }
 
 /* ==========================================
-   8. Bottom Floating FSRS Rating Bar (Thumb-Optimized)
+   8. Bottom Floating FSRS Rating Bar (Thumb-Optimized & Elevated)
    ========================================== */
 .reel-fsrs-rating-bar {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 8px 10px max(10px, env(safe-area-inset-bottom, 10px)) 10px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.88) 40%, #000000 100%);
+  bottom: calc(18px + env(safe-area-inset-bottom, 8px));
+  left: 12px;
+  right: 12px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 7px;
   z-index: 25;
   pointer-events: auto;
   box-sizing: border-box;
@@ -645,24 +631,25 @@
 .btn-reel-fsrs {
   flex: 1;
   max-width: 105px;
-  min-height: 44px;
+  min-height: 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1px;
+  gap: 1.5px;
   padding: 6px 3px;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid var(--reels-glass-border);
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(22, 25, 36, 0.90);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: #ffffff;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.12s ease, background 0.15s ease;
   outline: none;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
 }
 
 .btn-reel-fsrs:hover {
@@ -764,18 +751,25 @@
 @media (max-height: 700px) {
   .reel-slide {
     padding-top: calc(44px + env(safe-area-inset-top, 0px));
-    padding-bottom: calc(66px + env(safe-area-inset-bottom, 8px));
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 8px));
   }
   .reel-content-box {
     padding: 10px 52px 10px 12px;
-    gap: 6px;
+    gap: 5px;
   }
   .reel-word-title {
     font-size: 1.45rem;
   }
   .reel-action-bar {
     gap: 6px;
-    bottom: calc(68px + env(safe-area-inset-bottom, 8px));
+    bottom: calc(78px + env(safe-area-inset-bottom, 8px));
+  }
+  .reel-fsrs-rating-bar {
+    bottom: calc(12px + env(safe-area-inset-bottom, 6px));
+  }
+  .btn-reel-fsrs {
+    min-height: 44px;
+    padding: 4px 2px;
   }
   .btn-reel-action {
     width: 34px;

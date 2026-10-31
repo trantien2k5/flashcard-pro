@@ -25,6 +25,7 @@ let _observer = null;
 let _feedContainer = null;
 let _keyHandler = null;
 let _speechDebounceTimer = null;
+let _isRatingInProgress = false;
 
 // Thống kê phiên lướt từ
 let _reelsStats = {
@@ -174,8 +175,6 @@ function renderReelSlideHTML(card, index) {
 
   return `
     <article class="reel-slide" data-index="${index}" data-id="${card.id}" id="reel-slide-${index}">
-      <!-- Backdrop Blur Ambient -->
-      ${hasImg ? `<img class="reel-backdrop" src="${imgSrc}" alt="" loading="lazy" onerror="this.remove()" />` : ''}
       <div class="reel-backdrop-gradient"></div>
 
       <!-- Hero Visual (Ảnh minh họa hoặc Typo Visualizer) -->
@@ -323,9 +322,11 @@ function spawnFloatingParticle(targetEl, emoji = '✨') {
  * Xử lý đánh giá FSRS-6 khi bấm nút hoặc phím tắt
  */
 function handleRateCard(rating) {
+  if (_isRatingInProgress) return;
   const currentCard = _reelsQueue[_currentIndex];
   if (!currentCard) return;
 
+  _isRatingInProgress = true;
   const currentSlide = document.getElementById(`reel-slide-${_currentIndex}`);
 
   // Hiệu ứng hạt biểu tượng theo rating
@@ -390,14 +391,17 @@ function handleRateCard(rating) {
     console.warn('Lỗi ghi nhận FSRS trong Reels:', err);
   }
 
-  // Tự động lướt mượt mà lên thẻ tiếp theo sau 250ms
+  // Chuyển thẻ tức thì và mượt mà sau 60ms (vừa mượt vừa tức thì)
   setTimeout(() => {
     scrollToNextReel();
-  }, 220);
+    setTimeout(() => {
+      _isRatingInProgress = false;
+    }, 180);
+  }, 60);
 }
 
 /**
- * Lướt tới thẻ tiếp theo
+ * Lướt tới thẻ tiếp theo (Snappy Fast Smooth Scroll)
  */
 function scrollToNextReel() {
   if (_currentIndex < _reelsQueue.length - 1) {
@@ -418,13 +422,35 @@ function scrollToPrevReel() {
 }
 
 /**
- * Cuộn tới slide cụ thể
+ * Cuộn tới slide cụ thể với thuật toán Snappy Cubic Ease-out (160ms - Tức thì & Êm dịu)
  */
-function scrollToSlide(index) {
+function scrollToSlide(index, duration = 160) {
   const targetSlide = document.getElementById(`reel-slide-${index}`);
-  if (targetSlide) {
-    targetSlide.scrollIntoView({ behavior: 'smooth' });
+  if (!targetSlide || !_feedContainer) return;
+
+  const startTop = _feedContainer.scrollTop;
+  const targetTop = targetSlide.offsetTop;
+  const distance = targetTop - startTop;
+
+  if (Math.abs(distance) < 2) return;
+
+  if (duration <= 0) {
+    _feedContainer.scrollTop = targetTop;
+    return;
   }
+
+  const startTime = performance.now();
+  function step(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // Cubic ease-out curve: Chạy nhanh ngay tức thì và dừng cực êm
+    const ease = 1 - Math.pow(1 - progress, 3);
+    _feedContainer.scrollTop = startTop + distance * ease;
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  }
+  requestAnimationFrame(step);
 }
 
 /**
@@ -507,7 +533,7 @@ function activateSlide(index) {
   document.querySelectorAll('.reel-audio-equalizer').forEach(eq => eq.classList.remove('active'));
   const currentEq = document.getElementById(`eq-${index}`);
 
-  // Tự động phát âm từ vựng (Debounced để tránh chồng chéo khi lướt nhanh)
+  // Tự động phát âm từ vựng (Debounced 80ms để chống chồng chéo khi lướt nhanh)
   const shouldAutoPronounce = _reelsApp?.settings?.autoPronounce !== false;
   if (shouldAutoPronounce && currentCard.word) {
     _speechDebounceTimer = setTimeout(() => {
@@ -521,7 +547,7 @@ function activateSlide(index) {
       setTimeout(() => {
         if (currentEq) currentEq.classList.remove('active');
       }, 1500);
-    }, 120);
+    }, 80);
   }
 
   // Tải trước hình ảnh và âm thanh của 2 từ kế tiếp (0ms delay)
@@ -607,7 +633,7 @@ function setupIntersectionObserver() {
 
   _observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
         const idx = parseInt(entry.target.getAttribute('data-index'), 10);
         if (!isNaN(idx)) {
           activateSlide(idx);
@@ -616,7 +642,7 @@ function setupIntersectionObserver() {
     }
   }, {
     root: _feedContainer,
-    threshold: 0.62
+    threshold: 0.5
   });
 
   const slides = _feedContainer.querySelectorAll('.reel-slide');
@@ -772,8 +798,8 @@ export function startReelsSession(app, customQueue = null, options = {}) {
   if (_feedContainer) {
     _feedContainer.addEventListener('click', (e) => {
       const target = e.target;
-      const actionEl = target.closest('[data-action]');
       const ratingEl = target.closest('[data-rating]');
+      const actionEl = target.closest('[data-action]') || target.closest('.reel-action-btn-item')?.querySelector('[data-action]');
 
       // Đánh giá FSRS
       if (ratingEl) {
@@ -792,40 +818,56 @@ export function startReelsSession(app, customQueue = null, options = {}) {
 
       if (action === 'speak-word') {
         e.stopPropagation();
+        const speakBtn = slideEl?.querySelector('.btn-reel-speak');
+        if (speakBtn) speakBtn.classList.add('playing');
         const eq = document.getElementById(`eq-${index}`);
         if (eq) eq.classList.add('active');
         speak(card.word, {
           cardObj: card,
           onEnd: () => {
             if (eq) eq.classList.remove('active');
+            if (speakBtn) speakBtn.classList.remove('playing');
           }
         });
         setTimeout(() => {
           if (eq) eq.classList.remove('active');
+          if (speakBtn) speakBtn.classList.remove('playing');
         }, 1200);
       } else if (action === 'speak-example') {
         e.stopPropagation();
         if (card.example) {
-          speak(card.example);
+          const exBtn = slideEl?.querySelector('.btn-reel-example');
+          if (exBtn) exBtn.classList.add('playing');
+          speak(card.example, {
+            onEnd: () => {
+              if (exBtn) exBtn.classList.remove('playing');
+            }
+          });
+          setTimeout(() => {
+            if (exBtn) exBtn.classList.remove('playing');
+          }, 3500);
         }
       } else if (action === 'toggle-meaning') {
         e.stopPropagation();
-        const meaningBox = slideEl.querySelector('.reel-meaning-box');
+        const meaningBox = slideEl?.querySelector('.reel-meaning-box');
+        const meaningBtn = slideEl?.querySelector('.btn-reel-toggle-meaning');
         if (meaningBox) {
-          meaningBox.classList.toggle('blurred');
+          const isBlurred = meaningBox.classList.toggle('blurred');
+          if (meaningBtn) meaningBtn.classList.toggle('active', isBlurred);
         }
       } else if (action === 'toggle-bookmark') {
         e.stopPropagation();
+        const bookmarkBtn = slideEl?.querySelector('.btn-reel-bookmark') || actionEl;
         const isNowBookmarked = !_bookmarkedIds.has(card.id);
         if (isNowBookmarked) {
           _bookmarkedIds.add(card.id);
-          actionEl.classList.add('is-bookmarked');
-          actionEl.querySelector('svg')?.setAttribute('fill', 'currentColor');
+          bookmarkBtn.classList.add('is-bookmarked');
+          bookmarkBtn.querySelector('svg')?.setAttribute('fill', 'currentColor');
           app.showToast(`⭐ Đã lưu từ "${card.word}" vào mục Yêu thích`, 'success', 1800);
         } else {
           _bookmarkedIds.delete(card.id);
-          actionEl.classList.remove('is-bookmarked');
-          actionEl.querySelector('svg')?.setAttribute('fill', 'none');
+          bookmarkBtn.classList.remove('is-bookmarked');
+          bookmarkBtn.querySelector('svg')?.setAttribute('fill', 'none');
           app.showToast(`Đã bỏ lưu từ "${card.word}"`, 'info', 1600);
         }
         saveBookmarks();
