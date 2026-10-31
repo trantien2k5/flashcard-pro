@@ -1,0 +1,798 @@
+/* ==========================================================================
+   Reels View Stylesheet - Short Video / TikTok-Style Vocabulary Learning
+   Ultra-optimized for 100% Mobile Devices (iOS Safari, Android Chrome, Foldables)
+   ========================================================================== */
+
+:root {
+  --reels-bg: #0b0c10;
+  --reels-card-bg: rgba(20, 22, 30, 0.82);
+  --reels-glass-border: rgba(255, 255, 255, 0.12);
+  --reels-accent: #f43f5e;
+  --reels-accent-glow: rgba(244, 63, 94, 0.35);
+  --reels-primary: #6366f1;
+  --reels-text: #ffffff;
+  --reels-text-sub: #cbd5e1;
+  --reels-text-muted: #94a3b8;
+  --reels-pill-bg: rgba(255, 255, 255, 0.12);
+}
+
+/* ==========================================
+   1. Reels Overlay Container
+   ========================================== */
+.reels-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--reels-bg);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  -webkit-font-smoothing: antialiased;
+}
+
+.reels-app-stage {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 100%;
+  max-height: 100dvh;
+  margin: 0 auto;
+  background: #000000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   2. Reels Top Navigation Header (Responsive & Compact)
+   ========================================== */
+.reels-top-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(48px + env(safe-area-inset-top, 0px));
+  padding: env(safe-area-inset-top, 6px) 10px 4px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  z-index: 30;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+.reels-header-left,
+.reels-header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.reels-header-left {
+  flex: 1;
+}
+
+.btn-reels-circle {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  min-height: 34px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--reels-glass-border);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+  outline: none;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-reels-circle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.06);
+}
+
+.btn-reels-circle:active {
+  transform: scale(0.92);
+}
+
+.reels-mode-segmented {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--reels-glass-border);
+  border-radius: 9999px;
+  padding: 2px;
+  gap: 2px;
+  min-width: 0;
+}
+
+.reels-mode-btn {
+  background: transparent;
+  border: none;
+  color: var(--reels-text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.reels-mode-btn.active {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.mode-label-short {
+  display: none;
+}
+
+@media (max-width: 420px) {
+  .mode-label-long {
+    display: none;
+  }
+  .mode-label-short {
+    display: inline;
+  }
+  .reels-mode-btn {
+    padding: 3px 6px;
+    font-size: 0.68rem;
+  }
+}
+
+.reels-counter-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--reels-glass-border);
+  padding: 4px 7px;
+  border-radius: 9999px;
+  font-family: var(--font-mono, monospace);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   3. Vertical Feed (Compositor 120fps Snap Feed)
+   ========================================== */
+.reels-feed-container {
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  scrollbar-width: none;
+  position: relative;
+  touch-action: pan-y;
+  will-change: scroll-position;
+}
+
+.reels-feed-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================
+   4. Single Reel Card Slide (100dvh Zero Overflow Architecture)
+   ========================================== */
+.reel-slide {
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: calc(48px + env(safe-area-inset-top, 0px)) 10px calc(72px + env(safe-area-inset-bottom, 12px)) 10px;
+  background: #090a0f;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  contain: layout style;
+  content-visibility: auto;
+  contain-intrinsic-size: 100dvh;
+}
+
+.reel-slide.is-active {
+  content-visibility: visible;
+}
+
+/* Backdrop Image (Optimized GPU Ambient) */
+.reel-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(20px) brightness(0.24) saturate(1.3);
+  transform: scale(1.1);
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+
+.reel-backdrop-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 28%, rgba(99, 102, 241, 0.16) 0%, rgba(9, 10, 15, 0.96) 88%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ==========================================
+   5. Visual Hero Stage (Word Image / Auto-Scaling)
+   ========================================== */
+.reel-visual-stage {
+  position: relative;
+  z-index: 5;
+  flex: 1 1 0%;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+  overflow: hidden;
+}
+
+.reel-image-wrapper {
+  position: relative;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--reels-glass-border);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.reel-image-wrapper:active {
+  transform: scale(0.98);
+}
+
+.reel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.reel-image-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--reels-text-muted);
+  font-size: 0.85rem;
+  padding: 16px;
+  text-align: center;
+}
+
+.reel-image-placeholder.is-hidden {
+  display: none !important;
+}
+
+.reel-image-placeholder-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.3));
+}
+
+/* Equalizer overlay on image when speaking */
+.reel-audio-equalizer {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 16px;
+  padding: 3px 7px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.2s ease;
+}
+
+.reel-audio-equalizer.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reel-audio-equalizer span {
+  width: 2.5px;
+  background: #6366f1;
+  border-radius: 2px;
+  animation: reelEqWave 0.8s infinite ease-in-out alternate;
+}
+
+.reel-audio-equalizer span:nth-child(1) { height: 5px; animation-delay: 0.1s; }
+.reel-audio-equalizer span:nth-child(2) { height: 12px; animation-delay: 0.3s; }
+.reel-audio-equalizer span:nth-child(3) { height: 16px; animation-delay: 0.2s; }
+.reel-audio-equalizer span:nth-child(4) { height: 8px; animation-delay: 0.4s; }
+
+@keyframes reelEqWave {
+  0% { height: 3px; }
+  100% { height: 16px; }
+}
+
+/* ==========================================
+   6. Content Card (Indented to Never Overlap Right Action Bar)
+   ========================================== */
+.reel-content-box {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--reels-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--reels-glass-border);
+  border-radius: 20px;
+  /* Chừa 58px bên phải để hoàn toàn không bị các nút Like/Loa/Lưu che mất chữ */
+  padding: 12px 58px 12px 14px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+  flex-shrink: 0;
+  max-height: 44dvh;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.reel-content-box::-webkit-scrollbar {
+  display: none;
+}
+
+.reel-word-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.reel-word-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.reel-word-title {
+  font-size: clamp(1.45rem, 5vw, 1.95rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  word-break: break-word;
+}
+
+.reel-word-ipa-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.reel-word-ipa {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #a5b4fc;
+  font-family: var(--font-mono, monospace);
+}
+
+.reel-badge-pill {
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 1.5px 6px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.reel-badge-pill.level-a1 { background: rgba(34, 197, 94, 0.2); color: #4ade80; border-color: rgba(34, 197, 94, 0.35); }
+.reel-badge-pill.level-a2 { background: rgba(16, 185, 129, 0.2); color: #34d399; border-color: rgba(16, 185, 129, 0.35); }
+.reel-badge-pill.level-b1 { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border-color: rgba(59, 130, 246, 0.35); }
+.reel-badge-pill.level-b2 { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border-color: rgba(245, 158, 11, 0.35); }
+.reel-badge-pill.level-c1 { background: rgba(239, 68, 68, 0.2); color: #f87171; border-color: rgba(239, 68, 68, 0.35); }
+
+/* Meaning Section with Tap-to-Reveal */
+.reel-meaning-box {
+  position: relative;
+  padding: 7px 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.reel-meaning-box:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.reel-meaning-text {
+  font-size: clamp(0.98rem, 3.4vw, 1.08rem);
+  font-weight: 700;
+  color: #38bdf8;
+  line-height: 1.35;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+.reel-meaning-box.blurred .reel-meaning-text {
+  filter: blur(7px);
+  opacity: 0.35;
+}
+
+.reel-meaning-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 3px 8px;
+  border-radius: 9999px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.reel-meaning-box.blurred .reel-meaning-hint {
+  opacity: 1;
+}
+
+/* Example Sentence Card */
+.reel-example-box {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: clamp(0.80rem, 2.8vw, 0.88rem);
+  line-height: 1.38;
+  border-left: 3px solid #6366f1;
+  padding-left: 8px;
+  margin-top: 2px;
+}
+
+.reel-example-en {
+  color: #f1f5f9;
+  font-weight: 500;
+}
+
+.reel-example-en mark {
+  background: rgba(99, 102, 241, 0.32);
+  color: #a5b4fc;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.reel-example-vi {
+  color: var(--reels-text-muted);
+  font-size: 0.78rem;
+}
+
+/* ==========================================
+   7. TikTok/Reels Style Floating Action Bar (Right Column)
+   ========================================== */
+.reel-action-bar {
+  position: absolute;
+  right: 10px;
+  bottom: calc(76px + env(safe-area-inset-bottom, 12px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 25;
+  pointer-events: auto;
+}
+
+.reel-action-btn-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.btn-reel-action {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--reels-glass-border);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-reel-action:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.08);
+}
+
+.btn-reel-action:active {
+  transform: scale(0.9);
+}
+
+.btn-reel-action.active,
+.btn-reel-action.is-bookmarked {
+  color: #f43f5e;
+  border-color: rgba(244, 63, 94, 0.4);
+  background: rgba(244, 63, 94, 0.22);
+}
+
+.btn-reel-action.playing {
+  color: #6366f1;
+  border-color: #6366f1;
+  background: rgba(99, 102, 241, 0.28);
+  animation: reelPulse 1.2s infinite ease-in-out;
+}
+
+@keyframes reelPulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.6); }
+  70% { transform: scale(1.06); box-shadow: 0 0 0 8px rgba(99, 102, 241, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+}
+
+.reel-action-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================
+   8. Bottom Floating FSRS Rating Bar (Thumb-Optimized)
+   ========================================== */
+.reel-fsrs-rating-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 10px max(10px, env(safe-area-inset-bottom, 10px)) 10px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.88) 40%, #000000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  z-index: 25;
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+.btn-reel-fsrs {
+  flex: 1;
+  max-width: 105px;
+  min-height: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  padding: 6px 3px;
+  border-radius: 12px;
+  border: 1px solid var(--reels-glass-border);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.btn-reel-fsrs:hover {
+  transform: translateY(-2px);
+}
+
+.btn-reel-fsrs:active {
+  transform: scale(0.95);
+}
+
+.btn-reel-fsrs-again {
+  border-color: rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.14);
+}
+.btn-reel-fsrs-again:hover {
+  background: rgba(239, 68, 68, 0.25);
+}
+
+.btn-reel-fsrs-hard {
+  border-color: rgba(245, 158, 11, 0.35);
+  background: rgba(245, 158, 11, 0.14);
+}
+.btn-reel-fsrs-hard:hover {
+  background: rgba(245, 158, 11, 0.25);
+}
+
+.btn-reel-fsrs-good {
+  border-color: rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.14);
+}
+.btn-reel-fsrs-good:hover {
+  background: rgba(16, 185, 129, 0.25);
+}
+
+.btn-reel-fsrs-easy {
+  border-color: rgba(59, 130, 246, 0.35);
+  background: rgba(59, 130, 246, 0.14);
+}
+.btn-reel-fsrs-easy:hover {
+  background: rgba(59, 130, 246, 0.25);
+}
+
+.fsrs-btn-name {
+  font-size: clamp(0.72rem, 2.8vw, 0.78rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.fsrs-btn-hint {
+  font-size: 0.60rem;
+  font-weight: 500;
+  color: var(--reels-text-muted);
+}
+
+/* Floating Reaction Animation (Heart / Sparkle burst) */
+.reel-floating-particle {
+  position: absolute;
+  pointer-events: none;
+  font-size: 2.2rem;
+  z-index: 50;
+  animation: reelFloatUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes reelFloatUp {
+  0% { transform: scale(0.6) translate(0, 0); opacity: 1; }
+  50% { transform: scale(1.4) translate(0, -60px); opacity: 1; }
+  100% { transform: scale(1.8) translate(0, -120px); opacity: 0; }
+}
+
+/* Swipe Hint Indicator */
+.reel-swipe-indicator {
+  position: absolute;
+  top: calc(52px + env(safe-area-inset-top, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid var(--reels-glass-border);
+  color: var(--reels-text-sub);
+  font-size: 0.70rem;
+  font-weight: 600;
+  z-index: 25;
+  pointer-events: none;
+  animation: reelPulseHint 2s infinite ease-in-out;
+}
+
+@keyframes reelPulseHint {
+  0%, 100% { opacity: 0.55; transform: translate(-50%, 0); }
+  50% { opacity: 1; transform: translate(-50%, -4px); }
+}
+
+/* Responsive adjust for short-height phones (e.g. iPhone SE, 667px) */
+@media (max-height: 700px) {
+  .reel-slide {
+    padding-top: calc(44px + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(66px + env(safe-area-inset-bottom, 8px));
+  }
+  .reel-content-box {
+    padding: 10px 52px 10px 12px;
+    gap: 6px;
+  }
+  .reel-word-title {
+    font-size: 1.45rem;
+  }
+  .reel-action-bar {
+    gap: 6px;
+    bottom: calc(68px + env(safe-area-inset-bottom, 8px));
+  }
+  .btn-reel-action {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+  }
+  .reel-action-label {
+    font-size: 0.58rem;
+  }
+}
+
+/* Desktop Centered Container */
+@media (min-width: 481px) {
+  .reels-app-stage {
+    border-left: 1px solid var(--reels-glass-border);
+    border-right: 1px solid var(--reels-glass-border);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.7);
+  }
+}

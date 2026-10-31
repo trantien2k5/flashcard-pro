@@ -2287,4 +2287,159 @@
   }
 }
 
+/* ==========================================
+   Reels / TikTok-Style Learning Banner (Home Screen)
+   ========================================== */
+.home-reels-banner-row {
+  width: 100%;
+}
+
+.btn-reels-banner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 16px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.12) 0%, rgba(147, 51, 234, 0.14) 50%, rgba(99, 102, 241, 0.12) 100%);
+  border: 1px solid rgba(244, 63, 94, 0.28);
+  box-shadow: 0 4px 18px rgba(244, 63, 94, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="light"] .btn-reels-banner {
+  background: linear-gradient(135deg, #fff1f2 0%, #faf5ff 50%, #eef2ff 100%);
+  border-color: rgba(244, 63, 94, 0.32);
+  box-shadow: 0 4px 16px rgba(244, 63, 94, 0.06);
+}
+
+.btn-reels-banner:hover {
+  transform: translateY(-2px);
+  border-color: rgba(244, 63, 94, 0.5);
+  box-shadow: 0 8px 24px rgba(244, 63, 94, 0.18);
+}
+
+.btn-reels-banner:active {
+  transform: scale(0.98);
+}
+
+.reels-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.reels-banner-icon-box {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.btn-reels-banner:hover .reels-banner-icon-box {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.reels-live-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #22c55e;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 8px #22c55e;
+  animation: reelsDotBlink 1.4s infinite ease-in-out;
+}
+
+@keyframes reelsDotBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.reels-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.reels-banner-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.reels-banner-title {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.reels-badge-hot {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #f43f5e 0%, #fb7185 100%);
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  box-shadow: 0 2px 6px rgba(244, 63, 94, 0.35);
+}
+
+.reels-banner-desc {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.reels-banner-cta-tag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #f43f5e;
+  background: rgba(244, 63, 94, 0.1);
+  padding: 6px 10px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.btn-reels-banner:hover .reels-banner-cta-tag {
+  background: #f43f5e;
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+
 

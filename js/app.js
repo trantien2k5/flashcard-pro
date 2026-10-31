@@ -30,6 +30,7 @@ import {
   handleStudyFinish 
 } from './views/study.js';
 import { startQuizSession } from './views/quiz.js';
+import { startReelsSession } from './views/reels.js';
 import { setupSearch, showToast, showConfirm, mountGlobalModals, showStreakHubModal } from './views/components.js';
 
 // Xuất các hằng số và Enum để tương thích toàn hệ thống
@@ -242,6 +243,10 @@ export class FlashcardApp {
       item.addEventListener('click', () => {
         try {
           const targetTab = item.getAttribute('data-tab');
+          if (targetTab === 'tab-reels') {
+            this.startReelsSession();
+            return;
+          }
           this.switchTab(targetTab);
         } catch (err) {
           console.error('Lỗi chuyển tab bottom nav:', err);
@@ -579,6 +584,19 @@ export class FlashcardApp {
     } catch (err) {
       console.error('Lỗi startQuizSession:', err);
       this.showToast('Lỗi khi mở phiên trắc nghiệm: ' + (err?.message || err), 'error');
+    }
+  }
+
+  startReelsSession(queue = null, options = {}) {
+    try {
+      if (Array.isArray(queue)) {
+        startReelsSession(this, queue, options);
+      } else {
+        startReelsSession(this, null, options);
+      }
+    } catch (err) {
+      console.error('Lỗi startReelsSession:', err);
+      this.showToast('Lỗi khi mở phiên lướt từ vựng: ' + (err?.message || err), 'error');
     }
   }
 

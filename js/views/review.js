@@ -119,6 +119,32 @@ export function renderReviewShell(container) {
           </button>
         </div>
 
+        <!-- 3b. BANNER LƯỚT TỪ VỰNG NGẮN (REELS / TIKTOK STYLE LEARNING) -->
+        <div class="home-reels-banner-row">
+          <button type="button" class="btn-reels-banner" id="btn-home-start-reels" title="Học và ôn từ vựng theo phong cách lướt video ngắn TikTok / Reels">
+            <div class="reels-banner-left">
+              <div class="reels-banner-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="m10 9 5 3-5 3V9z"/>
+                  <path fill-rule="evenodd" d="M3 6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6zm3-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H6z" clip-rule="evenodd"/>
+                </svg>
+                <span class="reels-live-dot"></span>
+              </div>
+              <div class="reels-banner-text">
+                <div class="reels-banner-title-wrap">
+                  <span class="reels-banner-title">Lướt Từ Vựng (Reels)</span>
+                  <span class="reels-badge-hot">MỚI • Lướt là thuộc</span>
+                </div>
+                <span class="reels-banner-desc">Vuốt mượt như TikTok, tự động phát âm & câu ví dụ sinh động</span>
+              </div>
+            </div>
+            <div class="reels-banner-cta-tag">
+              <span>Lướt ngay</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </div>
+          </button>
+        </div>
+
         <!-- 3b. NÚT ÔN TẬP TÙY CHỌN (CUSTOM FILTERED STUDY) -->
         <div class="home-custom-study-row">
           <button type="button" class="btn-custom-study-bar" id="btn-home-custom-study" title="Ôn tập tùy chọn theo chủ đề, cấp độ & trạng thái FSRS">
@@ -264,6 +290,18 @@ export function renderReviewTab(app) {
       btnStartNew._bound = true;
       btnStartNew.onclick = () => {
         app.startStudySession(null, null, null, { mode: 'new_only' });
+      };
+    }
+
+    // Gán sự kiện cho Banner Lướt Từ Vựng (Reels Mode)
+    const btnStartReels = document.getElementById('btn-home-start-reels');
+    if (btnStartReels && !btnStartReels._bound) {
+      btnStartReels._bound = true;
+      btnStartReels.onclick = () => {
+        navigator.vibrate?.(10);
+        if (typeof app.startReelsSession === 'function') {
+          app.startReelsSession(null, { mode: 'mixed' });
+        }
       };
     }
 
