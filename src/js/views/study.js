@@ -1,0 +1,2255 @@
+/**
+ * Study View Controller - Flashcard 3D Interactive Learning Engine
+ * Hỗ trợ chế độ Tối giản Mặc định, Nút Lật Thẻ Trực Quan & Bảng điều khiển Menu 3 chấm
+ */
+
+import { Rating, State } from '../core/fsrs.js';
+import { StorageManager } from '../services/storage.js';
+import { showConfirm } from './components.js';
+import { globalStudyTimer } from '../core/stats.js';
+import { unlockAudioContext } from '../core/session.js';
+import { escapeHTML, formatCleanInterval, scrollToTop } from '../utils.js';
+import { onAudioPlayStateChange, speak, speakVi, stopAudio } from '../services/audio.js';
+
+// ==========================================
+// CẤU HÌNH TỰ ĐỘNG HỌC (AUTO-PLAY CONFIG & PREFS)
+// ==========================================
+export const DEFAULT_AUTOPLAY_CONFIG = {
+  frontDelaySec: 3.0,     // Giây dừng ở mặt trước để suy nghĩ
+  backDelaySec: 2.5,      // Giây dừng ở mặt sau để tiếp thu
+  speakVi: true,          // Phát âm nghĩa tiếng Việt ở mặt sau
+  loopList: false         // Tự động lặp lại vô tận khi hết danh sách
+};
+
+export function getAutoPlayPrefs() {
+  try {
+    const raw = localStorage.getItem('study_autoplay_prefs');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      return {
+        frontDelaySec: typeof parsed.frontDelaySec === 'number' ? parsed.frontDelaySec : DEFAULT_AUTOPLAY_CONFIG.frontDelaySec,
+        backDelaySec: typeof parsed.backDelaySec === 'number' ? parsed.backDelaySec : DEFAULT_AUTOPLAY_CONFIG.backDelaySec,
+        speakVi: parsed.speakVi !== undefined ? !!parsed.speakVi : DEFAULT_AUTOPLAY_CONFIG.speakVi,
+        loopList: parsed.loopList !== undefined ? !!parsed.loopList : DEFAULT_AUTOPLAY_CONFIG.loopList
+      };
+    }
+  } catch (e) {}
+  return { ...DEFAULT_AUTOPLAY_CONFIG };
+}
+
+export function saveAutoPlayPrefs(prefs) {
+  try {
+    localStorage.setItem('study_autoplay_prefs', JSON.stringify(prefs));
+  } catch (e) {}
+}
+
+let _isAutoPlaying = false;
+let _autoPlayTimer = null;
+let _cardShowTime = 0;
+let _backShowTime = 0;
+let _lastFlipLatencyMs = 0;
+let _studyOverlayEl = null;
+
+function getStudyOverlay() {
+  if (!_studyOverlayEl || !_studyOverlayEl.isConnected) {
+    _studyOverlayEl = document.getElementById('study-overlay');
+  }
+  return _studyOverlayEl;
+}
+let _isFlipLocked = false;
+let _flipCountdownTimer = null;
+
+export function isAutoPlayActive() {
+  return _isAutoPlaying;
+}
+
+export function updateAutoPlayUI(isPlaying) {
+  const btnAutoplay = document.getElementById('btn-study-autoplay');
+  if (btnAutoplay) {
+    if (isPlaying) {
+      btnAutoplay.classList.add('active');
+    } else {
+      btnAutoplay.classList.remove('active');
+    }
+    const playIcon = btnAutoplay.querySelector('.icon-autoplay-play');
+    const pauseIcon = btnAutoplay.querySelector('.icon-autoplay-pause');
+    if (playIcon) playIcon.style.display = isPlaying ? 'none' : 'block';
+    if (pauseIcon) pauseIcon.style.display = isPlaying ? 'block' : 'none';
+  }
+
+  const btnAction = document.getElementById('btn-autoplay-main-action');
+  if (btnAction) {
+    if (isPlaying) {
+      btnAction.className = 'btn-autoplay-main-action is-pause';
+      btnAction.innerHTML = `
+        <span class="action-icon">⏸️</span>
+        <span class="action-text">Tạm dừng tự động học</span>
+      `;
+    } else {
+      btnAction.className = 'btn-autoplay-main-action is-start';
+      btnAction.innerHTML = `
+        <span class="action-icon">▶️</span>
+        <span class="action-text">Bắt đầu tự động học</span>
+      `;
+    }
+  }
+}
+
+export function stopAutoPlay() {
+  _isAutoPlaying = false;
+  if (_autoPlayTimer) {
+    clearTimeout(_autoPlayTimer);
+    _autoPlayTimer = null;
+  }
+  updateAutoPlayUI(false);
+}
+
+export function startFrontActiveRecallTimer() {
+  if (_flipCountdownTimer) {
+    clearInterval(_flipCountdownTimer);
+    _flipCountdownTimer = null;
+  }
+
+  const btn = document.getElementById('btn-main-flip');
+  if (!btn) return;
+
+  const prefs = getStudyPrefs();
+  const delaySec = Number(prefs.thinkDelaySec || 0);
+
+  if (delaySec <= 0) {
+    _isFlipLocked = false;
+    btn.classList.remove('is-locked');
+    btn.innerHTML = `<span class="swipe-flip-icon">⌃</span><span>Vuốt lên để lật thẻ</span>`;
+    return;
+  }
+
+  const durationMs = delaySec * 1000;
+  const startTime = performance.now();
+  _isFlipLocked = true;
+  btn.classList.add('is-locked');
+
+  const updateCountdown = () => {
+    const elapsed = performance.now() - startTime;
+    const remainingSec = Math.max(0, (durationMs - elapsed) / 1000);
+
+    if (remainingSec <= 0.05) {
+      _isFlipLocked = false;
+      if (_flipCountdownTimer) {
+        clearInterval(_flipCountdownTimer);
+        _flipCountdownTimer = null;
+      }
+      btn.classList.remove('is-locked');
+      btn.innerHTML = `<span class="swipe-flip-icon">⌃</span><span>Vuốt lên để lật thẻ</span>`;
+    } else {
+      const displaySec = Math.max(1, Math.ceil(remainingSec));
+      btn.innerHTML = `
+        <span class="swipe-flip-icon">⏳</span>
+        <span>Suy nghĩ (${displaySec}s)</span>
+      `;
+    }
+  };
+
+  updateCountdown();
+  _flipCountdownTimer = setInterval(updateCountdown, 100);
+}
+
+// Cấu hình học tập (Mặc định: Từ tiếng Anh, Nghĩa tiếng Việt, Phiên âm, Từ loại, Câu ví dụ tiếng Anh)
+const DEFAULT_STUDY_PREFS = {
+  studyMode: 'flashcard',    // 'flashcard' (lật thẻ)
+  showImage: false,          // Mặc định TẮT hình ảnh (tránh lỗi/chiếm diện tích)
+  showPhonetic: true,        // Mặc định BẬT phiên âm IPA
+  showDefinition: false,     // Mặc định TẮT định nghĩa tiếng Anh dài dòng
+  showExample: true,         // Mặc định BẬT câu ví dụ tiếng Anh
+  showExampleVi: false,      // Mặc định TẮT bản dịch câu ví dụ
+  showPos: true,             // Mặc định BẬT từ loại (POS) & CEFR
+  showCefr: true,            // Mặc định BẬT nhãn CEFR
+  showCloze: true,           // Mặc định BẬT gợi ý ngữ cảnh khuyết từ
+  autoplayAudio: true,
+  audioAccent: 'us',
+  showHint: true,
+  thinkDelaySec: 0,          // Mặc định tắt (0s) lật tức thì
+  enableBackLock: false      // Mặc định tắt khóa chống bấm nhầm mặt sau
+};
+
+export function getStudyPrefs() {
+  try {
+    const raw = localStorage.getItem('study_display_prefs');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      return {
+        ...DEFAULT_STUDY_PREFS,
+        studyMode: 'flashcard',
+        showImage: parsed.showImage !== undefined ? !!parsed.showImage : DEFAULT_STUDY_PREFS.showImage,
+        showPhonetic: parsed.showPhonetic !== undefined ? !!parsed.showPhonetic : DEFAULT_STUDY_PREFS.showPhonetic,
+        showDefinition: parsed.showDefinition !== undefined ? !!parsed.showDefinition : DEFAULT_STUDY_PREFS.showDefinition,
+        showExample: parsed.showExample !== undefined ? !!parsed.showExample : DEFAULT_STUDY_PREFS.showExample,
+        showExampleVi: parsed.showExampleVi !== undefined ? !!parsed.showExampleVi : DEFAULT_STUDY_PREFS.showExampleVi,
+        showPos: parsed.showPos !== undefined ? !!parsed.showPos : DEFAULT_STUDY_PREFS.showPos,
+        showCefr: parsed.showCefr !== undefined ? !!parsed.showCefr : DEFAULT_STUDY_PREFS.showCefr,
+        showCloze: parsed.showCloze !== undefined ? !!parsed.showCloze : DEFAULT_STUDY_PREFS.showCloze,
+        autoplayAudio: parsed.autoplayAudio !== undefined ? !!parsed.autoplayAudio : DEFAULT_STUDY_PREFS.autoplayAudio,
+        audioAccent: parsed.audioAccent || DEFAULT_STUDY_PREFS.audioAccent,
+        thinkDelaySec: parsed.thinkDelaySec !== undefined ? Number(parsed.thinkDelaySec) : DEFAULT_STUDY_PREFS.thinkDelaySec,
+        enableBackLock: parsed.enableBackLock !== undefined ? !!parsed.enableBackLock : DEFAULT_STUDY_PREFS.enableBackLock
+      };
+    }
+  } catch (e) {}
+  return { ...DEFAULT_STUDY_PREFS };
+}
+
+export function saveStudyPrefs(prefs) {
+  try {
+    localStorage.setItem('study_display_prefs', JSON.stringify(prefs));
+  } catch (e) {}
+}
+
+export function renderStudyOverlayShell() {
+  let overlay = getStudyOverlay();
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'study-overlay';
+    overlay.className = 'study-overlay';
+    document.body.appendChild(overlay);
+    _studyOverlayEl = overlay;
+  }
+
+  if (!overlay.querySelector('.study-header-bar')) {
+    overlay.innerHTML = `
+      <!-- Minimalist Header Bar (Tích hợp Thanh đếm thời gian & Thống kê phiên học) -->
+      <header class="study-header-bar">
+        <div class="study-header-inner">
+          <button id="btn-study-close" class="btn-study-exit" title="Thoát phiên học (Esc)" aria-label="Đóng phiên học">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+
+          <!-- Unified Header Center: Pomodoro Focus Bar & Live Elapsed Timer (Đã ẩn theo yêu cầu người dùng) -->
+          <div class="study-pomodoro-bar" id="study-pomodoro-bar" style="display: none !important;">
+            <div class="pomodoro-bar-inner">
+              <!-- 1. Trái: Biểu tượng + Đồng hồ tăng dần + Nút Play/Pause -->
+              <div class="pomodoro-timer-side">
+                <span class="pomodoro-badge-icon" title="Phiên học Pomodoro">🍅</span>
+                <span class="pomodoro-time-display" id="pomodoro-countdown" title="Thời gian đã học trong phiên">00:00</span>
+                <button type="button" class="btn-pomodoro-control" id="btn-pomodoro-toggle" title="Tạm dừng / Tiếp tục Pomodoro" aria-label="Tạm dừng hoặc tiếp tục">
+                  <span class="pomodoro-btn-icon" id="pomodoro-play-icon">⏸️</span>
+                </button>
+              </div>
+
+              <!-- 2. Giữa: Thống kê số lượng thẻ đã ôn trong chu kỳ -->
+              <div class="pomodoro-stats-side" id="pomodoro-stats-side" title="Số lượng thẻ đã ôn trong phiên này">
+                <span class="pomodoro-stats-lbl">Đã ôn:</span>
+                <span class="pomodoro-count-number" id="pomodoro-cards-count">0</span>
+                <span class="pomodoro-stats-unit">thẻ</span>
+              </div>
+
+              <!-- 3. Phải: Cho user điều chỉnh mục tiêu 5p đến 60p + Nút Reset -->
+              <div class="pomodoro-actions-side">
+                <div class="pomodoro-select-wrapper" title="Mục tiêu phiên Pomodoro (5p - 60p)">
+                  <select class="pomodoro-select" id="pomodoro-duration-select" aria-label="Chọn thời lượng Pomodoro">
+                    <option value="5">5p</option>
+                    <option value="10">10p</option>
+                    <option value="15">15p</option>
+                    <option value="20">20p</option>
+                    <option value="25" selected>25p</option>
+                    <option value="30">30p</option>
+                    <option value="45">45p</option>
+                    <option value="60">60p</option>
+                  </select>
+                  <span class="select-chevron">▾</span>
+                </div>
+                <button type="button" class="btn-pomodoro-reset" id="btn-pomodoro-reset" title="Đặt lại chu kỳ" aria-label="Đặt lại">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Thanh tiến độ thời gian Pomodoro -->
+            <div class="pomodoro-progress-bar">
+              <div class="pomodoro-progress-fill" id="pomodoro-progress-fill" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Right Action: 3 Dots Menu for Study Options -->
+          <div class="study-header-right">
+            <button id="btn-study-menu" class="btn-study-icon" title="Tùy chọn phiên học" aria-label="Tùy chọn phiên học">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="1.5"/>
+                <circle cx="19" cy="12" r="1.5"/>
+                <circle cx="5" cy="12" r="1.5"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Study Canvas Center Area -->
+      <main class="study-body-wrapper">
+
+        <div class="flashcard-stage">
+          <div id="flashcard-element" class="flashcard-3d-wrapper" role="button" tabindex="0" aria-label="Thẻ học từ vựng">
+            
+            <!-- ================= MẶT TRƯỚC (FRONT FACE) ================= -->
+            <div class="flashcard-face face-front">
+              <!-- Top Minimal Status Badge & Top-Right Badges -->
+              <div class="card-top-bar">
+                <div class="card-status-badge state-new" id="card-front-status-badge">
+                  <span class="status-dot"></span>
+                  <span class="status-text" id="card-front-status-text">Từ mới</span>
+                </div>
+                <div class="card-front-top-right">
+                  <div class="card-badges-row" id="card-front-badges-wrap">
+                    <span class="card-pos-tag" id="card-pos-badge-front">WORD</span>
+                    <span class="card-cefr-tag" id="card-cefr-badge-front">A1</span>
+                  </div>
+                  <div class="card-leech-badge" id="card-front-leech-badge" style="display: none;" title="Thẻ khó nhớ (Leech)">
+                    <span class="leech-icon">⚠️</span>
+                    <span class="leech-text">Khó nhớ</span>
+                  </div>
+                  <div class="card-reps-badge" id="card-front-reps-badge" style="display: none;">
+                    <span class="reps-text" id="card-front-reps-text">0</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Hình ảnh minh họa (nếu từ vựng có ảnh) -->
+              <div class="card-image-container" id="card-front-img-container" style="display: none;">
+                <img id="card-front-img" class="fc-image" alt="Visual representation" />
+              </div>
+
+              <!-- Cụm Từ Vựng Chính Giữa (Vibrant Focus Layout - Cho Chế Độ Lật Thẻ) -->
+              <div class="card-word-center" id="card-front-flip-center">
+                <!-- Nút loa dời lên đầu từ tiếng Anh sinh động, bắt mắt -->
+                <button class="card-speaker-hero" id="btn-audio-speaker" type="button" title="Phát âm từ vựng" aria-label="Phát âm">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                  </svg>
+                </button>
+
+                <!-- Từ vựng tiếng Anh to, rõ, font hiện đại -->
+                <h2 class="card-word-title fc-title" id="card-front-word">...</h2>
+                
+                <!-- Phiên âm IPA -->
+                <div class="card-meta-row" id="card-front-meta-row">
+                  <span class="card-word-phonetic fc-phonetic" id="card-front-phonetic">/ ... /</span>
+                </div>
+              </div>
+
+              <!-- Luyện Nghe Phản Xạ Mù (Audio Blind Waveform) -->
+              <div class="card-audio-blind-wrap" id="card-audio-blind-wrap" style="display: none;">
+                <div class="audio-wave-visualizer">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="audio-blind-prompt">🎧 Nghe kỹ âm thanh & đoán từ vựng</div>
+              </div>
+
+              <!-- Gợi ý ngữ cảnh khuyết từ (Contextual Cloze Deletion Hint - Trong Chế Độ Lật Thẻ) -->
+              <div class="card-cloze-hint-container" id="card-cloze-hint-container" style="display: none;">
+                <div class="card-cloze-pill" id="card-cloze-pill" title="Gợi ý câu ngữ cảnh khuyết từ">
+                  <span class="cloze-icon">💡</span>
+                  <span class="cloze-text" id="card-cloze-text">...</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ================= MẶT SAU (BACK FACE) ================= -->
+            <div class="flashcard-face face-back">
+              <!-- Top Context: Từ gốc tiếng Anh & Loa mini -->
+              <div class="card-top-bar">
+                <div class="card-back-context-word">
+                  <span class="back-word-label" id="card-back-word-context-text">...</span>
+                  <button class="btn-card-audio-mini" id="btn-audio-speaker-back" type="button" title="Nghe lại phát âm" aria-label="Nghe lại phát âm">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="card-back-badges" id="card-back-badges-wrap" style="display: none;">
+                  <span class="card-pos-tag" id="card-pos-badge-back">WORD</span>
+                  <span class="card-cefr-tag" id="card-cefr-badge-back">A1</span>
+                </div>
+              </div>
+
+              <!-- Cụm Nội Dung Mặt Sau Chính Giữa (Cân bằng & Tự động Căn Giữa khi ẩn Định nghĩa/Ví dụ) -->
+              <div class="card-back-center" id="card-back-center">
+                <!-- Nghĩa Tiếng Việt Chủ Đạo -->
+                <div class="card-meaning-hero">
+                  <h3 class="card-back-meaning fc-meaning" id="card-back-meaning">...</h3>
+                </div>
+
+                <!-- Định nghĩa Tiếng Anh -->
+                <div class="card-back-def-box" id="card-back-def-box" style="display: none;">
+                  <p class="card-back-def fc-def" id="card-back-def">...</p>
+                </div>
+
+                <!-- Câu ví dụ tiếng Anh (Italic) & Bản dịch bên dưới -->
+                <div class="card-back-example fc-example" id="card-back-example-box" style="display: none;">
+                  <div class="example-top-header" id="example-top-header">
+                    <span class="example-label-tag">Ví dụ</span>
+                    <button class="btn-example-audio" id="btn-example-audio" type="button" title="Đọc câu ví dụ" aria-label="Phát âm câu ví dụ">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <p class="card-example-en" id="card-back-example">...</p>
+                  <p class="card-example-vi" id="card-back-example-vi">...</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Cụm Nút Điều Khiển Gần Thẻ -->
+        <div class="study-bottom-controls" id="study-controls-wrapper">
+          
+          <!-- 1. Gợi ý Vuốt Thẻ Lật Dọc ở Mặt Trước (Đã ẩn theo yêu cầu người dùng) -->
+          <div id="front-flip-control" class="front-flip-control" style="display: none !important;">
+            <div class="swipe-flip-hint" id="btn-main-flip" role="button" tabindex="0" title="Vuốt lên để lật thẻ" style="display: none !important;"></div>
+          </div>
+
+          <!-- 2. Cụm 4 Nút Đánh Giá Anki/FSRS: Vibrant Solid Tint -->
+          <div id="fsrs-buttons-container" class="fsrs-buttons-grid">
+            <button class="btn-fsrs-rating again" data-rating="1" title="Again (Phím 1)">
+              <div class="fsrs-btn-top">
+                <span class="fsrs-rating-title">Again</span>
+              </div>
+              <span class="fsrs-badge-interval" id="interval-again">1m</span>
+            </button>
+
+            <button class="btn-fsrs-rating hard" data-rating="2" title="Hard (Phím 2)">
+              <div class="fsrs-btn-top">
+                <span class="fsrs-rating-title">Hard</span>
+              </div>
+              <span class="fsrs-badge-interval" id="interval-hard">10m</span>
+            </button>
+
+            <button class="btn-fsrs-rating good" data-rating="3" title="Good (Phím 3)">
+              <div class="fsrs-btn-top">
+                <span class="fsrs-rating-title">Good</span>
+              </div>
+              <span class="fsrs-badge-interval" id="interval-good">1d</span>
+            </button>
+
+            <button class="btn-fsrs-rating easy" data-rating="4" title="Easy (Phím 4)">
+              <div class="fsrs-btn-top">
+                <span class="fsrs-rating-title">Easy</span>
+              </div>
+              <span class="fsrs-badge-interval" id="interval-easy">4d</span>
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <!-- Drawer / Modal Tùy chọn học tập Menu 3 Chấm -->
+      <div class="study-prefs-drawer" id="study-prefs-drawer">
+        <div class="study-prefs-backdrop" id="study-prefs-backdrop"></div>
+        <div class="study-prefs-content">
+          <div class="prefs-header">
+            <div class="prefs-title-wrap">
+              <span class="prefs-icon">⚙️</span>
+              <h3 class="prefs-title">Tùy chọn phiên học</h3>
+            </div>
+            <button class="btn-prefs-close" id="btn-prefs-close" title="Đóng bảng tùy chọn" aria-label="Đóng">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+          
+          <p class="prefs-desc">Tùy chỉnh chế độ học, nhịp độ và cấu hình hiển thị thẻ FSRS:</p>
+
+          <div class="prefs-list">
+            <!-- 1. Chế độ ôn tập -->
+            <div class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🎮 Chế độ ôn tập</span>
+                <span class="pref-sub">Chọn phương pháp học trong phiên</span>
+              </div>
+              <select id="pref-select-study-mode" class="pref-select-dropdown">
+                <option value="flashcard" selected>🎴 Thẻ Flashcard 3D</option>
+                <option value="quiz">🎯 Trắc nghiệm (Quiz)</option>
+              </select>
+            </div>
+
+            <!-- 2. Tự động phát âm -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🔊 Tự động phát âm</span>
+                <span class="pref-sub">Tự động đọc từ khi xuất hiện thẻ mới</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-autoplay" class="toggle-checkbox">
+            </label>
+
+            <!-- 3. Giọng phát âm -->
+            <div class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🗣️ Giọng đọc tiếng Anh</span>
+                <span class="pref-sub">Chọn giọng bản xứ chuẩn Mỹ / Anh</span>
+              </div>
+              <select id="pref-select-accent" class="pref-select-dropdown">
+                <option value="us">🇺🇸 Giọng Mỹ (US)</option>
+                <option value="uk">🇬🇧 Giọng Anh (UK)</option>
+              </select>
+            </div>
+
+            <!-- 4. Hình ảnh minh họa -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🖼️ Hình ảnh minh họa</span>
+                <span class="pref-sub">Hiển thị hình ảnh minh họa ở mặt trước</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-show-image" class="toggle-checkbox">
+            </label>
+
+            <!-- 5. Phiên âm IPA -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🔤 Phiên âm quốc tế IPA</span>
+                <span class="pref-sub">Hiển thị ký hiệu phát âm ở mặt trước</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-show-phonetic" class="toggle-checkbox">
+            </label>
+
+            <!-- 6. Từ loại & Trình độ CEFR -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🏷️ Từ loại & Trình độ CEFR</span>
+                <span class="pref-sub">Hiển thị nhãn loại từ và CEFR (A1-C1)</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-show-pos" class="toggle-checkbox">
+            </label>
+
+            <!-- 7. Câu ví dụ tiếng Anh -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">💬 Câu ví dụ tiếng Anh</span>
+                <span class="pref-sub">Hiển thị câu ví dụ ngữ cảnh ở mặt sau</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-show-example" class="toggle-checkbox">
+            </label>
+
+            <!-- 8. Dịch nghĩa câu ví dụ -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🇻🇳 Dịch nghĩa câu ví dụ</span>
+                <span class="pref-sub">Hiển thị bản dịch tiếng Việt của ví dụ</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-show-example-vi" class="toggle-checkbox">
+            </label>
+
+            <!-- 9. Định nghĩa Anh - Anh -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">📖 Định nghĩa Anh - Anh</span>
+                <span class="pref-sub">Hiển thị giải thích nghĩa bằng tiếng Anh</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-show-def" class="toggle-checkbox">
+            </label>
+
+            <!-- 10. Chờ suy nghĩ mặt trước -->
+            <div class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">⏱️ Chờ suy nghĩ (Mặt trước)</span>
+                <span class="pref-sub">Đếm ngược trước khi mở nút lật đáp án</span>
+              </div>
+              <select id="pref-select-think-delay" class="pref-select-dropdown">
+                <option value="0">Tắt (0s - Lật tức thì)</option>
+                <option value="1">1 giây</option>
+                <option value="2">2 giây</option>
+                <option value="3">3 giây</option>
+                <option value="5">5 giây</option>
+              </select>
+            </div>
+
+            <!-- 11. Khóa chống bấm nhầm mặt sau -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🛡️ Khóa chống bấm nhầm (Mặt sau)</span>
+                <span class="pref-sub">Khóa nút đánh giá 1.2s để xem kỹ đáp án</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-back-lock" class="toggle-checkbox">
+            </label>
+
+            <!-- 12. Gợi ý ngữ cảnh khuyết từ -->
+            <label class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">💡 Gợi ý ngữ cảnh khuyết từ</span>
+                <span class="pref-sub">Hiện câu ví dụ ẩn từ khóa ở mặt trước</span>
+              </div>
+              <input type="checkbox" id="pref-toggle-show-cloze" class="toggle-checkbox">
+            </label>
+          </div>
+
+          <div class="prefs-card-actions-section">
+            <h4 class="prefs-section-subtitle">Thao tác thẻ hiện tại</h4>
+            <div class="prefs-actions-grid">
+              <button type="button" class="btn-study-card-action" id="btn-action-reset-card" title="Học lại từ này từ đầu">
+                <span class="action-icon">🔄</span>
+                <div class="action-text">
+                  <span class="action-title">Đặt lại tiến độ thẻ</span>
+                  <span class="action-desc">Xóa lịch sử về Từ mới</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div class="prefs-footer">
+            <button type="button" class="btn-reset-prefs" id="btn-reset-prefs">
+              🔄 Khôi phục mặc định
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Drawer / Modal Tùy chỉnh Tự động học (Auto-Play) -->
+      <div class="study-autoplay-modal" id="study-autoplay-modal">
+        <div class="study-autoplay-backdrop" id="study-autoplay-backdrop"></div>
+        <div class="study-autoplay-content">
+          <div class="autoplay-modal-header">
+            <div class="autoplay-title-wrap">
+              <span class="autoplay-modal-icon">⚡</span>
+              <h3 class="autoplay-modal-title">Tự động học (Auto-Play)</h3>
+            </div>
+            <button class="btn-autoplay-modal-close" id="btn-autoplay-modal-close" title="Đóng bảng cài đặt" aria-label="Đóng">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+
+          <p class="autoplay-modal-desc">Học rảnh tay: tự động phát âm tiếng Anh, chờ suy nghĩ, lật thẻ và đọc nghĩa tiếng Việt. Duy trì chuỗi ngày học (Streak) và giữ nguyên lịch ôn tập FSRS của thẻ.</p>
+
+          <div class="autoplay-settings-list">
+            <!-- 1. Delay mặt trước -->
+            <div class="autoplay-setting-item">
+              <div class="autoplay-setting-info">
+                <span class="autoplay-setting-label">⏱️ Chờ suy nghĩ (Mặt trước)</span>
+                <span class="autoplay-setting-sub">Thời gian dừng để nhớ từ trước khi lật</span>
+              </div>
+              <div class="stepper-wrap">
+                <button class="btn-stepper" id="btn-front-delay-minus" type="button" title="Giảm 0.5s" aria-label="Giảm">−</button>
+                <span class="stepper-value" id="val-front-delay">3.0s</span>
+                <button class="btn-stepper" id="btn-front-delay-plus" type="button" title="Tăng 0.5s" aria-label="Tăng">+</button>
+              </div>
+            </div>
+
+            <!-- 2. Delay mặt sau -->
+            <div class="autoplay-setting-item">
+              <div class="autoplay-setting-info">
+                <span class="autoplay-setting-label">📖 Chờ tiếp thu (Mặt sau)</span>
+                <span class="autoplay-setting-sub">Thời gian xem nghĩa trước khi sang từ mới</span>
+              </div>
+              <div class="stepper-wrap">
+                <button class="btn-stepper" id="btn-back-delay-minus" type="button" title="Giảm 0.5s" aria-label="Giảm">−</button>
+                <span class="stepper-value" id="val-back-delay">2.5s</span>
+                <button class="btn-stepper" id="btn-back-delay-plus" type="button" title="Tăng 0.5s" aria-label="Tăng">+</button>
+              </div>
+            </div>
+
+            <!-- 3. Phát âm tiếng Việt -->
+            <label class="autoplay-setting-item clickable">
+              <div class="autoplay-setting-info">
+                <span class="autoplay-setting-label"><svg class="flag-icon-vn" width="18" height="12" viewBox="0 0 30 20" fill="none"><rect width="30" height="20" rx="2" fill="#DA251D"/><polygon points="15,4 16.545,8.755 21.548,8.755 17.501,11.695 19.046,16.45 15,13.51 10.954,16.45 12.499,11.695 8.452,8.755 13.455,8.755" fill="#FFFF00"/></svg> Đọc nghĩa Tiếng Việt</span>
+                <span class="autoplay-setting-sub">Tự động phát âm bản dịch tiếng Việt ở mặt sau</span>
+              </div>
+              <input type="checkbox" id="toggle-autoplay-speak-vi" class="toggle-checkbox">
+            </label>
+
+            <!-- 4. Lặp vô tận -->
+            <label class="autoplay-setting-item clickable">
+              <div class="autoplay-setting-info">
+                <span class="autoplay-setting-label">🔁 Lặp lại khi hết thẻ</span>
+                <span class="autoplay-setting-sub">Tự động quay lại từ đầu khi kết thúc danh sách</span>
+              </div>
+              <input type="checkbox" id="toggle-autoplay-loop" class="toggle-checkbox">
+            </label>
+          </div>
+
+          <!-- Nút bắt đầu / tạm dừng lớn -->
+          <div class="autoplay-modal-footer">
+            <button id="btn-autoplay-main-action" class="btn-autoplay-main-action is-start" type="button">
+              <span class="action-icon">▶️</span>
+              <span class="action-text">Bắt đầu tự động học</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Checkpoint đã được lược bỏ để học liên tục không bị ngắt quãng -->
+    `;
+  }
+}
+
+export function setupStudyControls(app) {
+  try {
+    renderStudyOverlayShell();
+    const overlay = getStudyOverlay();
+    const flashcardEl = document.getElementById('flashcard-element');
+    const fsrsButtonsContainer = document.getElementById('fsrs-buttons-container');
+    const frontFlipControl = document.getElementById('front-flip-control');
+    const btnMainFlip = document.getElementById('btn-main-flip');
+    const btnCardFlipAction = document.getElementById('btn-card-flip-action');
+
+    const btnClose = document.getElementById('btn-study-close');
+    const btnMenu = document.getElementById('btn-study-menu');
+    const btnAudioSpeaker = document.getElementById('btn-audio-speaker');
+    const btnAudioSpeakerBack = document.getElementById('btn-audio-speaker-back');
+    const btnExampleAudio = document.getElementById('btn-example-audio');
+
+    const drawer = document.getElementById('study-prefs-drawer');
+    const drawerBackdrop = document.getElementById('study-prefs-backdrop');
+    const btnCloseDrawer = document.getElementById('btn-prefs-close');
+    const btnResetPrefs = document.getElementById('btn-reset-prefs');
+
+    // Các điều khiển tùy chọn trong Drawer
+    const selectStudyMode = document.getElementById('pref-select-study-mode');
+    const toggleAutoplay = document.getElementById('pref-toggle-autoplay');
+    const selectAccent = document.getElementById('pref-select-accent');
+    const toggleShowImage = document.getElementById('pref-toggle-show-image');
+    const toggleShowPhonetic = document.getElementById('pref-toggle-show-phonetic');
+    const toggleShowPos = document.getElementById('pref-toggle-show-pos');
+    const toggleShowExample = document.getElementById('pref-toggle-show-example');
+    const toggleShowExampleVi = document.getElementById('pref-toggle-show-example-vi');
+    const toggleShowDef = document.getElementById('pref-toggle-show-def');
+    const selectThinkDelay = document.getElementById('pref-select-think-delay');
+    const toggleBackLock = document.getElementById('pref-toggle-back-lock');
+    const toggleShowCloze = document.getElementById('pref-toggle-show-cloze');
+
+    if (!overlay || !flashcardEl || overlay._controlsBound) return;
+    overlay._controlsBound = true;
+
+    // Khởi tạo trạng thái điều khiển theo Preferences hiện tại
+    const syncCheckboxesFromPrefs = () => {
+      const p = getStudyPrefs();
+      if (selectStudyMode) selectStudyMode.value = 'flashcard';
+      if (toggleAutoplay) toggleAutoplay.checked = (app.settings?.autoPronounce !== false) && !!p.autoplayAudio;
+      if (selectAccent) selectAccent.value = (app.settings?.audioAccent || p.audioAccent || 'us').toLowerCase();
+      if (toggleShowImage) toggleShowImage.checked = !!p.showImage;
+      if (toggleShowPhonetic) toggleShowPhonetic.checked = p.showPhonetic !== false;
+      if (toggleShowPos) toggleShowPos.checked = p.showPos !== false;
+      if (toggleShowExample) toggleShowExample.checked = p.showExample !== false;
+      if (toggleShowExampleVi) toggleShowExampleVi.checked = !!p.showExampleVi;
+      if (toggleShowDef) toggleShowDef.checked = !!p.showDefinition;
+      if (toggleShowCloze) toggleShowCloze.checked = p.showCloze !== false;
+      if (selectThinkDelay) selectThinkDelay.value = String(p.thinkDelaySec ?? 0);
+      if (toggleBackLock) toggleBackLock.checked = !!p.enableBackLock;
+    };
+
+    const updatePrefFromControls = () => {
+      const isAutoplay = !!toggleAutoplay?.checked;
+      const p = {
+        ...DEFAULT_STUDY_PREFS,
+        autoplayAudio: isAutoplay,
+        audioAccent: selectAccent?.value || 'us',
+        showImage: !!toggleShowImage?.checked,
+        showPhonetic: !!toggleShowPhonetic?.checked,
+        showPos: !!toggleShowPos?.checked,
+        showCefr: !!toggleShowPos?.checked,
+        showExample: !!toggleShowExample?.checked,
+        showExampleVi: !!toggleShowExampleVi?.checked,
+        showDefinition: !!toggleShowDef?.checked,
+        showCloze: !!toggleShowCloze?.checked,
+        thinkDelaySec: Number(selectThinkDelay?.value || 0),
+        enableBackLock: !!toggleBackLock?.checked
+      };
+      saveStudyPrefs(p);
+      if (app.settings) {
+        app.settings.autoPronounce = isAutoplay;
+        if (selectAccent?.value) app.settings.audioAccent = selectAccent.value;
+        StorageManager.saveSettings(app.settings);
+      }
+      if (app.studySession) {
+        app.studySession.updateSettings();
+      }
+      if (app.studySession?.currentCard) {
+        applyFieldVisibility(p, app.studySession.currentCard);
+      }
+    };
+
+    syncCheckboxesFromPrefs();
+
+    if (toggleAutoplay) toggleAutoplay.addEventListener('change', updatePrefFromControls);
+    if (selectAccent) selectAccent.addEventListener('change', updatePrefFromControls);
+    if (toggleShowImage) toggleShowImage.addEventListener('change', updatePrefFromControls);
+    if (toggleShowPhonetic) toggleShowPhonetic.addEventListener('change', updatePrefFromControls);
+    if (toggleShowPos) toggleShowPos.addEventListener('change', updatePrefFromControls);
+    if (toggleShowExample) toggleShowExample.addEventListener('change', updatePrefFromControls);
+    if (toggleShowExampleVi) toggleShowExampleVi.addEventListener('change', updatePrefFromControls);
+    if (toggleShowDef) toggleShowDef.addEventListener('change', updatePrefFromControls);
+    if (toggleShowCloze) toggleShowCloze.addEventListener('change', updatePrefFromControls);
+    if (toggleBackLock) toggleBackLock.addEventListener('change', updatePrefFromControls);
+    if (selectThinkDelay) selectThinkDelay.addEventListener('change', updatePrefFromControls);
+
+    if (btnResetPrefs) {
+      btnResetPrefs.addEventListener('click', () => {
+        saveStudyPrefs(DEFAULT_STUDY_PREFS);
+        if (app.settings) {
+          app.settings.autoPronounce = true;
+          app.settings.audioAccent = 'us';
+          StorageManager.saveSettings(app.settings);
+        }
+        if (app.studySession) {
+          app.studySession.updateSettings();
+        }
+        syncCheckboxesFromPrefs();
+        if (app.studySession?.currentCard) {
+          applyFieldVisibility(DEFAULT_STUDY_PREFS, app.studySession.currentCard);
+        }
+        app.showToast?.('Đã khôi phục cài đặt mặc định', 'success', 1500);
+      });
+    }
+
+    // Chuyển đổi trực tiếp sang Chế độ Trắc nghiệm (Quiz) trong phiên học
+    const switchToQuizMode = () => {
+      try {
+        if (!app.studySession || !app.studySession.isActive) return;
+        const currentIndex = app.studySession.currentIndex || 0;
+        const remainingQueue = (app.studySession.queue || []).slice(currentIndex);
+        
+        if (!remainingQueue || remainingQueue.length === 0) {
+          app.showToast?.('Không có thẻ nào còn lại trong hàng đợi.', 'info');
+          return;
+        }
+
+        stopAutoPlay();
+        if (_studyTimerUnsubscribe) {
+          _studyTimerUnsubscribe();
+          _studyTimerUnsubscribe = null;
+        }
+        stopPomodoroTracker();
+        app.studySession?.stopAudio();
+        StorageManager.flushPendingSync();
+
+        overlay.classList.remove('active');
+        drawer?.classList.remove('active');
+        app.studySession.isActive = false;
+
+        app.startQuizSession(remainingQueue);
+        app.showToast?.('🎯 Đã chuyển sang chế độ Trắc nghiệm', 'info', 2000);
+      } catch (err) {
+        console.error('Lỗi chuyển sang chế độ Trắc nghiệm:', err);
+      }
+    };
+
+    if (selectStudyMode) {
+      selectStudyMode.addEventListener('change', (e) => {
+        if (e.target.value === 'quiz') {
+          e.target.value = 'flashcard';
+          switchToQuizMode();
+        }
+      });
+    }
+
+    // Mở / Đóng Drawer 3 chấm
+    const openDrawer = () => {
+      syncCheckboxesFromPrefs();
+      drawer?.classList.add('active');
+    };
+    const closeDrawer = () => {
+      drawer?.classList.remove('active');
+    };
+
+    if (btnMenu) {
+      btnMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openDrawer();
+      });
+    }
+    if (btnCloseDrawer) btnCloseDrawer.addEventListener('click', closeDrawer);
+    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+
+    // Thao tác Thẻ: Đặt lại tiến độ (Reset to New)
+    const btnActionReset = document.getElementById('btn-action-reset-card');
+    if (btnActionReset) {
+      btnActionReset.addEventListener('click', async () => {
+        if (!app.studySession?.currentCard) return;
+        const cardWord = app.studySession.currentCard.word || 'từ vựng';
+        const confirmed = await showConfirm({
+          title: 'Đặt lại tiến độ từ vựng?',
+          message: `Bạn có chắc muốn xóa lịch sử học và đưa từ "${cardWord}" về trạng thái Từ mới không?`,
+          confirmText: 'Đặt lại',
+          type: 'danger',
+          icon: '🔄'
+        });
+        if (confirmed) {
+          closeDrawer();
+          app.studySession.resetCurrentCard();
+          if (app.studySession.currentCard) {
+            handleCardChange(app, app.studySession.currentCard, {
+              index: app.studySession.currentIndex,
+              completed: app.studySession.completedCount,
+              total: app.studySession.totalCards || app.studySession.queue.length,
+              remaining: app.studySession.queue.length - app.studySession.currentIndex
+            });
+          }
+          app.showToast(`🔄 Đã đặt lại từ "${cardWord}" về Từ mới`, 'success');
+        }
+      });
+    }
+
+    // Lắng nghe trạng thái phát âm thanh
+    onAudioPlayStateChange((isPlaying) => {
+      if (btnAudioSpeaker) {
+        btnAudioSpeaker.classList.toggle('playing', isPlaying);
+      }
+      if (btnAudioSpeakerBack) {
+        btnAudioSpeakerBack.classList.toggle('playing', isPlaying);
+      }
+    });
+
+    let _flipResetTimer = null;
+
+    // Lật thẻ khi chạm, vuốt hoặc bấm nút lật (hỗ trợ vuốt lên 360 độ liên tục)
+    const triggerFlip = (direction = 'toggle') => {
+      try {
+        if (!overlay.classList.contains('active')) return;
+        
+        // Nếu đang ở mặt trước và đang trong thời gian suy nghĩ
+        if (!app.studySession.isFlipped && _isFlipLocked) {
+          btnMainFlip?.classList.add('shake-cue');
+          setTimeout(() => btnMainFlip?.classList.remove('shake-cue'), 350);
+          return;
+        }
+
+        if (_flipCountdownTimer) {
+          clearInterval(_flipCountdownTimer);
+          _flipCountdownTimer = null;
+        }
+        _isFlipLocked = false;
+
+        globalStudyTimer.recordActivity();
+        const currentlyFlipped = app.studySession.isFlipped;
+
+        if (direction === 'up' && currentlyFlipped) {
+          // LƯỚT TIẾP THUẬN CHIỀU LÊN: Lật tiếp 180deg -> 360deg về lại mặt trước
+          app.studySession.isFlipped = false;
+          flashcardEl.classList.remove('flipped');
+          flashcardEl.classList.add('flipped-360');
+
+          if (_flipResetTimer) clearTimeout(_flipResetTimer);
+          _flipResetTimer = setTimeout(() => {
+            flashcardEl.classList.add('no-transition');
+            flashcardEl.classList.remove('flipped-360');
+            void flashcardEl.offsetHeight;
+            requestAnimationFrame(() => {
+              flashcardEl.classList.remove('no-transition');
+            });
+            _flipResetTimer = null;
+          }, 290);
+
+          frontFlipControl?.classList.add('visible');
+          fsrsButtonsContainer?.classList.remove('visible');
+          startFrontActiveRecallTimer();
+        } else if (direction === 'down' && currentlyFlipped) {
+          // LƯỚT XUỐNG: Lật ngược 180deg -> 0deg về lại mặt trước
+          app.studySession.isFlipped = false;
+          if (_flipResetTimer) {
+            clearTimeout(_flipResetTimer);
+            _flipResetTimer = null;
+          }
+          flashcardEl.classList.remove('flipped', 'flipped-360');
+
+          frontFlipControl?.classList.add('visible');
+          fsrsButtonsContainer?.classList.remove('visible');
+          startFrontActiveRecallTimer();
+        } else {
+          // Lật bình thường (đổi mặt)
+          const isFlipped = app.studySession.flipCard();
+          if (_flipResetTimer) {
+            clearTimeout(_flipResetTimer);
+            _flipResetTimer = null;
+          }
+          flashcardEl.classList.remove('flipped-360');
+          flashcardEl.classList.toggle('flipped', isFlipped);
+
+          if (isFlipped) {
+            _backShowTime = performance.now();
+            _lastFlipLatencyMs = _backShowTime - (_cardShowTime || _backShowTime);
+            frontFlipControl?.classList.remove('visible');
+            fsrsButtonsContainer?.classList.add('visible');
+          } else {
+            frontFlipControl?.classList.add('visible');
+            fsrsButtonsContainer?.classList.remove('visible');
+            startFrontActiveRecallTimer();
+          }
+        }
+      } catch (err) {
+        console.error('Lỗi khi lật thẻ:', err);
+      }
+    };
+
+    // Sự kiện bấm nút Xem đáp án chính ở dưới
+    if (btnMainFlip) {
+      btnMainFlip.addEventListener('click', (e) => {
+        e.stopPropagation();
+        triggerFlip();
+      });
+    }
+
+    flashcardEl.addEventListener('click', (e) => {
+      if (
+        e.target.closest('.card-sound-btn-inline') ||
+        e.target.closest('.card-sound-btn') || 
+        e.target.closest('#btn-audio-speaker') || 
+        e.target.closest('#btn-audio-speaker-back') || 
+        e.target.closest('#btn-example-audio') ||
+        e.target.closest('.btn-card-audio-mini') ||
+        e.target.closest('.btn-example-audio') ||
+        e.target.closest('#card-audio-blind-wrap')
+      ) {
+        return;
+      }
+      triggerFlip();
+    });
+
+    let _isRatingInProgress = false;
+    const safeRateCard = (rating) => {
+      if (!app.studySession || !app.studySession.isActive) return;
+      if (!app.studySession.isFlipped) return;
+      
+      const prefs = getStudyPrefs();
+      const backViewMs = _backShowTime > 0 ? (performance.now() - _backShowTime) : 0;
+
+      // Khóa thông minh ở mặt sau (nếu người dùng bật trong Menu 3 chấm)
+      if (prefs.enableBackLock) {
+        let minLockMs = 0;
+        if (rating === Rating.Again) minLockMs = 1500;
+        else if (rating === Rating.Hard) minLockMs = 1000;
+        else if (rating === Rating.Good) minLockMs = 500;
+        else if (rating === Rating.Easy) minLockMs = 0;
+
+        if (backViewMs < minLockMs) {
+          const ratingClassMap = {
+            [Rating.Again]: '.btn-fsrs-rating.again',
+            [Rating.Hard]: '.btn-fsrs-rating.hard',
+            [Rating.Good]: '.btn-fsrs-rating.good',
+            [Rating.Easy]: '.btn-fsrs-rating.easy'
+          };
+          const targetBtn = document.querySelector(ratingClassMap[rating]);
+          if (targetBtn) {
+            targetBtn.classList.remove('shake-cue');
+            void targetBtn.offsetWidth;
+            targetBtn.classList.add('shake-cue');
+          }
+          return;
+        }
+      }
+
+      if (_isRatingInProgress) return;
+      _isRatingInProgress = true;
+
+      // Chấm điểm và chuyển thẻ tức thì (0ms latency, không chờ animation)
+      try {
+        globalStudyTimer.recordActivity();
+        const latencySec = _lastFlipLatencyMs > 0 ? Number((_lastFlipLatencyMs / 1000).toFixed(2)) : null;
+        const backViewSec = Number((backViewMs / 1000).toFixed(2));
+        const currentCardObj = app.studySession.currentCard;
+        const oldState = currentCardObj ? StorageManager.getCardState(currentCardObj.id) : null;
+        const cardWord = currentCardObj?.word || '';
+
+        app.studySession.rateCard(rating, { latencySec, backViewSec, backViewMs: Math.round(backViewMs) });
+        recordPomodoroCardReviewed();
+
+        if (currentCardObj) {
+          const newState = StorageManager.getCardState(currentCardObj.id);
+          if (newState && newState.isLeech && (!oldState || !oldState.isLeech)) {
+            const action = app.settings?.leechAction || 'suspend';
+            if (action === 'suspend') {
+              if (app.showToast) app.showToast(`⏸️ Đã tạm ngưng "${cardWord}" (quên ${newState.lapses} lần). Xem tại Trang chủ & Thư viện.`, 'warning', 4000);
+            } else {
+              if (app.showToast) app.showToast(`⚠️ Gắn nhãn Thẻ khó cho "${cardWord}" (${newState.lapses} lần quên).`, 'warning', 3500);
+            }
+          }
+        }
+      } catch (err) {
+        console.error('Lỗi rating thẻ:', err);
+      } finally {
+        _isRatingInProgress = false;
+      }
+    };
+
+    // Touch Swipe Gesture Support (Vuốt lên lật thẻ dọc, vuốt xuống lật lại)
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartTime = 0;
+
+    flashcardEl.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
+      }
+    }, { passive: true });
+
+    flashcardEl.addEventListener('touchend', (e) => {
+      if (!e.changedTouches || e.changedTouches.length === 0) return;
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+      const elapsed = Date.now() - touchStartTime;
+
+      if (elapsed < 600) {
+        // 1. Vuốt LÊN (Swipe UP): Lật thẻ dọc xem đáp án & lướt tiếp thuận chiều lên lật lại mặt trước!
+        if (diffY < -35 && Math.abs(diffY) > Math.abs(diffX) * 0.8) {
+          triggerFlip('up');
+        }
+        // 2. Vuốt XUỐNG (Swipe DOWN): Lật ngược lại mặt trước
+        else if (diffY > 35 && Math.abs(diffY) > Math.abs(diffX) * 0.8) {
+          triggerFlip('down');
+        }
+        // 3. Vuốt NGANG khi đã lật (Swipe Left: Quên, Swipe Right: Tốt)
+        else if (Math.abs(diffX) > 60 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
+          if (app.studySession.isFlipped) {
+            if (diffX < 0) {
+              safeRateCard(Rating.Again);
+            } else {
+              safeRateCard(Rating.Good);
+            }
+          }
+        }
+      }
+    }, { passive: true });
+
+    // Hỗ trợ chuột / Trackpad trên Desktop: Kéo lên lật thẻ dọc (lướt tiếp lật lại), kéo xuống lật lại
+    let mouseStartY = 0;
+    let mouseStartTime = 0;
+    let isMouseDown = false;
+
+    flashcardEl.addEventListener('mousedown', (e) => {
+      if (e.target.closest('button, svg, path, .card-sound-btn, .btn-example-audio, .btn-card-audio-mini')) return;
+      mouseStartY = e.clientY;
+      mouseStartTime = Date.now();
+      isMouseDown = true;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+      if (!isMouseDown) return;
+      isMouseDown = false;
+      const diffY = e.clientY - mouseStartY;
+      const elapsed = Date.now() - mouseStartTime;
+      if (elapsed < 600 && Math.abs(diffY) > 35) {
+        if (diffY < -35) {
+          triggerFlip('up');
+        } else if (diffY > 35) {
+          triggerFlip('down');
+        }
+      }
+    });
+
+    // Phát âm từ vựng mặt trước
+    if (btnAudioSpeaker) {
+      btnAudioSpeaker.addEventListener('click', (e) => {
+        try {
+          e.stopPropagation();
+          globalStudyTimer.recordActivity();
+          if (app.studySession.currentCard) {
+            const word = app.studySession.currentCard.word;
+            speak(word, { cardObj: app.studySession.currentCard });
+          }
+        } catch (err) {
+          console.error('Lỗi phát âm mặt trước:', err);
+        }
+      });
+    }
+
+    // Chạm vào Waveform Audio Blind để nghe lại phát âm
+    const audioBlindWrap = document.getElementById('card-audio-blind-wrap');
+    if (audioBlindWrap) {
+      audioBlindWrap.addEventListener('click', (e) => {
+        try {
+          e.stopPropagation();
+          globalStudyTimer.recordActivity();
+          if (app.studySession?.currentCard) {
+            const word = app.studySession.currentCard.word;
+            speak(word, { cardObj: app.studySession.currentCard });
+          }
+        } catch (err) {
+          console.error('Lỗi phát âm Audio Blind:', err);
+        }
+      });
+    }
+
+    // Phát âm từ vựng mặt sau
+    if (btnAudioSpeakerBack) {
+      btnAudioSpeakerBack.addEventListener('click', (e) => {
+        try {
+          e.stopPropagation();
+          globalStudyTimer.recordActivity();
+          if (app.studySession.currentCard) {
+            const word = app.studySession.currentCard.word;
+            speak(word, { cardObj: app.studySession.currentCard });
+          }
+        } catch (err) {
+          console.error('Lỗi phát âm mặt sau:', err);
+        }
+      });
+    }
+
+    // Phát âm câu ví dụ
+    if (btnExampleAudio) {
+      btnExampleAudio.addEventListener('click', (e) => {
+        try {
+          e.stopPropagation();
+          globalStudyTimer.recordActivity();
+          if (app.studySession.currentCard && app.studySession.currentCard.example) {
+            speak(app.studySession.currentCard.example);
+          }
+        } catch (err) {
+          console.error('Lỗi phát âm câu ví dụ:', err);
+        }
+      });
+    }
+
+    // Cỗ máy điều phối Auto-Play theo nhịp sinh học tùy chỉnh
+    const triggerAutoPlayStep = () => {
+      if (!_isAutoPlaying || !app.studySession || !app.studySession.isActive) return;
+      const currentCard = app.studySession.currentCard;
+      if (!currentCard) {
+        stopAutoPlay();
+        return;
+      }
+
+      if (_autoPlayTimer) {
+        clearTimeout(_autoPlayTimer);
+        _autoPlayTimer = null;
+      }
+
+      const prefs = getAutoPlayPrefs();
+      const isFlipped = app.studySession.isFlipped;
+
+      if (!isFlipped) {
+        // --- BƯỚC 1: MẶT TRƯỚC (Đọc Tiếng Anh -> Chờ não suy nghĩ -> Lật thẻ) ---
+        speak(currentCard.word, {
+          cardObj: currentCard,
+          onEnd: () => {
+            if (!_isAutoPlaying || app.studySession?.currentCard?.id !== currentCard.id) return;
+            const frontMs = Math.max(500, Math.round((prefs.frontDelaySec || 3.0) * 1000));
+            _autoPlayTimer = setTimeout(() => {
+              if (!_isAutoPlaying || app.studySession?.currentCard?.id !== currentCard.id) return;
+              if (!app.studySession.isFlipped) {
+                triggerFlip();
+              }
+              triggerAutoPlayStep();
+            }, frontMs);
+          }
+        });
+      } else {
+        // --- BƯỚC 2: MẶT SAU (Đọc Tiếng Việt nếu bật -> Chờ tiếp thu -> Sang thẻ kế tiếp) ---
+        const onBackFinished = () => {
+          if (!_isAutoPlaying || app.studySession?.currentCard?.id !== currentCard.id) return;
+          const backMs = Math.max(500, Math.round((prefs.backDelaySec || 2.5) * 1000));
+          _autoPlayTimer = setTimeout(() => {
+            if (!_isAutoPlaying || app.studySession?.currentCard?.id !== currentCard.id) return;
+            
+            globalStudyTimer.recordActivity();
+
+            // Kiểm tra xem đã đến thẻ cuối cùng trong hàng đợi chưa
+            const isLastCard = app.studySession.currentIndex >= (app.studySession.queue.length - 1);
+            if (isLastCard && prefs.loopList) {
+              // Ghi log streak cho từ cuối cùng và quay về đầu danh sách
+              StorageManager.logReview({
+                cardId: currentCard.id,
+                word: currentCard.word,
+                isAutoplay: true
+              });
+              app.studySession.completedCount = (app.studySession.completedCount || 0) + 1;
+              app.studySession.sessionStats.reviewedCount = (app.studySession.sessionStats.reviewedCount || 0) + 1;
+
+              setTimeout(() => {
+                if (_isAutoPlaying && app.studySession?.queue?.length) {
+                  app.studySession.currentIndex = 0;
+                  app.studySession.loadCurrentCard();
+                }
+              }, 300);
+            } else if (isLastCard) {
+              // Kết thúc danh sách
+              if (app.studySession.stepNextAutoplayCard) {
+                app.studySession.stepNextAutoplayCard();
+              } else {
+                app.studySession.currentIndex++;
+                app.studySession.loadCurrentCard();
+              }
+              stopAutoPlay();
+            } else {
+              // Chuyển sang thẻ kế tiếp: duy trì streak & thời gian học nhưng KHÔNG đánh giá 4 mức độ FSRS
+              if (app.studySession.stepNextAutoplayCard) {
+                app.studySession.stepNextAutoplayCard();
+              } else {
+                StorageManager.logReview({
+                  cardId: currentCard.id,
+                  word: currentCard.word,
+                  isAutoplay: true
+                });
+                app.studySession.completedCount = (app.studySession.completedCount || 0) + 1;
+                app.studySession.sessionStats.reviewedCount = (app.studySession.sessionStats.reviewedCount || 0) + 1;
+                app.studySession.currentIndex++;
+                app.studySession.loadCurrentCard();
+              }
+            }
+          }, backMs);
+        };
+
+        if (prefs.speakVi && currentCard.meaning) {
+          speakVi(currentCard.meaning, onBackFinished);
+        } else {
+          onBackFinished();
+        }
+      }
+    };
+
+    app._studyTriggerAutoPlay = triggerAutoPlayStep;
+
+    // Quản lý Modal Cài Đặt Tự Động Học (Auto-Play Modal)
+    const modalAutoplay = document.getElementById('study-autoplay-modal');
+    const modalAutoplayBackdrop = document.getElementById('study-autoplay-backdrop');
+    const btnCloseAutoplayModal = document.getElementById('btn-autoplay-modal-close');
+    const btnAutoplay = document.getElementById('btn-study-autoplay');
+    const btnMainAction = document.getElementById('btn-autoplay-main-action');
+
+    const btnFrontMinus = document.getElementById('btn-front-delay-minus');
+    const btnFrontPlus = document.getElementById('btn-front-delay-plus');
+    const valFrontDelay = document.getElementById('val-front-delay');
+
+    const btnBackMinus = document.getElementById('btn-back-delay-minus');
+    const btnBackPlus = document.getElementById('btn-back-delay-plus');
+    const valBackDelay = document.getElementById('val-back-delay');
+
+    const toggleSpeakVi = document.getElementById('toggle-autoplay-speak-vi');
+    const toggleLoop = document.getElementById('toggle-autoplay-loop');
+
+    let currentAutoPrefs = getAutoPlayPrefs();
+
+    const syncAutoplayInputs = () => {
+      currentAutoPrefs = getAutoPlayPrefs();
+      if (valFrontDelay) valFrontDelay.textContent = `${currentAutoPrefs.frontDelaySec.toFixed(1)}s`;
+      if (valBackDelay) valBackDelay.textContent = `${currentAutoPrefs.backDelaySec.toFixed(1)}s`;
+      if (toggleSpeakVi) toggleSpeakVi.checked = !!currentAutoPrefs.speakVi;
+      if (toggleLoop) toggleLoop.checked = !!currentAutoPrefs.loopList;
+      updateAutoPlayUI(_isAutoPlaying);
+    };
+
+    syncAutoplayInputs();
+
+    const openAutoplayModal = () => {
+      syncAutoplayInputs();
+      if (modalAutoplay) modalAutoplay.classList.add('active');
+    };
+
+    const closeAutoplayModal = () => {
+      if (modalAutoplay) modalAutoplay.classList.remove('active');
+    };
+
+    if (btnAutoplay) {
+      btnAutoplay.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openAutoplayModal();
+      });
+    }
+
+    if (btnCloseAutoplayModal) {
+      btnCloseAutoplayModal.addEventListener('click', closeAutoplayModal);
+    }
+    if (modalAutoplayBackdrop) {
+      modalAutoplayBackdrop.addEventListener('click', closeAutoplayModal);
+    }
+
+    // Steppers mặt trước
+    if (btnFrontMinus) {
+      btnFrontMinus.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentAutoPrefs.frontDelaySec = Math.max(1.0, Math.round((currentAutoPrefs.frontDelaySec - 0.5) * 10) / 10);
+        saveAutoPlayPrefs(currentAutoPrefs);
+        syncAutoplayInputs();
+      });
+    }
+    if (btnFrontPlus) {
+      btnFrontPlus.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentAutoPrefs.frontDelaySec = Math.min(10.0, Math.round((currentAutoPrefs.frontDelaySec + 0.5) * 10) / 10);
+        saveAutoPlayPrefs(currentAutoPrefs);
+        syncAutoplayInputs();
+      });
+    }
+
+    // Steppers mặt sau
+    if (btnBackMinus) {
+      btnBackMinus.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentAutoPrefs.backDelaySec = Math.max(1.0, Math.round((currentAutoPrefs.backDelaySec - 0.5) * 10) / 10);
+        saveAutoPlayPrefs(currentAutoPrefs);
+        syncAutoplayInputs();
+      });
+    }
+    if (btnBackPlus) {
+      btnBackPlus.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentAutoPrefs.backDelaySec = Math.min(10.0, Math.round((currentAutoPrefs.backDelaySec + 0.5) * 10) / 10);
+        saveAutoPlayPrefs(currentAutoPrefs);
+        syncAutoplayInputs();
+      });
+    }
+
+    // Toggles
+    if (toggleSpeakVi) {
+      toggleSpeakVi.addEventListener('change', () => {
+        currentAutoPrefs.speakVi = toggleSpeakVi.checked;
+        saveAutoPlayPrefs(currentAutoPrefs);
+      });
+    }
+    if (toggleLoop) {
+      toggleLoop.addEventListener('change', () => {
+        currentAutoPrefs.loopList = toggleLoop.checked;
+        saveAutoPlayPrefs(currentAutoPrefs);
+      });
+    }
+
+    // Nút Bắt đầu / Tạm dừng lớn trong popup
+    if (btnMainAction) {
+      btnMainAction.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (_isAutoPlaying) {
+          stopAutoPlay();
+          app.showToast('⏸️ Đã tạm dừng tự động học', 'info', 1500);
+        } else {
+          _isAutoPlaying = true;
+          updateAutoPlayUI(true);
+          closeAutoplayModal();
+          app.showToast('▶️ Đang tự động lật thẻ & học rảnh tay', 'success', 2000);
+          triggerAutoPlayStep();
+        }
+      });
+    }
+
+    // Đóng phiên học với Custom Confirmation
+    if (btnClose) {
+      btnClose.addEventListener('click', async () => {
+        try {
+          stopAutoPlay();
+          const stats = app.studySession.sessionStats;
+          const reviewed = stats.reviewedCount || 0;
+          const confirmed = await showConfirm({
+            title: 'Thoát phiên học?',
+            message: reviewed > 0 
+              ? `Bạn đã hoàn thành ${reviewed} thẻ trong phiên học này. Bạn có chắc chắn muốn thoát không?`
+              : 'Bạn có chắc chắn muốn thoát phiên học này không?',
+            confirmText: 'Xác nhận',
+            type: 'danger',
+            icon: '🚪'
+          });
+
+          if (confirmed) {
+            if (_studyTimerUnsubscribe) {
+              _studyTimerUnsubscribe();
+              _studyTimerUnsubscribe = null;
+            }
+            stopPomodoroTracker();
+            app.studySession?.stopAudio();
+            globalStudyTimer.endSession();
+            StorageManager.flushPendingSync();
+            overlay.classList.remove('active');
+            scrollToTop();
+            if (reviewed > 0) {
+              showSummaryModal(app, stats, true);
+            } else {
+              app.refreshAllViews();
+            }
+          }
+        } catch (err) {
+          console.error('Lỗi khi đóng phiên học:', err);
+        }
+      });
+    }
+
+    // 4 FSRS Rating buttons
+    document.querySelectorAll('.btn-fsrs-rating').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const rating = parseInt(btn.getAttribute('data-rating'), 10);
+        safeRateCard(rating);
+      });
+    });
+
+    // Keyboard Shortcuts (Space, 1-4, R, Esc)
+    window.addEventListener('keydown', (e) => {
+      try {
+        if (!overlay.classList.contains('active')) return;
+        if (drawer?.classList.contains('active')) {
+          if (e.key === 'Escape') closeDrawer();
+          return;
+        }
+
+        globalStudyTimer.recordActivity();
+
+        if (e.code === 'Space') {
+          if (document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA')) {
+            return;
+          }
+          e.preventDefault();
+          triggerFlip();
+        } else if (e.key === 'r' || e.key === 'R') {
+          e.preventDefault();
+          if (app.studySession.currentCard) {
+            app.studySession.speak(app.studySession.currentCard.word);
+          }
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          if (btnClose) btnClose.click();
+        } else if (app.studySession.isFlipped) {
+          let rating = null;
+          if (e.key === '1') rating = Rating.Again;
+          else if (e.key === '2') rating = Rating.Hard;
+          else if (e.key === '3') rating = Rating.Good;
+          else if (e.key === '4') rating = Rating.Easy;
+
+          if (rating) {
+            e.preventDefault();
+            safeRateCard(rating);
+          }
+        }
+      } catch (err) {
+        console.error('Lỗi phím tắt học:', err);
+      }
+    });
+
+    // Nút Về trang chủ trong màn hình tổng kết
+    const btnSummaryHome = document.getElementById('btn-summary-home');
+    if (btnSummaryHome) {
+      btnSummaryHome.addEventListener('click', () => {
+        try {
+          document.getElementById('study-summary-modal')?.classList.remove('active');
+          getStudyOverlay()?.classList.remove('active');
+          scrollToTop();
+          app.refreshAllViews();
+          if (app._pendingUpdateReload) {
+            app._pendingUpdateReload = false;
+            app.showToast('🚀 Đang áp dụng phiên bản mới nhất...', 'success', 2000);
+            setTimeout(() => window.location.reload(), 1000);
+          }
+        } catch (err) {
+          console.error('Lỗi đóng summary modal:', err);
+        }
+      });
+    }
+  } catch (err) {
+    console.error('Lỗi setupStudyControls:', err);
+  }
+}
+
+// Bộ đệm tham chiếu DOM trong phiên học
+let _dom = null;
+
+function getStudyDom() {
+  if (_dom && _dom.flashcardEl && document.body.contains(_dom.flashcardEl)) {
+    return _dom;
+  }
+  _dom = {
+    overlay: getStudyOverlay(),
+    flashcardEl: document.getElementById('flashcard-element'),
+    studyControlsWrapper: document.getElementById('study-controls-wrapper'),
+    fsrsButtonsContainer: document.getElementById('fsrs-buttons-container'),
+    frontFlipControl: document.getElementById('front-flip-control'),
+    flashcardStage: document.querySelector('.flashcard-stage'),
+    progressText: document.getElementById('study-progress-text'),
+    progressBar: document.getElementById('study-progress-bar-fill'),
+    imgContainer: document.getElementById('card-front-img-container'),
+    imgEl: document.getElementById('card-front-img'),
+    badgesFrontWrap: document.getElementById('card-front-badges-wrap'),
+    posFront: document.getElementById('card-pos-badge-front'),
+    cefrBadgeFront: document.getElementById('card-cefr-badge-front'),
+    badgesBackWrap: document.getElementById('card-back-badges-wrap'),
+    posBack: document.getElementById('card-pos-badge-back'),
+    cefrBadgeBack: document.getElementById('card-cefr-badge-back'),
+    wordFront: document.getElementById('card-front-word'),
+    wordBackContext: document.getElementById('card-back-word-context-text'),
+    phoneticFront: document.getElementById('card-front-phonetic'),
+    meaningBack: document.getElementById('card-back-meaning'),
+    defBoxBack: document.getElementById('card-back-def-box'),
+    defBack: document.getElementById('card-back-def'),
+    exBack: document.getElementById('card-back-example'),
+    exViBack: document.getElementById('card-back-example-vi'),
+    exBoxBack: document.getElementById('card-back-example-box'),
+    hintFront: document.getElementById('card-front-hint'),
+    hintBack: document.getElementById('card-back-hint'),
+    iAgain: document.getElementById('interval-again'),
+    iHard: document.getElementById('interval-hard'),
+    iGood: document.getElementById('interval-good'),
+    iEasy: document.getElementById('interval-easy'),
+    btnAudioSpeaker: document.getElementById('btn-audio-speaker'),
+    btnAudioSpeakerBack: document.getElementById('btn-audio-speaker-back'),
+    btnExampleAudio: document.getElementById('btn-example-audio'),
+    statusBadgeFront: document.getElementById('card-front-status-badge'),
+    statusTextFront: document.getElementById('card-front-status-text'),
+    leechBadgeFront: document.getElementById('card-front-leech-badge'),
+    repsBadgeFront: document.getElementById('card-front-reps-badge'),
+    repsTextFront: document.getElementById('card-front-reps-text'),
+    flipCenter: document.getElementById('card-front-flip-center'),
+    backCenter: document.getElementById('card-back-center')
+  };
+  return _dom;
+}
+
+let _studyTimerUnsubscribe = null;
+
+function updateStudyLiveTimerUI(state) {
+  if (!state) return;
+  const elDigits = document.getElementById('study-timer-digits');
+  const elContainer = document.getElementById('study-live-timer');
+  if (!elDigits || !elContainer) return;
+
+  const todaySecs = StorageManager.getTodayStudySeconds();
+  const liveSecs = todaySecs + Math.floor(globalStudyTimer?.unflushedSeconds || 0);
+  const totalMins = liveSecs > 0 && liveSecs < 60 ? 1 : Math.round(liveSecs / 60);
+
+  let timeText = `${totalMins} phút`;
+  if (totalMins >= 60) {
+    const hrs = Math.floor(totalMins / 60);
+    const remMins = totalMins % 60;
+    timeText = `${hrs}h ${remMins}p`;
+  }
+
+  elDigits.textContent = `⏱️ Đã học: ${timeText}`;
+
+  if (state.isIdle || state.isPaused) {
+    elContainer.classList.add('is-idle');
+    elContainer.setAttribute('title', `Thời gian đã học hôm nay: ${timeText} (Tạm dừng)`);
+  } else {
+    elContainer.classList.remove('is-idle');
+    elContainer.setAttribute('title', `Thời gian đã học hôm nay: ${timeText}`);
+  }
+}
+
+// ==========================================================================
+// BỘ ĐIỀU PHỐI POMODORO FOCUS TRACKER (THỜI LƯỢNG TÙY CHỌN 5P - 60P, ĐẾM TĂNG DẦN)
+// ==========================================================================
+const POMODORO_STORAGE_KEY = 'flashcard_pomodoro_duration_min';
+
+let _pomodoroState = {
+  durationMinutes: 25,
+  elapsedSeconds: 0,
+  isRunning: false,
+  cardsReviewed: 0,
+  hasNotifiedGoal: false,
+  intervalId: null
+};
+
+export function initPomodoroTracker(app) {
+  try {
+    const savedDuration = Number(localStorage.getItem(POMODORO_STORAGE_KEY)) || 25;
+    _pomodoroState.durationMinutes = savedDuration;
+    _pomodoroState.elapsedSeconds = 0;
+    _pomodoroState.cardsReviewed = 0;
+    _pomodoroState.hasNotifiedGoal = false;
+    _pomodoroState.isRunning = true;
+
+    const selectEl = document.getElementById('pomodoro-duration-select');
+    if (selectEl) {
+      selectEl.value = String(savedDuration);
+      if (!selectEl._bound) {
+        selectEl._bound = true;
+        selectEl.addEventListener('change', (e) => {
+          const val = Number(e.target.value) || 25;
+          localStorage.setItem(POMODORO_STORAGE_KEY, String(val));
+          _pomodoroState.durationMinutes = val;
+          _pomodoroState.elapsedSeconds = 0;
+          _pomodoroState.cardsReviewed = 0;
+          _pomodoroState.hasNotifiedGoal = false;
+          _pomodoroState.isRunning = true;
+          updatePomodoroUI();
+        });
+      }
+    }
+
+    const btnToggle = document.getElementById('btn-pomodoro-toggle');
+    if (btnToggle && !btnToggle._bound) {
+      btnToggle._bound = true;
+      btnToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        _pomodoroState.isRunning = !_pomodoroState.isRunning;
+        updatePomodoroUI();
+      });
+    }
+
+    const btnReset = document.getElementById('btn-pomodoro-reset');
+    if (btnReset && !btnReset._bound) {
+      btnReset._bound = true;
+      btnReset.addEventListener('click', (e) => {
+        e.stopPropagation();
+        _pomodoroState.elapsedSeconds = 0;
+        _pomodoroState.cardsReviewed = 0;
+        _pomodoroState.hasNotifiedGoal = false;
+        _pomodoroState.isRunning = true;
+        updatePomodoroUI();
+        if (app && app.showToast) {
+          app.showToast('🔄 Đã đặt lại thời gian phiên học', 'info', 1500);
+        }
+      });
+    }
+
+    startPomodoroTicker(app);
+    updatePomodoroUI();
+  } catch (err) {
+    console.error('Lỗi initPomodoroTracker:', err);
+  }
+}
+
+function startPomodoroTicker(app) {
+  if (_pomodoroState.intervalId) {
+    clearInterval(_pomodoroState.intervalId);
+    _pomodoroState.intervalId = null;
+  }
+
+  _pomodoroState.intervalId = setInterval(() => {
+    if (!_pomodoroState.isRunning) return;
+
+    _pomodoroState.elapsedSeconds++;
+    const targetSecs = _pomodoroState.durationMinutes * 60;
+
+    // Chỉ thông báo DUY NHẤT 1 lần khi đạt mốc mục tiêu
+    if (_pomodoroState.elapsedSeconds >= targetSecs && !_pomodoroState.hasNotifiedGoal) {
+      _pomodoroState.hasNotifiedGoal = true;
+      updatePomodoroUI();
+      if (app && app.showToast) {
+        app.showToast(`🎉 Xuất sắc! Bạn đã hoàn thành mục tiêu ${_pomodoroState.durationMinutes} phút và ôn được ${_pomodoroState.cardsReviewed} thẻ!`, 'success', 5000);
+      }
+    } else {
+      updatePomodoroUI();
+    }
+  }, 1000);
+}
+
+export function stopPomodoroTracker() {
+  if (_pomodoroState.intervalId) {
+    clearInterval(_pomodoroState.intervalId);
+    _pomodoroState.intervalId = null;
+  }
+  _pomodoroState.isRunning = false;
+}
+
+export function recordPomodoroCardReviewed() {
+  _pomodoroState.cardsReviewed++;
+  const elCount = document.getElementById('pomodoro-cards-count');
+  if (elCount) {
+    elCount.textContent = String(_pomodoroState.cardsReviewed);
+  }
+}
+
+function updatePomodoroUI() {
+  const elCountdown = document.getElementById('pomodoro-countdown');
+  const elCount = document.getElementById('pomodoro-cards-count');
+  const elIcon = document.getElementById('pomodoro-play-icon');
+  const elFill = document.getElementById('pomodoro-progress-fill');
+  const elBar = document.getElementById('study-pomodoro-bar');
+
+  const totalSecs = Math.max(1, _pomodoroState.durationMinutes * 60);
+  const elapsedSecs = Math.max(0, _pomodoroState.elapsedSeconds);
+
+  // Đếm tăng dần: 00:00 -> 00:01 -> ...
+  const m = Math.floor(elapsedSecs / 60);
+  const s = elapsedSecs % 60;
+  const timeFormatted = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+
+  if (elCountdown) elCountdown.textContent = timeFormatted;
+  if (elCount) elCount.textContent = String(_pomodoroState.cardsReviewed);
+  if (elIcon) elIcon.textContent = _pomodoroState.isRunning ? '⏸️' : '▶️';
+
+  // Tiến độ tăng dần từ 0% lên 100%
+  const pct = Math.min(100, (elapsedSecs / totalSecs) * 100);
+  if (elFill) elFill.style.width = `${pct}%`;
+
+  if (elBar) {
+    elBar.classList.toggle('is-paused', !_pomodoroState.isRunning);
+  }
+}
+
+export function generateClozeSentence(example, word) {
+  if (!example || !word) return '';
+  try {
+    const rawWord = word.trim();
+    const escaped = rawWord.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`\\b${escaped}[a-z]*\\b|${escaped}`, 'gi');
+    return example.replace(regex, '[ ... ]');
+  } catch (e) {
+    return example;
+  }
+}
+
+export function startStudySession(app, queue) {
+  try {
+    const overlay = getStudyOverlay();
+    if (!overlay) return;
+    overlay.classList.add('active');
+    
+    // Mở khóa âm thanh song song không làm nghẽn luồng render giao diện
+    setTimeout(() => {
+      unlockAudioContext();
+    }, 0);
+    
+    globalStudyTimer.startSession();
+    if (_studyTimerUnsubscribe) _studyTimerUnsubscribe();
+    _studyTimerUnsubscribe = globalStudyTimer.subscribe((state) => {
+      updateStudyLiveTimerUI(state);
+    });
+    initPomodoroTracker(app);
+
+    // Bỏ qua modal nghỉ ngơi 15 từ để học liền mạch không gián đoạn
+    if (app.studySession) {
+      app.studySession.onBatchCheckpoint = null;
+    }
+
+    app.studySession.start(queue);
+  } catch (err) {
+    console.error('Lỗi khi bắt đầu startStudySession:', err);
+  }
+}
+
+function applyFieldVisibility(prefs, card) {
+  const dom = getStudyDom();
+  if (!dom.flashcardEl) return;
+
+  // 1. Hình ảnh minh họa: Mặc định TẮT
+  const imgSrc = card.img || card.image || '';
+  if (dom.imgContainer) {
+    dom.imgContainer.style.display = (prefs.showImage && imgSrc) ? 'flex' : 'none';
+  }
+
+  // 2. Phiên âm IPA ở mặt trước: Mặc định BẬT
+  if (dom.phoneticFront) {
+    const hasPhonetic = !!(card.phonetic || card.ipa);
+    dom.phoneticFront.style.display = (prefs.showPhonetic && hasPhonetic) ? 'inline-block' : 'none';
+  }
+
+  // 3. Từ loại (POS) & Cấp độ CEFR
+  const hasPos = !!card.pos;
+  const cefrVal = card.cefr || card.level;
+  const hasCefr = !!cefrVal;
+
+  if (dom.posFront) {
+    dom.posFront.style.display = (prefs.showPos && hasPos) ? 'inline-block' : 'none';
+  }
+  if (dom.cefrBadgeFront) {
+    dom.cefrBadgeFront.style.display = (prefs.showCefr && hasCefr) ? 'inline-block' : 'none';
+  }
+  if (dom.badgesFrontWrap) {
+    const showFront = (prefs.showPos && hasPos) || (prefs.showCefr && hasCefr);
+    dom.badgesFrontWrap.style.display = showFront ? 'inline-flex' : 'none';
+  }
+
+  // Loại từ & Cấp độ CEFR ở mặt sau
+  if (dom.posBack) {
+    dom.posBack.style.display = (prefs.showPos && hasPos) ? 'inline-block' : 'none';
+  }
+  if (dom.cefrBadgeBack) {
+    dom.cefrBadgeBack.style.display = (prefs.showCefr && hasCefr) ? 'inline-block' : 'none';
+  }
+  if (dom.badgesBackWrap) {
+    const showBack = (prefs.showPos && hasPos) || (prefs.showCefr && hasCefr);
+    dom.badgesBackWrap.style.display = showBack ? 'inline-flex' : 'none';
+  }
+
+  // 4. Định nghĩa tiếng Anh: Mặc định TẮT
+  const defText = card.definition || card.def || '';
+  if (dom.defBoxBack) {
+    dom.defBoxBack.style.display = (prefs.showDefinition && defText) ? 'flex' : 'none';
+  }
+
+  // 5. Câu ví dụ tiếng Anh (BẬT) & Bản dịch tiếng Việt (TẮT)
+  const hasExampleEn = !!(prefs.showExample && card.example);
+  const hasExampleVi = !!(prefs.showExampleVi && card.exampleVi);
+
+  const topHeader = dom.exBoxBack?.querySelector('#example-top-header') || dom.exBoxBack?.querySelector('.example-top-header');
+  if (topHeader) {
+    topHeader.style.display = hasExampleEn ? 'flex' : 'none';
+  }
+  if (dom.exBack) {
+    dom.exBack.style.display = hasExampleEn ? 'block' : 'none';
+  }
+  if (dom.exViBack) {
+    dom.exViBack.style.display = hasExampleVi ? 'block' : 'none';
+  }
+  if (dom.exBoxBack) {
+    dom.exBoxBack.style.display = (hasExampleEn || hasExampleVi) ? 'flex' : 'none';
+  }
+
+  if (dom.hintFront) dom.hintFront.style.display = 'none';
+  if (dom.hintBack) dom.hintBack.style.display = 'none';
+}
+
+export function handleCardChange(app, card, progress) {
+  try {
+    const dom = getStudyDom();
+    if (!dom.flashcardEl) return;
+
+    const prefs = getStudyPrefs();
+
+    // 1. Tắt transition và đưa thẻ về mặt trước (0deg) ngay lập tức (0ms)
+    dom.flashcardEl.classList.add('no-transition');
+    dom.flashcardEl.classList.remove('flipped', 'flipped-360');
+    
+    // Đặt lại hiển thị controls: Hiện nút Lật thẻ, ẩn 4 nút Rating
+    if (dom.frontFlipControl) dom.frontFlipControl.classList.add('visible');
+    if (dom.fsrsButtonsContainer) dom.fsrsButtonsContainer.classList.remove('visible');
+
+    // Chuyển thẻ tức thời 0ms (loại bỏ độ trễ và hiệu ứng trượt)
+    if (dom.flashcardStage) {
+      dom.flashcardStage.classList.remove('tiktok-slide-up', 'tiktok-slide-enter', 'tiktok-slide-in', 'card-enter-anim');
+    }
+    requestAnimationFrame(() => {
+      dom.flashcardEl?.classList.remove('no-transition');
+    });
+
+    if (dom.btnAudioSpeaker) dom.btnAudioSpeaker.classList.remove('playing');
+    if (dom.btnAudioSpeakerBack) dom.btnAudioSpeakerBack.classList.remove('playing');
+
+    // Cập nhật nội dung thẻ và thanh tiến độ
+    const completedNum = progress.completed !== undefined ? progress.completed : 0;
+    const totalNum = progress.total || 1;
+    const percent = Math.min(100, Math.max(completedNum === 0 ? 0 : 5, Math.round((completedNum / totalNum) * 100)));
+    
+    if (dom.progressText) {
+      dom.progressText.innerHTML = `<span class="counter-num">${completedNum}</span><span class="counter-sep">/</span><span class="counter-total">${totalNum}</span>`;
+    }
+
+    if (dom.progressBar) {
+      dom.progressBar.style.width = `${percent}%`;
+    }
+
+    // Khởi tạo bộ đo thời gian phản xạ lật thẻ của thẻ hiện tại
+    _cardShowTime = performance.now();
+    _backShowTime = 0;
+    _lastFlipLatencyMs = 0;
+    startFrontActiveRecallTimer();
+
+    // Cập nhật trạng thái thẻ FSRS và số lần học bấm thẻ (reps)
+    const cardState = card.fsrsState || StorageManager.getCardState(card.id) || { state: State.New, reps: 0 };
+    const stateNum = cardState.state !== undefined ? cardState.state : State.New;
+    const repsCount = cardState.reps || 0;
+    const isLeech = Boolean(cardState.isLeech === true || (cardState.lapses && cardState.lapses >= (app.settings?.leechThreshold || 8)));
+
+    let stateText = 'Từ mới';
+    let stateClass = 'state-new';
+
+    const isRelearnPass = Boolean(progress.isRelearnPass || card._isRelearnPass);
+    if (isRelearnPass) {
+      stateClass = 'state-relearning';
+      if (card._againCountInSession >= 3 || card._isDeferredStubborn) {
+        stateText = '🔥 Từ khó cuối phiên';
+      } else {
+        stateText = '🔄 Củng cố từ quên';
+      }
+    } else if (stateNum === State.Learning || stateNum === 1) {
+      stateText = 'Đang học';
+      stateClass = 'state-learning';
+    } else if (stateNum === State.Review || stateNum === 2) {
+      stateText = 'Ôn tập';
+      stateClass = 'state-review';
+    } else if (stateNum === State.Relearning || stateNum === 3) {
+      stateText = 'Luyện lại';
+      stateClass = 'state-relearning';
+    } else {
+      stateText = 'Từ mới';
+      stateClass = 'state-new';
+    }
+
+    const repsText = repsCount === 0 ? '0 lần học' : `${repsCount} lần học`;
+
+    if (dom.statusBadgeFront) {
+      dom.statusBadgeFront.className = `card-status-badge ${stateClass}`;
+    }
+    if (dom.statusTextFront) {
+      dom.statusTextFront.textContent = stateText;
+    }
+    if (dom.leechBadgeFront) {
+      dom.leechBadgeFront.style.display = isLeech ? 'inline-flex' : 'none';
+      const leechTextEl = dom.leechBadgeFront.querySelector('.leech-text');
+      if (leechTextEl) {
+        leechTextEl.textContent = `Hay quên (Lapse x${cardState.lapses || 1})`;
+      }
+    }
+    if (dom.repsTextFront) {
+      dom.repsTextFront.textContent = repsText;
+    }
+
+    // Nếu là Thẻ khó (Leech), tự động mở rộng câu ví dụ ở mặt sau để tăng cường ngữ cảnh
+    if (isLeech && card.example && dom.exBoxBack) {
+      dom.exBoxBack.style.display = 'flex';
+      if (dom.exBack) dom.exBack.style.display = 'block';
+      if (dom.exViBack && card.exampleVi) dom.exViBack.style.display = 'block';
+    }
+
+    // Xử lý hình ảnh minh họa
+    const imgSrc = card.img || card.image || '';
+    if (dom.imgEl) {
+      if (imgSrc) {
+        dom.imgEl.onerror = () => {
+          if (dom.imgContainer) dom.imgContainer.style.display = 'none';
+        };
+        dom.imgEl.decoding = 'async';
+        dom.imgEl.loading = 'eager';
+        dom.imgEl.src = imgSrc;
+      } else {
+        dom.imgEl.removeAttribute('src');
+      }
+    }
+
+    const wordText = card.word || '';
+    if (dom.wordFront) {
+      dom.wordFront.textContent = wordText;
+      dom.wordFront.classList.remove('word-len-md', 'word-len-lg', 'word-len-xl');
+      const wLen = wordText.trim().length;
+      if (wLen > 24) {
+        dom.wordFront.classList.add('word-len-xl');
+      } else if (wLen > 16) {
+        dom.wordFront.classList.add('word-len-lg');
+      } else if (wLen > 11) {
+        dom.wordFront.classList.add('word-len-md');
+      }
+    }
+
+    if (dom.wordBackContext) {
+      dom.wordBackContext.textContent = wordText;
+    }
+
+    if (dom.phoneticFront) {
+      dom.phoneticFront.textContent = card.phonetic || card.ipa || '';
+    }
+
+    const posVal = (card.pos || 'word').toUpperCase();
+    if (dom.posFront) {
+      dom.posFront.textContent = posVal;
+    }
+    if (dom.posBack) {
+      dom.posBack.textContent = posVal;
+    }
+    
+    const cefrText = (card.cefr || card.level || 'A1').toUpperCase();
+    if (dom.cefrBadgeFront) {
+      dom.cefrBadgeFront.textContent = cefrText;
+    }
+    if (dom.cefrBadgeBack) {
+      dom.cefrBadgeBack.textContent = cefrText;
+    }
+
+    if (dom.meaningBack) {
+      const meaningText = card.meaning || '';
+      dom.meaningBack.textContent = meaningText;
+      dom.meaningBack.classList.remove('meaning-len-lg');
+      if (meaningText.length > 30) {
+        dom.meaningBack.classList.add('meaning-len-lg');
+      }
+    }
+
+    // Định nghĩa tiếng Anh
+    if (dom.defBack) {
+      dom.defBack.textContent = card.definition || card.def || '';
+    }
+
+    // Highlight từ vựng trong câu ví dụ tiếng Anh
+    if (dom.exBack) {
+      if (card.example && card.word) {
+        try {
+          const safeExample = escapeHTML(card.example);
+          const escapedWord = escapeHTML(card.word.trim()).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const regex = new RegExp(`(${escapedWord})`, 'gi');
+          dom.exBack.innerHTML = safeExample.replace(regex, '<span class="example-highlight">$1</span>');
+        } catch (e) {
+          dom.exBack.textContent = card.example;
+        }
+      } else {
+        dom.exBack.textContent = card.example || '';
+      }
+    }
+
+    // Hiển thị câu dịch tiếng Việt
+    if (dom.exViBack) {
+      dom.exViBack.textContent = card.exampleVi || '';
+      dom.exViBack.style.display = card.exampleVi ? 'block' : 'none';
+    }
+
+    // Áp dụng bật/tắt trường hiển thị theo preferences
+    applyFieldVisibility(prefs, card);
+
+    // Chế độ Luyện Nghe Phản Xạ Mù (Audio Blind Recall)
+    const isAudioBlind = !!(progress.isAudioBlind || card._audioBlind);
+    const audioBlindWrap = document.getElementById('card-audio-blind-wrap');
+    if (isAudioBlind) {
+      dom.flashcardEl?.classList.add('is-audio-blind');
+      if (audioBlindWrap) audioBlindWrap.style.display = 'flex';
+      if (dom.wordFront) {
+        dom.wordFront.style.opacity = '0';
+        dom.wordFront.style.pointerEvents = 'none';
+      }
+      if (dom.phoneticFront) {
+        dom.phoneticFront.style.opacity = '0';
+      }
+      if (dom.imgContainer) {
+        dom.imgContainer.style.display = 'none';
+      }
+    } else {
+      dom.flashcardEl?.classList.remove('is-audio-blind');
+      if (audioBlindWrap) audioBlindWrap.style.display = 'none';
+      if (dom.wordFront) {
+        dom.wordFront.style.opacity = '1';
+        dom.wordFront.style.pointerEvents = 'auto';
+      }
+      if (dom.phoneticFront) {
+        dom.phoneticFront.style.opacity = '1';
+      }
+    }
+
+    // Gợi ý ngữ cảnh khuyết từ (Contextual Cloze Deletion Hint)
+    const clozeContainer = document.getElementById('card-cloze-hint-container');
+    const clozeTextEl = document.getElementById('card-cloze-text');
+    if (clozeContainer && clozeTextEl) {
+      const hasExample = !!(card.example && card.word);
+      const isClozeEnabled = prefs.showCloze !== false && !isAudioBlind;
+      if (hasExample && isClozeEnabled) {
+        const clozeSentence = generateClozeSentence(card.example, card.word);
+        clozeTextEl.textContent = `"${clozeSentence}"`;
+        clozeContainer.style.display = 'flex';
+      } else {
+        clozeContainer.style.display = 'none';
+      }
+    }
+
+    // Cập nhật FSRS Dynamic Intervals trên 4 nút (làm mới dứt điểm, chống rò rỉ nhãn từ thẻ trước)
+    if (dom.iAgain) dom.iAgain.textContent = formatCleanInterval(card.previews?.[Rating.Again]?.intervalText, '1m');
+    if (dom.iHard) dom.iHard.textContent = formatCleanInterval(card.previews?.[Rating.Hard]?.intervalText, '10m');
+    if (dom.iGood) dom.iGood.textContent = formatCleanInterval(card.previews?.[Rating.Good]?.intervalText, '1d');
+    if (dom.iEasy) dom.iEasy.textContent = formatCleanInterval(card.previews?.[Rating.Easy]?.intervalText, '4d');
+
+    // Kích hoạt bước tiếp theo nếu đang chạy Auto-Play
+    if (_isAutoPlaying) {
+      if (_autoPlayTimer) {
+        clearTimeout(_autoPlayTimer);
+        _autoPlayTimer = null;
+      }
+      setTimeout(() => {
+        if (_isAutoPlaying && app._studyTriggerAutoPlay) {
+          app._studyTriggerAutoPlay();
+        }
+      }, 100);
+    }
+  } catch (err) {
+    console.error('Lỗi trong handleCardChange:', err);
+  }
+}
+
+export function handleStudyFinish(app, sessionStats) {
+  try {
+    stopAutoPlay();
+    stopPomodoroTracker();
+    app.studySession?.stopAudio();
+    globalStudyTimer.endSession();
+    StorageManager.flushPendingSync();
+    const overlay = getStudyOverlay();
+    if (overlay) overlay.classList.remove('active');
+    scrollToTop();
+
+    if (app.currentStudyContext && app.currentStudyContext.deckId) {
+      const deckId = app.currentStudyContext.deckId;
+      const deck = app.deckManager?.getDeckById(deckId);
+      const rawSubtopics = deck ? (Array.isArray(deck.subtopics) ? deck.subtopics : (Array.isArray(deck.subcategories) ? deck.subcategories : [])) : [];
+
+      // Kiểm tra tất cả subtopics của deck để tự động đánh dấu hoàn thành nếu 100% thẻ đã học
+      for (let idx = 0; idx < rawSubtopics.length; idx++) {
+        const sObj = rawSubtopics[idx];
+        const sName = typeof sObj === 'object' ? (sObj.name || sObj.id) : String(sObj);
+        const sId = typeof sObj === 'object' ? (sObj.id || `${deckId}-${idx}`) : `${deckId}-${idx}`;
+        const sCards = app.deckManager?.getSubtopicCards(deckId, sObj) || [];
+
+        const allLearned = sCards.length > 0 && sCards.every(c => {
+          const s = StorageManager.getCardState(c.id);
+          return s && s.state !== State.New && s.state !== 0;
+        });
+
+        if (allLearned) {
+          StorageManager.completeSubtopic(sId);
+          if (typeof sObj === 'object' && sObj.id) StorageManager.completeSubtopic(sObj.id);
+          if (sName) {
+            StorageManager.completeSubtopic(sName);
+            StorageManager.completeSubtopic(`${deckId}-${sName}`);
+          }
+          StorageManager.completeSubtopic(`${deckId}-${idx}`);
+        }
+      }
+    }
+
+    if (_studyTimerUnsubscribe) {
+      _studyTimerUnsubscribe();
+      _studyTimerUnsubscribe = null;
+    }
+    globalStudyTimer.endSession();
+
+    showSummaryModal(app, sessionStats, false);
+    app.refreshAllViews();
+  } catch (err) {
+    console.error('Lỗi trong handleStudyFinish:', err);
+  }
+}
+
+export function showSummaryModal(app, stats, isEarlyExit = false) {
+  try {
+    const modal = document.getElementById('study-summary-modal');
+    if (!modal) return;
+
+    const titleEl = document.getElementById('summary-modal-title');
+    const subtitleEl = document.getElementById('summary-modal-subtitle');
+    
+    if (isEarlyExit) {
+      if (titleEl) titleEl.textContent = '📊 Tổng kết phiên học';
+      if (subtitleEl) subtitleEl.textContent = 'Tiến trình của các từ bạn vừa ôn đã được FSRS lưu an toàn!';
+    } else {
+      if (titleEl) titleEl.textContent = '🎉 Hoàn thành phiên học!';
+      if (subtitleEl) subtitleEl.textContent = 'Trí nhớ của bạn vừa được củng cố theo chu kỳ giãn cách FSRS-6';
+    }
+
+    const reviewed = stats.reviewedCount || (stats.again + stats.hard + stats.good + stats.easy) || 0;
+    const remembered = (stats.hard || 0) + (stats.good || 0) + (stats.easy || 0);
+
+    const sumTotal = document.getElementById('sum-stat-total');
+    const sumRemembered = document.getElementById('sum-stat-remembered') || document.getElementById('sum-stat-retention');
+    const sumNew = document.getElementById('sum-stat-new');
+    const sumStrengthened = document.getElementById('sum-stat-strengthened');
+    const sumRecovered = document.getElementById('sum-stat-recovered');
+    const sumRelearn = document.getElementById('sum-stat-relearn');
+    const insightTextEl = document.getElementById('summary-insight-text');
+
+    if (sumTotal) sumTotal.textContent = reviewed;
+    if (sumRemembered) sumRemembered.textContent = `${remembered} / ${reviewed}`;
+
+    const newLearnedCount = stats.newLearned || 0;
+    const strengthenedCount = stats.strengthened || (stats.good + stats.easy) || 0;
+    const recoveredCount = stats.recovered || 0;
+    const relearnCount = stats.relearnCount || stats.again || 0;
+
+    if (sumNew) sumNew.textContent = `+${newLearnedCount} từ`;
+    if (sumStrengthened) sumStrengthened.textContent = `+${strengthenedCount} từ`;
+    if (sumRecovered) sumRecovered.textContent = `+${recoveredCount} từ`;
+    if (sumRelearn) sumRelearn.textContent = `${relearnCount} từ`;
+
+    if (insightTextEl) {
+      if (relearnCount > 0) {
+        insightTextEl.textContent = `FSRS-6 đã tự động lên lịch ôn bù sớm cho ${relearnCount} từ khó để bạn củng cố kịp thời!`;
+      } else {
+        insightTextEl.textContent = `Tuyệt vời! Toàn bộ ${remembered} từ vựng trong phiên học đã được củng cố độ bền vững chắc!`;
+      }
+    }
+
+    modal.classList.add('active');
+  } catch (err) {
+    console.error('Lỗi trong showSummaryModal:', err);
+  }
+}

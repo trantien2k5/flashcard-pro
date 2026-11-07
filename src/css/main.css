@@ -1,0 +1,1062 @@
+/* ==========================================================================
+   FSRS-6 Flashcard Pro - Design Tokens, Variables & Reset
+   ========================================================================== */
+
+:root,
+[data-theme="dark"] {
+  /* Color Palette - Dark Theme Default (Zen Charcoal #18181B / Deep Carbon) */
+  --bg-primary: #18181b;
+  --bg-secondary: #202024;
+  --bg-tertiary: #27272a;
+  --bg-card: #202024;
+  --bg-glass: rgba(24, 24, 27, 0.92);
+  
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  
+  --primary: #4f46e5;
+  --primary-glow: rgba(79, 70, 229, 0.18);
+  --primary-light: #6366f1;
+  
+  --accent: #0284c7;
+  
+  /* FSRS Ratings Colors - Clean Outline Accents */
+  --fsrs-again: #ef4444;
+  --fsrs-again-bg: rgba(239, 68, 68, 0.06);
+  --fsrs-hard: #f59e0b;
+  --fsrs-hard-bg: rgba(245, 158, 11, 0.06);
+  --fsrs-good: #10b981;
+  --fsrs-good-bg: rgba(16, 185, 129, 0.06);
+  --fsrs-easy: #3b82f6;
+  --fsrs-easy-bg: rgba(59, 130, 246, 0.06);
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(99, 102, 241, 0.4);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.18);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.24);
+
+  --nav-height: 60px;
+  --safe-bottom: env(safe-area-inset-bottom, 12px);
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme="light"] {
+  /* Warm off-white paper canvas (#FAFAFA / Notion / Linear style) */
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f4f4f5;
+  --bg-card: #ffffff;
+  --bg-glass: rgba(250, 250, 250, 0.94);
+
+  --text-primary: #18181b;
+  --text-secondary: #71717a;
+  --text-muted: #a1a1aa;
+
+  --border: #e5e7eb;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.06);
+
+  --primary: #4f46e5;
+  --primary-light: #6366f1;
+
+  --fsrs-again: #e11d48;
+  --fsrs-again-bg: rgba(225, 29, 72, 0.05);
+  --fsrs-hard: #d97706;
+  --fsrs-hard-bg: rgba(217, 119, 6, 0.05);
+  --fsrs-good: #059669;
+  --fsrs-good-bg: rgba(5, 150, 105, 0.05);
+  --fsrs-easy: #2563eb;
+  --fsrs-easy-bg: rgba(37, 99, 235, 0.05);
+}
+
+/* Base Reset & Chống bôi đen văn bản toàn bộ ứng dụng */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Cho phép nhập liệu và chọn văn bản trong ô input, textarea */
+input, textarea {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ==========================================================================
+   Global Floating Scrollbar Styling (iOS / macOS Ultra-Sleek Pill)
+   ========================================================================== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.28) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.25);
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.55);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+[data-theme="light"] * {
+  scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.28);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.58);
+}
+
+/* ==========================================================================
+   FSRS-6 Flashcard Pro - Layout & Navigation (Mobile-First + Desktop PC Sidebar)
+   ========================================================================== */
+
+/* App Container Frame - Mobile Default (True 100dvh App Shell) */
+#app-container {
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  margin: 0 auto;
+  position: relative;
+  background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Top App Header (Mobile) - Fixed in Flex flow */
+.app-header {
+  order: 1;
+  flex-shrink: 0;
+  position: relative;
+  top: 0;
+  z-index: 40;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.brand-title {
+  font-size: 0.98rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.brand-sub {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: rgba(99, 102, 241, 0.12);
+  padding: 1px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+[data-theme="light"] .brand-sub {
+  color: #4f46e5;
+  background: #eef2ff;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-actions .btn-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.92rem;
+  transition: all 0.18s ease;
+  touch-action: manipulation;
+  padding: 0;
+  outline: none;
+  flex-shrink: 0;
+}
+
+.header-actions .btn-icon:hover {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.3);
+  color: var(--primary);
+}
+
+.header-actions .btn-icon:active {
+  transform: scale(0.94);
+}
+
+.header-actions .btn-header-profile svg,
+.header-actions .btn-header-settings svg {
+  width: 18px;
+  height: 18px;
+}
+
+.header-actions .btn-header-profile.active,
+.header-actions .btn-header-settings.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.streak-pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #f59e0b;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.streak-pill:hover {
+  background: rgba(245, 158, 11, 0.18);
+  border-color: rgba(245, 158, 11, 0.45);
+  transform: translateY(-1px);
+}
+
+.streak-pill.streak-broken-alert {
+  background: rgba(239, 68, 68, 0.14);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+  animation: pulseBrokenStreak 2s infinite ease-in-out;
+}
+
+@keyframes pulseBrokenStreak {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.45);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(239, 68, 68, 0);
+    transform: scale(1.03);
+  }
+}
+
+[data-theme="dark"] .streak-pill {
+  color: #fbbf24;
+}
+
+[data-theme="dark"] .streak-pill.streak-broken-alert {
+  color: #f87171;
+}
+
+/* Main Tab View Area - The ONLY scrollable region */
+.tab-content-area {
+  order: 2;
+  flex: 1;
+  min-height: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0;
+  position: relative;
+}
+
+/* Tinh chỉnh thanh cuộn cho mượt mà */
+.tab-content-area::-webkit-scrollbar {
+  width: 4px;
+}
+.tab-content-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+.tab-content-area::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.2);
+  border-radius: var(--radius-full);
+}
+.tab-content-area::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.4);
+}
+
+.tab-pane {
+  display: none;
+  padding: 16px 16px 24px 16px;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+#tab-review.tab-pane.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  min-height: 100%;
+  height: auto;
+  padding: 12px 16px 32px 16px;
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding: 10px 14px;
+  }
+  .tab-pane {
+    padding: 12px 10px 14px 10px;
+  }
+}
+
+/* ==========================================================================
+   📱 iOS Inset Grouped Design System (Shared Components)
+   ========================================================================== */
+.section-group,
+.settings-group,
+.profile-group,
+.stats-section-group,
+.bento-section-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.section-group-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 0 4px;
+  margin-bottom: 7px;
+  text-align: left;
+  width: 100%;
+}
+
+.section-group-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 6px;
+  margin: 0;
+}
+
+[data-theme="light"] .section-group-title {
+  color: #1e293b;
+}
+
+[data-theme="dark"] .section-group-title {
+  color: #e2e8f0;
+}
+
+.section-group-title svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.section-group-hint {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.inset-grouped-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-theme="light"] .inset-grouped-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+@media (max-width: 859px) {
+  body.subpage-view-active .app-header,
+  body.subpage-view-active .bottom-nav {
+    display: none !important;
+  }
+
+  body.subpage-view-active .tab-content-area {
+    padding-bottom: max(var(--safe-bottom, 12px), 16px);
+  }
+}
+
+/* ==========================================================================
+   Navigation: Mobile Bottom Navigation Bar (< 860px)
+   ========================================================================== */
+.sidebar-header,
+.sidebar-footer {
+  display: none;
+}
+
+.bottom-nav {
+  order: 3;
+  flex-shrink: 0;
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  width: 100%;
+  max-width: 480px;
+  height: calc(64px + var(--safe-bottom));
+  padding: 6px 14px var(--safe-bottom) 14px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(4px, 2.5vw, 16px);
+  z-index: 50;
+  box-sizing: border-box;
+}
+
+.sidebar-nav-list {
+  display: contents;
+}
+
+.nav-item {
+  flex: 1;
+  max-width: 140px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: transparent;
+  border: none;
+  border-radius: 14px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 6px clamp(2px, 1.2vw, 8px);
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-item:hover {
+  color: var(--text-primary);
+}
+
+.nav-item .nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  color: inherit;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-item .nav-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  stroke-width: 2.1;
+  transition: all 0.22s ease;
+}
+
+.nav-item .nav-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: inherit;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.nav-item.active {
+  color: var(--primary);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+[data-theme="light"] .nav-item.active {
+  color: #4f46e5;
+  background: rgba(79, 70, 229, 0.08);
+}
+
+.nav-item.active .nav-icon {
+  transform: translateY(-1px) scale(1.04);
+}
+
+.nav-item.active .nav-icon svg {
+  stroke: var(--primary);
+  stroke-width: 2.4;
+  filter: drop-shadow(0 2px 6px rgba(99, 102, 241, 0.35));
+}
+
+[data-theme="light"] .nav-item.active .nav-icon svg {
+  stroke: #4f46e5;
+  filter: drop-shadow(0 2px 6px rgba(79, 70, 229, 0.35));
+}
+
+.nav-item.active .nav-label {
+  font-weight: 700;
+}
+
+.sidebar-search-wrap {
+  display: none;
+}
+
+
+
+/* ==========================================================================
+   🖥️ DESKTOP & PC LAYOUT (>= 860px) - Dedicated Left Sidebar + Right Content
+   ========================================================================== */
+@media (min-width: 860px) {
+  /* App Container: Full Desktop Dashboard Frame */
+  #app-container {
+    max-width: 100%;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    box-shadow: none;
+    background-color: var(--bg-primary);
+    overflow: hidden;
+  }
+
+  /* Ẩn Header Mobile trên Desktop */
+  .app-header {
+    display: none !important;
+  }
+
+  /* Chuyển Bottom Nav thành Left Sidebar */
+  .app-sidebar.bottom-nav {
+    order: -1;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+    height: 100%;
+    max-height: 100%;
+    padding: 20px 14px 16px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    background: var(--bg-secondary);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-top: none;
+    border-right: 1px solid var(--border);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.08);
+    z-index: 100;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+  }
+
+  [data-theme="light"] .app-sidebar.bottom-nav {
+    background: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    box-shadow: 2px 0 16px rgba(15, 23, 42, 0.03);
+  }
+
+  /* Sidebar Header Brand */
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 4px 16px 4px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+  }
+
+  [data-theme="light"] .sidebar-header {
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  /* Quick Search Widget on Desktop Sidebar */
+  .sidebar-search-wrap {
+    display: block;
+    margin-bottom: 12px;
+    padding: 0 2px;
+  }
+
+  .sidebar-search-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 9px 12px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  [data-theme="light"] .sidebar-search-btn {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #64748b;
+  }
+
+  .sidebar-search-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(99, 102, 241, 0.08);
+    transform: translateY(-1px);
+  }
+
+  [data-theme="light"] .sidebar-search-btn:hover {
+    background: #eff6ff;
+    border-color: #a5b4fc;
+    color: #4f46e5;
+  }
+
+  .search-kbd {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 2px 6px;
+    font-size: 0.66rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  [data-theme="light"] .search-kbd {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    color: #475569;
+  }
+
+
+
+  .sidebar-brand-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .sidebar-brand-title {
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  /* Sidebar Navigation List */
+  .sidebar-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  /* Nav Item trên Desktop (Dạng hàng ngang) */
+  .nav-item {
+    flex: none;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 11px 16px;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: left;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border-left: 3.5px solid transparent;
+  }
+
+  .nav-item .nav-icon {
+    width: 22px;
+    height: 22px;
+    transform: none !important;
+  }
+
+  .nav-item .nav-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.2;
+  }
+
+  .nav-item .nav-label {
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-item:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    transform: translateX(2px);
+  }
+
+  [data-theme="light"] .nav-item:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+  }
+
+  .nav-item.active {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.16), rgba(6, 182, 212, 0.08));
+    color: var(--primary);
+    font-weight: 700;
+    border-left-color: var(--primary);
+    transform: none;
+  }
+
+  [data-theme="light"] .nav-item.active {
+    background: #eff6ff;
+    color: #4f46e5;
+    border-left-color: #4f46e5;
+  }
+
+  .nav-item.active .nav-icon svg {
+    stroke: var(--primary);
+    filter: drop-shadow(0 2px 8px var(--primary-glow));
+  }
+
+  [data-theme="light"] .nav-item.active .nav-icon svg {
+    stroke: #4f46e5;
+    filter: none;
+  }
+
+  /* Sidebar Footer (Streak Card) */
+  .sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 0 0 0;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+    flex-shrink: 0;
+  }
+
+  [data-theme="light"] .sidebar-footer {
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .sidebar-streak-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+  }
+
+  [data-theme="light"] .sidebar-streak-card {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+  }
+
+  .sidebar-streak-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .sidebar-streak-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .sidebar-streak-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .sidebar-streak-title {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  [data-theme="light"] .sidebar-streak-title {
+    color: #92400e;
+  }
+
+  .sidebar-streak-val {
+    font-size: 0.95rem;
+    color: #fbbf24;
+    font-weight: 800;
+  }
+
+  [data-theme="light"] .sidebar-streak-val {
+    color: #d97706;
+  }
+
+  .sidebar-streak-val strong {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+  }
+
+  /* Right Main Tab View Area with Smooth macOS Floating Scrollbar */
+  .tab-content-area {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    max-height: 100%;
+    padding: 24px 28px 32px 28px;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(99, 102, 241, 0.25) transparent;
+  }
+
+  /* Cho phép màn hình Trang chủ Ôn tập tự động co giãn không bị thanh cuộn lồng */
+  #tab-review.active {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  /* macOS Style Floating Rounded Pill Scrollbar */
+  .tab-content-area::-webkit-scrollbar,
+  .subtopics-list-container::-webkit-scrollbar,
+  .subtopic-words-list::-webkit-scrollbar,
+  .modal-body::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  .tab-content-area::-webkit-scrollbar-track,
+  .subtopics-list-container::-webkit-scrollbar-track,
+  .subtopic-words-list::-webkit-scrollbar-track,
+  .modal-body::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .tab-content-area::-webkit-scrollbar-thumb,
+  .subtopics-list-container::-webkit-scrollbar-thumb,
+  .subtopic-words-list::-webkit-scrollbar-thumb,
+  .modal-body::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.22);
+    border-radius: 9999px;
+    border: 1.5px solid transparent;
+    background-clip: padding-box;
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  [data-theme="light"] .tab-content-area::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.25);
+    background-clip: padding-box;
+  }
+
+  .tab-content-area::-webkit-scrollbar-thumb:hover,
+  .subtopics-list-container::-webkit-scrollbar-thumb:hover,
+  .subtopic-words-list::-webkit-scrollbar-thumb:hover,
+  .modal-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.55);
+    background-clip: padding-box;
+  }
+
+  .tab-content-area::-webkit-scrollbar-thumb:active {
+    background: var(--primary);
+    background-clip: padding-box;
+  }
+
+  .tab-pane {
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  #tab-review.active {
+    display: block;
+    width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   FSRS-6 Flashcard Pro - Animations & Micro-interactions
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDownToast {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Card flip transition smoothing */
+.flashcard-3d-wrapper {
+  will-change: transform;
+}
+
+/* Smooth Tab Transition */
+.tab-pane.active {
+  animation: fadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Universal Vietnam Flag Icon */
+.flag-icon-vn {
+  width: 18px;
+  height: 12px;
+  border-radius: 2.5px;
+  vertical-align: -1.5px;
+  display: inline-block;
+  margin-right: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}

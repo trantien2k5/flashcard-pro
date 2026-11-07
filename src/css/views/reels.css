@@ -1,0 +1,1350 @@
+/* ==========================================================================
+   Facebook-Style Vocabulary Newsfeed (Lướt Từ Vựng Phong Cách Facebook)
+   Giao diện bảng tin Facebook chân thực, mượt mà, tối ưu 100% Mobile & Desktop
+   ========================================================================== */
+
+:root {
+  --fb-primary: #1877f2;
+  --fb-primary-hover: #166fe5;
+  --fb-primary-active: #1465cf;
+  --fb-primary-soft: rgba(24, 119, 242, 0.12);
+
+  --fb-bg: #18191a;
+  --fb-header-bg: #242526;
+  --fb-card-bg: #242526;
+  --fb-card-hover: #3a3b3c;
+  --fb-input-bg: #3a3b3c;
+  --fb-text-main: #e4e6eb;
+  --fb-text-sub: #b0b3b8;
+  --fb-text-muted: #8a8d91;
+  --fb-border: #393a3b;
+  --fb-divider: #3e4042;
+  --fb-btn-bg: #3a3b3c;
+  --fb-btn-hover: #4e4f50;
+
+  --fb-like-blue: #1877f2;
+  --fb-love-red: #f33e58;
+  --fb-care-yellow: #f7b125;
+  --fb-green: #31a24c;
+  --fb-purple: #8b5cf6;
+
+  --fb-radius-card: 12px;
+  --fb-radius-btn: 8px;
+  --fb-radius-pill: 20px;
+  --fb-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] {
+  --fb-bg: #f0f2f5;
+  --fb-header-bg: #ffffff;
+  --fb-card-bg: #ffffff;
+  --fb-card-hover: #f2f2f2;
+  --fb-input-bg: #f0f2f5;
+  --fb-text-main: #050505;
+  --fb-text-sub: #65676b;
+  --fb-text-muted: #8a8d91;
+  --fb-border: #ced0d4;
+  --fb-divider: #e4e6eb;
+  --fb-btn-bg: #e4e6eb;
+  --fb-btn-hover: #d8dadf;
+  --fb-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   1. TAB PANE & STAGE CONTAINER (TÍCH HỢP CHUẨN TAB APP, VẪN HIỆN THANH TAB)
+   ========================================================================== */
+#tab-reels {
+  padding: 0 !important;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  display: none;
+  min-height: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+#tab-reels.active {
+  display: block;
+}
+
+#tab-reels .fb-feed-container {
+  overflow-y: visible !important;
+  height: auto !important;
+  max-height: none !important;
+  overscroll-behavior: auto !important;
+  overscroll-behavior-y: auto !important;
+  touch-action: pan-y !important;
+  transform: none !important;
+}
+
+.fb-feed-stage {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  background: var(--fb-bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  height: auto;
+  padding-bottom: 95px; /* Chừa khoảng trống an toàn tuyệt đối cho thanh Bottom Nav */
+  overflow: visible;
+  touch-action: pan-y;
+  overscroll-behavior: auto;
+}
+
+/* Ẩn Header chung trên Mobile khi đang ở Tab Reels để nhường chỗ cho Facebook Header */
+@media (max-width: 859px) {
+  body.reels-tab-active .app-header {
+    display: none !important;
+  }
+}
+
+.reels-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--fb-bg);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   2. FACEBOOK TOP APP BAR (HEADER - KHÔNG NÚT BACK, DÍNH TRÊN CÙNG)
+   ========================================================================== */
+.fb-top-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: env(safe-area-inset-top, 8px) 14px 8px 14px;
+  background: var(--fb-header-bg);
+  border-bottom: 1px solid var(--fb-divider);
+  flex-shrink: 0;
+  gap: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.fb-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fb-btn-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--fb-btn-bg);
+  color: var(--fb-text-main);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.12s ease;
+  flex-shrink: 0;
+  padding: 0;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fb-btn-circle:hover {
+  background: var(--fb-btn-hover);
+}
+
+.fb-btn-circle:active {
+  transform: scale(0.92);
+}
+
+.fb-brand-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: var(--fb-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1;
+}
+
+.fb-brand-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--fb-primary-soft);
+  color: var(--fb-primary);
+  padding: 2px 6px;
+  border-radius: 10px;
+  letter-spacing: 0.5px;
+}
+
+.fb-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Nút nhỏ bấm chọn bộ lọc trên cùng (theo yêu cầu người dùng) */
+.fb-btn-filter-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--fb-btn-bg);
+  color: var(--fb-text-main);
+  border: 1px solid var(--fb-border);
+  padding: 6px 12px;
+  border-radius: var(--fb-radius-pill);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fb-btn-filter-pill:hover {
+  background: var(--fb-btn-hover);
+  border-color: var(--fb-primary);
+}
+
+.fb-btn-filter-pill.active {
+  background: var(--fb-primary-soft);
+  color: var(--fb-primary);
+  border-color: var(--fb-primary);
+}
+
+.fb-filter-icon {
+  display: flex;
+  align-items: center;
+  color: var(--fb-primary);
+}
+
+.fb-filter-arrow {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.fb-btn-toggle-sound {
+  position: relative;
+}
+
+.fb-btn-toggle-sound.is-on {
+  color: var(--fb-primary);
+  background: var(--fb-primary-soft);
+}
+
+/* ==========================================================================
+   3. FEED SCROLL CONTAINER (INFINITE NEWSFEED - HARDWARE ACCELERATED)
+   ========================================================================== */
+.fb-feed-container {
+  width: 100%;
+  padding: 10px 0 36px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: visible;
+  height: auto;
+  overscroll-behavior: auto;
+  touch-action: pan-y;
+}
+
+.fb-feed-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.fb-feed-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.fb-feed-container::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.3);
+  border-radius: 6px;
+}
+
+.fb-feed-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.5);
+}
+
+/* ==========================================================================
+   4. STATUS COMPOSER BAR ("Hôm nay bạn muốn học gì?")
+   ========================================================================== */
+.fb-composer-card {
+  background: var(--fb-card-bg);
+  border-bottom: 1px solid var(--fb-divider);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--fb-shadow-card);
+}
+
+@media (min-width: 621px) {
+  .fb-composer-card {
+    border-radius: var(--fb-radius-card);
+    border: 1px solid var(--fb-border);
+    margin: 0 10px;
+  }
+}
+
+.fb-composer-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fb-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1877f2, #00c6ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(24, 119, 242, 0.3);
+}
+
+.fb-composer-input-fake {
+  flex: 1;
+  background: var(--fb-input-bg);
+  color: var(--fb-text-sub);
+  padding: 10px 14px;
+  border-radius: var(--fb-radius-pill);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fb-composer-input-fake:hover {
+  background: var(--fb-btn-hover);
+}
+
+.fb-composer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 1px solid var(--fb-divider);
+  padding-top: 8px;
+  gap: 6px;
+}
+
+.fb-composer-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--fb-text-sub);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 8px;
+  border-radius: var(--fb-radius-btn);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.fb-composer-action-btn:hover {
+  background: var(--fb-btn-bg);
+}
+
+/* ==========================================================================
+   5. POST CARD (MỖI TỪ VỰNG LÀ 1 BÀI VIẾT FACEBOOK - ULTRA SMOOTH VIRTUALIZED)
+   ========================================================================== */
+.fb-post-card {
+  background: var(--fb-card-bg);
+  border-top: 1px solid var(--fb-divider);
+  border-bottom: 1px solid var(--fb-divider);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--fb-shadow-card);
+  transition: transform 0.15s ease;
+  /* Tối ưu chống quá tải DOM & chống giật lag (Native Engine Virtualization) */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+@media (min-width: 621px) {
+  .fb-post-card {
+    border-radius: var(--fb-radius-card);
+    border: 1px solid var(--fb-border);
+    margin: 0 10px;
+  }
+}
+
+.fb-post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px 8px 16px;
+  position: relative;
+}
+
+.fb-post-author-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.fb-post-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  position: relative;
+  background: #3a3b3c;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.fb-story-ring {
+  padding: 2px;
+  background: linear-gradient(45deg, #1877f2, #e1306c, #fd1d1d);
+  border-radius: 50%;
+}
+
+.fb-post-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fb-author-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.fb-author-name {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--fb-text-main);
+  line-height: 1.2;
+}
+
+.fb-verified-tick {
+  width: 14px;
+  height: 14px;
+  fill: #1877f2;
+  display: inline-flex;
+}
+
+.fb-author-level-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.level-tag-a1 { background: rgba(16, 185, 129, 0.18); color: #10b981; }
+.level-tag-a2 { background: rgba(6, 182, 212, 0.18); color: #06b6d4; }
+.level-tag-b1 { background: rgba(59, 130, 246, 0.18); color: #3b82f6; }
+.level-tag-b2 { background: rgba(245, 158, 11, 0.18); color: #f59e0b; }
+.level-tag-c1 { background: rgba(239, 68, 68, 0.18); color: #ef4444; }
+
+.fb-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--fb-text-sub);
+}
+
+.fb-privacy-icon {
+  display: inline-flex;
+  opacity: 0.8;
+}
+
+.fb-post-menu-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--fb-text-sub);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.fb-post-menu-btn:hover {
+  background: var(--fb-btn-bg);
+  color: var(--fb-text-main);
+}
+
+/* ==========================================================================
+   6. POST BODY CONTENT
+   ========================================================================== */
+.fb-post-body {
+  padding: 4px 16px 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fb-word-headline-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fb-word-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--fb-text-main);
+  letter-spacing: -0.3px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.fb-word-pos-badge {
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--fb-radius-pill);
+  background: var(--fb-btn-bg);
+  color: var(--fb-text-sub);
+  border: 1px solid var(--fb-border);
+}
+
+/* Thanh phát âm với 2 nút US/UK riêng biệt */
+.fb-pronounce-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fb-ipa-pill {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--fb-text-sub);
+  background: var(--fb-btn-bg);
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.fb-audio-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fb-btn-accent-audio {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--fb-btn-bg);
+  border: 1px solid var(--fb-border);
+  color: var(--fb-text-main);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--fb-radius-pill);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.fb-btn-accent-audio:hover {
+  background: var(--fb-primary-soft);
+  color: var(--fb-primary);
+  border-color: var(--fb-primary);
+}
+
+.fb-btn-accent-audio.is-playing {
+  background: var(--fb-primary);
+  color: #ffffff;
+  border-color: var(--fb-primary);
+}
+
+/* Khung nghĩa tiếng Việt (Có hỗ trợ ẩn/hiện) */
+.fb-meaning-box {
+  background: var(--fb-input-bg);
+  border-left: 4px solid var(--fb-primary);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.fb-meaning-box:hover {
+  background: var(--fb-btn-hover);
+}
+
+.fb-meaning-main-text {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--fb-text-main);
+  line-height: 1.4;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.fb-meaning-box.is-blurred .fb-meaning-main-text {
+  filter: blur(8px);
+  opacity: 0.25;
+  user-select: none;
+}
+
+.fb-meaning-blur-hint {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--fb-card-bg);
+  color: var(--fb-primary);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--fb-radius-pill);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.fb-meaning-box.is-blurred .fb-meaning-blur-hint {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.fb-definition-en {
+  font-size: 14px;
+  color: var(--fb-text-sub);
+  line-height: 1.45;
+  margin-top: 2px;
+}
+
+/* Hình ảnh bài viết Facebook (Post Image) */
+.fb-post-image-wrap {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000000;
+  position: relative;
+  margin: 4px 0;
+  cursor: pointer;
+}
+
+.fb-post-img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.fb-post-img:hover {
+  transform: scale(1.015);
+}
+
+/* Post không có ảnh: Banner màu Status Facebook đặc trưng */
+.fb-post-colored-status {
+  width: 100%;
+  min-height: 140px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #1877f2, #6366f1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #ffffff;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.fb-colored-word {
+  font-size: 26px;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.fb-colored-meaning {
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0.95;
+  margin-top: 6px;
+}
+
+/* Khung câu ví dụ ngữ cảnh (Context Quote Attachment) */
+.fb-context-quote-card {
+  background: var(--fb-input-bg);
+  border: 1px solid var(--fb-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fb-quote-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fb-quote-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--fb-text-muted);
+}
+
+.fb-btn-listen-quote {
+  background: transparent;
+  border: none;
+  color: var(--fb-primary);
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.fb-btn-listen-quote:hover {
+  background: var(--fb-primary-soft);
+}
+
+.fb-example-en {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--fb-text-main);
+}
+
+.fb-example-en mark {
+  background: var(--fb-primary-soft);
+  color: var(--fb-primary);
+  font-weight: 700;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+.fb-example-vi {
+  font-size: 13px;
+  color: var(--fb-text-sub);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   7. REACTION STATS COUNTER BAR
+   ========================================================================== */
+.fb-stats-counter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 16px;
+  font-size: 12.5px;
+  color: var(--fb-text-sub);
+  border-bottom: 1px solid var(--fb-divider);
+}
+
+.fb-reaction-cluster {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fb-reaction-icons {
+  display: flex;
+  align-items: center;
+}
+
+.fb-reaction-bubble {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  box-shadow: 0 0 0 1.5px var(--fb-card-bg);
+  margin-right: -4px;
+}
+
+.fb-bubble-like { background: var(--fb-like-blue); color: #fff; }
+.fb-bubble-love { background: var(--fb-love-red); color: #fff; }
+.fb-bubble-care { background: var(--fb-care-yellow); color: #fff; }
+
+.fb-stats-right-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   8. FACEBOOK ACTION BAR (LIKE - COMMENT - SHARE)
+   ========================================================================== */
+.fb-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--fb-divider);
+}
+
+.fb-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 6px;
+  border: none;
+  background: transparent;
+  color: var(--fb-text-sub);
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: var(--fb-radius-btn);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fb-action-btn:hover {
+  background: var(--fb-btn-bg);
+}
+
+.fb-action-btn:active {
+  transform: scale(0.96);
+}
+
+.fb-action-btn.is-liked {
+  color: var(--fb-like-blue);
+}
+
+.fb-action-btn.is-liked svg {
+  fill: var(--fb-like-blue);
+  animation: fbLikeBounce 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes fbLikeBounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35) rotate(-10deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.fb-action-btn.is-bookmarked {
+  color: #f59e0b;
+}
+
+.fb-action-btn.is-bookmarked svg {
+  fill: #f59e0b;
+}
+
+/* ==========================================================================
+   9. FSRS-6 QUICK SCIENTIFIC RATING BAR
+   ========================================================================== */
+.fb-fsrs-rating-bar {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  padding: 8px 14px 12px 14px;
+}
+
+.fb-btn-fsrs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 7px 4px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: var(--fb-btn-bg);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fb-btn-fsrs:hover {
+  transform: translateY(-1px);
+}
+
+.fb-btn-fsrs:active {
+  transform: scale(0.95);
+}
+
+.fb-fsrs-label {
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.fb-fsrs-desc {
+  font-size: 10px;
+  color: var(--fb-text-muted);
+}
+
+.fb-btn-fsrs-again {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.2);
+}
+.fb-btn-fsrs-again:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+.fb-btn-fsrs-again:hover .fb-fsrs-desc {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.fb-btn-fsrs-hard {
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+  border-color: rgba(245, 158, 11, 0.2);
+}
+.fb-btn-fsrs-hard:hover {
+  background: #f59e0b;
+  color: #ffffff;
+}
+.fb-btn-fsrs-hard:hover .fb-fsrs-desc {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.fb-btn-fsrs-good {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.2);
+}
+.fb-btn-fsrs-good:hover {
+  background: #10b981;
+  color: #ffffff;
+}
+.fb-btn-fsrs-good:hover .fb-fsrs-desc {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.fb-btn-fsrs-easy {
+  background: rgba(59, 130, 246, 0.12);
+  color: #3b82f6;
+  border-color: rgba(59, 130, 246, 0.2);
+}
+.fb-btn-fsrs-easy:hover {
+  background: #3b82f6;
+  color: #ffffff;
+}
+.fb-btn-fsrs-easy:hover .fb-fsrs-desc {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ==========================================================================
+   10. COMMENTS SECTION (KHUNG GHI CHÚ BÌNH LUẬN DƯỚI BÀI)
+   ========================================================================== */
+.fb-comments-drawer {
+  display: none;
+  background: var(--fb-card-bg);
+  border-top: 1px solid var(--fb-divider);
+  padding: 12px 16px;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fb-comments-drawer.is-open {
+  display: flex;
+}
+
+.fb-comment-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.fb-comment-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #1877f2;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.fb-comment-bubble {
+  background: var(--fb-input-bg);
+  border-radius: 14px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--fb-text-main);
+  max-width: 88%;
+}
+
+.fb-comment-author {
+  font-weight: 700;
+  font-size: 12.5px;
+  margin-bottom: 2px;
+  color: var(--fb-text-main);
+}
+
+.fb-comment-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.fb-comment-input {
+  flex: 1;
+  background: var(--fb-input-bg);
+  border: 1px solid var(--fb-border);
+  color: var(--fb-text-main);
+  padding: 8px 14px;
+  border-radius: var(--fb-radius-pill);
+  font-size: 13.5px;
+  outline: none;
+}
+
+.fb-comment-input:focus {
+  border-color: var(--fb-primary);
+}
+
+.fb-btn-send-comment {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--fb-primary);
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.12s ease;
+}
+
+.fb-btn-send-comment:active {
+  transform: scale(0.9);
+}
+
+/* ==========================================================================
+   11. BỘ LỌC TỪ VỰNG MODAL / BOTTOM SHEET
+   ========================================================================== */
+.fb-filter-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 10000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.fb-filter-modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fb-filter-sheet {
+  width: 100%;
+  max-width: 580px;
+  background: var(--fb-card-bg);
+  border-radius: 20px 20px 0 0;
+  border-top: 1px solid var(--fb-border);
+  max-height: 85vh;
+  max-height: 85dvh;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.fb-filter-modal-backdrop.is-open .fb-filter-sheet {
+  transform: translateY(0);
+}
+
+.fb-filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--fb-divider);
+}
+
+.fb-filter-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--fb-text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fb-filter-body {
+  padding: 16px 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.fb-filter-group-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--fb-text-muted);
+  margin-bottom: 8px;
+}
+
+.fb-filter-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fb-filter-chip {
+  padding: 7px 14px;
+  border-radius: var(--fb-radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--fb-btn-bg);
+  color: var(--fb-text-main);
+  border: 1px solid var(--fb-border);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.fb-filter-chip:hover {
+  background: var(--fb-btn-hover);
+}
+
+.fb-filter-chip.active {
+  background: var(--fb-primary);
+  color: #ffffff;
+  border-color: var(--fb-primary);
+}
+
+.fb-filter-select {
+  width: 100%;
+  background: var(--fb-input-bg);
+  color: var(--fb-text-main);
+  border: 1px solid var(--fb-border);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.fb-filter-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.fb-filter-toggle-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fb-filter-toggle-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fb-text-main);
+}
+
+.fb-filter-toggle-desc {
+  font-size: 12px;
+  color: var(--fb-text-sub);
+}
+
+.fb-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.fb-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.fb-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--fb-btn-bg);
+  border: 1px solid var(--fb-border);
+  transition: .2s;
+  border-radius: 24px;
+}
+
+.fb-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .2s;
+  border-radius: 50%;
+}
+
+.fb-switch input:checked + .fb-slider {
+  background-color: var(--fb-primary);
+  border-color: var(--fb-primary);
+}
+
+.fb-switch input:checked + .fb-slider:before {
+  transform: translateX(20px);
+}
+
+.fb-filter-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  border-top: 1px solid var(--fb-divider);
+  gap: 10px;
+}
+
+.fb-btn-reset-filter {
+  background: transparent;
+  color: var(--fb-text-sub);
+  border: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.fb-btn-reset-filter:hover {
+  background: var(--fb-btn-bg);
+}
+
+.fb-btn-apply-filter {
+  flex: 1;
+  background: var(--fb-primary);
+  color: #ffffff;
+  border: none;
+  font-size: 14.5px;
+  font-weight: 700;
+  padding: 11px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.fb-btn-apply-filter:hover {
+  background: var(--fb-primary-hover);
+}
+
+/* ==========================================================================
+   12. FLOATING REACTION PARTICLES (TIM BAY NHƯ FACEBOOK)
+   ========================================================================== */
+.fb-floating-reaction {
+  position: fixed;
+  font-size: 32px;
+  pointer-events: none;
+  z-index: 10001;
+  animation: fbFloatUp 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes fbFloatUp {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(0.6);
+  }
+  40% {
+    opacity: 1;
+    transform: translate(-50%, -40px) scale(1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -90px) scale(0.9);
+  }
+}
+
+/* Nút cuộn lên đầu trang */
+.fb-btn-scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--fb-primary);
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(24, 119, 242, 0.4);
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+}
+
+.fb-btn-scroll-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}

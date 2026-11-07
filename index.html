@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Flashcard English Pro - Spaced Repetition FSRS-6</title>
+
+  <!-- PWA & Mobile Web App Capabilities -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#6366f1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Flashcard Pro">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="assets/icons/favicon.ico">
+
+  <!-- High-Performance Typography: Preconnect & Non-blocking Swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" media="print" onload="this.media='all'">
+
+  <!-- Dev Mode Autoclean: Chỉ kích hoạt khi có query param ?dev=true để không cản trở kiểm tra PWA/Offline trên localhost -->
+  <script>
+    if (new URLSearchParams(window.location.search).has('dev')) {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(r => r.unregister()));
+      }
+      if ('caches' in window) {
+        caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
+      }
+    }
+  </script>
+
+  <!-- High-Speed Parallel Core Stylesheets (Zero CSS Import Waterfall) -->
+  <link rel="stylesheet" href="src/css/main.css?v=3.76.38">
+  <link rel="stylesheet" href="src/css/flashcard.css?v=3.76.38">
+  <link rel="stylesheet" href="src/css/components.css?v=3.76.38">
+  <link rel="stylesheet" href="src/css/views/review.css?v=3.76.38">
+  <link rel="stylesheet" href="src/css/views/decks.css?v=3.76.38">
+  <link rel="stylesheet" href="src/css/views/stats.css?v=3.76.38">
+  <link rel="stylesheet" href="src/css/views/settings.css?v=3.76.38">
+  <link rel="stylesheet" href="src/css/views/library.css?v=3.76.38">
+  <link rel="stylesheet" href="src/css/views/quiz.css?v=3.76.38">
+  <link rel="stylesheet" href="src/css/views/toeic-test.css?v=3.76.38">
+  <link rel="stylesheet" href="src/css/views/reels.css?v=3.76.38">
+
+  <!-- Script Module Preloading for Sub-100ms Bootstrap & Seamless Study Transition -->
+  <link rel="modulepreload" href="src/js/app.js?v=3.76.38">
+  <link rel="modulepreload" href="src/js/config.js">
+  <link rel="modulepreload" href="src/js/utils.js">
+  <link rel="modulepreload" href="src/js/services/storage.js">
+  <link rel="modulepreload" href="src/js/services/audio.js">
+  <link rel="modulepreload" href="src/js/core/fsrs.js">
+  <link rel="modulepreload" href="src/js/core/session.js">
+  <link rel="modulepreload" href="src/js/core/selectors.js">
+  <link rel="modulepreload" href="src/js/core/stats.js">
+  <link rel="modulepreload" href="src/js/views/review.js">
+  <link rel="modulepreload" href="src/js/views/study.js?v=3.76.38">
+  <link rel="modulepreload" href="src/js/views/reels.js">
+  <link rel="modulepreload" href="src/data/index.js">
+  <link rel="modulepreload" href="src/data/topics.js">
+  <link rel="modulepreload" href="src/data/words.js">
+  <link rel="modulepreload" href="src/data/toeic-tests.js">
+  <link rel="modulepreload" href="src/js/views/toeic-test.js">
+</head>
+
+<body>
+
+  <!-- ================= APP SHELL ROOT CONTAINER ================= -->
+  <div id="app-container">
+    <!-- Shell Top Header -->
+    <header class="app-header">
+      <div class="brand-wrapper">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+        </div>
+        <div class="brand-info">
+          <span class="brand-title">Flashcard Pro</span>
+          <span class="brand-sub">FSRS-6 v2.0</span>
+        </div>
+      </div>
+
+      <!-- Top Right Actions: Streak + Search + Dark/Light Mode + Profile -->
+      <div class="header-actions">
+        <div class="streak-pill" id="header-streak-badge" title="Chuỗi ngày học liên tục">
+          <span>🔥</span>
+          <span id="header-streak-count">0</span>
+          <span>ngày</span>
+        </div>
+        <button class="btn-icon btn-header-search" id="btn-header-search" title="Tìm kiếm từ vựng (Ctrl+K)"
+          aria-label="Tìm kiếm từ vựng">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+        </button>
+        <button class="btn-icon btn-theme-toggle" id="btn-theme-toggle" title="Chuyển chế độ Sáng / Tối"
+          aria-label="Đổi giao diện">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5" />
+            <path
+              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+          </svg>
+        </button>
+        <button class="btn-icon btn-header-settings" id="btn-header-settings" data-tab="tab-settings"
+          title="Cài đặt hệ thống" aria-label="Cài đặt">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Shell Navigation (Bottom Nav on Mobile & Sidebar on Desktop) -->
+    <nav class="app-sidebar bottom-nav" id="app-navigation">
+      <div class="sidebar-header">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+        </div>
+        <div class="sidebar-brand-info">
+          <h1 class="sidebar-brand-title">Flashcard Pro</h1>
+          <span class="brand-badge">FSRS-6 v2.0</span>
+        </div>
+      </div>
+
+      <div class="sidebar-search-wrap">
+        <button type="button" id="btn-sidebar-search" class="sidebar-search-btn" title="Tìm kiếm từ vựng (Ctrl+K)">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+            <span class="search-btn-text">Tìm kiếm...</span>
+          </div>
+          <kbd class="search-kbd">Ctrl K</kbd>
+        </button>
+      </div>
+
+      <div class="sidebar-nav-list">
+        <button class="nav-item active" data-tab="tab-review">
+          <span class="nav-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+          </span>
+          <span class="nav-label">Trang chủ</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-decks">
+          <span class="nav-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+            </svg>
+          </span>
+          <span class="nav-label">Chủ đề</span>
+        </button>
+
+        <button class="nav-item nav-item-reels" id="nav-btn-reels" data-tab="tab-reels" title="Bảng tin Lướt từ vựng (Facebook Feed)">
+          <span class="nav-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 6h16M4 12h16M4 18h7"/>
+            </svg>
+          </span>
+          <span class="nav-label">Lướt từ</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-library">
+          <span class="nav-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
+          </span>
+          <span class="nav-label">Thư viện</span>
+        </button>
+
+        <button class="nav-item" data-tab="tab-test">
+          <span class="nav-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+              <polyline points="10 9 9 9 8 9" />
+            </svg>
+          </span>
+          <span class="nav-label">Thi thử</span>
+        </button>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-streak-card">
+          <div class="sidebar-streak-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" stroke="none">
+              <path
+                d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+            </svg>
+          </div>
+          <div class="sidebar-streak-info">
+            <span class="sidebar-streak-title">Chuỗi học liên tục</span>
+            <span class="sidebar-streak-val"><strong id="desktop-streak-count">0</strong> ngày</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Dynamic View Mount Points -->
+    <main class="tab-content-area" id="main-content">
+      <section id="tab-review" class="tab-pane active"></section>
+      <section id="tab-decks" class="tab-pane"></section>
+      <section id="tab-reels" class="tab-pane"></section>
+      <section id="tab-subtopics" class="tab-pane"></section>
+      <section id="tab-subtopic-words" class="tab-pane"></section>
+      <section id="tab-library" class="tab-pane"></section>
+      <section id="tab-test" class="tab-pane"></section>
+      <section id="tab-settings" class="tab-pane"></section>
+    </main>
+  </div>
+
+  <!-- Dynamic Overlay & Modal Mount Targets -->
+  <div id="study-overlay" class="study-overlay"></div>
+  <div id="quiz-overlay" class="quiz-overlay"></div>
+  <div id="toeic-arena-overlay" class="toeic-arena-overlay"></div>
+  <div id="reels-overlay" class="reels-overlay" style="display: none;"></div>
+  <div id="modals-root"></div>
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- App Core Script -->
+  <script type="module" src="src/js/app.js?v=3.76.38"></script>
+</body>
+
+</html>

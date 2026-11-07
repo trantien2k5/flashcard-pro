@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowJs": true,
+    "checkJs": false,
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": ["src/js/core/*"],
+      "@views/*": ["src/js/views/*"],
+      "@services/*": ["src/js/services/*"],
+      "@data/*": ["src/data/*"]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

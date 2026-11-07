@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="mBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="45%" stop-color="#4338ca"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="mBackCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#4f46e5" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="mFrontCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="mBoltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#fef08a"/>
+      <stop offset="70%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="mOrbitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Full square for maskable Android adaptive icon -->
+  <rect width="512" height="512" fill="url(#mBgGrad)"/>
+  
+  <g transform="translate(51.2, 51.2) scale(0.8)">
+    <ellipse cx="256" cy="266" rx="168" ry="168" fill="none" stroke="url(#mOrbitGrad)" stroke-width="8" stroke-dasharray="18 12" stroke-linecap="round" opacity="0.6"/>
+    <circle cx="106" cy="200" r="6" fill="#38bdf8"/>
+    <circle cx="410" cy="220" r="7" fill="#fef08a"/>
+    <circle cx="330" cy="410" r="5" fill="#818cf8"/>
+
+    <rect x="130" y="110" width="230" height="290" rx="32" fill="url(#mBackCard)" stroke="rgba(255,255,255,0.25)" stroke-width="2.5" transform="rotate(-12 245 255)"/>
+    <rect x="146" y="116" width="220" height="280" rx="32" fill="url(#mFrontCard)" stroke="rgba(255,255,255,0.45)" stroke-width="3"/>
+
+    <rect x="178" y="152" width="72" height="12" rx="6" fill="#ffffff" fill-opacity="0.4"/>
+    <rect x="258" y="152" width="40" height="12" rx="6" fill="#38bdf8" fill-opacity="0.6"/>
+
+    <path d="M 276 172 L 194 282 L 248 282 L 230 354 L 322 244 L 268 244 Z" fill="url(#mBoltGrad)"/>
+    <path d="M 264 196 L 214 266 L 254 266 L 242 322 L 298 252 L 260 252 Z" fill="#ffffff" fill-opacity="0.65"/>
+  </g>
+</svg>
