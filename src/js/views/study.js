@@ -156,6 +156,7 @@ export function startFrontActiveRecallTimer() {
 // Cấu hình học tập (Mặc định: Từ tiếng Anh, Nghĩa tiếng Việt, Phiên âm, Từ loại, Câu ví dụ tiếng Anh)
 const DEFAULT_STUDY_PREFS = {
   studyMode: 'flashcard',    // 'flashcard' (lật thẻ)
+  ratingButtonsMode: '2_buttons', // Mặc định 2 nút (Tối giản: Quên / Nhớ)
   showImage: false,          // Mặc định TẮT hình ảnh (tránh lỗi/chiếm diện tích)
   showPhonetic: true,        // Mặc định BẬT phiên âm IPA
   showDefinition: false,     // Mặc định TẮT định nghĩa tiếng Anh dài dòng
@@ -179,6 +180,7 @@ export function getStudyPrefs() {
       return {
         ...DEFAULT_STUDY_PREFS,
         studyMode: 'flashcard',
+        ratingButtonsMode: parsed.ratingButtonsMode || DEFAULT_STUDY_PREFS.ratingButtonsMode,
         showImage: parsed.showImage !== undefined ? !!parsed.showImage : DEFAULT_STUDY_PREFS.showImage,
         showPhonetic: parsed.showPhonetic !== undefined ? !!parsed.showPhonetic : DEFAULT_STUDY_PREFS.showPhonetic,
         showDefinition: parsed.showDefinition !== undefined ? !!parsed.showDefinition : DEFAULT_STUDY_PREFS.showDefinition,
@@ -201,6 +203,33 @@ export function saveStudyPrefs(prefs) {
   try {
     localStorage.setItem('study_display_prefs', JSON.stringify(prefs));
   } catch (e) {}
+}
+
+export function applyRatingButtonsMode(mode = '2_buttons') {
+  const container = document.getElementById('fsrs-buttons-container');
+  if (!container) return;
+  const is2 = mode === '2_buttons';
+  if (is2) {
+    container.classList.add('mode-2-buttons');
+    const titleAgain = container.querySelector('.btn-fsrs-rating.again .fsrs-rating-title');
+    const titleGood = container.querySelector('.btn-fsrs-rating.good .fsrs-rating-title');
+    const btnAgain = container.querySelector('.btn-fsrs-rating.again');
+    const btnGood = container.querySelector('.btn-fsrs-rating.good');
+    if (titleAgain) titleAgain.textContent = 'Quên';
+    if (btnAgain) btnAgain.setAttribute('title', 'Quên (Phím 1 hoặc ←)');
+    if (titleGood) titleGood.textContent = 'Nhớ';
+    if (btnGood) btnGood.setAttribute('title', 'Nhớ (Phím 2, Space hoặc →)');
+  } else {
+    container.classList.remove('mode-2-buttons');
+    const titleAgain = container.querySelector('.btn-fsrs-rating.again .fsrs-rating-title');
+    const titleGood = container.querySelector('.btn-fsrs-rating.good .fsrs-rating-title');
+    const btnAgain = container.querySelector('.btn-fsrs-rating.again');
+    const btnGood = container.querySelector('.btn-fsrs-rating.good');
+    if (titleAgain) titleAgain.textContent = 'Again';
+    if (btnAgain) btnAgain.setAttribute('title', 'Again (Phím 1)');
+    if (titleGood) titleGood.textContent = 'Good';
+    if (btnGood) btnGood.setAttribute('title', 'Good (Phím 3)');
+  }
 }
 
 export function renderStudyOverlayShell() {
@@ -483,6 +512,18 @@ export function renderStudyOverlayShell() {
               </select>
             </div>
 
+            <!-- 1b. Kiểu nút tự chấm điểm FSRS -->
+            <div class="pref-item">
+              <div class="pref-info">
+                <span class="pref-label">🔘 Kiểu nút tự chấm</span>
+                <span class="pref-sub">Chọn số lượng nút đánh giá khi lật thẻ</span>
+              </div>
+              <select id="pref-select-buttons-mode" class="pref-select-dropdown">
+                <option value="2_buttons" selected>⚡ 2 nút (Tối giản: Quên / Nhớ)</option>
+                <option value="4_buttons">📊 4 nút (Chi tiết: Anki / FSRS)</option>
+              </select>
+            </div>
+
             <!-- 2. Tự động phát âm -->
             <label class="pref-item">
               <div class="pref-info">
@@ -715,6 +756,7 @@ export function setupStudyControls(app) {
 
     // Các điều khiển tùy chọn trong Drawer
     const selectStudyMode = document.getElementById('pref-select-study-mode');
+    const selectButtonsMode = document.getElementById('pref-select-buttons-mode');
     const toggleAutoplay = document.getElementById('pref-toggle-autoplay');
     const selectAccent = document.getElementById('pref-select-accent');
     const toggleShowImage = document.getElementById('pref-toggle-show-image');
@@ -734,6 +776,8 @@ export function setupStudyControls(app) {
     const syncCheckboxesFromPrefs = () => {
       const p = getStudyPrefs();
       if (selectStudyMode) selectStudyMode.value = 'flashcard';
+      if (selectButtonsMode) selectButtonsMode.value = p.ratingButtonsMode || '2_buttons';
+      applyRatingButtonsMode(p.ratingButtonsMode || '2_buttons');
       if (toggleAutoplay) toggleAutoplay.checked = (app.settings?.autoPronounce !== false) && !!p.autoplayAudio;
       if (selectAccent) selectAccent.value = (app.settings?.audioAccent || p.audioAccent || 'us').toLowerCase();
       if (toggleShowImage) toggleShowImage.checked = !!p.showImage;
@@ -751,6 +795,7 @@ export function setupStudyControls(app) {
       const isAutoplay = !!toggleAutoplay?.checked;
       const p = {
         ...DEFAULT_STUDY_PREFS,
+        ratingButtonsMode: selectButtonsMode?.value || '2_buttons',
         autoplayAudio: isAutoplay,
         audioAccent: selectAccent?.value || 'us',
         showImage: !!toggleShowImage?.checked,
@@ -765,6 +810,7 @@ export function setupStudyControls(app) {
         enableBackLock: !!toggleBackLock?.checked
       };
       saveStudyPrefs(p);
+      applyRatingButtonsMode(p.ratingButtonsMode);
       if (app.settings) {
         app.settings.autoPronounce = isAutoplay;
         if (selectAccent?.value) app.settings.audioAccent = selectAccent.value;
@@ -780,6 +826,7 @@ export function setupStudyControls(app) {
 
     syncCheckboxesFromPrefs();
 
+    if (selectButtonsMode) selectButtonsMode.addEventListener('change', updatePrefFromControls);
     if (toggleAutoplay) toggleAutoplay.addEventListener('change', updatePrefFromControls);
     if (selectAccent) selectAccent.addEventListener('change', updatePrefFromControls);
     if (toggleShowImage) toggleShowImage.addEventListener('change', updatePrefFromControls);
@@ -1498,7 +1545,13 @@ export function setupStudyControls(app) {
             return;
           }
           e.preventDefault();
-          triggerFlip();
+          if (!app.studySession.isFlipped) {
+            triggerFlip();
+          } else {
+            // Khi đã lật thẻ: Space đóng vai trò bấm Nhớ (Good)
+            safeRateCard(Rating.Good);
+          }
+          return;
         } else if (e.key === 'r' || e.key === 'R') {
           e.preventDefault();
           if (app.studySession.currentCard) {
@@ -1508,11 +1561,25 @@ export function setupStudyControls(app) {
           e.preventDefault();
           if (btnClose) btnClose.click();
         } else if (app.studySession.isFlipped) {
+          const p = getStudyPrefs();
+          const is2Buttons = p.ratingButtonsMode === '2_buttons';
           let rating = null;
-          if (e.key === '1') rating = Rating.Again;
-          else if (e.key === '2') rating = Rating.Hard;
-          else if (e.key === '3') rating = Rating.Good;
-          else if (e.key === '4') rating = Rating.Easy;
+
+          if (is2Buttons) {
+            // Chế độ 2 nút tối giản:
+            // 1 hoặc Mũi tên trái: Quên (Again)
+            // 2 hoặc 3 hoặc Mũi tên phải hoặc Enter: Nhớ (Good)
+            if (e.key === '1' || e.key === 'ArrowLeft') {
+              rating = Rating.Again;
+            } else if (e.key === '2' || e.key === '3' || e.key === 'ArrowRight' || e.key === 'Enter') {
+              rating = Rating.Good;
+            }
+          } else {
+            if (e.key === '1') rating = Rating.Again;
+            else if (e.key === '2') rating = Rating.Hard;
+            else if (e.key === '3') rating = Rating.Good;
+            else if (e.key === '4') rating = Rating.Easy;
+          }
 
           if (rating) {
             e.preventDefault();
@@ -1791,6 +1858,7 @@ export function startStudySession(app, queue) {
     const overlay = getStudyOverlay();
     if (!overlay) return;
     overlay.classList.add('active');
+    applyRatingButtonsMode(getStudyPrefs().ratingButtonsMode);
     
     // Mở khóa âm thanh song song không làm nghẽn luồng render giao diện
     setTimeout(() => {
