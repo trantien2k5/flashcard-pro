@@ -697,34 +697,11 @@
 }
 
 .card-leech-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.82rem;
-  font-weight: 750;
-  padding: 4px 10px;
-  border-radius: 99px;
-  background: rgba(245, 158, 11, 0.14);
-  color: #d97706;
-  border: 1px solid rgba(245, 158, 11, 0.35);
-  animation: pulseLeech 2s infinite ease-in-out;
-}
-
-[data-theme="dark"] .card-leech-badge {
-  background: rgba(245, 158, 11, 0.2);
-  color: #fbbf24;
-  border-color: rgba(245, 158, 11, 0.45);
-}
-
-@keyframes pulseLeech {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.82; transform: scale(0.97); }
+  display: none !important;
 }
 
 .card-reps-badge {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--text-muted);
+  display: none !important;
 }
 
 [data-theme="dark"] .card-pos-pill {

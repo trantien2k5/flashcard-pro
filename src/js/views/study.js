@@ -334,13 +334,6 @@ export function renderStudyOverlayShell() {
                     <span class="card-pos-tag" id="card-pos-badge-front">WORD</span>
                     <span class="card-cefr-tag" id="card-cefr-badge-front">A1</span>
                   </div>
-                  <div class="card-leech-badge" id="card-front-leech-badge" style="display: none;" title="Thẻ khó nhớ (Leech)">
-                    <span class="leech-icon">⚠️</span>
-                    <span class="leech-text">Khó nhớ</span>
-                  </div>
-                  <div class="card-reps-badge" id="card-front-reps-badge" style="display: none;">
-                    <span class="reps-text" id="card-front-reps-text">0</span>
-                  </div>
                 </div>
               </div>
 
@@ -2012,11 +2005,7 @@ export function handleCardChange(app, card, progress) {
     const isRelearnPass = Boolean(progress.isRelearnPass || card._isRelearnPass);
     if (isRelearnPass) {
       stateClass = 'state-relearning';
-      if (card._againCountInSession >= 3 || card._isDeferredStubborn) {
-        stateText = '🔥 Từ khó cuối phiên';
-      } else {
-        stateText = '🔄 Củng cố từ quên';
-      }
+      stateText = 'Ôn tập';
     } else if (stateNum === State.Learning || stateNum === 1) {
       stateText = 'Đang học';
       stateClass = 'state-learning';
@@ -2024,14 +2013,12 @@ export function handleCardChange(app, card, progress) {
       stateText = 'Ôn tập';
       stateClass = 'state-review';
     } else if (stateNum === State.Relearning || stateNum === 3) {
-      stateText = 'Luyện lại';
+      stateText = 'Ôn tập';
       stateClass = 'state-relearning';
     } else {
       stateText = 'Từ mới';
       stateClass = 'state-new';
     }
-
-    const repsText = repsCount === 0 ? '0 lần học' : `${repsCount} lần học`;
 
     if (dom.statusBadgeFront) {
       dom.statusBadgeFront.className = `card-status-badge ${stateClass}`;
@@ -2040,14 +2027,10 @@ export function handleCardChange(app, card, progress) {
       dom.statusTextFront.textContent = stateText;
     }
     if (dom.leechBadgeFront) {
-      dom.leechBadgeFront.style.display = isLeech ? 'inline-flex' : 'none';
-      const leechTextEl = dom.leechBadgeFront.querySelector('.leech-text');
-      if (leechTextEl) {
-        leechTextEl.textContent = `Hay quên (Lapse x${cardState.lapses || 1})`;
-      }
+      dom.leechBadgeFront.style.display = 'none';
     }
-    if (dom.repsTextFront) {
-      dom.repsTextFront.textContent = repsText;
+    if (dom.repsBadgeFront) {
+      dom.repsBadgeFront.style.display = 'none';
     }
 
     // Nếu là Thẻ khó (Leech), tự động mở rộng câu ví dụ ở mặt sau để tăng cường ngữ cảnh
