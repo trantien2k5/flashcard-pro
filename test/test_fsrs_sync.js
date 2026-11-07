@@ -212,6 +212,43 @@ const nrState = StorageManager.getCardState('nr_1');
 const nrDueDiffMin = (new Date(nrState.due).getTime() - Date.now()) / (60 * 1000);
 assert(nrDueDiffMin <= 1.2, `Test 9.5: Lịch hẹn Quên khớp chuẩn 1m với nhãn UI (thực tế: ${nrDueDiffMin.toFixed(2)} phút)`);
 
+// ====================================================
+// TEST 10: Quy tắc Từ Khó (lapses >= 8) & Ẩn Thẻ Tạm Ẩn khỏi UI Thông Báo
+// ====================================================
+const testCardsAttention = [
+  { id: 'card_lapse_3', word: 'moderate', lapses: 3, state: State.Review },
+  { id: 'card_lapse_7', word: 'frequent', lapses: 7, state: State.Review },
+  { id: 'card_hard_8', word: 'difficult', lapses: 8, state: State.Review },
+  { id: 'card_suspended', word: 'paused', lapses: 9, suspended: true, state: State.Review }
+];
+
+testCardsAttention.forEach(c => {
+  StorageManager.saveCardState({
+    id: c.id,
+    word: c.word,
+    state: c.state,
+    stability: 2.0,
+    difficulty: 6.0,
+    reps: 10,
+    lapses: c.lapses,
+    suspended: Boolean(c.suspended),
+    last_review: new Date().toISOString(),
+    due: new Date().toISOString()
+  });
+});
+
+const dmAttention = new DeckManager();
+dmAttention.allCards = testCardsAttention;
+
+const attentionResult = dmAttention.getAttentionCards();
+
+assert(!attentionResult.difficultCards.some(c => c.id === 'card_lapse_3'), 'Test 10.1: Từ quên 3 lần KHÔNG hiển thị là từ khó (bỏ nhãn hay quên cũ)');
+assert(!attentionResult.difficultCards.some(c => c.id === 'card_lapse_7'), 'Test 10.2: Từ quên 7 lần chưa đạt ngưỡng 8 nên KHÔNG đưa vào từ khó');
+assert(attentionResult.difficultCards.some(c => c.id === 'card_hard_8'), 'Test 10.3: Từ quên 8 lần ĐƯỢC XÁC NHẬN là Từ Khó chính xác');
+assert(!attentionResult.difficultCards.some(c => c.id === 'card_suspended'), 'Test 10.4: Từ tạm ẩn ĐÃ ĐƯỢC ẨN KHỎI UI thông báo theo yêu cầu');
+assert(StorageManager.isCardSuspended('card_suspended'), 'Test 10.5: Logic tạm ẩn trong Storage & FSRS vẫn hoạt động ngầm trọn vẹn');
+assert(attentionResult.suspendedCards.length === 0, 'Test 10.6: Danh sách suspendedCards trả về rỗng để sạch UI');
+
 console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 if (failed === 0) {
   console.log(`\x1b[32m✅ TOÀN BỘ ${passed} TEST CASES ĐÃ ĐẠT 100% THÀNH CÔNG!\x1b[0m\n`);

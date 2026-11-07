@@ -325,7 +325,7 @@ export class DeckManager {
       }
 
       const lapses = Number(state.lapses) || 0;
-      const isLeech = Boolean(state.isLeech || lapses >= 4);
+      const isLeech = Boolean(state.isLeech || lapses >= 8);
       const r = fsrsInstance.getRetrievability(state, now);
 
       if (lapses >= 2 || isLeech || (state.reps >= 2 && r < 0.65)) {
@@ -349,69 +349,50 @@ export class DeckManager {
   }
 
   /**
-   * Lấy danh sách thẻ quên (lapses > 0 hoặc State.Relearning hoặc isLeech) và thẻ tạm dừng (suspended === true)
+   * Lấy danh sách từ khó (ngưỡng quên lapses >= 8 hoặc isLeech === true).
+   * Ẩn thông báo thẻ tạm ẩn khỏi giao diện (vẫn xử lý ngầm trong FSRS & Storage).
    */
   getAttentionCards(deckId = null) {
     const targetCards = deckId ? (this.deckCardsMap.get(deckId) || []) : this.allCards;
-    const lapsedCards = [];
-    const suspendedCards = [];
-    const seenLapsed = new Set();
-    const seenSuspended = new Set();
+    const difficultCards = [];
+    const seenDifficult = new Set();
 
     for (const card of targetCards) {
       if (!card || !card.id) continue;
       const state = StorageManager.getCardState(card.id);
       if (!state) continue;
 
-      const fullCard = {
-        ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
-        fsrsState: state
-      };
+      // Ẩn thông báo từ tạm ẩn khỏi UI, logic xử lý ngầm vẫn bảo toàn
+      if (state.suspended === true) continue;
 
-      const isSuspended = Boolean(state.suspended === true);
       const lapses = Number(state.lapses) || 0;
-      const isRelearning = state.state === State.Relearning || state.state === 3;
-      const isLeech = Boolean(state.isLeech || lapses >= 4);
-      const isLapsed = lapses > 0 || isRelearning || isLeech;
+      const isLeech = Boolean(state.isLeech === true || lapses >= 8);
 
-      if (isSuspended && !seenSuspended.has(card.id)) {
-        seenSuspended.add(card.id);
-        suspendedCards.push({
+      // Chừa một nhãn duy nhất là từ khó khi ngưỡng bấm quên >= 8 lần
+      if (isLeech && !seenDifficult.has(card.id)) {
+        seenDifficult.add(card.id);
+        const fullCard = {
+          ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
+          fsrsState: state
+        };
+        difficultCards.push({
           ...fullCard,
           _lapses: lapses,
-          _isLeech: isLeech,
-          _isSuspended: true
-        });
-      } else if (isLapsed && !seenLapsed.has(card.id)) {
-        seenLapsed.add(card.id);
-        lapsedCards.push({
-          ...fullCard,
-          _lapses: lapses,
-          _isLeech: isLeech,
+          _isLeech: true,
           _isSuspended: false
         });
       }
     }
 
     // Sắp xếp: Ưu tiên số lần quên (lapses) cao nhất lên trước
-    lapsedCards.sort((a, b) => (b._lapses || 0) - (a._lapses || 0));
-    suspendedCards.sort((a, b) => (b._lapses || 0) - (a._lapses || 0));
-
-    // Tổng hợp tất cả thẻ cần chú ý (thẻ quên + thẻ tạm dừng), đảm bảo id độc nhất
-    const allCardsMap = new Map();
-    for (const c of lapsedCards) allCardsMap.set(c.id, c);
-    for (const c of suspendedCards) {
-      if (!allCardsMap.has(c.id)) {
-        allCardsMap.set(c.id, c);
-      }
-    }
-    const allCards = Array.from(allCardsMap.values());
+    difficultCards.sort((a, b) => (b._lapses || 0) - (a._lapses || 0));
 
     return {
-      lapsedCards,
-      suspendedCards,
-      allCards,
-      totalCount: allCards.length
+      difficultCards,
+      lapsedCards: difficultCards, // Giữ tương thích nếu có code cũ tham chiếu
+      suspendedCards: [],           // Ẩn khỏi UI thông báo
+      allCards: difficultCards,
+      totalCount: difficultCards.length
     };
   }
 
@@ -639,12 +620,12 @@ export class DeckManager {
         learningCards.push({ ...hydratedCard, fsrsState: state });
       }
 
-      // Thu thập thẻ khó / từ hay quên (Leech & Low Stability Hunter)
+      // Thu thập thẻ khó (Leech & Low Stability Hunter)
       if (state && state.state !== State.New && state.state !== 0 && !state.suspended) {
         const s = Number(state.stability) || 0;
         const d = Number(state.difficulty) || 0;
         const lapses = Number(state.lapses) || 0;
-        const isLeech = state.isLeech === true || lapses >= 2;
+        const isLeech = state.isLeech === true || lapses >= 8;
         const isLowStability = s < 3;
         const isHighDifficulty = d >= 7.0;
         if (isLeech || isLowStability || isHighDifficulty) {

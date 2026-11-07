@@ -4,7 +4,7 @@
  * Tự động phát hiện và cập nhật code mới tức thời khi Online (Zero-Friction Live Update).
  */
 
-const CACHE_NAME = 'flashcard-pro-v3.76.40';
+const CACHE_NAME = 'flashcard-pro-v3.76.41';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -178,33 +178,38 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // B. Navigation Request (Truy cập trang / HTML): Tải HTML mới khi có mạng, dùng Cache khi Offline
+  // B. Navigation Request (Truy cập trang / HTML): Tải tức thì từ Cache (<5ms), kiểm tra cập nhật nền
   if (event.request.mode === 'navigate') {
     event.respondWith(
-      fetch(event.request)
-        .then((networkResponse) => {
+      caches.open(CACHE_NAME).then(async (cache) => {
+        const cached = (await cache.match(event.request)) ||
+                       (await cache.match(event.request.url.split('?')[0])) ||
+                       (await cache.match('./index.html')) ||
+                       (await cache.match('index.html')) ||
+                       (await cache.match('./'));
+
+        // Cập nhật ngầm từ mạng không chặn UI
+        const networkFetch = fetch(event.request).then((networkResponse) => {
           if (networkResponse && networkResponse.status === 200) {
             const clone = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone)).catch(() => {});
+            cache.put('./index.html', clone);
+            cache.put(event.request, clone.clone());
           }
           return networkResponse;
-        })
-        .catch(async () => {
-          // Offline Fallback cho Navigation: Thử tất cả các entry có thể trỏ tới index
-          const cache = await caches.open(CACHE_NAME);
-          const cached = (await cache.match(event.request)) ||
-                         (await cache.match(event.request.url.split('?')[0])) ||
-                         (await cache.match('./index.html')) ||
-                         (await cache.match('index.html')) ||
-                         (await cache.match('./')) ||
-                         (await caches.match('./index.html')) ||
-                         (await caches.match('./'));
-          if (cached) return cached;
-          return new Response('Offline: Vui lòng kết nối mạng để tải lại trang.', {
-            status: 503,
-            headers: { 'Content-Type': 'text/plain; charset=utf-8' }
-          });
-        })
+        }).catch(() => null);
+
+        if (cached) {
+          return cached;
+        }
+
+        const netRes = await networkFetch;
+        if (netRes) return netRes;
+
+        return new Response('Offline: Vui lòng kết nối mạng để tải lại trang.', {
+          status: 503,
+          headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+        });
+      })
     );
     return;
   }

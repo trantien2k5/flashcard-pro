@@ -1457,7 +1457,7 @@ export async function openCustomStudyModal(app) {
           const isDue = !isActuallyNew && isCardDue(state, now);
           const s = state ? (Number(state.stability) || 0) : 0;
           const lapses = state ? (Number(state.lapses) || 0) : 0;
-          const isLeech = Boolean(state && (state.isLeech === true || lapses >= 3));
+          const isLeech = Boolean(state && (state.isLeech === true || lapses >= 8));
           const isMastered = !isActuallyNew && s >= MASTERY_STABILITY_THRESHOLD;
           const isLearning = !isActuallyNew && !isMastered;
 
@@ -1465,7 +1465,7 @@ export async function openCustomStudyModal(app) {
           if (filterState.status === 'new' && !isActuallyNew) continue;
           if (filterState.status === 'learning' && !isLearning) continue;
           if (filterState.status === 'mastered' && !isMastered) continue;
-          if (filterState.status === 'leech' && (!isLeech && lapses < 2)) continue;
+          if (filterState.status === 'leech' && !isLeech) continue;
         }
 
         matched.push(card);

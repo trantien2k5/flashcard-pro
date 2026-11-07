@@ -85,18 +85,17 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 2b. THẺ THỐNG KÊ: THẺ QUÊN & TẠM DỪNG (ATTENTION & RECOVERY CARD) -->
-        <div class="home-attention-card inset-grouped-card" id="home-attention-card" role="button" tabindex="0" title="Nhấn để xem danh sách thẻ quên & tạm dừng">
+        <!-- 2b. THẺ THỐNG KÊ: TỪ KHÓ (QUÊN ≥ 8 LẦN) -->
+        <div class="home-attention-card inset-grouped-card" id="home-attention-card" role="button" tabindex="0" title="Nhấn để xem danh sách từ khó">
           <div class="attention-card-left">
-            <div class="attention-icon-badge">🩺</div>
+            <div class="attention-icon-badge">🎯</div>
             <div class="attention-info">
               <div class="attention-title-row">
-                <span class="attention-title">Thẻ Quên & Tạm Dừng</span>
+                <span class="attention-title">Từ Khó</span>
                 <span class="attention-total-badge" id="attention-total-badge">0 từ</span>
               </div>
               <div class="attention-sub-tags">
-                <span class="attention-tag tag-lapsed" id="attention-lapsed-tag">⚠️ 0 thẻ quên</span>
-                <span class="attention-tag tag-suspended" id="attention-suspended-tag">⏸️ 0 tạm dừng</span>
+                <span class="attention-tag tag-leech" id="attention-leech-tag">Quên ≥ 8 lần</span>
               </div>
             </div>
           </div>
@@ -206,7 +205,7 @@ export function renderReviewShell(container) {
           </div>
           <div class="home-modes-grid">
             <!-- Mode 1: Diệt từ khó (Leech Hunter) -->
-            <button type="button" class="home-mode-card mode-weak" id="btn-mode-weak-hunter" title="Học chuyên sâu các từ hay quên và có độ bền trí nhớ thấp">
+            <button type="button" class="home-mode-card mode-weak" id="btn-mode-weak-hunter" title="Học chuyên sâu các từ khó nhớ và có độ bền trí nhớ thấp">
               <div class="mode-icon-wrap">🔥</div>
               <div class="mode-info">
                 <div class="mode-title-row">
@@ -523,18 +522,16 @@ export function updateHomeStatsRealtime(app = _cachedApp) {
     } catch (e) {}
   }
 
-  // 4.6. Cập nhật Thẻ Thống Kê Thẻ Quên & Tạm Dừng (Attention Cards)
+  // 4.6. Cập nhật Thẻ Thống Kê Từ Khó (Attention Cards - Quên >= 8 lần)
   if (app.deckManager?.getAttentionCards) {
     try {
       const attentionData = app.deckManager.getAttentionCards();
       const elAttentionCard = document.getElementById('home-attention-card');
       const elTotalBadge = document.getElementById('attention-total-badge');
-      const elLapsedTag = document.getElementById('attention-lapsed-tag');
-      const elSuspendedTag = document.getElementById('attention-suspended-tag');
+      const elLeechTag = document.getElementById('attention-leech-tag');
 
       if (elTotalBadge) elTotalBadge.textContent = `${attentionData.totalCount} từ`;
-      if (elLapsedTag) elLapsedTag.textContent = `⚠️ ${attentionData.lapsedCards.length} thẻ quên`;
-      if (elSuspendedTag) elSuspendedTag.textContent = `⏸️ ${attentionData.suspendedCards.length} tạm dừng`;
+      if (elLeechTag) elLeechTag.textContent = `Quên ≥ 8 lần`;
 
       if (elAttentionCard) {
         if (attentionData.totalCount === 0) {
@@ -725,37 +722,24 @@ export function showAttentionCardsModal(app = _cachedApp) {
     document.body.appendChild(modal);
   }
 
-  let activeTab = 'all'; // 'all' | 'lapsed' | 'suspended'
   let searchQuery = '';
-
   const initialData = app.deckManager.getAttentionCards();
 
   modal.innerHTML = `
     <div class="modal-dialog quick-preview-dialog attention-preview-dialog">
       <div class="quick-modal-header">
         <div class="quick-modal-title-wrap">
-          <div class="quick-modal-icon badge-attention">🩺</div>
+          <div class="quick-modal-icon badge-attention">🎯</div>
           <div class="quick-modal-headings">
-            <h3 class="quick-modal-title">Thẻ Quên & Tạm Dừng</h3>
-            <span class="quick-modal-sub" id="attention-modal-sub">${initialData.totalCount} từ cần phục hồi & củng cố trí nhớ</span>
+            <h3 class="quick-modal-title">Danh Sách Từ Khó</h3>
+            <span class="quick-modal-sub" id="attention-modal-sub">${initialData.totalCount} từ khó nhớ (ngưỡng quên ≥ 8 lần)</span>
           </div>
         </div>
         <button class="btn-icon-close btn-quick-close" type="button" title="Đóng">✕</button>
       </div>
 
       <div class="attention-filter-bar">
-        <div class="attention-tabs-row">
-          <button type="button" class="attention-tab-btn active" data-tab="all" id="tab-btn-attention-all">
-            Tất cả (${initialData.totalCount})
-          </button>
-          <button type="button" class="attention-tab-btn" data-tab="lapsed" id="tab-btn-attention-lapsed">
-            ⚠️ Quên (${initialData.lapsedCards.length})
-          </button>
-          <button type="button" class="attention-tab-btn" data-tab="suspended" id="tab-btn-attention-suspended">
-            ⏸️ Tạm dừng (${initialData.suspendedCards.length})
-          </button>
-        </div>
-        <div class="attention-search-wrap">
+        <div class="attention-search-wrap" style="width: 100%;">
           <input type="text" class="attention-search-input" id="attention-search-input" placeholder="Tìm kiếm từ hoặc nghĩa..." />
           <button type="button" class="btn-clear-search" id="btn-clear-attention-search" style="display: none;">✕</button>
         </div>
@@ -781,33 +765,14 @@ export function showAttentionCardsModal(app = _cachedApp) {
 
   const updateModalView = () => {
     const freshData = app.deckManager.getAttentionCards();
-    const { lapsedCards, suspendedCards, allCards } = freshData;
+    const difficultCards = freshData.difficultCards || freshData.allCards || [];
 
-    // Cập nhật text tiêu đề phụ & tabs
+    // Cập nhật text tiêu đề phụ
     const subEl = modal.querySelector('#attention-modal-sub');
-    if (subEl) subEl.textContent = `${allCards.length} từ cần phục hồi & củng cố trí nhớ`;
-
-    const btnAll = modal.querySelector('#tab-btn-attention-all');
-    if (btnAll) {
-      btnAll.textContent = `Tất cả (${allCards.length})`;
-      btnAll.classList.toggle('active', activeTab === 'all');
-    }
-    const btnLapsed = modal.querySelector('#tab-btn-attention-lapsed');
-    if (btnLapsed) {
-      btnLapsed.textContent = `⚠️ Quên (${lapsedCards.length})`;
-      btnLapsed.classList.toggle('active', activeTab === 'lapsed');
-    }
-    const btnSuspended = modal.querySelector('#tab-btn-attention-suspended');
-    if (btnSuspended) {
-      btnSuspended.textContent = `⏸️ Tạm dừng (${suspendedCards.length})`;
-      btnSuspended.classList.toggle('active', activeTab === 'suspended');
-    }
+    if (subEl) subEl.textContent = `${difficultCards.length} từ khó nhớ (ngưỡng quên ≥ 8 lần)`;
 
     // Lọc danh sách hiển thị
-    let displayList = [];
-    if (activeTab === 'lapsed') displayList = lapsedCards;
-    else if (activeTab === 'suspended') displayList = suspendedCards;
-    else displayList = allCards;
+    let displayList = difficultCards;
 
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase().trim();
@@ -822,9 +787,9 @@ export function showAttentionCardsModal(app = _cachedApp) {
       if (displayList.length === 0) {
         listEl.innerHTML = `
           <div class="quick-modal-empty">
-            <span class="empty-emoji">${allCards.length === 0 ? '🎉' : '🔍'}</span>
-            <h4 class="empty-title">${allCards.length === 0 ? 'Không có thẻ quên hoặc tạm dừng!' : 'Không tìm thấy từ phù hợp'}</h4>
-            <p class="empty-desc">${allCards.length === 0 ? 'Tuyệt vời! Toàn bộ từ vựng đều đang duy trì trí nhớ tốt và không có thẻ nào bị tạm dừng.' : 'Hãy thử tìm kiếm với từ khóa khác hoặc chuyển tab.'}</p>
+            <span class="empty-emoji">${difficultCards.length === 0 ? '🎉' : '🔍'}</span>
+            <h4 class="empty-title">${difficultCards.length === 0 ? 'Không có từ khó nào!' : 'Không tìm thấy từ phù hợp'}</h4>
+            <p class="empty-desc">${difficultCards.length === 0 ? 'Tuyệt vời! Không có từ vựng nào đạt ngưỡng quên từ 8 lần trở lên.' : 'Hãy thử tìm kiếm với từ khóa khác.'}</p>
           </div>
         `;
       } else {
@@ -841,13 +806,8 @@ export function showAttentionCardsModal(app = _cachedApp) {
             </div>
             <div class="attention-word-right">
               <div class="attention-badges-wrap">
-                ${c._lapses > 0 ? `<span class="badge-tag tag-lapse">Quên ${c._lapses}l</span>` : ''}
-                ${c._isLeech ? `<span class="badge-tag tag-leech">Thẻ khó</span>` : ''}
-                ${c._isSuspended ? `<span class="badge-tag tag-suspended-badge">Tạm dừng</span>` : ''}
+                <span class="badge-tag tag-leech">Quên ${c._lapses || 0} lần</span>
               </div>
-              <button type="button" class="btn-toggle-suspend ${c._isSuspended ? 'is-suspended' : ''}" data-card-id="${escapeHTML(c.id)}" title="${c._isSuspended ? 'Bỏ tạm dừng thẻ này' : 'Tạm dừng thẻ này'}">
-                ${c._isSuspended ? 'Mở lại' : 'Tạm dừng'}
-              </button>
             </div>
           </div>
         `).join('');
@@ -860,30 +820,17 @@ export function showAttentionCardsModal(app = _cachedApp) {
             if (w) speak(w);
           };
         });
-
-        // Gán sự kiện toggle suspend
-        listEl.querySelectorAll('.btn-toggle-suspend').forEach(b => {
-          b.onclick = (e) => {
-            e.stopPropagation();
-            const cid = b.getAttribute('data-card-id');
-            if (cid) {
-              StorageManager.toggleCardSuspended(cid);
-              updateHomeStatsRealtime(app);
-              updateModalView();
-            }
-          };
-        });
       }
     }
 
     // Cập nhật Footer
     const footerEl = modal.querySelector('#attention-modal-footer');
     if (footerEl) {
-      const count = displayList.length > 0 ? displayList.length : allCards.length;
+      const count = displayList.length > 0 ? displayList.length : difficultCards.length;
       footerEl.innerHTML = `
         ${count > 0 ? `
           <button type="button" class="btn-quick-action-primary" id="btn-attention-start-study">
-            <span>⚡ Ôn ngay ${displayList.length > 0 ? displayList.length : allCards.length} từ này</span>
+            <span>⚡ Ôn ngay ${count} từ khó này</span>
           </button>
         ` : ''}
         <button type="button" class="btn-quick-action-secondary btn-quick-close">
@@ -894,17 +841,11 @@ export function showAttentionCardsModal(app = _cachedApp) {
       const btnStudy = footerEl.querySelector('#btn-attention-start-study');
       if (btnStudy) {
         btnStudy.onclick = () => {
-          const targetPool = displayList.length > 0 ? displayList : allCards;
+          const targetPool = displayList.length > 0 ? displayList : difficultCards;
           if (!targetPool || targetPool.length === 0) return;
-          // Tự động bỏ tạm dừng cho các thẻ được đưa vào ôn tập
-          targetPool.forEach(c => {
-            if (c._isSuspended || StorageManager.isCardSuspended(c.id)) {
-              StorageManager.unsuspendCard(c.id);
-            }
-          });
           modal.classList.remove('active');
           updateHomeStatsRealtime(app);
-          app.showToast(`Bắt đầu ôn tập ${targetPool.length} từ cần củng cố!`, 'success');
+          app.showToast(`Bắt đầu ôn tập ${targetPool.length} từ khó!`, 'success');
           app.startStudySession(null, null, targetPool, { mode: 'attention_recovery' });
         };
       }
@@ -915,17 +856,6 @@ export function showAttentionCardsModal(app = _cachedApp) {
       }
     }
   };
-
-  // Gán sự kiện cho các tab
-  modal.querySelectorAll('.attention-tab-btn').forEach(b => {
-    b.onclick = () => {
-      const tab = b.getAttribute('data-tab');
-      if (tab) {
-        activeTab = tab;
-        updateModalView();
-      }
-    };
-  });
 
   // Gán sự kiện tìm kiếm
   const searchInput = modal.querySelector('#attention-search-input');

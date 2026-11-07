@@ -2734,6 +2734,10 @@
   color: var(--text-secondary);
 }
 
+.attention-tag.tag-leech {
+  color: #ef4444;
+}
+
 .attention-tag.tag-lapsed {
   color: #f59e0b;
 }

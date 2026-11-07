@@ -1661,7 +1661,7 @@ export class BehavioralOptimizer {
     for (const [cid, st] of Object.entries(cardStates)) {
       if (!st) continue;
       const lapses = Number(st.lapses) || 0;
-      if (st.isLeech === true || lapses >= 3) {
+      if (st.isLeech === true || lapses >= 8) {
         const c = wordsMap ? wordsMap.get(cid) : null;
         leechList.push({
           cardId: cid,
