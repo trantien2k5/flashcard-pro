@@ -137,15 +137,19 @@ export function renderSettingsTabShell(container) {
           </div>
 
           <div class="inset-grouped-card">
-            <!-- AI Behavioral Optimizer Feature Banner -->
+            <!-- AI Behavioral Optimizer Feature Banner: Fully Autonomous Background -->
             <div class="optimizer-feature-card">
               <div class="optimizer-feature-left">
-                <div class="optimizer-feature-badge">⚡ AI OPTIMIZER</div>
-                <div class="optimizer-feature-title">Tối ưu hóa FSRS theo hành vi</div>
+                <div class="optimizer-feature-badge">⚡ FSRS AUTONOMOUS</div>
+                <div class="optimizer-feature-title">Tối ưu hóa FSRS Tự động</div>
+                <div class="optimizer-feature-sub" style="font-size: 0.78rem; color: var(--text-muted); margin-top: 3px;">
+                  Tự động căn chỉnh nhịp sinh học, tốc độ phản xạ & tối ưu trọng số FSRS-6 hoàn toàn ngầm
+                </div>
               </div>
-              <button type="button" class="btn-primary-hero btn-run-optimizer" id="btn-run-behavioral-optimizer">
-                <span>🧠 Phân tích & Tối ưu</span>
-              </button>
+              <div class="optimizer-auto-pill" style="display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 99px; background: rgba(16, 185, 129, 0.12); color: #10b981; font-weight: 700; font-size: 0.82rem; border: 1px solid rgba(16, 185, 129, 0.25); white-space: nowrap;">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
+                <span>Tự động ngầm</span>
+              </div>
             </div>
 
             <!-- 1-Tap Learning Profile Presets -->

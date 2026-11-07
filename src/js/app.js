@@ -6,7 +6,7 @@
 import { DeckManager } from './core/selectors.js';
 import { StorageManager } from './services/storage.js';
 import { StudySession } from './core/session.js';
-import { StatsManager } from './core/stats.js';
+import { StatsManager, BehavioralOptimizer } from './core/stats.js';
 import { scrollToTop } from './utils.js';
 
 // Giao diện các màn hình chức năng & Thành phần dùng chung
@@ -105,6 +105,7 @@ export class FlashcardApp {
             if (this.deckManager && this.settings) {
               this.deckManager.getStudyQueue(null, this.settings, null, { mode: 'due_first' });
             }
+            BehavioralOptimizer.autoCalibrateBackground(this);
           } catch (e) {}
         });
       }

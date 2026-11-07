@@ -310,7 +310,27 @@ export class StudySession {
     const now = new Date();
     // Luôn ưu tiên nạp trạng thái FSRS mới nhất từ StorageManager để đảm bảo tính nhất quán
     const oldState = StorageManager.getCardState(cardId) || this.currentCard.fsrsState || FSRS.createEmptyCard(cardId);
-    const nextState = this.fsrs.calculateNextState(oldState, rating, now, {
+
+    // BỘ ĐIỀU PHỐI NHẬN THỨC TỰ THÍCH ỨNG (ADAPTIVE COGNITIVE LATENCY ENGINE)
+    // Tự động phân hóa độ tự tin 2 nút (Quên / Nhớ) thành FSRS-6 chuẩn xác với màng lọc chống nhiễu
+    let effectiveRating = rating;
+    if (rating === Rating.Good && typeof latencySec === 'number') {
+      const isNoiseOrDistracted = latencySec >= 7.0 || latencySec <= 0.3;
+      if (!isNoiseOrDistracted) {
+        // Chuẩn hóa theo độ dài từ vựng (Word Length Normalization)
+        const wordLen = Math.max(3, (this.currentCard.word || '').length);
+        const fastThreshold = Math.min(1.8, 0.8 + (wordLen * 0.05)); // 3 chữ: 0.95s, 15 chữ: 1.55s
+        const slowThreshold = Math.max(3.8, 3.2 + (wordLen * 0.08)); // 3 chữ: 3.44s, 15 chữ: 4.40s
+
+        if (latencySec <= fastThreshold) {
+          effectiveRating = Rating.Easy; // Phản xạ tức thì -> Thưởng độ bền (Easy)
+        } else if (latencySec >= slowThreshold && latencySec < 7.0) {
+          effectiveRating = Rating.Hard; // Nhớ ngập ngừng -> Tăng nhẹ độ khó D (Hard)
+        }
+      }
+    }
+
+    const nextState = this.fsrs.calculateNextState(oldState, effectiveRating, now, {
       enableFuzz: this.settings?.enableFuzz !== false,
       leechThreshold: this.settings?.leechThreshold || 8,
       leechAction: this.settings?.leechAction || 'suspend'
@@ -333,6 +353,7 @@ export class StudySession {
         cardId: this.currentCard.id,
         word: this.currentCard.word,
         rating: rating,
+        effectiveRating: effectiveRating,
         oldState: oldState.state,
         newState: nextState.state,
         scheduledDays: nextState.scheduled_days,
@@ -398,16 +419,16 @@ export class StudySession {
         this.completedUniqueIds.add(cardId);
       }
     } else {
-      if (rating === Rating.Hard) this.sessionStats.hard++;
-      else if (rating === Rating.Good) this.sessionStats.good++;
-      else if (rating === Rating.Easy) this.sessionStats.easy++;
+      if (effectiveRating === Rating.Hard) this.sessionStats.hard++;
+      else if (effectiveRating === Rating.Easy) this.sessionStats.easy++;
+      else this.sessionStats.good++;
 
       if (isRelearnPass) {
         this.relearningCardIds.delete(cardId);
         this.sessionStats.inSessionRecovered = (this.sessionStats.inSessionRecovered || 0) + 1;
       }
 
-      if (isOldRelearning || (oldState.lapses && oldState.lapses > 0 && (rating === Rating.Good || rating === Rating.Easy))) {
+      if (isOldRelearning || (oldState.lapses && oldState.lapses > 0 && (effectiveRating === Rating.Good || effectiveRating === Rating.Easy))) {
         this.sessionStats.recovered = (this.sessionStats.recovered || 0) + 1;
       }
 

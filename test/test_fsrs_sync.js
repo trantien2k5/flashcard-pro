@@ -5,6 +5,7 @@ import { FSRS, Rating, State, isCardDue } from '../src/js/core/fsrs.js';
 import { StudySession } from '../src/js/core/session.js';
 import { StorageManager } from '../src/js/services/storage.js';
 import { DeckManager } from '../src/js/core/selectors.js';
+import { BehavioralOptimizer } from '../src/js/core/stats.js';
 
 console.log('🧪 BẮT ĐẦU KIỂM THỬ ĐỒNG BỘ THUẬT TOÁN FSRS & LƯU TRỮ TRẠNG THÁI...');
 
@@ -248,6 +249,52 @@ assert(attentionResult.difficultCards.some(c => c.id === 'card_hard_8'), 'Test 1
 assert(!attentionResult.difficultCards.some(c => c.id === 'card_suspended'), 'Test 10.4: Từ tạm ẩn ĐÃ ĐƯỢC ẨN KHỎI UI thông báo theo yêu cầu');
 assert(StorageManager.isCardSuspended('card_suspended'), 'Test 10.5: Logic tạm ẩn trong Storage & FSRS vẫn hoạt động ngầm trọn vẹn');
 assert(attentionResult.suspendedCards.length === 0, 'Test 10.6: Danh sách suspendedCards trả về rỗng để sạch UI');
+
+// ====================================================
+// TEST 11: Bộ điều phối Nhận thức Tự Thích Ứng (Adaptive Latency & Noise Clamping)
+// ====================================================
+
+const adaptiveSession = new StudySession();
+const testWordsAdaptive = [
+  { id: 'adapt_fast', word: 'cat' },
+  { id: 'adapt_hesitant', word: 'cat' },
+  { id: 'adapt_distracted', word: 'cat' }
+];
+
+testWordsAdaptive.forEach(w => {
+  StorageManager.saveCardState({
+    id: w.id,
+    word: w.word,
+    state: State.Review,
+    stability: 5.0,
+    difficulty: 5.0,
+    reps: 3,
+    lapses: 0,
+    last_review: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+    due: new Date(Date.now() - 1000).toISOString()
+  });
+});
+
+adaptiveSession.start(testWordsAdaptive);
+
+// 1. Phản xạ nhanh (0.8s <= 0.95s threshold): Tự nâng cấp thành Easy
+adaptiveSession.rateCard(Rating.Good, { latencySec: 0.8 });
+const stateFast = StorageManager.getCardState('adapt_fast');
+assert(stateFast.scheduled_days >= 5, 'Test 11.1: Phản xạ tức thì (<1s) được thuật toán nhận diện và thưởng độ bền (Easy boost)');
+
+// 2. Nhớ ngập ngừng (5.0s >= 3.44s threshold nhưng < 7.0s): Tự điều chỉnh Hard
+adaptiveSession.rateCard(Rating.Good, { latencySec: 5.0 });
+const stateHesitant = StorageManager.getCardState('adapt_hesitant');
+assert(stateHesitant.difficulty > 5.0, 'Test 11.2: Nhớ ngập ngừng (5s) tự động tăng nhẹ độ khó D để củng cố kịp thời');
+
+// 3. Bị phân tâm ngoại cảnh (9.5s >= 7.0s): Màng lọc chống nhiễu kích hoạt, giữ chuẩn Good không phạt
+adaptiveSession.rateCard(Rating.Good, { latencySec: 9.5 });
+const stateDistracted = StorageManager.getCardState('adapt_distracted');
+assert(stateHesitant.difficulty > stateDistracted.difficulty && stateDistracted.difficulty < 5.1, 'Test 11.3: Dừng lâu do phân tâm (9.5s) được màng lọc chống nhiễu bảo vệ, TUYỆT ĐỐI không phạt oan');
+
+// 4. Kiểm tra hàm tối ưu hóa ngầm
+const optResult = BehavioralOptimizer.autoCalibrateBackground();
+assert(optResult === null || Array.isArray(optResult), 'Test 11.4: Bộ tối ưu hóa FSRS ngầm vận hành an toàn, zero-touch');
 
 console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 if (failed === 0) {

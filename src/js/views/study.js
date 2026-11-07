@@ -6,7 +6,7 @@
 import { Rating, State } from '../core/fsrs.js';
 import { StorageManager } from '../services/storage.js';
 import { showConfirm } from './components.js';
-import { globalStudyTimer } from '../core/stats.js';
+import { globalStudyTimer, BehavioralOptimizer } from '../core/stats.js';
 import { unlockAudioContext } from '../core/session.js';
 import { escapeHTML, formatCleanInterval, scrollToTop } from '../utils.js';
 import { onAudioPlayStateChange, speak, speakVi, stopAudio } from '../services/audio.js';
@@ -1498,6 +1498,9 @@ export function setupStudyControls(app) {
             stopPomodoroTracker();
             app.studySession?.stopAudio();
             globalStudyTimer.endSession();
+    try {
+      BehavioralOptimizer.autoCalibrateBackground(app);
+    } catch (e) {}
             StorageManager.flushPendingSync();
             overlay.classList.remove('active');
             scrollToTop();
@@ -2243,6 +2246,9 @@ export function handleStudyFinish(app, sessionStats) {
       _studyTimerUnsubscribe = null;
     }
     globalStudyTimer.endSession();
+    try {
+      BehavioralOptimizer.autoCalibrateBackground(app);
+    } catch (e) {}
 
     showSummaryModal(app, sessionStats, false);
     app.refreshAllViews();

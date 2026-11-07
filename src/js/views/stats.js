@@ -43,9 +43,9 @@ export function renderStatsTabShell(container) {
             </div>
           </div>
           <div class="stats-hero-badges">
-            <button type="button" class="btn-open-calendar-modal" id="btn-open-optimizer-from-stats" title="Tối ưu hóa FSRS theo hành vi" style="cursor: pointer; background: var(--primary-light, rgba(99, 102, 241, 0.12)); border: 1px solid var(--border-focus, #6366f1); color: var(--primary, #6366f1); font-weight: 600;">
-              <span>🧠 Tối ưu hóa FSRS</span>
-            </button>
+            <span style="display: inline-flex; align-items: center; gap: 6px; background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.25); color: var(--primary, #6366f1); padding: 5px 12px; border-radius: 99px; font-size: 0.78rem; font-weight: 700;">
+              ⚡ FSRS Tự động cá nhân hóa
+            </span>
           </div>
         </div>
 

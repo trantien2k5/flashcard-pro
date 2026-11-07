@@ -1860,6 +1860,30 @@ export class BehavioralOptimizer {
   }
 
   /**
+   * Tự động phân tích và tối ưu hóa thông số FSRS-6 hoàn toàn trong nền (Zero-Touch Background Optimization)
+   */
+  static autoCalibrateBackground(app = null) {
+    try {
+      const logs = StorageManager.getStudyLogs() || [];
+      // Bắt đầu tự động cân chỉnh khi người dùng đã có tối thiểu 10 lượt học để dữ liệu có ý nghĩa thống kê
+      if (logs.length < 10) return null;
+
+      const result = BehavioralOptimizer.analyze(app);
+      if (result && result.hasOptimizations && Array.isArray(result.recommendations) && result.recommendations.length > 0) {
+        const applied = BehavioralOptimizer.applyOptimizations(result.recommendations);
+        if (applied) {
+          const appliedKeys = result.recommendations.map(r => r.key).join(', ');
+          console.log(`[BehavioralOptimizer] Đã tự động tối ưu hóa FSRS ngầm thành công (${appliedKeys})`);
+          return result.recommendations;
+        }
+      }
+    } catch (err) {
+      console.warn('[BehavioralOptimizer] Lỗi tự động tối ưu hóa ngầm:', err);
+    }
+    return null;
+  }
+
+  /**
    * Áp dụng toàn bộ cấu hình tối ưu hóa vào StorageManager
    */
   static applyOptimizations(recommendations) {
