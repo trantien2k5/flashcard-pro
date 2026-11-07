@@ -1268,7 +1268,7 @@
 /* Chế độ 2 Nút Tối Giản: Quên / Nhớ (Visually Ergonomic Mode) */
 .fsrs-buttons-grid.mode-2-buttons {
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 14px;
 }
 
 .fsrs-buttons-grid.mode-2-buttons .btn-fsrs-rating.hard,
@@ -1276,22 +1276,22 @@
   display: none !important;
 }
 
+/* Ẩn hoàn toàn nhãn thời gian trên 2 nút theo yêu cầu người dùng */
+.fsrs-buttons-grid.mode-2-buttons .fsrs-badge-interval {
+  display: none !important;
+}
+
 .fsrs-buttons-grid.mode-2-buttons .btn-fsrs-rating {
-  min-height: 64px;
-  padding: 10px 14px;
+  min-height: 66px;
+  padding: 14px 16px;
   border-radius: 18px;
+  justify-content: center;
 }
 
 .fsrs-buttons-grid.mode-2-buttons .btn-fsrs-rating .fsrs-rating-title {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 850;
   letter-spacing: 0.02em;
-}
-
-.fsrs-buttons-grid.mode-2-buttons .btn-fsrs-rating .fsrs-badge-interval {
-  font-size: 0.95rem;
-  font-weight: 800;
-  opacity: 0.95;
 }
 
 .btn-fsrs-rating {
@@ -2280,14 +2280,19 @@
     gap: 12px;
   }
 
+  .fsrs-buttons-grid.mode-2-buttons .fsrs-badge-interval {
+    display: none !important;
+  }
+
   .fsrs-buttons-grid.mode-2-buttons .btn-fsrs-rating {
-    min-height: 68px;
-    padding: 12px 10px;
+    min-height: 70px;
+    padding: 14px 10px;
     border-radius: 18px;
+    justify-content: center;
   }
 
   .fsrs-buttons-grid.mode-2-buttons .btn-fsrs-rating .fsrs-rating-title {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 850;
   }
 
