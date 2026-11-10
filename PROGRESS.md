@@ -1,6 +1,6 @@
 # 🚀 TIẾN ĐỘ DỰ ÁN & NHẬT KÝ PHÁT TRIỂN
 > **Dự án:** Flashcard English Pro (PWA Spaced Repetition)  
-> **Phiên bản hiện tại:** `v3.76.49`  
+> **Phiên bản hiện tại:** `v3.76.51`  
 > **Cập nhật lần cuối:** 2026-11-10  
 > **Tài liệu tham chiếu kiến trúc:** Xem [`AGENTS.md`](./AGENTS.md)
 
@@ -8,12 +8,12 @@
 
 ## 📍 1. Trạng Thái Hiện Tại (Project Health & Status)
 
-- **Phiên bản SSOT:** `v3.76.49` (Đồng bộ tuyệt đối qua `package.json`, `sw.js`, `src/js/config.js`, `index.html`).
+- **Phiên bản SSOT:** `v3.76.51` (Đồng bộ tuyệt đối qua `package.json`, `sw.js`, `src/js/config.js`, `index.html`).
 - **Chất lượng mã nguồn:**
-  - `node test/check.js`: **64/64 files hoàn hảo**, 100% cú pháp V8 AST chuẩn tuyệt đối.
+  - `node test/check.js`: **70/70 files hoàn hảo**, 100% cú pháp V8 AST chuẩn tuyệt đối.
   - Khớp đúng 100% Named Exports/Imports giữa các module.
   - 0 Circular Dependency (không có vòng lặp import).
-  - 0 lỗi CSS Design Tokens (đã chuẩn hóa 100% biến CSS).
+  - 0 Dead Code / 0 Unused Imports.
 - **Bộ kiểm thử tự động:** **52/52 test cases ĐẠT 100%**:
   - `test/test_fsrs_sync.js`: 39 bài test FSRS-6, khoảng thời gian ôn tập, Leech detection, Streak Auto-heal.
   - `test/test_quiz_balance.js`: 13 bài test thuật toán phân phối đáp án trắc nghiệm thông minh.
@@ -22,6 +22,18 @@
 ---
 
 ## ✅ 2. Các Mốc Đã Hoàn Thành Gần Nhất (Completed Milestones)
+
+### [v3.76.51] — Dọn sạch triệt để Code Rác & Code Chết (Dead Code Cleanup) (2026-11-10)
+- **Xóa sạch Import thừa:** Dọn sạch 3 import mồ côi (`Rating`, `escapeHTML`, `speak`) trong `views/review.js`.
+- **Thanh lọc 11 hàm & hằng số chết:**
+  - `config.js`: Xóa bỏ `DEFAULT_BATCH_SIZE`.
+  - `core/fsrs.js`: Xóa bỏ hàm `isCardLearned`.
+  - `services/audio.js`: Xóa bỏ Facade object `AudioService`.
+  - `views/reels.js`: Xóa bỏ hàm tàn dư `closeReelsSession`.
+  - `views/stats/journal.js`: Xóa bỏ setter `setCurrentJournalPeriod`.
+  - `utils.js`: Xóa bỏ 6 hàm tiện ích mồ côi (`formatTime`, `formatDate`, `formatNumber`, `isTouchDevice`, `throttle`, `bindModalBackdropAndEsc`).
+- **Tự động đồng bộ bản đồ:** Cập nhật lại toàn bộ `CODE_MAP.md` với số dòng mới sau khi thanh lọc.
+- **Kiểm thử tự động:** 70/70 files V8 AST 100%, 52/52 test cases passed.
 
 ### [v3.76.50] — Tái cấu trúc Module hóa toàn diện 4 màn hình lớn & Ban hành Bộ quy chuẩn (2026-11-10)
 - **Tái cấu trúc `views/stats.js` (từ 1.201 dòng ➔ 375 dòng):**

@@ -6,12 +6,12 @@
  */
 
 import { StorageManager } from '../services/storage.js';
-import { State, Rating, isCardDue } from '../core/fsrs.js';
+import { State, isCardDue } from '../core/fsrs.js';
 import { globalStudyTimer, StatsManager } from '../core/stats.js';
-import { escapeHTML, getLocalDateKey } from '../utils.js';
+import { getLocalDateKey } from '../utils.js';
 import { MASTERY_STABILITY_THRESHOLD } from '../config.js';
 import { showStreakHubModal, openCustomStudyModal } from './components.js';
-import { speak } from '../services/audio.js';
+
 import { showGoalCustomizerModal, showForecastDetailModal } from './modals/goal-modal.js';
 import {
   setStatModalsApp,

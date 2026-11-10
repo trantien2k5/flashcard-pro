@@ -32,43 +32,6 @@ export function escapeRegex(string) {
 }
 
 /**
- * Định dạng thời gian trôi qua (giây) thành chuỗi mm:ss hoặc hh:mm
- */
-export function formatTime(seconds = 0) {
-  const sec = Math.max(0, Math.floor(seconds));
-  const m = Math.floor(sec / 60);
-  const s = sec % 60;
-  if (m >= 60) {
-    const h = Math.floor(m / 60);
-    const remM = m % 60;
-    return `${h}h ${remM < 10 ? '0' : ''}${remM}m`;
-  }
-  return `${m}:${s < 10 ? '0' : ''}${s}`;
-}
-
-/**
- * Định dạng đối tượng Date thành chuỗi ngày theo chuẩn tiếng Việt (vd: "08/09/2026")
- */
-export function formatDate(date) {
-  if (!date) return '';
-  const d = (date instanceof Date) ? date : new Date(date);
-  if (isNaN(d.getTime())) return '';
-  return d.toLocaleDateString('vi-VN', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric'
-  });
-}
-
-/**
- * Định dạng số nguyên với dấu chấm ngăn cách hàng nghìn tiếng Việt (vd: 1.250)
- */
-export function formatNumber(num = 0) {
-  const n = Number(num) || 0;
-  return n.toLocaleString('vi-VN');
-}
-
-/**
  * Làm sạch chuỗi chu kỳ FSRS cho nhãn nút ngắn gọn (bỏ ký tự <, ≤, khoảng trắng thừa)
  */
 export function formatCleanInterval(text, fallback = '1d') {
@@ -95,13 +58,6 @@ export function getLocalDateKey(date = new Date(), rolloverHour = 0) {
   const month = String(d.getMonth() + 1).padStart(2, '0');
   const day = String(d.getDate()).padStart(2, '0');
   return `${year}-${month}-${day}`;
-}
-
-/**
- * Kiểm tra thiết bị hiện tại có hỗ trợ cảm ứng (Touch Screen) không
- */
-export function isTouchDevice() {
-  return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
 }
 
 /**
@@ -151,50 +107,6 @@ export function debounce(fn, delay = 150) {
   return function (...args) {
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => fn.apply(this, args), delay);
-  };
-}
-
-/**
- * Hàm Throttle giới hạn tần suất thực thi hàm theo chu kỳ mili-giây
- */
-export function throttle(fn, limit = 200) {
-  let inThrottle = false;
-  return function (...args) {
-    if (!inThrottle) {
-      fn.apply(this, args);
-      inThrottle = true;
-      setTimeout(() => { inThrottle = false; }, limit);
-    }
-  };
-}
-
-/**
- * Gắn sự kiện đóng Modal khi click ra ngoài backdrop hoặc bấm phím Escape
- * @param {HTMLElement} modalEl - Element backdrop modal
- * @param {Function} closeCallback - Hàm callback khi đóng
- * @returns {Function} Hàm unbind gỡ bỏ sự kiện
- */
-export function bindModalBackdropAndEsc(modalEl, closeCallback) {
-  if (!modalEl || typeof closeCallback !== 'function') return () => {};
-
-  const handleBackdrop = (e) => {
-    if (e.target === modalEl) {
-      closeCallback(e);
-    }
-  };
-
-  const handleEsc = (e) => {
-    if (e.key === 'Escape' || e.keyCode === 27) {
-      closeCallback(e);
-    }
-  };
-
-  modalEl.addEventListener('click', handleBackdrop);
-  window.addEventListener('keydown', handleEsc);
-
-  return () => {
-    modalEl.removeEventListener('click', handleBackdrop);
-    window.removeEventListener('keydown', handleEsc);
   };
 }
 

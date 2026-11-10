@@ -8,13 +8,6 @@ import { Rating, State, DEFAULT_FSRS_PARAMS } from '../config.js';
 export { Rating, State };
 
 /**
- * Kiểm tra xem thẻ đã từng được học và có độ bền trí nhớ hợp lệ hay chưa
- */
-export function isCardLearned(cardState) {
-  return Boolean(cardState && cardState.state !== State.New && cardState.state !== 0 && cardState.stability > 0);
-}
-
-/**
  * Kiểm tra xem thẻ đã đến hạn cần ôn tập theo thuật toán FSRS hay chưa
  */
 export function isCardDue(cardState, now = new Date()) {

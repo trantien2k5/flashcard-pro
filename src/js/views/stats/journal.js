@@ -11,11 +11,6 @@ export function getCurrentJournalPeriod() {
   return { year: _currentYear, month: _currentMonth };
 }
 
-export function setCurrentJournalPeriod(year, month) {
-  _currentYear = year;
-  _currentMonth = month;
-}
-
 /**
  * Khởi tạo khung DOM tĩnh ban đầu của Stats Tab
  */

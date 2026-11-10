@@ -802,22 +802,6 @@ export function pauseReelsSession() {
   stopAudio();
 }
 
-export function closeReelsSession() {
-  pauseReelsSession();
-
-  const overlay = document.getElementById('reels-overlay');
-  if (overlay) {
-    overlay.style.display = 'none';
-    overlay.innerHTML = '';
-  }
-
-  document.body.style.overflow = '';
-
-  if (_fbApp && typeof _fbApp.switchTab === 'function') {
-    _fbApp.switchTab('tab-review');
-  }
-}
-
 // ==========================================
 // MAIN ENTRY POINT (TAB LƯỚT TỪ VỰNG - FIRST-CLASS TAB)
 // ==========================================

@@ -5,7 +5,7 @@
 
 export const APP_CONFIG = {
   name: 'Flashcard English Pro',
-  version: '3.76.50',
+  version: '3.76.51',
   storagePrefix: 'fc_pro_',
   dbName: 'FlashcardProDB',
   dbVersion: 1
@@ -47,7 +47,6 @@ export const STUDY_MODES = {
   SPRINT_10: 'sprint_10'      // Tốc chiến 3 phút: 10 từ cấp bách nhất
 };
 
-export const DEFAULT_BATCH_SIZE = 15; // Kích thước chặng thông minh mặc định (15 từ/block)
 export const RELEARN_STEP_OFFSET = 3; // Số thẻ lùi lại khi bấm Again trong phiên học
 
 /**

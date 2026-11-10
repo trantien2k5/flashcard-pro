@@ -27,24 +27,23 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 
 ### TẦNG 1: NGHIỆP VỤ & THUẬT TOÁN (Core Layer — `src/js/core/`)
 
-#### 📁 [`src/js/core/fsrs.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js) (423 dòng)
+#### 📁 [`src/js/core/fsrs.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js) (416 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `isCardLearned` | [`#L13-L15`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L13-L15) | `function` | Kiểm tra xem thẻ đã từng được học và có độ bền trí nhớ hợp lệ hay chưa |
-| `isCardDue` | [`#L20-L42`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L20-L42) | `function` | Kiểm tra xem thẻ đã đến hạn cần ôn tập theo thuật toán FSRS hay chưa |
-| `FSRS` | [`#L44-L422`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L44-L422) | `class` | Thực thi logic nội bộ |
-| `FSRS.constructor` | [`#L45-L45`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L45-L45) | `method` | Thực thi logic nội bộ |
-| `FSRS.createEmptyCard` | [`#L62-L78`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L62-L78) | `method` | Tạo cấu trúc dữ liệu thẻ FSRS mới |
-| `FSRS.initStability` | [`#L103-L106`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L103-L106) | `method` | Tính Stability ban đầu theo Rating FSRS-6: S_0(G) = w[G - 1] |
-| `FSRS.initDifficulty` | [`#L112-L115`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L112-L115) | `method` | Tính Difficulty ban đầu theo Rating (Thang điểm 1 - 10) FSRS-6: D_0(G) = w_ |
-| `FSRS.nextDifficulty` | [`#L124-L130`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L124-L130) | `method` | Cập nhật độ khó (Difficulty) sau mỗi lần ôn FSRS-6 Linear Damping & Mean Re |
-| `FSRS.nextRecallStability` | [`#L137-L157`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L137-L157) | `method` | Tính Stability tiếp theo khi nhớ đúng (Rating: Hard, Good, Easy) FSRS-6 (21 |
-| `FSRS.nextForgetStability` | [`#L164-L179`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L164-L179) | `method` | Tính Stability tiếp theo khi bị quên (Rating: Again) FSRS-6 (21 parameters) |
-| `FSRS.rawInterval` | [`#L185-L189`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L185-L189) | `method` | Tính khoảng thời gian chính xác (dạng số thực) dựa trên Stability và Target |
-| `FSRS.nextInterval` | [`#L194-L198`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L194-L198) | `method` | Tính khoảng thời gian ôn tập tiếp theo (theo ngày nguyên) dựa trên Stabilit |
-| `FSRS.getFuzzedInterval` | [`#L203-L225`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L203-L225) | `method` | Tính Fuzz Factor chuẩn Anki để làm mờ ngẫu nhiên khoảng cách ôn tập, chống  |
-| `FSRS.formatInterval` | [`#L405-L421`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L405-L421) | `method` | Định dạng interval thành chuỗi thân thiện chuẩn Anki (1m, 10m, 3d, 16d, 1mo |
+| `isCardDue` | [`#L13-L35`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L13-L35) | `function` | Kiểm tra xem thẻ đã đến hạn cần ôn tập theo thuật toán FSRS hay chưa |
+| `FSRS` | [`#L37-L415`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L37-L415) | `class` | Thực thi logic nội bộ |
+| `FSRS.constructor` | [`#L38-L38`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L38-L38) | `method` | Thực thi logic nội bộ |
+| `FSRS.createEmptyCard` | [`#L55-L71`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L55-L71) | `method` | Tạo cấu trúc dữ liệu thẻ FSRS mới |
+| `FSRS.initStability` | [`#L96-L99`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L96-L99) | `method` | Tính Stability ban đầu theo Rating FSRS-6: S_0(G) = w[G - 1] |
+| `FSRS.initDifficulty` | [`#L105-L108`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L105-L108) | `method` | Tính Difficulty ban đầu theo Rating (Thang điểm 1 - 10) FSRS-6: D_0(G) = w_ |
+| `FSRS.nextDifficulty` | [`#L117-L123`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L117-L123) | `method` | Cập nhật độ khó (Difficulty) sau mỗi lần ôn FSRS-6 Linear Damping & Mean Re |
+| `FSRS.nextRecallStability` | [`#L130-L150`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L130-L150) | `method` | Tính Stability tiếp theo khi nhớ đúng (Rating: Hard, Good, Easy) FSRS-6 (21 |
+| `FSRS.nextForgetStability` | [`#L157-L172`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L157-L172) | `method` | Tính Stability tiếp theo khi bị quên (Rating: Again) FSRS-6 (21 parameters) |
+| `FSRS.rawInterval` | [`#L178-L182`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L178-L182) | `method` | Tính khoảng thời gian chính xác (dạng số thực) dựa trên Stability và Target |
+| `FSRS.nextInterval` | [`#L187-L191`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L187-L191) | `method` | Tính khoảng thời gian ôn tập tiếp theo (theo ngày nguyên) dựa trên Stabilit |
+| `FSRS.getFuzzedInterval` | [`#L196-L218`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L196-L218) | `method` | Tính Fuzz Factor chuẩn Anki để làm mờ ngẫu nhiên khoảng cách ôn tập, chống  |
+| `FSRS.formatInterval` | [`#L398-L414`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L398-L414) | `method` | Định dạng interval thành chuỗi thân thiện chuẩn Anki (1m, 10m, 3d, 16d, 1mo |
 
 #### 📁 [`src/js/core/optimizer.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer.js) (495 dòng)
 
@@ -153,7 +152,7 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 
 ### TẦNG 2: DỊCH VỤ & LƯU TRỮ (Services Layer — `src/js/services/`)
 
-#### 📁 [`src/js/services/audio.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/audio.js) (497 dòng)
+#### 📁 [`src/js/services/audio.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/audio.js) (485 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
@@ -344,7 +343,7 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `closeQuizSession` | [`#L760-L779`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/quiz.js#L760-L779) | `function` | Thực thi logic nội bộ |
 | `showQuizSummaryModal` | [`#L784-L969`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/quiz.js#L784-L969) | `function` | Modal Báo Cáo Tổng Kết Sau Khi Hoàn Thành Bài Trắc Nghiệm |
 
-#### 📁 [`src/js/views/reels.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/reels.js) (1340 dòng)
+#### 📁 [`src/js/views/reels.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/reels.js) (1324 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
@@ -367,11 +366,10 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `closeFilterModal` | [`#L758-L761`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/reels.js#L758-L761) | `function` | Thực thi logic nội bộ |
 | `applyCurrentFilter` | [`#L763-L784`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/reels.js#L763-L784) | `function` | Thực thi logic nội bộ |
 | `pauseReelsSession` | [`#L789-L803`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/reels.js#L789-L803) | `function` | ========================================== PAUSE, CLOSE & CLEANUP ========= |
-| `closeReelsSession` | [`#L805-L819`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/reels.js#L805-L819) | `function` | Thực thi logic nội bộ |
-| `renderReelsTab` | [`#L824-L824`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/reels.js#L824-L824) | `function` | ========================================== MAIN ENTRY POINT (TAB LƯỚT TỪ VỰ |
-| `handleScroll` | [`#L1025-L1062`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/reels.js#L1025-L1062) | `arrow_function` | Thực thi logic nội bộ |
-| `keyHandler` | [`#L1317-L1324`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/reels.js#L1317-L1324) | `arrow_function` | Phím tắt bàn phím |
-| `startReelsSession` | [`#L1329-L1329`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/reels.js#L1329-L1329) | `function` | Giữ tương thích ngược với các lời gọi startReelsSession cũ |
+| `renderReelsTab` | [`#L808-L808`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/reels.js#L808-L808) | `function` | ========================================== MAIN ENTRY POINT (TAB LƯỚT TỪ VỰ |
+| `handleScroll` | [`#L1009-L1046`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/reels.js#L1009-L1046) | `arrow_function` | Thực thi logic nội bộ |
+| `keyHandler` | [`#L1301-L1308`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/reels.js#L1301-L1308) | `arrow_function` | Phím tắt bàn phím |
+| `startReelsSession` | [`#L1313-L1313`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/reels.js#L1313-L1313) | `function` | Giữ tương thích ngược với các lời gọi startReelsSession cũ |
 
 #### 📁 [`src/js/views/review.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/review.js) (674 dòng)
 
@@ -424,16 +422,15 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `closeModal` | [`#L356-L359`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/forecast-modal.js#L356-L359) | `arrow_function` | Thực thi logic nội bộ |
 | `onKeyDown` | [`#L365-L370`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/forecast-modal.js#L365-L370) | `arrow_function` | Thực thi logic nội bộ |
 
-#### 📁 [`src/js/views/stats/journal.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/journal.js) (504 dòng)
+#### 📁 [`src/js/views/stats/journal.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/journal.js) (499 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
 | `getCurrentJournalPeriod` | [`#L10-L12`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/journal.js#L10-L12) | `function` | Thực thi logic nội bộ |
-| `setCurrentJournalPeriod` | [`#L14-L17`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/journal.js#L14-L17) | `function` | Thực thi logic nội bộ |
-| `renderStatsTabShell` | [`#L22-L375`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/journal.js#L22-L375) | `function` | Khởi tạo khung DOM tĩnh ban đầu của Stats Tab |
-| `setupJournalEvents` | [`#L380-L429`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/journal.js#L380-L429) | `function` | Gắn sự kiện điều hướng tháng trên Journal Heatmap |
-| `showDayPopover` | [`#L434-L488`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/journal.js#L434-L488) | `function` | Hiển thị Tooltip Popover thông tin học tập của một ngày khi rê chuột / clic |
-| `hideDayPopover` | [`#L493-L503`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/journal.js#L493-L503) | `function` | Ẩn Tooltip Popover |
+| `renderStatsTabShell` | [`#L17-L370`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/journal.js#L17-L370) | `function` | Khởi tạo khung DOM tĩnh ban đầu của Stats Tab |
+| `setupJournalEvents` | [`#L375-L424`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/journal.js#L375-L424) | `function` | Gắn sự kiện điều hướng tháng trên Journal Heatmap |
+| `showDayPopover` | [`#L429-L483`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/journal.js#L429-L483) | `function` | Hiển thị Tooltip Popover thông tin học tập của một ngày khi rê chuột / clic |
+| `hideDayPopover` | [`#L488-L498`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/journal.js#L488-L498) | `function` | Ẩn Tooltip Popover |
 
 #### 📁 [`src/js/views/study.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js) (1402 dòng)
 
@@ -639,38 +636,30 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `FlashcardApp.showToast` | [`#L745-L747`](file:///storage/emulated/0/Code/flashcard-pro/src/js/app.js#L745-L747) | `method` | Thực thi logic nội bộ |
 | `bootstrap` | [`#L750-L761`](file:///storage/emulated/0/Code/flashcard-pro/src/js/app.js#L750-L761) | `function` | Thực thi logic nội bộ |
 
-#### 📁 [`src/js/config.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/config.js) (390 dòng)
+#### 📁 [`src/js/config.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/config.js) (389 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `getLearningGoal` | [`#L158-L162`](file:///storage/emulated/0/Code/flashcard-pro/src/js/config.js#L158-L162) | `function` | Thực thi logic nội bộ |
-| `getSubtopicColor` | [`#L274-L284`](file:///storage/emulated/0/Code/flashcard-pro/src/js/config.js#L274-L284) | `function` | Thực thi logic nội bộ |
-| `getSubtopicIcon` | [`#L286-L389`](file:///storage/emulated/0/Code/flashcard-pro/src/js/config.js#L286-L389) | `function` | Thực thi logic nội bộ |
+| `getLearningGoal` | [`#L157-L161`](file:///storage/emulated/0/Code/flashcard-pro/src/js/config.js#L157-L161) | `function` | Thực thi logic nội bộ |
+| `getSubtopicColor` | [`#L273-L283`](file:///storage/emulated/0/Code/flashcard-pro/src/js/config.js#L273-L283) | `function` | Thực thi logic nội bộ |
+| `getSubtopicIcon` | [`#L285-L388`](file:///storage/emulated/0/Code/flashcard-pro/src/js/config.js#L285-L388) | `function` | Thực thi logic nội bộ |
 
-#### 📁 [`src/js/utils.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js) (248 dòng)
+#### 📁 [`src/js/utils.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js) (160 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
 | `escapeHTML` | [`#L9-L17`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L9-L17) | `function` | Mã hóa ký tự đặc biệt HTML chống tấn công XSS |
 | `safeColor` | [`#L22-L25`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L22-L25) | `function` | Kiểm tra và làm sạch chuỗi mã màu CSS hợp lệ |
 | `escapeRegex` | [`#L30-L32`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L30-L32) | `function` | Thoát các ký tự đặc biệt khi tạo RegExp động |
-| `formatTime` | [`#L37-L47`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L37-L47) | `function` | Định dạng thời gian trôi qua (giây) thành chuỗi mm:ss hoặc hh:mm |
-| `formatDate` | [`#L52-L61`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L52-L61) | `function` | Định dạng đối tượng Date thành chuỗi ngày theo chuẩn tiếng Việt (vd: "08/09 |
-| `formatNumber` | [`#L66-L69`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L66-L69) | `function` | Định dạng số nguyên với dấu chấm ngăn cách hàng nghìn tiếng Việt (vd: 1.250 |
-| `formatCleanInterval` | [`#L74-L76`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L74-L76) | `function` | Làm sạch chuỗi chu kỳ FSRS cho nhãn nút ngắn gọn (bỏ ký tự <, ≤, khoảng trắ |
-| `getLocalDateKey` | [`#L83-L98`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L83-L98) | `function` | Lấy khóa ngày dạng YYYY-MM-DD theo giờ địa phương của thiết bị (chống lệch  |
-| `isTouchDevice` | [`#L103-L105`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L103-L105) | `function` | Kiểm tra thiết bị hiện tại có hỗ trợ cảm ứng (Touch Screen) không |
-| `scrollToTop` | [`#L110-L133`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L110-L133) | `function` | Cuộn mượt mà cửa sổ hoặc container lên đầu trang |
-| `highlightKeyword` | [`#L138-L144`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L138-L144) | `function` | Đánh dấu từ khóa tìm kiếm trong chuỗi văn bản an toàn với thẻ <mark> |
-| `debounce` | [`#L149-L155`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L149-L155) | `function` | Hàm Debounce trì hoãn gọi hàm liên tục (tối ưu gõ phím tìm kiếm) |
-| `throttle` | [`#L160-L169`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L160-L169) | `function` | Hàm Throttle giới hạn tần suất thực thi hàm theo chu kỳ mili-giây |
-| `bindModalBackdropAndEsc` | [`#L177-L199`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L177-L199) | `function` | Gắn sự kiện đóng Modal khi click ra ngoài backdrop hoặc bấm phím Escape @pa |
-| `handleBackdrop` | [`#L180-L184`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L180-L184) | `arrow_function` | Thực thi logic nội bộ |
-| `handleEsc` | [`#L186-L190`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L186-L190) | `arrow_function` | Thực thi logic nội bộ |
-| `sleep` | [`#L204-L206`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L204-L206) | `function` | Hàm trì hoãn Async Promise (Sleep) |
-| `normalizePos` | [`#L211-L218`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L211-L218) | `function` | Chuẩn hóa nhãn từ loại (Part of Speech) thành 'noun' - 'verb' - 'adj' - 'ot |
-| `getCurrentSettings` | [`#L223-L234`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L223-L234) | `function` | Lấy settings hiện tại ưu tiên từ window.app.settings hoặc StorageManager fa |
-| `shuffle` | [`#L239-L246`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L239-L246) | `function` | Trộn mảng ngẫu nhiên (Fisher-Yates shuffle) |
+| `formatCleanInterval` | [`#L37-L39`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L37-L39) | `function` | Làm sạch chuỗi chu kỳ FSRS cho nhãn nút ngắn gọn (bỏ ký tự <, ≤, khoảng trắ |
+| `getLocalDateKey` | [`#L46-L61`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L46-L61) | `function` | Lấy khóa ngày dạng YYYY-MM-DD theo giờ địa phương của thiết bị (chống lệch  |
+| `scrollToTop` | [`#L66-L89`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L66-L89) | `function` | Cuộn mượt mà cửa sổ hoặc container lên đầu trang |
+| `highlightKeyword` | [`#L94-L100`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L94-L100) | `function` | Đánh dấu từ khóa tìm kiếm trong chuỗi văn bản an toàn với thẻ <mark> |
+| `debounce` | [`#L105-L111`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L105-L111) | `function` | Hàm Debounce trì hoãn gọi hàm liên tục (tối ưu gõ phím tìm kiếm) |
+| `sleep` | [`#L116-L118`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L116-L118) | `function` | Hàm trì hoãn Async Promise (Sleep) |
+| `normalizePos` | [`#L123-L130`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L123-L130) | `function` | Chuẩn hóa nhãn từ loại (Part of Speech) thành 'noun' - 'verb' - 'adj' - 'ot |
+| `getCurrentSettings` | [`#L135-L146`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L135-L146) | `function` | Lấy settings hiện tại ưu tiên từ window.app.settings hoặc StorageManager fa |
+| `shuffle` | [`#L151-L158`](file:///storage/emulated/0/Code/flashcard-pro/src/js/utils.js#L151-L158) | `function` | Trộn mảng ngẫu nhiên (Fisher-Yates shuffle) |
 
 ---
 

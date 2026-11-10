@@ -482,15 +482,3 @@ export function speakVi(text, onEnd = null) {
   }
 }
 
-export const AudioService = {
-  unlockAudioContext,
-  initVoiceCache,
-  preloadWordAudio,
-  preloadBothAccents,
-  getNativeAudioUrls,
-  onAudioPlayStateChange,
-  speak,
-  speakVi,
-  speakTTS,
-  stopAudio
-};
