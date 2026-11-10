@@ -104,74 +104,12 @@ export function renderReviewShell(container) {
           </div>
         </div>
 
-        <!-- 3. CẶP NÚT CTA HỌC TẬP TINH GỌN: ÔN TẬP & HỌC TỪ MỚI (CÙNG MỘT HÀNG) -->
-        <div class="home-cta-section home-cta-dual-grid">
-          <!-- Nút 1: Ôn tập (Ưu tiên từ tới hạn, xen kẽ 5 ôn : 1 mới) -->
-          <button type="button" class="btn-hero-flashcard-cta btn-cta-primary-due" id="btn-home-start-flashcard" title="Bắt đầu phiên ôn tập">
+        <!-- 3. NÚT CTA HỌC NGAY DUY NHẤT -->
+        <div class="home-cta-section home-cta-single">
+          <button type="button" class="btn-hero-flashcard-cta btn-cta-primary-due btn-cta-study-now" id="btn-home-start-flashcard" title="Học ngay">
             <div class="btn-cta-glare"></div>
             <div class="btn-cta-body">
-              <div class="btn-cta-icon icon-due">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </div>
-              <div class="btn-cta-text-wrap">
-                <span class="btn-cta-main-text">Ôn tập</span>
-                <span class="btn-cta-tag tag-due" id="badge-home-due-tag">0 từ</span>
-              </div>
-            </div>
-          </button>
-
-          <!-- Nút 2: Học từ mới (Chỉ học từ mới chưa từng học) -->
-          <button type="button" class="btn-hero-flashcard-cta btn-cta-secondary-new" id="btn-home-start-new" title="Học các từ mới chưa từng học">
-            <div class="btn-cta-glare"></div>
-            <div class="btn-cta-body">
-              <div class="btn-cta-icon icon-new">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 5v14M5 12h14"/>
-                </svg>
-              </div>
-              <div class="btn-cta-text-wrap">
-                <span class="btn-cta-main-text">Học từ mới</span>
-                <span class="btn-cta-tag tag-new" id="badge-home-new-tag">10 từ</span>
-              </div>
-            </div>
-          </button>
-        </div>
-
-        <!-- 3b. CẶP NÚT CTA: LƯỚT TỪ VỰNG & HỌC TRẮC NGHIỆM (CÙNG MỘT HÀNG) -->
-        <div class="home-cta-section home-features-dual-grid">
-          <!-- Nút 1: Lướt từ vựng (Facebook Feed) -->
-          <button type="button" class="btn-hero-feature-cta btn-feature-reels" id="btn-home-start-reels" title="Bảng tin lướt từ vựng kiểu Facebook">
-            <div class="btn-cta-glare"></div>
-            <div class="btn-feature-body">
-              <div class="btn-feature-icon icon-reels">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 6h16M4 12h16M4 18h7"/>
-                </svg>
-                <span class="reels-live-dot"></span>
-              </div>
-              <div class="btn-feature-text-wrap">
-                <span class="btn-feature-title">Lướt Feed</span>
-                <span class="btn-feature-tag tag-reels">FB Feed</span>
-              </div>
-            </div>
-          </button>
-
-          <!-- Nút 2: Học trắc nghiệm (Smart Quiz) -->
-          <button type="button" class="btn-hero-feature-cta btn-feature-quiz" id="btn-home-start-quiz" title="Luyện tập trắc nghiệm thông minh">
-            <div class="btn-cta-glare"></div>
-            <div class="btn-feature-body">
-              <div class="btn-feature-icon icon-quiz">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m9 11 3 3L22 4"/>
-                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-                </svg>
-              </div>
-              <div class="btn-feature-text-wrap">
-                <span class="btn-feature-title">Học trắc nghiệm</span>
-                <span class="btn-feature-tag tag-quiz">Quiz</span>
-              </div>
+              <span class="btn-cta-main-text">Học ngay</span>
             </div>
           </button>
         </div>

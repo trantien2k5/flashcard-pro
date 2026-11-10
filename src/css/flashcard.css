@@ -1405,18 +1405,18 @@
 .study-prefs-content {
   position: relative;
   z-index: 10;
-  width: 90%;
-  max-width: 440px;
-  max-height: 85vh;
+  width: min(92%, 420px);
+  max-height: min(85vh, calc(100dvh - 36px));
   overflow-y: auto;
   scrollbar-width: thin;
   background: var(--bg-card, #131b2e);
   border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
-  border-radius: 22px;
-  padding: 22px;
+  border-radius: 20px;
+  padding: 18px 16px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
   transform: scale(0.94);
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-sizing: border-box;
 }
 
 .study-prefs-drawer.active .study-prefs-content {
@@ -1593,15 +1593,15 @@
   color: var(--text-primary);
   border: 1px solid var(--border, rgba(255, 255, 255, 0.15));
   border-radius: 10px;
-  padding: 6px 10px;
-  font-size: 0.82rem;
+  padding: 6px 8px;
+  font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
   outline: none;
   transition: all 0.2s ease;
   font-family: inherit;
-  min-width: 140px;
-  max-width: 175px;
+  min-width: 110px;
+  max-width: 145px;
   flex-shrink: 0;
 }
 
@@ -1634,8 +1634,8 @@
 
 .prefs-actions-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: 1fr;
+  gap: 8px;
 }
 
 .btn-study-card-action {
@@ -2506,6 +2506,268 @@
   box-shadow: 0 0 0 3px var(--primary, #6366f1) !important;
   transform: translateY(-2px);
 }
+
+/* --------------------------------------------------------------------------
+   7. Priority Switcher in Study Header & Modal
+   -------------------------------------------------------------------------- */
+.study-header-priority-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.btn-study-priority {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 99px;
+  background: var(--bg-card, #131b2e);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.15));
+  color: var(--text-primary);
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  max-width: 170px;
+  white-space: nowrap;
+}
+
+.btn-study-priority:hover,
+.btn-study-priority:active {
+  background: var(--bg-hover, rgba(99, 102, 241, 0.12));
+  border-color: var(--primary, #6366f1);
+  transform: translateY(-1px);
+}
+
+[data-theme="light"] .btn-study-priority {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
+.priority-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.priority-label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.priority-chevron {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+/* Modal Chọn Thứ Tự Ưu Tiên Học (Priority Switcher Modal) */
+.study-priority-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 6000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.study-priority-modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.study-priority-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.study-priority-content {
+  position: relative;
+  z-index: 10;
+  width: min(92%, 420px);
+  max-height: min(85vh, calc(100dvh - 36px));
+  overflow-y: auto;
+  scrollbar-width: thin;
+  background: var(--bg-card, #131b2e);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
+  border-radius: 20px;
+  padding: 18px 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-sizing: border-box;
+}
+
+.study-priority-modal.active .study-priority-content {
+  transform: scale(1);
+}
+
+[data-theme="light"] .study-priority-content {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.16);
+}
+
+.priority-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+}
+
+.priority-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.priority-modal-icon {
+  font-size: 1.2rem;
+}
+
+.priority-modal-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.btn-priority-modal-close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.btn-priority-modal-close:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.priority-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.priority-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 14px;
+  background: var(--bg-tertiary, #1e293b);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.06));
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.18s ease;
+  width: 100%;
+  box-sizing: border-box;
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .priority-option-btn {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.priority-option-btn:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: var(--primary, #6366f1);
+  transform: translateY(-1px);
+}
+
+.priority-option-btn.active {
+  background: rgba(99, 102, 241, 0.16);
+  border-color: var(--primary, #6366f1);
+}
+
+.priority-opt-icon {
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.priority-opt-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.priority-opt-name {
+  font-size: 0.9rem;
+  font-weight: 750;
+  color: var(--text-primary);
+}
+
+.priority-opt-desc {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  line-height: 1.25;
+}
+
+.priority-opt-check {
+  font-size: 0.95rem;
+  color: var(--primary, #6366f1);
+  font-weight: 800;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  flex-shrink: 0;
+}
+
+.priority-option-btn.active .priority-opt-check {
+  opacity: 1;
+}
+
+@media (max-width: 480px) {
+  .btn-study-priority {
+    padding: 5px 10px;
+    font-size: 0.78rem;
+    gap: 4px;
+    max-width: 135px;
+  }
+  .priority-label {
+    font-size: 0.78rem;
+  }
+  .study-priority-content {
+    padding: 14px 12px;
+  }
+  .priority-option-btn {
+    padding: 9px 12px;
+    gap: 10px;
+  }
+}
+
 
 
 

@@ -728,18 +728,19 @@ export function setupSettingsUI(app) {
     }
 
     if (autoSpeechToggle) {
-      autoSpeechToggle.checked = app.settings.autoPronounce === true;
+      autoSpeechToggle.checked = app.settings?.autoPronounce !== false;
       autoSpeechToggle.addEventListener('change', (e) => {
         try {
-          app.settings.autoPronounce = e.target.checked;
+          const isEnabled = e.target.checked;
+          app.settings.autoPronounce = isEnabled;
           saveAppSettings(app);
           try {
             const raw = localStorage.getItem('study_display_prefs');
             const prefs = raw ? JSON.parse(raw) : {};
-            prefs.autoplayAudio = e.target.checked;
+            prefs.autoplayAudio = isEnabled;
             localStorage.setItem('study_display_prefs', JSON.stringify(prefs));
           } catch (e2) {}
-          if (app.studySession) app.studySession.updateSettings();
+          if (app.studySession) app.studySession.updateSettings(app.settings);
         } catch (err) {
           console.error('Lỗi cập nhật autoSpeechToggle:', err);
         }

@@ -254,52 +254,15 @@ export function renderStudyOverlayShell() {
             </svg>
           </button>
 
-          <!-- Unified Header Center: Pomodoro Focus Bar & Live Elapsed Timer (Đã ẩn theo yêu cầu người dùng) -->
-          <div class="study-pomodoro-bar" id="study-pomodoro-bar" style="display: none !important;">
-            <div class="pomodoro-bar-inner">
-              <!-- 1. Trái: Biểu tượng + Đồng hồ tăng dần + Nút Play/Pause -->
-              <div class="pomodoro-timer-side">
-                <span class="pomodoro-badge-icon" title="Phiên học Pomodoro">🍅</span>
-                <span class="pomodoro-time-display" id="pomodoro-countdown" title="Thời gian đã học trong phiên">00:00</span>
-                <button type="button" class="btn-pomodoro-control" id="btn-pomodoro-toggle" title="Tạm dừng / Tiếp tục Pomodoro" aria-label="Tạm dừng hoặc tiếp tục">
-                  <span class="pomodoro-btn-icon" id="pomodoro-play-icon">⏸️</span>
-                </button>
-              </div>
-
-              <!-- 2. Giữa: Thống kê số lượng thẻ đã ôn trong chu kỳ -->
-              <div class="pomodoro-stats-side" id="pomodoro-stats-side" title="Số lượng thẻ đã ôn trong phiên này">
-                <span class="pomodoro-stats-lbl">Đã ôn:</span>
-                <span class="pomodoro-count-number" id="pomodoro-cards-count">0</span>
-                <span class="pomodoro-stats-unit">thẻ</span>
-              </div>
-
-              <!-- 3. Phải: Cho user điều chỉnh mục tiêu 5p đến 60p + Nút Reset -->
-              <div class="pomodoro-actions-side">
-                <div class="pomodoro-select-wrapper" title="Mục tiêu phiên Pomodoro (5p - 60p)">
-                  <select class="pomodoro-select" id="pomodoro-duration-select" aria-label="Chọn thời lượng Pomodoro">
-                    <option value="5">5p</option>
-                    <option value="10">10p</option>
-                    <option value="15">15p</option>
-                    <option value="20">20p</option>
-                    <option value="25" selected>25p</option>
-                    <option value="30">30p</option>
-                    <option value="45">45p</option>
-                    <option value="60">60p</option>
-                  </select>
-                  <span class="select-chevron">▾</span>
-                </div>
-                <button type="button" class="btn-pomodoro-reset" id="btn-pomodoro-reset" title="Đặt lại chu kỳ" aria-label="Đặt lại">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <!-- Thanh tiến độ thời gian Pomodoro -->
-            <div class="pomodoro-progress-bar">
-              <div class="pomodoro-progress-fill" id="pomodoro-progress-fill" style="width: 0%;"></div>
-            </div>
+          <!-- Nút Thay Đổi Thứ Tự Ưu Tiên Học (Priority Switcher) -->
+          <div class="study-header-priority-wrap">
+            <button type="button" id="btn-study-priority" class="btn-study-priority" title="Thay đổi thứ tự ưu tiên học" aria-haspopup="true">
+              <span class="priority-icon" id="study-priority-icon">🎯</span>
+              <span class="priority-label" id="study-priority-label">Tới hạn</span>
+              <svg class="priority-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </button>
           </div>
 
           <!-- Right Action: 3 Dots Menu for Study Options -->
@@ -721,8 +684,140 @@ export function renderStudyOverlayShell() {
         </div>
       </div>
 
+      <!-- 4. Modal Chọn Thứ Tự Ưu Tiên Học (Priority Switcher Modal) -->
+      <div class="study-priority-modal" id="study-priority-modal">
+        <div class="study-priority-backdrop" id="study-priority-backdrop"></div>
+        <div class="study-priority-content">
+          <div class="priority-modal-header">
+            <div class="priority-title-wrap">
+              <span class="priority-modal-icon">🎯</span>
+              <h3 class="priority-modal-title">Thứ tự ưu tiên học</h3>
+            </div>
+            <button type="button" class="btn-priority-modal-close" id="btn-priority-modal-close" aria-label="Đóng">✕</button>
+          </div>
+          <div class="priority-options-list">
+            <button type="button" class="priority-option-btn active" data-mode="due_first">
+              <span class="priority-opt-icon">🎯</span>
+              <div class="priority-opt-info">
+                <span class="priority-opt-name">Từ tới hạn (Mặc định)</span>
+                <span class="priority-opt-desc">Ôn thẻ đến hạn FSRS kết hợp xen kẽ từ mới (5 : 1)</span>
+              </div>
+              <span class="priority-opt-check">✓</span>
+            </button>
+            <button type="button" class="priority-option-btn" data-mode="new_only">
+              <span class="priority-opt-icon">🌱</span>
+              <div class="priority-opt-info">
+                <span class="priority-opt-name">Ưu tiên từ mới</span>
+                <span class="priority-opt-desc">Chỉ học các từ vựng mới chưa từng học</span>
+              </div>
+              <span class="priority-opt-check">✓</span>
+            </button>
+            <button type="button" class="priority-option-btn" data-mode="weak_hunter">
+              <span class="priority-opt-icon">🔥</span>
+              <div class="priority-opt-info">
+                <span class="priority-opt-name">Ưu tiên từ khó</span>
+                <span class="priority-opt-desc">Tập trung diệt từ hay quên (quên ≥ 2 lần, R &lt; 0.65)</span>
+              </div>
+              <span class="priority-opt-check">✓</span>
+            </button>
+            <button type="button" class="priority-option-btn" data-mode="sprint_10">
+              <span class="priority-opt-icon">⚡</span>
+              <div class="priority-opt-info">
+                <span class="priority-opt-name">Tốc chiến 10 từ</span>
+                <span class="priority-opt-desc">Phiên học nhanh 10 từ cấp bách nhất</span>
+              </div>
+              <span class="priority-opt-check">✓</span>
+            </button>
+            <button type="button" class="priority-option-btn" data-mode="audio_blind">
+              <span class="priority-opt-icon">🎧</span>
+              <div class="priority-opt-info">
+                <span class="priority-opt-name">Phản xạ Nghe</span>
+                <span class="priority-opt-desc">Ẩn chữ mặt trước, chỉ nghe âm thanh để đoán</span>
+              </div>
+              <span class="priority-opt-check">✓</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- Modal Checkpoint đã được lược bỏ để học liên tục không bị ngắt quãng -->
     `;
+  }
+}
+
+/**
+ * Cập nhật hiển thị nhãn và biểu tượng chế độ ưu tiên trên Header thanh học Flashcard
+ */
+export function updateStudyPriorityUI(mode = 'due_first') {
+  const iconEl = document.getElementById('study-priority-icon');
+  const labelEl = document.getElementById('study-priority-label');
+  const optionBtns = document.querySelectorAll('.priority-option-btn');
+
+  const modeConfig = {
+    due_first: { icon: '🎯', label: 'Tới hạn' },
+    new_only: { icon: '🌱', label: 'Từ mới' },
+    weak_hunter: { icon: '🔥', label: 'Từ khó' },
+    sprint_10: { icon: '⚡', label: 'Tốc chiến' },
+    audio_blind: { icon: '🎧', label: 'Nghe' }
+  };
+
+  const cfg = modeConfig[mode] || modeConfig.due_first;
+  if (iconEl) iconEl.textContent = cfg.icon;
+  if (labelEl) labelEl.textContent = cfg.label;
+
+  optionBtns.forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-mode') === mode);
+  });
+}
+
+/**
+ * Thay đổi thứ tự ưu tiên học trực tiếp trong phiên học (Zero-exit, liền mạch)
+ */
+export function switchStudyPriority(app, targetMode) {
+  try {
+    const context = app.currentStudyContext || {};
+    const deckId = context.deckId || null;
+    const subtopic = context.subtopic || null;
+
+    const studyData = app.deckManager?.getStudyQueue(deckId, app.settings, subtopic, { mode: targetMode });
+    const newQueue = studyData?.queue || [];
+
+    if (!newQueue || newQueue.length === 0) {
+      const modeNames = {
+        due_first: 'từ tới hạn',
+        new_only: 'từ mới chưa học',
+        weak_hunter: 'từ khó cần củng cố',
+        sprint_10: 'từ cấp bách',
+        audio_blind: 'từ để luyện nghe'
+      };
+      app.showToast?.(`Tuyệt vời! Hiện không có ${modeNames[targetMode] || 'từ nào'}.`, 'info', 2500);
+      return false;
+    }
+
+    if (!app.currentStudyContext) app.currentStudyContext = {};
+    app.currentStudyContext.mode = targetMode;
+    if (app.currentStudyContext.options) {
+      app.currentStudyContext.options.mode = targetMode;
+    } else {
+      app.currentStudyContext.options = { mode: targetMode };
+    }
+
+    updateStudyPriorityUI(targetMode);
+    app.studySession?.start(newQueue);
+
+    const modeLabels = {
+      due_first: 'Từ tới hạn',
+      new_only: 'Ưu tiên Từ mới',
+      weak_hunter: 'Ưu tiên Từ khó',
+      sprint_10: 'Tốc chiến 10 từ',
+      audio_blind: 'Phản xạ Nghe'
+    };
+    app.showToast?.(`🎯 Đã đổi ưu tiên: ${modeLabels[targetMode] || targetMode} (${newQueue.length} từ)`, 'success', 2000);
+    return true;
+  } catch (err) {
+    console.error('Lỗi switchStudyPriority:', err);
+    app.showToast?.('Không thể chuyển thứ tự học: ' + (err?.message || err), 'error');
+    return false;
   }
 }
 
@@ -771,7 +866,7 @@ export function setupStudyControls(app) {
       if (selectStudyMode) selectStudyMode.value = 'flashcard';
       if (selectButtonsMode) selectButtonsMode.value = p.ratingButtonsMode || '2_buttons';
       applyRatingButtonsMode(p.ratingButtonsMode || '2_buttons');
-      if (toggleAutoplay) toggleAutoplay.checked = (app.settings?.autoPronounce !== false) && !!p.autoplayAudio;
+      if (toggleAutoplay) toggleAutoplay.checked = (app.settings?.autoPronounce !== false) && (p.autoplayAudio !== false);
       if (selectAccent) selectAccent.value = (app.settings?.audioAccent || p.audioAccent || 'us').toLowerCase();
       if (toggleShowImage) toggleShowImage.checked = !!p.showImage;
       if (toggleShowPhonetic) toggleShowPhonetic.checked = p.showPhonetic !== false;
@@ -810,7 +905,7 @@ export function setupStudyControls(app) {
         StorageManager.saveSettings(app.settings);
       }
       if (app.studySession) {
-        app.studySession.updateSettings();
+        app.studySession.updateSettings(app.settings);
       }
       if (app.studySession?.currentCard) {
         applyFieldVisibility(p, app.studySession.currentCard);
@@ -909,6 +1004,41 @@ export function setupStudyControls(app) {
     }
     if (btnCloseDrawer) btnCloseDrawer.addEventListener('click', closeDrawer);
     if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+
+    // Điều khiển Modal Chọn Thứ Tự Ưu Tiên Học
+    const btnPriority = document.getElementById('btn-study-priority');
+    const priorityModal = document.getElementById('study-priority-modal');
+    const priorityBackdrop = document.getElementById('study-priority-backdrop');
+    const btnClosePriority = document.getElementById('btn-priority-modal-close');
+    const priorityOptionBtns = document.querySelectorAll('.priority-option-btn');
+
+    const openPriorityModal = () => {
+      const curMode = app.currentStudyContext?.options?.mode || app.currentStudyContext?.mode || 'due_first';
+      updateStudyPriorityUI(curMode);
+      priorityModal?.classList.add('active');
+    };
+    const closePriorityModal = () => {
+      priorityModal?.classList.remove('active');
+    };
+
+    if (btnPriority) {
+      btnPriority.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openPriorityModal();
+      });
+    }
+    if (btnClosePriority) btnClosePriority.addEventListener('click', closePriorityModal);
+    if (priorityBackdrop) priorityBackdrop.addEventListener('click', closePriorityModal);
+
+    priorityOptionBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetMode = btn.getAttribute('data-mode');
+        closePriorityModal();
+        if (targetMode) {
+          switchStudyPriority(app, targetMode);
+        }
+      });
+    });
 
     // Thao tác Thẻ: Đặt lại tiến độ (Reset to New)
     const btnActionReset = document.getElementById('btn-action-reset-card');
@@ -1842,6 +1972,10 @@ export function startStudySession(app, queue) {
     overlay.classList.add('active');
     applyRatingButtonsMode(getStudyPrefs().ratingButtonsMode);
     
+    // Đồng bộ nhãn chế độ ưu tiên trên header
+    const currentMode = app.currentStudyContext?.options?.mode || app.currentStudyContext?.mode || 'due_first';
+    updateStudyPriorityUI(currentMode);
+
     // Mở khóa âm thanh song song không làm nghẽn luồng render giao diện
     setTimeout(() => {
       unlockAudioContext();

@@ -258,7 +258,16 @@ export function stopAudio() {
 /**
  * Phát âm bằng giọng đọc Neural/Natural của trình duyệt (Web Speech API)
  */
-export function speakTTS(text, accent = 'us', lang = null, speechRate = 0.9, onEnd = null) {
+export function speakTTS(text, accent = 'us', lang = null, speechRate = 0.9, onStartOrEnd = null, onEndCb = null) {
+  let onStart = null;
+  let onEnd = null;
+  if (typeof onEndCb === 'function') {
+    onStart = typeof onStartOrEnd === 'function' ? onStartOrEnd : null;
+    onEnd = onEndCb;
+  } else if (typeof onStartOrEnd === 'function') {
+    onEnd = onStartOrEnd;
+  }
+
   if (typeof window === 'undefined' || !window.speechSynthesis) {
     if (onEnd) onEnd();
     notifyPlayState(false, accent, text);
@@ -287,6 +296,7 @@ export function speakTTS(text, accent = 'us', lang = null, speechRate = 0.9, onE
     }
 
     notifyPlayState(true, accent, text);
+    if (onStart) onStart();
 
     const finish = () => {
       notifyPlayState(false, accent, text);
@@ -301,7 +311,14 @@ export function speakTTS(text, accent = 'us', lang = null, speechRate = 0.9, onE
       }
     };
 
-    window.speechSynthesis.speak(utterance);
+    setTimeout(() => {
+      try {
+        if (window.speechSynthesis.paused) window.speechSynthesis.resume();
+        window.speechSynthesis.speak(utterance);
+      } catch (err) {
+        finish();
+      }
+    }, 12);
   } catch (e) {
     console.warn('Lỗi SpeechSynthesis TTS:', e);
     notifyPlayState(false, accent, text);

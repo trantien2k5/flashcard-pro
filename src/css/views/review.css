@@ -563,6 +563,23 @@
   }
 }
 
+.home-cta-single {
+  display: block;
+  width: 100%;
+}
+
+.btn-cta-study-now {
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  min-height: 54px;
+}
+
+.btn-cta-study-now .btn-cta-body {
+  justify-content: center;
+}
+
 .btn-hero-flashcard-cta {
   width: 100%;
   min-height: 58px;

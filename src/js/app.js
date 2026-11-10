@@ -27,7 +27,8 @@ import {
   setupStudyControls, 
   startStudySession as startStudyView, 
   handleCardChange, 
-  handleStudyFinish 
+  handleStudyFinish,
+  switchStudyPriority
 } from './views/study.js';
 import { startQuizSession } from './views/quiz.js';
 import { startReelsSession, renderReelsTab, pauseReelsSession } from './views/reels.js';
@@ -92,6 +93,12 @@ export class FlashcardApp {
       try { setupStudyControls(this); } catch (e) { console.warn('setupStudyControls:', e); }
       try { setupSettingsUI(this); } catch (e) { console.warn('setupSettingsUI:', e); }
       try { setupSearch(this); } catch (e) { console.warn('setupSearch:', e); }
+
+      // Cập nhật số phiên bản hiển thị trực tiếp ngay logo app màn hình chính
+      const verBadge = document.getElementById('app-version-badge');
+      if (verBadge && APP_CONFIG?.version) {
+        verBadge.textContent = `v${APP_CONFIG.version}`;
+      }
 
       // 6. Đặt tab Trang chủ làm mặc định & Khởi tạo dữ liệu
       this.switchTab('tab-review');
@@ -690,6 +697,10 @@ export class FlashcardApp {
       console.error('Lỗi startStudySession:', err);
       this.showToast('Lỗi khi mở phiên học: ' + (err?.message || err), 'error');
     }
+  }
+
+  changeStudyPriority(mode) {
+    return switchStudyPriority(this, mode);
   }
 
   startQuizSession(queue = null, options = {}) {

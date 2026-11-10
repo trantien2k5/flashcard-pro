@@ -93,12 +93,16 @@ if (fs.existsSync(configJsPath)) {
   console.log(`   ✓ Đã cập nhật src/js/config.js ➔ v${nextVersion}`);
 }
 
-// 5. Cập nhật index.html (tất cả các query params ?v=...)
+// 5. Cập nhật index.html (tất cả các query params ?v=... và nhãn hiển thị phiên bản ở logo)
 if (fs.existsSync(indexHtmlPath)) {
   let htmlContent = fs.readFileSync(indexHtmlPath, 'utf8');
   htmlContent = htmlContent.replace(/\?v=[0-9a-zA-Z._-]+/g, `?v=${nextVersion}`);
+  htmlContent = htmlContent.replace(
+    /<span class="brand-sub" id="app-version-badge">v[^<]+<\/span>/,
+    `<span class="brand-sub" id="app-version-badge">v${nextVersion}</span>`
+  );
   fs.writeFileSync(indexHtmlPath, htmlContent, 'utf8');
-  console.log(`   ✓ Đã cập nhật index.html cache-busting query strings ➔ ?v=${nextVersion}`);
+  console.log(`   ✓ Đã cập nhật index.html (query strings & logo badge) ➔ v${nextVersion}`);
 }
 
 // 6. Tự động chạy lại test check runner
