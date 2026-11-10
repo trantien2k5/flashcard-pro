@@ -275,28 +275,47 @@ export class StatsManager {
   /**
    * Tính toán chuỗi ngày học liên tục (Streak)
    * Tự động tích hợp Khiên bảo vệ (frozenDates) và Ngày cứu (recoveredDates)
+   * Tự động hợp nhất ngày từ study_time, streakState.studiedDates và logs
+   * Khôi phục tự động (Auto-heal) nếu chuỗi dài bị cụt do LocalStorage cắt 500 logs
    * Tự động kiểm tra thưởng Khiên đóng băng khi đạt mốc liên tục 7 ngày
    */
-  static calculateStreak(logs, explicitStreakState = null) {
-    if (!logs || logs.length === 0) return 0;
-
+  static calculateStreak(logs = null, explicitStreakState = null) {
     const streakState = explicitStreakState || StorageManager.getStreakState();
     const frozenSet = new Set(streakState?.frozenDates || []);
     const recoveredSet = new Set(streakState?.recoveredDates || []);
 
-    const dateSet = new Set();
-    for (let i = 0; i < logs.length; i++) {
-      const ts = logs[i].timestamp;
-      if (ts) {
-        dateSet.add(getLocalDateKey(ts));
+    const dateSet = new Set(streakState?.studiedDates || []);
+
+    // 1. Nạp tất cả các ngày từ study_time (Lưu trữ thời gian học vĩnh viễn theo ngày)
+    const timeMap = StorageManager.getStudyTimeMap() || {};
+    for (const [dateKey, seconds] of Object.entries(timeMap)) {
+      if (Number(seconds) > 0 && /^\d{4}-\d{2}-\d{2}$/.test(dateKey)) {
+        dateSet.add(dateKey);
       }
+    }
+
+    // 2. Nạp tất cả các ngày từ logs (hỗ trợ đa dạng thuộc tính thời gian)
+    const studyLogs = logs || StorageManager.getStudyLogs() || [];
+    for (let i = 0; i < studyLogs.length; i++) {
+      const l = studyLogs[i];
+      if (!l) continue;
+      const ts = l.timestamp || l.review || l.review_time || l.date;
+      if (ts) {
+        const key = getLocalDateKey(ts);
+        if (key && /^\d{4}-\d{2}-\d{2}$/.test(key)) dateSet.add(key);
+      }
+    }
+
+    if (dateSet.size === 0 && frozenSet.size === 0 && recoveredSet.size === 0) {
+      return 0;
     }
 
     let streak = 0;
     const today = new Date();
+    let brokenAtDay = -1;
     
-    // Kiểm tra từ hôm nay lùi về quá khứ
-    for (let i = 0; i < 365; i++) {
+    // Kiểm tra từ hôm nay lùi về quá khứ (tối đa 730 ngày ~ 2 năm)
+    for (let i = 0; i < 730; i++) {
       const d = new Date(today);
       d.setDate(today.getDate() - i);
       const key = getLocalDateKey(d);
@@ -310,8 +329,58 @@ export class StatsManager {
       } else {
         // Nếu hôm nay chưa học thì vẫn cho phép tính streak từ ngày hôm qua
         if (i === 0) continue;
+        brokenAtDay = i;
         break;
       }
+    }
+
+    // 3. AUTO-HEAL: Khôi phục chuỗi nếu bị đứt do hiện tượng LocalStorage cắt 500 logs gần nhất (slice -500)
+    // Nếu người dùng có kỷ lục longestStreak >= 5 và chuỗi hiện tại liên tục không đứt quãng cho đến
+    // tận ngày sớm nhất có dữ liệu (earliest date in dateSet), tức là chuỗi bị cụt do hết dữ liệu logs chứ
+    // không phải do người dùng bỏ học, ta tự động bù đắp các ngày liên tục còn thiếu lên đến longestStreak.
+    const longestStreak = Number(streakState?.longestStreak) || 0;
+    if (longestStreak > streak && brokenAtDay > 0) {
+      let earliestDate = null;
+      for (const dStr of dateSet) {
+        if (!earliestDate || dStr < earliestDate) earliestDate = dStr;
+      }
+
+      const brokenDateObj = new Date(today);
+      brokenDateObj.setDate(today.getDate() - brokenAtDay);
+      const brokenDateKey = getLocalDateKey(brokenDateObj);
+
+      // Nếu ngày bị đứt nằm ở ngoài rìa dữ liệu (brokenDateKey <= earliestDate)
+      // thì chắc chắn là do giới hạn cắt lát 500 logs của LocalStorage
+      if (!earliestDate || brokenDateKey <= earliestDate) {
+        const datesToBackfill = [];
+        const hasStudiedToday = dateSet.has(getLocalDateKey(today));
+        for (let k = streak; k < longestStreak; k++) {
+          const backfillD = new Date(today);
+          backfillD.setDate(today.getDate() - (k + (hasStudiedToday ? 0 : 1)));
+          const bKey = getLocalDateKey(backfillD);
+          dateSet.add(bKey);
+          datesToBackfill.push(bKey);
+        }
+        streak = longestStreak;
+
+        // Lưu vĩnh viễn các ngày được khôi phục vào streakState.studiedDates để không bao giờ bị mất lại
+        try {
+          const curState = StorageManager.getStreakState();
+          const curDates = new Set(curState.studiedDates || []);
+          datesToBackfill.forEach(d => curDates.add(d));
+          curState.studiedDates = Array.from(curDates);
+          StorageManager.saveStreakState(curState);
+        } catch (e) {}
+      }
+    }
+
+    // 4. Đồng bộ ngược các ngày phát hiện được vào streakState.studiedDates
+    if (dateSet.size > (streakState?.studiedDates?.length || 0)) {
+      try {
+        const curState = StorageManager.getStreakState();
+        curState.studiedDates = Array.from(dateSet);
+        StorageManager.saveStreakState(curState);
+      } catch (e) {}
     }
 
     // Tự động kiểm tra thưởng khiên đóng băng và cập nhật kỷ lục
@@ -328,19 +397,31 @@ export class StatsManager {
    * Tự động phân tích xem chuỗi ngày học có vừa bị đứt trong 24h - 48h gần nhất hay không
    * Trả về thông tin chi tiết để phục vụ việc cứu chuỗi (Dùng khiên hoặc Thử thách chuộc lỗi)
    */
-  static detectBrokenStreak(logs, explicitStreakState = null) {
-    if (!logs || logs.length === 0) {
-      return { isBroken: false, canRecover: false };
-    }
-
+  static detectBrokenStreak(logs = null, explicitStreakState = null) {
+    const studyLogs = logs || StorageManager.getStudyLogs() || [];
     const streakState = explicitStreakState || StorageManager.getStreakState();
     const frozenSet = new Set(streakState?.frozenDates || []);
     const recoveredSet = new Set(streakState?.recoveredDates || []);
 
-    const dateSet = new Set();
-    for (let i = 0; i < logs.length; i++) {
-      const ts = logs[i].timestamp;
-      if (ts) dateSet.add(getLocalDateKey(ts));
+    const dateSet = new Set(streakState?.studiedDates || []);
+    const timeMap = StorageManager.getStudyTimeMap() || {};
+    for (const [dateKey, seconds] of Object.entries(timeMap)) {
+      if (Number(seconds) > 0 && /^\d{4}-\d{2}-\d{2}$/.test(dateKey)) {
+        dateSet.add(dateKey);
+      }
+    }
+    for (let i = 0; i < studyLogs.length; i++) {
+      const l = studyLogs[i];
+      if (!l) continue;
+      const ts = l.timestamp || l.review || l.review_time || l.date;
+      if (ts) {
+        const k = getLocalDateKey(ts);
+        if (k && /^\d{4}-\d{2}-\d{2}$/.test(k)) dateSet.add(k);
+      }
+    }
+
+    if (dateSet.size === 0 && frozenSet.size === 0 && recoveredSet.size === 0) {
+      return { isBroken: false, canRecover: false };
     }
 
     const isValidDate = (key) => dateSet.has(key) || frozenSet.has(key) || recoveredSet.has(key);
@@ -359,7 +440,7 @@ export class StatsManager {
 
     // Hôm qua bị lỡ (missed). Kiểm tra xem từ hôm kia (D-2) trở về trước có chuỗi nỗ lực không:
     let pastStreakBeforeMiss = 0;
-    for (let i = 2; i < 365; i++) {
+    for (let i = 2; i < 730; i++) {
       const d = new Date(today);
       d.setDate(today.getDate() - i);
       const k = getLocalDateKey(d);

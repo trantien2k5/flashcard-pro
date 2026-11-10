@@ -5,7 +5,8 @@ import { FSRS, Rating, State, isCardDue } from '../src/js/core/fsrs.js';
 import { StudySession } from '../src/js/core/session.js';
 import { StorageManager } from '../src/js/services/storage.js';
 import { DeckManager } from '../src/js/core/selectors.js';
-import { BehavioralOptimizer } from '../src/js/core/stats.js';
+import { BehavioralOptimizer, StatsManager } from '../src/js/core/stats.js';
+import { getLocalDateKey } from '../src/js/utils.js';
 
 console.log('🧪 BẮT ĐẦU KIỂM THỬ ĐỒNG BỘ THUẬT TOÁN FSRS & LƯU TRỮ TRẠNG THÁI...');
 
@@ -295,6 +296,81 @@ assert(stateHesitant.difficulty > stateDistracted.difficulty && stateDistracted.
 // 4. Kiểm tra hàm tối ưu hóa ngầm
 const optResult = BehavioralOptimizer.autoCalibrateBackground();
 assert(optResult === null || Array.isArray(optResult), 'Test 11.4: Bộ tối ưu hóa FSRS ngầm vận hành an toàn, zero-touch');
+
+// ----------------------------------------------------
+// SUITE 12: BẢO TOÀN STREAK & CƠ CHẾ AUTO-HEAL KHI LOGS BỊ SLICE(-500)
+// ----------------------------------------------------
+const nowStreakTest = new Date();
+const dates53 = [];
+for (let i = 1; i <= 53; i++) {
+  const d = new Date(nowStreakTest);
+  d.setDate(nowStreakTest.getDate() - i);
+  dates53.push(getLocalDateKey(d));
+}
+
+// 1. Giả lập streakState có 53 ngày
+const state53 = {
+  freezes: 1,
+  maxFreezes: 2,
+  frozenDates: [],
+  recoveredDates: [],
+  studiedDates: dates53,
+  longestStreak: 53
+};
+StorageManager.saveStreakState(state53);
+
+// Giả lập studyLogs chỉ chứa 38 ngày gần nhất (do slice(-500))
+const truncatedLogs = [];
+for (let i = 1; i <= 38; i++) {
+  const d = new Date(nowStreakTest);
+  d.setDate(nowStreakTest.getDate() - i);
+  truncatedLogs.push({ cardId: `w_${i}`, rating: 3, timestamp: d.toISOString() });
+}
+
+const computedStreak = StatsManager.calculateStreak(truncatedLogs, state53);
+assert(computedStreak >= 53, 'Test 12.1: Streak đạt 53 ngày dù logs chỉ có 38 ngày (bảo toàn qua studiedDates)');
+
+// 2. Auto-heal khi streakState chưa có studiedDates nhưng có longestStreak = 53
+// và toàn bộ 38 ngày trong logs hoàn toàn liên tục đến tận rìa dữ liệu
+const stateAutoHeal = {
+  freezes: 1,
+  maxFreezes: 2,
+  frozenDates: [],
+  recoveredDates: [],
+  studiedDates: [],
+  longestStreak: 53
+};
+StorageManager.saveStreakState(stateAutoHeal);
+const autoHealedStreak = StatsManager.calculateStreak(truncatedLogs, stateAutoHeal);
+assert(autoHealedStreak >= 53, 'Test 12.2: Cơ chế Auto-Heal tự động phát hiện cụt rìa do slice(-500) và khôi phục chuỗi 53 ngày');
+
+// 3. Không Auto-Heal sai nếu người dùng thực sự bỏ học giữa chừng
+// (Ví dụ: có dữ liệu ngày D-1, D-2, D-3, bỏ D-4, nhưng có dữ liệu D-5, D-6... D-38)
+const brokenLogs = [];
+for (let i = 1; i <= 38; i++) {
+  if (i === 4) continue; // Thực sự nghỉ ngày D-4
+  const d = new Date(nowStreakTest);
+  d.setDate(nowStreakTest.getDate() - i);
+  brokenLogs.push({ cardId: `w_${i}`, rating: 3, timestamp: d.toISOString() });
+}
+const stateRealBreak = {
+  freezes: 0,
+  maxFreezes: 2,
+  frozenDates: [],
+  recoveredDates: [],
+  studiedDates: [],
+  longestStreak: 53
+};
+StorageManager.saveStreakState(stateRealBreak);
+const realBreakStreak = StatsManager.calculateStreak(brokenLogs, stateRealBreak);
+const expectedStreak = brokenLogs.some(l => getLocalDateKey(l.timestamp) === getLocalDateKey()) ? 4 : (StorageManager.getTodayStudySeconds() > 0 || (StorageManager.getStudyLogs() || []).some(l => getLocalDateKey(l.timestamp) === getLocalDateKey()) ? 4 : 3);
+assert(realBreakStreak === expectedStreak, `Test 12.3: Phát hiện chính xác đứt chuỗi thật tại D-4, KHÔNG auto-heal sai (streak = ${expectedStreak})`);
+
+// 4. recordStudiedDate tự động ghi nhận ngày vào studiedDates
+const todayKey = getLocalDateKey();
+StorageManager.recordStudiedDate(todayKey);
+const stateAfterRecord = StorageManager.getStreakState();
+assert(stateAfterRecord.studiedDates.includes(todayKey), 'Test 12.4: recordStudiedDate tự động lưu ngày học hôm nay vào studiedDates bền vững');
 
 console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 if (failed === 0) {

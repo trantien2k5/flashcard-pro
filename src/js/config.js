@@ -5,7 +5,7 @@
 
 export const APP_CONFIG = {
   name: 'Flashcard English Pro',
-  version: '3.76.45',
+  version: '3.76.46',
   storagePrefix: 'fc_pro_',
   dbName: 'FlashcardProDB',
   dbVersion: 1
@@ -26,6 +26,7 @@ export const DEFAULT_STREAK_STATE = {
   maxFreezes: 2,
   frozenDates: [],
   recoveredDates: [],
+  studiedDates: [], // Danh mục các ngày đã học liên tục (Lưu trữ vĩnh viễn, bảo toàn chuỗi)
   lastRecoveryTimestamp: 0,
   longestStreak: 0,
   lastAwardedMilestone: 0

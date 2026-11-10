@@ -200,16 +200,42 @@ export class StorageManager {
       if (logs && logs.length > 0) {
         if (!_logsCache) {
           _logsCache = logs;
-        } else if (logs.length > _logsCache.length) {
-          const seenKeys = new Set(_logsCache.map(l => l.id || `${l.card_id}_${l.review_time}`));
+        } else {
+          const seenKeys = new Set(_logsCache.map(l => l.id || `${l.cardId || l.card_id || 'item'}_${l.timestamp || l.review_time || ''}`));
           for (const log of logs) {
-            const key = log.id || `${log.card_id}_${log.review_time}`;
+            const key = log.id || `${log.cardId || log.card_id || 'item'}_${log.timestamp || log.review_time || ''}`;
             if (!seenKeys.has(key)) {
               _logsCache.push(log);
               seenKeys.add(key);
             }
           }
         }
+        _logsCache.sort((a, b) => {
+          const ta = a.timestamp ? new Date(a.timestamp).getTime() : 0;
+          const tb = b.timestamp ? new Date(b.timestamp).getTime() : 0;
+          return ta - tb;
+        });
+
+        // Tích hợp toàn bộ ngày học từ IndexedDB vào streakState.studiedDates
+        try {
+          const streak = this.getStreakState();
+          const studiedSet = new Set(streak.studiedDates || []);
+          let added = false;
+          for (const l of logs) {
+            const ts = l.timestamp || l.review || l.review_time || l.date;
+            if (ts) {
+              const k = getLocalDateKey(ts);
+              if (k && /^\d{4}-\d{2}-\d{2}$/.test(k) && !studiedSet.has(k)) {
+                studiedSet.add(k);
+                added = true;
+              }
+            }
+          }
+          if (added) {
+            streak.studiedDates = Array.from(studiedSet);
+            this.saveStreakState(streak);
+          }
+        } catch (e) {}
       }
 
       if (settings && settings.length > 0) {
@@ -258,11 +284,32 @@ export class StorageManager {
             }
           }
         }
+
+        // Tích hợp toàn bộ ngày từ studyTime vào streakState.studiedDates
+        try {
+          const streak = this.getStreakState();
+          const studiedSet = new Set(streak.studiedDates || []);
+          let added = false;
+          for (const [d, s] of Object.entries(_timeMapCache)) {
+            if (Number(s) > 0 && /^\d{4}-\d{2}-\d{2}$/.test(d) && !studiedSet.has(d)) {
+              studiedSet.add(d);
+              added = true;
+            }
+          }
+          if (added) {
+            streak.studiedDates = Array.from(studiedSet);
+            this.saveStreakState(streak);
+          }
+        } catch (e) {}
       }
 
       if (userProgress && userProgress.length > 0 && !_userProgressCache) {
         const prog = userProgress.find(p => p.id === 'global_progress') || userProgress[0];
         if (prog) _userProgressCache = prog;
+      }
+
+      if (typeof window !== 'undefined' && window.app && typeof window.app.updateHeaderBadges === 'function') {
+        window.app.updateHeaderBadges();
       }
     } catch (e) {}
   }
@@ -600,8 +647,37 @@ export class StorageManager {
     return Boolean(state && state.suspended === true);
   }
 
+  /**
+   * Ghi nhận ngày học hợp lệ vào hệ thống (lưu trữ vĩnh viễn không bao giờ bị cắt 500 logs)
+   * Đồng bộ đồng thời vào streakState.studiedDates và studyTimeMap
+   */
+  static recordStudiedDate(dateKey = null) {
+    const key = dateKey || getLocalDateKey();
+    if (!key || !/^\d{4}-\d{2}-\d{2}$/.test(key)) return;
+    try {
+      const streak = this.getStreakState();
+      const dates = Array.isArray(streak.studiedDates) ? streak.studiedDates : [];
+      if (!dates.includes(key)) {
+        dates.push(key);
+        streak.studiedDates = dates;
+        this.saveStreakState(streak);
+      }
+      const timeMap = this.getStudyTimeMap();
+      if (!timeMap[key] || timeMap[key] <= 0) {
+        timeMap[key] = 1;
+        _timeMapCache = timeMap;
+        this._scheduleTimeLocalStorageSync();
+      }
+    } catch (e) {
+      console.warn('Lỗi recordStudiedDate:', e);
+    }
+  }
+
   static logReview(reviewEvent) {
     try {
+      const reviewDate = reviewEvent.timestamp ? getLocalDateKey(reviewEvent.timestamp) : getLocalDateKey();
+      this.recordStudiedDate(reviewDate);
+
       const logs = this.getStudyLogs();
       const logEntry = {
         id: reviewEvent.id || `log_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`,
@@ -669,8 +745,10 @@ export class StorageManager {
   static addStudySeconds(seconds) {
     if (!seconds || seconds <= 0) return 0;
     try {
-      const timeMap = this.getStudyTimeMap();
       const todayKey = getLocalDateKey();
+      this.recordStudiedDate(todayKey);
+
+      const timeMap = this.getStudyTimeMap();
       const current = timeMap[todayKey] || 0;
       const updated = current + Math.round(seconds);
       timeMap[todayKey] = updated;
@@ -818,15 +896,19 @@ export class StorageManager {
   // ==========================================
 
   static getStreakState() {
-    if (_streakStateCache !== null) return _streakStateCache;
+    if (_streakStateCache !== null) {
+      if (!Array.isArray(_streakStateCache.studiedDates)) _streakStateCache.studiedDates = [];
+      return _streakStateCache;
+    }
     try {
-      if (typeof localStorage === 'undefined') return { ...DEFAULT_STREAK_STATE };
+      if (typeof localStorage === 'undefined') return { ...DEFAULT_STREAK_STATE, studiedDates: [] };
       const data = localStorage.getItem(STORAGE_KEYS.STREAK_STATE);
       _streakStateCache = data ? { ...DEFAULT_STREAK_STATE, ...JSON.parse(data) } : { ...DEFAULT_STREAK_STATE };
+      if (!Array.isArray(_streakStateCache.studiedDates)) _streakStateCache.studiedDates = [];
       return _streakStateCache;
     } catch (e) {
       console.error('Error reading streak state:', e);
-      return { ...DEFAULT_STREAK_STATE };
+      return { ...DEFAULT_STREAK_STATE, studiedDates: [] };
     }
   }
 
@@ -834,6 +916,7 @@ export class StorageManager {
     if (!state || typeof state !== 'object') return;
     try {
       _streakStateCache = { ...state };
+      if (!Array.isArray(_streakStateCache.studiedDates)) _streakStateCache.studiedDates = [];
       if (typeof localStorage !== 'undefined') {
         localStorage.setItem(STORAGE_KEYS.STREAK_STATE, JSON.stringify(_streakStateCache));
       }
@@ -1283,6 +1366,21 @@ export class StorageManager {
           return ta - tb;
         });
 
+        // Tích hợp ngày học từ logs đã nhập vào streakState.studiedDates
+        try {
+          const streak = this.getStreakState();
+          const studiedSet = new Set(streak.studiedDates || []);
+          for (const l of _logsCache) {
+            const ts = l.timestamp || l.review;
+            if (ts) {
+              const k = getLocalDateKey(ts);
+              if (k && /^\d{4}-\d{2}-\d{2}$/.test(k)) studiedSet.add(k);
+            }
+          }
+          streak.studiedDates = Array.from(studiedSet);
+          this.saveStreakState(streak);
+        } catch (e) {}
+
         if (typeof localStorage !== 'undefined') {
           localStorage.setItem(STORAGE_KEYS.STUDY_LOGS, JSON.stringify(_logsCache));
         }
@@ -1356,7 +1454,12 @@ export class StorageManager {
       // 7.5. Trạng thái Streak & Bảo vệ chuỗi ngày
       const rawStreak = data.streak || data.streakState;
       if (rawStreak && typeof rawStreak === 'object') {
-        this.saveStreakState({ ...DEFAULT_STREAK_STATE, ...rawStreak });
+        const curStreak = this.getStreakState();
+        const mergedStudied = Array.from(new Set([
+          ...(curStreak.studiedDates || []),
+          ...(rawStreak.studiedDates || [])
+        ]));
+        this.saveStreakState({ ...DEFAULT_STREAK_STATE, ...rawStreak, studiedDates: mergedStudied });
       }
 
       // 8. Ghi đè đồng bộ vào IndexedDB bền vững
