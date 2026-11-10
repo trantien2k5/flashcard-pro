@@ -9,7 +9,7 @@ import { showConfirm } from './components.js';
 import { globalStudyTimer, BehavioralOptimizer } from '../core/stats.js';
 import { unlockAudioContext } from '../core/session.js';
 import { escapeHTML, formatCleanInterval, scrollToTop } from '../utils.js';
-import { onAudioPlayStateChange, speak, speakVi, stopAudio } from '../services/audio.js';
+import { onAudioPlayStateChange, speak, stopAudio } from '../services/audio.js';
 
 // ==========================================
 // MODULAR SUB-CONTROLLERS (CHIA ĐỂ TRỊ)
@@ -39,6 +39,14 @@ import {
   showSummaryModal
 } from './study/summary-modal.js';
 
+import {
+  isAutoPlayActive,
+  updateAutoPlayUI,
+  stopAutoPlay,
+  triggerAutoPlayStep,
+  setupAutoPlayControls
+} from './study/autoplay.js';
+
 // Re-export toàn bộ API để tương thích 100% với các view và script bên ngoài
 export {
   DEFAULT_AUTOPLAY_CONFIG,
@@ -53,61 +61,19 @@ export {
   initPomodoroTracker,
   stopPomodoroTracker,
   recordPomodoroCardReviewed,
-  showSummaryModal
+  showSummaryModal,
+  isAutoPlayActive,
+  updateAutoPlayUI,
+  stopAutoPlay,
+  triggerAutoPlayStep,
+  setupAutoPlayControls
 };
 
-let _isAutoPlaying = false;
-let _autoPlayTimer = null;
 let _cardShowTime = 0;
 let _backShowTime = 0;
 let _lastFlipLatencyMs = 0;
 let _isFlipLocked = false;
 let _flipCountdownTimer = null;
-
-export function isAutoPlayActive() {
-  return _isAutoPlaying;
-}
-
-export function updateAutoPlayUI(isPlaying) {
-  const btnAutoplay = document.getElementById('btn-study-autoplay');
-  if (btnAutoplay) {
-    if (isPlaying) {
-      btnAutoplay.classList.add('active');
-    } else {
-      btnAutoplay.classList.remove('active');
-    }
-    const playIcon = btnAutoplay.querySelector('.icon-autoplay-play');
-    const pauseIcon = btnAutoplay.querySelector('.icon-autoplay-pause');
-    if (playIcon) playIcon.style.display = isPlaying ? 'none' : 'block';
-    if (pauseIcon) pauseIcon.style.display = isPlaying ? 'block' : 'none';
-  }
-
-  const btnAction = document.getElementById('btn-autoplay-main-action');
-  if (btnAction) {
-    if (isPlaying) {
-      btnAction.className = 'btn-autoplay-main-action is-pause';
-      btnAction.innerHTML = `
-        <span class="action-icon">⏸️</span>
-        <span class="action-text">Tạm dừng tự động học</span>
-      `;
-    } else {
-      btnAction.className = 'btn-autoplay-main-action is-start';
-      btnAction.innerHTML = `
-        <span class="action-icon">▶️</span>
-        <span class="action-text">Bắt đầu tự động học</span>
-      `;
-    }
-  }
-}
-
-export function stopAutoPlay() {
-  _isAutoPlaying = false;
-  if (_autoPlayTimer) {
-    clearTimeout(_autoPlayTimer);
-    _autoPlayTimer = null;
-  }
-  updateAutoPlayUI(false);
-}
 
 export function startFrontActiveRecallTimer() {
   if (_flipCountdownTimer) {
@@ -786,225 +752,8 @@ export function setupStudyControls(app) {
       });
     }
 
-    // Cỗ máy điều phối Auto-Play theo nhịp sinh học tùy chỉnh
-    const triggerAutoPlayStep = () => {
-      if (!_isAutoPlaying || !app.studySession || !app.studySession.isActive) return;
-      const currentCard = app.studySession.currentCard;
-      if (!currentCard) {
-        stopAutoPlay();
-        return;
-      }
-
-      if (_autoPlayTimer) {
-        clearTimeout(_autoPlayTimer);
-        _autoPlayTimer = null;
-      }
-
-      const prefs = getAutoPlayPrefs();
-      const isFlipped = app.studySession.isFlipped;
-
-      if (!isFlipped) {
-        // --- BƯỚC 1: MẶT TRƯỚC (Đọc Tiếng Anh -> Chờ não suy nghĩ -> Lật thẻ) ---
-        speak(currentCard.word, {
-          cardObj: currentCard,
-          onEnd: () => {
-            if (!_isAutoPlaying || app.studySession?.currentCard?.id !== currentCard.id) return;
-            const frontMs = Math.max(500, Math.round((prefs.frontDelaySec || 3.0) * 1000));
-            _autoPlayTimer = setTimeout(() => {
-              if (!_isAutoPlaying || app.studySession?.currentCard?.id !== currentCard.id) return;
-              if (!app.studySession.isFlipped) {
-                triggerFlip();
-              }
-              triggerAutoPlayStep();
-            }, frontMs);
-          }
-        });
-      } else {
-        // --- BƯỚC 2: MẶT SAU (Đọc Tiếng Việt nếu bật -> Chờ tiếp thu -> Sang thẻ kế tiếp) ---
-        const onBackFinished = () => {
-          if (!_isAutoPlaying || app.studySession?.currentCard?.id !== currentCard.id) return;
-          const backMs = Math.max(500, Math.round((prefs.backDelaySec || 2.5) * 1000));
-          _autoPlayTimer = setTimeout(() => {
-            if (!_isAutoPlaying || app.studySession?.currentCard?.id !== currentCard.id) return;
-            
-            globalStudyTimer.recordActivity();
-
-            // Kiểm tra xem đã đến thẻ cuối cùng trong hàng đợi chưa
-            const isLastCard = app.studySession.currentIndex >= (app.studySession.queue.length - 1);
-            if (isLastCard && prefs.loopList) {
-              // Ghi log streak cho từ cuối cùng và quay về đầu danh sách
-              StorageManager.logReview({
-                cardId: currentCard.id,
-                word: currentCard.word,
-                isAutoplay: true
-              });
-              app.studySession.completedCount = (app.studySession.completedCount || 0) + 1;
-              app.studySession.sessionStats.reviewedCount = (app.studySession.sessionStats.reviewedCount || 0) + 1;
-
-              setTimeout(() => {
-                if (_isAutoPlaying && app.studySession?.queue?.length) {
-                  app.studySession.currentIndex = 0;
-                  app.studySession.loadCurrentCard();
-                }
-              }, 300);
-            } else if (isLastCard) {
-              // Kết thúc danh sách
-              if (app.studySession.stepNextAutoplayCard) {
-                app.studySession.stepNextAutoplayCard();
-              } else {
-                app.studySession.currentIndex++;
-                app.studySession.loadCurrentCard();
-              }
-              stopAutoPlay();
-            } else {
-              // Chuyển sang thẻ kế tiếp: duy trì streak & thời gian học nhưng KHÔNG đánh giá 4 mức độ FSRS
-              if (app.studySession.stepNextAutoplayCard) {
-                app.studySession.stepNextAutoplayCard();
-              } else {
-                StorageManager.logReview({
-                  cardId: currentCard.id,
-                  word: currentCard.word,
-                  isAutoplay: true
-                });
-                app.studySession.completedCount = (app.studySession.completedCount || 0) + 1;
-                app.studySession.sessionStats.reviewedCount = (app.studySession.sessionStats.reviewedCount || 0) + 1;
-                app.studySession.currentIndex++;
-                app.studySession.loadCurrentCard();
-              }
-            }
-          }, backMs);
-        };
-
-        if (prefs.speakVi && currentCard.meaning) {
-          speakVi(currentCard.meaning, onBackFinished);
-        } else {
-          onBackFinished();
-        }
-      }
-    };
-
-    app._studyTriggerAutoPlay = triggerAutoPlayStep;
-
-    // Quản lý Modal Cài Đặt Tự Động Học (Auto-Play Modal)
-    const modalAutoplay = document.getElementById('study-autoplay-modal');
-    const modalAutoplayBackdrop = document.getElementById('study-autoplay-backdrop');
-    const btnCloseAutoplayModal = document.getElementById('btn-autoplay-modal-close');
-    const btnAutoplay = document.getElementById('btn-study-autoplay');
-    const btnMainAction = document.getElementById('btn-autoplay-main-action');
-
-    const btnFrontMinus = document.getElementById('btn-front-delay-minus');
-    const btnFrontPlus = document.getElementById('btn-front-delay-plus');
-    const valFrontDelay = document.getElementById('val-front-delay');
-
-    const btnBackMinus = document.getElementById('btn-back-delay-minus');
-    const btnBackPlus = document.getElementById('btn-back-delay-plus');
-    const valBackDelay = document.getElementById('val-back-delay');
-
-    const toggleSpeakVi = document.getElementById('toggle-autoplay-speak-vi');
-    const toggleLoop = document.getElementById('toggle-autoplay-loop');
-
-    let currentAutoPrefs = getAutoPlayPrefs();
-
-    const syncAutoplayInputs = () => {
-      currentAutoPrefs = getAutoPlayPrefs();
-      if (valFrontDelay) valFrontDelay.textContent = `${currentAutoPrefs.frontDelaySec.toFixed(1)}s`;
-      if (valBackDelay) valBackDelay.textContent = `${currentAutoPrefs.backDelaySec.toFixed(1)}s`;
-      if (toggleSpeakVi) toggleSpeakVi.checked = !!currentAutoPrefs.speakVi;
-      if (toggleLoop) toggleLoop.checked = !!currentAutoPrefs.loopList;
-      updateAutoPlayUI(_isAutoPlaying);
-    };
-
-    syncAutoplayInputs();
-
-    const openAutoplayModal = () => {
-      syncAutoplayInputs();
-      if (modalAutoplay) modalAutoplay.classList.add('active');
-    };
-
-    const closeAutoplayModal = () => {
-      if (modalAutoplay) modalAutoplay.classList.remove('active');
-    };
-
-    if (btnAutoplay) {
-      btnAutoplay.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openAutoplayModal();
-      });
-    }
-
-    if (btnCloseAutoplayModal) {
-      btnCloseAutoplayModal.addEventListener('click', closeAutoplayModal);
-    }
-    if (modalAutoplayBackdrop) {
-      modalAutoplayBackdrop.addEventListener('click', closeAutoplayModal);
-    }
-
-    // Steppers mặt trước
-    if (btnFrontMinus) {
-      btnFrontMinus.addEventListener('click', (e) => {
-        e.stopPropagation();
-        currentAutoPrefs.frontDelaySec = Math.max(1.0, Math.round((currentAutoPrefs.frontDelaySec - 0.5) * 10) / 10);
-        saveAutoPlayPrefs(currentAutoPrefs);
-        syncAutoplayInputs();
-      });
-    }
-    if (btnFrontPlus) {
-      btnFrontPlus.addEventListener('click', (e) => {
-        e.stopPropagation();
-        currentAutoPrefs.frontDelaySec = Math.min(10.0, Math.round((currentAutoPrefs.frontDelaySec + 0.5) * 10) / 10);
-        saveAutoPlayPrefs(currentAutoPrefs);
-        syncAutoplayInputs();
-      });
-    }
-
-    // Steppers mặt sau
-    if (btnBackMinus) {
-      btnBackMinus.addEventListener('click', (e) => {
-        e.stopPropagation();
-        currentAutoPrefs.backDelaySec = Math.max(1.0, Math.round((currentAutoPrefs.backDelaySec - 0.5) * 10) / 10);
-        saveAutoPlayPrefs(currentAutoPrefs);
-        syncAutoplayInputs();
-      });
-    }
-    if (btnBackPlus) {
-      btnBackPlus.addEventListener('click', (e) => {
-        e.stopPropagation();
-        currentAutoPrefs.backDelaySec = Math.min(10.0, Math.round((currentAutoPrefs.backDelaySec + 0.5) * 10) / 10);
-        saveAutoPlayPrefs(currentAutoPrefs);
-        syncAutoplayInputs();
-      });
-    }
-
-    // Toggles
-    if (toggleSpeakVi) {
-      toggleSpeakVi.addEventListener('change', () => {
-        currentAutoPrefs.speakVi = toggleSpeakVi.checked;
-        saveAutoPlayPrefs(currentAutoPrefs);
-      });
-    }
-    if (toggleLoop) {
-      toggleLoop.addEventListener('change', () => {
-        currentAutoPrefs.loopList = toggleLoop.checked;
-        saveAutoPlayPrefs(currentAutoPrefs);
-      });
-    }
-
-    // Nút Bắt đầu / Tạm dừng lớn trong popup
-    if (btnMainAction) {
-      btnMainAction.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (_isAutoPlaying) {
-          stopAutoPlay();
-          app.showToast('⏸️ Đã tạm dừng tự động học', 'info', 1500);
-        } else {
-          _isAutoPlaying = true;
-          updateAutoPlayUI(true);
-          closeAutoplayModal();
-          app.showToast('▶️ Đang tự động lật thẻ & học rảnh tay', 'success', 2000);
-          triggerAutoPlayStep();
-        }
-      });
-    }
+    // Thiết lập hệ thống điều phối & cài đặt Auto-Play
+    setupAutoPlayControls(app, triggerFlip);
 
     // Đóng phiên học với Custom Confirmation
     if (btnClose) {
@@ -1581,13 +1330,9 @@ export function handleCardChange(app, card, progress) {
     if (dom.iEasy) dom.iEasy.textContent = formatCleanInterval(card.previews?.[Rating.Easy]?.intervalText, '4d');
 
     // Kích hoạt bước tiếp theo nếu đang chạy Auto-Play
-    if (_isAutoPlaying) {
-      if (_autoPlayTimer) {
-        clearTimeout(_autoPlayTimer);
-        _autoPlayTimer = null;
-      }
+    if (isAutoPlayActive()) {
       setTimeout(() => {
-        if (_isAutoPlaying && app._studyTriggerAutoPlay) {
+        if (isAutoPlayActive() && app._studyTriggerAutoPlay) {
           app._studyTriggerAutoPlay();
         }
       }, 100);

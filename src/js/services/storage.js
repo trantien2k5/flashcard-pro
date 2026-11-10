@@ -5,8 +5,16 @@
 
 import { LEGACY_ID_MAP } from '../../data/index.js';
 import { getLocalDateKey } from '../utils.js';
-import { DEFAULT_SETTINGS, APP_CONFIG, DEFAULT_STREAK_STATE, FREEZE_REWARD_INTERVAL } from '../config.js';
+import { DEFAULT_SETTINGS, APP_CONFIG, DEFAULT_STREAK_STATE } from '../config.js';
 import { FSRS } from '../core/fsrs.js';
+import { applyStreakFreeze, applyStreakRedeem, evaluateStreakReward } from './storage/streak.js';
+import {
+  createNanoBackupPayload,
+  normalizeCardState,
+  normalizeBackupLog,
+  triggerJSONDownload,
+  readBackupFileText
+} from './storage/backup.js';
 
 export { DEFAULT_SETTINGS };
 
@@ -964,71 +972,31 @@ export class StorageManager {
   }
 
   static useStreakFreeze(dateKey) {
-    if (!dateKey) return false;
-    const state = this.getStreakState();
-    if ((state.freezes || 0) <= 0) return false;
-
-    const frozen = Array.isArray(state.frozenDates) ? [...state.frozenDates] : [];
-    if (!frozen.includes(dateKey)) {
-      frozen.push(dateKey);
-    }
-    const updated = {
-      ...state,
-      freezes: Math.max(0, state.freezes - 1),
-      frozenDates: frozen
-    };
-    this.saveStreakState(updated);
+    const { success, state } = applyStreakFreeze(this.getStreakState(), dateKey);
+    if (!success) return false;
+    this.saveStreakState(state);
     this.bumpStateRevision();
     return true;
   }
 
   static redeemStreak(dateKey) {
-    if (!dateKey) return false;
-    const state = this.getStreakState();
-    const recovered = Array.isArray(state.recoveredDates) ? [...state.recoveredDates] : [];
-    if (!recovered.includes(dateKey)) {
-      recovered.push(dateKey);
-    }
-    const updated = {
-      ...state,
-      recoveredDates: recovered,
-      lastRecoveryTimestamp: Date.now()
-    };
-    this.saveStreakState(updated);
+    const { success, state } = applyStreakRedeem(this.getStreakState(), dateKey);
+    if (!success) return false;
+    this.saveStreakState(state);
     this.bumpStateRevision();
     return true;
   }
 
   static checkAndAwardStreakFreeze(currentStreak) {
-    if (typeof currentStreak !== 'number' || currentStreak < FREEZE_REWARD_INTERVAL) {
-      return { awarded: false, freezes: (this.getStreakState()?.freezes || 0) };
+    const res = evaluateStreakReward(this.getStreakState(), currentStreak);
+    if (res.state) {
+      this.saveStreakState(res.state);
     }
-    const state = this.getStreakState();
-    const milestone = Math.floor(currentStreak / FREEZE_REWARD_INTERVAL) * FREEZE_REWARD_INTERVAL;
-    const lastAwarded = state.lastAwardedMilestone || 0;
-    const maxFreezes = state.maxFreezes || 2;
-    let awarded = false;
-    let newFreezes = state.freezes || 0;
-
-    if (milestone > lastAwarded) {
-      if (newFreezes < maxFreezes) {
-        newFreezes += 1;
-        awarded = true;
-      }
-      const updated = {
-        ...state,
-        freezes: newFreezes,
-        lastAwardedMilestone: milestone,
-        longestStreak: Math.max(state.longestStreak || 0, currentStreak)
-      };
-      this.saveStreakState(updated);
-      return { awarded, freezes: newFreezes, milestone };
-    }
-
-    if (currentStreak > (state.longestStreak || 0)) {
-      this.saveStreakState({ ...state, longestStreak: currentStreak });
-    }
-    return { awarded: false, freezes: newFreezes, milestone: lastAwarded };
+    return {
+      awarded: res.awarded,
+      freezes: res.freezes,
+      milestone: res.milestone || (this.getStreakState()?.lastAwardedMilestone || 0)
+    };
   }
 
   static getCustomDecks() {
@@ -1197,123 +1165,21 @@ export class StorageManager {
    * Xuất bản sao lưu Nano FSRS siêu nhẹ (giảm 85-95% dung lượng, giữ 100% dữ liệu)
    */
   static exportCompactBackup() {
-    const allCardStates = this.getAllCardStates() || {};
-    const compactCards = [];
-
-    for (const [id, s] of Object.entries(allCardStates)) {
-      if (!s) continue;
-      const stateNum = s.state ?? 0;
-      const reps = s.reps ?? 0;
-      const lapses = s.lapses ?? 0;
-      const stability = Number((s.stability || 0).toFixed(2));
-      const difficulty = Number((s.difficulty || 5).toFixed(2));
-      const isLeech = s.isLeech === true || (s.lapses && s.lapses >= 8);
-      const isSuspended = s.suspended === true;
-
-      // Chỉ lưu thẻ người học đã tương tác hoặc có trạng thái cá nhân hóa
-      if (stateNum !== 0 || reps > 0 || lapses > 0 || stability > 0 || isLeech || isSuspended) {
-        const dueSec = s.due ? Math.floor(new Date(s.due).getTime() / 1000) : 0;
-        const lastReviewSec = s.last_review ? Math.floor(new Date(s.last_review).getTime() / 1000) : 0;
-        const flags = (isLeech ? 1 : 0) | (isSuspended ? 2 : 0);
-
-        compactCards.push([
-          id,
-          stateNum,
-          reps,
-          lapses,
-          stability,
-          difficulty,
-          dueSec,
-          lastReviewSec,
-          flags
-        ]);
-      }
-    }
-
-    const logs = this.getStudyLogs() || [];
-    const compactLogs = logs.map(l => {
-      const tsSec = l.timestamp ? Math.floor(new Date(l.timestamp).getTime() / 1000) : Math.floor(Date.now() / 1000);
-      return [
-        l.cardId || l.word || '',
-        l.rating || 3,
-        tsSec,
-        typeof l.latencySec === 'number' ? Number(l.latencySec.toFixed(2)) : 0,
-        typeof l.backViewSec === 'number' ? Number(l.backViewSec.toFixed(2)) : 0
-      ];
+    return createNanoBackupPayload({
+      allCardStates: this.getAllCardStates(),
+      logs: this.getStudyLogs(),
+      customDecks: this.getCustomDecks(),
+      studyTimeMap: this.getStudyTimeMap(),
+      userProgress: this.getUserProgress(),
+      streakState: this.getStreakState(),
+      userProfile: this.getUserProfile(),
+      settings: this.getSettings(),
+      preferences: this.getUserPreferences()
     });
-
-    return {
-      v: '3.1',
-      type: 'fc_fsrs_nano',
-      t: Math.floor(Date.now() / 1000),
-      p: this.getUserProfile(),
-      s: this.getSettings(),
-      c: compactCards,
-      l: compactLogs,
-      d: this.getCustomDecks(),
-      st: this.getStudyTimeMap(),
-      up: this.getUserProgress(),
-      streak: this.getStreakState(),
-      prefs: this.getUserPreferences()
-    };
   }
 
   static _normalizeCardState(raw) {
-    if (!raw) return null;
-    
-    // 1. Hỗ trợ định dạng Compact Positional Tuple: [id, state, reps, lapses, stability, difficulty, dueSec, lastReviewSec, flags]
-    if (Array.isArray(raw)) {
-      const [id, state, reps, lapses, stability, difficulty, dueSec, lastReviewSec, flags] = raw;
-      if (!id) return null;
-      const canonicalId = (LEGACY_ID_MAP && LEGACY_ID_MAP[id]) || id;
-      const flagNum = flags || 0;
-
-      return {
-        id: canonicalId,
-        state: typeof state === 'number' ? state : 0,
-        reps: typeof reps === 'number' ? reps : 0,
-        lapses: typeof lapses === 'number' ? lapses : 0,
-        stability: typeof stability === 'number' ? stability : 0,
-        difficulty: typeof difficulty === 'number' ? difficulty : 5,
-        due: dueSec > 0 ? new Date(dueSec * 1000).toISOString() : null,
-        last_review: lastReviewSec > 0 ? new Date(lastReviewSec * 1000).toISOString() : null,
-        isLeech: (flagNum & 1) === 1,
-        suspended: (flagNum & 2) === 2,
-        elapsed_days: 0,
-        scheduled_days: 0
-      };
-    }
-
-    if (typeof raw !== 'object') return null;
-
-    // 2. Hỗ trợ định dạng Object (Legacy 2.0 & 1.0)
-    let due = raw.due || raw.du || null;
-    if (due && typeof due === 'number') {
-      due = new Date(due > 1e11 ? due : due * 1000).toISOString();
-    }
-    let lastReview = raw.last_review || raw.lr || null;
-    if (lastReview && typeof lastReview === 'number') {
-      lastReview = new Date(lastReview > 1e11 ? lastReview : lastReview * 1000).toISOString();
-    }
-
-    const id = raw.id;
-    if (!id) return null;
-    const canonicalId = (LEGACY_ID_MAP && LEGACY_ID_MAP[id]) || id;
-
-    return {
-      id: canonicalId,
-      state: raw.state ?? raw.s ?? 0,
-      reps: raw.reps ?? raw.r ?? 0,
-      lapses: raw.lapses ?? raw.l ?? 0,
-      stability: raw.stability ?? raw.st ?? 0,
-      difficulty: raw.difficulty ?? raw.d ?? 5,
-      due: due,
-      last_review: lastReview,
-      isLeech: Boolean(raw.isLeech === true || (raw.lapses && raw.lapses >= 8)),
-      suspended: Boolean(raw.suspended === true),
-      elapsed_days: raw.elapsed_days ?? 0,
-      scheduled_days: raw.scheduled_days ?? 0
-    };
+    return normalizeCardState(raw, LEGACY_ID_MAP);
   }
 
   static async importBackup(backupData) {
@@ -1367,21 +1233,7 @@ export class StorageManager {
         const existingLogs = this.getStudyLogs() || [];
         const logMap = new Map();
 
-        const normalizeLog = (l) => {
-          if (!l) return null;
-          if (Array.isArray(l)) {
-            const [cardId, rating, tsSec, latencySec, backViewSec] = l;
-            return {
-              id: `log_${tsSec}_${cardId}`,
-              cardId: cardId,
-              rating: rating || 3,
-              timestamp: tsSec > 0 ? new Date(tsSec * 1000).toISOString() : new Date().toISOString(),
-              latencySec: latencySec || null,
-              backViewSec: backViewSec || null
-            };
-          }
-          return l;
-        };
+        const normalizeLog = (l) => normalizeBackupLog(l);
 
         [...existingLogs, ...rawLogs].forEach(item => {
           const l = normalizeLog(item);
@@ -1618,43 +1470,8 @@ export class BackupService {
    * Xuất toàn bộ dữ liệu người dùng ra tệp sao lưu Nano JSON siêu nhẹ (.json)
    */
   static exportToJSON(customFilename = null) {
-    try {
-      const data = StorageManager.exportBackup();
-      // Xuất JSON compact (không thụt lề khoảng trắng dư thừa) để tối ưu dung lượng siêu nhẹ
-      const jsonStr = JSON.stringify(data);
-      const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      
-      const now = new Date();
-      const yyyy = now.getFullYear();
-      const mm = String(now.getMonth() + 1).padStart(2, '0');
-      const dd = String(now.getDate()).padStart(2, '0');
-      const hh = String(now.getHours()).padStart(2, '0');
-      const min = String(now.getMinutes()).padStart(2, '0');
-      const timeTag = `${yyyy}${mm}${dd}_${hh}h${min}`;
-      
-      const safeFilename = customFilename || `flashcard_backup_${timeTag}.json`;
-      const sizeKb = Number((blob.size / 1024).toFixed(1));
-      const cardCount = Array.isArray(data.c) ? data.c.length : Object.keys(data.cards || {}).length;
-
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = safeFilename;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
-
-      return {
-        success: true,
-        count: cardCount,
-        sizeKb: sizeKb,
-        filename: safeFilename
-      };
-    } catch (e) {
-      console.error('[BackupService] Lỗi xuất file sao lưu:', e);
-      return { success: false, error: e.message };
-    }
+    const data = StorageManager.exportBackup();
+    return triggerJSONDownload(data, customFilename);
   }
 
   /**
@@ -1666,21 +1483,7 @@ export class BackupService {
     }
 
     try {
-      let text = '';
-      // Hỗ trợ giải nén nếu là file nén GZIP / DecompressionStream (.gz, .fcpro)
-      if (file.name && (file.name.endsWith('.gz') || file.name.endsWith('.fcpro')) && typeof DecompressionStream !== 'undefined') {
-        try {
-          const ds = new DecompressionStream('gzip');
-          const decompressedStream = file.stream().pipeThrough(ds);
-          const response = new Response(decompressedStream);
-          text = await response.text();
-        } catch (decompErr) {
-          text = await file.text();
-        }
-      } else {
-        text = await file.text();
-      }
-
+      const text = await readBackupFileText(file);
       const parsed = JSON.parse(text);
       return await StorageManager.importBackup(parsed);
     } catch (err) {

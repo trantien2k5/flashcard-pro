@@ -201,14 +201,14 @@ function highlightTargetWord(sentence, targetWord) {
   return escapeHTML(sentence);
 }
 
-// Sinh Avatar Gradient ngẫu nhiên đẹp mắt
+// Sinh Avatar Gradient ngẫu nhiên đẹp mắt (Dùng CSS Tokens để tương thích Theme)
 function getGradientForWord(wordText) {
   const gradients = [
-    'linear-gradient(135deg, #1877f2, #00c6ff)',
-    'linear-gradient(135deg, #6366f1, #a855f7)',
-    'linear-gradient(135deg, #ec4899, #f43f5e)',
-    'linear-gradient(135deg, #10b981, #06b6d4)',
-    'linear-gradient(135deg, #f59e0b, #d97706)'
+    'linear-gradient(135deg, var(--primary), var(--accent))',
+    'linear-gradient(135deg, var(--primary-light), var(--primary))',
+    'linear-gradient(135deg, var(--fsrs-again), var(--fsrs-hard))',
+    'linear-gradient(135deg, var(--fsrs-good), var(--accent))',
+    'linear-gradient(135deg, var(--fsrs-hard), var(--primary-light))'
   ];
   let hash = 0;
   for (let i = 0; i < (wordText || '').length; i++) {

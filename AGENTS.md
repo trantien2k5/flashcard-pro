@@ -62,23 +62,43 @@ flashcard-pro/
 │   │   │   ├── fsrs.js           # Thuật toán FSRS-6 thuần JS (Stability, Difficulty, Retrievability)
 │   │   │   ├── session.js        # State machine phiên học Flashcard, queue FSRS (relearnInSession: false)
 │   │   │   ├── selectors.js      # DeckManager (Lọc từ vựng, tính toán chặng học, phân tầng chủ đề)
-│   │   │   └── stats.js          # StatsManager (Phân tích FSRS, heatmap 7 ngày, streak, dự báo)
+│   │   │   ├── stats.js          # StatsManager (Phân tích FSRS, heatmap 7 ngày, streak, dự báo)
+│   │   │   ├── timer.js          # StudyTimer (Bộ đếm thời gian học chuẩn xác, tự động pause khi đổi tab)
+│   │   │   └── optimizer.js      # BehavioralOptimizer (Tự động tinh chỉnh tham số FSRS ngầm Zero-touch)
 │   │   │
 │   │   ├── services/             # Tầng Dịch vụ & Ngoại vi
-│   │   │   ├── storage.js        # StorageManager (IndexedDB + RAM Cache Write-Through)
+│   │   │   ├── storage.js        # StorageManager (Facade, IndexedDB + RAM Cache Write-Through)
+│   │   │   ├── storage/          # Module con phân tầng của StorageManager
+│   │   │   │   ├── streak.js     # Thuật toán Streak State Engine, Đóng băng Streak & Thưởng cột mốc
+│   │   │   │   └── backup.js     # Đóng gói/giải nén Nano FSRS Compact Tuple, Tải & nạp file sao lưu JSON
 │   │   │   └── audio.js          # AudioManager (Web Speech API, AudioContext sfx)
 │   │   │
 │   │   └── views/                # Các màn hình giao diện (View Controllers)
-│   │       ├── study.js          # Giao diện học Flashcard 3D, 4 nút đánh giá (Quên, Khó, Tốt, Dễ)
+│   │       ├── study.js          # [Controller Facade] Giao diện học Flashcard 3D & 4 nút đánh giá
+│   │       ├── study/            # Module con phân tầng của Study View
+│   │       │   ├── autoplay.js   # Cỗ máy học tự động rảnh tay (Hands-free Autoplay Engine)
+│   │       │   ├── prefs.js      # Quản lý cấu hình & tùy chọn học tập (Autoplay, Flashcard Prefs)
+│   │       │   ├── shell.js      # Cấu trúc khung DOM màn hình học & bắt sự kiện vuốt chạm cử chỉ
+│   │       │   ├── pomodoro.js   # Bộ đếm Pomodoro tập trung chuyên biệt cho phiên học
+│   │       │   └── summary-modal.js # Modal tổng kết thành tích sau khi hoàn thành phiên học
+│   │       ├── modals/           # Modal độc lập dùng chung cho các màn hình
+│   │       │   └── goal-modal.js # Modal thiết lập mục tiêu hàng ngày & chi tiết dự báo tải ôn tập
+│   │       ├── components.js     # [Barrel Facade] Tái xuất khẩu các thành phần UI dùng chung
+│   │       ├── components/       # Các thành phần UI chuyên biệt dùng chung
+│   │       │   ├── shell.js      # Khởi tạo khung chứa modal toàn cục (mountGlobalModals)
+│   │       │   ├── toast.js      # Hệ thống thông báo Toast linh hoạt
+│   │       │   ├── search.js     # Hộp thoại tìm kiếm từ vựng toàn cục (Global Search)
+│   │       │   ├── streak-hub.js # Trung tâm quản lý chuỗi ngày học & khôi phục Streak
+│   │       │   ├── custom-study.js # Hộp thoại tùy chỉnh cấu hình phiên học Flashcard nâng cao
+│   │       │   └── optimizer-modal.js # Modal hiển thị báo cáo tự động tối ưu hóa FSRS ngầm
 │   │       ├── review.js         # Màn hình Trang chủ: Nhiệm vụ hôm nay, Kho từ vựng & Tiến độ
 │   │       ├── decks.js          # Duyệt Chủ đề 4 cấp, danh sách từ vựng & chặng học
 │   │       ├── library.js        # Thư viện Từ vựng tổng, tìm kiếm & bộ lọc FSRS-6
 │   │       ├── stats.js          # Màn hình thống kê chi tiết & biểu đồ FSRS
 │   │       ├── settings.js       # Cài đặt ứng dụng, tùy chỉnh FSRS, hồ sơ học tập (Profile)
 │   │       ├── quiz.js           # Trắc nghiệm thông minh ôn tập FSRS Smart Quiz
-│   │       ├── reels.js          # Lướt từ vựng dạng Reels cuộn dọc (TikTok style)
-│   │       ├── toeic-test.js     # Kiểm tra trình độ TOEIC Mini & Full Test
-│   │       └── components.js     # Modal dùng chung (Search, Custom Study, Streak Hub, Toast, Dialog)
+│   │       ├── reels.js          # Lướt từ vựng dạng Reels cuộn dọc (TikTok style, chuẩn 100% CSS Tokens)
+│   │       └── toeic-test.js     # Kiểm tra trình độ TOEIC Mini & Full Test
 │   │
 │   ├── css/                      # Hệ thống Stylesheet Module hóa
 │   │   ├── style.css             # Master CSS nạp toàn bộ bundle stylesheets
