@@ -640,28 +640,16 @@ function handleOptionSelected(selectedTile, selectedOpt, card, allOptions) {
     });
 
     const now = new Date();
-    const oldState = StorageManager.getCardState(card.id) || FSRS.createEmptyCard(card.id);
-    const nextState = fsrs.calculateNextState(oldState, rating, now, {
-      enableFuzz: _quizApp?.settings?.enableFuzz !== false,
-      leechThreshold: _quizApp?.settings?.leechThreshold || 8,
-      leechAction: _quizApp?.settings?.leechAction || 'suspend'
-    });
-
-    // Lưu bền vững vào IndexedDB & RAM Cache
-    StorageManager.saveCardState(nextState);
-
-    // Ghi nhật ký học tập chính xác ngầm
-    StorageManager.logReview({
-      cardId: card.id,
-      word: card.word,
-      rating: rating,
-      oldState: oldState.state,
-      newState: nextState.state,
-      scheduledDays: nextState.scheduled_days,
-      stability: nextState.stability,
-      difficulty: nextState.difficulty,
-      isQuiz: true,
-      latencySec: Number(elapsedSec.toFixed(2))
+    const { oldState, nextState } = StorageManager.applyCardReview({
+      card,
+      rating,
+      fsrsInstance: fsrs,
+      settings: _quizApp?.settings,
+      now,
+      logExtra: {
+        isQuiz: true,
+        latencySec: Number(elapsedSec.toFixed(2))
+      }
     });
 
     // Lưu vào danh sách các từ đã hoàn thành trong phiên để hiển thị ở Bảng tổng kết

@@ -716,25 +716,15 @@ function handleRateCardFSRS(cardId, rating, sourceEl) {
     });
 
     const now = new Date();
-    const oldState = StorageManager.getCardState(card.id) || FSRS.createEmptyCard(card.id);
-    const nextState = fsrs.calculateNextState(oldState, rating, now, {
-      enableFuzz: _fbApp?.settings?.enableFuzz !== false,
-      leechThreshold: _fbApp?.settings?.leechThreshold || 8,
-      leechAction: _fbApp?.settings?.leechAction || 'suspend'
-    });
-
-    StorageManager.saveCardState(nextState);
-
-    StorageManager.logReview({
-      cardId: card.id,
-      word: card.word,
-      rating: rating,
-      oldState: oldState.state,
-      newState: nextState.state,
-      scheduledDays: nextState.scheduled_days,
-      stability: nextState.stability,
-      difficulty: nextState.difficulty,
-      isReels: true
+    const { oldState, nextState } = StorageManager.applyCardReview({
+      card,
+      rating,
+      fsrsInstance: fsrs,
+      settings: _fbApp?.settings,
+      now,
+      logExtra: {
+        isReels: true
+      }
     });
 
     // Cập nhật giao diện thẻ vừa đánh giá

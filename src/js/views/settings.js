@@ -1,7 +1,7 @@
 import { StorageManager, BackupService } from '../services/storage.js';
 import { StatsManager } from '../core/stats.js';
 import { showConfirm, showToast, openBehavioralOptimizerModal, showStreakHubModal } from './components.js';
-import { showGoalCustomizerModal, showForecastDetailModal } from './review.js';
+import { showGoalCustomizerModal, showForecastDetailModal } from './modals/goal-modal.js';
 import { APP_CONFIG } from '../config.js';
 
 function saveAppSettings(app) {

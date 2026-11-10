@@ -6,6 +6,7 @@
 import { LEGACY_ID_MAP } from '../../data/index.js';
 import { getLocalDateKey } from '../utils.js';
 import { DEFAULT_SETTINGS, APP_CONFIG, DEFAULT_STREAK_STATE, FREEZE_REWARD_INTERVAL } from '../config.js';
+import { FSRS } from '../core/fsrs.js';
 
 export { DEFAULT_SETTINGS };
 
@@ -418,6 +419,38 @@ export class StorageManager {
     const legacyId = REVERSE_ID_MAP[cardId] || null;
     if (legacyId && cards[legacyId]) return cards[legacyId];
     return null;
+  }
+
+  /**
+   * Chấm điểm và cập nhật trạng thái FSRS cho từ vựng (Single Source of Truth)
+   * Tự động tính toán FSRS, lưu IndexedDB & ghi log nhật ký học tập
+   */
+  static applyCardReview({ card, rating, fsrsInstance = null, settings = {}, now = new Date(), logExtra = {} }) {
+    if (!card || !card.id) return null;
+    const fsrs = fsrsInstance || new FSRS(settings?.fsrsParams);
+    const oldState = this.getCardState(card.id) || FSRS.createEmptyCard(card.id);
+    const nextState = fsrs.calculateNextState(oldState, rating, now, {
+      enableFuzz: settings?.enableFuzz !== false,
+      leechThreshold: settings?.leechThreshold || 8,
+      leechAction: settings?.leechAction || 'suspend'
+    });
+
+    this.saveCardState(nextState);
+
+    this.logReview({
+      cardId: card.id,
+      word: card.word,
+      rating: rating,
+      oldState: oldState.state,
+      newState: nextState.state,
+      scheduledDays: nextState.scheduled_days,
+      elapsedDays: nextState.elapsed_days,
+      stability: nextState.stability,
+      difficulty: nextState.difficulty,
+      ...logExtra
+    });
+
+    return { oldState, nextState };
   }
 
   static saveCardState(cardState) {
