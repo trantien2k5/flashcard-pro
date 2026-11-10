@@ -1,8 +1,8 @@
 # 🤖 AGENTS.md — System Context & Development Directives
 
 > **Tài liệu SSOT (Single Source of Truth)** dành cho AI Agent khi làm việc với dự án **Flashcard English Pro**.
-> Phiên bản hiện tại: **`v3.76.49`** | Kiến trúc: **Vanilla ES6+ Modules, Offline-First PWA, FSRS-6 Spaced Repetition**.
-> **Tài liệu liên quan**: Xem [`ARCHITECTURE.md`](./ARCHITECTURE.md) (Kiến trúc hệ thống), [`CODING_STANDARDS.md`](./CODING_STANDARDS.md) (20 quy chuẩn viết code), [`DECISIONS.md`](./DECISIONS.md) (Quyết định kỹ thuật ADR), [`PROGRESS.md`](./PROGRESS.md) (Tiến độ & roadmap).
+> Phiên bản hiện tại: **`v3.76.50`** | Kiến trúc: **Vanilla ES6+ Modules, Offline-First PWA, FSRS-6 Spaced Repetition**.
+> **Tài liệu liên quan**: Xem [`CODE_MAP.md`](./CODE_MAP.md) (Bản đồ định vị hàm & số dòng), [`ARCHITECTURE.md`](./ARCHITECTURE.md) (Kiến trúc hệ thống), [`CODING_STANDARDS.md`](./CODING_STANDARDS.md) (20 quy chuẩn code), [`DECISIONS.md`](./DECISIONS.md) (Quyết định ADR), [`PROGRESS.md`](./PROGRESS.md) (Tiến độ).
 
 ---
 

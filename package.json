@@ -12,6 +12,8 @@
     "optimize:images": "node scripts/optimize_images.js",
     "refactor": "node test/refactor_guide.js",
     "refactor:fix": "node test/refactor_guide.js --fix",
+    "locate": "node scripts/locate.js",
+    "map": "node scripts/locate.js --map",
     "validate:data": "node -e \"import('./src/data/index.js').then(m => { const res = m.validateData(); console.log(JSON.stringify(res.stats, null, 2)); if (!res.valid) { console.error(res.errors); process.exit(1); } else { console.log('0 errors | 0 broken references | 0 duplicate IDs | 0 taxonomy cycles'); } })\""
   },
   "keywords": [
