@@ -23,6 +23,28 @@
 
 ## ✅ 2. Các Mốc Đã Hoàn Thành Gần Nhất (Completed Milestones)
 
+### [v3.76.50] — Tái cấu trúc Module hóa toàn diện 4 màn hình lớn & Ban hành Bộ quy chuẩn (2026-11-10)
+- **Tái cấu trúc `views/stats.js` (từ 1.201 dòng ➔ 375 dòng):**
+  - Tạo mới `src/js/views/stats/forecast-modal.js` (377 dòng): Chuyên trách popup lịch dự báo tải ôn tập FSRS.
+  - Tạo mới `src/js/views/stats/journal.js` (503 dòng): Chuyên trách Lịch học tập Calendar Heatmap, nhật ký ôn tập hàng ngày và popover chi tiết.
+  - Giữ `views/stats.js` làm Barrel Facade điều phối tab thống kê.
+- **Tái cấu trúc `views/decks.js` (từ 1.030 dòng ➔ 376 dòng):**
+  - Tạo mới `src/js/views/decks/subtopics.js` (355 dòng): Chuyên trách giao diện duyệt danh mục Cấp 2 và Cấp 3.
+  - Tạo mới `src/js/views/decks/words.js` (304 dòng): Chuyên trách giao diện danh sách từ vựng & chi tiết từ Cấp 4.
+  - Giữ `views/decks.js` làm Barrel Facade duyệt 22 danh mục gốc Cấp 1.
+- **Tái cấu trúc `views/library.js` (từ 1.211 dòng ➔ 860 dòng):**
+  - Tạo mới `src/js/views/library/detail-modal.js` (367 dòng): Chuyên trách Modal kiểm tra chi tiết từ vựng và tham số FSRS (Stability, Difficulty, Due).
+  - Giữ `views/library.js` làm Barrel Facade quản lý bảng từ điển và bộ lọc.
+- **Tái cấu trúc `views/review.js` (từ 1.258 dòng ➔ 673 dòng):**
+  - Tạo mới `src/js/views/review/stat-modals.js` (637 dòng): Gom nhóm 5 modal phân tích chuyên sâu các chỉ số Dashboard (Attention Cards, Due Words, Reviewed Today, Study Time, Mastered Tiers).
+  - Giữ `views/review.js` làm Controller Trang chủ Dashboard.
+- **Ban hành Bộ tài liệu Quy chuẩn & Kiến trúc chuẩn hóa:**
+  - `CODING_STANDARDS.md`: 20 quy chuẩn code cốt lõi chia thành 5 nhóm (Cấu trúc, Viết code, Dữ liệu, Kiểm thử, AI Agent).
+  - `ARCHITECTURE.md`: Tài liệu kiến trúc phân tầng 4 lớp, sơ đồ Mermaid và luồng dữ liệu học FSRS.
+  - `DECISIONS.md`: 6 bản ghi quyết định kiến trúc (ADR-001 đến ADR-006) bất biến.
+- **Đăng ký Service Worker:** Cập nhật đầy đủ 6 module mới vào cache PWA (`sw.js`).
+- **Kiểm thử tự động:** 70/70 files đạt 100% V8 AST, 52/52 test cases (39 FSRS + 13 Quiz) thành công tuyệt đối.
+
 ### [v3.76.49] — Hoàn thiện kiến trúc 5 mục tối ưu, Autoplay & Storage (2026-11-10)
 - **Bóc tách Autoplay Engine:** Tạo mới `src/js/views/study/autoplay.js`, chuyển toàn bộ logic học rảnh tay, lặp vô tận và timer; tinh gọn `study.js`.
 - **Bóc tách Storage Engine:**
@@ -47,14 +69,10 @@
 ## 🎯 3. Việc Cần Làm Tiếp Theo (Backlog & Roadmap)
 
 ### 3.1. Tối ưu kiến trúc (Refactoring Sprint)
-- [ ] **Tách nhỏ `src/js/views/stats.js` (1.025 dòng):**
-  - Tách logic vẽ Heatmap 7 ngày sang `views/stats/heatmap.js`.
-  - Tách biểu đồ dự báo tải ôn tập FSRS sang `views/stats/forecast.js`.
-- [ ] **Tách nhỏ `src/js/views/library.js` (1.011 dòng):**
-  - Tách bộ lọc đa tiêu chí (FSRS state, level, pos) sang `views/library/filter.js`.
-  - Tách bảng hiển thị danh sách từ sang `views/library/table.js`.
-- [ ] **Tách nhỏ `src/js/views/decks.js` (884 dòng):**
-  - Tách cây duyệt chủ đề và chặng học sang `views/decks/navigator.js`.
+- [x] **Tách nhỏ `src/js/views/stats.js` (1.201 dòng ➔ 375 dòng):** Tách `stats/forecast-modal.js` và `stats/journal.js`.
+- [x] **Tách nhỏ `src/js/views/decks.js` (1.030 dòng ➔ 376 dòng):** Tách `decks/subtopics.js` và `decks/words.js`.
+- [x] **Tách nhỏ `src/js/views/library.js` (1.211 dòng ➔ 860 dòng):** Tách `library/detail-modal.js`.
+- [x] **Tách nhỏ `src/js/views/review.js` (1.258 dòng ➔ 673 dòng):** Tách `review/stat-modals.js`.
 
 ### 3.2. Tính năng & Trải nghiệm (Features Backlog)
 - [ ] **Chế độ Luyện Nghe / Lái Xe (Audio Hands-Free Mode):** Tối ưu giao diện tối giản cực đại, tăng cường lặp phát âm từ vựng.

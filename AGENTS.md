@@ -1,7 +1,8 @@
 # 🤖 AGENTS.md — System Context & Development Directives
 
 > **Tài liệu SSOT (Single Source of Truth)** dành cho AI Agent khi làm việc với dự án **Flashcard English Pro**.
-> Phiên bản hiện tại: **`v3.76.29`** | Kiến trúc: **Vanilla ES6+ Modules, Offline-First PWA, FSRS-6 Spaced Repetition**.
+> Phiên bản hiện tại: **`v3.76.49`** | Kiến trúc: **Vanilla ES6+ Modules, Offline-First PWA, FSRS-6 Spaced Repetition**.
+> **Tài liệu liên quan**: Xem [`ARCHITECTURE.md`](./ARCHITECTURE.md) (Kiến trúc hệ thống), [`CODING_STANDARDS.md`](./CODING_STANDARDS.md) (20 quy chuẩn viết code), [`DECISIONS.md`](./DECISIONS.md) (Quyết định kỹ thuật ADR), [`PROGRESS.md`](./PROGRESS.md) (Tiến độ & roadmap).
 
 ---
 
@@ -91,10 +92,20 @@ flashcard-pro/
 │   │       │   ├── streak-hub.js # Trung tâm quản lý chuỗi ngày học & khôi phục Streak
 │   │       │   ├── custom-study.js # Hộp thoại tùy chỉnh cấu hình phiên học Flashcard nâng cao
 │   │       │   └── optimizer-modal.js # Modal hiển thị báo cáo tự động tối ưu hóa FSRS ngầm
-│   │       ├── review.js         # Màn hình Trang chủ: Nhiệm vụ hôm nay, Kho từ vựng & Tiến độ
-│   │       ├── decks.js          # Duyệt Chủ đề 4 cấp, danh sách từ vựng & chặng học
-│   │       ├── library.js        # Thư viện Từ vựng tổng, tìm kiếm & bộ lọc FSRS-6
-│   │       ├── stats.js          # Màn hình thống kê chi tiết & biểu đồ FSRS
+│   │       ├── review.js         # [Barrel Facade] Màn hình Trang chủ: Nhiệm vụ hôm nay & Tiến độ
+│   │       ├── review/           # Module con của Review View
+│   │       │   └── stat-modals.js # 5 popup modal phân tích sâu chỉ số Trang chủ (Due, Done, Time,...)
+│   │       ├── decks.js          # [Barrel Facade] Duyệt 22 danh mục chủ đề gốc Cấp 1
+│   │       ├── decks/            # Module con phân cấp của Decks View
+│   │       │   ├── subtopics.js  # Danh mục chủ đề con Cấp 2 và Cấp 3
+│   │       │   └── words.js      # Danh sách từ vựng & chi tiết từ Cấp 4
+│   │       ├── library.js        # [Barrel Facade] Thư viện Từ vựng tổng, tra cứu & lọc FSRS
+│   │       ├── library/          # Module con của Library View
+│   │       │   └── detail-modal.js # Modal chi tiết từ vựng & FSRS state inspector
+│   │       ├── stats.js          # [Barrel Facade] Màn hình thống kê chi tiết & biểu đồ FSRS
+│   │       ├── stats/            # Module con của Stats View
+│   │       │   ├── journal.js    # Lịch học tập Calendar Heatmap & nhật ký ôn tập hàng ngày
+│   │       │   └── forecast-modal.js # Modal xem trước dự báo số lượng từ ôn tập theo ngày
 │   │       ├── settings.js       # Cài đặt ứng dụng, tùy chỉnh FSRS, hồ sơ học tập (Profile)
 │   │       ├── quiz.js           # Trắc nghiệm thông minh ôn tập FSRS Smart Quiz
 │   │       ├── reels.js          # Lướt từ vựng dạng Reels cuộn dọc (TikTok style, chuẩn 100% CSS Tokens)
@@ -199,10 +210,16 @@ Mỗi từ vựng trong `src/data/words/*.js` tuân thủ nghiêm ngặt cấu t
 | **Màn hình Lướt Reels từ vựng dạng TikTok** | `src/js/views/reels.js` | Lướt thẻ dọc 100% CSS Tokens |
 | **Màn hình Trắc nghiệm thông minh Smart Quiz** | `src/js/views/quiz.js` | Quiz 4 phương án cân bằng xác suất |
 | **Màn hình Trang chủ Dashboard & nhiệm vụ FSRS** | `src/js/views/review.js` | Thẻ nhiệm vụ hôm nay & kho từ vựng |
+| **5 Modal phân tích chỉ số Trang chủ (Due, Time)**| `src/js/views/review/stat-modals.js` | Popup xem chi tiết chỉ số Dashboard |
 | **Màn hình Thi thử TOEIC bấm giờ** | `src/js/views/toeic-test.js` | Mini Test & Full Test TOEIC |
 | **Màn hình Thư viện từ vựng & bộ lọc FSRS** | `src/js/views/library.js` | Tra cứu từ điển & lọc chuyên sâu |
-| **Màn hình Duyệt 22 chủ đề gốc & chặng học** | `src/js/views/decks.js` | Cây phân cấp chủ đề 4 tầng |
-| **Màn hình Thống kê FSRS & biểu đồ dự báo** | `src/js/views/stats.js` | Biểu đồ Retention, Heatmap 7 ngày |
+| **Modal chi tiết từ vựng & FSRS state inspector** | `src/js/views/library/detail-modal.js` | Xem chi tiết từ, S, D, lịch FSRS |
+| **Màn hình Duyệt 22 chủ đề gốc Cấp 1** | `src/js/views/decks.js` | Cây phân cấp chủ đề gốc Cấp 1 |
+| **Duyệt chủ đề con Cấp 2 và Cấp 3** | `src/js/views/decks/subtopics.js` | Chi tiết danh mục con & chặng học |
+| **Danh sách từ vựng & chi tiết từ Cấp 4** | `src/js/views/decks/words.js` | Danh sách từ theo chủ đề con |
+| **Màn hình Thống kê FSRS & biểu đồ dự báo** | `src/js/views/stats.js` | Biểu đồ Retention, tổng quan chỉ số |
+| **Lịch học tập Calendar Heatmap & nhật ký ôn** | `src/js/views/stats/journal.js` | Nhật ký ôn tập & lịch chi tiết |
+| **Modal xem trước dự báo số lượng từ ôn tập** | `src/js/views/stats/forecast-modal.js` | Dự báo tải ôn tập theo từng ngày |
 | **Màn hình Cài đặt & hồ sơ cá nhân** | `src/js/views/settings.js` | Cấu hình FSRS, Profile & nạp file |
 | **Tìm kiếm từ vựng toàn cục (Global Search)** | `src/js/views/components/search.js` | Modal Search tra cứu nhanh |
 | **Trung tâm quản lý chuỗi học & bảo vệ Streak** | `src/js/views/components/streak-hub.js` | Modal Streak Hub & Recovery |
