@@ -180,6 +180,37 @@ Mỗi từ vựng trong `src/data/words/*.js` tuân thủ nghiêm ngặt cấu t
 2. **Đọc State đồng bộ (Synchronous):** Nhờ cơ chế RAM Write-Through, các hàm như `StorageManager.getCard(id)`, `StorageManager.getSettings()` là hàm đồng bộ (Sync), **không dùng `await`** khi đọc.
 3. **Quy tắc đường dẫn ảnh:** Ảnh từ vựng luôn nằm theo thư mục chữ cái đầu: `assets/images/words/<ký_tự_đầu_viết_thường>/<id>.webp`.
 
+### 4.6. Bảng Tra Cứu Nhanh: Tính Năng ➔ File Đích (Feature-to-File Matrix)
+
+| Bạn muốn sửa / tối ưu tính năng gì? | File đích chính xác 100% | Vai trò trách nhiệm |
+| :--- | :--- | :--- |
+| **Lật thẻ Flashcard 3D, cử chỉ vuốt, phím tắt** | `src/js/views/study/shell.js` | Khung DOM thẻ học & sự kiện vuốt chạm |
+| **Tự động lật thẻ, học rảnh tay, đếm lùi** | `src/js/views/study/autoplay.js` | Cỗ máy Autoplay, timer & lặp vô tận |
+| **Tùy chọn tốc độ đọc, font, cỡ chữ thẻ** | `src/js/views/study/prefs.js` | Tùy chọn học tập & preferences |
+| **Đồng hồ Pomodoro trong lúc học thẻ** | `src/js/views/study/pomodoro.js` | Bộ đếm Pomodoro 25p / 5p |
+| **Bảng tổng kết sau khi hoàn thành phiên thẻ** | `src/js/views/study/summary-modal.js` | Modal chúc mừng & thống kê phiên |
+| **Thuật toán FSRS-6, Stability, Difficulty** | `src/js/core/fsrs.js` | Tính toán lịch ôn tập FSRS chuẩn |
+| **Hàng đợi phiên học, củng cố thẻ quên** | `src/js/core/session.js` | State Machine phiên học flashcard |
+| **Lọc từ vựng, tính chặng học, sắp xếp Due-first** | `src/js/core/selectors.js` | DeckManager lọc và gom nhóm từ |
+| **Chuỗi ngày học, đóng băng Streak, cứu chuỗi** | `src/js/services/storage/streak.js` | Streak State Engine & phần thưởng |
+| **Sao lưu Nano FSRS, xuất/nhập JSON, GZIP** | `src/js/services/storage/backup.js` | Positional Tuples & tải file JSON |
+| **IndexedDB, RAM Cache Write-Through** | `src/js/services/storage.js` | StorageManager Facade & driver |
+| **Phát âm từ vựng, Web Speech, hiệu ứng âm thanh**| `src/js/services/audio.js` | AudioManager & AudioContext |
+| **Màn hình Lướt Reels từ vựng dạng TikTok** | `src/js/views/reels.js` | Lướt thẻ dọc 100% CSS Tokens |
+| **Màn hình Trắc nghiệm thông minh Smart Quiz** | `src/js/views/quiz.js` | Quiz 4 phương án cân bằng xác suất |
+| **Màn hình Trang chủ Dashboard & nhiệm vụ FSRS** | `src/js/views/review.js` | Thẻ nhiệm vụ hôm nay & kho từ vựng |
+| **Màn hình Thi thử TOEIC bấm giờ** | `src/js/views/toeic-test.js` | Mini Test & Full Test TOEIC |
+| **Màn hình Thư viện từ vựng & bộ lọc FSRS** | `src/js/views/library.js` | Tra cứu từ điển & lọc chuyên sâu |
+| **Màn hình Duyệt 22 chủ đề gốc & chặng học** | `src/js/views/decks.js` | Cây phân cấp chủ đề 4 tầng |
+| **Màn hình Thống kê FSRS & biểu đồ dự báo** | `src/js/views/stats.js` | Biểu đồ Retention, Heatmap 7 ngày |
+| **Màn hình Cài đặt & hồ sơ cá nhân** | `src/js/views/settings.js` | Cấu hình FSRS, Profile & nạp file |
+| **Tìm kiếm từ vựng toàn cục (Global Search)** | `src/js/views/components/search.js` | Modal Search tra cứu nhanh |
+| **Trung tâm quản lý chuỗi học & bảo vệ Streak** | `src/js/views/components/streak-hub.js` | Modal Streak Hub & Recovery |
+| **Tùy chỉnh phiên học nâng cao (Custom Study)**| `src/js/views/components/custom-study.js` | Hộp thoại lọc thẻ theo yêu cầu |
+| **Thiết lập mục tiêu ngày & chi tiết dự báo** | `src/js/views/modals/goal-modal.js` | Modal mục tiêu & forecast FSRS |
+| **Tự động tối ưu FSRS ngầm Zero-touch** | `src/js/core/optimizer.js` | BehavioralOptimizer tự điều chỉnh |
+| **Đồng hồ đếm thời gian học tập chính xác** | `src/js/core/timer.js` | StudyTimer tự pause khi đổi tab |
+
 ---
 
 ## 🛠️ 5. Lệnh Thao Tác Nhanh (Cheatsheet)
