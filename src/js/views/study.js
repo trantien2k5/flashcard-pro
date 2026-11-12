@@ -250,7 +250,8 @@ export function setupStudyControls(app) {
       if (selectStudyMode) selectStudyMode.value = 'flashcard';
       if (selectButtonsMode) selectButtonsMode.value = p.ratingButtonsMode || '2_buttons';
       applyRatingButtonsMode(p.ratingButtonsMode || '2_buttons');
-      if (toggleAutoplay) toggleAutoplay.checked = (app.settings?.autoPronounce !== false) && (p.autoplayAudio !== false);
+      const isAutoplay = (p.autoplayAudio !== undefined) ? !!p.autoplayAudio : (app.settings?.autoPronounce !== false);
+      if (toggleAutoplay) toggleAutoplay.checked = isAutoplay;
       if (selectAccent) selectAccent.value = (app.settings?.audioAccent || p.audioAccent || 'us').toLowerCase();
       if (toggleShowImage) toggleShowImage.checked = !!p.showImage;
       if (toggleShowPhonetic) toggleShowPhonetic.checked = p.showPhonetic !== false;

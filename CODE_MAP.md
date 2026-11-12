@@ -432,7 +432,7 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `showDayPopover` | [`#L429-L483`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/journal.js#L429-L483) | `function` | Hiển thị Tooltip Popover thông tin học tập của một ngày khi rê chuột / clic |
 | `hideDayPopover` | [`#L488-L498`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/stats/journal.js#L488-L498) | `function` | Ẩn Tooltip Popover |
 
-#### 📁 [`src/js/views/study.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js) (1428 dòng)
+#### 📁 [`src/js/views/study.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js) (1429 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
@@ -440,24 +440,24 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `updateCountdown` | [`#L103-L122`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L103-L122) | `arrow_function` | Thực thi logic nội bộ |
 | `updateStudyPriorityUI` | [`#L135-L155`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L135-L155) | `function` | Cập nhật hiển thị nhãn và biểu tượng chế độ ưu tiên trên Header thanh học F |
 | `switchStudyPriority` | [`#L160-L206`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L160-L206) | `function` | Thay đổi thứ tự ưu tiên học trực tiếp trong phiên học (Zero-exit, liền mạch |
-| `setupStudyControls` | [`#L208-L920`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L208-L920) | `function` | Thực thi logic nội bộ |
-| `syncCheckboxesFromPrefs` | [`#L248-L264`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L248-L264) | `arrow_function` | Khởi tạo trạng thái điều khiển theo Preferences hiện tại |
-| `updatePrefFromControls` | [`#L266-L297`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L266-L297) | `arrow_function` | Thực thi logic nội bộ |
-| `switchToQuizMode` | [`#L334-L363`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L334-L363) | `arrow_function` | Chuyển đổi trực tiếp sang Chế độ Trắc nghiệm (Quiz) trong phiên học |
-| `openDrawer` | [`#L375-L378`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L375-L378) | `arrow_function` | Mở / Đóng Drawer 3 chấm |
-| `closeDrawer` | [`#L379-L381`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L379-L381) | `arrow_function` | Thực thi logic nội bộ |
-| `openPriorityModal` | [`#L399-L403`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L399-L403) | `arrow_function` | Thực thi logic nội bộ |
-| `closePriorityModal` | [`#L404-L406`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L404-L406) | `arrow_function` | Thực thi logic nội bộ |
-| `triggerFlip` | [`#L469-L545`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L469-L545) | `arrow_function` | Lật thẻ khi chạm, vuốt hoặc bấm nút lật (hỗ trợ vuốt lên 360 độ liên tục) |
-| `safeRateCard` | [`#L573-L622`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L573-L622) | `arrow_function` | Thực thi logic nội bộ |
-| `handleShowCardInfo` | [`#L758-L770`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L758-L770) | `arrow_function` | Xem thông tin tiến trình học của từ (FSRS Inspector & Chi tiết từ) |
-| `getStudyDom` | [`#L925-L973`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L925-L973) | `function` | Thực thi logic nội bộ |
-| `updateStudyLiveTimerUI` | [`#L977-L1003`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L977-L1003) | `function` | Thực thi logic nội bộ |
-| `generateClozeSentence` | [`#L1007-L1017`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L1007-L1017) | `function` | Thực thi logic nội bộ |
-| `startStudySession` | [`#L1019-L1051`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L1019-L1051) | `function` | Thực thi logic nội bộ |
-| `applyFieldVisibility` | [`#L1053-L1123`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L1053-L1123) | `function` | Thực thi logic nội bộ |
-| `handleCardChange` | [`#L1125-L1369`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L1125-L1369) | `function` | Thực thi logic nội bộ |
-| `handleStudyFinish` | [`#L1371-L1425`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L1371-L1425) | `function` | Thực thi logic nội bộ |
+| `setupStudyControls` | [`#L208-L921`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L208-L921) | `function` | Thực thi logic nội bộ |
+| `syncCheckboxesFromPrefs` | [`#L248-L265`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L248-L265) | `arrow_function` | Khởi tạo trạng thái điều khiển theo Preferences hiện tại |
+| `updatePrefFromControls` | [`#L267-L298`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L267-L298) | `arrow_function` | Thực thi logic nội bộ |
+| `switchToQuizMode` | [`#L335-L364`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L335-L364) | `arrow_function` | Chuyển đổi trực tiếp sang Chế độ Trắc nghiệm (Quiz) trong phiên học |
+| `openDrawer` | [`#L376-L379`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L376-L379) | `arrow_function` | Mở / Đóng Drawer 3 chấm |
+| `closeDrawer` | [`#L380-L382`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L380-L382) | `arrow_function` | Thực thi logic nội bộ |
+| `openPriorityModal` | [`#L400-L404`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L400-L404) | `arrow_function` | Thực thi logic nội bộ |
+| `closePriorityModal` | [`#L405-L407`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L405-L407) | `arrow_function` | Thực thi logic nội bộ |
+| `triggerFlip` | [`#L470-L546`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L470-L546) | `arrow_function` | Lật thẻ khi chạm, vuốt hoặc bấm nút lật (hỗ trợ vuốt lên 360 độ liên tục) |
+| `safeRateCard` | [`#L574-L623`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L574-L623) | `arrow_function` | Thực thi logic nội bộ |
+| `handleShowCardInfo` | [`#L759-L771`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L759-L771) | `arrow_function` | Xem thông tin tiến trình học của từ (FSRS Inspector & Chi tiết từ) |
+| `getStudyDom` | [`#L926-L974`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L926-L974) | `function` | Thực thi logic nội bộ |
+| `updateStudyLiveTimerUI` | [`#L978-L1004`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L978-L1004) | `function` | Thực thi logic nội bộ |
+| `generateClozeSentence` | [`#L1008-L1018`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L1008-L1018) | `function` | Thực thi logic nội bộ |
+| `startStudySession` | [`#L1020-L1052`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L1020-L1052) | `function` | Thực thi logic nội bộ |
+| `applyFieldVisibility` | [`#L1054-L1124`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L1054-L1124) | `function` | Thực thi logic nội bộ |
+| `handleCardChange` | [`#L1126-L1370`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L1126-L1370) | `function` | Thực thi logic nội bộ |
+| `handleStudyFinish` | [`#L1372-L1426`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study.js#L1372-L1426) | `function` | Thực thi logic nội bộ |
 
 #### 📁 [`src/js/views/study/autoplay.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/study/autoplay.js) (288 dòng)
 
