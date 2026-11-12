@@ -1039,11 +1039,6 @@ html, body {
   }
 }
 
-/* Card flip transition smoothing */
-.flashcard-3d-wrapper {
-  will-change: transform;
-}
-
 /* Smooth Tab Transition */
 .tab-pane.active {
   animation: fadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);

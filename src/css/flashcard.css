@@ -1579,17 +1579,6 @@
   gap: 2px;
 }
 
-.flag-icon-vn {
-  width: 18px;
-  height: 12px;
-  border-radius: 2.5px;
-  vertical-align: -1.5px;
-  display: inline-block;
-  margin-right: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  flex-shrink: 0;
-}
-
 .pref-sub {
   font-size: 0.74rem;
   color: var(--text-muted);

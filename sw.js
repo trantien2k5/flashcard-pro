@@ -4,7 +4,7 @@
  * Tự động phát hiện và cập nhật code mới tức thời khi Online (Zero-Friction Live Update).
  */
 
-const CACHE_NAME = 'flashcard-pro-v3.76.55';
+const CACHE_NAME = 'flashcard-pro-v3.76.56';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -19,6 +19,15 @@ const PRECACHE_ASSETS = [
   './src/css/style.css',
   './src/css/main.css',
   './src/css/components.css',
+  './src/css/components/modals.css',
+  './src/css/components/toast.css',
+  './src/css/components/search.css',
+  './src/css/components/sync.css',
+  './src/css/components/optimizer.css',
+  './src/css/components/goal.css',
+  './src/css/components/streak.css',
+  './src/css/components/checkpoint.css',
+  './src/css/components/custom-study.css',
   './src/css/flashcard.css',
   './src/css/views/review.css',
   './src/css/views/library.css',
