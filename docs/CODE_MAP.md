@@ -126,16 +126,16 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `StatsManager.getYearJournalData` | [`#L527-L529`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L527-L529) | `method` | Thực thi logic nội bộ |
 | `StatsManager.getYearlyJournalData` | [`#L531-L533`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L531-L533) | `method` | Thực thi logic nội bộ |
 
-#### 📁 [`src\js\core\stats\journal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js) (372 dòng)
+#### 📁 [`src\js\core\stats\journal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js) (373 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `getPrimeStudyHour` | [`#L9-L57`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L9-L57) | `function` | Thực thi logic nội bộ |
-| `getWeeklyProgress` | [`#L62-L97`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L62-L97) | `function` | Lấy số từ ghi nhớ được / tích lũy theo từng ngày trong 7 ngày qua |
-| `get7DaysForecast` | [`#L102-L136`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L102-L136) | `function` | Dự báo số thẻ đến hạn trong 7 ngày tới |
-| `getMonthJournalData` | [`#L143-L311`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L143-L311) | `function` | Lấy dữ liệu nhật ký ô vuông theo tháng phong cách Trader (P&L Calendar) @pa |
-| `getYearJournalData` | [`#L317-L362`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L317-L362) | `function` | Lấy dữ liệu 12 tháng trong năm (Year Overview) @param {number} year - Năm ( |
-| `getYearlyJournalData` | [`#L367-L369`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L367-L369) | `function` | Alias cho getYearJournalData để đảm bảo tương thích ngược |
+| `getPrimeStudyHour` | [`#L10-L58`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L10-L58) | `function` | Thực thi logic nội bộ |
+| `getWeeklyProgress` | [`#L63-L98`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L63-L98) | `function` | Lấy số từ ghi nhớ được / tích lũy theo từng ngày trong 7 ngày qua |
+| `get7DaysForecast` | [`#L103-L137`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L103-L137) | `function` | Dự báo số thẻ đến hạn trong 7 ngày tới |
+| `getMonthJournalData` | [`#L144-L312`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L144-L312) | `function` | Lấy dữ liệu nhật ký ô vuông theo tháng phong cách Trader (P&L Calendar) @pa |
+| `getYearJournalData` | [`#L318-L363`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L318-L363) | `function` | Lấy dữ liệu 12 tháng trong năm (Year Overview) @param {number} year - Năm ( |
+| `getYearlyJournalData` | [`#L368-L370`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L368-L370) | `function` | Alias cho getYearJournalData để đảm bảo tương thích ngược |
 
 #### 📁 [`src\js\core\stats\roadmap.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\roadmap.js) (424 dòng)
 
@@ -275,7 +275,7 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `triggerJSONDownload` | [`#L173-L209`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\backup.js#L173-L209) | `function` | Kích hoạt tải tệp JSON về trình duyệt an toàn |
 | `readBackupFileText` | [`#L214-L230`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\backup.js#L214-L230) | `function` | Đọc nội dung file sao lưu (hỗ trợ giải nén GZIP .gz / .fcpro nếu có) |
 
-#### 📁 [`src\js\services\storage\idb.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\idb.js) (134 dòng)
+#### 📁 [`src\js\services\storage\idb.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\idb.js) (135 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
@@ -522,15 +522,15 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `saveStudyPrefs` | [`#L84-L88`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\prefs.js#L84-L88) | `function` | Thực thi logic nội bộ |
 | `applyRatingButtonsMode` | [`#L90-L115`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\prefs.js#L90-L115) | `function` | Thực thi logic nội bộ |
 
-#### 📁 [`src\js\views\study\renderer.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js) (427 dòng)
+#### 📁 [`src\js\views\study\renderer.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js) (428 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `getStudyDom` | [`#L16-L64`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L16-L64) | `function` | Thực thi logic nội bộ |
-| `updateStudyLiveTimerUI` | [`#L68-L94`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L68-L94) | `function` | Thực thi logic nội bộ |
-| `generateClozeSentence` | [`#L98-L108`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L98-L108) | `function` | Thực thi logic nội bộ |
-| `applyFieldVisibility` | [`#L111-L181`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L111-L181) | `function` | Thực thi logic nội bộ |
-| `renderCardChange` | [`#L183-L183`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L183-L183) | `function` | Thực thi logic nội bộ |
+| `getStudyDom` | [`#L17-L65`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L17-L65) | `function` | Thực thi logic nội bộ |
+| `updateStudyLiveTimerUI` | [`#L69-L95`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L69-L95) | `function` | Thực thi logic nội bộ |
+| `generateClozeSentence` | [`#L99-L109`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L99-L109) | `function` | Thực thi logic nội bộ |
+| `applyFieldVisibility` | [`#L112-L182`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L112-L182) | `function` | Thực thi logic nội bộ |
+| `renderCardChange` | [`#L184-L184`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L184-L184) | `function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\views\study\shell.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\shell.js) (531 dòng)
 

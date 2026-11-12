@@ -3,6 +3,7 @@
  */
 
 import { Rating, State } from '../../core/fsrs.js';
+import { globalStudyTimer } from '../../core/timer.js';
 import { StorageManager } from '../../services/storage.js';
 import { escapeHTML, formatCleanInterval } from '../../utils.js';
 import { speak } from '../../services/audio.js';

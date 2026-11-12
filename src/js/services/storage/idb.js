@@ -131,3 +131,4 @@ export function migrateLegacyCardStates(rawCards, cardsStorageKey, legacyIdMap) 
 
   return cards;
 }
+

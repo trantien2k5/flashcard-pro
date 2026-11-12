@@ -4,6 +4,7 @@
 
 import { StorageManager } from '../../services/storage.js';
 import { State, Rating } from '../fsrs.js';
+import { MASTERY_STABILITY_THRESHOLD } from '../../config.js';
 import { getLocalDateKey } from '../../utils.js';
 
 export function getPrimeStudyHour(logs = []) {
