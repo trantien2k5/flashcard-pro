@@ -105,10 +105,10 @@ if (fs.existsSync(indexHtmlPath)) {
   console.log(`   ✓ Đã cập nhật index.html (query strings & logo badge) ➔ v${nextVersion}`);
 }
 
-// 5.5. Tự động đồng bộ bản đồ mã nguồn CODE_MAP.md
+// 5.5. Tự động đồng bộ bản đồ mã nguồn docs/CODE_MAP.md
 try {
   execSync('node scripts/locate.js --map', { stdio: 'pipe', cwd: rootDir });
-  console.log(`   ✓ Đã đồng bộ bản đồ mã nguồn ➔ CODE_MAP.md`);
+  console.log(`   ✓ Đã đồng bộ bản đồ mã nguồn ➔ docs/CODE_MAP.md`);
 } catch (e) {}
 
 // 6. Tự động chạy lại test check runner

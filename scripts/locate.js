@@ -281,10 +281,10 @@ function locateSymbol(query) {
 }
 
 /**
- * Chức năng 2: Tự động biên soạn & cập nhật tệp CODE_MAP.md
+ * Chức năng 2: Tự động biên soạn & cập nhật tệp docs/CODE_MAP.md
  */
 function generateCodeMap() {
-  console.log(`\n🗺️ Đang tự động quét toàn bộ mã nguồn và tạo ${c.bold}CODE_MAP.md${c.reset}...`);
+  console.log(`\n🗺️ Đang tự động quét toàn bộ mã nguồn và tạo ${c.bold}docs/CODE_MAP.md${c.reset}...`);
   const files = getAllJsFiles(srcDir).sort();
 
   const groups = {
@@ -361,7 +361,8 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
     md += `---\n\n`;
   }
 
-  const mapPath = path.resolve(rootDir, 'CODE_MAP.md');
+  const mapPath = path.resolve(rootDir, 'docs', 'CODE_MAP.md');
+  fs.mkdirSync(path.dirname(mapPath), { recursive: true });
   fs.writeFileSync(mapPath, md, 'utf8');
   console.log(`✅ ${c.green}Đã tạo thành công ${mapPath}!${c.reset}`);
 }

@@ -2,7 +2,7 @@
 
 > **Tài liệu SSOT (Single Source of Truth)** dành cho AI Agent khi làm việc với dự án **Flashcard English Pro**.
 > Phiên bản hiện tại: **`v3.76.50`** | Kiến trúc: **Vanilla ES6+ Modules, Offline-First PWA, FSRS-6 Spaced Repetition**.
-> **Tài liệu liên quan**: Xem [`CODE_MAP.md`](./CODE_MAP.md) (Bản đồ định vị hàm & số dòng), [`ARCHITECTURE.md`](./ARCHITECTURE.md) (Kiến trúc hệ thống), [`CODING_STANDARDS.md`](./CODING_STANDARDS.md) (20 quy chuẩn code), [`DECISIONS.md`](./DECISIONS.md) (Quyết định ADR), [`PROGRESS.md`](./PROGRESS.md) (Tiến độ).
+> **Tài liệu liên quan**: Xem [`docs/CODE_MAP.md`](./docs/CODE_MAP.md) (Bản đồ định vị hàm & số dòng), [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) (Kiến trúc hệ thống), [`docs/CODING_STANDARDS.md`](./docs/CODING_STANDARDS.md) (20 quy chuẩn code), [`docs/DECISIONS.md`](./docs/DECISIONS.md) (Quyết định ADR), [`docs/PROGRESS.md`](./docs/PROGRESS.md) (Tiến độ).
 
 ---
 
@@ -24,7 +24,7 @@
    - **Mặc định:** Luôn trình bày tóm tắt giải pháp / các file dự định can thiệp và **chờ người dùng xác nhận đồng ý trước khi tiến hành viết hoặc sửa code**.
    - **Ngoại lệ (Thực thi ngay không cần hỏi):** Chỉ khi người dùng yêu cầu rõ ràng bằng các lệnh hoặc từ khóa như: *"code luôn"*, *"fix ngay"*, *"làm ngay"*, *"sửa luôn"*, *"thực thi ngay"* (hoặc ngữ cảnh tương đương), AI mới tiến hành sửa code trực tiếp mà không cần hỏi lại.
 5. **Quy tắc khảo sát tinh gọn & Tối ưu tốc độ (Lightweight Exploration)**:
-   - Khi người dùng yêu cầu *"đọc sơ qua"*, *"tìm hiểu"*, *"khảo sát"*, *"xem qua"* hoặc hỏi đáp chung: Chỉ đọc nhanh các file tài liệu tóm tắt (`ARCHITECTURE.md`, `PROGRESS.md`).
+   - Khi người dùng yêu cầu *"đọc sơ qua"*, *"tìm hiểu"*, *"khảo sát"*, *"xem qua"* hoặc hỏi đáp chung: Chỉ đọc nhanh các file tài liệu tóm tắt (`docs/ARCHITECTURE.md`, `docs/PROGRESS.md`).
    - **Tuyệt đối KHÔNG** tự ý chạy `npm test`, quét AST 70 file, hoặc chạy các lệnh quét index nặng (`git status` trên toàn bộ repo lớn) gây nghẽn và làm chậm phản hồi trên môi trường Termux / Mobile. Phải ưu tiên phản hồi nhanh, trực diện, không để người dùng chờ đợi.
 6. **Điều kiện kích hoạt kiểm thử tự động (Testing Trigger Gate)**:
    - Chỉ chạy `node test/check.js` hoặc `npm test` **SAU KHI ĐÃ SỬA ĐỔI CODE** hoặc khi người dùng **yêu cầu rõ ràng** (*"chạy test"*, *"kiểm tra lỗi"*). Tuyệt đối không tự ý chạy trong các tác vụ chỉ đọc/khảo sát.
@@ -66,6 +66,8 @@ flashcard-pro/
 ├── manifest.json                 # Web App Manifest PWA
 ├── package.json                  # Scripts test, build, bump version (SSOT: v3.76.26)
 ├── jsconfig.json                 # Cấu hình Path Aliases (@core, @views, @services, @data)
+│
+├── docs/                         # Tài liệu kiến trúc, quy chuẩn, ADR, tiến độ & CODE_MAP.md
 │
 ├── assets/                       # Tài nguyên tĩnh (Static Assets)
 │   ├── icons/                    # App Icons PWA
