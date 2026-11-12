@@ -27,68 +27,6 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 
 ### TẦNG 1: NGHIỆP VỤ & THUẬT TOÁN (Core Layer — `src/js/core/`)
 
----
-
-### TẦNG 2: DỊCH VỤ & LƯU TRỮ (Services Layer — `src/js/services/`)
-
----
-
-### TẦNG 3: MÀN HÌNH GIAO DIỆN (Presentation Views — `src/js/views/`)
-
----
-
-### TẦNG 4: THÀNH PHẦN & MODALS (Components & Modals — `src/js/views/components/`, `modals/`)
-
----
-
-### TẦNG 5: ĐIỀU PHỐI CHÍNH & NỀN TẢNG (`src/js/app.js`, `config.js`, `utils.js`)
-
-#### 📁 [`src\js\app.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js) (770 dòng)
-
-| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
-| :--- | :---: | :---: | :--- |
-| `FlashcardApp` | [`#L41-L748`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L41-L748) | `class` | Thực thi logic nội bộ |
-| `FlashcardApp.constructor` | [`#L42-L60`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L42-L60) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.init` | [`#L62-L129`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L62-L129) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.registerServiceWorker` | [`#L131-L246`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L131-L246) | `method` | Thực thi logic nội bộ |
-| `performReload` | [`#L160-L167`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L160-L167) | `arrow_function` | Thực thi logic nội bộ |
-| `handleUpdateDetected` | [`#L169-L177`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L169-L177) | `arrow_function` | Thực thi logic nội bộ |
-| `FlashcardApp.checkUpdate` | [`#L253-L253`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L253-L253) | `method` | Kiểm tra và áp dụng cập nhật phiên bản mới một cách minh bạch, có phản hồi  |
-| `FlashcardApp.scrollToTop` | [`#L357-L359`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L357-L359) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.setupNavigation` | [`#L361-L460`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L361-L460) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.switchTab` | [`#L462-L515`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L462-L515) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.refreshAllViews` | [`#L517-L546`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L517-L546) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.updateHeaderBadges` | [`#L548-L576`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L548-L576) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.applyTheme` | [`#L578-L615`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L578-L615) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.renderReviewTab` | [`#L618-L620`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L618-L620) | `method` | Delegated View Methods |
-| `FlashcardApp.renderLibraryTab` | [`#L622-L624`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L622-L624) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.renderDecksTab` | [`#L626-L628`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L626-L628) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.openSubtopicsPage` | [`#L630-L632`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L630-L632) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.renderSubtopicsPage` | [`#L634-L636`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L634-L636) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.openSubtopicDetailPage` | [`#L638-L640`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L638-L640) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.renderSubtopicDetailPage` | [`#L642-L644`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L642-L644) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.openSubtopicWordsPage` | [`#L646-L648`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L646-L648) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.renderSubtopicWordsPage` | [`#L650-L652`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L650-L652) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.renderStatsTab` | [`#L654-L656`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L654-L656) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.renderSettingsTab` | [`#L658-L660`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L658-L660) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.renderToeicTestTab` | [`#L662-L664`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L662-L664) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.startStudySession` | [`#L666-L666`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L666-L666) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.changeStudyPriority` | [`#L702-L704`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L702-L704) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.startQuizSession` | [`#L706-L706`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L706-L706) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.renderReelsTab` | [`#L720-L720`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L720-L720) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.startReelsSession` | [`#L728-L728`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L728-L728) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.showConfirm` | [`#L741-L743`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L741-L743) | `method` | Thực thi logic nội bộ |
-| `FlashcardApp.showToast` | [`#L745-L747`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L745-L747) | `method` | Thực thi logic nội bộ |
-| `bootstrap` | [`#L750-L761`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L750-L761) | `function` | Thực thi logic nội bộ |
-
-#### 📁 [`src\js\config.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\config.js) (389 dòng)
-
-| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
-| :--- | :---: | :---: | :--- |
-| `getLearningGoal` | [`#L157-L161`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\config.js#L157-L161) | `function` | Thực thi logic nội bộ |
-| `getSubtopicColor` | [`#L273-L283`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\config.js#L273-L283) | `function` | Thực thi logic nội bộ |
-| `getSubtopicIcon` | [`#L285-L388`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\config.js#L285-L388) | `function` | Thực thi logic nội bộ |
-
 #### 📁 [`src\js\core\fsrs.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\fsrs.js) (416 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
@@ -210,6 +148,10 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `StudyTimeTracker.flush` | [`#L207-L221`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\timer.js#L207-L221) | `method` | Lưu số giây tích lũy vào StorageManager |
 | `StudyTimeTracker.endSession` | [`#L226-L249`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\timer.js#L226-L249) | `method` | Kết thúc phiên học, gỡ bỏ listeners và flush toàn bộ thời gian còn lại |
 
+---
+
+### TẦNG 2: DỊCH VỤ & LƯU TRỮ (Services Layer — `src/js/services/`)
+
 #### 📁 [`src\js\services\audio.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\audio.js) (485 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
@@ -322,78 +264,13 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `applyStreakRedeem` | [`#L32-L47`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\streak.js#L32-L47) | `function` | Khôi phục chuỗi ngày học bằng lượt cứu trợ (Streak Redeem) |
 | `evaluateStreakReward` | [`#L52-L87`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\streak.js#L52-L87) | `function` | Kiểm tra và trao thưởng đóng băng chuỗi khi đạt các cột mốc streak (mỗi 7 n |
 
-#### 📁 [`src\js\utils.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js) (160 dòng)
+---
 
-| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
-| :--- | :---: | :---: | :--- |
-| `escapeHTML` | [`#L9-L17`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L9-L17) | `function` | Mã hóa ký tự đặc biệt HTML chống tấn công XSS |
-| `safeColor` | [`#L22-L25`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L22-L25) | `function` | Kiểm tra và làm sạch chuỗi mã màu CSS hợp lệ |
-| `escapeRegex` | [`#L30-L32`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L30-L32) | `function` | Thoát các ký tự đặc biệt khi tạo RegExp động |
-| `formatCleanInterval` | [`#L37-L39`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L37-L39) | `function` | Làm sạch chuỗi chu kỳ FSRS cho nhãn nút ngắn gọn (bỏ ký tự <, ≤, khoảng trắ |
-| `getLocalDateKey` | [`#L46-L61`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L46-L61) | `function` | Lấy khóa ngày dạng YYYY-MM-DD theo giờ địa phương của thiết bị (chống lệch  |
-| `scrollToTop` | [`#L66-L89`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L66-L89) | `function` | Cuộn mượt mà cửa sổ hoặc container lên đầu trang |
-| `highlightKeyword` | [`#L94-L100`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L94-L100) | `function` | Đánh dấu từ khóa tìm kiếm trong chuỗi văn bản an toàn với thẻ <mark> |
-| `debounce` | [`#L105-L111`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L105-L111) | `function` | Hàm Debounce trì hoãn gọi hàm liên tục (tối ưu gõ phím tìm kiếm) |
-| `sleep` | [`#L116-L118`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L116-L118) | `function` | Hàm trì hoãn Async Promise (Sleep) |
-| `normalizePos` | [`#L123-L130`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L123-L130) | `function` | Chuẩn hóa nhãn từ loại (Part of Speech) thành 'noun' - 'verb' - 'adj' - 'ot |
-| `getCurrentSettings` | [`#L135-L146`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L135-L146) | `function` | Lấy settings hiện tại ưu tiên từ window.app.settings hoặc StorageManager fa |
-| `shuffle` | [`#L151-L158`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L151-L158) | `function` | Trộn mảng ngẫu nhiên (Fisher-Yates shuffle) |
+### TẦNG 3: MÀN HÌNH GIAO DIỆN (Presentation Views — `src/js/views/`)
 
 #### 📁 [`src\js\views\components.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components.js) (22 dòng)
 
 *Tệp cấu hình hoặc dữ liệu, không chứa khai báo hàm/class lớn.*
-
-#### 📁 [`src\js\views\components\custom-study.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js) (394 dòng)
-
-| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
-| :--- | :---: | :---: | :--- |
-| `openCustomStudyModal` | [`#L16-L392`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L16-L392) | `function` | Thực thi logic nội bộ |
-| `updateMatchingCards` | [`#L163-L245`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L163-L245) | `arrow_function` | Hàm tính toán danh sách từ thỏa mãn |
-| `closeModal` | [`#L289-L291`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L289-L291) | `arrow_function` | Đóng Modal |
-| `getTier` | [`#L329-L335`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L329-L335) | `arrow_function` | Bậc ưu tiên: 1: Due, 2: Learning, 3: New, 4: Mastered |
-
-#### 📁 [`src\js\views\components\optimizer-modal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\optimizer-modal.js) (259 dòng)
-
-| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
-| :--- | :---: | :---: | :--- |
-| `openBehavioralOptimizerModal` | [`#L15-L256`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\optimizer-modal.js#L15-L256) | `function` | Thực thi logic nội bộ |
-| `closeModal` | [`#L215-L217`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\optimizer-modal.js#L215-L217) | `arrow_function` | Thực thi logic nội bộ |
-
-#### 📁 [`src\js\views\components\search.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js) (440 dòng)
-
-| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
-| :--- | :---: | :---: | :--- |
-| `setupSearch` | [`#L29-L435`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L29-L435) | `function` | Thực thi logic nội bộ |
-| `getSearchHistory` | [`#L49-L56`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L49-L56) | `arrow_function` | Thực thi logic nội bộ |
-| `saveSearchHistory` | [`#L58-L62`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L58-L62) | `arrow_function` | Thực thi logic nội bộ |
-| `addQueryToHistory` | [`#L64-L71`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L64-L71) | `arrow_function` | Thực thi logic nội bộ |
-| `removeQueryFromHistory` | [`#L73-L78`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L73-L78) | `arrow_function` | Thực thi logic nội bộ |
-| `openSearchModal` | [`#L80-L90`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L80-L90) | `arrow_function` | Thực thi logic nội bộ |
-| `closeSearchModal` | [`#L92-L104`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L92-L104) | `arrow_function` | Thực thi logic nội bộ |
-| `updateSelectedResult` | [`#L149-L160`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L149-L160) | `arrow_function` | Thực thi logic nội bộ |
-| `renderSearchSuggestions` | [`#L162-L231`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L162-L231) | `arrow_function` | Thực thi logic nội bộ |
-| `performSearch` | [`#L270-L354`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L270-L354) | `arrow_function` | Thực thi logic nội bộ |
-| `renderSearchResults` | [`#L356-L430`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L356-L430) | `arrow_function` | Thực thi logic nội bộ |
-
-#### 📁 [`src\js\views\components\shell.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\shell.js) (230 dòng)
-
-| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
-| :--- | :---: | :---: | :--- |
-| `mountGlobalModals` | [`#L10-L227`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\shell.js#L10-L227) | `function` | Thực thi logic nội bộ |
-
-#### 📁 [`src\js\views\components\streak-hub.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\streak-hub.js) (222 dòng)
-
-| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
-| :--- | :---: | :---: | :--- |
-| `showStreakHubModal` | [`#L15-L219`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\streak-hub.js#L15-L219) | `function` | Thực thi logic nội bộ |
-
-#### 📁 [`src\js\views\components\toast.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\toast.js) (159 dòng)
-
-| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
-| :--- | :---: | :---: | :--- |
-| `cleanup` | [`#L51-L60`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\toast.js#L51-L60) | `arrow_function` | Thực thi logic nội bộ |
-| `showToast` | [`#L111-L156`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\toast.js#L111-L156) | `function` | Upgraded In-App Floating Toast Notification (thay thế window.alert) Tối ưu  |
-| `dismiss` | [`#L143-L149`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\toast.js#L143-L149) | `arrow_function` | Cho phép bấm trực tiếp vào toast để tắt ngay |
 
 #### 📁 [`src\js\views\decks.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js) (377 dòng)
 
@@ -446,14 +323,6 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `openWordDetailModal` | [`#L146-L367`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library\detail-modal.js#L146-L367) | `function` | Mở Modal Popup Chi Tiết Từ Vựng Đầy Đủ (Word Detail Modal) |
 | `closeModal` | [`#L308-L311`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library\detail-modal.js#L308-L311) | `arrow_function` | Sự kiện đóng Modal |
 | `handleEsc` | [`#L320-L325`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library\detail-modal.js#L320-L325) | `arrow_function` | Thực thi logic nội bộ |
-
-#### 📁 [`src\js\views\modals\goal-modal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js) (416 dòng)
-
-| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
-| :--- | :---: | :---: | :--- |
-| `showGoalCustomizerModal` | [`#L13-L286`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js#L13-L286) | `function` | ========================================================================== |
-| `renderModalContent` | [`#L29-L282`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js#L29-L282) | `arrow_function` | Thực thi logic nội bộ |
-| `showForecastDetailModal` | [`#L291-L413`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js#L291-L413) | `function` | ========================================================================== |
 
 #### 📁 [`src\js\views\quiz.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\quiz.js) (970 dòng)
 
@@ -661,6 +530,137 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `showToeicResultModal` | [`#L826-L976`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\toeic-test.js#L826-L976) | `function` | Hiển thị Modal Báo Cáo Kết Quả & Lời Giải Thích Chi Tiết Từng Câu |
 | `closeModal` | [`#L959-L964`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\toeic-test.js#L959-L964) | `arrow_function` | Thực thi logic nội bộ |
 | `setupArenaKeyShortcuts` | [`#L981-L1033`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\toeic-test.js#L981-L1033) | `function` | Lắng nghe phím tắt bàn phím trong phòng thi |
+
+---
+
+### TẦNG 4: THÀNH PHẦN & MODALS (Components & Modals — `src/js/views/components/`, `modals/`)
+
+#### 📁 [`src\js\views\components\custom-study.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js) (394 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `openCustomStudyModal` | [`#L16-L392`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L16-L392) | `function` | Thực thi logic nội bộ |
+| `updateMatchingCards` | [`#L163-L245`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L163-L245) | `arrow_function` | Hàm tính toán danh sách từ thỏa mãn |
+| `closeModal` | [`#L289-L291`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L289-L291) | `arrow_function` | Đóng Modal |
+| `getTier` | [`#L329-L335`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L329-L335) | `arrow_function` | Bậc ưu tiên: 1: Due, 2: Learning, 3: New, 4: Mastered |
+
+#### 📁 [`src\js\views\components\optimizer-modal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\optimizer-modal.js) (259 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `openBehavioralOptimizerModal` | [`#L15-L256`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\optimizer-modal.js#L15-L256) | `function` | Thực thi logic nội bộ |
+| `closeModal` | [`#L215-L217`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\optimizer-modal.js#L215-L217) | `arrow_function` | Thực thi logic nội bộ |
+
+#### 📁 [`src\js\views\components\search.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js) (440 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `setupSearch` | [`#L29-L435`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L29-L435) | `function` | Thực thi logic nội bộ |
+| `getSearchHistory` | [`#L49-L56`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L49-L56) | `arrow_function` | Thực thi logic nội bộ |
+| `saveSearchHistory` | [`#L58-L62`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L58-L62) | `arrow_function` | Thực thi logic nội bộ |
+| `addQueryToHistory` | [`#L64-L71`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L64-L71) | `arrow_function` | Thực thi logic nội bộ |
+| `removeQueryFromHistory` | [`#L73-L78`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L73-L78) | `arrow_function` | Thực thi logic nội bộ |
+| `openSearchModal` | [`#L80-L90`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L80-L90) | `arrow_function` | Thực thi logic nội bộ |
+| `closeSearchModal` | [`#L92-L104`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L92-L104) | `arrow_function` | Thực thi logic nội bộ |
+| `updateSelectedResult` | [`#L149-L160`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L149-L160) | `arrow_function` | Thực thi logic nội bộ |
+| `renderSearchSuggestions` | [`#L162-L231`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L162-L231) | `arrow_function` | Thực thi logic nội bộ |
+| `performSearch` | [`#L270-L354`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L270-L354) | `arrow_function` | Thực thi logic nội bộ |
+| `renderSearchResults` | [`#L356-L430`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js#L356-L430) | `arrow_function` | Thực thi logic nội bộ |
+
+#### 📁 [`src\js\views\components\shell.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\shell.js) (230 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `mountGlobalModals` | [`#L10-L227`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\shell.js#L10-L227) | `function` | Thực thi logic nội bộ |
+
+#### 📁 [`src\js\views\components\streak-hub.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\streak-hub.js) (222 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `showStreakHubModal` | [`#L15-L219`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\streak-hub.js#L15-L219) | `function` | Thực thi logic nội bộ |
+
+#### 📁 [`src\js\views\components\toast.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\toast.js) (159 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `cleanup` | [`#L51-L60`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\toast.js#L51-L60) | `arrow_function` | Thực thi logic nội bộ |
+| `showToast` | [`#L111-L156`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\toast.js#L111-L156) | `function` | Upgraded In-App Floating Toast Notification (thay thế window.alert) Tối ưu  |
+| `dismiss` | [`#L143-L149`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\toast.js#L143-L149) | `arrow_function` | Cho phép bấm trực tiếp vào toast để tắt ngay |
+
+#### 📁 [`src\js\views\modals\goal-modal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js) (416 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `showGoalCustomizerModal` | [`#L13-L286`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js#L13-L286) | `function` | ========================================================================== |
+| `renderModalContent` | [`#L29-L282`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js#L29-L282) | `arrow_function` | Thực thi logic nội bộ |
+| `showForecastDetailModal` | [`#L291-L413`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js#L291-L413) | `function` | ========================================================================== |
+
+---
+
+### TẦNG 5: ĐIỀU PHỐI CHÍNH & NỀN TẢNG (`src/js/app.js`, `config.js`, `utils.js`)
+
+#### 📁 [`src\js\app.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js) (770 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `FlashcardApp` | [`#L41-L748`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L41-L748) | `class` | Thực thi logic nội bộ |
+| `FlashcardApp.constructor` | [`#L42-L60`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L42-L60) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.init` | [`#L62-L129`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L62-L129) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.registerServiceWorker` | [`#L131-L246`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L131-L246) | `method` | Thực thi logic nội bộ |
+| `performReload` | [`#L160-L167`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L160-L167) | `arrow_function` | Thực thi logic nội bộ |
+| `handleUpdateDetected` | [`#L169-L177`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L169-L177) | `arrow_function` | Thực thi logic nội bộ |
+| `FlashcardApp.checkUpdate` | [`#L253-L253`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L253-L253) | `method` | Kiểm tra và áp dụng cập nhật phiên bản mới một cách minh bạch, có phản hồi  |
+| `FlashcardApp.scrollToTop` | [`#L357-L359`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L357-L359) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.setupNavigation` | [`#L361-L460`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L361-L460) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.switchTab` | [`#L462-L515`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L462-L515) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.refreshAllViews` | [`#L517-L546`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L517-L546) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.updateHeaderBadges` | [`#L548-L576`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L548-L576) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.applyTheme` | [`#L578-L615`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L578-L615) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.renderReviewTab` | [`#L618-L620`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L618-L620) | `method` | Delegated View Methods |
+| `FlashcardApp.renderLibraryTab` | [`#L622-L624`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L622-L624) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.renderDecksTab` | [`#L626-L628`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L626-L628) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.openSubtopicsPage` | [`#L630-L632`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L630-L632) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.renderSubtopicsPage` | [`#L634-L636`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L634-L636) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.openSubtopicDetailPage` | [`#L638-L640`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L638-L640) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.renderSubtopicDetailPage` | [`#L642-L644`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L642-L644) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.openSubtopicWordsPage` | [`#L646-L648`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L646-L648) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.renderSubtopicWordsPage` | [`#L650-L652`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L650-L652) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.renderStatsTab` | [`#L654-L656`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L654-L656) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.renderSettingsTab` | [`#L658-L660`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L658-L660) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.renderToeicTestTab` | [`#L662-L664`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L662-L664) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.startStudySession` | [`#L666-L666`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L666-L666) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.changeStudyPriority` | [`#L702-L704`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L702-L704) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.startQuizSession` | [`#L706-L706`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L706-L706) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.renderReelsTab` | [`#L720-L720`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L720-L720) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.startReelsSession` | [`#L728-L728`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L728-L728) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.showConfirm` | [`#L741-L743`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L741-L743) | `method` | Thực thi logic nội bộ |
+| `FlashcardApp.showToast` | [`#L745-L747`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L745-L747) | `method` | Thực thi logic nội bộ |
+| `bootstrap` | [`#L750-L761`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L750-L761) | `function` | Thực thi logic nội bộ |
+
+#### 📁 [`src\js\config.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\config.js) (389 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `getLearningGoal` | [`#L157-L161`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\config.js#L157-L161) | `function` | Thực thi logic nội bộ |
+| `getSubtopicColor` | [`#L273-L283`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\config.js#L273-L283) | `function` | Thực thi logic nội bộ |
+| `getSubtopicIcon` | [`#L285-L388`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\config.js#L285-L388) | `function` | Thực thi logic nội bộ |
+
+#### 📁 [`src\js\utils.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js) (160 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `escapeHTML` | [`#L9-L17`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L9-L17) | `function` | Mã hóa ký tự đặc biệt HTML chống tấn công XSS |
+| `safeColor` | [`#L22-L25`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L22-L25) | `function` | Kiểm tra và làm sạch chuỗi mã màu CSS hợp lệ |
+| `escapeRegex` | [`#L30-L32`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L30-L32) | `function` | Thoát các ký tự đặc biệt khi tạo RegExp động |
+| `formatCleanInterval` | [`#L37-L39`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L37-L39) | `function` | Làm sạch chuỗi chu kỳ FSRS cho nhãn nút ngắn gọn (bỏ ký tự <, ≤, khoảng trắ |
+| `getLocalDateKey` | [`#L46-L61`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L46-L61) | `function` | Lấy khóa ngày dạng YYYY-MM-DD theo giờ địa phương của thiết bị (chống lệch  |
+| `scrollToTop` | [`#L66-L89`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L66-L89) | `function` | Cuộn mượt mà cửa sổ hoặc container lên đầu trang |
+| `highlightKeyword` | [`#L94-L100`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L94-L100) | `function` | Đánh dấu từ khóa tìm kiếm trong chuỗi văn bản an toàn với thẻ <mark> |
+| `debounce` | [`#L105-L111`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L105-L111) | `function` | Hàm Debounce trì hoãn gọi hàm liên tục (tối ưu gõ phím tìm kiếm) |
+| `sleep` | [`#L116-L118`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L116-L118) | `function` | Hàm trì hoãn Async Promise (Sleep) |
+| `normalizePos` | [`#L123-L130`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L123-L130) | `function` | Chuẩn hóa nhãn từ loại (Part of Speech) thành 'noun' - 'verb' - 'adj' - 'ot |
+| `getCurrentSettings` | [`#L135-L146`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L135-L146) | `function` | Lấy settings hiện tại ưu tiên từ window.app.settings hoặc StorageManager fa |
+| `shuffle` | [`#L151-L158`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\utils.js#L151-L158) | `function` | Trộn mảng ngẫu nhiên (Fisher-Yates shuffle) |
 
 ---
 

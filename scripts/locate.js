@@ -296,7 +296,7 @@ function generateCodeMap() {
   };
 
   for (const f of files) {
-    const rel = path.relative(rootDir, f);
+    const rel = path.relative(rootDir, f).replace(/\\/g, '/');
     if (rel.includes('src/js/core/')) groups.core.files.push(f);
     else if (rel.includes('src/js/services/')) groups.services.files.push(f);
     else if (rel.includes('src/js/views/components/') || rel.includes('src/js/views/modals/')) groups.components.files.push(f);
