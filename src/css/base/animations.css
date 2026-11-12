@@ -1,0 +1,42 @@
+/* ==========================================================================
+   FSRS-6 Flashcard Pro - Animations & Micro-interactions
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDownToast {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Smooth Tab Transition */
+.tab-pane.active {
+  animation: fadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Universal Vietnam Flag Icon */
+.flag-icon-vn {
+  width: 18px;
+  height: 12px;
+  border-radius: 2.5px;
+  vertical-align: -1.5px;
+  display: inline-block;
+  margin-right: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}

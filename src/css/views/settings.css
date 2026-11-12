@@ -2,20 +2,7 @@
    Profile View Stylesheet - User Account, Knowledge Base & Achievements
    ========================================================================== */
 
-/* 1. Top Hero Profile Header (Clean Unboxed iOS Style) */
-.profile-hero-banner {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 4px 4px 14px 4px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 12px;
-  box-shadow: none;
-}
-
+/* 1. Top Hero Profile Header */
 .profile-hero-banner {
   background: var(--bg-card);
   border: 1px solid var(--border);

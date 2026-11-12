@@ -1,0 +1,81 @@
+/* Base Reset & Chống bôi đen văn bản toàn bộ ứng dụng */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Cho phép nhập liệu và chọn văn bản trong ô input, textarea */
+input, textarea {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ==========================================================================
+   Global Floating Scrollbar Styling (iOS / macOS Ultra-Sleek Pill)
+   ========================================================================== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.28) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.25);
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.55);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+[data-theme="light"] * {
+  scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.28);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.58);
+}

@@ -139,6 +139,10 @@
 }
 
 .stats-rank-pill {
+  font-weight: 800;
+  font-size: 0.72rem;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
   background: rgba(245, 158, 11, 0.12);
   color: #d97706;
   border: 1px solid rgba(245, 158, 11, 0.28);
@@ -150,9 +154,14 @@
 }
 
 .stats-score-pill {
+  font-weight: 800;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
   background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
-  border: 1px solid rgba(99, 102, 241, 0.28);
+  color: var(--primary);
+  border: 1px solid rgba(99, 102, 241, 0.25);
 }
 [data-theme="dark"] .stats-score-pill {
   background: rgba(99, 102, 241, 0.18);
@@ -1249,41 +1258,6 @@
 /* ==========================================================================
    9. Cognitive Intelligence & Memory Pyramid Styles
    ========================================================================== */
-.stats-rank-pill {
-  font-weight: 800;
-  font-size: 0.72rem;
-  padding: 3px 9px;
-  border-radius: var(--radius-full);
-}
-
-.stats-score-pill {
-  font-weight: 800;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  padding: 3px 9px;
-  border-radius: var(--radius-full);
-  background: rgba(99, 102, 241, 0.12);
-  color: var(--primary);
-  border: 1px solid rgba(99, 102, 241, 0.25);
-}
-
-.stats-accuracy-pill {
-  font-weight: 800;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
-  background: rgba(16, 185, 129, 0.1);
-  color: #059669;
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  white-space: nowrap;
-}
-
-[data-theme="dark"] .stats-accuracy-pill {
-  color: #34d399;
-  background: rgba(16, 185, 129, 0.15);
-}
-
 .cog-stat-retrievability .pnl-box-val {
   color: #10b981;
 }

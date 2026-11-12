@@ -3,7 +3,7 @@
    ========================================================================== */
 
 @import url('./main.css');
-@import url('./flashcard.css');
+@import url('./views/flashcard.css');
 @import url('./components.css');
 @import url('./views/review.css');
 @import url('./views/decks.css');

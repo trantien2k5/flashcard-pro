@@ -4,7 +4,7 @@
  * Tự động phát hiện và cập nhật code mới tức thời khi Online (Zero-Friction Live Update).
  */
 
-const CACHE_NAME = 'flashcard-pro-v3.76.56';
+const CACHE_NAME = 'flashcard-pro-v3.76.57';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -18,17 +18,19 @@ const PRECACHE_ASSETS = [
   './assets/icons/apple-touch-icon.png',
   './src/css/style.css',
   './src/css/main.css',
+  './src/css/base/tokens.css',
+  './src/css/base/reset.css',
+  './src/css/base/animations.css',
+  './src/css/layout/shell.css',
+  './src/css/layout/responsive.css',
   './src/css/components.css',
   './src/css/components/modals.css',
   './src/css/components/toast.css',
   './src/css/components/search.css',
-  './src/css/components/sync.css',
   './src/css/components/optimizer.css',
-  './src/css/components/goal.css',
   './src/css/components/streak.css',
-  './src/css/components/checkpoint.css',
   './src/css/components/custom-study.css',
-  './src/css/flashcard.css',
+  './src/css/views/flashcard.css',
   './src/css/views/review.css',
   './src/css/views/library.css',
   './src/css/views/decks.css',
