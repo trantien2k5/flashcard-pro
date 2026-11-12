@@ -106,25 +106,25 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `StudySession.speakTTS` | [`#L535-L537`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\session.js#L535-L537) | `method` | Phát âm bằng giọng đọc Neural/Natural của trình duyệt (Web Speech API) |
 | `StudySession.stopAudio` | [`#L542-L544`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\session.js#L542-L544) | `method` | Dừng toàn bộ âm thanh đang phát an toàn |
 
-#### 📁 [`src\js\core\stats.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js) (535 dòng)
+#### 📁 [`src\js\core\stats.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js) (660 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `StatsManager` | [`#L18-L534`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L18-L534) | `class` | Thực thi logic nội bộ |
-| `StatsManager.getMemoryIntelligence` | [`#L22-L175`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L22-L175) | `method` | Phân tích chuyên sâu Trí Nhớ Thật & Năng Lực Nhận Thức FSRS-6 |
-| `StatsManager.getOverallStats` | [`#L180-L281`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L180-L281) | `method` | Tính toán toàn bộ chỉ số thống kê tổng hợp |
-| `StatsManager.calculateStreak` | [`#L290-L402`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L290-L402) | `method` | Tính toán chuỗi ngày học liên tục (Streak) Tự động tích hợp Khiên bảo vệ (f |
-| `StatsManager.detectBrokenStreak` | [`#L408-L493`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L408-L493) | `method` | Tự động phân tích xem chuỗi ngày học có vừa bị đứt trong 24h - 48h gần nhất |
-| `isValidDate` | [`#L435-L447`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L435-L447) | `arrow_function` | Thực thi logic nội bộ |
-| `StatsManager.getComprehensionPower` | [`#L499-L501`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L499-L501) | `method` | Tính toán Thước Đo Năng Lực Đọc Hiểu Tiếng Anh Thực Tế (Comprehension Power |
-| `StatsManager.getCefrRoadmapAndForecast` | [`#L503-L503`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L503-L503) | `method` | Thực thi logic nội bộ |
-| `StatsManager.getDailyMicroQuests` | [`#L507-L507`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L507-L507) | `method` | Thực thi logic nội bộ |
-| `StatsManager.getPrimeStudyHour` | [`#L511-L513`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L511-L513) | `method` | Thực thi logic nội bộ |
-| `StatsManager.getWeeklyProgress` | [`#L515-L517`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L515-L517) | `method` | Thực thi logic nội bộ |
-| `StatsManager.get7DaysForecast` | [`#L519-L521`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L519-L521) | `method` | Thực thi logic nội bộ |
-| `StatsManager.getMonthJournalData` | [`#L523-L525`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L523-L525) | `method` | Thực thi logic nội bộ |
-| `StatsManager.getYearJournalData` | [`#L527-L529`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L527-L529) | `method` | Thực thi logic nội bộ |
-| `StatsManager.getYearlyJournalData` | [`#L531-L533`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L531-L533) | `method` | Thực thi logic nội bộ |
+| `StatsManager` | [`#L32-L659`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L32-L659) | `class` | Thực thi logic nội bộ |
+| `StatsManager.getMemoryIntelligence` | [`#L36-L283`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L36-L283) | `method` | Phân tích chuyên sâu Trí Nhớ Thật & Năng Lực Nhận Thức FSRS-6 |
+| `StatsManager.getOverallStats` | [`#L288-L399`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L288-L399) | `method` | Tính toán toàn bộ chỉ số thống kê tổng hợp |
+| `StatsManager.calculateStreak` | [`#L408-L523`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L408-L523) | `method` | Tính toán chuỗi ngày học liên tục (Streak) Tự động tích hợp Khiên bảo vệ (f |
+| `StatsManager.detectBrokenStreak` | [`#L529-L618`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L529-L618) | `method` | Tự động phân tích xem chuỗi ngày học có vừa bị đứt trong 24h - 48h gần nhất |
+| `isValidDate` | [`#L556-L569`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L556-L569) | `arrow_function` | Thực thi logic nội bộ |
+| `StatsManager.getComprehensionPower` | [`#L624-L626`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L624-L626) | `method` | Tính toán Thước Đo Năng Lực Đọc Hiểu Tiếng Anh Thực Tế (Comprehension Power |
+| `StatsManager.getCefrRoadmapAndForecast` | [`#L628-L628`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L628-L628) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getDailyMicroQuests` | [`#L632-L632`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L632-L632) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getPrimeStudyHour` | [`#L636-L638`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L636-L638) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getWeeklyProgress` | [`#L640-L642`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L640-L642) | `method` | Thực thi logic nội bộ |
+| `StatsManager.get7DaysForecast` | [`#L644-L646`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L644-L646) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getMonthJournalData` | [`#L648-L650`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L648-L650) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getYearJournalData` | [`#L652-L654`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L652-L654) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getYearlyJournalData` | [`#L656-L658`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L656-L658) | `method` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\core\stats\journal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js) (373 dòng)
 

@@ -2,18 +2,32 @@
  * Stats & Analytics Manager + Active Study Timer for FSRS-6 English Learning
  */
 
-import { StorageManager } from '../services/storage.js';
-import { State, Rating, FSRS } from './fsrs.js';
-import { MASTERY_STABILITY_THRESHOLD, getLearningGoal, STREAK_COOLDOWN_DAYS } from '../config.js';
-import { getLocalDateKey, normalizePos } from '../utils.js';
-import { StudyTimeTracker, globalStudyTimer } from './timer.js';
-import { BehavioralOptimizer } from './optimizer.js';
+import { StorageManager } from "../services/storage.js";
+import { State, Rating, FSRS } from "./fsrs.js";
+import {
+  MASTERY_STABILITY_THRESHOLD,
+  getLearningGoal,
+  STREAK_COOLDOWN_DAYS,
+} from "../config.js";
+import { getLocalDateKey, normalizePos } from "../utils.js";
+import { StudyTimeTracker, globalStudyTimer } from "./timer.js";
+import { BehavioralOptimizer } from "./optimizer.js";
 
-import { getComprehensionPower, getCefrRoadmapAndForecast, getDailyMicroQuests } from './stats/roadmap.js';
-import { getPrimeStudyHour, getWeeklyProgress, get7DaysForecast, getMonthJournalData, getYearJournalData, getYearlyJournalData } from './stats/journal.js';
+import {
+  getComprehensionPower,
+  getCefrRoadmapAndForecast,
+  getDailyMicroQuests,
+} from "./stats/roadmap.js";
+import {
+  getPrimeStudyHour,
+  getWeeklyProgress,
+  get7DaysForecast,
+  getMonthJournalData,
+  getYearJournalData,
+  getYearlyJournalData,
+} from "./stats/journal.js";
 
 export { StudyTimeTracker, globalStudyTimer, BehavioralOptimizer };
-
 
 export class StatsManager {
   /**
@@ -33,11 +47,51 @@ export class StatsManager {
 
     // 5 Tầng Độ Bền Trí Nhớ (Stability Tiers)
     const tiers = {
-      tier5: { id: 'tier5', count: 0, label: 'Nhớ sâu vĩnh viễn', desc: 'Độ bền ≥ 30 ngày (Chu kỳ ôn 1 - 6 tháng)', icon: '💎', color: '#10b981', lightColor: '#059669' },
-      tier4: { id: 'tier4', count: 0, label: 'Ghi nhớ bền vững', desc: 'Độ bền 14 - 30 ngày (Chu kỳ ôn 2 - 4 tuần)', icon: '🛡️', color: '#06b6d4', lightColor: '#0891b2' },
-      tier3: { id: 'tier3', count: 0, label: 'Ghi nhớ trung hạn', desc: 'Độ bền 7 - 14 ngày (Chu kỳ ôn 1 - 2 tuần)', icon: '🌳', color: '#3b82f6', lightColor: '#2563eb' },
-      tier2: { id: 'tier2', count: 0, label: 'Trí nhớ ngắn hạn', desc: 'Độ bền 3 - 7 ngày (Chu kỳ ôn 3 - 7 ngày)', icon: '🌿', color: '#f59e0b', lightColor: '#d97706' },
-      tier1: { id: 'tier1', count: 0, label: 'Mới nạp vào não', desc: 'Độ bền < 3 ngày (Cần củng cố hàng ngày)', icon: '🌱', color: '#a855f7', lightColor: '#7c3aed' }
+      tier5: {
+        id: "tier5",
+        count: 0,
+        label: "Nhớ sâu vĩnh viễn",
+        desc: "Độ bền ≥ 30 ngày (Chu kỳ ôn 1 - 6 tháng)",
+        icon: "💎",
+        color: "#10b981",
+        lightColor: "#059669",
+      },
+      tier4: {
+        id: "tier4",
+        count: 0,
+        label: "Ghi nhớ bền vững",
+        desc: "Độ bền 14 - 30 ngày (Chu kỳ ôn 2 - 4 tuần)",
+        icon: "🛡️",
+        color: "#06b6d4",
+        lightColor: "#0891b2",
+      },
+      tier3: {
+        id: "tier3",
+        count: 0,
+        label: "Ghi nhớ trung hạn",
+        desc: "Độ bền 7 - 14 ngày (Chu kỳ ôn 1 - 2 tuần)",
+        icon: "🌳",
+        color: "#3b82f6",
+        lightColor: "#2563eb",
+      },
+      tier2: {
+        id: "tier2",
+        count: 0,
+        label: "Trí nhớ ngắn hạn",
+        desc: "Độ bền 3 - 7 ngày (Chu kỳ ôn 3 - 7 ngày)",
+        icon: "🌿",
+        color: "#f59e0b",
+        lightColor: "#d97706",
+      },
+      tier1: {
+        id: "tier1",
+        count: 0,
+        label: "Mới nạp vào não",
+        desc: "Độ bền < 3 ngày (Cần củng cố hàng ngày)",
+        icon: "🌱",
+        color: "#a855f7",
+        lightColor: "#7c3aed",
+      },
     };
 
     let lapsedCardsCount = 0;
@@ -52,7 +106,10 @@ export class StatsManager {
       if (state && state.suspended === true) {
         suspendedCount++;
       }
-      if (state && (state.isLeech === true || (state.lapses && state.lapses >= 8))) {
+      if (
+        state &&
+        (state.isLeech === true || (state.lapses && state.lapses >= 8))
+      ) {
         leechCount++;
       }
       if (!state || state.state === State.New || state.state === 0) {
@@ -91,19 +148,20 @@ export class StatsManager {
     }
 
     // Tỉ lệ nhớ thật hiện tại (Real Retrievability % trung bình của các thẻ đã học)
-    const currentRetrievability = ratedCount > 0 
-      ? Math.round((totalRetrievability / ratedCount) * 100) 
-      : 0;
+    const currentRetrievability =
+      ratedCount > 0 ? Math.round((totalRetrievability / ratedCount) * 100) : 0;
 
-    const avgStability = ratedCount > 0 ? (totalStability / ratedCount).toFixed(1) : '0';
-    const avgDifficulty = ratedCount > 0 ? (totalDifficulty / ratedCount).toFixed(1) : '5.0';
+    const avgStability =
+      ratedCount > 0 ? (totalStability / ratedCount).toFixed(1) : "0";
+    const avgDifficulty =
+      ratedCount > 0 ? (totalDifficulty / ratedCount).toFixed(1) : "5.0";
 
     // Thống kê phân bố 4 phản hồi (Rating breakdown) từ logs
     const ratingCounts = {
       [Rating.Again]: 0,
       [Rating.Hard]: 0,
       [Rating.Good]: 0,
-      [Rating.Easy]: 0
+      [Rating.Easy]: 0,
     };
     let totalRatings = 0;
 
@@ -116,19 +174,39 @@ export class StatsManager {
     }
 
     const ratingPct = {
-      again: totalRatings > 0 ? Math.round((ratingCounts[Rating.Again] / totalRatings) * 100) : 0,
-      hard: totalRatings > 0 ? Math.round((ratingCounts[Rating.Hard] / totalRatings) * 100) : 0,
-      good: totalRatings > 0 ? Math.round((ratingCounts[Rating.Good] / totalRatings) * 100) : 0,
-      easy: totalRatings > 0 ? Math.round((ratingCounts[Rating.Easy] / totalRatings) * 100) : 0
+      again:
+        totalRatings > 0
+          ? Math.round((ratingCounts[Rating.Again] / totalRatings) * 100)
+          : 0,
+      hard:
+        totalRatings > 0
+          ? Math.round((ratingCounts[Rating.Hard] / totalRatings) * 100)
+          : 0,
+      good:
+        totalRatings > 0
+          ? Math.round((ratingCounts[Rating.Good] / totalRatings) * 100)
+          : 0,
+      easy:
+        totalRatings > 0
+          ? Math.round((ratingCounts[Rating.Easy] / totalRatings) * 100)
+          : 0,
     };
 
-    const firstTryAccuracy = totalRatings > 0 
-      ? Math.round(((ratingCounts[Rating.Good] + ratingCounts[Rating.Easy]) / totalRatings) * 100)
-      : 0;
+    const firstTryAccuracy =
+      totalRatings > 0
+        ? Math.round(
+            ((ratingCounts[Rating.Good] + ratingCounts[Rating.Easy]) /
+              totalRatings) *
+              100,
+          )
+        : 0;
 
-    const recoveryRate = lapsedCardsCount > 0 
-      ? Math.round((recoveredCardsCount / lapsedCardsCount) * 100)
-      : (totalLearned > 0 ? 100 : 0);
+    const recoveryRate =
+      lapsedCardsCount > 0
+        ? Math.round((recoveredCardsCount / lapsedCardsCount) * 100)
+        : totalLearned > 0
+          ? 100
+          : 0;
 
     // Tính Điểm Năng Lực Trí Nhớ (Cognitive Memory Index 0 - 1000)
     const deepMastered = tiers.tier5.count;
@@ -136,22 +214,52 @@ export class StatsManager {
     const streak = this.calculateStreak(logs);
 
     let score = Math.round(
-      Math.min(500, deepMastered * 2.5 + solidMastered * 1.5 + (totalLearned - deepMastered - solidMastered) * 0.5) +
-      (currentRetrievability / 100) * 300 +
-      Math.min(200, streak * 15 + Math.min(50, totalLearned * 0.1))
+      Math.min(
+        500,
+        deepMastered * 2.5 +
+          solidMastered * 1.5 +
+          (totalLearned - deepMastered - solidMastered) * 0.5,
+      ) +
+        (currentRetrievability / 100) * 300 +
+        Math.min(200, streak * 15 + Math.min(50, totalLearned * 0.1)),
     );
     score = Math.max(0, Math.min(1000, score));
 
     // Xếp hạng Trí Nhớ & Danh Hiệu
-    let rank = { title: '🌱 Khởi Động', level: 1, color: '#8b5cf6', badge: 'Tập Sự' };
+    let rank = {
+      title: "🌱 Khởi Động",
+      level: 1,
+      color: "#8b5cf6",
+      badge: "Tập Sự",
+    };
     if (score >= 850) {
-      rank = { title: '👑 Bậc Thầy Trí Nhớ', level: 5, color: '#10b981', badge: 'Grandmaster' };
+      rank = {
+        title: "👑 Bậc Thầy Trí Nhớ",
+        level: 5,
+        color: "#10b981",
+        badge: "Grandmaster",
+      };
     } else if (score >= 600) {
-      rank = { title: '🏆 Tinh Anh FSRS', level: 4, color: '#06b6d4', badge: 'Master' };
+      rank = {
+        title: "🏆 Tinh Anh FSRS",
+        level: 4,
+        color: "#06b6d4",
+        badge: "Master",
+      };
     } else if (score >= 350) {
-      rank = { title: '⭐ Trí Nhớ Bền Bỉ', level: 3, color: '#3b82f6', badge: 'Expert' };
+      rank = {
+        title: "⭐ Trí Nhớ Bền Bỉ",
+        level: 3,
+        color: "#3b82f6",
+        badge: "Expert",
+      };
     } else if (score >= 150) {
-      rank = { title: '🌿 Đang Bứt Phá', level: 2, color: '#f59e0b', badge: 'Pro' };
+      rank = {
+        title: "🌿 Đang Bứt Phá",
+        level: 2,
+        color: "#f59e0b",
+        badge: "Pro",
+      };
     }
 
     return {
@@ -170,7 +278,7 @@ export class StatsManager {
       suspendedCount,
       score,
       rank,
-      streak
+      streak,
     };
   }
 
@@ -193,17 +301,17 @@ export class StatsManager {
 
     // Stability Breakdown
     const stabilityBuckets = {
-      short: 0,   // < 3 days
-      medium: 0,  // 3 - 14 days
-      long: 0,    // 14 - 30 days
-      mature: 0   // > 30 days
+      short: 0, // < 3 days
+      medium: 0, // 3 - 14 days
+      long: 0, // 14 - 30 days
+      mature: 0, // > 30 days
     };
 
     // Difficulty Breakdown
     const difficultyBuckets = {
-      easy: 0,   // 1 - 4
+      easy: 0, // 1 - 4
       medium: 0, // 4.1 - 7
-      hard: 0    // 7.1 - 10
+      hard: 0, // 7.1 - 10
     };
 
     let learnedCards = 0;
@@ -215,7 +323,10 @@ export class StatsManager {
         newCardsCount++;
       } else {
         learnedCards++;
-        if (state.state === State.Learning || state.state === State.Relearning) {
+        if (
+          state.state === State.Learning ||
+          state.state === State.Relearning
+        ) {
           learningCardsCount++;
         } else if (state.state === State.Review) {
           reviewCardsCount++;
@@ -226,7 +337,7 @@ export class StatsManager {
 
         if (state.stability > 0) {
           totalStability += state.stability;
-          totalDifficulty += (state.difficulty || 5);
+          totalDifficulty += state.difficulty || 5;
           ratedCardsCount++;
 
           if (state.stability < 3) {
@@ -251,9 +362,10 @@ export class StatsManager {
     }
 
     // Tỉ lệ nhớ Retention Rate thực tế: (Số từ nhớ tốt / Tổng từ đã học) * 100
-    const retentionRate = learnedCards > 0 
-      ? Math.round((goodMemoryCount / learnedCards) * 100) 
-      : 100;
+    const retentionRate =
+      learnedCards > 0
+        ? Math.round((goodMemoryCount / learnedCards) * 100)
+        : 100;
 
     // Streak & Ngày học
     const streak = this.calculateStreak(logs);
@@ -271,12 +383,18 @@ export class StatsManager {
       totalReviews: logs.length,
       retentionRate,
       streak,
-      avgStability: ratedCardsCount > 0 ? (totalStability / ratedCardsCount).toFixed(1) : '0',
-      avgDifficulty: ratedCardsCount > 0 ? (totalDifficulty / ratedCardsCount).toFixed(1) : '0',
+      avgStability:
+        ratedCardsCount > 0
+          ? (totalStability / ratedCardsCount).toFixed(1)
+          : "0",
+      avgDifficulty:
+        ratedCardsCount > 0
+          ? (totalDifficulty / ratedCardsCount).toFixed(1)
+          : "0",
       stabilityBuckets,
       difficultyBuckets,
       weeklyActivity,
-      forecast7Days
+      forecast7Days,
     };
   }
 
@@ -321,13 +439,13 @@ export class StatsManager {
     let streak = 0;
     const today = new Date();
     let brokenAtDay = -1;
-    
+
     // Kiểm tra từ hôm nay lùi về quá khứ (tối đa 730 ngày ~ 2 năm)
     for (let i = 0; i < 730; i++) {
       const d = new Date(today);
       d.setDate(today.getDate() - i);
       const key = getLocalDateKey(d);
-      
+
       const isStudied = dateSet.has(key);
       const isFrozen = frozenSet.has(key);
       const isRecovered = recoveredSet.has(key);
@@ -375,7 +493,7 @@ export class StatsManager {
         try {
           const curState = StorageManager.getStreakState();
           const curDates = new Set(curState.studiedDates || []);
-          datesToBackfill.forEach(d => curDates.add(d));
+          datesToBackfill.forEach((d) => curDates.add(d));
           curState.studiedDates = Array.from(curDates);
           StorageManager.saveStreakState(curState);
         } catch (e) {}
@@ -392,7 +510,10 @@ export class StatsManager {
     }
 
     // Tự động kiểm tra thưởng khiên đóng băng và cập nhật kỷ lục
-    if (streak > 0 && typeof StorageManager.checkAndAwardStreakFreeze === 'function') {
+    if (
+      streak > 0 &&
+      typeof StorageManager.checkAndAwardStreakFreeze === "function"
+    ) {
       try {
         StorageManager.checkAndAwardStreakFreeze(streak);
       } catch (e) {}
@@ -432,7 +553,8 @@ export class StatsManager {
       return { isBroken: false, canRecover: false };
     }
 
-    const isValidDate = (key) => dateSet.has(key) || frozenSet.has(key) || recoveredSet.has(key);
+    const isValidDate = (key) =>
+      dateSet.has(key) || frozenSet.has(key) || recoveredSet.has(key);
 
     const today = new Date();
     const todayKey = getLocalDateKey(today);
@@ -465,7 +587,8 @@ export class StatsManager {
     }
 
     const studiedToday = dateSet.has(todayKey);
-    const potentialRestoredStreak = pastStreakBeforeMiss + 1 + (studiedToday ? 1 : 0);
+    const potentialRestoredStreak =
+      pastStreakBeforeMiss + 1 + (studiedToday ? 1 : 0);
 
     const freezes = Number(streakState?.freezes || 0);
     const canUseFreeze = freezes > 0;
@@ -475,7 +598,9 @@ export class StatsManager {
     const lastRecovery = Number(streakState?.lastRecoveryTimestamp || 0);
     const timeSinceLast = Date.now() - lastRecovery;
     const isCooldownActive = lastRecovery > 0 && timeSinceLast < cooldownMs;
-    const cooldownDaysLeft = isCooldownActive ? Math.ceil((cooldownMs - timeSinceLast) / 86400000) : 0;
+    const cooldownDaysLeft = isCooldownActive
+      ? Math.ceil((cooldownMs - timeSinceLast) / 86400000)
+      : 0;
     const canRedeem = !isCooldownActive;
 
     return {
@@ -488,7 +613,7 @@ export class StatsManager {
       freezesAvailable: freezes,
       canUseFreeze,
       canRedeem,
-      cooldownDaysLeft
+      cooldownDaysLeft,
     };
   }
 

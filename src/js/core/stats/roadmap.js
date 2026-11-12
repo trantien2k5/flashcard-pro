@@ -4,7 +4,7 @@
 
 import { StorageManager } from '../../services/storage.js';
 import { State, Rating } from '../fsrs.js';
-import { getLearningGoal } from '../../config.js';
+import { getLearningGoal, MASTERY_STABILITY_THRESHOLD } from '../../config.js';
 import { getLocalDateKey, normalizePos } from '../../utils.js';
 
 let _cefrRoadmapCache = new Map();
