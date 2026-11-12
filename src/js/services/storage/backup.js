@@ -132,16 +132,17 @@ export function normalizeCardState(raw, legacyIdMap = {}) {
   if (!id) return null;
   const canonicalId = (legacyIdMap && legacyIdMap[id]) || id;
 
+  const lapses = raw.lapses ?? raw.l ?? 0;
   return {
     id: canonicalId,
     state: raw.state ?? raw.s ?? 0,
     reps: raw.reps ?? raw.r ?? 0,
-    lapses: raw.lapses ?? raw.l ?? 0,
+    lapses,
     stability: raw.stability ?? raw.st ?? 0,
     difficulty: raw.difficulty ?? raw.d ?? 5,
     due: due,
     last_review: lastReview,
-    isLeech: Boolean(raw.isLeech === true || (raw.lapses && raw.lapses >= 8)),
+    isLeech: Boolean(raw.isLeech === true || lapses >= 8),
     suspended: Boolean(raw.suspended === true),
     elapsed_days: raw.elapsed_days ?? 0,
     scheduled_days: raw.scheduled_days ?? 0

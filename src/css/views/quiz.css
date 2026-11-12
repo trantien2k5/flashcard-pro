@@ -99,7 +99,7 @@
 .quiz-stat-pill.pill-due {
   background: rgba(99, 102, 241, 0.12);
   border-color: rgba(99, 102, 241, 0.28);
-  color: #6366f1;
+  color: var(--primary-light);
 }
 
 .quiz-stat-pill.pill-new {
@@ -145,7 +145,7 @@
 .quiz-status-pill.status-due {
   background: rgba(99, 102, 241, 0.16);
   border: 1px solid rgba(99, 102, 241, 0.35);
-  color: #6366f1;
+  color: var(--primary-light);
 }
 
 .quiz-status-pill.status-lapse {
@@ -339,10 +339,10 @@
 .quiz-option-tile[data-idx="0"] .quiz-option-key {
   background: rgba(99, 102, 241, 0.14);
   border: 1.5px solid rgba(99, 102, 241, 0.35);
-  color: #6366f1;
+  color: var(--primary-light);
 }
 .quiz-option-tile[data-idx="0"]:hover:not(.locked) {
-  border-color: #6366f1;
+  border-color: var(--primary-light);
   box-shadow: 0 6px 18px rgba(99, 102, 241, 0.18);
 }
 
@@ -469,7 +469,7 @@
   min-height: 50px;
   padding: 12px 24px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
   color: #ffffff;
   border: none;
   font-size: 1rem;
@@ -488,7 +488,7 @@
 .btn-quiz-next:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 26px rgba(99, 102, 241, 0.5);
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  background: linear-gradient(135deg, var(--primary-light) 0%, #8b5cf6 100%);
 }
 
 .btn-quiz-next:active {
@@ -514,47 +514,9 @@
   40%, 80% { transform: translateX(5px); }
 }
 
-
-
 /* ==========================================================================
    6. Twin CTA Buttons in Tab Review
    ========================================================================== */
-.hero-twin-cta-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  width: 100%;
-}
-
-.btn-hero-twin-quiz {
-  width: 100%;
-  min-height: 44px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  font-size: 0.88rem;
-  font-weight: 750;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: all 0.18s ease;
-  touch-action: manipulation;
-  box-shadow: 0 3px 10px rgba(245, 158, 11, 0.25);
-}
-
-.btn-hero-twin-quiz:hover {
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.35);
-}
-
-.btn-hero-twin-quiz:active {
-  transform: scale(0.98);
-}
 
 /* ==========================================================================
    🖥️ 7. Desktop PC Optimization (>= 768px & >= 860px)
@@ -567,14 +529,6 @@
 
   .quiz-header-bar {
     margin-bottom: 20px;
-  }
-
-  .quiz-progress-top-row {
-    font-size: 0.88rem;
-  }
-
-  .quiz-progress-track {
-    height: 8px;
   }
 
   .quiz-question-card {
@@ -596,13 +550,6 @@
   .btn-quiz-speaker {
     width: 38px;
     height: 38px;
-  }
-
-  .quiz-badge-pos,
-  .quiz-badge-cefr {
-    font-size: 0.76rem;
-    padding: 3px 10px;
-    border-radius: 8px;
   }
 
   .quiz-prompt-hint {
@@ -788,7 +735,7 @@
 
 .quiz-due-tag.due-short {
   background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
+  color: var(--primary-light);
   border: 1px solid rgba(99, 102, 241, 0.25);
 }
 

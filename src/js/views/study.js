@@ -1,20 +1,14 @@
 /**
- * Study View Controller - Flashcard 3D Interactive Learning Engine
+ * Study View Controller - Flashcard 3D Interactive Learning Engine (Facade)
  * Hỗ trợ chế độ Tối giản Mặc định, Nút Lật Thẻ Trực Quan & Bảng điều khiển Menu 3 chấm
  */
 
-import { Rating, State } from '../core/fsrs.js';
+import { State } from '../core/fsrs.js';
 import { StorageManager } from '../services/storage.js';
-import { showConfirm } from './components.js';
 import { globalStudyTimer, BehavioralOptimizer } from '../core/stats.js';
 import { unlockAudioContext } from '../core/session.js';
-import { escapeHTML, formatCleanInterval, scrollToTop } from '../utils.js';
-import { onAudioPlayStateChange, speak, stopAudio } from '../services/audio.js';
-import { openWordDetailModal } from './library/detail-modal.js';
+import { scrollToTop } from '../utils.js';
 
-// ==========================================
-// MODULAR SUB-CONTROLLERS (CHIA ĐỂ TRỊ)
-// ==========================================
 import {
   DEFAULT_AUTOPLAY_CONFIG,
   getAutoPlayPrefs,
@@ -24,22 +18,9 @@ import {
   saveStudyPrefs,
   applyRatingButtonsMode
 } from './study/prefs.js';
-
-import {
-  getStudyOverlay,
-  renderStudyOverlayShell
-} from './study/shell.js';
-
-import {
-  initPomodoroTracker,
-  stopPomodoroTracker,
-  recordPomodoroCardReviewed
-} from './study/pomodoro.js';
-
-import {
-  showSummaryModal
-} from './study/summary-modal.js';
-
+import { getStudyOverlay, renderStudyOverlayShell } from './study/shell.js';
+import { initPomodoroTracker, stopPomodoroTracker, recordPomodoroCardReviewed } from './study/pomodoro.js';
+import { showSummaryModal } from './study/summary-modal.js';
 import {
   isAutoPlayActive,
   updateAutoPlayUI,
@@ -47,13 +28,12 @@ import {
   triggerAutoPlayStep,
   setupAutoPlayControls
 } from './study/autoplay.js';
+import { updateStudyLiveTimerUI, renderCardChange } from './study/renderer.js';
+import { studyRuntime, clearStudyTimerSubscription, startFrontActiveRecallTimer } from './study/state.js';
+import { updateStudyPriorityUI, switchStudyPriority, setupStudyPrefsDrawer } from './study/priority-drawer.js';
+import { createFlipHandler, bindCardSwipeAndDragGestures, bindCardAudioAndInfo } from './study/gestures.js';
+import { switchToQuizMode, createRateHandler, bindStudyRatingAndShortcuts } from './study/actions.js';
 
-import {
-  updateStudyLiveTimerUI,
-  generateClozeSentence,
-  applyFieldVisibility,
-  renderCardChange
-} from './study/renderer.js';
 // Re-export toàn bộ API để tương thích 100% với các view và script bên ngoài
 export {
   DEFAULT_AUTOPLAY_CONFIG,
@@ -73,144 +53,11 @@ export {
   updateAutoPlayUI,
   stopAutoPlay,
   triggerAutoPlayStep,
-  setupAutoPlayControls
+  setupAutoPlayControls,
+  startFrontActiveRecallTimer,
+  updateStudyPriorityUI,
+  switchStudyPriority
 };
-
-let _cardShowTime = 0;
-let _backShowTime = 0;
-let _lastFlipLatencyMs = 0;
-let _isFlipLocked = false;
-let _flipCountdownTimer = null;
-let _studyTimerUnsubscribe = null;
-
-export function startFrontActiveRecallTimer() {
-  if (_flipCountdownTimer) {
-    clearInterval(_flipCountdownTimer);
-    _flipCountdownTimer = null;
-  }
-
-  const btn = document.getElementById('btn-main-flip');
-  if (!btn) return;
-
-  const prefs = getStudyPrefs();
-  const delaySec = Number(prefs.thinkDelaySec || 0);
-
-  if (delaySec <= 0) {
-    _isFlipLocked = false;
-    btn.classList.remove('is-locked');
-    btn.innerHTML = `<span class="swipe-flip-icon">⌃</span><span>Vuốt lên để lật thẻ</span>`;
-    return;
-  }
-
-  const durationMs = delaySec * 1000;
-  const startTime = performance.now();
-  _isFlipLocked = true;
-  btn.classList.add('is-locked');
-
-  const updateCountdown = () => {
-    const elapsed = performance.now() - startTime;
-    const remainingSec = Math.max(0, (durationMs - elapsed) / 1000);
-
-    if (remainingSec <= 0.05) {
-      _isFlipLocked = false;
-      if (_flipCountdownTimer) {
-        clearInterval(_flipCountdownTimer);
-        _flipCountdownTimer = null;
-      }
-      btn.classList.remove('is-locked');
-      btn.innerHTML = `<span class="swipe-flip-icon">⌃</span><span>Vuốt lên để lật thẻ</span>`;
-    } else {
-      const displaySec = Math.max(1, Math.ceil(remainingSec));
-      btn.innerHTML = `
-        <span class="swipe-flip-icon">⏳</span>
-        <span>Suy nghĩ (${displaySec}s)</span>
-      `;
-    }
-  };
-
-  updateCountdown();
-  _flipCountdownTimer = setInterval(updateCountdown, 100);
-}
-
-// Cấu hình học tập (Study Prefs) đã được module hóa sang ./study/prefs.js
-
-// Bộ khung DOM Study Overlay đã được module hóa sang ./study/shell.js
-
-/**
- * Cập nhật hiển thị nhãn và biểu tượng chế độ ưu tiên trên Header thanh học Flashcard
- */
-export function updateStudyPriorityUI(mode = 'due_first') {
-  const iconEl = document.getElementById('study-priority-icon');
-  const labelEl = document.getElementById('study-priority-label');
-  const optionBtns = document.querySelectorAll('.priority-option-btn');
-
-  const modeConfig = {
-    due_first: { icon: '🎯', label: 'Cần ôn' },
-    new_only: { icon: '🌱', label: 'Từ mới' },
-    weak_hunter: { icon: '🔥', label: 'Từ khó' },
-    sprint_10: { icon: '⚡', label: 'Tốc chiến' },
-    audio_blind: { icon: '🎧', label: 'Luyện nghe' }
-  };
-
-  const cfg = modeConfig[mode] || modeConfig.due_first;
-  if (iconEl) iconEl.textContent = cfg.icon;
-  if (labelEl) labelEl.textContent = cfg.label;
-
-  optionBtns.forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-mode') === mode);
-  });
-}
-
-/**
- * Thay đổi thứ tự ưu tiên học trực tiếp trong phiên học (Zero-exit, liền mạch)
- */
-export function switchStudyPriority(app, targetMode) {
-  try {
-    const context = app.currentStudyContext || {};
-    const deckId = context.deckId || null;
-    const subtopic = context.subtopic || null;
-
-    const studyData = app.deckManager?.getStudyQueue(deckId, app.settings, subtopic, { mode: targetMode });
-    const newQueue = studyData?.queue || [];
-
-    if (!newQueue || newQueue.length === 0) {
-      const modeNames = {
-        due_first: 'từ tới hạn',
-        new_only: 'từ mới chưa học',
-        weak_hunter: 'từ khó cần củng cố',
-        sprint_10: 'từ cấp bách',
-        audio_blind: 'từ để luyện nghe'
-      };
-      app.showToast?.(`Tuyệt vời! Hiện không có ${modeNames[targetMode] || 'từ nào'}.`, 'info', 2500);
-      return false;
-    }
-
-    if (!app.currentStudyContext) app.currentStudyContext = {};
-    app.currentStudyContext.mode = targetMode;
-    if (app.currentStudyContext.options) {
-      app.currentStudyContext.options.mode = targetMode;
-    } else {
-      app.currentStudyContext.options = { mode: targetMode };
-    }
-
-    updateStudyPriorityUI(targetMode);
-    app.studySession?.start(newQueue);
-
-    const modeLabels = {
-      due_first: 'Cần ôn',
-      new_only: 'Ưu tiên Từ mới',
-      weak_hunter: 'Ưu tiên Từ khó',
-      sprint_10: 'Tốc chiến 10 từ',
-      audio_blind: 'Luyện nghe'
-    };
-    app.showToast?.(`🎯 Đã đổi ưu tiên: ${modeLabels[targetMode] || targetMode} (${newQueue.length} từ)`, 'success', 2000);
-    return true;
-  } catch (err) {
-    console.error('Lỗi switchStudyPriority:', err);
-    app.showToast?.('Không thể chuyển thứ tự học: ' + (err?.message || err), 'error');
-    return false;
-  }
-}
 
 export function setupStudyControls(app) {
   try {
@@ -220,713 +67,44 @@ export function setupStudyControls(app) {
     const fsrsButtonsContainer = document.getElementById('fsrs-buttons-container');
     const frontFlipControl = document.getElementById('front-flip-control');
     const btnMainFlip = document.getElementById('btn-main-flip');
-    const btnCardFlipAction = document.getElementById('btn-card-flip-action');
-
-    const btnClose = document.getElementById('btn-study-close');
-    const btnMenu = document.getElementById('btn-study-menu');
-    const btnAudioSpeaker = document.getElementById('btn-audio-speaker');
-    const btnAudioSpeakerBack = document.getElementById('btn-audio-speaker-back');
-    const btnExampleAudio = document.getElementById('btn-example-audio');
-
-    const drawer = document.getElementById('study-prefs-drawer');
-    const drawerBackdrop = document.getElementById('study-prefs-backdrop');
-    const btnCloseDrawer = document.getElementById('btn-prefs-close');
-    const btnResetPrefs = document.getElementById('btn-reset-prefs');
-
-    // Các điều khiển tùy chọn trong Drawer
-    const selectStudyMode = document.getElementById('pref-select-study-mode');
-    const selectButtonsMode = document.getElementById('pref-select-buttons-mode');
-    const toggleAutoplay = document.getElementById('pref-toggle-autoplay');
-    const selectAccent = document.getElementById('pref-select-accent');
-    const toggleShowImage = document.getElementById('pref-toggle-show-image');
-    const toggleShowPhonetic = document.getElementById('pref-toggle-show-phonetic');
-    const toggleShowPos = document.getElementById('pref-toggle-show-pos');
-    const toggleShowExample = document.getElementById('pref-toggle-show-example');
-    const toggleShowExampleVi = document.getElementById('pref-toggle-show-example-vi');
-    const toggleShowDef = document.getElementById('pref-toggle-show-def');
-    const selectThinkDelay = document.getElementById('pref-select-think-delay');
-    const toggleBackLock = document.getElementById('pref-toggle-back-lock');
-    const toggleShowCloze = document.getElementById('pref-toggle-show-cloze');
 
     if (!overlay || !flashcardEl || overlay._controlsBound) return;
     overlay._controlsBound = true;
 
-    // Khởi tạo trạng thái điều khiển theo Preferences hiện tại
-    const syncCheckboxesFromPrefs = () => {
-      const p = getStudyPrefs();
-      if (selectStudyMode) selectStudyMode.value = 'flashcard';
-      if (selectButtonsMode) selectButtonsMode.value = p.ratingButtonsMode || '2_buttons';
-      applyRatingButtonsMode(p.ratingButtonsMode || '2_buttons');
-      const isAutoplay = (p.autoplayAudio !== undefined) ? !!p.autoplayAudio : (app.settings?.autoPronounce !== false);
-      if (toggleAutoplay) toggleAutoplay.checked = isAutoplay;
-      if (selectAccent) selectAccent.value = (app.settings?.audioAccent || p.audioAccent || 'us').toLowerCase();
-      if (toggleShowImage) toggleShowImage.checked = !!p.showImage;
-      if (toggleShowPhonetic) toggleShowPhonetic.checked = p.showPhonetic !== false;
-      if (toggleShowPos) toggleShowPos.checked = p.showPos !== false;
-      if (toggleShowExample) toggleShowExample.checked = p.showExample !== false;
-      if (toggleShowExampleVi) toggleShowExampleVi.checked = !!p.showExampleVi;
-      if (toggleShowDef) toggleShowDef.checked = !!p.showDefinition;
-      if (toggleShowCloze) toggleShowCloze.checked = p.showCloze !== false;
-      if (selectThinkDelay) selectThinkDelay.value = String(p.thinkDelaySec ?? 0);
-      if (toggleBackLock) toggleBackLock.checked = !!p.enableBackLock;
-    };
-
-    const updatePrefFromControls = () => {
-      const isAutoplay = !!toggleAutoplay?.checked;
-      const p = {
-        ...DEFAULT_STUDY_PREFS,
-        ratingButtonsMode: selectButtonsMode?.value || '2_buttons',
-        autoplayAudio: isAutoplay,
-        audioAccent: selectAccent?.value || 'us',
-        showImage: !!toggleShowImage?.checked,
-        showPhonetic: !!toggleShowPhonetic?.checked,
-        showPos: !!toggleShowPos?.checked,
-        showCefr: !!toggleShowPos?.checked,
-        showExample: !!toggleShowExample?.checked,
-        showExampleVi: !!toggleShowExampleVi?.checked,
-        showDefinition: !!toggleShowDef?.checked,
-        showCloze: !!toggleShowCloze?.checked,
-        thinkDelaySec: Number(selectThinkDelay?.value || 0),
-        enableBackLock: !!toggleBackLock?.checked
-      };
-      saveStudyPrefs(p);
-      applyRatingButtonsMode(p.ratingButtonsMode);
-      if (app.settings) {
-        app.settings.autoPronounce = isAutoplay;
-        if (selectAccent?.value) app.settings.audioAccent = selectAccent.value;
-        StorageManager.saveSettings(app.settings);
-      }
-      if (app.studySession) {
-        app.studySession.updateSettings(app.settings);
-      }
-      if (app.studySession?.currentCard) {
-        applyFieldVisibility(p, app.studySession.currentCard);
-      }
-    };
-
-    syncCheckboxesFromPrefs();
-
-    if (selectButtonsMode) selectButtonsMode.addEventListener('change', updatePrefFromControls);
-    if (toggleAutoplay) toggleAutoplay.addEventListener('change', updatePrefFromControls);
-    if (selectAccent) selectAccent.addEventListener('change', updatePrefFromControls);
-    if (toggleShowImage) toggleShowImage.addEventListener('change', updatePrefFromControls);
-    if (toggleShowPhonetic) toggleShowPhonetic.addEventListener('change', updatePrefFromControls);
-    if (toggleShowPos) toggleShowPos.addEventListener('change', updatePrefFromControls);
-    if (toggleShowExample) toggleShowExample.addEventListener('change', updatePrefFromControls);
-    if (toggleShowExampleVi) toggleShowExampleVi.addEventListener('change', updatePrefFromControls);
-    if (toggleShowDef) toggleShowDef.addEventListener('change', updatePrefFromControls);
-    if (toggleShowCloze) toggleShowCloze.addEventListener('change', updatePrefFromControls);
-    if (toggleBackLock) toggleBackLock.addEventListener('change', updatePrefFromControls);
-    if (selectThinkDelay) selectThinkDelay.addEventListener('change', updatePrefFromControls);
-
-    if (btnResetPrefs) {
-      btnResetPrefs.addEventListener('click', () => {
-        saveStudyPrefs(DEFAULT_STUDY_PREFS);
-        if (app.settings) {
-          app.settings.autoPronounce = true;
-          app.settings.audioAccent = 'us';
-          StorageManager.saveSettings(app.settings);
-        }
-        if (app.studySession) {
-          app.studySession.updateSettings();
-        }
-        syncCheckboxesFromPrefs();
-        if (app.studySession?.currentCard) {
-          applyFieldVisibility(DEFAULT_STUDY_PREFS, app.studySession.currentCard);
-        }
-        app.showToast?.('Đã khôi phục cài đặt mặc định', 'success', 1500);
-      });
-    }
-
-    // Chuyển đổi trực tiếp sang Chế độ Trắc nghiệm (Quiz) trong phiên học
-    const switchToQuizMode = () => {
-      try {
-        if (!app.studySession || !app.studySession.isActive) return;
-        const currentIndex = app.studySession.currentIndex || 0;
-        const remainingQueue = (app.studySession.queue || []).slice(currentIndex);
-        
-        if (!remainingQueue || remainingQueue.length === 0) {
-          app.showToast?.('Không có thẻ nào còn lại trong hàng đợi.', 'info');
-          return;
-        }
-
-        stopAutoPlay();
-        if (_studyTimerUnsubscribe) {
-          _studyTimerUnsubscribe();
-          _studyTimerUnsubscribe = null;
-        }
-        stopPomodoroTracker();
-        app.studySession?.stopAudio();
-        StorageManager.flushPendingSync();
-
-        overlay.classList.remove('active');
-        drawer?.classList.remove('active');
-        app.studySession.isActive = false;
-
-        app.startQuizSession(remainingQueue);
-        app.showToast?.('🎯 Đã chuyển sang chế độ Trắc nghiệm', 'info', 2000);
-      } catch (err) {
-        console.error('Lỗi chuyển sang chế độ Trắc nghiệm:', err);
-      }
-    };
-
-    if (selectStudyMode) {
-      selectStudyMode.addEventListener('change', (e) => {
-        if (e.target.value === 'quiz') {
-          e.target.value = 'flashcard';
-          switchToQuizMode();
-        }
-      });
-    }
-
-    // Mở / Đóng Drawer 3 chấm
-    const openDrawer = () => {
-      syncCheckboxesFromPrefs();
-      drawer?.classList.add('active');
-    };
-    const closeDrawer = () => {
-      drawer?.classList.remove('active');
-    };
-
-    if (btnMenu) {
-      btnMenu.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openDrawer();
-      });
-    }
-    if (btnCloseDrawer) btnCloseDrawer.addEventListener('click', closeDrawer);
-    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
-
-    // Điều khiển Modal Chọn Thứ Tự Ưu Tiên Học
-    const btnPriority = document.getElementById('btn-study-priority');
-    const priorityModal = document.getElementById('study-priority-modal');
-    const priorityBackdrop = document.getElementById('study-priority-backdrop');
-    const btnClosePriority = document.getElementById('btn-priority-modal-close');
-    const priorityOptionBtns = document.querySelectorAll('.priority-option-btn');
-
-    const openPriorityModal = () => {
-      const curMode = app.currentStudyContext?.options?.mode || app.currentStudyContext?.mode || 'due_first';
-      updateStudyPriorityUI(curMode);
-      priorityModal?.classList.add('active');
-    };
-    const closePriorityModal = () => {
-      priorityModal?.classList.remove('active');
-    };
-
-    if (btnPriority) {
-      btnPriority.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openPriorityModal();
-      });
-    }
-    if (btnClosePriority) btnClosePriority.addEventListener('click', closePriorityModal);
-    if (priorityBackdrop) priorityBackdrop.addEventListener('click', closePriorityModal);
-
-    priorityOptionBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetMode = btn.getAttribute('data-mode');
-        closePriorityModal();
-        if (targetMode) {
-          switchStudyPriority(app, targetMode);
-        }
-      });
+    let closeDrawerFn = null;
+    const { closeDrawer } = setupStudyPrefsDrawer(app, {
+      onSwitchToQuiz: () => switchToQuizMode(app, closeDrawerFn),
+      onCardRefresh: (appRef, card, progress) => handleCardChange(appRef, card, progress)
     });
+    closeDrawerFn = closeDrawer;
 
-    // Thao tác Thẻ: Đặt lại tiến độ (Reset to New)
-    const btnActionReset = document.getElementById('btn-action-reset-card');
-    if (btnActionReset) {
-      btnActionReset.addEventListener('click', async () => {
-        if (!app.studySession?.currentCard) return;
-        const cardWord = app.studySession.currentCard.word || 'từ vựng';
-        const confirmed = await showConfirm({
-          title: 'Đặt lại tiến độ từ vựng?',
-          message: `Bạn có chắc muốn xóa lịch sử học và đưa từ "${cardWord}" về trạng thái Từ mới không?`,
-          confirmText: 'Đặt lại',
-          type: 'danger',
-          icon: '🔄'
-        });
-        if (confirmed) {
-          closeDrawer();
-          app.studySession.resetCurrentCard();
-          if (app.studySession.currentCard) {
-            handleCardChange(app, app.studySession.currentCard, {
-              index: app.studySession.currentIndex,
-              completed: app.studySession.completedCount,
-              total: app.studySession.totalCards || app.studySession.queue.length,
-              remaining: app.studySession.queue.length - app.studySession.currentIndex
-            });
-          }
-          app.showToast(`🔄 Đã đặt lại từ "${cardWord}" về Từ mới`, 'success');
-        }
-      });
-    }
-
-    // Lắng nghe trạng thái phát âm thanh
-    onAudioPlayStateChange((isPlaying) => {
-      if (btnAudioSpeaker) {
-        btnAudioSpeaker.classList.toggle('playing', isPlaying);
-      }
-      if (btnAudioSpeakerBack) {
-        btnAudioSpeakerBack.classList.toggle('playing', isPlaying);
-      }
+    const triggerFlip = createFlipHandler(app, {
+      overlay,
+      flashcardEl,
+      frontFlipControl,
+      fsrsButtonsContainer,
+      btnMainFlip
     });
+    const safeRateCard = createRateHandler(app);
 
-    let _flipResetTimer = null;
-
-    // Lật thẻ khi chạm, vuốt hoặc bấm nút lật (hỗ trợ vuốt lên 360 độ liên tục)
-    const triggerFlip = (direction = 'toggle') => {
-      try {
-        if (!overlay.classList.contains('active')) return;
-        
-        // Nếu đang ở mặt trước và đang trong thời gian suy nghĩ
-        if (!app.studySession.isFlipped && _isFlipLocked) {
-          btnMainFlip?.classList.add('shake-cue');
-          setTimeout(() => btnMainFlip?.classList.remove('shake-cue'), 350);
-          return;
-        }
-
-        if (_flipCountdownTimer) {
-          clearInterval(_flipCountdownTimer);
-          _flipCountdownTimer = null;
-        }
-        _isFlipLocked = false;
-
-        globalStudyTimer.recordActivity();
-        const currentlyFlipped = app.studySession.isFlipped;
-
-        if (direction === 'up' && currentlyFlipped) {
-          // LƯỚT TIẾP THUẬN CHIỀU LÊN: Lật tiếp 180deg -> 360deg về lại mặt trước
-          app.studySession.isFlipped = false;
-          flashcardEl.classList.remove('flipped');
-          flashcardEl.classList.add('flipped-360');
-
-          if (_flipResetTimer) clearTimeout(_flipResetTimer);
-          _flipResetTimer = setTimeout(() => {
-            flashcardEl.classList.add('no-transition');
-            flashcardEl.classList.remove('flipped-360');
-            void flashcardEl.offsetHeight;
-            requestAnimationFrame(() => {
-              flashcardEl.classList.remove('no-transition');
-            });
-            _flipResetTimer = null;
-          }, 290);
-
-          frontFlipControl?.classList.add('visible');
-          fsrsButtonsContainer?.classList.remove('visible');
-          startFrontActiveRecallTimer();
-        } else if (direction === 'down' && currentlyFlipped) {
-          // LƯỚT XUỐNG: Lật ngược 180deg -> 0deg về lại mặt trước
-          app.studySession.isFlipped = false;
-          if (_flipResetTimer) {
-            clearTimeout(_flipResetTimer);
-            _flipResetTimer = null;
-          }
-          flashcardEl.classList.remove('flipped', 'flipped-360');
-
-          frontFlipControl?.classList.add('visible');
-          fsrsButtonsContainer?.classList.remove('visible');
-          startFrontActiveRecallTimer();
-        } else {
-          // Lật bình thường (đổi mặt)
-          const isFlipped = app.studySession.flipCard();
-          if (_flipResetTimer) {
-            clearTimeout(_flipResetTimer);
-            _flipResetTimer = null;
-          }
-          flashcardEl.classList.remove('flipped-360');
-          flashcardEl.classList.toggle('flipped', isFlipped);
-
-          if (isFlipped) {
-            _backShowTime = performance.now();
-            _lastFlipLatencyMs = _backShowTime - (_cardShowTime || _backShowTime);
-            frontFlipControl?.classList.remove('visible');
-            fsrsButtonsContainer?.classList.add('visible');
-          } else {
-            frontFlipControl?.classList.add('visible');
-            fsrsButtonsContainer?.classList.remove('visible');
-            startFrontActiveRecallTimer();
-          }
-        }
-      } catch (err) {
-        console.error('Lỗi khi lật thẻ:', err);
-      }
-    };
-
-    // Sự kiện bấm nút Xem đáp án chính ở dưới
-    if (btnMainFlip) {
-      btnMainFlip.addEventListener('click', (e) => {
-        e.stopPropagation();
-        triggerFlip();
-      });
-    }
-
-    flashcardEl.addEventListener('click', (e) => {
-      if (
-        e.target.closest('.card-sound-btn-inline') ||
-        e.target.closest('.card-sound-btn') || 
-        e.target.closest('#btn-audio-speaker') || 
-        e.target.closest('#btn-audio-speaker-back') || 
-        e.target.closest('#btn-example-audio') ||
-        e.target.closest('.btn-card-audio-mini') ||
-        e.target.closest('.btn-example-audio') ||
-        e.target.closest('.btn-card-info') ||
-        e.target.closest('#card-audio-blind-wrap')
-      ) {
-        return;
-      }
-      triggerFlip();
+    bindCardSwipeAndDragGestures(app, {
+      flashcardEl,
+      btnMainFlip,
+      triggerFlip,
+      safeRateCard
     });
-
-    let _isRatingInProgress = false;
-    const safeRateCard = (rating) => {
-      if (!app.studySession || !app.studySession.isActive) return;
-      if (!app.studySession.isFlipped) return;
-      
-      const prefs = getStudyPrefs();
-      const backViewMs = _backShowTime > 0 ? (performance.now() - _backShowTime) : 0;
-
-      // Khóa thông minh ở mặt sau (nếu người dùng bật trong Menu 3 chấm)
-      if (prefs.enableBackLock) {
-        let minLockMs = 0;
-        if (rating === Rating.Again) minLockMs = 1500;
-        else if (rating === Rating.Hard) minLockMs = 1000;
-        else if (rating === Rating.Good) minLockMs = 500;
-        else if (rating === Rating.Easy) minLockMs = 0;
-
-        if (backViewMs < minLockMs) {
-          const ratingClassMap = {
-            [Rating.Again]: '.btn-fsrs-rating.again',
-            [Rating.Hard]: '.btn-fsrs-rating.hard',
-            [Rating.Good]: '.btn-fsrs-rating.good',
-            [Rating.Easy]: '.btn-fsrs-rating.easy'
-          };
-          const targetBtn = document.querySelector(ratingClassMap[rating]);
-          if (targetBtn) {
-            targetBtn.classList.remove('shake-cue');
-            void targetBtn.offsetWidth;
-            targetBtn.classList.add('shake-cue');
-          }
-          return;
-        }
-      }
-
-      if (_isRatingInProgress) return;
-      _isRatingInProgress = true;
-
-      // Chấm điểm và chuyển thẻ tức thì (0ms latency, không chờ animation)
-      try {
-        globalStudyTimer.recordActivity();
-        const latencySec = _lastFlipLatencyMs > 0 ? Number((_lastFlipLatencyMs / 1000).toFixed(2)) : null;
-        const backViewSec = Number((backViewMs / 1000).toFixed(2));
-
-        app.studySession.rateCard(rating, { latencySec, backViewSec, backViewMs: Math.round(backViewMs) });
-        recordPomodoroCardReviewed();
-        // Ẩn toàn bộ thông báo tạm ngưng/thẻ khó trong phiên học để giữ tâm lý thoải mái và tập trung
-      } catch (err) {
-        console.error('Lỗi rating thẻ:', err);
-      } finally {
-        _isRatingInProgress = false;
-      }
-    };
-
-    // Touch Swipe Gesture Support (Vuốt lên lật thẻ dọc, vuốt xuống lật lại)
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let touchStartTime = 0;
-
-    flashcardEl.addEventListener('touchstart', (e) => {
-      if (e.touches && e.touches.length === 1) {
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-        touchStartTime = Date.now();
-      }
-    }, { passive: true });
-
-    flashcardEl.addEventListener('touchend', (e) => {
-      if (!e.changedTouches || e.changedTouches.length === 0) return;
-      const touchEndX = e.changedTouches[0].clientX;
-      const touchEndY = e.changedTouches[0].clientY;
-      const diffX = touchEndX - touchStartX;
-      const diffY = touchEndY - touchStartY;
-      const elapsed = Date.now() - touchStartTime;
-
-      if (elapsed < 600) {
-        // 1. Vuốt LÊN (Swipe UP): Lật thẻ dọc xem đáp án & lướt tiếp thuận chiều lên lật lại mặt trước!
-        if (diffY < -35 && Math.abs(diffY) > Math.abs(diffX) * 0.8) {
-          triggerFlip('up');
-        }
-        // 2. Vuốt XUỐNG (Swipe DOWN): Lật ngược lại mặt trước
-        else if (diffY > 35 && Math.abs(diffY) > Math.abs(diffX) * 0.8) {
-          triggerFlip('down');
-        }
-        // 3. Vuốt NGANG khi đã lật (Swipe Left: Quên, Swipe Right: Tốt)
-        else if (Math.abs(diffX) > 60 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
-          if (app.studySession.isFlipped) {
-            if (diffX < 0) {
-              safeRateCard(Rating.Again);
-            } else {
-              safeRateCard(Rating.Good);
-            }
-          }
-        }
-      }
-    }, { passive: true });
-
-    // Hỗ trợ chuột / Trackpad trên Desktop: Kéo lên lật thẻ dọc (lướt tiếp lật lại), kéo xuống lật lại
-    let mouseStartY = 0;
-    let mouseStartTime = 0;
-    let isMouseDown = false;
-
-    flashcardEl.addEventListener('mousedown', (e) => {
-      if (e.target.closest('button, svg, path, .card-sound-btn, .btn-example-audio, .btn-card-audio-mini')) return;
-      mouseStartY = e.clientY;
-      mouseStartTime = Date.now();
-      isMouseDown = true;
-    });
-
-    window.addEventListener('mouseup', (e) => {
-      if (!isMouseDown) return;
-      isMouseDown = false;
-      const diffY = e.clientY - mouseStartY;
-      const elapsed = Date.now() - mouseStartTime;
-      if (elapsed < 600 && Math.abs(diffY) > 35) {
-        if (diffY < -35) {
-          triggerFlip('up');
-        } else if (diffY > 35) {
-          triggerFlip('down');
-        }
-      }
-    });
-
-    // Phát âm từ vựng mặt trước
-    if (btnAudioSpeaker) {
-      btnAudioSpeaker.addEventListener('click', (e) => {
-        try {
-          e.stopPropagation();
-          globalStudyTimer.recordActivity();
-          if (app.studySession.currentCard) {
-            const word = app.studySession.currentCard.word;
-            speak(word, { cardObj: app.studySession.currentCard });
-          }
-        } catch (err) {
-          console.error('Lỗi phát âm mặt trước:', err);
-        }
-      });
-    }
-
-    // Chạm vào Waveform Audio Blind để nghe lại phát âm
-    const audioBlindWrap = document.getElementById('card-audio-blind-wrap');
-    if (audioBlindWrap) {
-      audioBlindWrap.addEventListener('click', (e) => {
-        try {
-          e.stopPropagation();
-          globalStudyTimer.recordActivity();
-          if (app.studySession?.currentCard) {
-            const word = app.studySession.currentCard.word;
-            speak(word, { cardObj: app.studySession.currentCard });
-          }
-        } catch (err) {
-          console.error('Lỗi phát âm Audio Blind:', err);
-        }
-      });
-    }
-
-    // Phát âm từ vựng mặt sau
-    if (btnAudioSpeakerBack) {
-      btnAudioSpeakerBack.addEventListener('click', (e) => {
-        try {
-          e.stopPropagation();
-          globalStudyTimer.recordActivity();
-          if (app.studySession.currentCard) {
-            const word = app.studySession.currentCard.word;
-            speak(word, { cardObj: app.studySession.currentCard });
-          }
-        } catch (err) {
-          console.error('Lỗi phát âm mặt sau:', err);
-        }
-      });
-    }
-
-    // Phát âm câu ví dụ
-    if (btnExampleAudio) {
-      btnExampleAudio.addEventListener('click', (e) => {
-        try {
-          e.stopPropagation();
-          globalStudyTimer.recordActivity();
-          if (app.studySession.currentCard && app.studySession.currentCard.example) {
-            speak(app.studySession.currentCard.example);
-          }
-        } catch (err) {
-          console.error('Lỗi phát âm câu ví dụ:', err);
-        }
-      });
-    }
-
-    // Xem thông tin tiến trình học của từ (FSRS Inspector & Chi tiết từ)
-    const handleShowCardInfo = (e) => {
-      try {
-        e.stopPropagation();
-        e.preventDefault();
-        globalStudyTimer.recordActivity();
-        const currentCard = app.studySession?.currentCard;
-        if (currentCard) {
-          openWordDetailModal(currentCard, app);
-        }
-      } catch (err) {
-        console.error('Lỗi mở chi tiết từ vựng:', err);
-      }
-    };
-
-    const btnCardInfoFront = document.getElementById('btn-card-info-front');
-    const btnCardInfoBack = document.getElementById('btn-card-info-back');
-    if (btnCardInfoFront) {
-      btnCardInfoFront.addEventListener('click', handleShowCardInfo);
-    }
-    if (btnCardInfoBack) {
-      btnCardInfoBack.addEventListener('click', handleShowCardInfo);
-    }
-
-    // Thiết lập hệ thống điều phối & cài đặt Auto-Play
+    bindCardAudioAndInfo(app);
     setupAutoPlayControls(app, triggerFlip);
-
-    // Đóng phiên học với Custom Confirmation
-    if (btnClose) {
-      btnClose.addEventListener('click', async () => {
-        try {
-          stopAutoPlay();
-          const stats = app.studySession.sessionStats;
-          const reviewed = stats.reviewedCount || 0;
-          const confirmed = await showConfirm({
-            title: 'Thoát phiên học?',
-            message: reviewed > 0 
-              ? `Bạn đã hoàn thành ${reviewed} thẻ trong phiên học này. Bạn có chắc chắn muốn thoát không?`
-              : 'Bạn có chắc chắn muốn thoát phiên học này không?',
-            confirmText: 'Xác nhận',
-            type: 'danger',
-            icon: '🚪'
-          });
-
-          if (confirmed) {
-            if (_studyTimerUnsubscribe) {
-              _studyTimerUnsubscribe();
-              _studyTimerUnsubscribe = null;
-            }
-            stopPomodoroTracker();
-            app.studySession?.stopAudio();
-            globalStudyTimer.endSession();
-    try {
-      BehavioralOptimizer.autoCalibrateBackground(app);
-    } catch (e) {}
-            StorageManager.flushPendingSync();
-            overlay.classList.remove('active');
-            scrollToTop();
-            if (reviewed > 0) {
-              showSummaryModal(app, stats, true);
-            } else {
-              app.refreshAllViews();
-            }
-          }
-        } catch (err) {
-          console.error('Lỗi khi đóng phiên học:', err);
-        }
-      });
-    }
-
-    // 4 FSRS Rating buttons
-    document.querySelectorAll('.btn-fsrs-rating').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const rating = parseInt(btn.getAttribute('data-rating'), 10);
-        safeRateCard(rating);
-      });
+    bindStudyRatingAndShortcuts(app, {
+      overlay,
+      triggerFlip,
+      safeRateCard,
+      closeDrawer
     });
-
-    // Keyboard Shortcuts (Space, 1-4, R, Esc)
-    window.addEventListener('keydown', (e) => {
-      try {
-        if (!overlay.classList.contains('active')) return;
-        if (drawer?.classList.contains('active')) {
-          if (e.key === 'Escape') closeDrawer();
-          return;
-        }
-
-        globalStudyTimer.recordActivity();
-
-        if (e.code === 'Space') {
-          if (document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA')) {
-            return;
-          }
-          e.preventDefault();
-          if (!app.studySession.isFlipped) {
-            triggerFlip();
-          } else {
-            // Khi đã lật thẻ: Space đóng vai trò bấm Nhớ (Good)
-            safeRateCard(Rating.Good);
-          }
-          return;
-        } else if (e.key === 'r' || e.key === 'R') {
-          e.preventDefault();
-          if (app.studySession.currentCard) {
-            app.studySession.speak(app.studySession.currentCard.word);
-          }
-        } else if (e.key === 'Escape') {
-          e.preventDefault();
-          if (btnClose) btnClose.click();
-        } else if (app.studySession.isFlipped) {
-          const p = getStudyPrefs();
-          const is2Buttons = p.ratingButtonsMode === '2_buttons';
-          let rating = null;
-
-          if (is2Buttons) {
-            // Chế độ 2 nút tối giản:
-            // 1 hoặc Mũi tên trái: Quên (Again)
-            // 2 hoặc 3 hoặc Mũi tên phải hoặc Enter: Nhớ (Good)
-            if (e.key === '1' || e.key === 'ArrowLeft') {
-              rating = Rating.Again;
-            } else if (e.key === '2' || e.key === '3' || e.key === 'ArrowRight' || e.key === 'Enter') {
-              rating = Rating.Good;
-            }
-          } else {
-            if (e.key === '1') rating = Rating.Again;
-            else if (e.key === '2') rating = Rating.Hard;
-            else if (e.key === '3') rating = Rating.Good;
-            else if (e.key === '4') rating = Rating.Easy;
-          }
-
-          if (rating) {
-            e.preventDefault();
-            safeRateCard(rating);
-          }
-        }
-      } catch (err) {
-        console.error('Lỗi phím tắt học:', err);
-      }
-    });
-
-    // Nút Về trang chủ trong màn hình tổng kết
-    const btnSummaryHome = document.getElementById('btn-summary-home');
-    if (btnSummaryHome) {
-      btnSummaryHome.addEventListener('click', () => {
-        try {
-          document.getElementById('study-summary-modal')?.classList.remove('active');
-          getStudyOverlay()?.classList.remove('active');
-          scrollToTop();
-          app.refreshAllViews();
-          if (app._pendingUpdateReload) {
-            app._pendingUpdateReload = false;
-            app.showToast('🚀 Đang áp dụng phiên bản mới nhất...', 'success', 2000);
-            setTimeout(() => window.location.reload(), 1000);
-          }
-        } catch (err) {
-          console.error('Lỗi đóng summary modal:', err);
-        }
-      });
-    }
   } catch (err) {
     console.error('Lỗi setupStudyControls:', err);
   }
 }
-
 
 export function startStudySession(app, queue) {
   try {
@@ -934,24 +112,21 @@ export function startStudySession(app, queue) {
     if (!overlay) return;
     overlay.classList.add('active');
     applyRatingButtonsMode(getStudyPrefs().ratingButtonsMode);
-    
-    // Đồng bộ nhãn chế độ ưu tiên trên header
+
     const currentMode = app.currentStudyContext?.options?.mode || app.currentStudyContext?.mode || 'due_first';
     updateStudyPriorityUI(currentMode);
 
-    // Mở khóa âm thanh song song không làm nghẽn luồng render giao diện
     setTimeout(() => {
       unlockAudioContext();
     }, 0);
-    
+
     globalStudyTimer.startSession();
-    if (_studyTimerUnsubscribe) _studyTimerUnsubscribe();
-    _studyTimerUnsubscribe = globalStudyTimer.subscribe((state) => {
+    clearStudyTimerSubscription();
+    studyRuntime.timerUnsubscribe = globalStudyTimer.subscribe((state) => {
       updateStudyLiveTimerUI(state);
     });
     initPomodoroTracker(app);
 
-    // Bỏ qua modal nghỉ ngơi 15 từ để học liền mạch không gián đoạn
     if (app.studySession) {
       app.studySession.onBatchCheckpoint = null;
     }
@@ -962,13 +137,12 @@ export function startStudySession(app, queue) {
   }
 }
 
-
 export function handleCardChange(app, card, progress) {
   return renderCardChange(app, card, progress, {
     onResetTiming: () => {
-      _cardShowTime = performance.now();
-      _backShowTime = 0;
-      _lastFlipLatencyMs = 0;
+      studyRuntime.cardShowTime = performance.now();
+      studyRuntime.backShowTime = 0;
+      studyRuntime.lastFlipLatencyMs = 0;
     },
     startFrontActiveRecallTimer,
     updateStudyPriorityUI
@@ -991,7 +165,6 @@ export function handleStudyFinish(app, sessionStats) {
       const deck = app.deckManager?.getDeckById(deckId);
       const rawSubtopics = deck ? (Array.isArray(deck.subtopics) ? deck.subtopics : (Array.isArray(deck.subcategories) ? deck.subcategories : [])) : [];
 
-      // Kiểm tra tất cả subtopics của deck để tự động đánh dấu hoàn thành nếu 100% thẻ đã học
       for (let idx = 0; idx < rawSubtopics.length; idx++) {
         const sObj = rawSubtopics[idx];
         const sName = typeof sObj === 'object' ? (sObj.name || sObj.id) : String(sObj);
@@ -1015,10 +188,7 @@ export function handleStudyFinish(app, sessionStats) {
       }
     }
 
-    if (_studyTimerUnsubscribe) {
-      _studyTimerUnsubscribe();
-      _studyTimerUnsubscribe = null;
-    }
+    clearStudyTimerSubscription();
     globalStudyTimer.endSession();
     try {
       BehavioralOptimizer.autoCalibrateBackground(app);
@@ -1030,5 +200,3 @@ export function handleStudyFinish(app, sessionStats) {
     console.error('Lỗi trong handleStudyFinish:', err);
   }
 }
-
-// Modal tổng kết phiên học (Summary Modal) đã được module hóa sang ./study/summary-modal.js

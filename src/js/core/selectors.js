@@ -1,12 +1,19 @@
 /**
- * Vocabulary Selectors & Deck Management Core
+ * Vocabulary Selectors & Deck Management Core (Barrel Facade)
  */
 
 import { StorageManager } from '../services/storage.js';
-import { FSRS, State, isCardDue } from './fsrs.js';
-import { MASTERY_STABILITY_THRESHOLD, STUDY_MODES, getLearningGoal } from '../config.js';
-import { getLocalDateKey, normalizePos } from '../utils.js';
-import { TopicRepository, INITIAL_DECKS, loadTopicWords, loadAllWords, WORDS_MAP, LEGACY_ID_MAP, getWordsByTopic } from '../../data/index.js';
+import { INITIAL_DECKS, loadTopicWords, loadAllWords, WORDS_MAP, LEGACY_ID_MAP, getWordsByTopic } from '../../data/index.js';
+import {
+  selectDueCards,
+  selectWeakWords,
+  selectAttentionCards,
+  computeDeckStats
+} from './selectors/deck-stats.js';
+import {
+  buildStudyQueue,
+  computeStudyModeCounts
+} from './selectors/study-queue.js';
 
 export class DeckManager {
   constructor() {
@@ -24,14 +31,11 @@ export class DeckManager {
    * Khởi tạo danh mục Decks và nạp từ vựng sẵn sàng
    */
   async init() {
-    // 1. Nạp danh mục các chủ đề hệ thống
     this.decks = INITIAL_DECKS.map(deck => ({ ...deck }));
 
-    // 2. Nạp thêm các bộ thẻ người dùng tự tạo (Custom Decks)
     const customDecks = StorageManager.getCustomDecks();
     this.decks = [...this.decks, ...customDecks];
 
-    // 3. Nạp toàn bộ từ điển từ vựng (O(1) Direct Reference)
     try {
       if (WORDS_MAP instanceof Map) {
         for (const [id, wordData] of WORDS_MAP.entries()) {
@@ -46,7 +50,6 @@ export class DeckManager {
       console.warn('[DeckManager] Lỗi nạp loadAllWords:', e);
     }
 
-    // 4. Khởi tạo và hydrate cấu trúc thẻ cho từng bộ đề
     this.deckCardsMap.clear();
     for (const deck of this.decks) {
       if (Array.isArray(deck.wordIds)) {
@@ -137,10 +140,7 @@ export class DeckManager {
     if (Array.isArray(deck.wordIds) && deck.wordIds.length > 0) {
       const resolvedCards = deck.wordIds.map(wordId => {
         const wordDef = (wordsDict && wordsDict[wordId]) || this.wordsMap.get(`${deckId}:${wordId}`) || this.wordsMap.get(wordId);
-        if (wordDef) {
-          return { ...wordDef, id: wordId, deckId: deck.id };
-        }
-        return { id: wordId, word: wordId, deckId: deck.id };
+        return wordDef ? { ...wordDef, id: wordId, deckId: deck.id } : { id: wordId, word: wordId, deckId: deck.id };
       });
       this.deckCardsMap.set(deck.id, resolvedCards);
       return;
@@ -155,7 +155,6 @@ export class DeckManager {
       return;
     }
 
-    // Fallback: nếu deck là chủ đề tổng hợp chưa có wordIds trực tiếp
     const topicWords = getWordsByTopic(deckId);
     if (Array.isArray(topicWords) && topicWords.length > 0) {
       const resolvedCards = topicWords.map(w => {
@@ -179,13 +178,8 @@ export class DeckManager {
     }
   }
 
-  getAllDecks() {
-    return this.decks;
-  }
-
-  getDeckById(deckId) {
-    return this.decks.find(d => d.id === deckId);
-  }
+  getAllDecks() { return this.decks; }
+  getDeckById(deckId) { return this.decks.find(d => d.id === deckId); }
 
   getCardsByDeckId(deckId) {
     let cards = this.deckCardsMap.get(deckId);
@@ -203,20 +197,9 @@ export class DeckManager {
     return cards || [];
   }
 
-  /**
-   * Alias tương thích với getCardsByDeckId
-   */
-  getDeckCards(deckId) {
-    return this.getCardsByDeckId(deckId);
-  }
-
-  getAllCards() {
-    return this.allCards;
-  }
-
-  getAllWords() {
-    return this.allCards;
-  }
+  getDeckCards(deckId) { return this.getCardsByDeckId(deckId); }
+  getAllCards() { return this.allCards; }
+  getAllWords() { return this.allCards; }
 
   /**
    * Lấy danh sách thẻ từ vựng đầy đủ của một chủ đề con (Subtopic)
@@ -280,125 +263,37 @@ export class DeckManager {
     return this.wordsMap.get(cardId) || null;
   }
 
-  /**
-   * Làm mới cache thống kê khi có thay đổi trạng thái hoặc chuyển tab
-   */
   invalidateStatsCache() {
     this._statsCache.clear();
     this._statsRevision = StorageManager.getStateRevision();
   }
 
-  /**
-   * Lấy danh sách thẻ tới hạn cần ôn tập (Bỏ qua thẻ bị tạm dừng)
-   */
   getDueCards(deckId = null) {
-    const allDeckCards = deckId ? (this.deckCardsMap.get(deckId) || []) : this.allCards;
-    const now = new Date();
-    const dueCards = [];
-
-    for (const card of allDeckCards) {
-      const state = StorageManager.getCardState(card.id);
-      if (state && state.suspended === true) continue; // Bỏ qua thẻ đã tạm dừng
-      if (isCardDue(state, now)) {
-        dueCards.push({
-          ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
-          fsrsState: state
-        });
-      }
-    }
-    return dueCards;
-  }
-
-  /**
-   * Lấy danh sách từ vựng yếu / hay quên nhất ("Bệnh Án Từ Vựng")
-   * Tiêu chí: Từng bị quên lapses >= 2 hoặc có xác suất nhớ R(t) < 0.65 hoặc isLeech === true
-   */
-  getWeakWords(limit = 10) {
-    const now = new Date();
-    const fsrsInstance = new FSRS();
-    const weakList = [];
-
-    for (const card of this.allCards) {
-      const state = StorageManager.getCardState(card.id);
-      if (!state || state.state === State.New || state.state === 0 || state.suspended) {
-        continue;
-      }
-
-      const lapses = Number(state.lapses) || 0;
-      const isLeech = Boolean(state.isLeech || lapses >= 8);
-      const r = fsrsInstance.getRetrievability(state, now);
-
-      if (lapses >= 2 || isLeech || (state.reps >= 2 && r < 0.65)) {
-        weakList.push({
-          ...(this.wordsMap.get(`${card.deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
-          fsrsState: state,
-          _lapses: lapses,
-          _isLeech: isLeech,
-          _retrievability: r
-        });
-      }
-    }
-
-    // Sắp xếp: Ưu tiên từ có nhiều lapses nhất, sau đó đến từ có R(t) thấp nhất
-    weakList.sort((a, b) => {
-      if (b._lapses !== a._lapses) return b._lapses - a._lapses;
-      return a._retrievability - b._retrievability;
+    return selectDueCards({
+      deckCardsMap: this.deckCardsMap,
+      allCards: this.allCards,
+      wordsMap: this.wordsMap,
+      deckId
     });
-
-    return weakList.slice(0, limit);
   }
 
-  /**
-   * Lấy danh sách từ khó (ngưỡng quên lapses >= 8 hoặc isLeech === true).
-   * Ẩn thông báo thẻ tạm ẩn khỏi giao diện (vẫn xử lý ngầm trong FSRS & Storage).
-   */
+  getWeakWords(limit = 10) {
+    return selectWeakWords({
+      allCards: this.allCards,
+      wordsMap: this.wordsMap,
+      limit
+    });
+  }
+
   getAttentionCards(deckId = null) {
-    const targetCards = deckId ? (this.deckCardsMap.get(deckId) || []) : this.allCards;
-    const difficultCards = [];
-    const seenDifficult = new Set();
-
-    for (const card of targetCards) {
-      if (!card || !card.id) continue;
-      const state = StorageManager.getCardState(card.id);
-      if (!state) continue;
-
-      // Ẩn thông báo từ tạm ẩn khỏi UI, logic xử lý ngầm vẫn bảo toàn
-      if (state.suspended === true) continue;
-
-      const lapses = Number(state.lapses) || 0;
-      const isLeech = Boolean(state.isLeech === true || lapses >= 8);
-
-      // Chừa một nhãn duy nhất là từ khó khi ngưỡng bấm quên >= 8 lần
-      if (isLeech && !seenDifficult.has(card.id)) {
-        seenDifficult.add(card.id);
-        const fullCard = {
-          ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
-          fsrsState: state
-        };
-        difficultCards.push({
-          ...fullCard,
-          _lapses: lapses,
-          _isLeech: true,
-          _isSuspended: false
-        });
-      }
-    }
-
-    // Sắp xếp: Ưu tiên số lần quên (lapses) cao nhất lên trước
-    difficultCards.sort((a, b) => (b._lapses || 0) - (a._lapses || 0));
-
-    return {
-      difficultCards,
-      lapsedCards: difficultCards, // Giữ tương thích nếu có code cũ tham chiếu
-      suspendedCards: [],           // Ẩn khỏi UI thông báo
-      allCards: difficultCards,
-      totalCount: difficultCards.length
-    };
+    return selectAttentionCards({
+      deckCardsMap: this.deckCardsMap,
+      allCards: this.allCards,
+      wordsMap: this.wordsMap,
+      deckId
+    });
   }
 
-  /**
-   * Tính toán thống kê tiến độ học của một bộ thẻ (New, Learning, Review, Mastered, Leech, Suspended)
-   */
   getDeckStats(deckId) {
     const rev = StorageManager.getStateRevision();
     if (this._statsRevision !== rev) {
@@ -412,538 +307,21 @@ export class DeckManager {
 
     const deck = this.getDeckById(deckId);
     if (!deck) {
-      const empty = { total: 0, newCount: 0, learningCount: 0, reviewCount: 0, masteredCount: 0, dueCount: 0, leechCount: 0, suspendedCount: 0, progressPercent: 0 };
-      return empty;
+      return { total: 0, newCount: 0, learningCount: 0, reviewCount: 0, masteredCount: 0, dueCount: 0, leechCount: 0, suspendedCount: 0, progressPercent: 0 };
     }
 
     const cards = this.getCardsByDeckId(deckId);
-    const cardStates = StorageManager.getAllCardStates();
-    const now = new Date();
-
-    let newCount = 0;
-    let learningCount = 0;
-    let reviewCount = 0;
-    let dueCount = 0;
-    let masteredCount = 0;
-    let leechCount = 0;
-    let suspendedCount = 0;
-    let lastStudiedTime = 0;
-
-    for (let i = 0; i < cards.length; i++) {
-      const card = cards[i];
-      const state = StorageManager.getCardState(card.id);
-      if (state && state.suspended === true) {
-        suspendedCount++;
-      }
-      if (state && state.isLeech === true) {
-        leechCount++;
-      }
-      if (!state || state.state === State.New || state.state === 0) {
-        newCount++;
-      } else {
-        if (state.last_review) {
-          const t = Date.parse(state.last_review) || 0;
-          if (t > lastStudiedTime) lastStudiedTime = t;
-        }
-        if (state.state === State.Learning || state.state === State.Relearning) {
-          learningCount++;
-          if (isCardDue(state, now) && !state.suspended) dueCount++;
-        } else if (state.state === State.Review) {
-          reviewCount++;
-          if (state.stability >= MASTERY_STABILITY_THRESHOLD) {
-            masteredCount++;
-          }
-          if (isCardDue(state, now) && !state.suspended) dueCount++;
-        }
-      }
-    }
-
-    const stats = {
-      total: cards.length,
-      newCount,
-      learningCount,
-      reviewCount,
-      masteredCount,
-      dueCount,
-      leechCount,
-      suspendedCount,
-      lastStudiedTime,
-      progressPercent: cards.length > 0 ? Math.round(((cards.length - newCount) / cards.length) * 100) : 0
-    };
-
+    const stats = computeDeckStats(cards);
     this._statsCache.set(deckId, stats);
     return stats;
   }
 
-  /**
-   * Lấy danh sách thẻ ưu tiên thông minh theo thuật toán FSRS
-   * @param {string|null} deckId
-   * @param {object} userSettings
-   * @param {string|null} subtopic
-   * @param {object} options - { mode: 'due_only' | 'new_only' | 'auto' | 'mixed' }
-   */
   getStudyQueue(deckId = null, userSettings = {}, subtopic = null, options = {}) {
-    const settings = {
-      dailyNewLimit: 10,
-      dailyReviewLimit: 50,
-      ...userSettings
-    };
-
-    const mode = options?.mode || (options?.onlyDue ? 'due_only' : 'auto');
-    const isAudioBlind = mode === STUDY_MODES.AUDIO_BLIND || options?.audioBlind === true || mode === 'audio_blind';
-    const stateRev = StorageManager.getStateRevision();
-    const cacheKey = `${deckId || 'all'}_${subtopic || 'none'}_${mode}_${isAudioBlind ? 'ab' : 'norm'}_${stateRev}`;
-
-    if (this._studyQueueCache && this._studyQueueCache.has(cacheKey)) {
-      return this._studyQueueCache.get(cacheKey);
-    }
-
-    let targetCards = [];
-
-    if (deckId && subtopic) {
-      targetCards = this.getSubtopicCards(deckId, subtopic);
-    } else if (deckId) {
-      const deck = this.getDeckById(deckId);
-      const isProgressive = deck && deck.isProgressive === true;
-      if (isProgressive) {
-        const rawSubtopics = Array.isArray(deck.subtopics) ? deck.subtopics : (Array.isArray(deck.subcategories) ? deck.subcategories : []);
-        const userProgress = StorageManager.getUserProgress();
-        const unlockedCards = [];
-        let prevDone = true;
-
-        for (let i = 0; i < rawSubtopics.length; i++) {
-          const subObj = rawSubtopics[i];
-          const subId = typeof subObj === 'object' ? (subObj.id || `${deck.id}-${i}`) : `${deck.id}-${i}`;
-          const subCards = this.getSubtopicCards(deckId, subObj);
-
-          // Kiểm tra xem phần này đã học xong chưa
-          const isCardsLearned = subCards.length > 0 && subCards.every(c => {
-            const s = StorageManager.getCardState(c.id);
-            return s && s.state !== State.New && s.state !== 0;
-          });
-          const isSubRecorded = StorageManager.isSubtopicCompleted(subId) || 
-            (typeof subObj === 'object' && subObj.id && StorageManager.isSubtopicCompleted(subObj.id));
-          const thisSubDone = isCardsLearned || isSubRecorded;
-
-          let isUnlocked = (i === 0) || prevDone;
-          if (!isUnlocked) {
-            const unlockRule = typeof subObj === 'object' && subObj.unlockRule 
-              ? subObj.unlockRule 
-              : { type: 'completeSubtopic', subtopicId: rawSubtopics[i - 1]?.id || `${deck.id}-${i - 1}` };
-            isUnlocked = TopicRepository.isSubtopicUnlocked({ id: subId, unlockRule }, userProgress);
-          }
-
-          if (isUnlocked) {
-            unlockedCards.push(...subCards);
-          }
-
-          prevDone = thisSubDone;
-        }
-        targetCards = unlockedCards.length > 0 ? unlockedCards : this.getCardsByDeckId(deckId);
-      } else {
-        targetCards = this.getCardsByDeckId(deckId);
-      }
-    } else {
-      // Toàn bộ ứng dụng (Đã deduplicate sẵn từ trước trong rebuildAllCardsList)
-      targetCards = this.allCards;
-    }
-
-    const isAppWide = (deckId === null || deckId === undefined);
-    if (!isAppWide) {
-      // Đảm bảo không bao giờ có thẻ trùng lặp ID trong danh sách học theo chủ đề
-      const seenTargetIds = new Set();
-      const uniqueTargetCards = [];
-      for (const c of targetCards) {
-        if (c && c.id && !seenTargetIds.has(c.id)) {
-          seenTargetIds.add(c.id);
-          uniqueTargetCards.push(c);
-        }
-      }
-      targetCards = uniqueTargetCards;
-    }
-
-    const now = new Date();
-    const rolloverHour = Number(settings.rolloverHour) || 0;
-    const todayKey = getLocalDateKey(now, rolloverHour);
-
-    const logs = StorageManager.getStudyLogs() || [];
-    const todayLogs = logs.filter(l => l.timestamp && getLocalDateKey(l.timestamp, rolloverHour) === todayKey);
-    const reviewedTodayCardIds = new Set(todayLogs.map(l => l.cardId));
-
-    const isCardStudiedToday = (cardId, state) => {
-      if (reviewedTodayCardIds.has(cardId)) return true;
-      if (state && state.last_review && getLocalDateKey(state.last_review, rolloverHour) === todayKey) return true;
-      return false;
-    };
-
-    const dueCards = [];
-    const newCards = [];
-    const learningCards = [];
-    const weakCards = [];
-
-    const cardStates = StorageManager.getAllCardStates() || {};
-    let a1Learned = 0, a1Total = 0;
-    let a2Learned = 0, a2Total = 0;
-    let b1Learned = 0, b1Total = 0;
-    let b2Learned = 0, b2Total = 0;
-
-    for (let i = 0; i < targetCards.length; i++) {
-      const card = targetCards[i];
-      const hydratedCard = isAppWide ? card : (this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card);
-      const state = cardStates[card.id] || StorageManager.getCardState(card.id);
-
-      // Tích hợp đếm số từ theo bậc CEFR ngay trong lượt duyệt này (Zero duplicate loops)
-      const lvl = (card.level || card.cefr || 'A1').toUpperCase();
-      const isLearned = state && state.state !== State.New && state.state !== 0 && !state.suspended;
-      if (lvl === 'A1') { a1Total++; if (isLearned) a1Learned++; }
-      else if (lvl === 'A2') { a2Total++; if (isLearned) a2Learned++; }
-      else if (lvl === 'B1') { b1Total++; if (isLearned) b1Learned++; }
-      else if (lvl === 'B2') { b2Total++; if (isLearned) b2Learned++; }
-
-      // Bỏ qua thẻ đã tạm dừng (Suspended)
-      if (state && state.suspended === true) {
-        continue;
-      }
-
-      // Xác định thẻ thực sự là từ mới (chưa từng học hoặc không có lịch sử ôn tập)
-      const isCardActuallyNew = (!state || state.state === State.New || state.state === 0) &&
-                                (!state || !state.reps || state.reps === 0) &&
-                                (!state || !state.last_review);
-      const isDue = isCardDue(state, now);
-      const wasStudiedToday = isCardStudiedToday(card.id, state);
-
-      if (isCardActuallyNew) {
-        newCards.push({ ...hydratedCard, fsrsState: state || FSRS.createEmptyCard(card.id) });
-      } else if (isDue) {
-        dueCards.push({ ...hydratedCard, fsrsState: state });
-      } else if (state.state === State.Learning || state.state === State.Relearning) {
-        learningCards.push({ ...hydratedCard, fsrsState: state });
-      }
-
-      // Thu thập thẻ khó (Leech & Low Stability Hunter)
-      if (state && state.state !== State.New && state.state !== 0 && !state.suspended) {
-        const s = Number(state.stability) || 0;
-        const d = Number(state.difficulty) || 0;
-        const lapses = Number(state.lapses) || 0;
-        const isLeech = state.isLeech === true || lapses >= 8;
-        const isLowStability = s < 3;
-        const isHighDifficulty = d >= 7.0;
-        if (isLeech || isLowStability || isHighDifficulty) {
-          weakCards.push({
-            ...hydratedCard,
-            fsrsState: state,
-            _weakScore: (lapses * 15) + ((10 - Math.min(10, s)) * 2) + d,
-            _isDue: isDue,
-            _wasStudiedToday: wasStudiedToday
-          });
-        }
-      }
-    }
-
-    // Sắp xếp từ khó nhất và hay quên nhất lên đầu
-    weakCards.sort((a, b) => (b._weakScore || 0) - (a._weakScore || 0));
-
-    // Lọc thẻ khó đủ điều kiện ôn tập (Eligible Weak Cards):
-    // 1. Phải chưa học hôm nay, HOẶC nếu đã học hôm nay thì phải thực sự đến hạn (due <= now)
-    // 2. Không được có lịch ôn trong tương lai (due > now)
-    const eligibleWeakCards = weakCards.filter(c => {
-      if (c._wasStudiedToday && !c._isDue) return false;
-      const dueTime = c.fsrsState?.due ? new Date(c.fsrsState.due).getTime() : 0;
-      if (dueTime > now.getTime()) return false;
-      return true;
-    });
-
-    // 1. SẮP XẾP ƯU TIÊN THEO ĐỘ KHẨN CẤP FSRS R(t) (Urgency Sorting)
-    // Tính toán xác suất nhớ thực tế R(t). Thẻ có R(t) thấp nhất (nguy cơ quên cao nhất) được đưa lên đầu để cứu nguy trước
-    const fsrsInstance = new FSRS({
-      w: settings.fsrsW,
-      requestRetention: Number(settings.requestRetention) || 0.90,
-      enableFuzz: settings.enableFuzz !== false
-    });
-
-    dueCards.forEach(c => {
-      c._retrievability = fsrsInstance.getRetrievability(c.fsrsState, now);
-      c._dueTime = c.fsrsState?.due ? new Date(c.fsrsState.due).getTime() : 0;
-    });
-
-    dueCards.sort((a, b) => {
-      if (a._retrievability !== b._retrievability) {
-        return a._retrievability - b._retrievability;
-      }
-      return a._dueTime - b._dueTime;
-    });
-
-    // 2. SẮP XẾP TỪ MỚI THEO NẤC THANG CEFR (A1 -> A2 -> B1 -> B2 -> C1) & ĐỘ PHỔ BIẾN CỐT LÕI
-    const a1Ratio = a1Total > 0 ? (a1Learned / a1Total) : 0;
-    const a2Ratio = a2Total > 0 ? (a2Learned / a2Total) : 0;
-    const b1Ratio = b1Total > 0 ? (b1Learned / b1Total) : 0;
-    const b2Ratio = b2Total > 0 ? (b2Learned / b2Total) : 0;
-
-    const activeGoalId = settings.activeGoal?.id || 'cefr-b1';
-    const activeGoal = getLearningGoal(activeGoalId);
-    const targetDecksSet = new Set(activeGoal?.targetDecks || []);
-    const targetDecksList = Array.from(targetDecksSet);
-    const targetCefrSet = new Set((activeGoal?.targetCefr || []).map(c => c.toUpperCase()));
-
-    // Pre-calculate score for every new card in a single O(N) pass
-    for (let i = 0; i < newCards.length; i++) {
-      const c = newCards[i];
-      let score = 0;
-      const cardLevel = (c.level || c.cefr || 'A1').toUpperCase();
-      const topicIds = Array.isArray(c.topicIds) ? c.topicIds : [];
-      const deckId = c.deckId || '';
-      const posKey = normalizePos(c.pos);
-
-      // 1. Trọng số Nấc thang CEFR tuần tự (A1 -> A2 -> B1 -> B2 -> C1)
-      if (a1Ratio < 0.80) {
-        if (cardLevel === 'A1') score += 3000;
-        else if (cardLevel === 'A2') score += 1500;
-        else if (cardLevel === 'B1') score += 800;
-        else if (cardLevel === 'B2') score += 400;
-        else score += 100;
-      } else if (a2Ratio < 0.80) {
-        if (cardLevel === 'A2') score += 3000;
-        else if (cardLevel === 'A1') score += 2000;
-        else if (cardLevel === 'B1') score += 1000;
-        else if (cardLevel === 'B2') score += 500;
-        else score += 100;
-      } else if (b1Ratio < 0.80) {
-        if (cardLevel === 'B1') score += 3000;
-        else if (cardLevel === 'A2') score += 2000;
-        else if (cardLevel === 'A1') score += 1500;
-        else if (cardLevel === 'B2') score += 800;
-        else score += 100;
-      } else if (b2Ratio < 0.80) {
-        if (cardLevel === 'B2') score += 3000;
-        else if (cardLevel === 'B1') score += 2000;
-        else if (cardLevel === 'A2') score += 1500;
-        else score += 500;
-      } else {
-        if (cardLevel === 'C1') score += 3000;
-        else if (cardLevel === 'B2') score += 2000;
-        else score += 1000;
-      }
-
-      // 2. Trùng khớp với Mục tiêu học tập người dùng đã chọn
-      if (targetCefrSet.has(cardLevel)) score += 600;
-      if (targetDecksSet.has(deckId)) score += 500;
-      for (let j = 0; j < topicIds.length; j++) {
-        const tid = topicIds[j];
-        if (targetDecksSet.has(tid) || targetDecksList.some(d => tid.startsWith(d))) {
-          score += 400;
-          break;
-        }
-      }
-
-      // 3. Phân loại từ loại thiết yếu
-      if (posKey === 'verb') score += 300;
-      else if (posKey === 'noun') score += 250;
-      else if (posKey === 'adj') score += 200;
-      else score += 100;
-
-      // 4. Ưu tiên từ thuộc 1000 từ cốt lõi
-      if (deckId === 'top-1000-core' || topicIds.some(t => t.startsWith('top-1000-core'))) {
-        score += 350;
-      }
-
-      c._score = score;
-    }
-
-    newCards.sort((a, b) => b._score - a._score);
-
-    // 3. Tính hạn mức từ mới và thẻ đến hạn hôm nay
-    const dailyGoalNew = Number(settings.activeGoal?.dailyNew) || Number(settings.dailyNewLimit) || 10;
-    let maxNew = dailyGoalNew;
-    let maxReview = Number(settings.dailyReviewLimit) || 50;
-
-    const newCardsStudiedToday = todayLogs.filter(l => 
-      l.oldState === State.New || l.oldState === 0 || (l.oldState === undefined && (l.state === State.New || l.state === 0 || l.isNew))
-    ).length;
-
-    if (!deckId && !subtopic) {
-      maxNew = Math.max(0, dailyGoalNew - newCardsStudiedToday);
-    } else {
-      maxNew = Math.max(1, dailyGoalNew);
-    }
-
-    // Thẻ đến hạn: Lấy TOÀN BỘ từ đến hạn cần ôn (bỏ giới hạn trần - có bao nhiêu ôn bấy nhiêu)
-    let selectedDue = dueCards;
-
-    // Thẻ mới: Lấy vừa đủ số lượng mục tiêu từ mới hôm nay rồi thôi
-    let selectedNew;
-    if (subtopic) {
-      selectedNew = newCards;
-    } else {
-      selectedNew = newCards.slice(0, mode === 'new_only' ? Math.max(1, dailyGoalNew) : maxNew);
-    }
-
-    let queueCards = [];
-    if (mode === 'due_only') {
-      // Chỉ ôn tập các thẻ ĐÃ ĐẾN HẠN
-      queueCards = selectedDue;
-    } else if (mode === 'new_only') {
-      // Chỉ học các thẻ MỚI CHƯA TỪNG HỌC (Lọc tuyệt đối 100%, không bao giờ lẫn từ tới hạn hoặc đã học)
-      queueCards = selectedNew.filter(c => {
-        const st = cardStates[c.id] || StorageManager.getCardState(c.id);
-        if (!st) return true;
-        const isActuallyNew = (st.state === State.New || st.state === 0) && (!st.reps || st.reps === 0) && !st.last_review;
-        return isActuallyNew && !st.suspended;
-      });
-    } else if (mode === 'weak_hunter' || mode === STUDY_MODES.WEAK_HUNTER) {
-      // Chế độ TIÊU DIỆT TỪ KHÓ (Leech & Weak Words Hunter):
-      // Ưu tiên thẻ khó đủ điều kiện (chưa học hôm nay hoặc đã đến hạn), tối đa 20 từ
-      queueCards = eligibleWeakCards.length > 0 ? eligibleWeakCards.slice(0, 20) : selectedDue.slice(0, 20);
-    } else if (mode === 'sprint_10' || mode === STUDY_MODES.SPRINT_10) {
-      // Chế độ TỐC CHIẾN 3 PHÚT (Quick 10-Card Sprint)
-      if (selectedDue.length >= 10) {
-        queueCards = selectedDue.slice(0, 10);
-      } else {
-        const pool = [...selectedDue, ...eligibleWeakCards, ...selectedNew];
-        const seen = new Set();
-        queueCards = [];
-        for (const c of pool) {
-          if (c && c.id && !seen.has(c.id)) {
-            seen.add(c.id);
-            queueCards.push(c);
-            if (queueCards.length >= 10) break;
-          }
-        }
-      }
-    } else if (mode === 'audio_blind' || mode === STUDY_MODES.AUDIO_BLIND) {
-      // Chế độ LUYỆN NGHE PHẢN XẠ (Audio Blind Recall)
-      queueCards = selectedDue.length > 0 ? selectedDue : [...selectedDue, ...selectedNew];
-    } else if (mode === 'due_first' || mode === 'auto' || mode === 'mixed' || mode === 'interleave') {
-      // =========================================================================
-      // SSOT - QUY TẮC PHÂN BỔ HÀNG ĐỢI HỌC CHÍNH (DUE & NEW MIX RATIO 5:1):
-      // - Cứ mỗi 5 từ đến hạn ôn tập (Due Cards) sẽ xen kẽ 1 từ mới phổ biến (New Card).
-      // - Đảm bảo luồng học nhịp nhàng: Ôn củng cố kiến thức cũ là chủ đạo (5 thẻ),
-      //   sau đó tiếp thu 1 kiến thức mới (1 thẻ) để giữ sự hứng khởi và không quá tải.
-      // - Nếu hết từ đến hạn trước: Tiếp tục học trọn vẹn toàn bộ các từ mới còn lại.
-      // - Nếu hết từ mới trước: Tiếp tục ôn hết toàn bộ từ đến hạn còn lại.
-      // - Sau khi hết từ đến hạn: Bổ sung thêm các từ khó hay quên (eligibleWeakCards) ở cuối.
-      // =========================================================================
-      const interleaved = [];
-      let dIdx = 0;
-      let wIdx = 0;
-      let nIdx = 0;
-      const seenIds = new Set();
-      const MAX_TOTAL_WEAK_CARDS = 15; // Giới hạn số từ khó tối đa trong 1 phiên để chống kiệt sức
-      let weakAddedCount = 0;
-
-      const addCard = (card) => {
-        if (card && card.id && !seenIds.has(card.id)) {
-          seenIds.add(card.id);
-          interleaved.push(card);
-          return true;
-        }
-        return false;
-      };
-
-      // Vòng lặp chính: Cứ mỗi 5 từ ôn tập (ưu tiên đến hạn) thì xen kẽ 1 từ mới
-      while (dIdx < selectedDue.length || (wIdx < eligibleWeakCards.length && weakAddedCount < MAX_TOTAL_WEAK_CARDS) || nIdx < selectedNew.length) {
-        // Đợt 5 thẻ ôn tập: Ưu tiên từ tới hạn trước; chỉ khi hết từ tới hạn mới bốc từ khó hay quên
-        for (let i = 0; i < 5; i++) {
-          if (dIdx < selectedDue.length) {
-            addCard(selectedDue[dIdx++]);
-          } else if (wIdx < eligibleWeakCards.length && weakAddedCount < MAX_TOTAL_WEAK_CARDS) {
-            if (addCard(eligibleWeakCards[wIdx++])) {
-              weakAddedCount++;
-            }
-          }
-        }
-
-        // Xen kẽ đúng 1 từ mới phổ biến sau mỗi chu kỳ 5 từ ôn tập
-        if (nIdx < selectedNew.length) {
-          while (nIdx < selectedNew.length && !addCard(selectedNew[nIdx++])) {}
-        }
-
-        // Thoát an toàn nếu không còn thẻ nào khả dụng để thêm
-        const hasMoreDue = dIdx < selectedDue.length;
-        const hasMoreWeak = wIdx < eligibleWeakCards.length && weakAddedCount < MAX_TOTAL_WEAK_CARDS;
-        const hasMoreNew = nIdx < selectedNew.length;
-        if (!hasMoreDue && !hasMoreWeak && !hasMoreNew) {
-          break;
-        }
-      }
-      queueCards = interleaved;
-    } else {
-      queueCards = [...selectedDue, ...selectedNew];
-    }
-
-    // 4. BẢO VỆ CHỐNG QUÁ TẢI NHẬN THỨC (Adaptive Backlog Protection)
-    const isBacklogProtected = dueCards.length >= 35;
-
-    const queue = [];
-    const seenQueueIds = new Set();
-
-    for (const card of queueCards) {
-      if (card && card.id && !seenQueueIds.has(card.id)) {
-        // Kiểm tra an toàn kép 1: Nếu là mode học từ mới (new_only), tuyệt đối không để thẻ đã học lọt vào
-        if (mode === 'new_only') {
-          const st = cardStates[card.id] || StorageManager.getCardState(card.id);
-          if (st && ((st.state !== State.New && st.state !== 0) || (st.reps && st.reps > 0) || st.last_review)) {
-            continue;
-          }
-        }
-        // Kiểm tra an toàn kép 2: Tuyệt đối không để thẻ đã học hôm nay mà chưa đến hạn xuất hiện lại
-        if (mode !== 'new_only') {
-          const st = cardStates[card.id] || StorageManager.getCardState(card.id);
-          if (st && st.state !== State.New && st.state !== 0) {
-            const isDueNow = isCardDue(st, now);
-            const isStudiedToday = isCardStudiedToday(card.id, st);
-            if (isStudiedToday && !isDueNow) {
-              continue;
-            }
-          }
-        }
-        seenQueueIds.add(card.id);
-        const cardObj = {
-          ...(this.wordsMap.get(`${card.deckId || deckId}:${card.id}`) || this.wordsMap.get(card.id) || card),
-          fsrsState: card.fsrsState || StorageManager.getCardState(card.id) || FSRS.createEmptyCard(card.id)
-        };
-        if (isAudioBlind) {
-          cardObj._audioBlind = true;
-        }
-        queue.push(cardObj);
-      }
-    }
-
-    const result = {
-      dueCards: selectedDue,
-      newCards: selectedNew,
-      weakCards,
-      learningCards,
-      isBacklogProtected,
-      totalDue: dueCards.length,
-      totalNew: newCards.length,
-      totalWeak: weakCards.length,
-      totalLearned: targetCards.length - newCards.length,
-      totalCards: targetCards.length,
-      queue
-    };
-
-    if (!this._studyQueueCache) this._studyQueueCache = new Map();
-    if (this._studyQueueCache.size > 20) this._studyQueueCache.clear();
-    this._studyQueueCache.set(cacheKey, result);
-
-    return result;
+    return buildStudyQueue(this, deckId, userSettings, subtopic, options);
   }
 
-  /**
-   * Thống kê số lượng thẻ tương ứng cho từng Chế Độ Học Có Chủ Đích (Targeted Modes)
-   */
   getStudyModeCounts(deckId = null, userSettings = {}) {
-    const studyData = this.getStudyQueue(deckId, userSettings, null, { mode: 'due_first' });
-    const dueCount = studyData.totalDue || 0;
-    const newCount = studyData.newCards?.length || 0;
-    const weakCount = studyData.totalWeak || 0;
-    const sprintCount = Math.min(10, dueCount > 0 ? dueCount : (weakCount > 0 ? weakCount : (newCount > 0 ? newCount : 10)));
-    return {
-      dueCount,
-      newCount,
-      weakCount,
-      sprintCount
-    };
+    return computeStudyModeCounts(this, deckId, userSettings);
   }
 
   /**
@@ -978,7 +356,7 @@ export class DeckManager {
       id,
       title,
       description,
-      category: "Tự tạo",
+      category: 'Tự tạo',
       icon,
       color,
       cards,

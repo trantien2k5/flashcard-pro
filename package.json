@@ -1,12 +1,12 @@
 {
   "name": "flashcard-english-pro",
-  "version": "3.76.65",
+  "version": "3.76.66",
   "type": "module",
   "description": "Flashcard English Pro with FSRS-6 Spaced Repetition",
   "scripts": {
     "dev": "npx serve -l 3000 .",
     "start": "python -m http.server 3000",
-    "test": "node test/check.js && node test/test_fsrs_sync.js && node test/test_quiz_balance.js",
+    "test": "node test/check.js && node test/test_fsrs_sync.js && node test/test_quiz_balance.js && node test/test_selectors_backup.js",
     "bump": "node scripts/bump.js",
     "bump:sync": "node scripts/bump.js --sync",
     "optimize:images": "node scripts/optimize_images.js",

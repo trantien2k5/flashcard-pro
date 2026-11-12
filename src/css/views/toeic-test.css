@@ -30,7 +30,7 @@
 }
 
 [data-theme="dark"] .toeic-hub-header {
-  background: #18181b;
+  background: var(--bg-primary);
   border-color: rgba(255, 255, 255, 0.08);
 }
 
@@ -96,7 +96,7 @@
 }
 
 [data-theme="dark"] .toeic-metrics-strip {
-  background: #202024;
+  background: var(--bg-secondary);
 }
 
 .metric-segment {
@@ -497,7 +497,7 @@
 }
 
 .btn-mode-choice.choice-exam:hover {
-  border-color: #6366f1;
+  border-color: var(--primary-light);
   background: rgba(99, 102, 241, 0.04);
 }
 
@@ -519,7 +519,7 @@
 
 .choice-exam .mode-choice-icon {
   background: rgba(99, 102, 241, 0.1);
-  color: #6366f1;
+  color: var(--primary-light);
 }
 
 .mode-choice-info {
@@ -554,7 +554,7 @@
 
 .mode-choice-badge.exam {
   background: rgba(99, 102, 241, 0.1);
-  color: #6366f1;
+  color: var(--primary-light);
 }
 
 /* --------------------------------------------------------------------------
@@ -1079,7 +1079,7 @@
 }
 
 .btn-exp-quick-action {
-  background: linear-gradient(135deg, var(--primary, #6366f1), #4f46e5);
+  background: linear-gradient(135deg, var(--primary, #6366f1), var(--primary));
   color: #ffffff;
   border: none;
   padding: 7px 14px;
@@ -1507,37 +1507,10 @@
    4. Desktop PC & Mobile Responsive Adjustments
    -------------------------------------------------------------------------- */
 @media (max-width: 860px) {
-  .toeic-hero-banner {
-    padding: 14px 14px 12px;
-  }
-
-  .toeic-hero-stats {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-  }
-
-  .hero-stat-box {
-    padding: 6px 4px;
-    min-width: 0;
-  }
-
-  .hero-stat-val {
-    font-size: 1.15rem;
-  }
-
-  .hero-stat-label {
-    font-size: 0.62rem;
-  }
 
   .toeic-set-card {
     padding: 10px 12px;
     gap: 10px;
-  }
-
-  .set-card-code-badge {
-    width: 42px;
-    height: 42px;
-    font-size: 0.7rem;
   }
 
   .btn-open-set-mode {
@@ -1572,14 +1545,6 @@
 
   .arena-exam-name {
     font-size: 0.82rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.2;
-  }
-
-  .arena-exam-sub {
-    font-size: 0.65rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

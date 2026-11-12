@@ -51,32 +51,6 @@
   letter-spacing: -0.01em;
 }
 
-.optimizer-feature-desc {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  line-height: 1.4;
-}
-
-.btn-run-optimizer {
-  white-space: nowrap;
-  padding: 9px 15px !important;
-  font-size: 0.85rem !important;
-  font-weight: 750;
-  border-radius: 12px !important;
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  flex-shrink: 0;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  text-decoration: none;
-}
-
 @media (max-width: 480px) {
   .optimizer-feature-card {
     flex-direction: column;
@@ -88,10 +62,7 @@
     flex: unset;
     width: 100%;
   }
-  .btn-run-optimizer {
-    width: 100%;
-    padding: 10px 14px !important;
-  }
+
   .optimizer-dialog {
     width: 95% !important;
     max-width: 95% !important;
@@ -100,16 +71,6 @@
   .optimizer-header, .optimizer-body {
     padding: 14px 16px !important;
   }
-}
-
-.btn-run-optimizer:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
-  filter: brightness(1.08);
-}
-
-.btn-run-optimizer:active {
-  transform: scale(0.97);
 }
 
 /* Close Icon Button */

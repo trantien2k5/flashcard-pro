@@ -1,1365 +1,139 @@
 /**
- * Storage Service for FSRS Progress, Decks, User Settings & Review Logs
- * Thuần Client-side: Lưu trữ bền vững với IndexedDB kết hợp RAM Cache và LocalStorage fallback.
+ * Storage Service Facade (SSOT Public API)
+ * Điều phối bộ nhớ đệm RAM (Write-Through Cache), IndexedDB, LocalStorage & Backup/Restore.
  */
 
-import { LEGACY_ID_MAP } from '../../data/index.js';
-import { getLocalDateKey } from '../utils.js';
-import { DEFAULT_SETTINGS, APP_CONFIG, DEFAULT_STREAK_STATE } from '../config.js';
-import { FSRS } from '../core/fsrs.js';
-import { applyStreakFreeze, applyStreakRedeem, evaluateStreakReward } from './storage/streak.js';
+import { DEFAULT_SETTINGS } from '../config.js';
+import { triggerJSONDownload, readBackupFileText } from './storage/backup.js';
 import {
-  STORES,
-  openIndexedDB,
-  getAllFromStore,
-  putToStore,
-  migrateLegacyCardStates as migrateLegacyCards
-} from './storage/idb.js';
+  getStateRevision,
+  bumpStateRevision,
+  invalidateCache,
+  flushPendingSync
+} from './storage/state.js';
 import {
-  createNanoBackupPayload,
-  normalizeCardState,
-  normalizeBackupLog,
-  triggerJSONDownload,
-  readBackupFileText
-} from './storage/backup.js';
+  getSettings,
+  saveSettings,
+  getStreakState,
+  saveStreakState,
+  useStreakFreeze,
+  redeemStreak,
+  checkAndAwardStreakFreeze,
+  recordStudiedDate,
+  logReview,
+  getStudyLogs,
+  getStudyTimeMap,
+  getTodayStudySeconds,
+  getTotalStudySeconds,
+  addStudySeconds
+} from './storage/logs.js';
+import {
+  getAllCardStates,
+  getCardState,
+  applyCardReview,
+  saveCardState,
+  saveMultipleCardStates,
+  suspendCard,
+  unsuspendCard,
+  resetLeechStatus,
+  toggleCardSuspended,
+  resetCardProgress,
+  isCardSuspended
+} from './storage/cards.js';
+import {
+  saveToeicTestResult,
+  getToeicTestHistory,
+  getUserProgress,
+  saveUserProgress,
+  completeSubtopic,
+  isSubtopicCompleted,
+  getPinnedTopicIds,
+  isTopicPinned,
+  togglePinTopic,
+  getCustomDecks,
+  saveCustomDeck,
+  deleteCustomDeck,
+  getUserProfile,
+  saveUserProfile,
+  getUserPreferences,
+  saveUserPreferences
+} from './storage/user-data.js';
+import { initStorage } from './storage/preload.js';
+import {
+  exportCompactBackup,
+  importBackup,
+  createSafetySnapshot,
+  restoreSafetySnapshot,
+  clearAllData
+} from './storage/sync.js';
 
 export { DEFAULT_SETTINGS };
 
-const STORAGE_KEYS = {
-  CARDS: 'fsrs_card_states_v1',
-  SETTINGS: 'fsrs_user_settings_v1',
-  CUSTOM_DECKS: 'fsrs_custom_decks_v1',
-  STUDY_LOGS: 'fsrs_study_logs_v1',
-  STUDY_TIME: 'fsrs_study_time_v1',
-  USER_PROGRESS: 'fsrs_user_progress_v1',
-  STREAK_STATE: 'fsrs_streak_state_v1',
-  SAFETY_SNAPSHOT: 'fsrs_safety_snapshot_v1',
-  TOEIC_TESTS: 'fsrs_toeic_tests_v1'
-};
-
-let _cardsCache = null;
-let _settingsCache = null;
-let _streakStateCache = null;
-let _logsCache = null;
-let _timeMapCache = null;
-let _customDecksCache = null;
-let _userProgressCache = null;
-let _dbPromise = null;
-let _stateRevision = 1;
-let _debouncedCardsTimer = null;
-let _debouncedLogsTimer = null;
-let _debouncedTimeTimer = null;
-
-// Map ngược để tra cứu 2 chiều Canonical ID ⇋ Legacy ID
-const REVERSE_ID_MAP = {};
-if (typeof LEGACY_ID_MAP === 'object' && LEGACY_ID_MAP !== null) {
-  for (const [legId, canId] of Object.entries(LEGACY_ID_MAP)) {
-    REVERSE_ID_MAP[canId] = legId;
-  }
-}
-
-/**
- * Tự động di chuyển tiến độ học của các ID cũ sang Canonical ID chuẩn sau khi deduplicate
- */
-function migrateLegacyCardStates(rawCards) {
-  return migrateLegacyCards(rawCards, STORAGE_KEYS.CARDS, LEGACY_ID_MAP);
-}
-
 export class StorageManager {
-  static getStateRevision() {
-    return _stateRevision;
-  }
-
-  static bumpStateRevision() {
-    _stateRevision++;
-  }
-
-  /**
-   * Khởi tạo kết nối IndexedDB và nạp trước dữ liệu vào RAM Cache
-   */
-  static async initStorage() {
-    try {
-      if (typeof window !== 'undefined' && window.indexedDB && !_dbPromise) {
-        _dbPromise = openIndexedDB();
-      }
-
-      if (_dbPromise) {
-        const db = await _dbPromise;
-        if (db) {
-          await this._preloadFromIndexedDB(db);
-        }
-      }
-    } catch (err) {
-      console.warn('[StorageManager] Lỗi khởi tạo IndexedDB:', err);
-    }
-  }
-
-  static async _preloadFromIndexedDB(db) {
-    try {
-      if (!db) return;
-
-      const [cards, logs, settings, customDecks, studyTime, userProgress] = await Promise.all([
-        this._getAllFromStore(db, STORES.CARDS),
-        this._getAllFromStore(db, STORES.STUDY_LOGS),
-        this._getAllFromStore(db, STORES.SETTINGS),
-        this._getAllFromStore(db, STORES.CUSTOM_DECKS),
-        this._getAllFromStore(db, STORES.STUDY_TIME),
-        this._getAllFromStore(db, STORES.USER_PROGRESS)
-      ]);
-
-      if (cards && cards.length > 0) {
-        if (!_cardsCache) {
-          const cardsMap = {};
-          for (const card of cards) {
-            if (card && card.id) cardsMap[card.id] = card;
-          }
-          _cardsCache = cardsMap;
-        } else {
-          // Hòa giải dữ liệu: nạp thêm thẻ mới hoặc cập nhật thẻ có tiến trình mới hơn từ IndexedDB
-          for (const card of cards) {
-            if (!card || !card.id) continue;
-            const existing = _cardsCache[card.id];
-            if (!existing) {
-              _cardsCache[card.id] = card;
-            } else {
-              const idbReps = card.reps || 0;
-              const localReps = existing.reps || 0;
-              const idbTime = card.last_review ? new Date(card.last_review).getTime() : 0;
-              const localTime = existing.last_review ? new Date(existing.last_review).getTime() : 0;
-              if (idbReps > localReps || (idbReps === localReps && idbTime > localTime)) {
-                _cardsCache[card.id] = card;
-              }
-            }
-          }
-        }
-      }
-
-      if (logs && logs.length > 0) {
-        if (!_logsCache) {
-          _logsCache = logs;
-        } else {
-          const seenKeys = new Set(_logsCache.map(l => l.id || `${l.cardId || l.card_id || 'item'}_${l.timestamp || l.review_time || ''}`));
-          for (const log of logs) {
-            const key = log.id || `${log.cardId || log.card_id || 'item'}_${log.timestamp || log.review_time || ''}`;
-            if (!seenKeys.has(key)) {
-              _logsCache.push(log);
-              seenKeys.add(key);
-            }
-          }
-        }
-        _logsCache.sort((a, b) => {
-          const ta = a.timestamp ? new Date(a.timestamp).getTime() : 0;
-          const tb = b.timestamp ? new Date(b.timestamp).getTime() : 0;
-          return ta - tb;
-        });
-
-        // Tích hợp toàn bộ ngày học từ IndexedDB vào streakState.studiedDates
-        try {
-          const streak = this.getStreakState();
-          const studiedSet = new Set(streak.studiedDates || []);
-          let added = false;
-          for (const l of logs) {
-            const ts = l.timestamp || l.review || l.review_time || l.date;
-            if (ts) {
-              const k = getLocalDateKey(ts);
-              if (k && /^\d{4}-\d{2}-\d{2}$/.test(k) && !studiedSet.has(k)) {
-                studiedSet.add(k);
-                added = true;
-              }
-            }
-          }
-          if (added) {
-            streak.studiedDates = Array.from(studiedSet);
-            this.saveStreakState(streak);
-          }
-        } catch (e) {}
-      }
-
-      if (settings && settings.length > 0) {
-        if (!_settingsCache) {
-          const found = settings.find(s => s.key === 'user_settings');
-          if (found) {
-            const { key, ...rest } = found;
-            _settingsCache = { ...DEFAULT_SETTINGS, ...rest };
-          }
-        }
-        if (!_streakStateCache) {
-          const foundStreak = settings.find(s => s.key === 'streak_state');
-          if (foundStreak) {
-            const { key, ...rest } = foundStreak;
-            _streakStateCache = { ...DEFAULT_STREAK_STATE, ...rest };
-          }
-        }
-      }
-
-      if (customDecks && customDecks.length > 0) {
-        if (!_customDecksCache) {
-          _customDecksCache = customDecks;
-        } else {
-          const deckMap = new Map(_customDecksCache.map(d => [d.id, d]));
-          for (const d of customDecks) {
-            if (d && d.id && !deckMap.has(d.id)) {
-              _customDecksCache.push(d);
-            }
-          }
-        }
-      }
-
-      if (studyTime && studyTime.length > 0) {
-        if (!_timeMapCache) {
-          const timeObj = {};
-          for (const item of studyTime) {
-            const dateKey = item.date || item.id;
-            if (dateKey) timeObj[dateKey] = item.seconds || 0;
-          }
-          _timeMapCache = timeObj;
-        } else {
-          for (const item of studyTime) {
-            const dateKey = item.date || item.id;
-            if (dateKey) {
-              _timeMapCache[dateKey] = Math.max(_timeMapCache[dateKey] || 0, item.seconds || 0);
-            }
-          }
-        }
-
-        // Tích hợp toàn bộ ngày từ studyTime vào streakState.studiedDates
-        try {
-          const streak = this.getStreakState();
-          const studiedSet = new Set(streak.studiedDates || []);
-          let added = false;
-          for (const [d, s] of Object.entries(_timeMapCache)) {
-            if (Number(s) > 0 && /^\d{4}-\d{2}-\d{2}$/.test(d) && !studiedSet.has(d)) {
-              studiedSet.add(d);
-              added = true;
-            }
-          }
-          if (added) {
-            streak.studiedDates = Array.from(studiedSet);
-            this.saveStreakState(streak);
-          }
-        } catch (e) {}
-      }
-
-      if (userProgress && userProgress.length > 0 && !_userProgressCache) {
-        const prog = userProgress.find(p => p.id === 'global_progress') || userProgress[0];
-        if (prog) _userProgressCache = prog;
-      }
-
-      if (typeof window !== 'undefined' && window.app && typeof window.app.updateHeaderBadges === 'function') {
-        window.app.updateHeaderBadges();
-      }
-    } catch (e) {}
-  }
-
-  static _getAllFromStore(db, storeName) {
-    return getAllFromStore(db, storeName);
-  }
-
-  static async _putToStore(db, storeName, item) {
-    return putToStore(db, storeName, item);
-  }
-
-  static invalidateCache() {
-    _cardsCache = null;
-    _settingsCache = null;
-    _streakStateCache = null;
-    _logsCache = null;
-    _timeMapCache = null;
-    _customDecksCache = null;
-    _userProgressCache = null;
-  }
-
-  static getSettings() {
-    if (_settingsCache !== null) return _settingsCache;
-    try {
-      if (typeof localStorage === 'undefined') return { ...DEFAULT_SETTINGS };
-      const data = localStorage.getItem(STORAGE_KEYS.SETTINGS);
-      _settingsCache = data ? { ...DEFAULT_SETTINGS, ...JSON.parse(data) } : { ...DEFAULT_SETTINGS };
-      return _settingsCache;
-    } catch (e) {
-      console.error('Error reading settings:', e);
-      return { ...DEFAULT_SETTINGS };
-    }
-  }
-
-  static saveSettings(settings) {
-    try {
-      _settingsCache = { ...settings };
-      if (typeof localStorage !== 'undefined') {
-        try {
-          localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
-        } catch (lsErr) {
-          console.warn('localStorage quota warning on saveSettings:', lsErr);
-        }
-      }
-      if (_dbPromise) {
-        _dbPromise.then(db => {
-          this._putToStore(db, STORES.SETTINGS, { key: 'user_settings', ...settings });
-        }).catch(() => {});
-      }
-    } catch (e) {
-      console.error('Error saving settings:', e);
-    }
-  }
-
-  static getAllCardStates() {
-    if (_cardsCache !== null) return _cardsCache;
-    try {
-      if (typeof localStorage === 'undefined') return {};
-      const data = localStorage.getItem(STORAGE_KEYS.CARDS);
-      const parsed = data ? JSON.parse(data) : {};
-      _cardsCache = migrateLegacyCardStates(parsed);
-      return _cardsCache;
-    } catch (e) {
-      console.error('Error reading cards:', e);
-      return {};
-    }
-  }
-
-  static getCardState(cardId) {
-    if (!cardId) return null;
-    const cards = this.getAllCardStates();
-    // 1. Khớp trực tiếp ID
-    if (cards[cardId]) return cards[cardId];
-    // 2. Tra theo Canonical ID nếu cardId là Legacy ID
-    const canonicalId = (LEGACY_ID_MAP && LEGACY_ID_MAP[cardId]) || null;
-    if (canonicalId && cards[canonicalId]) return cards[canonicalId];
-    // 3. Tra theo Legacy ID nếu cardId là Canonical ID
-    const legacyId = REVERSE_ID_MAP[cardId] || null;
-    if (legacyId && cards[legacyId]) return cards[legacyId];
-    return null;
-  }
-
-  /**
-   * Chấm điểm và cập nhật trạng thái FSRS cho từ vựng (Single Source of Truth)
-   * Tự động tính toán FSRS, lưu IndexedDB & ghi log nhật ký học tập
-   */
-  static applyCardReview({ card, rating, fsrsInstance = null, settings = {}, now = new Date(), logExtra = {} }) {
-    if (!card || !card.id) return null;
-    const fsrs = fsrsInstance || new FSRS(settings?.fsrsParams);
-    const oldState = this.getCardState(card.id) || FSRS.createEmptyCard(card.id);
-    const nextState = fsrs.calculateNextState(oldState, rating, now, {
-      enableFuzz: settings?.enableFuzz !== false,
-      leechThreshold: settings?.leechThreshold || 8,
-      leechAction: settings?.leechAction || 'suspend'
-    });
-
-    this.saveCardState(nextState);
-
-    this.logReview({
-      cardId: card.id,
-      word: card.word,
-      rating: rating,
-      oldState: oldState.state,
-      newState: nextState.state,
-      scheduledDays: nextState.scheduled_days,
-      elapsedDays: nextState.elapsed_days,
-      stability: nextState.stability,
-      difficulty: nextState.difficulty,
-      ...logExtra
-    });
-
-    return { oldState, nextState };
-  }
-
-  static saveCardState(cardState) {
-    if (!cardState || !cardState.id) return;
-    try {
-      const cards = this.getAllCardStates();
-      const canonicalId = (LEGACY_ID_MAP && LEGACY_ID_MAP[cardState.id]) || cardState.id;
-      
-      // Giới hạn history trong state để không làm phình to bộ nhớ
-      const history = Array.isArray(cardState.history) ? cardState.history.slice(-10) : [];
-      const normalizedState = { ...cardState, id: canonicalId, history };
-      
-      cards[canonicalId] = normalizedState;
-      _cardsCache = cards;
-      _stateRevision++;
-
-      // 1. Lưu trữ IndexedDB bền vững (First-class persistence, không block UI thread)
-      if (_dbPromise) {
-        _dbPromise.then(db => {
-          this._putToStore(db, STORES.CARDS, normalizedState);
-        }).catch((idbErr) => {
-          console.warn('[StorageManager] IndexedDB saveCardState error:', idbErr);
-        });
-      }
-
-      // 2. Backup LocalStorage thông minh dạng Debounce (Không serialize JSON đồng bộ gây giật lag khi đang lật thẻ)
-      this._scheduleCardsLocalStorageSync();
-    } catch (e) {
-      console.error('Error saving card state:', e);
-    }
-  }
-
-  static _scheduleCardsLocalStorageSync() {
-    if (typeof localStorage === 'undefined') return;
-    if (_debouncedCardsTimer) clearTimeout(_debouncedCardsTimer);
-    _debouncedCardsTimer = setTimeout(() => {
-      _debouncedCardsTimer = null;
-      try {
-        if (_cardsCache) {
-          localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(_cardsCache));
-        }
-      } catch (lsErr) {
-        console.warn('[StorageManager] LocalStorage full or blocked:', lsErr);
-      }
-    }, 600);
-  }
-
-  static _scheduleLogsLocalStorageSync() {
-    if (typeof localStorage === 'undefined') return;
-    if (_debouncedLogsTimer) clearTimeout(_debouncedLogsTimer);
-    _debouncedLogsTimer = setTimeout(() => {
-      _debouncedLogsTimer = null;
-      try {
-        if (_logsCache) {
-          localStorage.setItem(STORAGE_KEYS.STUDY_LOGS, JSON.stringify(_logsCache.slice(-500)));
-        }
-      } catch (lsErr) {
-        console.warn('[StorageManager] LocalStorage log quota warning:', lsErr);
-      }
-    }, 800);
-  }
-
-  static _scheduleTimeLocalStorageSync() {
-    if (typeof localStorage === 'undefined') return;
-    if (_debouncedTimeTimer) clearTimeout(_debouncedTimeTimer);
-    _debouncedTimeTimer = setTimeout(() => {
-      _debouncedTimeTimer = null;
-      try {
-        if (_timeMapCache) {
-          localStorage.setItem(STORAGE_KEYS.STUDY_TIME, JSON.stringify(_timeMapCache));
-        }
-      } catch (lsErr) {}
-    }, 1000);
-  }
-
-  static flushPendingSync() {
-    if (typeof localStorage === 'undefined') return;
-    try {
-      if (_debouncedCardsTimer && _cardsCache) {
-        clearTimeout(_debouncedCardsTimer);
-        _debouncedCardsTimer = null;
-        localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(_cardsCache));
-      }
-      if (_debouncedLogsTimer && _logsCache) {
-        clearTimeout(_debouncedLogsTimer);
-        _debouncedLogsTimer = null;
-        localStorage.setItem(STORAGE_KEYS.STUDY_LOGS, JSON.stringify(_logsCache.slice(-500)));
-      }
-      if (_debouncedTimeTimer && _timeMapCache) {
-        clearTimeout(_debouncedTimeTimer);
-        _debouncedTimeTimer = null;
-        localStorage.setItem(STORAGE_KEYS.STUDY_TIME, JSON.stringify(_timeMapCache));
-      }
-    } catch (e) {}
-  }
-
-  static saveMultipleCardStates(cardStatesMap) {
-    if (!cardStatesMap || typeof cardStatesMap !== 'object') return;
-    try {
-      const cards = this.getAllCardStates();
-      const normalizedMap = {};
-      for (const [id, state] of Object.entries(cardStatesMap)) {
-        const canonicalId = (LEGACY_ID_MAP && LEGACY_ID_MAP[id]) || id;
-        const history = Array.isArray(state.history) ? state.history.slice(-10) : [];
-        const normalized = { ...state, id: canonicalId, history };
-        cards[canonicalId] = normalized;
-        normalizedMap[canonicalId] = normalized;
-      }
-      _cardsCache = cards;
-      _stateRevision++;
-
-      if (_dbPromise) {
-        _dbPromise.then(db => {
-          if (!db) return;
-          const tx = db.transaction(STORES.CARDS, 'readwrite');
-          const store = tx.objectStore(STORES.CARDS);
-          for (const card of Object.values(normalizedMap)) {
-            store.put(card);
-          }
-        }).catch(() => {});
-      }
-
-      this._scheduleCardsLocalStorageSync();
-    } catch (e) {
-      console.error('Error saving batch cards:', e);
-    }
-  }
-
-  /**
-   * Tạm dừng thẻ (Suspend) - ẩn khỏi hàng đợi ôn tập
-   */
-  static suspendCard(cardId) {
-    if (!cardId) return null;
-    let state = this.getCardState(cardId);
-    if (!state) {
-      state = {
-        id: cardId,
-        due: new Date().toISOString(),
-        stability: 0,
-        difficulty: 0,
-        elapsed_days: 0,
-        scheduled_days: 0,
-        reps: 0,
-        lapses: 0,
-        state: 0, // State.New
-        last_review: null,
-        suspended: true,
-        isLeech: false,
-        history: []
-      };
-    } else {
-      state = { ...state, suspended: true };
-    }
-    this.saveCardState(state);
-    return state;
-  }
-
-  /**
-   * Bỏ tạm dừng thẻ (Unsuspend)
-   */
-  static unsuspendCard(cardId) {
-    if (!cardId) return null;
-    let state = this.getCardState(cardId);
-    if (!state) return null;
-    state = { ...state, suspended: false };
-    this.saveCardState(state);
-    return state;
-  }
-
-  /**
-   * Đặt lại cờ thẻ khó và đưa thẻ trở lại hàng đợi học tập
-   */
-  static resetLeechStatus(cardId) {
-    if (!cardId) return null;
-    let state = this.getCardState(cardId);
-    if (!state) return null;
-    state = { ...state, isLeech: false, lapses: 0, suspended: false };
-    this.saveCardState(state);
-    return state;
-  }
-
-  /**
-   * Đảo trạng thái tạm dừng của thẻ
-   */
-  static toggleCardSuspended(cardId) {
-    if (!cardId) return false;
-    const state = this.getCardState(cardId);
-    if (state && state.suspended) {
-      this.unsuspendCard(cardId);
-      return false;
-    } else {
-      this.suspendCard(cardId);
-      return true;
-    }
-  }
-
-  /**
-   * Đặt lại tiến độ thẻ về từ mới hoàn toàn (Reset / Forget)
-   */
-  static resetCardProgress(cardId) {
-    if (!cardId) return null;
-    const emptyState = {
-      id: cardId,
-      due: new Date().toISOString(),
-      stability: 0,
-      difficulty: 0,
-      elapsed_days: 0,
-      scheduled_days: 0,
-      reps: 0,
-      lapses: 0,
-      state: 0, // State.New
-      last_review: null,
-      suspended: false,
-      isLeech: false,
-      history: []
-    };
-    this.saveCardState(emptyState);
-    return emptyState;
-  }
-
-  /**
-   * Kiểm tra xem thẻ có đang bị tạm dừng hay không
-   */
-  static isCardSuspended(cardId) {
-    if (!cardId) return false;
-    const state = this.getCardState(cardId);
-    return Boolean(state && state.suspended === true);
-  }
-
-  /**
-   * Ghi nhận ngày học hợp lệ vào hệ thống (lưu trữ vĩnh viễn không bao giờ bị cắt 500 logs)
-   * Đồng bộ đồng thời vào streakState.studiedDates và studyTimeMap
-   */
-  static recordStudiedDate(dateKey = null) {
-    const key = dateKey || getLocalDateKey();
-    if (!key || !/^\d{4}-\d{2}-\d{2}$/.test(key)) return;
-    try {
-      const streak = this.getStreakState();
-      const dates = Array.isArray(streak.studiedDates) ? streak.studiedDates : [];
-      if (!dates.includes(key)) {
-        dates.push(key);
-        streak.studiedDates = dates;
-        this.saveStreakState(streak);
-      }
-      const timeMap = this.getStudyTimeMap();
-      if (!timeMap[key] || timeMap[key] <= 0) {
-        timeMap[key] = 1;
-        _timeMapCache = timeMap;
-        this._scheduleTimeLocalStorageSync();
-      }
-    } catch (e) {
-      console.warn('Lỗi recordStudiedDate:', e);
-    }
-  }
-
-  static logReview(reviewEvent) {
-    try {
-      const reviewDate = reviewEvent.timestamp ? getLocalDateKey(reviewEvent.timestamp) : getLocalDateKey();
-      this.recordStudiedDate(reviewDate);
-
-      const logs = this.getStudyLogs();
-      const logEntry = {
-        id: reviewEvent.id || `log_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`,
-        ...reviewEvent,
-        timestamp: reviewEvent.timestamp || new Date().toISOString()
-      };
-      logs.push(logEntry);
-
-      if (logs.length > 5000) logs.splice(0, logs.length - 5000);
-      _logsCache = logs;
-
-      if (_dbPromise) {
-        _dbPromise.then(db => {
-          this._putToStore(db, STORES.STUDY_LOGS, logEntry);
-        }).catch(() => {});
-      }
-
-      this._scheduleLogsLocalStorageSync();
-    } catch (e) {
-      console.error('Error logging review:', e);
-    }
-  }
-
-  static getStudyLogs() {
-    if (_logsCache !== null) return _logsCache;
-    try {
-      if (typeof localStorage === 'undefined') return [];
-      const data = localStorage.getItem(STORAGE_KEYS.STUDY_LOGS);
-      _logsCache = data ? JSON.parse(data) : [];
-      return _logsCache;
-    } catch (e) {
-      console.error('Error reading logs:', e);
-      return [];
-    }
-  }
-
-  static getStudyTimeMap() {
-    if (_timeMapCache !== null) return _timeMapCache;
-    try {
-      if (typeof localStorage === 'undefined') return {};
-      const data = localStorage.getItem(STORAGE_KEYS.STUDY_TIME);
-      _timeMapCache = data ? JSON.parse(data) : {};
-      return _timeMapCache;
-    } catch (e) {
-      console.error('Error reading study time:', e);
-      return {};
-    }
-  }
-
-  static getTodayStudySeconds() {
-    const timeMap = this.getStudyTimeMap();
-    const todayKey = getLocalDateKey();
-    return timeMap[todayKey] || 0;
-  }
-
-  static getTotalStudySeconds() {
-    try {
-      const timeMap = this.getStudyTimeMap();
-      return Object.values(timeMap).reduce((sum, sec) => sum + (Number(sec) || 0), 0);
-    } catch (e) {
-      return 0;
-    }
-  }
-
-  static addStudySeconds(seconds) {
-    if (!seconds || seconds <= 0) return 0;
-    try {
-      const todayKey = getLocalDateKey();
-      this.recordStudiedDate(todayKey);
-
-      const timeMap = this.getStudyTimeMap();
-      const current = timeMap[todayKey] || 0;
-      const updated = current + Math.round(seconds);
-      timeMap[todayKey] = updated;
-      _timeMapCache = timeMap;
-
-      if (_dbPromise) {
-        _dbPromise.then(db => {
-          this._putToStore(db, STORES.STUDY_TIME, { date: todayKey, seconds: updated });
-        }).catch(() => {});
-      }
-
-      this._scheduleTimeLocalStorageSync();
-      return updated;
-    } catch (e) {
-      console.error('Error saving study time:', e);
-      return 0;
-    }
-  }
-
-  // ==========================================
-  // TOEIC MINI TEST HISTORY MANAGEMENT
-  // ==========================================
-
-  static saveToeicTestResult(testResult) {
-    try {
-      const history = this.getToeicTestHistory();
-      const entry = {
-        id: `toeic_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
-        date: new Date().toISOString(),
-        ...testResult
-      };
-      history.unshift(entry);
-      if (history.length > 50) history.pop();
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem(STORAGE_KEYS.TOEIC_TESTS, JSON.stringify(history));
-      }
-      return entry;
-    } catch (e) {
-      console.error('Error saving TOEIC test result:', e);
-      return null;
-    }
-  }
-
-  static getToeicTestHistory() {
-    try {
-      if (typeof localStorage === 'undefined') return [];
-      const data = localStorage.getItem(STORAGE_KEYS.TOEIC_TESTS);
-      return data ? JSON.parse(data) : [];
-    } catch (e) {
-      console.error('Error reading TOEIC test history:', e);
-      return [];
-    }
-  }
-
-  // ==========================================
-  // USER PROGRESS & SUBTOPIC UNLOCK MANAGEMENT
-  // ==========================================
-
-  static getUserProgress() {
-    if (_userProgressCache !== null) return _userProgressCache;
-    try {
-      if (typeof localStorage === 'undefined') return { id: 'global_progress', completedSubtopics: [] };
-      const data = localStorage.getItem(STORAGE_KEYS.USER_PROGRESS);
-      _userProgressCache = data ? JSON.parse(data) : { id: 'global_progress', completedSubtopics: [] };
-      return _userProgressCache;
-    } catch (e) {
-      console.error('Error reading user progress:', e);
-      return { id: 'global_progress', completedSubtopics: [] };
-    }
-  }
-
-  static saveUserProgress(progress) {
-    try {
-      _userProgressCache = { ...progress, id: 'global_progress' };
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem(STORAGE_KEYS.USER_PROGRESS, JSON.stringify(_userProgressCache));
-      }
-      if (_dbPromise) {
-        _dbPromise.then(db => {
-          this._putToStore(db, STORES.USER_PROGRESS, _userProgressCache);
-        }).catch(() => {});
-      }
-    } catch (e) {
-      console.error('Error saving user progress:', e);
-    }
-  }
-
-  static completeSubtopic(subtopicId) {
-    if (!subtopicId) return;
-    const progress = this.getUserProgress();
-    if (!Array.isArray(progress.completedSubtopics)) {
-      progress.completedSubtopics = [];
-    }
-    if (!progress.completedSubtopics.includes(subtopicId)) {
-      progress.completedSubtopics.push(subtopicId);
-      this.saveUserProgress(progress);
-    }
-  }
-
-  static isSubtopicCompleted(subtopicId) {
-    if (!subtopicId) return false;
-    const progress = this.getUserProgress();
-    return Array.isArray(progress.completedSubtopics) && progress.completedSubtopics.includes(subtopicId);
-  }
-
-  // ==========================================
-  // PINNED TOPICS (GHIM CHỦ ĐỀ YÊU THÍCH)
-  // ==========================================
-
-  static getPinnedTopicIds() {
-    const progress = this.getUserProgress();
-    if (!Array.isArray(progress.pinnedTopics)) {
-      progress.pinnedTopics = [];
-    }
-    return progress.pinnedTopics;
-  }
-
-  static isTopicPinned(topicId) {
-    if (!topicId) return false;
-    const pinned = this.getPinnedTopicIds();
-    return pinned.includes(topicId);
-  }
-
-  static togglePinTopic(topicId) {
-    if (!topicId) return false;
-    const progress = this.getUserProgress();
-    if (!Array.isArray(progress.pinnedTopics)) {
-      progress.pinnedTopics = [];
-    }
-    const idx = progress.pinnedTopics.indexOf(topicId);
-    let isPinned = false;
-    if (idx >= 0) {
-      progress.pinnedTopics.splice(idx, 1);
-      isPinned = false;
-    } else {
-      progress.pinnedTopics.push(topicId);
-      isPinned = true;
-    }
-    this.saveUserProgress(progress);
-    return isPinned;
-  }
-
-  // ==========================================
-  // STREAK STATE & SHIELD RECOVERY MANAGEMENT
-  // ==========================================
-
-  static getStreakState() {
-    if (_streakStateCache !== null) {
-      if (!Array.isArray(_streakStateCache.studiedDates)) _streakStateCache.studiedDates = [];
-      return _streakStateCache;
-    }
-    try {
-      if (typeof localStorage === 'undefined') return { ...DEFAULT_STREAK_STATE, studiedDates: [] };
-      const data = localStorage.getItem(STORAGE_KEYS.STREAK_STATE);
-      _streakStateCache = data ? { ...DEFAULT_STREAK_STATE, ...JSON.parse(data) } : { ...DEFAULT_STREAK_STATE };
-      if (!Array.isArray(_streakStateCache.studiedDates)) _streakStateCache.studiedDates = [];
-      return _streakStateCache;
-    } catch (e) {
-      console.error('Error reading streak state:', e);
-      return { ...DEFAULT_STREAK_STATE, studiedDates: [] };
-    }
-  }
-
-  static saveStreakState(state) {
-    if (!state || typeof state !== 'object') return;
-    try {
-      _streakStateCache = { ...state };
-      if (!Array.isArray(_streakStateCache.studiedDates)) _streakStateCache.studiedDates = [];
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem(STORAGE_KEYS.STREAK_STATE, JSON.stringify(_streakStateCache));
-      }
-      if (_dbPromise) {
-        _dbPromise.then(db => {
-          this._putToStore(db, STORES.SETTINGS, { key: 'streak_state', ..._streakStateCache });
-        }).catch(() => {});
-      }
-    } catch (e) {
-      console.error('Error saving streak state:', e);
-    }
-  }
-
-  static useStreakFreeze(dateKey) {
-    const { success, state } = applyStreakFreeze(this.getStreakState(), dateKey);
-    if (!success) return false;
-    this.saveStreakState(state);
-    this.bumpStateRevision();
-    return true;
-  }
-
-  static redeemStreak(dateKey) {
-    const { success, state } = applyStreakRedeem(this.getStreakState(), dateKey);
-    if (!success) return false;
-    this.saveStreakState(state);
-    this.bumpStateRevision();
-    return true;
-  }
-
-  static checkAndAwardStreakFreeze(currentStreak) {
-    const res = evaluateStreakReward(this.getStreakState(), currentStreak);
-    if (res.state) {
-      this.saveStreakState(res.state);
-    }
-    return {
-      awarded: res.awarded,
-      freezes: res.freezes,
-      milestone: res.milestone || (this.getStreakState()?.lastAwardedMilestone || 0)
-    };
-  }
-
-  static getCustomDecks() {
-    if (_customDecksCache !== null) return _customDecksCache;
-    try {
-      if (typeof localStorage === 'undefined') return [];
-      const data = localStorage.getItem(STORAGE_KEYS.CUSTOM_DECKS);
-      _customDecksCache = data ? JSON.parse(data) : [];
-      return _customDecksCache;
-    } catch (e) {
-      console.error('Error reading custom decks:', e);
-      return [];
-    }
-  }
-
-  static saveCustomDeck(deck) {
-    try {
-      const decks = this.getCustomDecks();
-      const index = decks.findIndex(d => d.id === deck.id);
-      if (index >= 0) {
-        decks[index] = deck;
-      } else {
-        decks.push(deck);
-      }
-      _customDecksCache = decks;
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem(STORAGE_KEYS.CUSTOM_DECKS, JSON.stringify(decks));
-      }
-      if (_dbPromise) {
-        _dbPromise.then(db => {
-          this._putToStore(db, STORES.CUSTOM_DECKS, deck);
-        }).catch(() => {});
-      }
-    } catch (e) {
-      console.error('Error saving custom deck:', e);
-    }
-  }
-
-  static deleteCustomDeck(deckId) {
-    try {
-      let decks = this.getCustomDecks();
-      decks = decks.filter(d => d.id !== deckId);
-      _customDecksCache = decks;
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem(STORAGE_KEYS.CUSTOM_DECKS, JSON.stringify(decks));
-      }
-      if (_dbPromise) {
-        _dbPromise.then(db => {
-          try {
-            const tx = db.transaction(STORES.CUSTOM_DECKS, 'readwrite');
-            tx.objectStore(STORES.CUSTOM_DECKS).delete(deckId);
-          } catch (e) {}
-        }).catch(() => {});
-      }
-    } catch (e) {
-      console.error('Error deleting custom deck:', e);
-    }
-  }
-
-  /**
-   * Tự động chụp bản sao lưu bảo hiểm an toàn (Safety Snapshot) trước khi thao tác dữ liệu
-   */
-  static createSafetySnapshot() {
-    try {
-      const backup = this.exportBackup();
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem(STORAGE_KEYS.SAFETY_SNAPSHOT, JSON.stringify({
-          timestamp: Date.now(),
-          date: new Date().toISOString(),
-          data: backup
-        }));
-      }
-      return true;
-    } catch (e) {
-      console.warn('[StorageManager] Failed to create safety snapshot:', e);
-      return false;
-    }
-  }
-
-  /**
-   * Khôi phục bản sao lưu bảo hiểm gần nhất
-   */
-  static async restoreSafetySnapshot() {
-    try {
-      if (typeof localStorage === 'undefined') return false;
-      const raw = localStorage.getItem(STORAGE_KEYS.SAFETY_SNAPSHOT);
-      if (!raw) return false;
-      const snapshot = JSON.parse(raw);
-      if (snapshot && snapshot.data) {
-        await this.importBackup(snapshot.data);
-        return true;
-      }
-    } catch (e) {
-      console.error('[StorageManager] Failed to restore safety snapshot:', e);
-    }
-    return false;
-  }
-
-  // ==========================================
-  // USER PROFILE & PERSONALIZATION PREFERENCES
-  // ==========================================
-
-  static getUserProfile() {
-    if (typeof localStorage === 'undefined') {
-      return { name: 'Học Viên Flashcard Pro', avatar: '🎓' };
-    }
-    try {
-      return {
-        name: localStorage.getItem('fc_pro_user_name') || 'Học Viên Flashcard Pro',
-        avatar: localStorage.getItem('fc_pro_user_avatar') || '🎓'
-      };
-    } catch (e) {
-      return { name: 'Học Viên Flashcard Pro', avatar: '🎓' };
-    }
-  }
-
-  static saveUserProfile(profile) {
-    if (typeof localStorage === 'undefined' || !profile) return;
-    try {
-      if (profile.name) localStorage.setItem('fc_pro_user_name', String(profile.name).trim().slice(0, 50));
-      if (profile.avatar) localStorage.setItem('fc_pro_user_avatar', String(profile.avatar).trim().slice(0, 10));
-    } catch (e) {
-      console.warn('Error saving user profile:', e);
-    }
-  }
-
-  static getUserPreferences() {
-    if (typeof localStorage === 'undefined') return {};
-    try {
-      const studyDisplay = localStorage.getItem('study_display_prefs');
-      const studyAutoplay = localStorage.getItem('study_autoplay_prefs');
-      const inlineDisplay = localStorage.getItem('inline_flashcard_display_prefs');
-      const pinnedDecks = localStorage.getItem('fc_pro_pinned_decks');
-      const searchHistory = localStorage.getItem('flashcard_search_history_v2');
-
-      return {
-        studyDisplay: studyDisplay ? JSON.parse(studyDisplay) : null,
-        studyAutoplay: studyAutoplay ? JSON.parse(studyAutoplay) : null,
-        inlineDisplay: inlineDisplay ? JSON.parse(inlineDisplay) : null,
-        pinnedDecks: pinnedDecks ? JSON.parse(pinnedDecks) : null,
-        searchHistory: searchHistory ? JSON.parse(searchHistory) : null
-      };
-    } catch (e) {
-      return {};
-    }
-  }
-
-  static saveUserPreferences(prefs) {
-    if (typeof localStorage === 'undefined' || !prefs) return;
-    try {
-      if (prefs.studyDisplay) localStorage.setItem('study_display_prefs', JSON.stringify(prefs.studyDisplay));
-      if (prefs.studyAutoplay) localStorage.setItem('study_autoplay_prefs', JSON.stringify(prefs.studyAutoplay));
-      if (prefs.inlineDisplay) localStorage.setItem('inline_flashcard_display_prefs', JSON.stringify(prefs.inlineDisplay));
-      if (Array.isArray(prefs.pinnedDecks)) localStorage.setItem('fc_pro_pinned_decks', JSON.stringify(prefs.pinnedDecks));
-      if (Array.isArray(prefs.searchHistory)) localStorage.setItem('flashcard_search_history_v2', JSON.stringify(prefs.searchHistory));
-    } catch (e) {
-      console.warn('Error saving user preferences:', e);
-    }
-  }
-
-  static exportBackup() {
-    return this.exportCompactBackup();
-  }
-
-  /**
-   * Xuất bản sao lưu Nano FSRS siêu nhẹ (giảm 85-95% dung lượng, giữ 100% dữ liệu)
-   */
-  static exportCompactBackup() {
-    return createNanoBackupPayload({
-      allCardStates: this.getAllCardStates(),
-      logs: this.getStudyLogs(),
-      customDecks: this.getCustomDecks(),
-      studyTimeMap: this.getStudyTimeMap(),
-      userProgress: this.getUserProgress(),
-      streakState: this.getStreakState(),
-      userProfile: this.getUserProfile(),
-      settings: this.getSettings(),
-      preferences: this.getUserPreferences()
-    });
-  }
-
-  static _normalizeCardState(raw) {
-    return normalizeCardState(raw, LEGACY_ID_MAP);
-  }
-
-  static async importBackup(backupData) {
-    try {
-      let data = backupData;
-      if (typeof data === 'string') {
-        data = JSON.parse(data);
-      }
-      if (!data || typeof data !== 'object') {
-        return { success: false, error: 'Dữ liệu file không hợp lệ (Không phải định dạng JSON)' };
-      }
-
-      // 1. Chuẩn hóa danh sách thẻ cards (Hỗ trợ cả Compact Tuple Array, Object {} và Legacy Array [])
-      const rawCards = data.cards || data.c || {};
-      const normalizedCards = {};
-      if (Array.isArray(rawCards)) {
-        rawCards.forEach(c => {
-          if (c) {
-            const norm = this._normalizeCardState(c);
-            if (norm) normalizedCards[norm.id] = norm;
-          }
-        });
-      } else if (typeof rawCards === 'object') {
-        for (const [id, c] of Object.entries(rawCards)) {
-          if (c) {
-            const norm = this._normalizeCardState({ id, ...c });
-            if (norm) normalizedCards[norm.id] = norm;
-          }
-        }
-      }
-
-      if (Object.keys(normalizedCards).length > 0) {
-        _cardsCache = { ...(this.getAllCardStates() || {}), ...normalizedCards };
-        if (typeof localStorage !== 'undefined') {
-          localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(_cardsCache));
-        }
-      }
-
-      // 2. Cài đặt người dùng (Settings)
-      const rawSettings = data.settings || data.s;
-      if (rawSettings && typeof rawSettings === 'object') {
-        _settingsCache = { ...(this.getSettings() || {}), ...rawSettings };
-        if (typeof localStorage !== 'undefined') {
-          localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(_settingsCache));
-        }
-      }
-
-      // 3. Lịch sử ôn tập (Logs) - Tự động Deduplicate & Chuyển đổi Tuple
-      const rawLogs = data.logs || data.l || data.study_logs;
-      if (Array.isArray(rawLogs)) {
-        const existingLogs = this.getStudyLogs() || [];
-        const logMap = new Map();
-
-        const normalizeLog = (l) => normalizeBackupLog(l);
-
-        [...existingLogs, ...rawLogs].forEach(item => {
-          const l = normalizeLog(item);
-          if (l) {
-            const cardKey = l.cardId || l.card_id || l.word || 'item';
-            const timeKey = l.timestamp || l.review || '';
-            const key = l.id ? String(l.id) : `${cardKey}_${timeKey}`;
-            logMap.set(key, l);
-          }
-        });
-
-        _logsCache = Array.from(logMap.values()).sort((a, b) => {
-          const ta = a.timestamp || a.review ? new Date(a.timestamp || a.review).getTime() : 0;
-          const tb = b.timestamp || b.review ? new Date(b.timestamp || b.review).getTime() : 0;
-          return ta - tb;
-        });
-
-        // Tích hợp ngày học từ logs đã nhập vào streakState.studiedDates
-        try {
-          const streak = this.getStreakState();
-          const studiedSet = new Set(streak.studiedDates || []);
-          for (const l of _logsCache) {
-            const ts = l.timestamp || l.review;
-            if (ts) {
-              const k = getLocalDateKey(ts);
-              if (k && /^\d{4}-\d{2}-\d{2}$/.test(k)) studiedSet.add(k);
-            }
-          }
-          streak.studiedDates = Array.from(studiedSet);
-          this.saveStreakState(streak);
-        } catch (e) {}
-
-        if (typeof localStorage !== 'undefined') {
-          localStorage.setItem(STORAGE_KEYS.STUDY_LOGS, JSON.stringify(_logsCache));
-        }
-      }
-
-      // 4. Bộ đề tùy chỉnh (Custom Decks)
-      const rawCustom = data.customDecks || data.d || data.custom_decks;
-      if (Array.isArray(rawCustom)) {
-        const existingDecks = this.getCustomDecks() || [];
-        const deckMap = new Map();
-        existingDecks.forEach(d => { if (d && d.id) deckMap.set(d.id, d); });
-        rawCustom.forEach(d => { if (d && d.id) deckMap.set(d.id, d); });
-        _customDecksCache = Array.from(deckMap.values());
-        if (typeof localStorage !== 'undefined') {
-          localStorage.setItem(STORAGE_KEYS.CUSTOM_DECKS, JSON.stringify(_customDecksCache));
-        }
-      }
-
-      // 5. Thời gian học (Study Time)
-      const rawTime = data.studyTime || data.st || data.study_time;
-      if (rawTime && typeof rawTime === 'object') {
-        _timeMapCache = { ...(this.getStudyTimeMap() || {}), ...rawTime };
-        if (typeof localStorage !== 'undefined') {
-          localStorage.setItem(STORAGE_KEYS.STUDY_TIME, JSON.stringify(_timeMapCache));
-        }
-      }
-
-      // 6. Tiến độ người dùng & Ghim chủ đề (User Progress & Pinned Topics)
-      const rawProgress = data.userProgress || data.up || data.user_progress;
-      if (rawProgress && typeof rawProgress === 'object') {
-        const curProgress = this.getUserProgress() || { completedSubtopics: [], pinnedTopics: [] };
-        const incCompleted = Array.isArray(rawProgress.completedSubtopics) ? rawProgress.completedSubtopics : [];
-        const incPinned = Array.isArray(rawProgress.pinnedTopics) ? rawProgress.pinnedTopics : [];
-        
-        const mergedCompleted = Array.from(new Set([
-          ...(Array.isArray(curProgress.completedSubtopics) ? curProgress.completedSubtopics : []),
-          ...incCompleted
-        ]));
-        
-        const mergedPinned = Array.from(new Set([
-          ...(Array.isArray(curProgress.pinnedTopics) ? curProgress.pinnedTopics : []),
-          ...incPinned
-        ]));
-
-        _userProgressCache = {
-          id: 'global_progress',
-          completedSubtopics: mergedCompleted,
-          pinnedTopics: mergedPinned
-        };
-        if (typeof localStorage !== 'undefined') {
-          localStorage.setItem(STORAGE_KEYS.USER_PROGRESS, JSON.stringify(_userProgressCache));
-        }
-      }
-
-      // 7. Hồ sơ cá nhân (User Profile) & Tùy chọn học tập (Personalization Preferences)
-      const rawProfile = data.profile || data.p;
-      if (rawProfile && typeof rawProfile === 'object') {
-        this.saveUserProfile(rawProfile);
-      }
-
-      const rawPrefs = data.prefs || data.preferences;
-      if (rawPrefs && typeof rawPrefs === 'object') {
-        this.saveUserPreferences(rawPrefs);
-      }
-
-      const rawPinnedDecks = data.pinnedDecks || data.pinned_decks;
-      if (Array.isArray(rawPinnedDecks) && typeof localStorage !== 'undefined') {
-        localStorage.setItem('fc_pro_pinned_decks', JSON.stringify(rawPinnedDecks));
-      }
-
-      // 7.5. Trạng thái Streak & Bảo vệ chuỗi ngày
-      const rawStreak = data.streak || data.streakState;
-      if (rawStreak && typeof rawStreak === 'object') {
-        const curStreak = this.getStreakState();
-        const mergedStudied = Array.from(new Set([
-          ...(curStreak.studiedDates || []),
-          ...(rawStreak.studiedDates || [])
-        ]));
-        this.saveStreakState({ ...DEFAULT_STREAK_STATE, ...rawStreak, studiedDates: mergedStudied });
-      }
-
-      // 8. Ghi đè đồng bộ vào IndexedDB bền vững
-      if (_dbPromise) {
-        const db = await _dbPromise;
-        if (db) {
-          if (_cardsCache) {
-            try {
-              const tx = db.transaction(STORES.CARDS, 'readwrite');
-              const store = tx.objectStore(STORES.CARDS);
-              for (const card of Object.values(_cardsCache)) {
-                if (card && card.id) store.put(card);
-              }
-            } catch (e) {
-              console.warn('[StorageManager] Lỗi import Cards vào IndexedDB:', e);
-            }
-          }
-
-          if (_logsCache && _logsCache.length > 0) {
-            try {
-              const tx = db.transaction(STORES.STUDY_LOGS, 'readwrite');
-              const store = tx.objectStore(STORES.STUDY_LOGS);
-              for (const log of _logsCache) {
-                store.put(log);
-              }
-            } catch (e) {
-              console.warn('[StorageManager] Lỗi import Logs vào IndexedDB:', e);
-            }
-          }
-
-          if (_customDecksCache && _customDecksCache.length > 0) {
-            try {
-              const tx = db.transaction(STORES.CUSTOM_DECKS, 'readwrite');
-              const store = tx.objectStore(STORES.CUSTOM_DECKS);
-              for (const deck of _customDecksCache) {
-                if (deck && deck.id) store.put(deck);
-              }
-            } catch (e) {
-              console.warn('[StorageManager] Lỗi import Custom Decks vào IndexedDB:', e);
-            }
-          }
-
-          if (_timeMapCache) {
-            try {
-              const tx = db.transaction(STORES.STUDY_TIME, 'readwrite');
-              const store = tx.objectStore(STORES.STUDY_TIME);
-              for (const [date, seconds] of Object.entries(_timeMapCache)) {
-                store.put({ date, seconds });
-              }
-            } catch (e) {
-              console.warn('[StorageManager] Lỗi import Study Time vào IndexedDB:', e);
-            }
-          }
-
-          if (_userProgressCache) {
-            try {
-              this._putToStore(db, STORES.USER_PROGRESS, _userProgressCache);
-            } catch (e) {}
-          }
-        }
-      }
-
-      this.bumpStateRevision();
-      return { success: true, count: Object.keys(normalizedCards).length };
-    } catch (e) {
-      console.error('Error importing backup:', e);
-      return { success: false, error: e.message };
-    }
-  }
-
-  static async clearAllData() {
-    try {
-      this.invalidateCache();
-      _cardsCache = {};
-      _logsCache = [];
-      _customDecksCache = [];
-      _timeMapCache = {};
-      _userProgressCache = { id: 'global_progress', completedSubtopics: [], pinnedTopics: [] };
-      _streakStateCache = { ...DEFAULT_STREAK_STATE };
-      _settingsCache = { ...DEFAULT_SETTINGS };
-
-      if (typeof localStorage !== 'undefined') {
-        localStorage.removeItem(STORAGE_KEYS.CARDS);
-        localStorage.removeItem(STORAGE_KEYS.STUDY_LOGS);
-        localStorage.removeItem(STORAGE_KEYS.CUSTOM_DECKS);
-        localStorage.removeItem(STORAGE_KEYS.STUDY_TIME);
-        localStorage.removeItem(STORAGE_KEYS.USER_PROGRESS);
-        localStorage.removeItem(STORAGE_KEYS.STREAK_STATE);
-        localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(DEFAULT_SETTINGS));
-      }
-
-      if (_dbPromise) {
-        const db = await _dbPromise;
-        if (db) {
-          for (const storeName of Object.values(STORES)) {
-            try {
-              const tx = db.transaction(storeName, 'readwrite');
-              tx.objectStore(storeName).clear();
-            } catch (e) {}
-          }
-          // Lưu lại default settings vào IndexedDB
-          try {
-            const tx = db.transaction(STORES.SETTINGS, 'readwrite');
-            tx.objectStore(STORES.SETTINGS).put({ key: 'user_settings', ...DEFAULT_SETTINGS });
-          } catch (e) {}
-        }
-      }
-
-      return true;
-    } catch (e) {
-      console.error('Error clearing data:', e);
-      return false;
-    }
-  }
+  static getStateRevision() { return getStateRevision(); }
+  static bumpStateRevision() { bumpStateRevision(); }
+
+  static async initStorage() { return initStorage(); }
+  static invalidateCache() { invalidateCache(); }
+  static flushPendingSync() { flushPendingSync(); }
+
+  static getSettings() { return getSettings(); }
+  static saveSettings(settings) { saveSettings(settings); }
+
+  static getAllCardStates() { return getAllCardStates(); }
+  static getCardState(cardId) { return getCardState(cardId); }
+  static applyCardReview(params) { return applyCardReview(params); }
+  static saveCardState(cardState) { saveCardState(cardState); }
+  static saveMultipleCardStates(cardStatesMap) { saveMultipleCardStates(cardStatesMap); }
+  static suspendCard(cardId) { return suspendCard(cardId); }
+  static unsuspendCard(cardId) { return unsuspendCard(cardId); }
+  static resetLeechStatus(cardId) { return resetLeechStatus(cardId); }
+  static toggleCardSuspended(cardId) { return toggleCardSuspended(cardId); }
+  static resetCardProgress(cardId) { return resetCardProgress(cardId); }
+  static isCardSuspended(cardId) { return isCardSuspended(cardId); }
+
+  static recordStudiedDate(dateKey = null) { recordStudiedDate(dateKey); }
+  static logReview(reviewEvent) { logReview(reviewEvent); }
+  static getStudyLogs() { return getStudyLogs(); }
+  static getStudyTimeMap() { return getStudyTimeMap(); }
+  static getTodayStudySeconds() { return getTodayStudySeconds(); }
+  static getTotalStudySeconds() { return getTotalStudySeconds(); }
+  static addStudySeconds(seconds) { return addStudySeconds(seconds); }
+
+  static saveToeicTestResult(testResult) { return saveToeicTestResult(testResult); }
+  static getToeicTestHistory() { return getToeicTestHistory(); }
+
+  static getUserProgress() { return getUserProgress(); }
+  static saveUserProgress(progress) { saveUserProgress(progress); }
+  static completeSubtopic(subtopicId) { completeSubtopic(subtopicId); }
+  static isSubtopicCompleted(subtopicId) { return isSubtopicCompleted(subtopicId); }
+
+  static getPinnedTopicIds() { return getPinnedTopicIds(); }
+  static isTopicPinned(topicId) { return isTopicPinned(topicId); }
+  static togglePinTopic(topicId) { return togglePinTopic(topicId); }
+
+  static getStreakState() { return getStreakState(); }
+  static saveStreakState(state) { saveStreakState(state); }
+  static useStreakFreeze(dateKey) { return useStreakFreeze(dateKey); }
+  static redeemStreak(dateKey) { return redeemStreak(dateKey); }
+  static checkAndAwardStreakFreeze(currentStreak) { return checkAndAwardStreakFreeze(currentStreak); }
+
+  static getCustomDecks() { return getCustomDecks(); }
+  static saveCustomDeck(deck) { saveCustomDeck(deck); }
+  static deleteCustomDeck(deckId) { deleteCustomDeck(deckId); }
+
+  static createSafetySnapshot() { return createSafetySnapshot(); }
+  static async restoreSafetySnapshot() { return restoreSafetySnapshot(); }
+
+  static getUserProfile() { return getUserProfile(); }
+  static saveUserProfile(profile) { saveUserProfile(profile); }
+  static getUserPreferences() { return getUserPreferences(); }
+  static saveUserPreferences(prefs) { saveUserPreferences(prefs); }
+
+  static exportBackup() { return exportCompactBackup(); }
+  static exportCompactBackup() { return exportCompactBackup(); }
+  static async importBackup(backupData) { return importBackup(backupData); }
+  static async clearAllData() { return clearAllData(); }
 }
 
 if (typeof window !== 'undefined') {
@@ -1376,7 +150,7 @@ export class BackupService {
   }
 
   /**
-   * Nhập dữ liệu từ tệp File hoặc văn bản JSON đã sao lưu (hỗ trợ cả chuẩn Nano Tuple và Legacy JSON)
+   * Nhập dữ liệu từ tệp File hoặc văn bản JSON đã sao lưu
    */
   static async importFromFile(file) {
     if (!file) {
@@ -1409,5 +183,3 @@ if (typeof window !== 'undefined') {
     try { StorageManager.flushPendingSync(); } catch (e) {}
   });
 }
-
-

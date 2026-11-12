@@ -86,7 +86,7 @@
   width: 38px;
   height: 38px;
   border-radius: 11px;
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,46 +127,6 @@
   gap: 8px;
   flex-wrap: wrap;
   flex-shrink: 0;
-}
-
-.stats-pill-badge {
-  font-size: 0.7rem;
-  font-weight: 750;
-  padding: 3px 9px;
-  border-radius: var(--radius-full, 99px);
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-}
-
-.stats-rank-pill {
-  font-weight: 800;
-  font-size: 0.72rem;
-  padding: 3px 9px;
-  border-radius: var(--radius-full);
-  background: rgba(245, 158, 11, 0.12);
-  color: #d97706;
-  border: 1px solid rgba(245, 158, 11, 0.28);
-}
-[data-theme="dark"] .stats-rank-pill {
-  background: rgba(245, 158, 11, 0.18);
-  color: #fbbf24;
-  border-color: rgba(245, 158, 11, 0.38);
-}
-
-.stats-score-pill {
-  font-weight: 800;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  padding: 3px 9px;
-  border-radius: var(--radius-full);
-  background: rgba(99, 102, 241, 0.12);
-  color: var(--primary);
-  border: 1px solid rgba(99, 102, 241, 0.25);
-}
-[data-theme="dark"] .stats-score-pill {
-  background: rgba(99, 102, 241, 0.18);
-  color: #818cf8;
-  border-color: rgba(99, 102, 241, 0.38);
 }
 
 /* Section Header Styles for Stats View */
@@ -213,30 +173,13 @@
   flex-shrink: 0;
 }
 
-.stats-accuracy-pill {
-  font-size: 0.72rem;
-  font-weight: 750;
-  padding: 3px 9px;
-  border-radius: 99px;
-  background: rgba(16, 185, 129, 0.12);
-  color: #059669;
-  border: 1px solid rgba(16, 185, 129, 0.28);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-[data-theme="dark"] .stats-accuracy-pill {
-  background: rgba(16, 185, 129, 0.18);
-  color: #34d399;
-  border-color: rgba(16, 185, 129, 0.38);
-}
-
 .bento-badge-forecast {
   font-size: 0.72rem;
   font-weight: 750;
   padding: 3px 9px;
   border-radius: 99px;
   background: rgba(99, 102, 241, 0.1);
-  color: #6366f1;
+  color: var(--primary-light);
   border: 1px solid rgba(99, 102, 241, 0.25);
   white-space: nowrap;
   flex-shrink: 0;
@@ -245,14 +188,6 @@
   background: rgba(99, 102, 241, 0.18);
   color: #818cf8;
   border-color: rgba(99, 102, 241, 0.38);
-}
-
-.stats-section-hint {
-  font-size: 0.74rem;
-  color: var(--text-secondary);
-  line-height: 1.35;
-  margin: 0;
-  width: 100%;
 }
 
 .section-header-actions {
@@ -489,12 +424,6 @@
 }
 
 /* 2. Navigation & View Mode Switcher Toolbar (Compact Header Integrated) */
-.journal-nav-bar-compact {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-}
 
 .journal-month-nav {
   display: flex;
@@ -543,20 +472,6 @@
   transform: scale(0.92);
 }
 
-.journal-month-title-wrap {
-  padding: 0 4px;
-  min-width: 82px;
-  text-align: center;
-}
-
-.journal-month-title {
-  font-size: 0.74rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-}
-
 .btn-journal-today {
   padding: 0 8px;
   height: 26px;
@@ -578,52 +493,6 @@
 .btn-journal-today:hover {
   background: var(--primary);
   color: #ffffff;
-}
-
-.journal-view-toggle {
-  display: flex;
-  align-items: center;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-full);
-  padding: 2px;
-  gap: 2px;
-  height: 24px;
-  box-sizing: border-box;
-}
-
-[data-theme="light"] .journal-view-toggle {
-  background: #f1f5f9;
-  border-color: #e2e8f0;
-}
-
-.btn-toggle-mode {
-  padding: 0 7px;
-  height: 18px;
-  border-radius: var(--radius-full);
-  background: transparent;
-  border: none;
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  touch-action: manipulation;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-}
-
-.btn-toggle-mode.active {
-  background: var(--bg-card);
-  color: var(--text-primary);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-}
-
-[data-theme="light"] .btn-toggle-mode.active {
-  background: #ffffff;
-  color: #0f172a;
 }
 
 /* 3. Monthly 4-Box Performance Metric Grid */
@@ -708,24 +577,6 @@
   color: var(--text-secondary);
 }
 
-.pnl-profit .pnl-box-val {
-  color: #10b981;
-}
-
-[data-theme="light"] .pnl-profit .pnl-box-val {
-  color: #059669;
-}
-
-.pnl-box-sub {
-  font-size: 0.68rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.2;
-}
-
 /* 4. Legend & Calendar Wrapper */
 .journal-legend {
   display: flex;
@@ -766,14 +617,6 @@
 [data-theme="light"] .legend-cell.heat-4 {
   background: #047857;
   border-color: #064e3b;
-}
-
-.journal-calendar-wrapper {
-  padding: 10px 10px 12px 10px;
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-  overflow: hidden;
 }
 
 .calendar-weekdays-row {
@@ -1142,7 +985,7 @@
 }
 
 [data-theme="light"] .popover-date {
-  color: #4f46e5;
+  color: var(--primary);
 }
 
 .popover-badge-total {
@@ -1184,76 +1027,6 @@
 }
 
 /* 8. Year Matrix Grid */
-.year-matrix-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-
-@media (min-width: 640px) {
-  .year-matrix-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.year-month-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-[data-theme="light"] .year-month-card {
-  background: #f8fafc;
-  border-color: #e2e8f0;
-}
-
-.year-month-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--primary);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-}
-
-.year-month-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.year-month-name {
-  font-size: 0.88rem;
-  font-weight: 800;
-  color: var(--text-primary);
-}
-
-.year-month-pnl {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: var(--text-muted);
-}
-
-.year-month-pnl.pnl-positive {
-  color: #10b981;
-}
-
-[data-theme="light"] .year-month-pnl.pnl-positive {
-  color: #059669;
-}
-
-.year-month-sub {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.72rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-}
 
 /* ==========================================================================
    9. Cognitive Intelligence & Memory Pyramid Styles
@@ -1264,18 +1037,6 @@
 
 [data-theme="light"] .cog-stat-retrievability .pnl-box-val {
   color: #059669;
-}
-
-.cog-stat-deep .pnl-box-val {
-  color: #06b6d4;
-}
-
-[data-theme="light"] .cog-stat-deep .pnl-box-val {
-  color: #0891b2;
-}
-
-.cog-stat-reflex .pnl-box-val {
-  color: var(--primary);
 }
 
 /* Stability Pyramid Card */
@@ -1539,29 +1300,6 @@
 }
 [data-theme="light"] .reflex-again .reflex-pill-val {
   color: #e11d48;
-}
-
-.recovery-strip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 9px 12px;
-  border-radius: 10px;
-  background: rgba(99, 102, 241, 0.08);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  gap: 10px;
-}
-
-[data-theme="light"] .recovery-strip {
-  background: #eff6ff;
-  border-color: #bfdbfe;
-}
-
-.recovery-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
 }
 
 .recovery-icon {

@@ -31,12 +31,17 @@ graph TD
     SVC --> INFRA
 ```
 
-### 2.1. Tầng Giao Diện (`src/js/views/` & `src/css/`)
+### 2.1. Tầng Giao Diện (`src/js/views/`, `src/js/app/` & `src/css/`)
+- **App Bootstrap Facade (`src/js/app.js` + `src/js/app/`)**: `pwa.js`, `navigation.js`.
 - **JS Views**: Quản lý DOM, cử chỉ vuốt chạm và render HTML theo mẫu **Facade Barrel**:
-  - `views/study/`: `shell.js`, `autoplay.js`, `prefs.js`, `pomodoro.js`, `summary-modal.js`.
+  - `views/study/`: `state.js`, `shell.js`, `renderer.js`, `priority-drawer.js`, `gestures.js`, `actions.js`, `autoplay.js`, `prefs.js`, `pomodoro.js`, `summary-modal.js`.
+  - `views/quiz/`: `state.js`, `engine.js`, `shell.js`, `summary-modal.js`.
+  - `views/reels/`: `state.js`, `queue.js`, `templates.js`, `interactions.js`.
+  - `views/settings/`: `template.js`, `cefr-profile.js`, `controls.js`, `data-actions.js`.
+  - `views/toeic/`: `state.js`, `hub.js`, `arena.js`, `results.js`.
   - `views/decks/`: `subtopics.js` (cấp 2 & 3), `words.js` (cấp 4).
   - `views/stats/`: `journal.js`, `forecast-modal.js`.
-  - `views/library/`: `detail-modal.js`.
+  - `views/library/`: `filters.js`, `renderer.js`, `detail-modal.js`.
   - `views/review/`: `stat-modals.js`.
   - `views/modals/`: `goal-modal.js`.
   - `views/components/`: `shell.js`, `toast.js`, `search.js`, `streak-hub.js`, `custom-study.js`, `optimizer-modal.js`.
@@ -47,14 +52,14 @@ graph TD
   - `views/`: 9 stylesheet riêng cho từng màn hình (`flashcard.css`, `review.css`, `decks.css`, `stats.css`, `library.css`, `settings.css`, `quiz.css`, `reels.css`, `toeic-test.css`).
 
 ### 2.2. Tầng Nghiệp Vụ & Thuật Toán (`src/js/core/`)
-- Tách biệt hoàn toàn khỏi DOM (Platform Agnostic): `fsrs.js`, `session.js`, `selectors.js`, `stats.js`, `optimizer.js`, `timer.js`.
+- Tách biệt hoàn toàn khỏi DOM (Platform Agnostic): `fsrs.js`, `session.js`, `selectors.js` (`selectors/{deck-stats,queue-scoring,study-queue}.js`), `stats.js` (`stats/{journal,roadmap}.js`), `optimizer.js`, `timer.js`.
 
 ### 2.3. Tầng Dịch Vụ & Ngoại Vi (`src/js/services/`)
-- `storage.js` (`StorageManager`): Facade quản lý In-Memory RAM Cache kết hợp IndexedDB và fallback `localStorage`, cùng `storage/streak.js` và `storage/backup.js`.
+- `storage.js` (`StorageManager`): Facade quản lý In-Memory RAM Cache kết hợp IndexedDB và fallback `localStorage`, cùng các module con `storage/{state,cards,logs,user-data,preload,sync,idb,streak,backup}.js`.
 - `audio.js`: Web Speech API và Web Audio API.
 
 ### 2.4. Tầng Dữ Liệu & Nền Tảng (`src/data/`, `src/js/config.js`, `src/js/utils.js`)
-- 4.157 từ vựng, 569 chủ đề phân tầng, đề thi TOEIC và Schema xác thực (`schemas.js`, `validators.js`).
+- 4.157 từ vựng (`src/data/words/*.js`), 569 chủ đề phân tầng (`src/data/topics.js` barrel ➔ `topics/{core-1000,daily-life,world-work,toeic-business}.js`), đề thi TOEIC (`toeic-tests.js`) và Schema xác thực (`schemas.js`, `validators.js`).
 
 ---
 
@@ -83,10 +88,11 @@ sequenceDiagram
 
 ## 🛡️ 4. Quy Chuẩn Kiểm Thử Tự Động (Quality Assurance Gate)
 
-1. **`test/check.js`**: Quét V8 AST, Named Exports/Imports, đường dẫn import, biến CSS `var(--...)`, Schema từ vựng và SSOT version trong < 0.5 giây.
+1. **`test/check.js`** (runner hợp nhất `test/checks/{context,ast,css,pwa-version}.js`): Quét V8 AST, Named Exports/Imports, đường dẫn import, biến CSS `var(--...)`, Schema từ vựng, PWA `sw.js` Precache và SSOT version trong < 0.7 giây.
 2. **`test/test_fsrs_sync.js`**: 39 test cases cho FSRS-6, khoảng thời gian ôn tập, Leech detection, Streak Auto-heal.
 3. **`test/test_quiz_balance.js`**: 13 test cases kiểm tra phân phối câu hỏi trắc nghiệm.
-4. **Lệnh chạy toàn bộ**: `npm test`.
+4. **`test/test_selectors_backup.js`**: 22 test cases kiểm tra `DeckManager` (selectors, stats cache, queues, search, custom decks) và Nano FSRS v3.1 Backup Roundtrip.
+5. **Lệnh chạy toàn bộ**: `npm test` (tổng 74 assertion test cases + 122 file static/AST/CSS/PWA checks) & `npm run validate:data`.
 
 ---
 

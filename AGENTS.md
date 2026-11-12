@@ -75,10 +75,10 @@ flashcard-pro/
 │
 ├── src/
 │   ├── js/                            # Tầng Logic ES6+
-│   │   ├── app.js, config.js, utils.js
-│   │   ├── core/                      # fsrs, session, selectors, stats, timer, optimizer
-│   │   ├── services/                  # storage (+ streak, backup), audio
-│   │   └── views/                     # study/, decks/, library/, review/, stats/, components/, modals/, quiz, reels, settings, toeic-test
+│   │   ├── app.js, app/, config.js, utils.js
+│   │   ├── core/                      # fsrs, session, selectors/, stats/, timer, optimizer
+│   │   ├── services/                  # storage/, audio
+│   │   └── views/                     # study/, decks/, library/, review/, stats/, quiz/, reels/, settings/, toeic/, components/, modals/
 │   │
 │   ├── css/                           # Stylesheet 4 tầng (23 module)
 │   │   ├── style.css, main.css, components.css   # Master & Barrel Facades
@@ -87,10 +87,10 @@ flashcard-pro/
 │   │   ├── components/                # modals, toast, search, optimizer, streak, custom-study
 │   │   └── views/                     # flashcard, review, decks, stats, library, settings, quiz, reels, toeic-test
 │   │
-│   └── data/                          # 4.157 từ vựng (words/), 569 chủ đề (topics.js), toeic-tests, schemas, validators
+│   └── data/                          # 4.157 từ vựng (words/), 569 chủ đề (topics/), toeic-tests, schemas, validators
 │
 ├── scripts/                           # bump.js (SSOT version), locate.js (code map), optimize_images.js
-└── test/                              # check.js (AST/CSS/Schema), test_fsrs_sync.js, test_quiz_balance.js, refactor_guide.js
+└── test/                              # check.js (+ checks/), test_fsrs_sync.js, test_quiz_balance.js, test_selectors_backup.js, refactor_guide.js
 ```
 
 ---
