@@ -558,6 +558,16 @@ function validateUnimportedSymbols() {
         if (/^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(cleaned)) localDecls.add(cleaned);
       });
     }
+    for (const pm of noComments.matchAll(/\bcatch\s*\(\s*(_[a-zA-Z0-9_$]+)\s*\)/g)) {
+      localDecls.add(pm[1]);
+    }
+    for (const fp of noComments.matchAll(/(?:function[^(]*|=>)\s*\(([^)]*)\)|([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(([^)]*)\)\s*\{/g)) {
+      const args = (fp[1] || fp[3] || '');
+      for (const am of args.matchAll(/\b(_[a-zA-Z0-9_$]+)\b/g)) localDecls.add(am[1]);
+    }
+    for (const am of noComments.matchAll(/\b(_[a-zA-Z0-9_$]+)\s*=>/g)) {
+      localDecls.add(am[1]);
+    }
 
     // Xóa chuỗi tĩnh (giữ lại biểu thức ${...} trong template literal)
     let clean = noComments.replace(/(['"])(?:\\.|(?!\1)[^\\\n])*\1/g, ' "" ');
@@ -578,6 +588,8 @@ function validateUnimportedSymbols() {
     for (const tm of clean.matchAll(/\b([a-zA-Z_$][a-zA-Z0-9_$]*)\b/g)) {
       const tok = tm[1];
       if (allProjectExports.has(tok) && !IGNORE.has(tok) && !imported.has(tok) && !localDecls.has(tok)) {
+        missing.add(tok);
+      } else if (tok.startsWith('_') && tok !== '_' && !tok.startsWith('__') && !tok.startsWith('_0x') && !imported.has(tok) && !localDecls.has(tok)) {
         missing.add(tok);
       }
     }
