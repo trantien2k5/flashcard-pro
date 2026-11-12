@@ -152,13 +152,13 @@ function validateJsFile(filePath) {
   // 3. Chuẩn hóa để V8 Native Engine kiểm tra cú pháp AST
   try {
     let sanitized = code
-      .replace(/^\s*import\s+type\s+.*?from\s+['"].*?['"];?/gm, '/* import type */')
-      .replace(/^\s*import\s+['"][^'"]+['"];?/gm, '/* side-effect import */')
-      .replace(/^\s*import\s+[\s\S]*?\s+from\s+['"][^'"]+['"];?/gm, (m) => '/* ' + m.replace(/\*\//g, '* /') + ' */')
-      .replace(/^\s*export\s+[\s\S]*?\s+from\s+['"][^'"]+['"];?/gm, (m) => '/* ' + m.replace(/\*\//g, '* /') + ' */')
-      .replace(/^\s*export\s+default\s+/gm, 'const __default_exp = ')
-      .replace(/^\s*export\s+(async\s+function|function|class|const|let|var)\s+/gm, '$1 ')
-      .replace(/^\s*export\s*\{[\s\S]*?\}\s*;?/gm, '/* export block */');
+      .replace(/^[ \t]*import\s+type\s+.*?from\s+['"].*?['"];?/gm, '/* import type */')
+      .replace(/^[ \t]*import\s+['"][^'"]+['"];?/gm, '/* side-effect import */')
+      .replace(/^[ \t]*import\s+[\s\S]*?\s+from\s+['"][^'"]+['"];?/gm, (m) => '/* ' + m.replace(/\*\//g, '* /') + ' */')
+      .replace(/^[ \t]*export\s+[\s\S]*?\s+from\s+['"][^'"]+['"];?/gm, (m) => '/* ' + m.replace(/\*\//g, '* /') + ' */')
+      .replace(/^[ \t]*export\s+default\s+/gm, 'const __default_exp = ')
+      .replace(/^[ \t]*export\s+(async\s+function|function|class|const|let|var)\s+/gm, '$1 ')
+      .replace(/^[ \t]*export\s*\{[\s\S]*?\}\s*;?/gm, '/* export block */');
 
     new vm.Script(sanitized, { filename: filePath });
   } catch (err) {
