@@ -574,21 +574,21 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 
 ### TẦNG 4: THÀNH PHẦN & MODALS (Components & Modals — `src/js/views/components/`, `modals/`)
 
-#### 📁 [`src\js\views\components\custom-study.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js) (394 dòng)
+#### 📁 [`src\js\views\components\custom-study.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js) (395 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `openCustomStudyModal` | [`#L16-L392`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L16-L392) | `function` | Thực thi logic nội bộ |
-| `updateMatchingCards` | [`#L163-L245`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L163-L245) | `arrow_function` | Hàm tính toán danh sách từ thỏa mãn |
-| `closeModal` | [`#L289-L291`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L289-L291) | `arrow_function` | Đóng Modal |
-| `getTier` | [`#L329-L335`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L329-L335) | `arrow_function` | Bậc ưu tiên: 1: Due, 2: Learning, 3: New, 4: Mastered |
+| `openCustomStudyModal` | [`#L17-L393`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L17-L393) | `function` | Thực thi logic nội bộ |
+| `updateMatchingCards` | [`#L164-L246`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L164-L246) | `arrow_function` | Hàm tính toán danh sách từ thỏa mãn |
+| `closeModal` | [`#L290-L292`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L290-L292) | `arrow_function` | Đóng Modal |
+| `getTier` | [`#L330-L336`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\custom-study.js#L330-L336) | `arrow_function` | Bậc ưu tiên: 1: Due, 2: Learning, 3: New, 4: Mastered |
 
-#### 📁 [`src\js\views\components\optimizer-modal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\optimizer-modal.js) (259 dòng)
+#### 📁 [`src\js\views\components\optimizer-modal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\optimizer-modal.js) (260 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `openBehavioralOptimizerModal` | [`#L15-L256`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\optimizer-modal.js#L15-L256) | `function` | Thực thi logic nội bộ |
-| `closeModal` | [`#L215-L217`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\optimizer-modal.js#L215-L217) | `arrow_function` | Thực thi logic nội bộ |
+| `openBehavioralOptimizerModal` | [`#L16-L257`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\optimizer-modal.js#L16-L257) | `function` | Thực thi logic nội bộ |
+| `closeModal` | [`#L216-L218`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\optimizer-modal.js#L216-L218) | `arrow_function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\views\components\search.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\search.js) (440 dòng)
 
@@ -612,11 +612,11 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | :--- | :---: | :---: | :--- |
 | `mountGlobalModals` | [`#L10-L227`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\shell.js#L10-L227) | `function` | Thực thi logic nội bộ |
 
-#### 📁 [`src\js\views\components\streak-hub.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\streak-hub.js) (222 dòng)
+#### 📁 [`src\js\views\components\streak-hub.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\streak-hub.js) (223 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `showStreakHubModal` | [`#L15-L219`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\streak-hub.js#L15-L219) | `function` | Thực thi logic nội bộ |
+| `showStreakHubModal` | [`#L16-L220`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\streak-hub.js#L16-L220) | `function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\views\components\toast.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\toast.js) (159 dòng)
 
@@ -626,13 +626,13 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `showToast` | [`#L111-L156`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\toast.js#L111-L156) | `function` | Upgraded In-App Floating Toast Notification (thay thế window.alert) Tối ưu  |
 | `dismiss` | [`#L143-L149`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\components\toast.js#L143-L149) | `arrow_function` | Cho phép bấm trực tiếp vào toast để tắt ngay |
 
-#### 📁 [`src\js\views\modals\goal-modal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js) (416 dòng)
+#### 📁 [`src\js\views\modals\goal-modal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js) (417 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `showGoalCustomizerModal` | [`#L13-L286`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js#L13-L286) | `function` | ========================================================================== |
-| `renderModalContent` | [`#L29-L282`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js#L29-L282) | `arrow_function` | Thực thi logic nội bộ |
-| `showForecastDetailModal` | [`#L291-L413`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js#L291-L413) | `function` | ========================================================================== |
+| `showGoalCustomizerModal` | [`#L14-L287`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js#L14-L287) | `function` | ========================================================================== |
+| `renderModalContent` | [`#L30-L283`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js#L30-L283) | `arrow_function` | Thực thi logic nội bộ |
+| `showForecastDetailModal` | [`#L292-L414`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\modals\goal-modal.js#L292-L414) | `function` | ========================================================================== |
 
 ---
 

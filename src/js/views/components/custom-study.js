@@ -5,6 +5,7 @@
 
 import { StorageManager } from '../../services/storage.js';
 import { State, isCardDue } from '../../core/fsrs.js';
+import { MASTERY_STABILITY_THRESHOLD } from '../../config.js';
 import { escapeHTML } from '../../utils.js';
 import { showToast } from './toast.js';
 

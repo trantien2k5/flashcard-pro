@@ -6,6 +6,7 @@
 import { StorageManager } from '../../services/storage.js';
 import { BehavioralOptimizer } from '../../core/stats.js';
 import { escapeHTML } from '../../utils.js';
+import { showToast } from './toast.js';
 
 
 /* ==========================================================================

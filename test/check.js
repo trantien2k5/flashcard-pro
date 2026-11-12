@@ -497,6 +497,134 @@ function validateVersionConsistency() {
 }
 
 // ============================================================================
+// 8.5. Kiểm tra Sót Import (Unimported Symbols) & Đồng Bộ Offline PWA (sw.js)
+// ============================================================================
+function validateUnimportedSymbols() {
+  const allProjectExports = new Set();
+  for (const [filePath, sig] of moduleMap.entries()) {
+    const rel = path.relative(rootDir, filePath).replace(/\\/g, '/');
+    if (!rel.startsWith('src/')) continue;
+    for (const exp of sig.exports) {
+      allProjectExports.add(exp);
+    }
+  }
+
+  const IGNORE = new Set([
+    'default', 'State', 'Rating', 'FSRS', 'init', 'state', 'render',
+    'open', 'close', 'stop', 'start', 'reset', 'clear', 'data', 'app',
+    'id', 'name', 'type', 'key', 'value', 'mode'
+  ]);
+
+  const jsDir = path.join(rootDir, 'src', 'js');
+  const jsFiles = getAllFiles(jsDir).filter(f => f.endsWith('.js'));
+
+  for (const filePath of jsFiles) {
+    const raw = fs.readFileSync(filePath, 'utf8');
+    const rel = path.relative(rootDir, filePath).replace(/\\/g, '/');
+
+    // Thu thập tên biến đã import (bao gồm cả alias "as xxx")
+    const imported = new Set();
+    const importRegex = /import\s+(?:(\*\s+as\s+\w+|\w+)\s*,?\s*)?(?:\{([^}]+)\})?\s*from\s*['"][^'"]+['"]/g;
+    let m;
+    while ((m = importRegex.exec(raw)) !== null) {
+      if (m[1]) imported.add(m[1].replace(/^\*\s+as\s+/, '').trim());
+      if (m[2]) {
+        m[2].split(',').forEach(item => {
+          const parts = item.trim().split(/\s+as\s+/);
+          const localName = (parts[1] || parts[0]).trim();
+          if (localName) imported.add(localName);
+        });
+      }
+    }
+
+    // Xóa comment trước để thu thập khai báo cục bộ chính xác 100%
+    const noComments = raw
+      .replace(/\/\*[\s\S]*?\*\//g, ' ')
+      .replace(/\/\/[^\n]*/g, ' ');
+
+    // Thu thập khai báo cục bộ TRƯỚC khi xóa chuỗi/template literal
+    const localDecls = new Set();
+    for (const dm of noComments.matchAll(/\b(?:function\*?|class|const|let|var)\s+([a-zA-Z0-9_$]+)/g)) {
+      localDecls.add(dm[1]);
+    }
+    for (const mm of noComments.matchAll(/^[ \t]*(?:static\s+|async\s+|get\s+|set\s+)*([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\([^)]*\)\s*\{/gm)) {
+      if (!['if', 'for', 'while', 'switch', 'catch'].includes(mm[1])) {
+        localDecls.add(mm[1]);
+      }
+    }
+    for (const destruct of noComments.matchAll(/\b(?:const|let|var)\s*[\[{]([^\]}]+)[\]}]/g)) {
+      destruct[1].split(',').forEach(part => {
+        const cleaned = part.split('=')[0].split(':').pop().trim();
+        if (/^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(cleaned)) localDecls.add(cleaned);
+      });
+    }
+
+    // Xóa chuỗi tĩnh (giữ lại biểu thức ${...} trong template literal)
+    let clean = noComments.replace(/(['"])(?:\\.|(?!\1)[^\\\n])*\1/g, ' "" ');
+
+    clean = clean.replace(/`(?:\\[\s\S]|\$\{[^}]*\}|[^`\\])*`/g, (tpl) => {
+      const exprs = [];
+      for (const em of tpl.matchAll(/\$\{([^}]*)\}/g)) exprs.push(em[1]);
+      return ' ' + exprs.join(' ') + ' ';
+    });
+
+    // Xóa các dòng import/export, truy cập thuộc tính (.prop) và key object (prop:)
+    clean = clean
+      .replace(/^[ \t]*(?:import|export)\s+[\s\S]*?;?\s*$/gm, ' ')
+      .replace(/\.[a-zA-Z0-9_$]+/g, ' ')
+      .replace(/(^|[,{\s])([a-zA-Z0-9_$]+)\s*:(?!:)/g, '$1 ');
+
+    const missing = new Set();
+    for (const tm of clean.matchAll(/\b([a-zA-Z_$][a-zA-Z0-9_$]*)\b/g)) {
+      const tok = tm[1];
+      if (allProjectExports.has(tok) && !IGNORE.has(tok) && !imported.has(tok) && !localDecls.has(tok)) {
+        missing.add(tok);
+      }
+    }
+
+    if (missing.size > 0) {
+      errors.push({
+        file: rel,
+        message: `Phát hiện symbol chưa được import hoặc khai báo cục bộ: ${[...missing].join(', ')}`
+      });
+    }
+  }
+}
+
+function validateSwPrecache() {
+  const swPath = path.join(rootDir, 'sw.js');
+  if (!fs.existsSync(swPath)) return;
+  const swCode = fs.readFileSync(swPath, 'utf8');
+  const precached = new Set([...swCode.matchAll(/'(\.\/[^']+)'/g)].map(m => m[1].slice(2)));
+
+  // 1. Mọi file trong PRECACHE_ASSETS phải tồn tại
+  for (const p of precached) {
+    if (!p) continue;
+    const full = path.join(rootDir, p);
+    if (!fs.existsSync(full)) {
+      errors.push({
+        file: 'sw.js',
+        message: `PRECACHE_ASSETS trỏ tới tệp không tồn tại: "./${p}"`
+      });
+    }
+  }
+
+  // 2. Mọi file .js / .css trong src/ phải được đăng ký vào PRECACHE_ASSETS
+  const srcFiles = getAllFiles(path.join(rootDir, 'src'))
+    .filter(f => f.endsWith('.js') || f.endsWith('.css'))
+    .map(f => path.relative(rootDir, f).replace(/\\/g, '/'));
+
+  for (const rel of srcFiles) {
+    if (!precached.has(rel)) {
+      errors.push({
+        file: 'sw.js',
+        message: `Tệp "${rel}" chưa được đăng ký vào PRECACHE_ASSETS để hỗ trợ Offline PWA.`
+      });
+    }
+  }
+}
+
+// ============================================================================
 // 9. THỰC THI KIỂM TRA TOÀN DIỆN
 // ============================================================================
 async function runSuite() {
@@ -540,6 +668,12 @@ async function runSuite() {
   // 6. Kiểm tra đồng bộ phiên bản toàn dự án (SSOT)
   validateVersionConsistency();
 
+  // 7. Kiểm tra sót import (Unimported project symbols) trong src/js/
+  validateUnimportedSymbols();
+
+  // 8. Kiểm tra đồng bộ Offline PWA Precache (sw.js)
+  validateSwPrecache();
+
   const duration = ((performance.now() - startTime) / 1000).toFixed(3);
 
   console.log(`${colors.dim}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${colors.reset}`);
@@ -562,6 +696,8 @@ async function runSuite() {
     console.log(`   ${colors.green}✓${colors.reset} 100% Biến CSS (var(--...)), @import và dấu chấm phẩy toàn vẹn`);
     console.log(`   ${colors.green}✓${colors.reset} 2.500+ từ vựng & chủ đề đạt chuẩn Schema`);
     console.log(`   ${colors.green}✓${colors.reset} 100% Đồng bộ phiên bản thống nhất toàn dự án (SSOT)`);
+    console.log(`   ${colors.green}✓${colors.reset} 100% Không sót import / symbol chưa khai báo trong src/js/`);
+    console.log(`   ${colors.green}✓${colors.reset} 100% Đồng bộ Offline PWA Precache (sw.js)`);
     process.exit(0);
   } else {
     console.log(`${colors.red}${colors.bold}❌ PHÁT HIỆN ${errors.length} LỖI CẦN SỬA:${colors.reset}`);

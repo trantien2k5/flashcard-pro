@@ -5,6 +5,7 @@
 
 import { StatsManager } from '../../core/stats.js';
 import { StorageManager } from '../../services/storage.js';
+import { LEARNING_GOALS } from '../../config.js';
 import { escapeHTML } from '../../utils.js';
 
 /* ==========================================================================
