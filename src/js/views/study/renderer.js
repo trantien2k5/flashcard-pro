@@ -64,8 +64,6 @@ export function getStudyDom() {
   return _dom;
 }
 
-let _studyTimerUnsubscribe = null;
-
 export function updateStudyLiveTimerUI(state) {
   if (!state) return;
   const elDigits = document.getElementById('study-timer-digits');

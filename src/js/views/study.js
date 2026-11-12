@@ -81,6 +81,7 @@ let _backShowTime = 0;
 let _lastFlipLatencyMs = 0;
 let _isFlipLocked = false;
 let _flipCountdownTimer = null;
+let _studyTimerUnsubscribe = null;
 
 export function startFrontActiveRecallTimer() {
   if (_flipCountdownTimer) {
