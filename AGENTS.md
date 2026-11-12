@@ -1,8 +1,8 @@
 # 🤖 AGENTS.md — System Context & Development Directives
 
 > **Tài liệu SSOT (Single Source of Truth)** dành cho AI Agent khi làm việc với dự án **Flashcard English Pro**.
-> Phiên bản hiện tại: **`v3.76.50`** | Kiến trúc: **Vanilla ES6+ Modules, Offline-First PWA, FSRS-6 Spaced Repetition**.
-> **Tài liệu liên quan**: Xem [`docs/CODE_MAP.md`](./docs/CODE_MAP.md) (Bản đồ định vị hàm & số dòng), [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) (Kiến trúc hệ thống), [`docs/CODING_STANDARDS.md`](./docs/CODING_STANDARDS.md) (20 quy chuẩn code), [`docs/DECISIONS.md`](./docs/DECISIONS.md) (Quyết định ADR), [`docs/PROGRESS.md`](./docs/PROGRESS.md) (Tiến độ).
+> Kiến trúc: **Vanilla ES6+ Modules, Offline-First PWA, FSRS-6 Spaced Repetition** (Phiên bản hiện hành: xem [`package.json`](./package.json)).
+> **Tài liệu liên quan**: [`docs/CODE_MAP.md`](./docs/CODE_MAP.md) (Bản đồ định vị hàm & số dòng), [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) (Kiến trúc, ADR & Quy chuẩn code), [`docs/PROGRESS.md`](./docs/PROGRESS.md) (Tiến độ & Backlog).
 
 ---
 
@@ -58,103 +58,39 @@
 
 ## 📁 3. Bản Đồ Cấu Trúc Mã Nguồn (Standard `src/` Architecture)
 
+*(Chi tiết từng tệp JS, hàm và số dòng xem tại [`docs/CODE_MAP.md`](./docs/CODE_MAP.md) hoặc chạy `npm run locate <tên>`)*
+
 ```
 flashcard-pro/
-├── index.html                    # Layout SPA chính, navigation bar, modal containers
-├── AGENTS.md                     # File quy tắc & kiến trúc cho AI Agent (Tệp này)
-├── sw.js                         # Service Worker PWA (Cache-first offline & auto-update)
-├── manifest.json                 # Web App Manifest PWA
-├── package.json                  # Scripts test, build, bump version (SSOT: v3.76.26)
-├── jsconfig.json                 # Cấu hình Path Aliases (@core, @views, @services, @data)
+├── index.html, sw.js, manifest.json   # Entry SPA, Service Worker PWA & Manifest
+├── package.json, jsconfig.json        # Scripts (test/bump/map) & Path Aliases
+├── AGENTS.md                          # Quy tắc & ngữ cảnh AI Agent (Tệp này)
 │
-├── docs/                         # Tài liệu kiến trúc, quy chuẩn, ADR, tiến độ & CODE_MAP.md
+├── docs/                              # Tài liệu hệ thống (3 file SSOT)
+│   ├── ARCHITECTURE.md                # Kiến trúc 4 tầng, ADR-001..006 & Coding Standards
+│   ├── PROGRESS.md                    # Trạng thái, lịch sử mốc & Backlog
+│   └── CODE_MAP.md                    # Bản đồ định vị hàm & dòng code (auto-generated)
 │
-├── assets/                       # Tài nguyên tĩnh (Static Assets)
-│   ├── icons/                    # App Icons PWA
-│   └── images/words/             # 2.582+ ảnh WebP cục bộ phân tầng a-z
+├── assets/                            # App Icons PWA & 2.582+ ảnh WebP cục bộ (a-z)
 │
-├── src/                          # 🌟 TOÀN BỘ MÃ NGUỒN DỰ ÁN
-│   ├── js/                       # Tầng JavaScript Logic
-│   │   ├── app.js                # [Main Orchestrator] Bootstrap, Tab Switching Router, Event Bus
-│   │   ├── config.js             # App config, Storage Keys, FSRS constants, Topic metadata
-│   │   ├── utils.js              # Helper functions (DOM, async, debounce, sanitize, format)
-│   │   │
-│   │   ├── core/                 # Lõi Nghiệp vụ & Thuật toán
-│   │   │   ├── fsrs.js           # Thuật toán FSRS-6 thuần JS (Stability, Difficulty, Retrievability)
-│   │   │   ├── session.js        # State machine phiên học Flashcard, queue FSRS (relearnInSession: false)
-│   │   │   ├── selectors.js      # DeckManager (Lọc từ vựng, tính toán chặng học, phân tầng chủ đề)
-│   │   │   ├── stats.js          # StatsManager (Phân tích FSRS, heatmap 7 ngày, streak, dự báo)
-│   │   │   ├── timer.js          # StudyTimer (Bộ đếm thời gian học chuẩn xác, tự động pause khi đổi tab)
-│   │   │   └── optimizer.js      # BehavioralOptimizer (Tự động tinh chỉnh tham số FSRS ngầm Zero-touch)
-│   │   │
-│   │   ├── services/             # Tầng Dịch vụ & Ngoại vi
-│   │   │   ├── storage.js        # StorageManager (Facade, IndexedDB + RAM Cache Write-Through)
-│   │   │   ├── storage/          # Module con phân tầng của StorageManager
-│   │   │   │   ├── streak.js     # Thuật toán Streak State Engine, Đóng băng Streak & Thưởng cột mốc
-│   │   │   │   └── backup.js     # Đóng gói/giải nén Nano FSRS Compact Tuple, Tải & nạp file sao lưu JSON
-│   │   │   └── audio.js          # AudioManager (Web Speech API, AudioContext sfx)
-│   │   │
-│   │   └── views/                # Các màn hình giao diện (View Controllers)
-│   │       ├── study.js          # [Controller Facade] Giao diện học Flashcard 3D & 4 nút đánh giá
-│   │       ├── study/            # Module con phân tầng của Study View
-│   │       │   ├── autoplay.js   # Cỗ máy học tự động rảnh tay (Hands-free Autoplay Engine)
-│   │       │   ├── prefs.js      # Quản lý cấu hình & tùy chọn học tập (Autoplay, Flashcard Prefs)
-│   │       │   ├── shell.js      # Cấu trúc khung DOM màn hình học & bắt sự kiện vuốt chạm cử chỉ
-│   │       │   ├── pomodoro.js   # Bộ đếm Pomodoro tập trung chuyên biệt cho phiên học
-│   │       │   └── summary-modal.js # Modal tổng kết thành tích sau khi hoàn thành phiên học
-│   │       ├── modals/           # Modal độc lập dùng chung cho các màn hình
-│   │       │   └── goal-modal.js # Modal thiết lập mục tiêu hàng ngày & chi tiết dự báo tải ôn tập
-│   │       ├── components.js     # [Barrel Facade] Tái xuất khẩu các thành phần UI dùng chung
-│   │       ├── components/       # Các thành phần UI chuyên biệt dùng chung
-│   │       │   ├── shell.js      # Khởi tạo khung chứa modal toàn cục (mountGlobalModals)
-│   │       │   ├── toast.js      # Hệ thống thông báo Toast linh hoạt
-│   │       │   ├── search.js     # Hộp thoại tìm kiếm từ vựng toàn cục (Global Search)
-│   │       │   ├── streak-hub.js # Trung tâm quản lý chuỗi ngày học & khôi phục Streak
-│   │       │   ├── custom-study.js # Hộp thoại tùy chỉnh cấu hình phiên học Flashcard nâng cao
-│   │       │   └── optimizer-modal.js # Modal hiển thị báo cáo tự động tối ưu hóa FSRS ngầm
-│   │       ├── review.js         # [Barrel Facade] Màn hình Trang chủ: Nhiệm vụ hôm nay & Tiến độ
-│   │       ├── review/           # Module con của Review View
-│   │       │   └── stat-modals.js # 5 popup modal phân tích sâu chỉ số Trang chủ (Due, Done, Time,...)
-│   │       ├── decks.js          # [Barrel Facade] Duyệt 22 danh mục chủ đề gốc Cấp 1
-│   │       ├── decks/            # Module con phân cấp của Decks View
-│   │       │   ├── subtopics.js  # Danh mục chủ đề con Cấp 2 và Cấp 3
-│   │       │   └── words.js      # Danh sách từ vựng & chi tiết từ Cấp 4
-│   │       ├── library.js        # [Barrel Facade] Thư viện Từ vựng tổng, tra cứu & lọc FSRS
-│   │       ├── library/          # Module con của Library View
-│   │       │   └── detail-modal.js # Modal chi tiết từ vựng & FSRS state inspector
-│   │       ├── stats.js          # [Barrel Facade] Màn hình thống kê chi tiết & biểu đồ FSRS
-│   │       ├── stats/            # Module con của Stats View
-│   │       │   ├── journal.js    # Lịch học tập Calendar Heatmap & nhật ký ôn tập hàng ngày
-│   │       │   └── forecast-modal.js # Modal xem trước dự báo số lượng từ ôn tập theo ngày
-│   │       ├── settings.js       # Cài đặt ứng dụng, tùy chỉnh FSRS, hồ sơ học tập (Profile)
-│   │       ├── quiz.js           # Trắc nghiệm thông minh ôn tập FSRS Smart Quiz
-│   │       ├── reels.js          # Lướt từ vựng dạng Reels cuộn dọc (TikTok style, chuẩn 100% CSS Tokens)
-│   │       └── toeic-test.js     # Kiểm tra trình độ TOEIC Mini & Full Test
+├── src/
+│   ├── js/                            # Tầng Logic ES6+
+│   │   ├── app.js, config.js, utils.js
+│   │   ├── core/                      # fsrs, session, selectors, stats, timer, optimizer
+│   │   ├── services/                  # storage (+ streak, backup), audio
+│   │   └── views/                     # study/, decks/, library/, review/, stats/, components/, modals/, quiz, reels, settings, toeic-test
 │   │
-│   ├── css/                      # Hệ thống Stylesheet Module hóa
-│   │   ├── style.css             # Master CSS nạp toàn bộ bundle stylesheets
-│   │   ├── main.css              # Design Tokens, Base Reset, Layout Shell & Animations
-│   │   ├── flashcard.css         # 3D Flip Card, rating buttons, audio controls
-│   │   ├── components.css        # Modals, Toast notifications, Dialogs
-│   │   └── views/*.css           # CSS chuyên biệt cho từng màn hình tương ứng
+│   ├── css/                           # Stylesheet 4 tầng (23 module)
+│   │   ├── style.css, main.css, components.css   # Master & Barrel Facades
+│   │   ├── base/                      # tokens.css, reset.css, animations.css
+│   │   ├── layout/                    # shell.css, responsive.css
+│   │   ├── components/                # modals, toast, search, optimizer, streak, custom-study
+│   │   └── views/                     # flashcard, review, decks, stats, library, settings, quiz, reels, toeic-test
 │   │
-│   └── data/                     # Dữ liệu tĩnh & Schema
-│       ├── index.js              # Điểm tập kết dữ liệu, xuất hàm validateData()
-│       ├── words.js & words/     # 4.157 từ vựng chuẩn hóa phân chia theo module (a1-c1, toeic-500)
-│       ├── topics.js             # Cây chủ đề 22 danh mục & 547 chủ đề con
-│       ├── toeic-tests.js        # Đề thi trắc nghiệm TOEIC
-│       ├── schemas.js            # Schema định nghĩa cấu trúc Word & Topic
-│       └── validators.js         # Bộ xác thực dữ liệu từ vựng & taxonomy
+│   └── data/                          # 4.157 từ vựng (words/), 569 chủ đề (topics.js), toeic-tests, schemas, validators
 │
-├── scripts/
-│   ├── bump.js                   # Script đồng bộ phiên bản tự động toàn dự án (SSOT)
-│   └── data_gen/                 # Các script Python tạo dữ liệu & migration
-│
-└── test/
-    ├── check.js                  # Bộ test AST, Export/Import, CSS, Data Schema (< 0.2s)
-    ├── refactor_guide.js         # Công cụ quét Code Smell & phân tích độ tinh gọn
-    ├── test_fsrs_sync.js         # Test đồng bộ thuật toán FSRS & nhãn khoảng thời gian UI
-    └── test_quiz_balance.js      # Test cân bằng xác suất đề thi Quiz
+├── scripts/                           # bump.js (SSOT version), locate.js (code map), optimize_images.js
+└── test/                              # check.js (AST/CSS/Schema), test_fsrs_sync.js, test_quiz_balance.js, refactor_guide.js
 ```
 
 ---
