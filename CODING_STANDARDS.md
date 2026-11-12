@@ -122,6 +122,11 @@
 5. **Tái sử dụng tối đa hàm và module đã có sẵn** trong `utils.js`, `storage.js`, `components.js`.
 6. **Không tạo nhiều hàm thực hiện cùng một chức năng** gây phân mảnh logic.
 7. **Không xóa code cũ khi chưa kiểm tra toàn bộ nơi sử dụng** (dùng `grep` để rà soát).
-8. **Phải chạy `npm test` ngay sau khi sửa code** để tự động phát hiện và khắc phục sự cố.
+8. **Phải chạy `npm test` ngay sau khi sửa code** để tự động phát hiện và khắc phục sự cố (chỉ chạy sau khi sửa code hoặc khi được yêu cầu, tuyệt đối không chạy khi chỉ đọc/khảo sát).
 9. **Cập nhật `PROGRESS.md` và `AGENTS.md`** ngay khi hoàn thành nhiệm vụ cấu trúc.
 10. **Báo cáo rõ ràng**: Liệt kê tệp đã sửa, thay đổi cụ thể và số lượng test cases đã kiểm chứng.
+11. **Khảo sát tinh gọn & Phản hồi nhanh**: Đối với các yêu cầu khảo sát, đọc lướt, ưu tiên mở tài liệu tổng quan (`ARCHITECTURE.md`), tóm tắt ngắn gọn và phản hồi ngay lập tức, không chạy các lệnh nặng tốn thời gian.
+12. **Không đọc full code & Không đọc dạo**: Chỉ đọc chính xác phạm vi dòng/tệp tin liên quan trực tiếp đến nhiệm vụ. Tránh đọc tràn lan toàn bộ file hoặc mở file không cần thiết.
+13. **Kỹ lưỡng theo mức độ rủi ro**: Chỉ khảo sát sâu và thận trọng tối đa khi gặp vấn đề lớn mang tính kiến trúc hoặc có nguy cơ gây lỗi cao (FSRS state, Storage, Core business). Tác vụ nhỏ xử lý nhanh, dứt khoát.
+14. **Chủ động đề xuất tối ưu lâu dài**: Khi thấy module có dấu hiệu phình to (>300–500 dòng), cấu trúc rắc rối hoặc nợ kỹ thuật, luôn chủ động đề xuất giải pháp tái cấu trúc tối ưu bền vững.
+15. **Tự động Bump & Push khi hoàn thành**: Sau khi code hoàn thiện và test 100% đạt chuẩn, tự động chạy `npm run bump`, commit và `git push origin main` luôn, không dừng lại hỏi người dùng.

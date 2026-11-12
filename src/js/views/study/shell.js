@@ -38,7 +38,7 @@ export function renderStudyOverlayShell() {
           <div class="study-header-priority-wrap">
             <button type="button" id="btn-study-priority" class="btn-study-priority" title="Thay đổi thứ tự ưu tiên học" aria-haspopup="true">
               <span class="priority-icon" id="study-priority-icon">🎯</span>
-              <span class="priority-label" id="study-priority-label">Tới hạn</span>
+              <span class="priority-label" id="study-priority-label">Cần ôn</span>
               <svg class="priority-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="m6 9 6 6 6-6"/>
               </svg>
@@ -68,9 +68,12 @@ export function renderStudyOverlayShell() {
             <div class="flashcard-face face-front">
               <!-- Top Minimal Status Badge & Top-Right Badges -->
               <div class="card-top-bar">
-                <div class="card-status-badge state-new" id="card-front-status-badge">
-                  <span class="status-dot"></span>
-                  <span class="status-text" id="card-front-status-text">Từ mới</span>
+                <div class="card-top-left-wrap">
+                  <div class="card-status-badge state-new" id="card-front-status-badge">
+                    <span class="status-dot"></span>
+                    <span class="status-text" id="card-front-status-text">Từ mới</span>
+                  </div>
+                  <button type="button" class="btn-card-info" id="btn-card-info-front" title="Xem thông tin tiến trình học" aria-label="Xem thông tin tiến trình học">!</button>
                 </div>
                 <div class="card-front-top-right">
                   <div class="card-badges-row" id="card-front-badges-wrap">
@@ -136,6 +139,7 @@ export function renderStudyOverlayShell() {
                       <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
                     </svg>
                   </button>
+                  <button type="button" class="btn-card-info" id="btn-card-info-back" title="Xem thông tin tiến trình học" aria-label="Xem thông tin tiến trình học">!</button>
                 </div>
                 <div class="card-back-badges" id="card-back-badges-wrap" style="display: none;">
                   <span class="card-pos-tag" id="card-pos-badge-back">WORD</span>
@@ -239,7 +243,7 @@ export function renderStudyOverlayShell() {
             <!-- 1. Chế độ ôn tập -->
             <div class="pref-item">
               <div class="pref-info">
-                <span class="pref-label">🎮 Chế độ ôn tập</span>
+                <span class="pref-label">🎮 Chế độ ôn</span>
                 <span class="pref-sub">Chọn phương pháp học trong phiên</span>
               </div>
               <select id="pref-select-study-mode" class="pref-select-dropdown">
@@ -372,7 +376,7 @@ export function renderStudyOverlayShell() {
           <div class="prefs-card-actions-section">
             <h4 class="prefs-section-subtitle">Thao tác thẻ hiện tại</h4>
             <div class="prefs-actions-grid">
-              <button type="button" class="btn-study-card-action" id="btn-action-reset-card" title="Học lại từ này từ đầu">
+              <button type="button" class="btn-study-card-action" id="btn-action-reset-card" title="Đặt lại từ đầu">
                 <span class="action-icon">🔄</span>
                 <div class="action-text">
                   <span class="action-title">Đặt lại tiến độ thẻ</span>
@@ -479,7 +483,7 @@ export function renderStudyOverlayShell() {
             <button type="button" class="priority-option-btn active" data-mode="due_first">
               <span class="priority-opt-icon">🎯</span>
               <div class="priority-opt-info">
-                <span class="priority-opt-name">Từ tới hạn (Mặc định)</span>
+                <span class="priority-opt-name">Cần ôn (Mặc định)</span>
                 <span class="priority-opt-desc">Ôn thẻ đến hạn FSRS kết hợp xen kẽ từ mới (5 : 1)</span>
               </div>
               <span class="priority-opt-check">✓</span>
@@ -511,7 +515,7 @@ export function renderStudyOverlayShell() {
             <button type="button" class="priority-option-btn" data-mode="audio_blind">
               <span class="priority-opt-icon">🎧</span>
               <div class="priority-opt-info">
-                <span class="priority-opt-name">Phản xạ Nghe</span>
+                <span class="priority-opt-name">Luyện nghe</span>
                 <span class="priority-opt-desc">Ẩn chữ mặt trước, chỉ nghe âm thanh để đoán</span>
               </div>
               <span class="priority-opt-check">✓</span>

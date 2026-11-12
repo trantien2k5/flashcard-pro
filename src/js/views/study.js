@@ -10,6 +10,7 @@ import { globalStudyTimer, BehavioralOptimizer } from '../core/stats.js';
 import { unlockAudioContext } from '../core/session.js';
 import { escapeHTML, formatCleanInterval, scrollToTop } from '../utils.js';
 import { onAudioPlayStateChange, speak, stopAudio } from '../services/audio.js';
+import { openWordDetailModal } from './library/detail-modal.js';
 
 // ==========================================
 // MODULAR SUB-CONTROLLERS (CHIA ĐỂ TRỊ)
@@ -137,11 +138,11 @@ export function updateStudyPriorityUI(mode = 'due_first') {
   const optionBtns = document.querySelectorAll('.priority-option-btn');
 
   const modeConfig = {
-    due_first: { icon: '🎯', label: 'Tới hạn' },
+    due_first: { icon: '🎯', label: 'Cần ôn' },
     new_only: { icon: '🌱', label: 'Từ mới' },
     weak_hunter: { icon: '🔥', label: 'Từ khó' },
     sprint_10: { icon: '⚡', label: 'Tốc chiến' },
-    audio_blind: { icon: '🎧', label: 'Nghe' }
+    audio_blind: { icon: '🎧', label: 'Luyện nghe' }
   };
 
   const cfg = modeConfig[mode] || modeConfig.due_first;
@@ -189,11 +190,11 @@ export function switchStudyPriority(app, targetMode) {
     app.studySession?.start(newQueue);
 
     const modeLabels = {
-      due_first: 'Từ tới hạn',
+      due_first: 'Cần ôn',
       new_only: 'Ưu tiên Từ mới',
       weak_hunter: 'Ưu tiên Từ khó',
       sprint_10: 'Tốc chiến 10 từ',
-      audio_blind: 'Phản xạ Nghe'
+      audio_blind: 'Luyện nghe'
     };
     app.showToast?.(`🎯 Đã đổi ưu tiên: ${modeLabels[targetMode] || targetMode} (${newQueue.length} từ)`, 'success', 2000);
     return true;
@@ -560,6 +561,7 @@ export function setupStudyControls(app) {
         e.target.closest('#btn-example-audio') ||
         e.target.closest('.btn-card-audio-mini') ||
         e.target.closest('.btn-example-audio') ||
+        e.target.closest('.btn-card-info') ||
         e.target.closest('#card-audio-blind-wrap')
       ) {
         return;
@@ -750,6 +752,30 @@ export function setupStudyControls(app) {
           console.error('Lỗi phát âm câu ví dụ:', err);
         }
       });
+    }
+
+    // Xem thông tin tiến trình học của từ (FSRS Inspector & Chi tiết từ)
+    const handleShowCardInfo = (e) => {
+      try {
+        e.stopPropagation();
+        e.preventDefault();
+        globalStudyTimer.recordActivity();
+        const currentCard = app.studySession?.currentCard;
+        if (currentCard) {
+          openWordDetailModal(currentCard, app);
+        }
+      } catch (err) {
+        console.error('Lỗi mở chi tiết từ vựng:', err);
+      }
+    };
+
+    const btnCardInfoFront = document.getElementById('btn-card-info-front');
+    const btnCardInfoBack = document.getElementById('btn-card-info-back');
+    if (btnCardInfoFront) {
+      btnCardInfoFront.addEventListener('click', handleShowCardInfo);
+    }
+    if (btnCardInfoBack) {
+      btnCardInfoBack.addEventListener('click', handleShowCardInfo);
     }
 
     // Thiết lập hệ thống điều phối & cài đặt Auto-Play
@@ -1153,15 +1179,15 @@ export function handleCardChange(app, card, progress) {
     const isRelearnPass = Boolean(progress.isRelearnPass || card._isRelearnPass);
     if (isRelearnPass) {
       stateClass = 'state-relearning';
-      stateText = 'Ôn tập';
+      stateText = 'Luyện lại';
     } else if (stateNum === State.Learning || stateNum === 1) {
       stateText = 'Đang học';
       stateClass = 'state-learning';
     } else if (stateNum === State.Review || stateNum === 2) {
-      stateText = 'Ôn tập';
+      stateText = 'Ôn lại';
       stateClass = 'state-review';
     } else if (stateNum === State.Relearning || stateNum === 3) {
-      stateText = 'Ôn tập';
+      stateText = 'Luyện lại';
       stateClass = 'state-relearning';
     } else {
       stateText = 'Từ mới';

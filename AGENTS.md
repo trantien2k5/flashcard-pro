@@ -23,6 +23,24 @@
 4. **Quy tắc xác nhận trước khi viết code (Confirmation Gate)**:
    - **Mặc định:** Luôn trình bày tóm tắt giải pháp / các file dự định can thiệp và **chờ người dùng xác nhận đồng ý trước khi tiến hành viết hoặc sửa code**.
    - **Ngoại lệ (Thực thi ngay không cần hỏi):** Chỉ khi người dùng yêu cầu rõ ràng bằng các lệnh hoặc từ khóa như: *"code luôn"*, *"fix ngay"*, *"làm ngay"*, *"sửa luôn"*, *"thực thi ngay"* (hoặc ngữ cảnh tương đương), AI mới tiến hành sửa code trực tiếp mà không cần hỏi lại.
+5. **Quy tắc khảo sát tinh gọn & Tối ưu tốc độ (Lightweight Exploration)**:
+   - Khi người dùng yêu cầu *"đọc sơ qua"*, *"tìm hiểu"*, *"khảo sát"*, *"xem qua"* hoặc hỏi đáp chung: Chỉ đọc nhanh các file tài liệu tóm tắt (`ARCHITECTURE.md`, `PROGRESS.md`).
+   - **Tuyệt đối KHÔNG** tự ý chạy `npm test`, quét AST 70 file, hoặc chạy các lệnh quét index nặng (`git status` trên toàn bộ repo lớn) gây nghẽn và làm chậm phản hồi trên môi trường Termux / Mobile. Phải ưu tiên phản hồi nhanh, trực diện, không để người dùng chờ đợi.
+6. **Điều kiện kích hoạt kiểm thử tự động (Testing Trigger Gate)**:
+   - Chỉ chạy `node test/check.js` hoặc `npm test` **SAU KHI ĐÃ SỬA ĐỔI CODE** hoặc khi người dùng **yêu cầu rõ ràng** (*"chạy test"*, *"kiểm tra lỗi"*). Tuyệt đối không tự ý chạy trong các tác vụ chỉ đọc/khảo sát.
+7. **Quy tắc đọc tập trung & Chống lãng phí I/O (Targeted Reading Only)**:
+   - **Tuyệt đối không đọc full code, không đọc file dạo khi không cần thiết**: Chỉ đọc chính xác phạm vi dòng (line range) hoặc tệp đích trực tiếp liên quan đến vấn đề. Không mở đọc tràn lan các file ngoài lề gây chậm trễ và nghẽn tài nguyên trên thiết bị.
+8. **Phân cấp độ kỹ lưỡng theo mức độ rủi ro (Risk-Based Rigor)**:
+   - Các tác vụ nhẹ hoặc cục bộ (chỉnh sửa giao diện nhỏ, sửa text, fix lỗi đơn lẻ): Giải quyết dứt điểm, nhanh gọn.
+   - **Chỉ khi gặp vấn đề lớn hoặc rủi ro gây bug cao** (thay đổi cấu trúc FSRS State, IndexedDB migration, logic dữ liệu cốt lõi, breaking change liên module) mới cần đào sâu, khảo sát kỹ lưỡng và kiểm chứng đa tầng.
+9. **Chủ động đề xuất giải pháp tối ưu lâu dài (Long-Term Scalability)**:
+   - Khi nhận thấy dự án hoặc module có dấu hiệu phình to (>300–500 dòng), cấu trúc trở nên rắc rối, lặp code hoặc tăng độ phức tạp bất thường: Phải luôn chủ động đề xuất giải pháp tối ưu/bóc tách bền vững về lâu dài cho dự án, ngăn chặn tích tụ nợ kỹ thuật (technical debt).
+10. **Quy tắc tự động nâng phiên bản & Đẩy mã nguồn (Auto Bump & Push)**:
+   - Khi hoàn thành một nhiệm vụ và kiểm thử đạt 100% hoàn hảo, **tự động thực hiện toàn trình mà không cần dừng lại hỏi người dùng**:
+     1. Chạy `npm run bump` để nâng patch version và đồng bộ 4 file SSOT.
+     2. Tạo Git commit chuẩn Conventional Commits (`feat(scope): ...`, `fix(scope): ...`).
+     3. Đẩy trực tiếp lên nhánh `main`: `git push origin main`.
+     4. Báo cáo ngắn gọn mã commit và phiên bản mới.
 
 ---
 
