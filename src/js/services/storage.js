@@ -9,6 +9,13 @@ import { DEFAULT_SETTINGS, APP_CONFIG, DEFAULT_STREAK_STATE } from '../config.js
 import { FSRS } from '../core/fsrs.js';
 import { applyStreakFreeze, applyStreakRedeem, evaluateStreakReward } from './storage/streak.js';
 import {
+  STORES,
+  openIndexedDB,
+  getAllFromStore,
+  putToStore,
+  migrateLegacyCardStates as migrateLegacyCards
+} from './storage/idb.js';
+import {
   createNanoBackupPayload,
   normalizeCardState,
   normalizeBackupLog,
@@ -17,18 +24,6 @@ import {
 } from './storage/backup.js';
 
 export { DEFAULT_SETTINGS };
-
-const DB_NAME = APP_CONFIG.dbName || 'FlashcardProDB';
-const DB_VERSION = APP_CONFIG.dbVersion || 1;
-
-const STORES = {
-  CARDS: 'cards',
-  STUDY_LOGS: 'study_logs',
-  SETTINGS: 'settings',
-  CUSTOM_DECKS: 'custom_decks',
-  STUDY_TIME: 'study_time',
-  USER_PROGRESS: 'user_progress'
-};
 
 const STORAGE_KEYS = {
   CARDS: 'fsrs_card_states_v1',
@@ -67,36 +62,7 @@ if (typeof LEGACY_ID_MAP === 'object' && LEGACY_ID_MAP !== null) {
  * Tự động di chuyển tiến độ học của các ID cũ sang Canonical ID chuẩn sau khi deduplicate
  */
 function migrateLegacyCardStates(rawCards) {
-  if (!rawCards || typeof rawCards !== 'object') return {};
-  if (!LEGACY_ID_MAP || Object.keys(LEGACY_ID_MAP).length === 0) return rawCards;
-
-  let migrated = false;
-  const cards = { ...rawCards };
-
-  for (const [legacyId, canonicalId] of Object.entries(LEGACY_ID_MAP)) {
-    if (cards[legacyId]) {
-      const legacyState = cards[legacyId];
-      if (!cards[canonicalId]) {
-        cards[canonicalId] = { ...legacyState, id: canonicalId };
-      } else {
-        const canReps = cards[canonicalId].reps || 0;
-        const legReps = legacyState.reps || 0;
-        if (legReps > canReps) {
-          cards[canonicalId] = { ...legacyState, id: canonicalId };
-        }
-      }
-      delete cards[legacyId];
-      migrated = true;
-    }
-  }
-
-  if (migrated && typeof localStorage !== 'undefined') {
-    try {
-      localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(cards));
-    } catch (e) {}
-  }
-
-  return cards;
+  return migrateLegacyCards(rawCards, STORAGE_KEYS.CARDS, LEGACY_ID_MAP);
 }
 
 export class StorageManager {
@@ -114,45 +80,7 @@ export class StorageManager {
   static async initStorage() {
     try {
       if (typeof window !== 'undefined' && window.indexedDB && !_dbPromise) {
-        _dbPromise = new Promise((resolve) => {
-          try {
-            const req = indexedDB.open(DB_NAME, DB_VERSION);
-            req.onupgradeneeded = (e) => {
-              try {
-                const db = e.target.result;
-                if (!db.objectStoreNames.contains(STORES.CARDS)) {
-                  db.createObjectStore(STORES.CARDS, { keyPath: 'id' });
-                }
-                if (!db.objectStoreNames.contains(STORES.STUDY_LOGS)) {
-                  const logStore = db.createObjectStore(STORES.STUDY_LOGS, { keyPath: 'id', autoIncrement: true });
-                  logStore.createIndex('timestamp', 'timestamp', { unique: false });
-                }
-                if (!db.objectStoreNames.contains(STORES.SETTINGS)) {
-                  db.createObjectStore(STORES.SETTINGS, { keyPath: 'key' });
-                }
-                if (!db.objectStoreNames.contains(STORES.CUSTOM_DECKS)) {
-                  db.createObjectStore(STORES.CUSTOM_DECKS, { keyPath: 'id' });
-                }
-                if (!db.objectStoreNames.contains(STORES.STUDY_TIME)) {
-                  db.createObjectStore(STORES.STUDY_TIME, { keyPath: 'date' });
-                }
-                if (!db.objectStoreNames.contains(STORES.USER_PROGRESS)) {
-                  db.createObjectStore(STORES.USER_PROGRESS, { keyPath: 'id' });
-                }
-              } catch (e) {
-                console.warn('[StorageManager] onupgradeneeded error:', e);
-              }
-            };
-            req.onsuccess = () => resolve(req.result);
-            req.onerror = (e) => {
-              console.warn('[StorageManager] IndexedDB open error:', e);
-              resolve(null);
-            };
-          } catch (e) {
-            console.warn('[StorageManager] IndexedDB exception:', e);
-            resolve(null);
-          }
-        });
+        _dbPromise = openIndexedDB();
       }
 
       if (_dbPromise) {
@@ -324,38 +252,11 @@ export class StorageManager {
   }
 
   static _getAllFromStore(db, storeName) {
-    return new Promise((resolve) => {
-      try {
-        if (!db.objectStoreNames.contains(storeName)) return resolve([]);
-        const tx = db.transaction(storeName, 'readonly');
-        const store = tx.objectStore(storeName);
-        const req = store.getAll();
-        req.onsuccess = () => resolve(req.result || []);
-        req.onerror = () => resolve([]);
-      } catch (e) {
-        resolve([]);
-      }
-    });
+    return getAllFromStore(db, storeName);
   }
 
   static async _putToStore(db, storeName, item) {
-    if (!db) return false;
-    return new Promise((resolve) => {
-      try {
-        const tx = db.transaction(storeName, 'readwrite');
-        const store = tx.objectStore(storeName);
-        store.put(item);
-        tx.oncomplete = () => resolve(true);
-        tx.onerror = (e) => {
-          console.warn(`[StorageManager] IndexedDB put error on ${storeName}:`, e);
-          resolve(false);
-        };
-        tx.onabort = () => resolve(false);
-      } catch (e) {
-        console.warn(`[StorageManager] Exception in _putToStore:`, e);
-        resolve(false);
-      }
-    });
+    return putToStore(db, storeName, item);
   }
 
   static invalidateCache() {

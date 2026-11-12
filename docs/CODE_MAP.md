@@ -106,25 +106,44 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `StudySession.speakTTS` | [`#L535-L537`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\session.js#L535-L537) | `method` | Phát âm bằng giọng đọc Neural/Natural của trình duyệt (Web Speech API) |
 | `StudySession.stopAudio` | [`#L542-L544`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\session.js#L542-L544) | `method` | Dừng toàn bộ âm thanh đang phát an toàn |
 
-#### 📁 [`src\js\core\stats.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js) (1277 dòng)
+#### 📁 [`src\js\core\stats.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js) (535 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `StatsManager` | [`#L14-L1274`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L14-L1274) | `class` | Thực thi logic nội bộ |
-| `StatsManager.getMemoryIntelligence` | [`#L18-L171`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L18-L171) | `method` | Phân tích chuyên sâu Trí Nhớ Thật & Năng Lực Nhận Thức FSRS-6 |
-| `StatsManager.getOverallStats` | [`#L176-L277`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L176-L277) | `method` | Tính toán toàn bộ chỉ số thống kê tổng hợp |
-| `StatsManager.calculateStreak` | [`#L286-L398`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L286-L398) | `method` | Tính toán chuỗi ngày học liên tục (Streak) Tự động tích hợp Khiên bảo vệ (f |
-| `StatsManager.detectBrokenStreak` | [`#L404-L489`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L404-L489) | `method` | Tự động phân tích xem chuỗi ngày học có vừa bị đứt trong 24h - 48h gần nhất |
-| `isValidDate` | [`#L431-L443`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L431-L443) | `arrow_function` | Thực thi logic nội bộ |
-| `StatsManager.getComprehensionPower` | [`#L495-L557`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L495-L557) | `method` | Tính toán Thước Đo Năng Lực Đọc Hiểu Tiếng Anh Thực Tế (Comprehension Power |
-| `StatsManager.getCefrRoadmapAndForecast` | [`#L562-L562`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L562-L562) | `method` | Tính toán toàn diện Lộ trình Trình độ CEFR & Dự báo nhịp độ học thích ứng ( |
-| `StatsManager.getDailyMicroQuests` | [`#L852-L852`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L852-L852) | `method` | Tính toán trạng thái 3 Nhiệm Vụ Nhỏ Hôm Nay (Daily 3-Step Micro-Quests) |
-| `StatsManager.getPrimeStudyHour` | [`#L913-L961`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L913-L961) | `method` | Phân tích Khung Giờ Vàng Nhận Thức (Prime Cognitive Study Hour) |
-| `StatsManager.getWeeklyProgress` | [`#L966-L1001`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L966-L1001) | `method` | Lấy số từ ghi nhớ được / tích lũy theo từng ngày trong 7 ngày qua |
-| `StatsManager.get7DaysForecast` | [`#L1006-L1040`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L1006-L1040) | `method` | Dự báo số thẻ đến hạn trong 7 ngày tới |
-| `StatsManager.getMonthJournalData` | [`#L1047-L1215`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L1047-L1215) | `method` | Lấy dữ liệu nhật ký ô vuông theo tháng phong cách Trader (P&L Calendar) @pa |
-| `StatsManager.getYearJournalData` | [`#L1221-L1266`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L1221-L1266) | `method` | Lấy dữ liệu 12 tháng trong năm (Year Overview) @param {number} year - Năm ( |
-| `StatsManager.getYearlyJournalData` | [`#L1271-L1273`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L1271-L1273) | `method` | Alias cho getYearJournalData để đảm bảo tương thích ngược |
+| `StatsManager` | [`#L18-L534`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L18-L534) | `class` | Thực thi logic nội bộ |
+| `StatsManager.getMemoryIntelligence` | [`#L22-L175`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L22-L175) | `method` | Phân tích chuyên sâu Trí Nhớ Thật & Năng Lực Nhận Thức FSRS-6 |
+| `StatsManager.getOverallStats` | [`#L180-L281`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L180-L281) | `method` | Tính toán toàn bộ chỉ số thống kê tổng hợp |
+| `StatsManager.calculateStreak` | [`#L290-L402`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L290-L402) | `method` | Tính toán chuỗi ngày học liên tục (Streak) Tự động tích hợp Khiên bảo vệ (f |
+| `StatsManager.detectBrokenStreak` | [`#L408-L493`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L408-L493) | `method` | Tự động phân tích xem chuỗi ngày học có vừa bị đứt trong 24h - 48h gần nhất |
+| `isValidDate` | [`#L435-L447`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L435-L447) | `arrow_function` | Thực thi logic nội bộ |
+| `StatsManager.getComprehensionPower` | [`#L499-L501`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L499-L501) | `method` | Tính toán Thước Đo Năng Lực Đọc Hiểu Tiếng Anh Thực Tế (Comprehension Power |
+| `StatsManager.getCefrRoadmapAndForecast` | [`#L503-L503`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L503-L503) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getDailyMicroQuests` | [`#L507-L507`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L507-L507) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getPrimeStudyHour` | [`#L511-L513`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L511-L513) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getWeeklyProgress` | [`#L515-L517`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L515-L517) | `method` | Thực thi logic nội bộ |
+| `StatsManager.get7DaysForecast` | [`#L519-L521`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L519-L521) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getMonthJournalData` | [`#L523-L525`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L523-L525) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getYearJournalData` | [`#L527-L529`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L527-L529) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getYearlyJournalData` | [`#L531-L533`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L531-L533) | `method` | Thực thi logic nội bộ |
+
+#### 📁 [`src\js\core\stats\journal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js) (372 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `getPrimeStudyHour` | [`#L9-L57`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L9-L57) | `function` | Thực thi logic nội bộ |
+| `getWeeklyProgress` | [`#L62-L97`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L62-L97) | `function` | Lấy số từ ghi nhớ được / tích lũy theo từng ngày trong 7 ngày qua |
+| `get7DaysForecast` | [`#L102-L136`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L102-L136) | `function` | Dự báo số thẻ đến hạn trong 7 ngày tới |
+| `getMonthJournalData` | [`#L143-L311`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L143-L311) | `function` | Lấy dữ liệu nhật ký ô vuông theo tháng phong cách Trader (P&L Calendar) @pa |
+| `getYearJournalData` | [`#L317-L362`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L317-L362) | `function` | Lấy dữ liệu 12 tháng trong năm (Year Overview) @param {number} year - Năm ( |
+| `getYearlyJournalData` | [`#L367-L369`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L367-L369) | `function` | Alias cho getYearJournalData để đảm bảo tương thích ngược |
+
+#### 📁 [`src\js\core\stats\roadmap.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\roadmap.js) (424 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `getComprehensionPower` | [`#L12-L74`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\roadmap.js#L12-L74) | `function` | Thực thi logic nội bộ |
+| `getCefrRoadmapAndForecast` | [`#L79-L79`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\roadmap.js#L79-L79) | `function` | Tính toán toàn diện Lộ trình Trình độ CEFR & Dự báo nhịp độ học thích ứng ( |
+| `getDailyMicroQuests` | [`#L367-L367`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\roadmap.js#L367-L367) | `function` | Tính toán trạng thái 3 Nhiệm Vụ Nhỏ Hôm Nay (Daily 3-Step Micro-Quests) |
 
 #### 📁 [`src\js\core\timer.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\timer.js) (254 dòng)
 
@@ -175,75 +194,75 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `speakVi` | [`#L424-L483`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\audio.js#L424-L483) | `function` | Phát âm Tiếng Việt (Web Speech API vi-VN) |
 | `finish` | [`#L460-L464`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\audio.js#L460-L464) | `arrow_function` | Thực thi logic nội bộ |
 
-#### 📁 [`src\js\services\storage.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js) (1513 dòng)
+#### 📁 [`src\js\services\storage.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js) (1414 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `migrateLegacyCardStates` | [`#L69-L100`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L69-L100) | `function` | Tự động di chuyển tiến độ học của các ID cũ sang Canonical ID chuẩn sau khi |
-| `StorageManager` | [`#L102-L1462`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L102-L1462) | `class` | Thực thi logic nội bộ |
-| `StorageManager.getStateRevision` | [`#L103-L105`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L103-L105) | `method` | Thực thi logic nội bộ |
-| `StorageManager.bumpStateRevision` | [`#L107-L109`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L107-L109) | `method` | Thực thi logic nội bộ |
-| `StorageManager.initStorage` | [`#L114-L167`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L114-L167) | `method` | Khởi tạo kết nối IndexedDB và nạp trước dữ liệu vào RAM Cache |
-| `StorageManager._preloadFromIndexedDB` | [`#L169-L324`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L169-L324) | `method` | Thực thi logic nội bộ |
-| `StorageManager._getAllFromStore` | [`#L326-L339`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L326-L339) | `method` | Thực thi logic nội bộ |
-| `StorageManager._putToStore` | [`#L341-L359`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L341-L359) | `method` | Thực thi logic nội bộ |
-| `StorageManager.invalidateCache` | [`#L361-L369`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L361-L369) | `method` | Thực thi logic nội bộ |
-| `StorageManager.getSettings` | [`#L371-L382`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L371-L382) | `method` | Thực thi logic nội bộ |
-| `StorageManager.saveSettings` | [`#L384-L402`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L384-L402) | `method` | Thực thi logic nội bộ |
-| `StorageManager.getAllCardStates` | [`#L404-L416`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L404-L416) | `method` | Thực thi logic nội bộ |
-| `StorageManager.getCardState` | [`#L418-L430`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L418-L430) | `method` | Thực thi logic nội bộ |
-| `StorageManager.saveCardState` | [`#L464-L492`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L464-L492) | `method` | Thực thi logic nội bộ |
-| `StorageManager._scheduleCardsLocalStorageSync` | [`#L494-L507`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L494-L507) | `method` | Thực thi logic nội bộ |
-| `StorageManager._scheduleLogsLocalStorageSync` | [`#L509-L522`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L509-L522) | `method` | Thực thi logic nội bộ |
-| `StorageManager._scheduleTimeLocalStorageSync` | [`#L524-L535`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L524-L535) | `method` | Thực thi logic nội bộ |
-| `StorageManager.flushPendingSync` | [`#L537-L556`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L537-L556) | `method` | Thực thi logic nội bộ |
-| `StorageManager.saveMultipleCardStates` | [`#L558-L588`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L558-L588) | `method` | Thực thi logic nội bộ |
-| `StorageManager.suspendCard` | [`#L593-L617`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L593-L617) | `method` | Tạm dừng thẻ (Suspend) - ẩn khỏi hàng đợi ôn tập |
-| `StorageManager.unsuspendCard` | [`#L622-L629`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L622-L629) | `method` | Bỏ tạm dừng thẻ (Unsuspend) |
-| `StorageManager.resetLeechStatus` | [`#L634-L641`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L634-L641) | `method` | Đặt lại cờ thẻ khó và đưa thẻ trở lại hàng đợi học tập |
-| `StorageManager.toggleCardSuspended` | [`#L646-L656`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L646-L656) | `method` | Đảo trạng thái tạm dừng của thẻ |
-| `StorageManager.resetCardProgress` | [`#L661-L680`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L661-L680) | `method` | Đặt lại tiến độ thẻ về từ mới hoàn toàn (Reset / Forget) |
-| `StorageManager.isCardSuspended` | [`#L685-L689`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L685-L689) | `method` | Kiểm tra xem thẻ có đang bị tạm dừng hay không |
-| `StorageManager.recordStudiedDate` | [`#L695-L715`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L695-L715) | `method` | Ghi nhận ngày học hợp lệ vào hệ thống (lưu trữ vĩnh viễn không bao giờ bị c |
-| `StorageManager.logReview` | [`#L717-L743`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L717-L743) | `method` | Thực thi logic nội bộ |
-| `StorageManager.getStudyLogs` | [`#L745-L756`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L745-L756) | `method` | Thực thi logic nội bộ |
-| `StorageManager.getStudyTimeMap` | [`#L758-L769`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L758-L769) | `method` | Thực thi logic nội bộ |
-| `StorageManager.getTodayStudySeconds` | [`#L771-L775`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L771-L775) | `method` | Thực thi logic nội bộ |
-| `StorageManager.getTotalStudySeconds` | [`#L777-L784`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L777-L784) | `method` | Thực thi logic nội bộ |
-| `StorageManager.addStudySeconds` | [`#L786-L810`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L786-L810) | `method` | Thực thi logic nội bộ |
-| `StorageManager.saveToeicTestResult` | [`#L816-L834`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L816-L834) | `method` | Thực thi logic nội bộ |
-| `StorageManager.getToeicTestHistory` | [`#L836-L845`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L836-L845) | `method` | Thực thi logic nội bộ |
-| `StorageManager.getUserProgress` | [`#L851-L862`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L851-L862) | `method` | Thực thi logic nội bộ |
-| `StorageManager.saveUserProgress` | [`#L864-L878`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L864-L878) | `method` | Thực thi logic nội bộ |
-| `StorageManager.completeSubtopic` | [`#L880-L890`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L880-L890) | `method` | Thực thi logic nội bộ |
-| `StorageManager.isSubtopicCompleted` | [`#L892-L896`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L892-L896) | `method` | Thực thi logic nội bộ |
-| `StorageManager.getPinnedTopicIds` | [`#L902-L908`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L902-L908) | `method` | Thực thi logic nội bộ |
-| `StorageManager.isTopicPinned` | [`#L910-L914`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L910-L914) | `method` | Thực thi logic nội bộ |
-| `StorageManager.togglePinTopic` | [`#L916-L933`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L916-L933) | `method` | Thực thi logic nội bộ |
-| `StorageManager.getStreakState` | [`#L939-L954`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L939-L954) | `method` | Thực thi logic nội bộ |
-| `StorageManager.saveStreakState` | [`#L956-L972`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L956-L972) | `method` | Thực thi logic nội bộ |
-| `StorageManager.useStreakFreeze` | [`#L974-L980`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L974-L980) | `method` | Thực thi logic nội bộ |
-| `StorageManager.redeemStreak` | [`#L982-L988`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L982-L988) | `method` | Thực thi logic nội bộ |
-| `StorageManager.checkAndAwardStreakFreeze` | [`#L990-L1000`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L990-L1000) | `method` | Thực thi logic nội bộ |
-| `StorageManager.getCustomDecks` | [`#L1002-L1013`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1002-L1013) | `method` | Thực thi logic nội bộ |
-| `StorageManager.saveCustomDeck` | [`#L1015-L1036`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1015-L1036) | `method` | Thực thi logic nội bộ |
-| `StorageManager.deleteCustomDeck` | [`#L1038-L1057`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1038-L1057) | `method` | Thực thi logic nội bộ |
-| `StorageManager.createSafetySnapshot` | [`#L1062-L1077`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1062-L1077) | `method` | Tự động chụp bản sao lưu bảo hiểm an toàn (Safety Snapshot) trước khi thao  |
-| `StorageManager.restoreSafetySnapshot` | [`#L1082-L1096`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1082-L1096) | `method` | Khôi phục bản sao lưu bảo hiểm gần nhất |
-| `StorageManager.getUserProfile` | [`#L1102-L1114`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1102-L1114) | `method` | Thực thi logic nội bộ |
-| `StorageManager.saveUserProfile` | [`#L1116-L1124`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1116-L1124) | `method` | Thực thi logic nội bộ |
-| `StorageManager.getUserPreferences` | [`#L1126-L1145`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1126-L1145) | `method` | Thực thi logic nội bộ |
-| `StorageManager.saveUserPreferences` | [`#L1147-L1158`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1147-L1158) | `method` | Thực thi logic nội bộ |
-| `StorageManager.exportBackup` | [`#L1160-L1162`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1160-L1162) | `method` | Thực thi logic nội bộ |
-| `StorageManager.exportCompactBackup` | [`#L1167-L1179`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1167-L1179) | `method` | Xuất bản sao lưu Nano FSRS siêu nhẹ (giảm 85-95% dung lượng, giữ 100% dữ li |
-| `StorageManager._normalizeCardState` | [`#L1181-L1183`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1181-L1183) | `method` | Thực thi logic nội bộ |
-| `StorageManager.importBackup` | [`#L1185-L1416`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1185-L1416) | `method` | Thực thi logic nội bộ |
-| `normalizeLog` | [`#L1236-L1246`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1236-L1246) | `arrow_function` | Thực thi logic nội bộ |
-| `StorageManager.clearAllData` | [`#L1418-L1461`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1418-L1461) | `method` | Thực thi logic nội bộ |
-| `BackupService` | [`#L1468-L1501`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1468-L1501) | `class` | Thực thi logic nội bộ |
-| `BackupService.exportToJSON` | [`#L1472-L1475`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1472-L1475) | `method` | Xuất toàn bộ dữ liệu người dùng ra tệp sao lưu Nano JSON siêu nhẹ (.json) |
-| `BackupService.importFromFile` | [`#L1480-L1493`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1480-L1493) | `method` | Nhập dữ liệu từ tệp File hoặc văn bản JSON đã sao lưu (hỗ trợ cả chuẩn Nano |
-| `BackupService.resetAll` | [`#L1498-L1500`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1498-L1500) | `method` | Đặt lại toàn bộ dữ liệu và tiến trình học về trạng thái ban đầu |
+| `migrateLegacyCardStates` | [`#L64-L66`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L64-L66) | `function` | Tự động di chuyển tiến độ học của các ID cũ sang Canonical ID chuẩn sau khi |
+| `StorageManager` | [`#L68-L1363`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L68-L1363) | `class` | Thực thi logic nội bộ |
+| `StorageManager.getStateRevision` | [`#L69-L71`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L69-L71) | `method` | Thực thi logic nội bộ |
+| `StorageManager.bumpStateRevision` | [`#L73-L75`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L73-L75) | `method` | Thực thi logic nội bộ |
+| `StorageManager.initStorage` | [`#L80-L95`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L80-L95) | `method` | Khởi tạo kết nối IndexedDB và nạp trước dữ liệu vào RAM Cache |
+| `StorageManager._preloadFromIndexedDB` | [`#L97-L252`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L97-L252) | `method` | Thực thi logic nội bộ |
+| `StorageManager._getAllFromStore` | [`#L254-L256`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L254-L256) | `method` | Thực thi logic nội bộ |
+| `StorageManager._putToStore` | [`#L258-L260`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L258-L260) | `method` | Thực thi logic nội bộ |
+| `StorageManager.invalidateCache` | [`#L262-L270`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L262-L270) | `method` | Thực thi logic nội bộ |
+| `StorageManager.getSettings` | [`#L272-L283`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L272-L283) | `method` | Thực thi logic nội bộ |
+| `StorageManager.saveSettings` | [`#L285-L303`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L285-L303) | `method` | Thực thi logic nội bộ |
+| `StorageManager.getAllCardStates` | [`#L305-L317`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L305-L317) | `method` | Thực thi logic nội bộ |
+| `StorageManager.getCardState` | [`#L319-L331`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L319-L331) | `method` | Thực thi logic nội bộ |
+| `StorageManager.saveCardState` | [`#L365-L393`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L365-L393) | `method` | Thực thi logic nội bộ |
+| `StorageManager._scheduleCardsLocalStorageSync` | [`#L395-L408`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L395-L408) | `method` | Thực thi logic nội bộ |
+| `StorageManager._scheduleLogsLocalStorageSync` | [`#L410-L423`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L410-L423) | `method` | Thực thi logic nội bộ |
+| `StorageManager._scheduleTimeLocalStorageSync` | [`#L425-L436`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L425-L436) | `method` | Thực thi logic nội bộ |
+| `StorageManager.flushPendingSync` | [`#L438-L457`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L438-L457) | `method` | Thực thi logic nội bộ |
+| `StorageManager.saveMultipleCardStates` | [`#L459-L489`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L459-L489) | `method` | Thực thi logic nội bộ |
+| `StorageManager.suspendCard` | [`#L494-L518`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L494-L518) | `method` | Tạm dừng thẻ (Suspend) - ẩn khỏi hàng đợi ôn tập |
+| `StorageManager.unsuspendCard` | [`#L523-L530`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L523-L530) | `method` | Bỏ tạm dừng thẻ (Unsuspend) |
+| `StorageManager.resetLeechStatus` | [`#L535-L542`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L535-L542) | `method` | Đặt lại cờ thẻ khó và đưa thẻ trở lại hàng đợi học tập |
+| `StorageManager.toggleCardSuspended` | [`#L547-L557`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L547-L557) | `method` | Đảo trạng thái tạm dừng của thẻ |
+| `StorageManager.resetCardProgress` | [`#L562-L581`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L562-L581) | `method` | Đặt lại tiến độ thẻ về từ mới hoàn toàn (Reset / Forget) |
+| `StorageManager.isCardSuspended` | [`#L586-L590`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L586-L590) | `method` | Kiểm tra xem thẻ có đang bị tạm dừng hay không |
+| `StorageManager.recordStudiedDate` | [`#L596-L616`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L596-L616) | `method` | Ghi nhận ngày học hợp lệ vào hệ thống (lưu trữ vĩnh viễn không bao giờ bị c |
+| `StorageManager.logReview` | [`#L618-L644`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L618-L644) | `method` | Thực thi logic nội bộ |
+| `StorageManager.getStudyLogs` | [`#L646-L657`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L646-L657) | `method` | Thực thi logic nội bộ |
+| `StorageManager.getStudyTimeMap` | [`#L659-L670`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L659-L670) | `method` | Thực thi logic nội bộ |
+| `StorageManager.getTodayStudySeconds` | [`#L672-L676`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L672-L676) | `method` | Thực thi logic nội bộ |
+| `StorageManager.getTotalStudySeconds` | [`#L678-L685`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L678-L685) | `method` | Thực thi logic nội bộ |
+| `StorageManager.addStudySeconds` | [`#L687-L711`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L687-L711) | `method` | Thực thi logic nội bộ |
+| `StorageManager.saveToeicTestResult` | [`#L717-L735`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L717-L735) | `method` | Thực thi logic nội bộ |
+| `StorageManager.getToeicTestHistory` | [`#L737-L746`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L737-L746) | `method` | Thực thi logic nội bộ |
+| `StorageManager.getUserProgress` | [`#L752-L763`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L752-L763) | `method` | Thực thi logic nội bộ |
+| `StorageManager.saveUserProgress` | [`#L765-L779`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L765-L779) | `method` | Thực thi logic nội bộ |
+| `StorageManager.completeSubtopic` | [`#L781-L791`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L781-L791) | `method` | Thực thi logic nội bộ |
+| `StorageManager.isSubtopicCompleted` | [`#L793-L797`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L793-L797) | `method` | Thực thi logic nội bộ |
+| `StorageManager.getPinnedTopicIds` | [`#L803-L809`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L803-L809) | `method` | Thực thi logic nội bộ |
+| `StorageManager.isTopicPinned` | [`#L811-L815`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L811-L815) | `method` | Thực thi logic nội bộ |
+| `StorageManager.togglePinTopic` | [`#L817-L834`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L817-L834) | `method` | Thực thi logic nội bộ |
+| `StorageManager.getStreakState` | [`#L840-L855`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L840-L855) | `method` | Thực thi logic nội bộ |
+| `StorageManager.saveStreakState` | [`#L857-L873`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L857-L873) | `method` | Thực thi logic nội bộ |
+| `StorageManager.useStreakFreeze` | [`#L875-L881`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L875-L881) | `method` | Thực thi logic nội bộ |
+| `StorageManager.redeemStreak` | [`#L883-L889`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L883-L889) | `method` | Thực thi logic nội bộ |
+| `StorageManager.checkAndAwardStreakFreeze` | [`#L891-L901`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L891-L901) | `method` | Thực thi logic nội bộ |
+| `StorageManager.getCustomDecks` | [`#L903-L914`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L903-L914) | `method` | Thực thi logic nội bộ |
+| `StorageManager.saveCustomDeck` | [`#L916-L937`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L916-L937) | `method` | Thực thi logic nội bộ |
+| `StorageManager.deleteCustomDeck` | [`#L939-L958`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L939-L958) | `method` | Thực thi logic nội bộ |
+| `StorageManager.createSafetySnapshot` | [`#L963-L978`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L963-L978) | `method` | Tự động chụp bản sao lưu bảo hiểm an toàn (Safety Snapshot) trước khi thao  |
+| `StorageManager.restoreSafetySnapshot` | [`#L983-L997`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L983-L997) | `method` | Khôi phục bản sao lưu bảo hiểm gần nhất |
+| `StorageManager.getUserProfile` | [`#L1003-L1015`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1003-L1015) | `method` | Thực thi logic nội bộ |
+| `StorageManager.saveUserProfile` | [`#L1017-L1025`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1017-L1025) | `method` | Thực thi logic nội bộ |
+| `StorageManager.getUserPreferences` | [`#L1027-L1046`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1027-L1046) | `method` | Thực thi logic nội bộ |
+| `StorageManager.saveUserPreferences` | [`#L1048-L1059`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1048-L1059) | `method` | Thực thi logic nội bộ |
+| `StorageManager.exportBackup` | [`#L1061-L1063`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1061-L1063) | `method` | Thực thi logic nội bộ |
+| `StorageManager.exportCompactBackup` | [`#L1068-L1080`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1068-L1080) | `method` | Xuất bản sao lưu Nano FSRS siêu nhẹ (giảm 85-95% dung lượng, giữ 100% dữ li |
+| `StorageManager._normalizeCardState` | [`#L1082-L1084`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1082-L1084) | `method` | Thực thi logic nội bộ |
+| `StorageManager.importBackup` | [`#L1086-L1317`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1086-L1317) | `method` | Thực thi logic nội bộ |
+| `normalizeLog` | [`#L1137-L1147`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1137-L1147) | `arrow_function` | Thực thi logic nội bộ |
+| `StorageManager.clearAllData` | [`#L1319-L1362`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1319-L1362) | `method` | Thực thi logic nội bộ |
+| `BackupService` | [`#L1369-L1402`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1369-L1402) | `class` | Thực thi logic nội bộ |
+| `BackupService.exportToJSON` | [`#L1373-L1376`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1373-L1376) | `method` | Xuất toàn bộ dữ liệu người dùng ra tệp sao lưu Nano JSON siêu nhẹ (.json) |
+| `BackupService.importFromFile` | [`#L1381-L1394`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1381-L1394) | `method` | Nhập dữ liệu từ tệp File hoặc văn bản JSON đã sao lưu (hỗ trợ cả chuẩn Nano |
+| `BackupService.resetAll` | [`#L1399-L1401`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage.js#L1399-L1401) | `method` | Đặt lại toàn bộ dữ liệu và tiến trình học về trạng thái ban đầu |
 
 #### 📁 [`src\js\services\storage\backup.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\backup.js) (231 dòng)
 
@@ -255,6 +274,15 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `normalizeBackupLog` | [`#L154-L168`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\backup.js#L154-L168) | `function` | Chuẩn hóa một item log lịch sử học tập |
 | `triggerJSONDownload` | [`#L173-L209`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\backup.js#L173-L209) | `function` | Kích hoạt tải tệp JSON về trình duyệt an toàn |
 | `readBackupFileText` | [`#L214-L230`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\backup.js#L214-L230) | `function` | Đọc nội dung file sao lưu (hỗ trợ giải nén GZIP .gz / .fcpro nếu có) |
+
+#### 📁 [`src\js\services\storage\idb.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\idb.js) (134 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `openIndexedDB` | [`#L19-L62`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\idb.js#L19-L62) | `function` | Thực thi logic nội bộ |
+| `getAllFromStore` | [`#L64-L77`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\idb.js#L64-L77) | `function` | Thực thi logic nội bộ |
+| `putToStore` | [`#L79-L97`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\idb.js#L79-L97) | `function` | Thực thi logic nội bộ |
+| `migrateLegacyCardStates` | [`#L102-L133`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\idb.js#L102-L133) | `function` | Tự động di chuyển tiến độ học của các ID cũ sang Canonical ID chuẩn sau khi |
 
 #### 📁 [`src\js\services\storage\streak.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\services\storage\streak.js) (88 dòng)
 
@@ -343,33 +371,38 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `closeQuizSession` | [`#L760-L779`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\quiz.js#L760-L779) | `function` | Thực thi logic nội bộ |
 | `showQuizSummaryModal` | [`#L784-L969`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\quiz.js#L784-L969) | `function` | Modal Báo Cáo Tổng Kết Sau Khi Hoàn Thành Bài Trắc Nghiệm |
 
-#### 📁 [`src\js\views\reels.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js) (1324 dòng)
+#### 📁 [`src\js\views\reels.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js) (946 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `getMainContentEl` | [`#L32-L37`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L32-L37) | `function` | Thực thi logic nội bộ |
-| `loadUserInteractions` | [`#L62-L91`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L62-L91) | `function` | ========================================== PERSISTENCE HELPERS ============ |
-| `saveUserInteractions` | [`#L93-L100`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L93-L100) | `function` | Thực thi logic nội bộ |
-| `buildSmartFeedQueue` | [`#L105-L187`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L105-L187) | `function` | ========================================== QUEUE BUILDER (SMART FACEBOOK FE |
-| `highlightTargetWord` | [`#L192-L202`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L192-L202) | `function` | ========================================== STRING & HTML HELPERS ========== |
-| `getGradientForWord` | [`#L205-L218`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L205-L218) | `function` | Sinh Avatar Gradient ngẫu nhiên đẹp mắt (Dùng CSS Tokens để tương thích The |
-| `renderFacebookPostCardHTML` | [`#L223-L454`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L223-L454) | `function` | ========================================== RENDER 1 FACEBOOK POST CARD ==== |
-| `renderFilterModalHTML` | [`#L459-L553`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L459-L553) | `function` | ========================================== RENDER BỘ LỌC TỪ VỰNG MODAL / BO |
-| `spawnFloatingReaction` | [`#L558-L566`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L558-L566) | `function` | ========================================== HIỆU ỨNG TIM BAY & REACTION FLOA |
-| `appendNextBatch` | [`#L571-L594`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L571-L594) | `function` | ========================================== INFINITE FEED OBSERVER & BATCHIN |
-| `updateFilterPillLabel` | [`#L596-L606`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L596-L606) | `function` | Thực thi logic nội bộ |
-| `setupFeedIntersectionObserver` | [`#L608-L632`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L608-L632) | `function` | Thực thi logic nội bộ |
-| `handleCardInView` | [`#L634-L649`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L634-L649) | `function` | Thực thi logic nội bộ |
-| `checkAndPronounceCenterCard` | [`#L655-L684`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L655-L684) | `function` | Phát âm bài viết nằm chính giữa màn hình sau khi dừng lướt (Scroll Settled) |
-| `handleRateCardFSRS` | [`#L689-L748`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L689-L748) | `function` | ========================================== RATING FSRS-6 HANDLER ========== |
-| `openFilterModal` | [`#L753-L756`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L753-L756) | `function` | ========================================== FILTER DIALOG LOGIC ============ |
-| `closeFilterModal` | [`#L758-L761`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L758-L761) | `function` | Thực thi logic nội bộ |
-| `applyCurrentFilter` | [`#L763-L784`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L763-L784) | `function` | Thực thi logic nội bộ |
-| `pauseReelsSession` | [`#L789-L803`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L789-L803) | `function` | ========================================== PAUSE, CLOSE & CLEANUP ========= |
-| `renderReelsTab` | [`#L808-L808`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L808-L808) | `function` | ========================================== MAIN ENTRY POINT (TAB LƯỚT TỪ VỰ |
-| `handleScroll` | [`#L1009-L1046`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L1009-L1046) | `arrow_function` | Thực thi logic nội bộ |
-| `keyHandler` | [`#L1301-L1308`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L1301-L1308) | `arrow_function` | Phím tắt bàn phím |
-| `startReelsSession` | [`#L1313-L1313`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L1313-L1313) | `function` | Giữ tương thích ngược với các lời gọi startReelsSession cũ |
+| `getMainContentEl` | [`#L33-L38`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L33-L38) | `function` | Thực thi logic nội bộ |
+| `loadUserInteractions` | [`#L63-L92`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L63-L92) | `function` | ========================================== PERSISTENCE HELPERS ============ |
+| `saveUserInteractions` | [`#L94-L101`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L94-L101) | `function` | Thực thi logic nội bộ |
+| `buildSmartFeedQueue` | [`#L106-L188`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L106-L188) | `function` | ========================================== QUEUE BUILDER (SMART FACEBOOK FE |
+| `appendNextBatch` | [`#L193-L216`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L193-L216) | `function` | ========================================== INFINITE FEED OBSERVER & BATCHIN |
+| `updateFilterPillLabel` | [`#L218-L228`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L218-L228) | `function` | Thực thi logic nội bộ |
+| `setupFeedIntersectionObserver` | [`#L230-L254`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L230-L254) | `function` | Thực thi logic nội bộ |
+| `handleCardInView` | [`#L256-L271`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L256-L271) | `function` | Thực thi logic nội bộ |
+| `checkAndPronounceCenterCard` | [`#L277-L306`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L277-L306) | `function` | Phát âm bài viết nằm chính giữa màn hình sau khi dừng lướt (Scroll Settled) |
+| `handleRateCardFSRS` | [`#L311-L370`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L311-L370) | `function` | ========================================== RATING FSRS-6 HANDLER ========== |
+| `openFilterModal` | [`#L375-L378`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L375-L378) | `function` | ========================================== FILTER DIALOG LOGIC ============ |
+| `closeFilterModal` | [`#L380-L383`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L380-L383) | `function` | Thực thi logic nội bộ |
+| `applyCurrentFilter` | [`#L385-L406`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L385-L406) | `function` | Thực thi logic nội bộ |
+| `pauseReelsSession` | [`#L411-L425`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L411-L425) | `function` | ========================================== PAUSE, CLOSE & CLEANUP ========= |
+| `renderReelsTab` | [`#L430-L430`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L430-L430) | `function` | ========================================== MAIN ENTRY POINT (TAB LƯỚT TỪ VỰ |
+| `handleScroll` | [`#L631-L668`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L631-L668) | `arrow_function` | Thực thi logic nội bộ |
+| `keyHandler` | [`#L923-L930`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L923-L930) | `arrow_function` | Phím tắt bàn phím |
+| `startReelsSession` | [`#L935-L935`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels.js#L935-L935) | `function` | Giữ tương thích ngược với các lời gọi startReelsSession cũ |
+
+#### 📁 [`src\js\views\reels\templates.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels\templates.js) (388 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `highlightTargetWord` | [`#L13-L23`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels\templates.js#L13-L23) | `function` | ========================================== STRING & HTML HELPERS ========== |
+| `getGradientForWord` | [`#L26-L39`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels\templates.js#L26-L39) | `function` | Sinh Avatar Gradient ngẫu nhiên đẹp mắt (Dùng CSS Tokens để tương thích The |
+| `renderFacebookPostCardHTML` | [`#L44-L44`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels\templates.js#L44-L44) | `function` | ========================================== RENDER 1 FACEBOOK POST CARD ==== |
+| `renderFilterModalHTML` | [`#L280-L280`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels\templates.js#L280-L280) | `function` | ========================================== RENDER BỘ LỌC TỪ VỰNG MODAL / BO |
+| `spawnFloatingReaction` | [`#L379-L387`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels\templates.js#L379-L387) | `function` | ========================================== HIỆU ỨNG TIM BAY & REACTION FLOA |
 
 #### 📁 [`src\js\views\review.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review.js) (674 dòng)
 
@@ -432,32 +465,28 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `showDayPopover` | [`#L429-L483`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\stats\journal.js#L429-L483) | `function` | Hiển thị Tooltip Popover thông tin học tập của một ngày khi rê chuột / clic |
 | `hideDayPopover` | [`#L488-L498`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\stats\journal.js#L488-L498) | `function` | Ẩn Tooltip Popover |
 
-#### 📁 [`src\js\views\study.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js) (1429 dòng)
+#### 📁 [`src\js\views\study.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js) (1034 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `startFrontActiveRecallTimer` | [`#L79-L126`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L79-L126) | `function` | Thực thi logic nội bộ |
-| `updateCountdown` | [`#L103-L122`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L103-L122) | `arrow_function` | Thực thi logic nội bộ |
-| `updateStudyPriorityUI` | [`#L135-L155`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L135-L155) | `function` | Cập nhật hiển thị nhãn và biểu tượng chế độ ưu tiên trên Header thanh học F |
-| `switchStudyPriority` | [`#L160-L206`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L160-L206) | `function` | Thay đổi thứ tự ưu tiên học trực tiếp trong phiên học (Zero-exit, liền mạch |
-| `setupStudyControls` | [`#L208-L921`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L208-L921) | `function` | Thực thi logic nội bộ |
-| `syncCheckboxesFromPrefs` | [`#L248-L265`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L248-L265) | `arrow_function` | Khởi tạo trạng thái điều khiển theo Preferences hiện tại |
-| `updatePrefFromControls` | [`#L267-L298`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L267-L298) | `arrow_function` | Thực thi logic nội bộ |
-| `switchToQuizMode` | [`#L335-L364`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L335-L364) | `arrow_function` | Chuyển đổi trực tiếp sang Chế độ Trắc nghiệm (Quiz) trong phiên học |
-| `openDrawer` | [`#L376-L379`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L376-L379) | `arrow_function` | Mở / Đóng Drawer 3 chấm |
-| `closeDrawer` | [`#L380-L382`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L380-L382) | `arrow_function` | Thực thi logic nội bộ |
-| `openPriorityModal` | [`#L400-L404`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L400-L404) | `arrow_function` | Thực thi logic nội bộ |
-| `closePriorityModal` | [`#L405-L407`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L405-L407) | `arrow_function` | Thực thi logic nội bộ |
-| `triggerFlip` | [`#L470-L546`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L470-L546) | `arrow_function` | Lật thẻ khi chạm, vuốt hoặc bấm nút lật (hỗ trợ vuốt lên 360 độ liên tục) |
-| `safeRateCard` | [`#L574-L623`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L574-L623) | `arrow_function` | Thực thi logic nội bộ |
-| `handleShowCardInfo` | [`#L759-L771`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L759-L771) | `arrow_function` | Xem thông tin tiến trình học của từ (FSRS Inspector & Chi tiết từ) |
-| `getStudyDom` | [`#L926-L974`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L926-L974) | `function` | Thực thi logic nội bộ |
-| `updateStudyLiveTimerUI` | [`#L978-L1004`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L978-L1004) | `function` | Thực thi logic nội bộ |
-| `generateClozeSentence` | [`#L1008-L1018`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L1008-L1018) | `function` | Thực thi logic nội bộ |
-| `startStudySession` | [`#L1020-L1052`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L1020-L1052) | `function` | Thực thi logic nội bộ |
-| `applyFieldVisibility` | [`#L1054-L1124`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L1054-L1124) | `function` | Thực thi logic nội bộ |
-| `handleCardChange` | [`#L1126-L1370`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L1126-L1370) | `function` | Thực thi logic nội bộ |
-| `handleStudyFinish` | [`#L1372-L1426`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L1372-L1426) | `function` | Thực thi logic nội bộ |
+| `startFrontActiveRecallTimer` | [`#L85-L132`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L85-L132) | `function` | Thực thi logic nội bộ |
+| `updateCountdown` | [`#L109-L128`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L109-L128) | `arrow_function` | Thực thi logic nội bộ |
+| `updateStudyPriorityUI` | [`#L141-L161`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L141-L161) | `function` | Cập nhật hiển thị nhãn và biểu tượng chế độ ưu tiên trên Header thanh học F |
+| `switchStudyPriority` | [`#L166-L212`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L166-L212) | `function` | Thay đổi thứ tự ưu tiên học trực tiếp trong phiên học (Zero-exit, liền mạch |
+| `setupStudyControls` | [`#L214-L927`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L214-L927) | `function` | Thực thi logic nội bộ |
+| `syncCheckboxesFromPrefs` | [`#L254-L271`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L254-L271) | `arrow_function` | Khởi tạo trạng thái điều khiển theo Preferences hiện tại |
+| `updatePrefFromControls` | [`#L273-L304`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L273-L304) | `arrow_function` | Thực thi logic nội bộ |
+| `switchToQuizMode` | [`#L341-L370`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L341-L370) | `arrow_function` | Chuyển đổi trực tiếp sang Chế độ Trắc nghiệm (Quiz) trong phiên học |
+| `openDrawer` | [`#L382-L385`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L382-L385) | `arrow_function` | Mở / Đóng Drawer 3 chấm |
+| `closeDrawer` | [`#L386-L388`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L386-L388) | `arrow_function` | Thực thi logic nội bộ |
+| `openPriorityModal` | [`#L406-L410`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L406-L410) | `arrow_function` | Thực thi logic nội bộ |
+| `closePriorityModal` | [`#L411-L413`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L411-L413) | `arrow_function` | Thực thi logic nội bộ |
+| `triggerFlip` | [`#L476-L552`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L476-L552) | `arrow_function` | Lật thẻ khi chạm, vuốt hoặc bấm nút lật (hỗ trợ vuốt lên 360 độ liên tục) |
+| `safeRateCard` | [`#L580-L629`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L580-L629) | `arrow_function` | Thực thi logic nội bộ |
+| `handleShowCardInfo` | [`#L765-L777`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L765-L777) | `arrow_function` | Xem thông tin tiến trình học của từ (FSRS Inspector & Chi tiết từ) |
+| `startStudySession` | [`#L930-L962`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L930-L962) | `function` | Thực thi logic nội bộ |
+| `handleCardChange` | [`#L965-L975`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L965-L975) | `function` | Thực thi logic nội bộ |
+| `handleStudyFinish` | [`#L977-L1031`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study.js#L977-L1031) | `function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\views\study\autoplay.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\autoplay.js) (288 dòng)
 
@@ -492,6 +521,16 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `getStudyPrefs` | [`#L57-L82`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\prefs.js#L57-L82) | `function` | Thực thi logic nội bộ |
 | `saveStudyPrefs` | [`#L84-L88`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\prefs.js#L84-L88) | `function` | Thực thi logic nội bộ |
 | `applyRatingButtonsMode` | [`#L90-L115`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\prefs.js#L90-L115) | `function` | Thực thi logic nội bộ |
+
+#### 📁 [`src\js\views\study\renderer.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js) (427 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `getStudyDom` | [`#L16-L64`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L16-L64) | `function` | Thực thi logic nội bộ |
+| `updateStudyLiveTimerUI` | [`#L68-L94`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L68-L94) | `function` | Thực thi logic nội bộ |
+| `generateClozeSentence` | [`#L98-L108`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L98-L108) | `function` | Thực thi logic nội bộ |
+| `applyFieldVisibility` | [`#L111-L181`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L111-L181) | `function` | Thực thi logic nội bộ |
+| `renderCardChange` | [`#L183-L183`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L183-L183) | `function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\views\study\shell.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\shell.js) (531 dòng)
 

@@ -4,7 +4,7 @@
  * Tự động phát hiện và cập nhật code mới tức thời khi Online (Zero-Friction Live Update).
  */
 
-const CACHE_NAME = 'flashcard-pro-v3.76.59';
+const CACHE_NAME = 'flashcard-pro-v3.76.60';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -45,10 +45,13 @@ const PRECACHE_ASSETS = [
   './src/js/core/fsrs.js',
   './src/js/core/session.js',
   './src/js/core/stats.js',
+  './src/js/core/stats/roadmap.js',
+  './src/js/core/stats/journal.js',
   './src/js/core/timer.js',
   './src/js/core/optimizer.js',
   './src/js/core/selectors.js',
   './src/js/services/storage.js',
+  './src/js/services/storage/idb.js',
   './src/js/services/storage/streak.js',
   './src/js/services/storage/backup.js',
   './src/js/services/audio.js',
@@ -72,6 +75,7 @@ const PRECACHE_ASSETS = [
   './src/js/views/stats/journal.js',
   './src/js/views/settings.js',
   './src/js/views/study.js',
+  './src/js/views/study/renderer.js',
   './src/js/views/study/autoplay.js',
   './src/js/views/study/prefs.js',
   './src/js/views/study/shell.js',
@@ -80,6 +84,7 @@ const PRECACHE_ASSETS = [
   './src/js/views/quiz.js',
   './src/js/views/toeic-test.js',
   './src/js/views/reels.js',
+  './src/js/views/reels/templates.js',
   './src/data/index.js',
   './src/data/schemas.js',
   './src/data/validators.js',
