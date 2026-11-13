@@ -42,7 +42,7 @@ graph TD
   - `views/decks/`: `subtopics.js` (cấp 2 & 3), `words.js` (cấp 4).
   - `views/stats/`: `journal.js`, `forecast-modal.js`.
   - `views/library/`: `filters.js`, `renderer.js`, `detail-modal.js`.
-  - `views/review/`: `stat-modals.js`.
+  - `views/review/`: `shell.js`, `realtime.js`, `stat-modals.js` (`modal-utils.js`, `modals-queue.js`, `modals-progress.js`).
   - `views/modals/`: `goal-modal.js`.
   - `views/components/`: `shell.js`, `toast.js`, `search.js`, `streak-hub.js`, `custom-study.js`, `optimizer-modal.js`.
 - **CSS Architecture (`src/css/`)**: Phân tách 4 tầng rõ ràng:
@@ -52,7 +52,7 @@ graph TD
   - `views/`: 9 stylesheet riêng cho từng màn hình (`flashcard.css`, `review.css`, `decks.css`, `stats.css`, `library.css`, `settings.css`, `quiz.css`, `reels.css`, `toeic-test.css`).
 
 ### 2.2. Tầng Nghiệp Vụ & Thuật Toán (`src/js/core/`)
-- Tách biệt hoàn toàn khỏi DOM (Platform Agnostic): `fsrs.js`, `session.js`, `selectors.js` (`selectors/{deck-stats,queue-scoring,study-queue}.js`), `stats.js` (`stats/{journal,roadmap}.js`), `optimizer.js`, `timer.js`.
+- Tách biệt hoàn toàn khỏi DOM (Platform Agnostic): `fsrs.js`, `session.js`, `selectors.js` (`selectors/{deck-stats,queue-scoring,study-queue}.js`), `stats.js` (`stats/{memory,overview,streak-analytics,journal,roadmap}.js`), `optimizer.js`, `timer.js`.
 
 ### 2.3. Tầng Dịch Vụ & Ngoại Vi (`src/js/services/`)
 - `storage.js` (`StorageManager`): Facade quản lý In-Memory RAM Cache kết hợp IndexedDB và fallback `localStorage`, cùng các module con `storage/{state,cards,logs,user-data,preload,sync,idb,streak,backup}.js`.

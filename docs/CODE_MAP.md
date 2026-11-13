@@ -133,25 +133,24 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `StudySession.speakTTS` | [`#L535-L537`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\session.js#L535-L537) | `method` | Phát âm bằng giọng đọc Neural/Natural của trình duyệt (Web Speech API) |
 | `StudySession.stopAudio` | [`#L542-L544`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\session.js#L542-L544) | `method` | Dừng toàn bộ âm thanh đang phát an toàn |
 
-#### 📁 [`src\js\core\stats.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js) (660 dòng)
+#### 📁 [`src\js\core\stats.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js) (82 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `StatsManager` | [`#L32-L659`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L32-L659) | `class` | Thực thi logic nội bộ |
-| `StatsManager.getMemoryIntelligence` | [`#L36-L283`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L36-L283) | `method` | Phân tích chuyên sâu Trí Nhớ Thật & Năng Lực Nhận Thức FSRS-6 |
-| `StatsManager.getOverallStats` | [`#L288-L399`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L288-L399) | `method` | Tính toán toàn bộ chỉ số thống kê tổng hợp |
-| `StatsManager.calculateStreak` | [`#L408-L523`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L408-L523) | `method` | Tính toán chuỗi ngày học liên tục (Streak) Tự động tích hợp Khiên bảo vệ (f |
-| `StatsManager.detectBrokenStreak` | [`#L529-L618`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L529-L618) | `method` | Tự động phân tích xem chuỗi ngày học có vừa bị đứt trong 24h - 48h gần nhất |
-| `isValidDate` | [`#L556-L569`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L556-L569) | `arrow_function` | Thực thi logic nội bộ |
-| `StatsManager.getComprehensionPower` | [`#L624-L626`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L624-L626) | `method` | Tính toán Thước Đo Năng Lực Đọc Hiểu Tiếng Anh Thực Tế (Comprehension Power |
-| `StatsManager.getCefrRoadmapAndForecast` | [`#L628-L628`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L628-L628) | `method` | Thực thi logic nội bộ |
-| `StatsManager.getDailyMicroQuests` | [`#L632-L632`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L632-L632) | `method` | Thực thi logic nội bộ |
-| `StatsManager.getPrimeStudyHour` | [`#L636-L638`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L636-L638) | `method` | Thực thi logic nội bộ |
-| `StatsManager.getWeeklyProgress` | [`#L640-L642`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L640-L642) | `method` | Thực thi logic nội bộ |
-| `StatsManager.get7DaysForecast` | [`#L644-L646`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L644-L646) | `method` | Thực thi logic nội bộ |
-| `StatsManager.getMonthJournalData` | [`#L648-L650`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L648-L650) | `method` | Thực thi logic nội bộ |
-| `StatsManager.getYearJournalData` | [`#L652-L654`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L652-L654) | `method` | Thực thi logic nội bộ |
-| `StatsManager.getYearlyJournalData` | [`#L656-L658`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L656-L658) | `method` | Thực thi logic nội bộ |
+| `StatsManager` | [`#L29-L81`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L29-L81) | `class` | Thực thi logic nội bộ |
+| `StatsManager.getMemoryIntelligence` | [`#L30-L32`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L30-L32) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getOverallStats` | [`#L34-L36`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L34-L36) | `method` | Thực thi logic nội bộ |
+| `StatsManager.calculateStreak` | [`#L38-L40`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L38-L40) | `method` | Thực thi logic nội bộ |
+| `StatsManager.detectBrokenStreak` | [`#L42-L44`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L42-L44) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getComprehensionPower` | [`#L46-L48`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L46-L48) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getCefrRoadmapAndForecast` | [`#L50-L50`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L50-L50) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getDailyMicroQuests` | [`#L54-L54`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L54-L54) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getPrimeStudyHour` | [`#L58-L60`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L58-L60) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getWeeklyProgress` | [`#L62-L64`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L62-L64) | `method` | Thực thi logic nội bộ |
+| `StatsManager.get7DaysForecast` | [`#L66-L68`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L66-L68) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getMonthJournalData` | [`#L70-L72`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L70-L72) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getYearJournalData` | [`#L74-L76`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L74-L76) | `method` | Thực thi logic nội bộ |
+| `StatsManager.getYearlyJournalData` | [`#L78-L80`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats.js#L78-L80) | `method` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\core\stats\journal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js) (373 dòng)
 
@@ -164,6 +163,19 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `getYearJournalData` | [`#L318-L363`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L318-L363) | `function` | Lấy dữ liệu 12 tháng trong năm (Year Overview) @param {number} year - Năm ( |
 | `getYearlyJournalData` | [`#L368-L370`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L368-L370) | `function` | Alias cho getYearJournalData để đảm bảo tương thích ngược |
 
+#### 📁 [`src\js\core\stats\memory.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\memory.js) (234 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `getMemoryIntelligence` | [`#L12-L233`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\memory.js#L12-L233) | `function` | Phân tích chuyên sâu Trí Nhớ Thật & Năng Lực Nhận Thức FSRS-6. |
+| `pct` | [`#L137-L145`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\memory.js#L137-L145) | `arrow_function` | Thực thi logic nội bộ |
+
+#### 📁 [`src\js\core\stats\overview.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\overview.js) (113 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `getOverallStats` | [`#L14-L112`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\overview.js#L14-L112) | `function` | Tính toán toàn bộ chỉ số thống kê tổng hợp. |
+
 #### 📁 [`src\js\core\stats\roadmap.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\roadmap.js) (424 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
@@ -171,6 +183,15 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `getComprehensionPower` | [`#L12-L74`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\roadmap.js#L12-L74) | `function` | Thực thi logic nội bộ |
 | `getCefrRoadmapAndForecast` | [`#L79-L79`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\roadmap.js#L79-L79) | `function` | Tính toán toàn diện Lộ trình Trình độ CEFR & Dự báo nhịp độ học thích ứng ( |
 | `getDailyMicroQuests` | [`#L367-L367`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\roadmap.js#L367-L367) | `function` | Tính toán trạng thái 3 Nhiệm Vụ Nhỏ Hôm Nay (Daily 3-Step Micro-Quests) |
+
+#### 📁 [`src\js\core\stats\streak-analytics.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\streak-analytics.js) (196 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `buildStudiedDateSets` | [`#L10-L37`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\streak-analytics.js#L10-L37) | `function` | Thực thi logic nội bộ |
+| `calculateStreak` | [`#L42-L124`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\streak-analytics.js#L42-L124) | `function` | Tính toán chuỗi ngày học liên tục (Streak), tích hợp Khiên, Auto-heal & đồn |
+| `detectBrokenStreak` | [`#L129-L195`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\streak-analytics.js#L129-L195) | `function` | Phân tích chuỗi ngày học vừa đứt trong 24h - 48h gần nhất để phục vụ cứu ch |
+| `isValidDate` | [`#L139-L151`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\streak-analytics.js#L139-L151) | `arrow_function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\core\timer.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\timer.js) (254 dòng)
 
@@ -571,27 +592,56 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `renderFilterModalHTML` | [`#L280-L280`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels\templates.js#L280-L280) | `function` | ========================================== RENDER BỘ LỌC TỪ VỰNG MODAL / BO |
 | `spawnFloatingReaction` | [`#L379-L387`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\reels\templates.js#L379-L387) | `function` | ========================================== HIỆU ỨNG TIM BAY & REACTION FLOA |
 
-#### 📁 [`src\js\views\review.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review.js) (674 dòng)
+#### 📁 [`src\js\views\review.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review.js) (154 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `renderReviewShell` | [`#L30-L204`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review.js#L30-L204) | `function` | Thực thi logic nội bộ |
-| `renderReviewTab` | [`#L206-L381`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review.js#L206-L381) | `function` | Thực thi logic nội bộ |
-| `updateHomeStatsRealtime` | [`#L386-L659`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review.js#L386-L659) | `function` | Cập nhật toàn bộ các chỉ số thống kê trên Home Dashboard theo thời gian thự |
-| `updateLineFill` | [`#L550-L558`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review.js#L550-L558) | `arrow_function` | Cập nhật thanh fill nối giữa các chặng |
+| `bindClickOnce` | [`#L37-L42`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review.js#L37-L42) | `function` | Thực thi logic nội bộ |
+| `bindCardActivateOnce` | [`#L44-L59`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review.js#L44-L59) | `function` | Thực thi logic nội bộ |
+| `renderReviewTab` | [`#L61-L149`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review.js#L61-L149) | `function` | Thực thi logic nội bộ |
 
-#### 📁 [`src\js\views\review\stat-modals.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\stat-modals.js) (638 dòng)
+#### 📁 [`src\js\views\review\modal-utils.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modal-utils.js) (46 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `setStatModalsApp` | [`#L20-L22`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\stat-modals.js#L20-L22) | `function` | Thực thi logic nội bộ |
-| `triggerStatsRefresh` | [`#L24-L30`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\stat-modals.js#L24-L30) | `function` | Thực thi logic nội bộ |
-| `showAttentionCardsModal` | [`#L35-L202`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\stat-modals.js#L35-L202) | `function` | ========================================================================== |
-| `updateModalView` | [`#L87-L179`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\stat-modals.js#L87-L179) | `arrow_function` | Thực thi logic nội bộ |
-| `showDueWordsModal` | [`#L207-L295`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\stat-modals.js#L207-L295) | `function` | ========================================================================== |
-| `showReviewedTodayModal` | [`#L300-L406`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\stat-modals.js#L300-L406) | `function` | ========================================================================== |
-| `showStudyTimeModal` | [`#L411-L504`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\stat-modals.js#L411-L504) | `function` | ========================================================================== |
-| `showMasteredTiersModal` | [`#L509-L636`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\stat-modals.js#L509-L636) | `function` | ========================================================================== |
+| `setStatModalsApp` | [`#L7-L9`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modal-utils.js#L7-L9) | `function` | Thực thi logic nội bộ |
+| `getStatModalsApp` | [`#L11-L13`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modal-utils.js#L11-L13) | `function` | Thực thi logic nội bộ |
+| `triggerStatsRefresh` | [`#L15-L24`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modal-utils.js#L15-L24) | `function` | Thực thi logic nội bộ |
+| `ensureQuickModal` | [`#L26-L35`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modal-utils.js#L26-L35) | `function` | Thực thi logic nội bộ |
+| `openAndBindQuickModal` | [`#L37-L45`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modal-utils.js#L37-L45) | `function` | Thực thi logic nội bộ |
+
+#### 📁 [`src\js\views\review\modals-progress.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-progress.js) (319 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `showReviewedTodayModal` | [`#L19-L136`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-progress.js#L19-L136) | `function` | Modal Danh sách thẻ đã ôn hôm nay |
+| `showStudyTimeModal` | [`#L141-L229`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-progress.js#L141-L229) | `function` | Modal Tổng quan thời gian đã học |
+| `showMasteredTiersModal` | [`#L234-L318`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-progress.js#L234-L318) | `function` | Modal 5 mức độ ghi nhớ FSRS |
+
+#### 📁 [`src\js\views\review\modals-queue.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-queue.js) (278 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `showAttentionCardsModal` | [`#L19-L183`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-queue.js#L19-L183) | `function` | Modal Danh sách từ khó nhớ (lapses >= 8) |
+| `updateModalView` | [`#L56-L162`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-queue.js#L56-L162) | `arrow_function` | Thực thi logic nội bộ |
+| `showDueWordsModal` | [`#L188-L277`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-queue.js#L188-L277) | `function` | Modal Danh sách từ tới hạn hôm nay |
+
+#### 📁 [`src\js\views\review\realtime.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\realtime.js) (280 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `updateHomeStatsRealtime` | [`#L16-L279`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\realtime.js#L16-L279) | `function` | Cập nhật toàn bộ các chỉ số thống kê trên Home Dashboard theo thời gian thự |
+| `updateLineFill` | [`#L180-L187`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\realtime.js#L180-L187) | `arrow_function` | Thực thi logic nội bộ |
+
+#### 📁 [`src\js\views\review\shell.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\shell.js) (172 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `renderReviewShell` | [`#L5-L171`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\shell.js#L5-L171) | `function` | Thực thi logic nội bộ |
+
+#### 📁 [`src\js\views\review\stat-modals.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\stat-modals.js) (24 dòng)
+
+*Tệp cấu hình hoặc dữ liệu, không chứa khai báo hàm/class lớn.*
 
 #### 📁 [`src\js\views\settings.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\settings.js) (53 dòng)
 
