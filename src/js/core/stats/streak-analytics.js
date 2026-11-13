@@ -193,3 +193,4 @@ export function detectBrokenStreak(logs = null, explicitStreakState = null) {
     cooldownDaysLeft,
   };
 }
+

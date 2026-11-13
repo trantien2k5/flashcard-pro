@@ -110,3 +110,4 @@ export function getOverallStats(allCards = []) {
     forecast7Days: get7DaysForecast(cardStates),
   };
 }
+

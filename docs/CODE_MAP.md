@@ -163,14 +163,14 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `getYearJournalData` | [`#L318-L363`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L318-L363) | `function` | Lấy dữ liệu 12 tháng trong năm (Year Overview) @param {number} year - Năm ( |
 | `getYearlyJournalData` | [`#L368-L370`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\journal.js#L368-L370) | `function` | Alias cho getYearJournalData để đảm bảo tương thích ngược |
 
-#### 📁 [`src\js\core\stats\memory.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\memory.js) (234 dòng)
+#### 📁 [`src\js\core\stats\memory.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\memory.js) (235 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
 | `getMemoryIntelligence` | [`#L12-L233`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\memory.js#L12-L233) | `function` | Phân tích chuyên sâu Trí Nhớ Thật & Năng Lực Nhận Thức FSRS-6. |
 | `pct` | [`#L137-L145`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\memory.js#L137-L145) | `arrow_function` | Thực thi logic nội bộ |
 
-#### 📁 [`src\js\core\stats\overview.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\overview.js) (113 dòng)
+#### 📁 [`src\js\core\stats\overview.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\overview.js) (114 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
@@ -184,7 +184,7 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `getCefrRoadmapAndForecast` | [`#L79-L79`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\roadmap.js#L79-L79) | `function` | Tính toán toàn diện Lộ trình Trình độ CEFR & Dự báo nhịp độ học thích ứng ( |
 | `getDailyMicroQuests` | [`#L367-L367`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\roadmap.js#L367-L367) | `function` | Tính toán trạng thái 3 Nhiệm Vụ Nhỏ Hôm Nay (Daily 3-Step Micro-Quests) |
 
-#### 📁 [`src\js\core\stats\streak-analytics.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\streak-analytics.js) (196 dòng)
+#### 📁 [`src\js\core\stats\streak-analytics.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\stats\streak-analytics.js) (197 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
@@ -600,7 +600,7 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `bindCardActivateOnce` | [`#L44-L59`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review.js#L44-L59) | `function` | Thực thi logic nội bộ |
 | `renderReviewTab` | [`#L61-L149`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review.js#L61-L149) | `function` | Thực thi logic nội bộ |
 
-#### 📁 [`src\js\views\review\modal-utils.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modal-utils.js) (46 dòng)
+#### 📁 [`src\js\views\review\modal-utils.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modal-utils.js) (47 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
@@ -610,7 +610,7 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `ensureQuickModal` | [`#L26-L35`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modal-utils.js#L26-L35) | `function` | Thực thi logic nội bộ |
 | `openAndBindQuickModal` | [`#L37-L45`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modal-utils.js#L37-L45) | `function` | Thực thi logic nội bộ |
 
-#### 📁 [`src\js\views\review\modals-progress.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-progress.js) (319 dòng)
+#### 📁 [`src\js\views\review\modals-progress.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-progress.js) (320 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
@@ -618,7 +618,7 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `showStudyTimeModal` | [`#L141-L229`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-progress.js#L141-L229) | `function` | Modal Tổng quan thời gian đã học |
 | `showMasteredTiersModal` | [`#L234-L318`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-progress.js#L234-L318) | `function` | Modal 5 mức độ ghi nhớ FSRS |
 
-#### 📁 [`src\js\views\review\modals-queue.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-queue.js) (278 dòng)
+#### 📁 [`src\js\views\review\modals-queue.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-queue.js) (279 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
@@ -626,14 +626,14 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `updateModalView` | [`#L56-L162`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-queue.js#L56-L162) | `arrow_function` | Thực thi logic nội bộ |
 | `showDueWordsModal` | [`#L188-L277`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\modals-queue.js#L188-L277) | `function` | Modal Danh sách từ tới hạn hôm nay |
 
-#### 📁 [`src\js\views\review\realtime.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\realtime.js) (280 dòng)
+#### 📁 [`src\js\views\review\realtime.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\realtime.js) (281 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
 | `updateHomeStatsRealtime` | [`#L16-L279`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\realtime.js#L16-L279) | `function` | Cập nhật toàn bộ các chỉ số thống kê trên Home Dashboard theo thời gian thự |
 | `updateLineFill` | [`#L180-L187`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\realtime.js#L180-L187) | `arrow_function` | Thực thi logic nội bộ |
 
-#### 📁 [`src\js\views\review\shell.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\shell.js) (172 dòng)
+#### 📁 [`src\js\views\review\shell.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\shell.js) (173 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |

@@ -316,3 +316,4 @@ export function showMasteredTiersModal(app = getStatModalsApp()) {
 
   openAndBindQuickModal(modal);
 }
+

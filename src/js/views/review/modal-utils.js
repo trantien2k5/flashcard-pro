@@ -43,3 +43,4 @@ export function openAndBindQuickModal(modal) {
     if (e.target === modal) modal.classList.remove("active");
   };
 }
+
