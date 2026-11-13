@@ -4,7 +4,7 @@
  * Tự động phát hiện và cập nhật code mới tức thời khi Online (Zero-Friction Live Update).
  */
 
-const CACHE_NAME = 'flashcard-pro-v3.76.66';
+const CACHE_NAME = 'flashcard-pro-v3.76.67';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -16,7 +16,6 @@ const PRECACHE_ASSETS = [
   './assets/icons/icon.svg',
   './assets/icons/icon-maskable.svg',
   './assets/icons/apple-touch-icon.png',
-  './src/css/style.css',
   './src/css/main.css',
   './src/css/base/tokens.css',
   './src/css/base/reset.css',

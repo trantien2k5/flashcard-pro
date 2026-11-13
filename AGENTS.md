@@ -81,7 +81,7 @@ flashcard-pro/
 │   │   └── views/                     # study/, decks/, library/, review/, stats/, quiz/, reels/, settings/, toeic/, components/, modals/
 │   │
 │   ├── css/                           # Stylesheet 4 tầng (23 module)
-│   │   ├── style.css, main.css, components.css   # Master & Barrel Facades
+│   │   ├── main.css, components.css            # Barrel Facades CSS
 │   │   ├── base/                      # tokens.css, reset.css, animations.css
 │   │   ├── layout/                    # shell.css, responsive.css
 │   │   ├── components/                # modals, toast, search, optimizer, streak, custom-study

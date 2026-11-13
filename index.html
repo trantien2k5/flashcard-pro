@@ -37,36 +37,24 @@
   </script>
 
   <!-- High-Speed Parallel Core Stylesheets (Zero CSS Import Waterfall) -->
-  <link rel="stylesheet" href="src/css/main.css?v=3.76.66">
-  <link rel="stylesheet" href="src/css/views/flashcard.css?v=3.76.66">
-  <link rel="stylesheet" href="src/css/components.css?v=3.76.66">
-  <link rel="stylesheet" href="src/css/views/review.css?v=3.76.66">
-  <link rel="stylesheet" href="src/css/views/decks.css?v=3.76.66">
-  <link rel="stylesheet" href="src/css/views/stats.css?v=3.76.66">
-  <link rel="stylesheet" href="src/css/views/settings.css?v=3.76.66">
-  <link rel="stylesheet" href="src/css/views/library.css?v=3.76.66">
-  <link rel="stylesheet" href="src/css/views/quiz.css?v=3.76.66">
-  <link rel="stylesheet" href="src/css/views/toeic-test.css?v=3.76.66">
-  <link rel="stylesheet" href="src/css/views/reels.css?v=3.76.66">
+  <link rel="stylesheet" href="src/css/main.css?v=3.76.67">
+  <link rel="stylesheet" href="src/css/views/flashcard.css?v=3.76.67">
+  <link rel="stylesheet" href="src/css/components.css?v=3.76.67">
+  <link rel="stylesheet" href="src/css/views/review.css?v=3.76.67">
+  <link rel="stylesheet" href="src/css/views/decks.css?v=3.76.67">
+  <link rel="stylesheet" href="src/css/views/stats.css?v=3.76.67">
+  <link rel="stylesheet" href="src/css/views/settings.css?v=3.76.67">
+  <link rel="stylesheet" href="src/css/views/library.css?v=3.76.67">
+  <link rel="stylesheet" href="src/css/views/quiz.css?v=3.76.67">
+  <link rel="stylesheet" href="src/css/views/toeic-test.css?v=3.76.67">
+  <link rel="stylesheet" href="src/css/views/reels.css?v=3.76.67">
 
-  <!-- Script Module Preloading for Sub-100ms Bootstrap & Seamless Study Transition -->
-  <link rel="modulepreload" href="src/js/app.js?v=3.76.66">
+  <!-- Script Module Preloading for Critical Startup Modules -->
+  <link rel="modulepreload" href="src/js/app.js?v=3.76.67">
   <link rel="modulepreload" href="src/js/config.js">
   <link rel="modulepreload" href="src/js/utils.js">
   <link rel="modulepreload" href="src/js/services/storage.js">
-  <link rel="modulepreload" href="src/js/services/audio.js">
-  <link rel="modulepreload" href="src/js/core/fsrs.js">
-  <link rel="modulepreload" href="src/js/core/session.js">
-  <link rel="modulepreload" href="src/js/core/selectors.js">
-  <link rel="modulepreload" href="src/js/core/stats.js">
   <link rel="modulepreload" href="src/js/views/review.js">
-  <link rel="modulepreload" href="src/js/views/study.js?v=3.76.66">
-  <link rel="modulepreload" href="src/js/views/reels.js">
-  <link rel="modulepreload" href="src/data/index.js">
-  <link rel="modulepreload" href="src/data/topics.js">
-  <link rel="modulepreload" href="src/data/words.js">
-  <link rel="modulepreload" href="src/data/toeic-tests.js">
-  <link rel="modulepreload" href="src/js/views/toeic-test.js">
 </head>
 
 <body>
@@ -84,7 +72,7 @@
         </div>
         <div class="brand-info">
           <span class="brand-title">Flashcard Pro</span>
-          <span class="brand-sub" id="app-version-badge">v3.76.66</span>
+          <span class="brand-sub" id="app-version-badge">v3.76.67</span>
         </div>
       </div>
 
@@ -135,13 +123,13 @@
         </div>
         <div class="sidebar-brand-info">
           <h1 class="sidebar-brand-title">Flashcard Pro</h1>
-          <span class="brand-badge">FSRS-6 v2.0</span>
+          <span class="brand-badge">FSRS-6</span>
         </div>
       </div>
 
       <div class="sidebar-search-wrap">
         <button type="button" id="btn-sidebar-search" class="sidebar-search-btn" title="Tìm kiếm từ vựng (Ctrl+K)">
-          <div style="display:flex; align-items:center; gap:8px;">
+          <div class="sidebar-search-left">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
               stroke-linecap="round" stroke-linejoin="round">
               <circle cx="11" cy="11" r="8" />
@@ -245,12 +233,11 @@
   <div id="study-overlay" class="study-overlay"></div>
   <div id="quiz-overlay" class="quiz-overlay"></div>
   <div id="toeic-arena-overlay" class="toeic-arena-overlay"></div>
-  <div id="reels-overlay" class="reels-overlay" style="display: none;"></div>
   <div id="modals-root"></div>
   <div id="toast-container" class="toast-container"></div>
 
   <!-- App Core Script -->
-  <script type="module" src="src/js/app.js?v=3.76.66"></script>
+  <script type="module" src="src/js/app.js?v=3.76.67"></script>
 </body>
 
 </html>

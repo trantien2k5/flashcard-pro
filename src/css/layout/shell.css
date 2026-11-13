@@ -446,3 +446,9 @@
 .sidebar-search-wrap {
   display: none;
 }
+
+.sidebar-search-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
