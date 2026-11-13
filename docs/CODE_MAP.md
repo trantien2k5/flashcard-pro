@@ -435,15 +435,15 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 
 *Tệp cấu hình hoặc dữ liệu, không chứa khai báo hàm/class lớn.*
 
-#### 📁 [`src\js\views\decks.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js) (377 dòng)
+#### 📁 [`src\js\views\decks.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js) (404 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
 | `savePinnedDecks` | [`#L40-L44`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L40-L44) | `function` | Thực thi logic nội bộ |
 | `getDeckCategory` | [`#L69-L82`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L69-L82) | `function` | Thực thi logic nội bộ |
 | `renderDecksTabShell` | [`#L88-L143`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L88-L143) | `function` | Thực thi logic nội bộ |
-| `renderDecksTab` | [`#L145-L343`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L145-L343) | `function` | Thực thi logic nội bộ |
-| `setupDecksToolbarEvents` | [`#L345-L376`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L345-L376) | `function` | Thực thi logic nội bộ |
+| `renderDecksTab` | [`#L145-L370`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L145-L370) | `function` | Thực thi logic nội bộ |
+| `setupDecksToolbarEvents` | [`#L372-L403`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L372-L403) | `function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\views\decks\subtopics.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks\subtopics.js) (356 dòng)
 

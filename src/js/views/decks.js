@@ -104,7 +104,7 @@ export function renderDecksTabShell(tabPane) {
             <span class="chip-count" id="deck-chip-due">0</span>
           </button>
           <button class="filter-chip" data-deck-status="completed">
-            <span>Hoàn thành</span>
+            <span>Xong</span>
             <span class="chip-count" id="deck-chip-completed">0</span>
           </button>
         </div>
@@ -241,6 +241,33 @@ export function renderDecksTab(app) {
     }
 
     container.innerHTML = '';
+
+    if (filtered.length === 0) {
+      container.innerHTML = `
+        <div class="decks-empty-state">
+          <div class="decks-empty-icon">🧭</div>
+          <h3 class="decks-empty-title">Không có chủ đề nào phù hợp</h3>
+          <p class="decks-empty-desc">Thử đổi bộ lọc trạng thái hoặc chọn lại danh mục khác nhé.</p>
+          <button type="button" class="btn-decks-reset-filter" id="btn-decks-reset-filter">Hiện tất cả chủ đề</button>
+        </div>
+      `;
+      const resetBtn = document.getElementById('btn-decks-reset-filter');
+      if (resetBtn) {
+        resetBtn.onclick = () => {
+          app._activeDeckStatus = 'all';
+          app._activeDeckCategory = 'all';
+          const catEl = document.getElementById('decks-category-select');
+          if (catEl) catEl.value = 'all';
+          document.querySelectorAll('#decks-filter-chips .filter-chip').forEach((c) => {
+            c.classList.toggle('active', c.dataset.deckStatus === 'all');
+          });
+          renderDecksTab(app);
+        };
+      }
+      setupDecksToolbarEvents(app);
+      return;
+    }
+
     const frag = document.createDocumentFragment();
 
     filtered.forEach(item => {
@@ -254,25 +281,25 @@ export function renderDecksTab(app) {
       const card = document.createElement('div');
       card.className = `deck-item-card ${isPinned ? 'deck-item-pinned' : ''}`;
       card.dataset.deckId = deck.id;
-      card.style.setProperty('--deck-theme-color', deckColor);
+      card.style.setProperty('--deck-accent', deckColor);
 
       card.innerHTML = `
+        <div class="deck-card-accent" style="background: linear-gradient(90deg, ${deckColor}, ${deckColor}88);"></div>
         <div class="deck-card-header">
-          <div class="deck-icon-badge" style="background: linear-gradient(135deg, ${deckColor}25, ${deckColor}12); color: ${deckColor}; border: 1px solid ${deckColor}35; box-shadow: 0 4px 14px ${deckColor}22;">
+          <div class="deck-icon-badge" style="background: linear-gradient(135deg, ${deckColor}22, ${deckColor}0d); color: ${deckColor}; border: 1px solid ${deckColor}30;">
             <span>${deck.icon || '📚'}</span>
           </div>
           <div class="deck-info">
             <h3 class="deck-title">${escapeHTML(englishTitle)}</h3>
             <p class="deck-sub-title">${escapeHTML(vietnameseTitle)}</p>
             <div class="deck-meta-strip">
-              <span>${subtopicsCount} chặng</span>
-              <span class="meta-dot">•</span>
-              <span>${stats.total} từ vựng</span>
+              <span class="deck-meta-pill">${subtopicsCount} chặng</span>
+              <span class="deck-meta-pill">${stats.total} từ</span>
             </div>
           </div>
           ${allDecks.length > 1 ? `
-            <button class="btn-deck-pin ${isPinned ? 'pinned' : ''}" title="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" data-pin-id="${escapeHTML(deck.id)}">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="${isPinned ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <button type="button" class="btn-deck-pin ${isPinned ? 'pinned' : ''}" title="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" aria-label="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" data-pin-id="${escapeHTML(deck.id)}">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="${isPinned ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="12" y1="17" x2="12" y2="22"></line>
                 <path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a1 1 0 0 0 0-2H8a1 1 0 0 0 0 2h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"></path>
               </svg>
@@ -282,12 +309,12 @@ export function renderDecksTab(app) {
         <div class="deck-card-footer">
           <div class="deck-progress-container">
             <div class="deck-progress-bar-bg">
-              <div class="deck-progress-fill" style="width: ${stats.progressPercent}%; background: linear-gradient(90deg, ${deckColor}, ${deckColor}dd);"></div>
+              <div class="deck-progress-fill" style="width: ${stats.progressPercent}%; background: linear-gradient(90deg, ${deckColor}, ${deckColor}cc);"></div>
             </div>
             <span class="deck-stats-fraction">${stats.progressPercent}%</span>
           </div>
           <div class="deck-actions-group">
-            <button class="btn-deck-study ${stats.dueCount > 0 ? 'due' : ''}" data-study-id="${escapeHTML(deck.id)}">
+            <button type="button" class="btn-deck-study ${stats.dueCount > 0 ? 'due' : ''}" data-study-id="${escapeHTML(deck.id)}">
               ${stats.dueCount > 0 ? `⚡ Ôn ${stats.dueCount}` : '✨ Học ngay'}
               <span class="btn-study-arrow">›</span>
             </button>
