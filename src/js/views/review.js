@@ -8,7 +8,7 @@ import { openCustomStudyModal } from "./components.js";
 import {
   showGoalCustomizerModal,
   showForecastDetailModal,
-} from "./modals/goal-modal.js";
+} from "./review/goal-modal.js";
 import { renderReviewShell } from "./review/shell.js";
 import { updateHomeStatsRealtime } from "./review/realtime.js";
 import {
@@ -18,7 +18,7 @@ import {
   showReviewedTodayModal,
   showStudyTimeModal,
   showMasteredTiersModal,
-} from "./review/stat-modals.js";
+} from "./review/stat-modal.js";
 
 export {
   renderReviewShell,

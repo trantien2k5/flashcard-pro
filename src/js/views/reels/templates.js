@@ -2,7 +2,7 @@
  * Reels Submodule: HTML Templates & Visual Helpers for Facebook-Style Vocabulary Feed
  */
 
-import { FSRS, State, isCardDue } from '../../core/fsrs.js';
+import { FSRS } from '../../core/fsrs.js';
 import { StorageManager } from '../../services/storage.js';
 import { TOPICS } from '../../../data/index.js';
 import { escapeHTML } from '../../utils.js';

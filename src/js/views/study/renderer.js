@@ -6,10 +6,10 @@ import { Rating, State } from '../../core/fsrs.js';
 import { globalStudyTimer } from '../../core/timer.js';
 import { StorageManager } from '../../services/storage.js';
 import { escapeHTML, formatCleanInterval } from '../../utils.js';
-import { speak } from '../../services/audio.js';
+
 import { getStudyPrefs, applyRatingButtonsMode } from './prefs.js';
 import { getStudyOverlay } from './shell.js';
-import { isAutoPlayActive, triggerAutoPlayStep } from './autoplay.js';
+import { isAutoPlayActive } from './autoplay.js';
 
 // Bộ đệm tham chiếu DOM trong phiên học
 let _dom = null;

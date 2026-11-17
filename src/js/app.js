@@ -21,7 +21,7 @@ import {
 } from './views/decks.js';
 import { renderLibraryTab } from './views/library.js';
 import { renderStatsTab } from './views/stats.js';
-import { renderToeicTestTab } from './views/toeic-test.js';
+import { renderToeicTestTab } from './views/toeic.js';
 import { setupSettingsUI } from './views/settings.js';
 import {
   setupStudyControls,

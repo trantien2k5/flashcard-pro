@@ -6,12 +6,12 @@ import { setStatModalsApp } from "./modal-utils.js";
 import {
   showAttentionCardsModal,
   showDueWordsModal,
-} from "./modals-queue.js";
+} from "./queue-modal.js";
 import {
   showReviewedTodayModal,
   showStudyTimeModal,
   showMasteredTiersModal,
-} from "./modals-progress.js";
+} from "./progress-modal.js";
 
 export {
   setStatModalsApp,

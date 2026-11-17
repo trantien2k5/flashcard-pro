@@ -2,56 +2,28 @@
  * Study Session Manager - Core Learning Orchestrator
  */
 
-import { FSRS, Rating, State } from './fsrs.js';
+import { FSRS } from './fsrs.js';
 import { StorageManager } from '../services/storage.js';
 import { RELEARN_STEP_OFFSET } from '../config.js';
 import { getCurrentSettings } from '../utils.js';
-import { 
-  unlockAudioContext, 
-  preloadWordAudio, 
-  speak, 
-  speakTTS, 
-  stopAudio 
+import {
+  unlockAudioContext,
+  preloadWordAudio,
+  speak,
+  speakTTS,
+  stopAudio
 } from '../services/audio.js';
+import {
+  preloadCardImage,
+  preloadSessionAudio as preloadAudioBatch,
+  preloadSessionImages as preloadImagesBatch
+} from './session/media-preload.js';
+import {
+  resolveEffectiveRating,
+  applyRatingOutcome
+} from './session/rate-handler.js';
 
-export { unlockAudioContext };
-
-// Bộ nhớ đệm RAM lưu giữ tham chiếu hình ảnh đã giải mã (Decoded Image Cache với LRU)
-const sessionImageCache = new Map();
-const MAX_IMAGE_CACHE_SIZE = 60;
-
-/**
- * Tải trước và giải mã hình ảnh vào GPU/Browser RAM cache
- * Đảm bảo khi hiển thị lên thẻ không có độ trễ decode và xuất hiện đồng thời cùng từ vựng
- */
-export function preloadCardImage(src) {
-  if (!src || typeof src !== 'string' || typeof Image === 'undefined') {
-    return Promise.resolve(null);
-  }
-  if (sessionImageCache.has(src)) {
-    const p = sessionImageCache.get(src);
-    // Refresh LRU order
-    sessionImageCache.delete(src);
-    sessionImageCache.set(src, p);
-    return p;
-  }
-
-  // Prune oldest if exceeds capacity
-  if (sessionImageCache.size >= MAX_IMAGE_CACHE_SIZE) {
-    const oldestKey = sessionImageCache.keys().next().value;
-    sessionImageCache.delete(oldestKey);
-  }
-
-  const img = new Image();
-  img.src = src;
-  const promise = (img.decode ? img.decode() : new Promise((resolve) => {
-    img.onload = () => resolve(img);
-    img.onerror = () => resolve(null);
-  })).then(() => img).catch(() => null);
-
-  sessionImageCache.set(src, promise);
-  return promise;
-}
+export { unlockAudioContext, preloadCardImage };
 
 export class StudySession {
   constructor(options = {}) {
@@ -178,36 +150,14 @@ export class StudySession {
    * Tải trước âm thanh cho thẻ hiện tại và thẻ kế tiếp (nhẹ nhàng, không nghẽn mạng)
    */
   preloadSessionAudio(cards) {
-    if (!cards || !Array.isArray(cards) || typeof Audio === 'undefined') return;
-    const accent = (this.settings?.audioAccent || 'us').toLowerCase();
-    const batch = cards.slice(0, 2);
-    batch.forEach(card => {
-      if (card && card.word) {
-        preloadWordAudio(card.word.trim(), accent, card);
-      }
-    });
+    preloadAudioBatch(cards, this.settings?.audioAccent || 'us');
   }
 
   /**
    * Tải trước hình ảnh trong phiên học chỉ khi người dùng BẬT hiển thị hình ảnh
    */
   preloadSessionImages(cards) {
-    if (!cards || !Array.isArray(cards) || typeof Image === 'undefined') return;
-    let isImageEnabled = false;
-    try {
-      const raw = localStorage.getItem('study_display_prefs');
-      if (raw) isImageEnabled = JSON.parse(raw).showImage === true;
-    } catch (e) {}
-
-    if (!isImageEnabled) return;
-
-    const batch = cards.slice(0, 2);
-    batch.forEach(card => {
-      const src = card?.img || card?.image;
-      if (src && typeof src === 'string') {
-        preloadCardImage(src);
-      }
-    });
+    preloadImagesBatch(cards);
   }
 
   loadCurrentCard() {
@@ -304,31 +254,9 @@ export class StudySession {
     const latencySec = typeof options.latencySec === 'number' ? options.latencySec : null;
     const backViewSec = typeof options.backViewSec === 'number' ? options.backViewSec : null;
 
-    // ====================================================
-    // TÍNH TOÁN VÀ LƯU THUẬT TOÁN FSRS-6
-    // ====================================================
     const now = new Date();
-    // Luôn ưu tiên nạp trạng thái FSRS mới nhất từ StorageManager để đảm bảo tính nhất quán
     const oldState = StorageManager.getCardState(cardId) || this.currentCard.fsrsState || FSRS.createEmptyCard(cardId);
-
-    // BỘ ĐIỀU PHỐI NHẬN THỨC TỰ THÍCH ỨNG (ADAPTIVE COGNITIVE LATENCY ENGINE)
-    // Tự động phân hóa độ tự tin 2 nút (Quên / Nhớ) thành FSRS-6 chuẩn xác với màng lọc chống nhiễu
-    let effectiveRating = rating;
-    if (rating === Rating.Good && typeof latencySec === 'number') {
-      const isNoiseOrDistracted = latencySec >= 7.0 || latencySec <= 0.3;
-      if (!isNoiseOrDistracted) {
-        // Chuẩn hóa theo độ dài từ vựng (Word Length Normalization)
-        const wordLen = Math.max(3, (this.currentCard.word || '').length);
-        const fastThreshold = Math.min(1.8, 0.8 + (wordLen * 0.05)); // 3 chữ: 0.95s, 15 chữ: 1.55s
-        const slowThreshold = Math.max(3.8, 3.2 + (wordLen * 0.08)); // 3 chữ: 3.44s, 15 chữ: 4.40s
-
-        if (latencySec <= fastThreshold) {
-          effectiveRating = Rating.Easy; // Phản xạ tức thì -> Thưởng độ bền (Easy)
-        } else if (latencySec >= slowThreshold && latencySec < 7.0) {
-          effectiveRating = Rating.Hard; // Nhớ ngập ngừng -> Tăng nhẹ độ khó D (Hard)
-        }
-      }
-    }
+    const effectiveRating = resolveEffectiveRating(this.currentCard, rating, latencySec);
 
     const nextState = this.fsrs.calculateNextState(oldState, effectiveRating, now, {
       enableFuzz: this.settings?.enableFuzz !== false,
@@ -336,114 +264,39 @@ export class StudySession {
       leechAction: this.settings?.leechAction || 'suspend'
     });
 
-    // Cập nhật fsrsState trên currentCard
     this.currentCard.fsrsState = nextState;
 
-    // Lưu trạng thái thẻ vào Storage & IndexedDB
     if (shouldPersist) {
       StorageManager.saveCardState(nextState);
 
-      // Nếu thẻ bị tự động tạm dừng (Leech suspend), loại bỏ các bản sao còn lại khỏi hàng đợi hiện tại
       if (nextState.suspended) {
         this.queue = this.queue.filter((c, idx) => idx <= this.currentIndex || c.id !== cardId);
       }
 
-      // Ghi nhật ký học tập
       StorageManager.logReview({
         cardId: this.currentCard.id,
         word: this.currentCard.word,
-        rating: rating,
-        effectiveRating: effectiveRating,
+        rating,
+        effectiveRating,
         oldState: oldState.state,
         newState: nextState.state,
         scheduledDays: nextState.scheduled_days,
         stability: nextState.stability,
         difficulty: nextState.difficulty,
-        isRelearnPass: isRelearnPass,
-        latencySec: latencySec,
-        backViewSec: backViewSec
+        isRelearnPass,
+        latencySec,
+        backViewSec
       });
     }
 
-    // Cập nhật thống kê và tiến độ chuyển hóa trí nhớ FSRS
-    const isOldNew = oldState.state === State.New || oldState.state === 0;
-    const isOldRelearning = oldState.state === State.Relearning || oldState.state === 3;
-    const oldStability = Number(oldState.stability) || 0;
-    const nextStability = Number(nextState.stability) || 0;
-
-    if (isOldNew && !isRelearnPass) {
-      this.sessionStats.newLearned = (this.sessionStats.newLearned || 0) + 1;
-    }
-
-    if (rating === Rating.Again) {
-      this.sessionStats.again++;
-      if (!isRelearnPass) {
-        this.sessionStats.relearnCount = (this.sessionStats.relearnCount || 0) + 1;
-      }
-
-      // Đếm số lần bấm Quên của thẻ này trong phiên học hiện tại
-      const againCount = (this.inSessionAgainCounts.get(cardId) || 0) + 1;
-      this.inSessionAgainCounts.set(cardId, againCount);
-
-      // =========================================================================
-      // SSOT - VÒNG LẶP CỦNG CỐ KHÉP KÍN (CLOSED-LOOP RELEARN STRATEGY):
-      // - Lần 1 & Lần 2 (againCount <= 2): Củng cố ngắn hạn trong mạch học chính.
-      //   Chèn lùi sau 4 thẻ (+ jitter 0-1) để não bộ phục hồi và tái kích hoạt trí nhớ.
-      // - Lần 3 trở đi (againCount >= 3): ĐÂY LÀ TỪ KHÓ NHAI / HAY QUÊN.
-      //   Tuyệt đối không chèn xen kẽ làm đứt gãy luồng học chính nữa.
-      //   ĐẨY HẲN RA SAU CÙNG HÀNG ĐỢI (insertIdx = queue.length).
-      //   Sau khi người dùng học hết sạch toàn bộ từ đến hạn và từ mới, các từ khó
-      //   này sẽ xuất hiện ở chặng cuối để ôn tập đến khi thuộc hết (hoặc chủ động nghỉ).
-      // =========================================================================
-      if (this.relearnInSession) {
-        this.relearningCardIds.add(cardId);
-        let insertIdx;
-        if (againCount <= 2) {
-          // Lần 1 & 2: Củng cố ngắn hạn sau 4 thẻ trong mạch học chính
-          const jitter = Math.floor(Math.random() * 2);
-          insertIdx = Math.min(this.queue.length, this.currentIndex + 1 + this.relearnStepOffset + jitter);
-        } else {
-          // Lần 3 trở đi: Đẩy hẳn về sau cùng hàng đợi (sau hết toàn bộ từ đến hạn & từ mới)
-          insertIdx = this.queue.length;
-        }
-        this.queue.splice(insertIdx, 0, {
-          ...this.currentCard,
-          _isRelearnPass: true,
-          _againCountInSession: againCount,
-          _isDeferredStubborn: againCount >= 3
-        });
-        // Thẻ chưa vượt qua nên CHƯA tính hoàn thành (Vòng lặp khép kín)
-      } else {
-        // Tắt tính năng củng cố trong phiên: Đánh dấu hoàn thành
-        this.relearningCardIds.delete(cardId);
-        this.completedUniqueIds.add(cardId);
-      }
-    } else {
-      if (effectiveRating === Rating.Hard) this.sessionStats.hard++;
-      else if (effectiveRating === Rating.Easy) this.sessionStats.easy++;
-      else this.sessionStats.good++;
-
-      if (isRelearnPass) {
-        this.relearningCardIds.delete(cardId);
-        this.sessionStats.inSessionRecovered = (this.sessionStats.inSessionRecovered || 0) + 1;
-      }
-
-      if (isOldRelearning || (oldState.lapses && oldState.lapses > 0 && (effectiveRating === Rating.Good || effectiveRating === Rating.Easy))) {
-        this.sessionStats.recovered = (this.sessionStats.recovered || 0) + 1;
-      }
-
-      if (nextStability > oldStability) {
-        this.sessionStats.strengthened = (this.sessionStats.strengthened || 0) + 1;
-      }
-
-      if (nextStability >= 21 && oldStability < 21) {
-        this.sessionStats.promotedMature = (this.sessionStats.promotedMature || 0) + 1;
-      }
-
-      this.completedUniqueIds.add(cardId);
-    }
-    this.sessionStats.reviewedCount++;
-    this.completedCount = this.completedUniqueIds.size;
+    applyRatingOutcome(this, {
+      cardId,
+      rating,
+      effectiveRating,
+      oldState,
+      nextState,
+      isRelearnPass
+    });
 
     if (shouldPersist) {
       try {

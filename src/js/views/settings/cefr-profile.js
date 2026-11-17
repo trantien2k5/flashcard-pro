@@ -5,7 +5,7 @@
 import { StorageManager } from '../../services/storage.js';
 import { StatsManager } from '../../core/stats.js';
 import { showToast, showStreakHubModal } from '../components.js';
-import { showGoalCustomizerModal, showForecastDetailModal } from '../modals/goal-modal.js';
+import { showGoalCustomizerModal, showForecastDetailModal } from '../review/goal-modal.js';
 
 const AVATAR_EMOJIS = ['🎓', '🦁', '🦉', '⚡', '🚀', '💎', '🐉', '🎯', '🌟', '👑', '🔥', '🏆', '🦊', '🐺', '🐯', '🧠'];
 

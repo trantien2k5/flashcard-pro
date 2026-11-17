@@ -4,11 +4,7 @@
  */
 
 import { LEGACY_ID_MAP } from '../../../data/index.js';
-import {
-  STORES,
-  putToStore,
-  migrateLegacyCardStates as migrateLegacyCards
-} from './idb.js';
+import { putToStore, migrateLegacyCardStates as migrateLegacyCards } from './idb.js';
 
 export const STORAGE_KEYS = {
   CARDS: 'fsrs_card_states_v1',
