@@ -14,16 +14,14 @@ import {
   stopAudio
 } from '../services/audio.js';
 import {
-  preloadCardImage,
-  preloadSessionAudio as preloadAudioBatch,
-  preloadSessionImages as preloadImagesBatch
+  preloadSessionAudio as preloadAudioBatch
 } from './session/media-preload.js';
 import {
   resolveEffectiveRating,
   applyRatingOutcome
 } from './session/rate-handler.js';
 
-export { unlockAudioContext, preloadCardImage };
+export { unlockAudioContext };
 
 export class StudySession {
   constructor(options = {}) {
@@ -138,9 +136,8 @@ export class StudySession {
       return false;
     }
 
-    // Tải trước toàn bộ âm thanh và hình ảnh trong phiên học để phát và chuyển thẻ tức thì 0ms delay
+    // Tải trước âm thanh trong phiên học để phát tức thì 0ms delay
     this.preloadSessionAudio(this.queue);
-    this.preloadSessionImages(this.queue);
 
     this.loadCurrentCard();
     return true;
@@ -151,13 +148,6 @@ export class StudySession {
    */
   preloadSessionAudio(cards) {
     preloadAudioBatch(cards, this.settings?.audioAccent || 'us');
-  }
-
-  /**
-   * Tải trước hình ảnh trong phiên học chỉ khi người dùng BẬT hiển thị hình ảnh
-   */
-  preloadSessionImages(cards) {
-    preloadImagesBatch(cards);
   }
 
   loadCurrentCard() {
@@ -212,19 +202,6 @@ export class StudySession {
     if (nextCard && nextCard.word) {
       const accent = (this.settings?.audioAccent || 'us').toLowerCase();
       preloadWordAudio(nextCard.word.trim(), accent, nextCard);
-
-      let isImageEnabled = false;
-      try {
-        const raw = localStorage.getItem('study_display_prefs');
-        if (raw) isImageEnabled = JSON.parse(raw).showImage === true;
-      } catch (e) {}
-
-      if (isImageEnabled) {
-        const nextImg = nextCard.img || nextCard.image;
-        if (nextImg && typeof nextImg === 'string') {
-          preloadCardImage(nextImg);
-        }
-      }
     }
 
     return this.currentCard;

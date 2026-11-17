@@ -5,7 +5,6 @@
 import { StorageManager } from '../services/storage.js';
 import { StatsManager } from '../core/stats.js';
 import { scrollToTop } from '../utils.js';
-import { pauseReelsSession } from '../views/reels.js';
 import { showStreakHubModal } from '../views/components.js';
 
 /**
@@ -110,7 +109,6 @@ export function renderTabContent(app, tabId) {
   if (tabId === 'tab-review' || tabId === 'tab-home') app.renderReviewTab();
   else if (tabId === 'tab-settings') app.renderSettingsTab();
   else if (tabId === 'tab-decks') app.renderDecksTab();
-  else if (tabId === 'tab-reels') app.renderReelsTab();
   else if (tabId === 'tab-library') app.renderLibraryTab();
   else if (tabId === 'tab-test') app.renderToeicTestTab();
   else if (tabId === 'tab-subtopics' && app.currentSubtopicsDeckId) {
@@ -131,13 +129,7 @@ export function switchAppTab(app, tabId) {
     }
     app.activeTab = tabId;
 
-    const isReelsTab = (tabId === 'tab-reels');
     document.body.classList.toggle('subpage-view-active', isSubpageTarget);
-    document.body.classList.toggle('reels-tab-active', isReelsTab);
-
-    if (!isReelsTab) {
-      pauseReelsSession();
-    }
 
     document.querySelectorAll('.tab-pane').forEach(pane => {
       pane.classList.toggle('active', pane.id === tabId);

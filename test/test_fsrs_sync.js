@@ -278,20 +278,20 @@ testWordsAdaptive.forEach(w => {
 
 adaptiveSession.start(testWordsAdaptive);
 
-// 1. Phản xạ nhanh (0.8s <= 0.95s threshold): Tự nâng cấp thành Easy
+// 1. Phản xạ nhanh (0.8s): Giữ nguyên Good chuẩn FSRS-6, khớp 100% nhãn dự báo UI
 adaptiveSession.rateCard(Rating.Good, { latencySec: 0.8 });
 const stateFast = StorageManager.getCardState('adapt_fast');
-assert(stateFast.scheduled_days >= 5, 'Test 11.1: Phản xạ tức thì (<1s) được thuật toán nhận diện và thưởng độ bền (Easy boost)');
+assert(stateFast.scheduled_days > 0, 'Test 11.1: Phản xạ nhanh (0.8s) giữ nguyên chuẩn Good FSRS-6, không tự ý đổi sang Easy');
 
-// 2. Nhớ ngập ngừng (5.0s >= 3.44s threshold nhưng < 7.0s): Tự điều chỉnh Hard
+// 2. Nhớ ngập ngừng (5.0s): Giữ nguyên Good chuẩn FSRS-6
 adaptiveSession.rateCard(Rating.Good, { latencySec: 5.0 });
 const stateHesitant = StorageManager.getCardState('adapt_hesitant');
-assert(stateHesitant.difficulty > 5.0, 'Test 11.2: Nhớ ngập ngừng (5s) tự động tăng nhẹ độ khó D để củng cố kịp thời');
+assert(stateHesitant.scheduled_days === stateFast.scheduled_days, 'Test 11.2: Nhớ ngập ngừng (5s) giữ nguyên chuẩn Good FSRS-6');
 
-// 3. Bị phân tâm ngoại cảnh (9.5s >= 7.0s): Màng lọc chống nhiễu kích hoạt, giữ chuẩn Good không phạt
+// 3. Dừng lâu do phân tâm (9.5s): Giữ nguyên Good chuẩn FSRS-6
 adaptiveSession.rateCard(Rating.Good, { latencySec: 9.5 });
 const stateDistracted = StorageManager.getCardState('adapt_distracted');
-assert(stateHesitant.difficulty > stateDistracted.difficulty && stateDistracted.difficulty < 5.1, 'Test 11.3: Dừng lâu do phân tâm (9.5s) được màng lọc chống nhiễu bảo vệ, TUYỆT ĐỐI không phạt oan');
+assert(stateDistracted.difficulty === stateHesitant.difficulty, 'Test 11.3: Dừng lâu do phân tâm (9.5s) giữ nguyên chuẩn Good FSRS-6');
 
 // 4. Kiểm tra hàm tối ưu hóa ngầm
 const optResult = BehavioralOptimizer.autoCalibrateBackground();

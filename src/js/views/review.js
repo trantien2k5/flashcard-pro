@@ -95,12 +95,6 @@ export function renderReviewTab(app) {
     bindClickOnce("btn-home-start-new", () =>
       app.startStudySession(null, null, null, { mode: "new_only" }),
     );
-    bindClickOnce("btn-home-start-reels", () => {
-      navigator.vibrate?.(10);
-      if (typeof app.startReelsSession === "function") {
-        app.startReelsSession(null, { mode: "mixed" });
-      }
-    });
     bindClickOnce("btn-home-start-quiz", () => {
       navigator.vibrate?.(10);
       if (typeof app.startQuizSession === "function") {

@@ -24,7 +24,7 @@ function computePersonalizedWeights(cardStates, settings) {
   let weightReason = '';
   let shouldRecWeight = false;
 
-  if (firstReviewSamples >= 6) {
+  if (firstReviewSamples >= 100) {
     const firstRecallRate = firstReviewPassCount / firstReviewSamples;
     const defaultGoodS = DEFAULT_FSRS_PARAMS.w[2];
     const defaultEasyS = DEFAULT_FSRS_PARAMS.w[3];
@@ -61,7 +61,7 @@ export function buildRecommendations(metrics, cardStates, settings) {
   let targetRetention = currentRetention;
   let retentionReason = '';
 
-  if (totalReviews >= 12) {
+  if (totalReviews >= 100) {
     if (actualRetention < 0.82) {
       targetRetention = 0.92;
       retentionReason = `Tỉ lệ nhớ thực tế (${Math.round(actualRetention * 100)}%) đang thấp hơn kỳ vọng. Tăng retention lên 92% để FSRS rút ngắn khoảng cách ôn, củng cố thẻ trước khi rơi vào vùng quên.`;

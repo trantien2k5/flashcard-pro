@@ -31,7 +31,6 @@ import {
   switchStudyPriority
 } from './views/study.js';
 import { startQuizSession } from './views/quiz.js';
-import { renderReelsTab } from './views/reels.js';
 import { setupSearch, showToast, showConfirm, mountGlobalModals } from './views/components.js';
 import { APP_CONFIG } from './config.js';
 import { registerAppServiceWorker, checkAppUpdate } from './app/pwa.js';
@@ -245,26 +244,6 @@ export class FlashcardApp {
     } catch (err) {
       console.error('Lỗi startQuizSession:', err);
       this.showToast('Lỗi khi mở phiên trắc nghiệm: ' + (err?.message || err), 'error');
-    }
-  }
-
-  renderReelsTab(customQueue = null, options = {}) {
-    try {
-      renderReelsTab(this, customQueue, options);
-    } catch (err) {
-      console.error('Lỗi renderReelsTab:', err);
-    }
-  }
-
-  startReelsSession(queue = null, options = {}) {
-    try {
-      this.switchTab('tab-reels');
-      if (Array.isArray(queue) && queue.length > 0) {
-        this.renderReelsTab(queue, { ...options, forceReload: true });
-      }
-    } catch (err) {
-      console.error('Lỗi startReelsSession:', err);
-      this.showToast('Lỗi khi mở phiên lướt từ vựng: ' + (err?.message || err), 'error');
     }
   }
 

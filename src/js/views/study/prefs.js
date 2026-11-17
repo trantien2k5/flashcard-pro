@@ -39,7 +39,6 @@ export function saveAutoPlayPrefs(prefs) {
 export const DEFAULT_STUDY_PREFS = {
   studyMode: 'flashcard',    // 'flashcard' (lật thẻ)
   ratingButtonsMode: '2_buttons', // Mặc định 2 nút (Tối giản: Quên / Nhớ)
-  showImage: false,          // Mặc định TẮT hình ảnh (tránh lỗi/chiếm diện tích)
   showPhonetic: true,        // Mặc định BẬT phiên âm IPA
   showDefinition: false,     // Mặc định TẮT định nghĩa tiếng Anh dài dòng
   showExample: true,         // Mặc định BẬT câu ví dụ tiếng Anh
@@ -63,7 +62,6 @@ export function getStudyPrefs() {
         ...DEFAULT_STUDY_PREFS,
         studyMode: 'flashcard',
         ratingButtonsMode: parsed.ratingButtonsMode || DEFAULT_STUDY_PREFS.ratingButtonsMode,
-        showImage: parsed.showImage !== undefined ? !!parsed.showImage : DEFAULT_STUDY_PREFS.showImage,
         showPhonetic: parsed.showPhonetic !== undefined ? !!parsed.showPhonetic : DEFAULT_STUDY_PREFS.showPhonetic,
         showDefinition: parsed.showDefinition !== undefined ? !!parsed.showDefinition : DEFAULT_STUDY_PREFS.showDefinition,
         showExample: parsed.showExample !== undefined ? !!parsed.showExample : DEFAULT_STUDY_PREFS.showExample,

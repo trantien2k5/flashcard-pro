@@ -13,7 +13,6 @@ import { State } from '../core/fsrs.js';
 import { StatsManager, globalStudyTimer } from '../core/stats.js';
 import { escapeHTML } from '../utils.js';
 import { speak } from '../services/audio.js';
-import { openBehavioralOptimizerModal } from './components.js';
 import {
   renderStatsTabShell,
   showDayPopover,
@@ -44,17 +43,6 @@ export function renderStatsTab(app) {
 
     // 1. Phân Tích Năng Lực Trí Nhớ Thật & Tháp FSRS-6
     const memoryIntel = StatsManager.getMemoryIntelligence(WORDS);
-
-    const btnOpenOpt = container.querySelector('#btn-open-optimizer-from-stats');
-    if (btnOpenOpt) {
-      btnOpenOpt.onclick = () => {
-        try {
-          openBehavioralOptimizerModal(app);
-        } catch (err) {
-          console.error('Lỗi mở Behavioral Optimizer từ stats:', err);
-        }
-      };
-    }
 
     // 4 Khối Chỉ Số Trí Nhớ Thật
     const elRetrievability = container.querySelector('#cog-stat-retrievability');

@@ -27,8 +27,6 @@ export function getStudyDom() {
     flashcardStage: document.querySelector('.flashcard-stage'),
     progressText: document.getElementById('study-progress-text'),
     progressBar: document.getElementById('study-progress-bar-fill'),
-    imgContainer: document.getElementById('card-front-img-container'),
-    imgEl: document.getElementById('card-front-img'),
     badgesFrontWrap: document.getElementById('card-front-badges-wrap'),
     posFront: document.getElementById('card-pos-badge-front'),
     cefrBadgeFront: document.getElementById('card-cefr-badge-front'),
@@ -111,13 +109,7 @@ export function applyFieldVisibility(prefs, card) {
   const dom = getStudyDom();
   if (!dom.flashcardEl) return;
 
-  // 1. Hình ảnh minh họa: Mặc định TẮT
-  const imgSrc = card.img || card.image || '';
-  if (dom.imgContainer) {
-    dom.imgContainer.style.display = (prefs.showImage && imgSrc) ? 'flex' : 'none';
-  }
-
-  // 2. Phiên âm IPA ở mặt trước: Mặc định BẬT
+  // Phiên âm IPA ở mặt trước: Mặc định BẬT
   if (dom.phoneticFront) {
     const hasPhonetic = !!(card.phonetic || card.ipa);
     dom.phoneticFront.style.display = (prefs.showPhonetic && hasPhonetic) ? 'inline-block' : 'none';
@@ -269,21 +261,6 @@ export function renderCardChange(app, card, progress, hooks = {}) {
       if (dom.exViBack && card.exampleVi) dom.exViBack.style.display = 'block';
     }
 
-    // Xử lý hình ảnh minh họa
-    const imgSrc = card.img || card.image || '';
-    if (dom.imgEl) {
-      if (imgSrc) {
-        dom.imgEl.onerror = () => {
-          if (dom.imgContainer) dom.imgContainer.style.display = 'none';
-        };
-        dom.imgEl.decoding = 'async';
-        dom.imgEl.loading = 'eager';
-        dom.imgEl.src = imgSrc;
-      } else {
-        dom.imgEl.removeAttribute('src');
-      }
-    }
-
     const wordText = card.word || '';
     if (dom.wordFront) {
       dom.wordFront.textContent = wordText;
@@ -373,9 +350,6 @@ export function renderCardChange(app, card, progress, hooks = {}) {
       }
       if (dom.phoneticFront) {
         dom.phoneticFront.style.opacity = '0';
-      }
-      if (dom.imgContainer) {
-        dom.imgContainer.style.display = 'none';
       }
     } else {
       dom.flashcardEl?.classList.remove('is-audio-blind');

@@ -8,7 +8,6 @@ import { showToast, showConfirm } from './components/toast.js';
 import { setupSearch } from './components/search.js';
 import { showStreakHubModal } from './components/streak-hub.js';
 import { openCustomStudyModal } from './components/custom-study.js';
-import { openBehavioralOptimizerModal } from './components/optimizer-modal.js';
 
 export {
   mountGlobalModals,
@@ -16,6 +15,5 @@ export {
   showConfirm,
   setupSearch,
   showStreakHubModal,
-  openCustomStudyModal,
-  openBehavioralOptimizerModal
+  openCustomStudyModal
 };

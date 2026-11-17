@@ -19,7 +19,6 @@ import {
   applyRatingButtonsMode
 } from './study/prefs.js';
 import { getStudyOverlay, renderStudyOverlayShell } from './study/shell.js';
-import { initPomodoroTracker, stopPomodoroTracker, recordPomodoroCardReviewed } from './study/pomodoro.js';
 import { showSummaryModal } from './study/summary-modal.js';
 import {
   isAutoPlayActive,
@@ -45,9 +44,6 @@ export {
   applyRatingButtonsMode,
   getStudyOverlay,
   renderStudyOverlayShell,
-  initPomodoroTracker,
-  stopPomodoroTracker,
-  recordPomodoroCardReviewed,
   showSummaryModal,
   isAutoPlayActive,
   updateAutoPlayUI,
@@ -125,7 +121,6 @@ export function startStudySession(app, queue) {
     studyRuntime.timerUnsubscribe = globalStudyTimer.subscribe((state) => {
       updateStudyLiveTimerUI(state);
     });
-    initPomodoroTracker(app);
 
     if (app.studySession) {
       app.studySession.onBatchCheckpoint = null;
@@ -152,7 +147,6 @@ export function handleCardChange(app, card, progress) {
 export function handleStudyFinish(app, sessionStats) {
   try {
     stopAutoPlay();
-    stopPomodoroTracker();
     app.studySession?.stopAudio();
     globalStudyTimer.endSession();
     StorageManager.flushPendingSync();

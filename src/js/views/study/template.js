@@ -64,11 +64,6 @@ export function getStudyOverlayTemplate() {
                 </div>
               </div>
 
-              <!-- Hình ảnh minh họa (nếu từ vựng có ảnh) -->
-              <div class="card-image-container" id="card-front-img-container" style="display: none;">
-                <img id="card-front-img" class="fc-image" alt="Visual representation" />
-              </div>
-
               <!-- Cụm Từ Vựng Chính Giữa (Vibrant Focus Layout - Cho Chế Độ Lật Thẻ) -->
               <div class="card-word-center" id="card-front-flip-center">
                 <!-- Nút loa dời lên đầu từ tiếng Anh sinh động, bắt mắt -->
@@ -266,16 +261,7 @@ export function getStudyOverlayTemplate() {
               </select>
             </div>
 
-            <!-- 4. Hình ảnh minh họa -->
-            <label class="pref-item">
-              <div class="pref-info">
-                <span class="pref-label">🖼️ Hình ảnh minh họa</span>
-                <span class="pref-sub">Hiển thị hình ảnh minh họa ở mặt trước</span>
-              </div>
-              <input type="checkbox" id="pref-toggle-show-image" class="toggle-checkbox">
-            </label>
-
-            <!-- 5. Phiên âm IPA -->
+            <!-- Phiên âm IPA -->
             <label class="pref-item">
               <div class="pref-info">
                 <span class="pref-label">🔤 Phiên âm quốc tế IPA</span>

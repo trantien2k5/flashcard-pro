@@ -4,7 +4,7 @@
  * Tự động phát hiện và cập nhật code mới tức thời khi Online (Zero-Friction Live Update).
  */
 
-const CACHE_NAME = 'flashcard-pro-v3.76.74';
+const CACHE_NAME = 'flashcard-pro-v3.76.75';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -26,7 +26,6 @@ const PRECACHE_ASSETS = [
   './src/css/components/modals.css',
   './src/css/components/toast.css',
   './src/css/components/search.css',
-  './src/css/components/optimizer.css',
   './src/css/components/streak.css',
   './src/css/components/custom-study.css',
   './src/css/views/flashcard.css',
@@ -40,7 +39,6 @@ const PRECACHE_ASSETS = [
   './src/css/views/settings.css',
   './src/css/views/quiz.css',
   './src/css/views/toeic.css',
-  './src/css/views/reels.css',
   './src/js/app.js',
   './src/js/app/pwa.js',
   './src/js/app/navigation.js',
@@ -87,7 +85,6 @@ const PRECACHE_ASSETS = [
   './src/js/views/components/search-engine.js',
   './src/js/views/components/streak-hub.js',
   './src/js/views/components/custom-study.js',
-  './src/js/views/components/optimizer-modal.js',
   './src/js/views/review.js',
   './src/js/views/review/shell.js',
   './src/js/views/review/realtime.js',
@@ -122,7 +119,6 @@ const PRECACHE_ASSETS = [
   './src/js/views/study/prefs.js',
   './src/js/views/study/shell.js',
   './src/js/views/study/template.js',
-  './src/js/views/study/pomodoro.js',
   './src/js/views/study/summary-modal.js',
   './src/js/views/quiz.js',
   './src/js/views/quiz/state.js',
@@ -134,11 +130,6 @@ const PRECACHE_ASSETS = [
   './src/js/views/toeic/hub.js',
   './src/js/views/toeic/arena.js',
   './src/js/views/toeic/results.js',
-  './src/js/views/reels.js',
-  './src/js/views/reels/state.js',
-  './src/js/views/reels/queue.js',
-  './src/js/views/reels/interactions.js',
-  './src/js/views/reels/templates.js',
   './src/data/index.js',
   './src/data/schemas.js',
   './src/data/validators.js',

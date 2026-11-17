@@ -4,33 +4,13 @@
 
 import { Rating, State } from '../fsrs.js';
 
-const LATENCY_NOISE_MIN_SEC = 0.3;
-const LATENCY_NOISE_MAX_SEC = 7.0;
 const MATURE_STABILITY_DAYS = 21;
 const STUBBORN_AGAIN_THRESHOLD = 3;
 
 /**
- * Bộ điều phối nhận thức tự thích ứng (Adaptive Cognitive Latency Engine)
- * Phân hóa nút Good dựa trên phản xạ thực tế kèm màng lọc chống nhiễu.
+ * Thuật toán FSRS-6 thuần túy: giữ nguyên rating người dùng chọn để khớp 100% với lịch dự báo trên UI.
  */
 export function resolveEffectiveRating(card, rating, latencySec) {
-  if (rating !== Rating.Good || typeof latencySec !== 'number') {
-    return rating;
-  }
-  if (latencySec >= LATENCY_NOISE_MAX_SEC || latencySec <= LATENCY_NOISE_MIN_SEC) {
-    return rating;
-  }
-
-  const wordLen = Math.max(3, (card?.word || '').length);
-  const fastThreshold = Math.min(1.8, 0.8 + (wordLen * 0.05));
-  const slowThreshold = Math.max(3.8, 3.2 + (wordLen * 0.08));
-
-  if (latencySec <= fastThreshold) {
-    return Rating.Easy;
-  }
-  if (latencySec >= slowThreshold && latencySec < LATENCY_NOISE_MAX_SEC) {
-    return Rating.Hard;
-  }
   return rating;
 }
 

@@ -9,7 +9,6 @@ import { globalStudyTimer, BehavioralOptimizer } from '../../core/stats.js';
 import { scrollToTop } from '../../utils.js';
 import { getStudyPrefs } from './prefs.js';
 import { getStudyOverlay } from './shell.js';
-import { stopPomodoroTracker, recordPomodoroCardReviewed } from './pomodoro.js';
 import { showSummaryModal } from './summary-modal.js';
 import { stopAutoPlay } from './autoplay.js';
 import { studyRuntime, clearStudyTimerSubscription } from './state.js';
@@ -30,7 +29,6 @@ export function switchToQuizMode(app, closeDrawer) {
 
     stopAutoPlay();
     clearStudyTimerSubscription();
-    stopPomodoroTracker();
     app.studySession?.stopAudio();
     StorageManager.flushPendingSync();
 
@@ -93,7 +91,6 @@ export function createRateHandler(app) {
       const backViewSec = Number((backViewMs / 1000).toFixed(2));
 
       app.studySession.rateCard(rating, { latencySec, backViewSec, backViewMs: Math.round(backViewMs) });
-      recordPomodoroCardReviewed();
     } catch (err) {
       console.error('Lỗi rating thẻ:', err);
     } finally {
@@ -127,7 +124,6 @@ export function bindStudyRatingAndShortcuts(app, { overlay, triggerFlip, safeRat
 
         if (confirmed) {
           clearStudyTimerSubscription();
-          stopPomodoroTracker();
           app.studySession?.stopAudio();
           globalStudyTimer.endSession();
           try {

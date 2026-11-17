@@ -102,7 +102,6 @@ export function setupStudyPrefsDrawer(app, { onSwitchToQuiz, onCardRefresh }) {
   const selectButtonsMode = document.getElementById('pref-select-buttons-mode');
   const toggleAutoplay = document.getElementById('pref-toggle-autoplay');
   const selectAccent = document.getElementById('pref-select-accent');
-  const toggleShowImage = document.getElementById('pref-toggle-show-image');
   const toggleShowPhonetic = document.getElementById('pref-toggle-show-phonetic');
   const toggleShowPos = document.getElementById('pref-toggle-show-pos');
   const toggleShowExample = document.getElementById('pref-toggle-show-example');
@@ -120,7 +119,6 @@ export function setupStudyPrefsDrawer(app, { onSwitchToQuiz, onCardRefresh }) {
     const isAutoplay = (p.autoplayAudio !== undefined) ? !!p.autoplayAudio : (app.settings?.autoPronounce !== false);
     if (toggleAutoplay) toggleAutoplay.checked = isAutoplay;
     if (selectAccent) selectAccent.value = (app.settings?.audioAccent || p.audioAccent || 'us').toLowerCase();
-    if (toggleShowImage) toggleShowImage.checked = !!p.showImage;
     if (toggleShowPhonetic) toggleShowPhonetic.checked = p.showPhonetic !== false;
     if (toggleShowPos) toggleShowPos.checked = p.showPos !== false;
     if (toggleShowExample) toggleShowExample.checked = p.showExample !== false;
@@ -138,7 +136,6 @@ export function setupStudyPrefsDrawer(app, { onSwitchToQuiz, onCardRefresh }) {
       ratingButtonsMode: selectButtonsMode?.value || '2_buttons',
       autoplayAudio: isAutoplay,
       audioAccent: selectAccent?.value || 'us',
-      showImage: !!toggleShowImage?.checked,
       showPhonetic: !!toggleShowPhonetic?.checked,
       showPos: !!toggleShowPos?.checked,
       showCefr: !!toggleShowPos?.checked,
@@ -167,7 +164,7 @@ export function setupStudyPrefsDrawer(app, { onSwitchToQuiz, onCardRefresh }) {
   syncCheckboxesFromPrefs();
 
   const controlEls = [
-    selectButtonsMode, toggleAutoplay, selectAccent, toggleShowImage,
+    selectButtonsMode, toggleAutoplay, selectAccent,
     toggleShowPhonetic, toggleShowPos, toggleShowExample, toggleShowExampleVi,
     toggleShowDef, toggleShowCloze, toggleBackLock, selectThinkDelay
   ];
