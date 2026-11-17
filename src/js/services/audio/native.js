@@ -102,12 +102,3 @@ export function preloadWordAudio(cleanText, accent = 'us', cardObj = null) {
   _audioCache.set(key, entry);
   return entry;
 }
-
-/**
- * Tải trước cả 2 giọng US và UK cho danh sách thẻ
- */
-export function preloadBothAccents(cleanText, cardObj = null) {
-  if (!cleanText) return;
-  preloadWordAudio(cleanText, 'us', cardObj);
-  preloadWordAudio(cleanText, 'uk', cardObj);
-}

@@ -5,7 +5,7 @@
 
 import { getCurrentSettings } from '../utils.js';
 import { onAudioPlayStateChange, notifyPlayState, unlockAudioContext } from './audio/state.js';
-import { getNativeAudioUrls, preloadWordAudio, preloadBothAccents } from './audio/native.js';
+import { getNativeAudioUrls, preloadWordAudio } from './audio/native.js';
 import { initVoiceCache, speakTTS, speakVi } from './audio/tts.js';
 
 const NATIVE_MAX_WORDS = 6;
@@ -19,7 +19,6 @@ export {
   initVoiceCache,
   getNativeAudioUrls,
   preloadWordAudio,
-  preloadBothAccents,
   speakTTS,
   speakVi
 };
