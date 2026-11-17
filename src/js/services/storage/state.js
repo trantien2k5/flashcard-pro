@@ -4,7 +4,7 @@
  */
 
 import { LEGACY_ID_MAP } from '../../../data/index.js';
-import { putToStore, migrateLegacyCardStates as migrateLegacyCards } from './idb.js';
+import { putToStore } from './idb.js';
 
 export const STORAGE_KEYS = {
   CARDS: 'fsrs_card_states_v1',
@@ -57,10 +57,39 @@ export function bumpStateRevision() {
 }
 
 /**
- * Tự động di chuyển tiến độ học của các ID cũ sang Canonical ID chuẩn
+ * Tự động di chuyển tiến độ học của các ID cũ sang Canonical ID chuẩn sau khi deduplicate
  */
 export function migrateLegacyCardStates(rawCards) {
-  return migrateLegacyCards(rawCards, STORAGE_KEYS.CARDS, LEGACY_ID_MAP);
+  if (!rawCards || typeof rawCards !== 'object') return {};
+  if (!LEGACY_ID_MAP || Object.keys(LEGACY_ID_MAP).length === 0) return rawCards;
+
+  let migrated = false;
+  const cards = { ...rawCards };
+
+  for (const [legacyId, canonicalId] of Object.entries(LEGACY_ID_MAP)) {
+    if (cards[legacyId]) {
+      const legacyState = cards[legacyId];
+      if (!cards[canonicalId]) {
+        cards[canonicalId] = { ...legacyState, id: canonicalId };
+      } else {
+        const canReps = cards[canonicalId].reps || 0;
+        const legReps = legacyState.reps || 0;
+        if (legReps > canReps) {
+          cards[canonicalId] = { ...legacyState, id: canonicalId };
+        }
+      }
+      delete cards[legacyId];
+      migrated = true;
+    }
+  }
+
+  if (migrated && typeof localStorage !== 'undefined') {
+    try {
+      localStorage.setItem(STORAGE_KEYS.CARDS, JSON.stringify(cards));
+    } catch (e) {}
+  }
+
+  return cards;
 }
 
 /**

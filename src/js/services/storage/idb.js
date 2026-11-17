@@ -96,39 +96,3 @@ export function putToStore(db, storeName, item) {
   });
 }
 
-/**
- * Tự động di chuyển tiến độ học của các ID cũ sang Canonical ID chuẩn sau khi deduplicate
- */
-export function migrateLegacyCardStates(rawCards, cardsStorageKey, legacyIdMap) {
-  if (!rawCards || typeof rawCards !== 'object') return {};
-  if (!legacyIdMap || Object.keys(legacyIdMap).length === 0) return rawCards;
-
-  let migrated = false;
-  const cards = { ...rawCards };
-
-  for (const [legacyId, canonicalId] of Object.entries(legacyIdMap)) {
-    if (cards[legacyId]) {
-      const legacyState = cards[legacyId];
-      if (!cards[canonicalId]) {
-        cards[canonicalId] = { ...legacyState, id: canonicalId };
-      } else {
-        const canReps = cards[canonicalId].reps || 0;
-        const legReps = legacyState.reps || 0;
-        if (legReps > canReps) {
-          cards[canonicalId] = { ...legacyState, id: canonicalId };
-        }
-      }
-      delete cards[legacyId];
-      migrated = true;
-    }
-  }
-
-  if (migrated && typeof localStorage !== 'undefined' && cardsStorageKey) {
-    try {
-      localStorage.setItem(cardsStorageKey, JSON.stringify(cards));
-    } catch (e) {}
-  }
-
-  return cards;
-}
-

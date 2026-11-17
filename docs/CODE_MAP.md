@@ -45,14 +45,38 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `FSRS.getFuzzedInterval` | [`#L196-L218`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L196-L218) | `method` | Tính Fuzz Factor chuẩn Anki để làm mờ ngẫu nhiên khoảng cách ôn tập, chống  |
 | `FSRS.formatInterval` | [`#L398-L414`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/fsrs.js#L398-L414) | `method` | Định dạng interval thành chuỗi thân thiện chuẩn Anki (1m, 10m, 3d, 16d, 1mo |
 
-#### 📁 [`src/js/core/optimizer.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer.js) (495 dòng)
+#### 📁 [`src/js/core/optimizer.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer.js) (108 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `BehavioralOptimizer` | [`#L16-L494`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer.js#L16-L494) | `class` | ==========================================================================  |
-| `BehavioralOptimizer.analyze` | [`#L21-L434`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer.js#L21-L434) | `method` | Phân tích chuyên sâu hành vi học tập thực tế và tính toán khuyến nghị cá nh |
-| `BehavioralOptimizer.autoCalibrateBackground` | [`#L439-L458`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer.js#L439-L458) | `method` | Tự động phân tích và tối ưu hóa thông số FSRS-6 hoàn toàn trong nền (Zero-T |
-| `BehavioralOptimizer.applyOptimizations` | [`#L463-L493`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer.js#L463-L493) | `method` | Áp dụng toàn bộ cấu hình tối ưu hóa vào StorageManager |
+| `BehavioralOptimizer` | [`#L12-L107`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer.js#L12-L107) | `class` | Thực thi logic nội bộ |
+| `BehavioralOptimizer.analyze` | [`#L16-L49`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer.js#L16-L49) | `method` | Phân tích chuyên sâu hành vi học tập thực tế và tính toán khuyến nghị cá nh |
+| `BehavioralOptimizer.autoCalibrateBackground` | [`#L54-L72`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer.js#L54-L72) | `method` | Tự động phân tích và tối ưu hóa thông số FSRS-6 hoàn toàn trong nền (Zero-T |
+| `BehavioralOptimizer.applyOptimizations` | [`#L77-L106`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer.js#L77-L106) | `method` | Áp dụng toàn bộ cấu hình tối ưu hóa vào StorageManager |
+
+#### 📁 [`src/js/core/optimizer/diagnostics.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer/diagnostics.js) (113 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `resolveWordsMap` | [`#L9-L18`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer/diagnostics.js#L9-L18) | `function` | Thực thi logic nội bộ |
+| `computeCefrBreakdown` | [`#L20-L86`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer/diagnostics.js#L20-L86) | `function` | Thực thi logic nội bộ |
+| `getLevelEntry` | [`#L33-L38`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer/diagnostics.js#L33-L38) | `arrow_function` | Thực thi logic nội bộ |
+| `computeLeechDiagnostics` | [`#L88-L112`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer/diagnostics.js#L88-L112) | `function` | Thực thi logic nội bộ |
+
+#### 📁 [`src/js/core/optimizer/metrics.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer/metrics.js) (137 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `getCircadianPeriodIndex` | [`#L12-L17`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer/metrics.js#L12-L17) | `function` | Thực thi logic nội bộ |
+| `computeCircadianProfile` | [`#L19-L71`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer/metrics.js#L19-L71) | `function` | Thực thi logic nội bộ |
+| `computeBehavioralMetrics` | [`#L73-L136`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer/metrics.js#L73-L136) | `function` | Thực thi logic nội bộ |
+
+#### 📁 [`src/js/core/optimizer/recommendations.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer/recommendations.js) (152 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `computePersonalizedWeights` | [`#L7-L54`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer/recommendations.js#L7-L54) | `function` | Thực thi logic nội bộ |
+| `buildRecommendations` | [`#L56-L151`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/optimizer/recommendations.js#L56-L151) | `function` | Thực thi logic nội bộ |
 
 #### 📁 [`src/js/core/selectors.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/core/selectors.js) (372 dòng)
 
@@ -361,14 +385,13 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `resetCardProgress` | [`#L205-L210`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/cards.js#L205-L210) | `function` | Đặt lại tiến độ thẻ về từ mới hoàn toàn (Reset / Forget) |
 | `isCardSuspended` | [`#L215-L219`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/cards.js#L215-L219) | `function` | Kiểm tra xem thẻ có đang bị tạm dừng hay không |
 
-#### 📁 [`src/js/services/storage/idb.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/idb.js) (135 dòng)
+#### 📁 [`src/js/services/storage/idb.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/idb.js) (99 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
 | `openIndexedDB` | [`#L19-L62`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/idb.js#L19-L62) | `function` | Thực thi logic nội bộ |
 | `getAllFromStore` | [`#L64-L77`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/idb.js#L64-L77) | `function` | Thực thi logic nội bộ |
 | `putToStore` | [`#L79-L97`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/idb.js#L79-L97) | `function` | Thực thi logic nội bộ |
-| `migrateLegacyCardStates` | [`#L102-L133`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/idb.js#L102-L133) | `function` | Tự động di chuyển tiến độ học của các ID cũ sang Canonical ID chuẩn sau khi |
 
 #### 📁 [`src/js/services/storage/logs.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/logs.js) (217 dòng)
 
@@ -400,21 +423,21 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `preloadFromIndexedDB` | [`#L108-L165`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/preload.js#L108-L165) | `function` | Nạp trước dữ liệu từ IndexedDB vào RAM Cache và hòa giải với LocalStorage |
 | `initStorage` | [`#L170-L185`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/preload.js#L170-L185) | `function` | Khởi tạo kết nối IndexedDB và nạp trước dữ liệu vào RAM Cache |
 
-#### 📁 [`src/js/services/storage/state.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js) (165 dòng)
+#### 📁 [`src/js/services/storage/state.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js) (194 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
 | `getStateRevision` | [`#L48-L50`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L48-L50) | `function` | Trả về phiên bản revision hiện tại của trạng thái lưu trữ |
 | `bumpStateRevision` | [`#L55-L57`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L55-L57) | `function` | Tăng bộ đếm revision sau khi trạng thái thay đổi đáng kể |
-| `migrateLegacyCardStates` | [`#L62-L64`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L62-L64) | `function` | Tự động di chuyển tiến độ học của các ID cũ sang Canonical ID chuẩn |
-| `invalidateCache` | [`#L69-L77`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L69-L77) | `function` | Đặt lại toàn bộ bộ nhớ đệm RAM (buộc đọc lại từ nguồn lưu trữ) |
-| `clearPendingSyncTimers` | [`#L82-L86`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L82-L86) | `function` | Hủy các bộ hẹn giờ đồng bộ LocalStorage đang chờ |
-| `putToIdb` | [`#L91-L100`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L91-L100) | `function` | Ghi ngầm một bản ghi vào IndexedDB Store không chặn luồng giao diện |
-| `writeCacheToLocalStorage` | [`#L102-L111`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L102-L111) | `function` | Thực thi logic nội bộ |
-| `scheduleCardsLocalStorageSync` | [`#L113-L120`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L113-L120) | `function` | Thực thi logic nội bộ |
-| `scheduleLogsLocalStorageSync` | [`#L122-L130`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L122-L130) | `function` | Thực thi logic nội bộ |
-| `scheduleTimeLocalStorageSync` | [`#L132-L139`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L132-L139) | `function` | Thực thi logic nội bộ |
-| `flushPendingSync` | [`#L144-L163`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L144-L163) | `function` | Đẩy ngay mọi dữ liệu đang chờ debounce vào LocalStorage (khi đóng trang) |
+| `migrateLegacyCardStates` | [`#L62-L93`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L62-L93) | `function` | Tự động di chuyển tiến độ học của các ID cũ sang Canonical ID chuẩn sau khi |
+| `invalidateCache` | [`#L98-L106`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L98-L106) | `function` | Đặt lại toàn bộ bộ nhớ đệm RAM (buộc đọc lại từ nguồn lưu trữ) |
+| `clearPendingSyncTimers` | [`#L111-L115`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L111-L115) | `function` | Hủy các bộ hẹn giờ đồng bộ LocalStorage đang chờ |
+| `putToIdb` | [`#L120-L129`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L120-L129) | `function` | Ghi ngầm một bản ghi vào IndexedDB Store không chặn luồng giao diện |
+| `writeCacheToLocalStorage` | [`#L131-L140`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L131-L140) | `function` | Thực thi logic nội bộ |
+| `scheduleCardsLocalStorageSync` | [`#L142-L149`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L142-L149) | `function` | Thực thi logic nội bộ |
+| `scheduleLogsLocalStorageSync` | [`#L151-L159`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L151-L159) | `function` | Thực thi logic nội bộ |
+| `scheduleTimeLocalStorageSync` | [`#L161-L168`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L161-L168) | `function` | Thực thi logic nội bộ |
+| `flushPendingSync` | [`#L173-L192`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/state.js#L173-L192) | `function` | Đẩy ngay mọi dữ liệu đang chờ debounce vào LocalStorage (khi đóng trang) |
 
 #### 📁 [`src/js/services/storage/streak.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/services/storage/streak.js) (88 dòng)
 
@@ -928,21 +951,35 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `openBehavioralOptimizerModal` | [`#L16-L257`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/optimizer-modal.js#L16-L257) | `function` | Thực thi logic nội bộ |
 | `closeModal` | [`#L216-L218`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/optimizer-modal.js#L216-L218) | `arrow_function` | Thực thi logic nội bộ |
 
-#### 📁 [`src/js/views/components/search.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js) (440 dòng)
+#### 📁 [`src/js/views/components/search-engine.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search-engine.js) (72 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `setupSearch` | [`#L29-L435`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L29-L435) | `function` | Thực thi logic nội bộ |
-| `getSearchHistory` | [`#L49-L56`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L49-L56) | `arrow_function` | Thực thi logic nội bộ |
-| `saveSearchHistory` | [`#L58-L62`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L58-L62) | `arrow_function` | Thực thi logic nội bộ |
-| `addQueryToHistory` | [`#L64-L71`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L64-L71) | `arrow_function` | Thực thi logic nội bộ |
-| `removeQueryFromHistory` | [`#L73-L78`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L73-L78) | `arrow_function` | Thực thi logic nội bộ |
-| `openSearchModal` | [`#L80-L90`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L80-L90) | `arrow_function` | Thực thi logic nội bộ |
-| `closeSearchModal` | [`#L92-L104`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L92-L104) | `arrow_function` | Thực thi logic nội bộ |
-| `updateSelectedResult` | [`#L149-L160`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L149-L160) | `arrow_function` | Thực thi logic nội bộ |
-| `renderSearchSuggestions` | [`#L162-L231`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L162-L231) | `arrow_function` | Thực thi logic nội bộ |
-| `performSearch` | [`#L270-L354`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L270-L354) | `arrow_function` | Thực thi logic nội bộ |
-| `renderSearchResults` | [`#L356-L430`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L356-L430) | `arrow_function` | Thực thi logic nội bộ |
+| `scoreCardMatch` | [`#L8-L28`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search-engine.js#L8-L28) | `function` | Thực thi logic nội bộ |
+| `passesSearchFilter` | [`#L30-L30`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search-engine.js#L30-L30) | `function` | Thực thi logic nội bộ |
+| `searchCards` | [`#L45-L71`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search-engine.js#L45-L71) | `function` | Thực thi logic nội bộ |
+
+#### 📁 [`src/js/views/components/search-history.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search-history.js) (53 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `getSearchHistory` | [`#L18-L25`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search-history.js#L18-L25) | `function` | Thực thi logic nội bộ |
+| `saveSearchHistory` | [`#L27-L31`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search-history.js#L27-L31) | `function` | Thực thi logic nội bộ |
+| `addQueryToHistory` | [`#L33-L40`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search-history.js#L33-L40) | `function` | Thực thi logic nội bộ |
+| `removeQueryFromHistory` | [`#L42-L46`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search-history.js#L42-L46) | `function` | Thực thi logic nội bộ |
+| `clearSearchHistory` | [`#L48-L52`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search-history.js#L48-L52) | `function` | Thực thi logic nội bộ |
+
+#### 📁 [`src/js/views/components/search.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js) (322 dòng)
+
+| Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
+| :--- | :---: | :---: | :--- |
+| `setupSearch` | [`#L18-L321`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L18-L321) | `function` | Thực thi logic nội bộ |
+| `openSearchModal` | [`#L38-L48`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L38-L48) | `arrow_function` | Thực thi logic nội bộ |
+| `closeSearchModal` | [`#L50-L62`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L50-L62) | `arrow_function` | Thực thi logic nội bộ |
+| `updateSelectedResult` | [`#L64-L74`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L64-L74) | `arrow_function` | Thực thi logic nội bộ |
+| `renderSearchSuggestions` | [`#L76-L148`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L76-L148) | `arrow_function` | Thực thi logic nội bộ |
+| `renderSearchResults` | [`#L150-L220`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L150-L220) | `arrow_function` | Thực thi logic nội bộ |
+| `performSearch` | [`#L222-L247`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/search.js#L222-L247) | `arrow_function` | Thực thi logic nội bộ |
 
 #### 📁 [`src/js/views/components/shell.js`](file:///storage/emulated/0/Code/flashcard-pro/src/js/views/components/shell.js) (230 dòng)
 

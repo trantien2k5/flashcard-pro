@@ -4,7 +4,7 @@
  * Tự động phát hiện và cập nhật code mới tức thời khi Online (Zero-Friction Live Update).
  */
 
-const CACHE_NAME = 'flashcard-pro-v3.76.72';
+const CACHE_NAME = 'flashcard-pro-v3.76.73';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -58,6 +58,9 @@ const PRECACHE_ASSETS = [
   './src/js/core/stats/streak-analytics.js',
   './src/js/core/timer.js',
   './src/js/core/optimizer.js',
+  './src/js/core/optimizer/metrics.js',
+  './src/js/core/optimizer/diagnostics.js',
+  './src/js/core/optimizer/recommendations.js',
   './src/js/core/selectors.js',
   './src/js/core/selectors/deck-stats.js',
   './src/js/core/selectors/queue-scoring.js',
@@ -80,6 +83,8 @@ const PRECACHE_ASSETS = [
   './src/js/views/components/shell.js',
   './src/js/views/components/toast.js',
   './src/js/views/components/search.js',
+  './src/js/views/components/search-history.js',
+  './src/js/views/components/search-engine.js',
   './src/js/views/components/streak-hub.js',
   './src/js/views/components/custom-study.js',
   './src/js/views/components/optimizer-modal.js',

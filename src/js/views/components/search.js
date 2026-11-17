@@ -3,28 +3,17 @@
  */
 
 import { StorageManager } from '../../services/storage.js';
-import { State } from '../../core/fsrs.js';
 import { escapeHTML, highlightKeyword } from '../../utils.js';
 import { speak } from '../../services/audio.js';
-import { MASTERY_STABILITY_THRESHOLD } from '../../config.js';
 import { mountGlobalModals } from './shell.js';
-
-/* ==========================================================================
-   2. SPOTLIGHT SEARCH CONTROLLER
-   ========================================================================== */
-
-const SEARCH_HISTORY_KEY = 'flashcard_search_history_v2';
-const MAX_HISTORY_ITEMS = 8;
-
-const HOT_SEARCH_TAGS = [
-  { label: '💼 Business & Work', query: 'work' },
-  { label: '🗣️ Giao tiếp (B1)', query: 'b1' },
-  { label: '✈️ Du lịch (Travel)', query: 'travel' },
-  { label: '💰 Tài chính & Tiền', query: 'money' },
-  { label: '🎯 Nâng cao (C1/C2)', query: 'c1' },
-  { label: '🍔 Ăn uống (Food)', query: 'food' },
-  { label: '🩺 Sức khỏe (Health)', query: 'health' }
-];
+import {
+  HOT_SEARCH_TAGS,
+  getSearchHistory,
+  addQueryToHistory,
+  removeQueryFromHistory,
+  clearSearchHistory
+} from './search-history.js';
+import { searchCards } from './search-engine.js';
 
 export function setupSearch(app) {
   try {
@@ -45,37 +34,6 @@ export function setupSearch(app) {
     let currentResults = [];
     let selectedIndex = -1;
     let searchDebounceTimer = null;
-
-    const getSearchHistory = () => {
-      try {
-        const raw = localStorage.getItem(SEARCH_HISTORY_KEY);
-        return raw ? JSON.parse(raw) : [];
-      } catch (e) {
-        return [];
-      }
-    };
-
-    const saveSearchHistory = (history) => {
-      try {
-        localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(history.slice(0, MAX_HISTORY_ITEMS)));
-      } catch (e) {}
-    };
-
-    const addQueryToHistory = (query) => {
-      const q = query.trim();
-      if (!q || q.length < 2) return;
-      let history = getSearchHistory();
-      history = history.filter(item => item.toLowerCase() !== q.toLowerCase());
-      history.unshift(q);
-      saveSearchHistory(history);
-    };
-
-    const removeQueryFromHistory = (query) => {
-      let history = getSearchHistory();
-      history = history.filter(item => item.toLowerCase() !== query.toLowerCase());
-      saveSearchHistory(history);
-      renderSearchSuggestions();
-    };
 
     const openSearchModal = (initialQuery = '') => {
       searchModal.classList.add('active');
@@ -103,53 +61,9 @@ export function setupSearch(app) {
       selectedIndex = -1;
     };
 
-    if (btnOpenHeader) btnOpenHeader.onclick = () => openSearchModal();
-    const btnOpenSidebar = document.getElementById('btn-sidebar-search');
-    if (btnOpenSidebar) btnOpenSidebar.onclick = () => openSearchModal();
-    if (btnCloseSearch) btnCloseSearch.onclick = () => closeSearchModal();
-
-    searchModal.addEventListener('click', (e) => {
-      if (e.target === searchModal) closeSearchModal();
-    });
-
-    window.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        if (searchModal.classList.contains('active')) {
-          closeSearchModal();
-        } else {
-          openSearchModal();
-        }
-      } else if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
-        e.preventDefault();
-        openSearchModal();
-      } else if (e.key === 'Escape' && searchModal.classList.contains('active')) {
-        closeSearchModal();
-      } else if (searchModal.classList.contains('active') && currentResults.length > 0) {
-        if (e.key === 'ArrowDown') {
-          e.preventDefault();
-          selectedIndex = (selectedIndex + 1) % currentResults.length;
-          updateSelectedResult();
-        } else if (e.key === 'ArrowUp') {
-          e.preventDefault();
-          selectedIndex = (selectedIndex - 1 + currentResults.length) % currentResults.length;
-          updateSelectedResult();
-        } else if (e.key === 'Enter' && selectedIndex >= 0 && selectedIndex < currentResults.length) {
-          e.preventDefault();
-          const target = currentResults[selectedIndex];
-          if (target && target.card) {
-            addQueryToHistory(searchInput.value || target.card.word);
-            closeSearchModal();
-            app.startStudySession(target.card.deckId || null, null, [target.card]);
-          }
-        }
-      }
-    });
-
     const updateSelectedResult = () => {
       if (!resultsContainer) return;
-      const rows = resultsContainer.querySelectorAll('.search-result-row');
-      rows.forEach((r, idx) => {
+      resultsContainer.querySelectorAll('.search-result-row').forEach((r, idx) => {
         if (idx === selectedIndex) {
           r.classList.add('selected');
           r.scrollIntoView({ block: 'nearest' });
@@ -206,7 +120,7 @@ export function setupSearch(app) {
       const clearAllBtn = emptyStateContainer.querySelector('#btn-clear-all-history');
       if (clearAllBtn) {
         clearAllBtn.onclick = () => {
-          localStorage.removeItem(SEARCH_HISTORY_KEY);
+          clearSearchHistory();
           renderSearchSuggestions();
         };
       }
@@ -215,7 +129,10 @@ export function setupSearch(app) {
         btn.onclick = (e) => {
           e.stopPropagation();
           const query = btn.dataset.remove;
-          if (query) removeQueryFromHistory(query);
+          if (query) {
+            removeQueryFromHistory(query);
+            renderSearchSuggestions();
+          }
         };
       });
 
@@ -228,129 +145,6 @@ export function setupSearch(app) {
           }
         };
       });
-    };
-
-    if (filterTagsContainer) {
-      filterTagsContainer.addEventListener('click', (e) => {
-        const btn = e.target.closest('.search-filter-tag');
-        if (!btn) return;
-        filterTagsContainer.querySelectorAll('.search-filter-tag').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentFilter = btn.dataset.searchFilter || btn.dataset.filter || 'all';
-        if (searchInput.value.trim()) {
-          performSearch(searchInput.value.trim());
-        }
-      });
-    }
-
-    if (btnClearInput) {
-      btnClearInput.onclick = () => {
-        searchInput.value = '';
-        searchInput.focus();
-        btnClearInput.style.display = 'none';
-        renderSearchSuggestions();
-      };
-    }
-
-    searchInput.addEventListener('input', (e) => {
-      const q = e.target.value.trim();
-      if (btnClearInput) {
-        btnClearInput.style.display = q ? 'flex' : 'none';
-      }
-      if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
-      if (!q) {
-        renderSearchSuggestions();
-        return;
-      }
-      searchDebounceTimer = setTimeout(() => {
-        performSearch(q);
-      }, 150);
-    });
-
-    const performSearch = (rawQuery) => {
-      const q = rawQuery.toLowerCase().trim();
-      if (!q) {
-        renderSearchSuggestions();
-        return;
-      }
-
-      if (emptyStateContainer) emptyStateContainer.style.display = 'none';
-      if (!resultsContainer) return;
-      resultsContainer.style.display = 'flex';
-
-      const allCards = app.deckManager.getAllCards();
-      const cardStates = StorageManager.getAllCardStates();
-
-      let matches = [];
-      for (let i = 0; i < allCards.length; i++) {
-        const card = allCards[i];
-        const word = (card.word || '').toLowerCase();
-        const meaning = (card.meaning || '').toLowerCase();
-        const pos = (card.pos || '').toLowerCase();
-        const cefr = (card.level || card.cefr || '').toLowerCase();
-        const ipa = (card.ipa || card.phonetic || '').toLowerCase();
-        const example = (card.example || '').toLowerCase();
-        const exampleVi = (card.exampleVi || '').toLowerCase();
-        const subtopic = (card.subtopic || '').toLowerCase();
-
-        let isMatch = false;
-        let score = 0;
-
-        if (word === q) {
-          isMatch = true;
-          score += 100;
-        } else if (word.startsWith(q)) {
-          isMatch = true;
-          score += 60;
-        } else if (word.includes(q)) {
-          isMatch = true;
-          score += 30;
-        } else if (meaning.includes(q)) {
-          isMatch = true;
-          score += 25;
-        } else if (cefr === q) {
-          isMatch = true;
-          score += 20;
-        } else if (pos === q) {
-          isMatch = true;
-          score += 15;
-        } else if (ipa.includes(q) || example.includes(q) || exampleVi.includes(q) || subtopic.includes(q)) {
-          isMatch = true;
-          score += 10;
-        }
-
-        if (isMatch) {
-          const state = cardStates[card.id];
-          const isLearned = state && state.state !== State.New && state.state !== 0;
-          const isMastered = isLearned && state.stability >= MASTERY_STABILITY_THRESHOLD;
-
-          if (currentFilter === 'pos:noun' && pos !== 'noun') continue;
-          if (currentFilter === 'pos:verb' && pos !== 'verb') continue;
-          if (currentFilter === 'pos:adj' && pos !== 'adjective' && pos !== 'adj') continue;
-          if (currentFilter === 'cefr:b1' && cefr !== 'b1' && cefr !== 'b2') continue;
-          if (currentFilter === 'cefr:c1' && cefr !== 'c1' && cefr !== 'c2') continue;
-          if (currentFilter === 'state:due') {
-            const isDue = state && state.state !== State.New && state.due && new Date(state.due) <= new Date();
-            if (!isDue) continue;
-          }
-          if (currentFilter === 'state:new' && isLearned) continue;
-          if (currentFilter === 'learned' && !isLearned) continue;
-          if (currentFilter === 'new' && isLearned) continue;
-          if (currentFilter === 'mastered' && !isMastered) continue;
-
-          matches.push({ card, score, state, isLearned, isMastered });
-        }
-      }
-
-      matches.sort((a, b) => b.score - a.score);
-      currentResults = matches.slice(0, 50);
-      selectedIndex = -1;
-
-      if (resultCountLabel) {
-        resultCountLabel.textContent = `Tìm thấy ${matches.length} từ vựng phù hợp`;
-      }
-
-      renderSearchResults(currentResults, q);
     };
 
     const renderSearchResults = (items, query) => {
@@ -370,7 +164,6 @@ export function setupSearch(app) {
       }
 
       const frag = document.createDocumentFragment();
-
       items.forEach((item, index) => {
         const { card, state, isLearned, isMastered } = item;
         const deck = app.deckManager.getDeckById(card.deckId || (card.topicIds && card.topicIds[0]));
@@ -388,7 +181,6 @@ export function setupSearch(app) {
         const el = document.createElement('div');
         el.className = 'search-result-row';
         el.dataset.index = index;
-
         el.innerHTML = `
           <div class="search-row-main">
             <div class="search-word-header">
@@ -406,9 +198,7 @@ export function setupSearch(app) {
             </div>
           </div>
           <div class="search-row-actions">
-            <button class="btn-search-audio" title="Phát âm" data-word="${escapeHTML(card.word)}" type="button">
-              🔊
-            </button>
+            <button class="btn-search-audio" title="Phát âm" data-word="${escapeHTML(card.word)}" type="button">🔊</button>
           </div>
         `;
 
@@ -429,11 +219,103 @@ export function setupSearch(app) {
       resultsContainer.appendChild(frag);
     };
 
+    const performSearch = (rawQuery) => {
+      const q = rawQuery.toLowerCase().trim();
+      if (!q) {
+        renderSearchSuggestions();
+        return;
+      }
+
+      if (emptyStateContainer) emptyStateContainer.style.display = 'none';
+      if (!resultsContainer) return;
+      resultsContainer.style.display = 'flex';
+
+      const { totalMatches, results } = searchCards(
+        app.deckManager.getAllCards(),
+        StorageManager.getAllCardStates(),
+        q,
+        currentFilter
+      );
+      currentResults = results;
+      selectedIndex = -1;
+
+      if (resultCountLabel) {
+        resultCountLabel.textContent = `Tìm thấy ${totalMatches} từ vựng phù hợp`;
+      }
+
+      renderSearchResults(currentResults, q);
+    };
+
+    if (btnOpenHeader) btnOpenHeader.onclick = () => openSearchModal();
+    const btnOpenSidebar = document.getElementById('btn-sidebar-search');
+    if (btnOpenSidebar) btnOpenSidebar.onclick = () => openSearchModal();
+    if (btnCloseSearch) btnCloseSearch.onclick = () => closeSearchModal();
+
+    searchModal.addEventListener('click', (e) => {
+      if (e.target === searchModal) closeSearchModal();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        searchModal.classList.contains('active') ? closeSearchModal() : openSearchModal();
+      } else if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+        e.preventDefault();
+        openSearchModal();
+      } else if (e.key === 'Escape' && searchModal.classList.contains('active')) {
+        closeSearchModal();
+      } else if (searchModal.classList.contains('active') && currentResults.length > 0) {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          selectedIndex = (selectedIndex + 1) % currentResults.length;
+          updateSelectedResult();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          selectedIndex = (selectedIndex - 1 + currentResults.length) % currentResults.length;
+          updateSelectedResult();
+        } else if (e.key === 'Enter' && selectedIndex >= 0 && selectedIndex < currentResults.length) {
+          e.preventDefault();
+          const target = currentResults[selectedIndex];
+          if (target && target.card) {
+            addQueryToHistory(searchInput.value || target.card.word);
+            closeSearchModal();
+            app.startStudySession(target.card.deckId || null, null, [target.card]);
+          }
+        }
+      }
+    });
+
+    if (filterTagsContainer) {
+      filterTagsContainer.addEventListener('click', (e) => {
+        const btn = e.target.closest('.search-filter-tag');
+        if (!btn) return;
+        filterTagsContainer.querySelectorAll('.search-filter-tag').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.searchFilter || btn.dataset.filter || 'all';
+        if (searchInput.value.trim()) performSearch(searchInput.value.trim());
+      });
+    }
+
+    if (btnClearInput) {
+      btnClearInput.onclick = () => {
+        searchInput.value = '';
+        searchInput.focus();
+        btnClearInput.style.display = 'none';
+        renderSearchSuggestions();
+      };
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.trim();
+      if (btnClearInput) btnClearInput.style.display = q ? 'flex' : 'none';
+      if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
+      if (!q) {
+        renderSearchSuggestions();
+        return;
+      }
+      searchDebounceTimer = setTimeout(() => performSearch(q), 150);
+    });
   } catch (err) {
     console.error('Lỗi khi setupSearch:', err);
   }
 }
-
-
-
-

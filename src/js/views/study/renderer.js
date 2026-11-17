@@ -7,7 +7,7 @@ import { globalStudyTimer } from '../../core/timer.js';
 import { StorageManager } from '../../services/storage.js';
 import { escapeHTML, formatCleanInterval } from '../../utils.js';
 
-import { getStudyPrefs, applyRatingButtonsMode } from './prefs.js';
+import { getStudyPrefs } from './prefs.js';
 import { getStudyOverlay } from './shell.js';
 import { isAutoPlayActive } from './autoplay.js';
 
