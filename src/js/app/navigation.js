@@ -23,50 +23,70 @@ export function bindAppNavigation(app) {
     });
   });
 
-  const headerStreakBadge = document.getElementById('header-streak-badge');
-  if (headerStreakBadge && !headerStreakBadge._bound) {
-    headerStreakBadge._bound = true;
-    headerStreakBadge.style.cursor = 'pointer';
-    headerStreakBadge.addEventListener('click', () => {
-      try {
-        showStreakHubModal(app);
-      } catch (err) {
-        console.error('Lỗi mở Streak Hub Modal:', err);
-      }
-    });
-  }
-
-  const btnHeaderSettings = document.getElementById('btn-header-settings') || document.getElementById('btn-header-profile');
-  if (btnHeaderSettings && typeof btnHeaderSettings.addEventListener === 'function') {
-    btnHeaderSettings.addEventListener('click', () => {
-      try {
-        if (app.activeTab === 'tab-settings') {
-          app.switchTab(app.previousTab || 'tab-review');
-        } else {
-          app.switchTab('tab-settings');
+  for (const streakTriggerId of ['header-streak-badge', 'sidebar-streak-card']) {
+    const streakEl = document.getElementById(streakTriggerId);
+    if (streakEl && !streakEl._bound) {
+      streakEl._bound = true;
+      streakEl.style.cursor = 'pointer';
+      const openStreak = () => {
+        try {
+          showStreakHubModal(app);
+        } catch (err) {
+          console.error('Lỗi mở Streak Hub Modal:', err);
         }
-      } catch (err) {
-        console.error('Lỗi btn-header-settings:', err);
+      };
+      streakEl.addEventListener('click', openStreak);
+      if (streakTriggerId === 'sidebar-streak-card') {
+        streakEl.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openStreak();
+          }
+        });
       }
-    });
+    }
   }
 
-  const btnThemeToggle = document.getElementById('btn-theme-toggle');
-  if (btnThemeToggle && typeof btnThemeToggle.addEventListener === 'function' && !btnThemeToggle._themeBound) {
-    btnThemeToggle._themeBound = true;
-    btnThemeToggle.addEventListener('click', (e) => {
-      try {
-        e.preventDefault();
-        const currentTheme = app.settings?.theme || 'light';
-        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        if (app.settings) app.settings.theme = nextTheme;
-        app.applyTheme(nextTheme);
-        StorageManager.saveSettings(app.settings);
-        app.showToast(nextTheme === 'dark' ? '🌙 Đã chuyển sang chế độ Tối' : '☀️ Đã chuyển sang chế độ Sáng', 'info', 1500);
-      } catch (err) {
-        console.error('Lỗi btn-theme-toggle:', err);
+  const toggleSettingsTab = () => {
+    try {
+      if (app.activeTab === 'tab-settings') {
+        app.switchTab(app.previousTab || 'tab-review');
+      } else {
+        app.switchTab('tab-settings');
       }
-    });
+    } catch (err) {
+      console.error('Lỗi chuyển tab cài đặt:', err);
+    }
+  };
+
+  for (const settingsBtnId of ['btn-header-settings', 'btn-header-profile', 'btn-sidebar-settings']) {
+    const btn = document.getElementById(settingsBtnId);
+    if (btn && typeof btn.addEventListener === 'function' && !btn._settingsBound) {
+      btn._settingsBound = true;
+      btn.addEventListener('click', toggleSettingsTab);
+    }
+  }
+
+  const toggleAppTheme = (e) => {
+    try {
+      e.preventDefault();
+      const currentTheme = app.settings?.theme || 'light';
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      if (app.settings) app.settings.theme = nextTheme;
+      app.applyTheme(nextTheme);
+      StorageManager.saveSettings(app.settings);
+      app.showToast(nextTheme === 'dark' ? '🌙 Đã chuyển sang chế độ Tối' : '☀️ Đã chuyển sang chế độ Sáng', 'info', 1500);
+    } catch (err) {
+      console.error('Lỗi chuyển đổi giao diện:', err);
+    }
+  };
+
+  for (const themeBtnId of ['btn-theme-toggle', 'btn-sidebar-theme']) {
+    const btn = document.getElementById(themeBtnId);
+    if (btn && typeof btn.addEventListener === 'function' && !btn._themeBound) {
+      btn._themeBound = true;
+      btn.addEventListener('click', toggleAppTheme);
+    }
   }
 
   const btnBack = document.getElementById('btn-back-to-decks');
@@ -140,9 +160,11 @@ export function switchAppTab(app, tabId) {
       btn.classList.toggle('active', btn.getAttribute('data-tab') === navTargetId);
     });
 
-    const btnHeaderSettings = document.getElementById('btn-header-settings') || document.getElementById('btn-header-profile');
-    if (btnHeaderSettings) {
-      btnHeaderSettings.classList.toggle('active', tabId === 'tab-settings');
+    for (const settingsBtnId of ['btn-header-settings', 'btn-header-profile', 'btn-sidebar-settings']) {
+      const btn = document.getElementById(settingsBtnId);
+      if (btn) {
+        btn.classList.toggle('active', tabId === 'tab-settings');
+      }
     }
 
     scrollToTop();
@@ -196,31 +218,43 @@ export function applyAppTheme(theme) {
   const t = (theme === 'dark' || theme === 'light') ? theme : 'light';
   document.documentElement.setAttribute('data-theme', t);
 
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  if (themeMeta) {
+    themeMeta.setAttribute('content', t === 'dark' ? '#0b0c10' : '#f6f7f9');
+  }
+
+  const sunSvg = (size) => `
+    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  `;
+  const moonSvg = (size) => `
+    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  `;
+
   const btnTheme = document.getElementById('btn-theme-toggle');
   if (btnTheme) {
-    if (t === 'dark') {
-      btnTheme.title = 'Chuyển sang chế độ Sáng';
-      btnTheme.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-      `;
-    } else {
-      btnTheme.title = 'Chuyển sang chế độ Tối';
-      btnTheme.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      `;
-    }
+    btnTheme.title = t === 'dark' ? 'Chuyển sang chế độ Sáng' : 'Chuyển sang chế độ Tối';
+    btnTheme.innerHTML = t === 'dark' ? sunSvg(18) : moonSvg(18);
+  }
+
+  const sidebarThemeIcon = document.getElementById('sidebar-theme-icon');
+  if (sidebarThemeIcon) {
+    sidebarThemeIcon.innerHTML = t === 'dark' ? sunSvg(15) : moonSvg(15);
+  }
+  const sidebarThemeLabel = document.getElementById('sidebar-theme-label');
+  if (sidebarThemeLabel) {
+    sidebarThemeLabel.textContent = t === 'dark' ? 'Sáng' : 'Tối';
   }
 
   const darkThemeToggle = document.getElementById('setting-dark-theme');

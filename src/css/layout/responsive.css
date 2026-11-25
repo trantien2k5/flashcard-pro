@@ -1,20 +1,16 @@
 /* ==========================================================================
-   🖥️ DESKTOP & PC LAYOUT (>= 860px) - Dedicated Left Sidebar + Right Content
+   Desktop & Large Screen Layout (>= 1024px) - Linear-Style Sidebar Shell
    ========================================================================== */
-@media (min-width: 860px) {
-  /* App Container: Full Desktop Dashboard Frame */
+@media (min-width: 1024px) {
   #app-container {
     max-width: 100%;
     width: 100%;
     height: 100vh;
     height: 100dvh;
-    max-height: 100vh;
-    max-height: 100dvh;
     margin: 0;
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    box-shadow: none;
     background-color: var(--bg-primary);
     overflow: hidden;
   }
@@ -24,362 +20,340 @@
     display: none !important;
   }
 
-  /* Chuyển Bottom Nav thành Left Sidebar */
+  /* Left Navigation Sidebar */
   .app-sidebar.bottom-nav {
     order: -1;
     position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-    width: 250px;
-    min-width: 250px;
-    max-width: 250px;
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
     height: 100%;
-    max-height: 100%;
-    padding: 20px 14px 16px 14px;
+    min-height: 100%;
+    padding: 18px 12px 14px 12px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: stretch;
     background: var(--bg-secondary);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     border-top: none;
     border-right: 1px solid var(--border);
-    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.08);
     z-index: 100;
     overflow-y: auto;
     overflow-x: hidden;
-    scrollbar-width: thin;
   }
 
-  [data-theme="light"] .app-sidebar.bottom-nav {
-    background: #ffffff;
-    border-right: 1px solid #e2e8f0;
-    box-shadow: 2px 0 16px rgba(15, 23, 42, 0.03);
-  }
-
-  /* Sidebar Header Brand */
+  /* Sidebar Brand Header */
   .sidebar-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 0 4px 16px 4px;
+    gap: 10px;
+    padding: 2px 6px 14px 6px;
+    margin-bottom: 10px;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 12px;
   }
-
-  [data-theme="light"] .sidebar-header {
-    border-bottom: 1px solid #f1f5f9;
-  }
-
-  /* Quick Search Widget on Desktop Sidebar */
-  .sidebar-search-wrap {
-    display: block;
-    margin-bottom: 12px;
-    padding: 0 2px;
-  }
-
-  .sidebar-search-btn {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    padding: 9px 12px;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border);
-    border-radius: 11px;
-    color: var(--text-secondary);
-    font-size: 0.82rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  [data-theme="light"] .sidebar-search-btn {
-    background: #f1f5f9;
-    border-color: #e2e8f0;
-    color: #64748b;
-  }
-
-  .sidebar-search-btn:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    background: rgba(99, 102, 241, 0.08);
-    transform: translateY(-1px);
-  }
-
-  [data-theme="light"] .sidebar-search-btn:hover {
-    background: #eff6ff;
-    border-color: #a5b4fc;
-    color: #4f46e5;
-  }
-
-  .search-kbd {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    padding: 2px 6px;
-    font-size: 0.66rem;
-    font-family: var(--font-mono);
-    color: var(--text-muted);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  }
-
-  [data-theme="light"] .search-kbd {
-    background: #ffffff;
-    border-color: #cbd5e1;
-    color: #475569;
-  }
-
-
 
   .sidebar-brand-info {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    min-width: 0;
   }
 
   .sidebar-brand-title {
-    font-size: 1.08rem;
+    font-size: 0.98rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     color: var(--text-primary);
     line-height: 1.2;
+  }
+
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    font-size: 0.64rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+    color: var(--primary);
+    background: var(--primary-glow);
+    padding: 1px 6px;
+    border-radius: 5px;
+    line-height: 1.3;
+  }
+
+  [data-theme="dark"] .brand-badge {
+    color: var(--primary-light);
+    background: rgba(99, 102, 241, 0.16);
+  }
+
+  /* Command-Palette Search Trigger */
+  .sidebar-search-wrap {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .sidebar-search-btn {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 0 10px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .sidebar-search-btn:hover {
+    border-color: var(--border-strong);
+    color: var(--text-primary);
+    background: var(--bg-hover);
+  }
+
+  .search-kbd {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 1px 5px;
+    font-size: 0.66rem;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--text-muted);
+    line-height: 1.4;
   }
 
   /* Sidebar Navigation List */
   .sidebar-nav-list {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    align-items: stretch;
+    justify-content: flex-start;
+    max-width: none;
+    gap: 3px;
     flex: 1;
   }
 
-  /* Nav Item trên Desktop (Dạng hàng ngang) */
+  /* Linear-Style Sidebar Nav Item */
   .nav-item {
     flex: none;
     width: 100%;
+    min-height: 38px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: 12px;
-    padding: 11px 16px;
-    border-radius: 12px;
-    font-size: 0.92rem;
-    font-weight: 600;
+    gap: 10px;
+    padding: 8px 11px;
+    border-radius: 9px;
+    font-size: 0.88rem;
+    font-weight: 500;
     color: var(--text-secondary);
     text-align: left;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    border-left: 3.5px solid transparent;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .nav-item:active {
+    transform: none;
   }
 
   .nav-item .nav-icon {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     transform: none !important;
   }
 
   .nav-item .nav-icon svg {
-    width: 20px;
-    height: 20px;
-    stroke-width: 2.2;
+    width: 18px;
+    height: 18px;
+    stroke-width: 2;
   }
 
   .nav-item .nav-label {
-    font-size: 0.92rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 500;
     letter-spacing: -0.01em;
   }
 
   .nav-item:hover {
-    background: var(--bg-tertiary);
+    background: var(--bg-hover);
     color: var(--text-primary);
-    transform: translateX(2px);
-  }
-
-  [data-theme="light"] .nav-item:hover {
-    background: #f1f5f9;
-    color: #0f172a;
   }
 
   .nav-item.active {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.16), rgba(6, 182, 212, 0.08));
+    background: var(--primary-glow);
     color: var(--primary);
-    font-weight: 700;
-    border-left-color: var(--primary);
-    transform: none;
   }
 
-  [data-theme="light"] .nav-item.active {
-    background: #eff6ff;
-    color: #4f46e5;
-    border-left-color: #4f46e5;
+  [data-theme="dark"] .nav-item.active {
+    background: rgba(99, 102, 241, 0.14);
+    color: var(--primary-light);
   }
 
   .nav-item.active .nav-icon svg {
-    stroke: var(--primary);
-    filter: drop-shadow(0 2px 8px var(--primary-glow));
+    stroke-width: 2.2;
   }
 
-  [data-theme="light"] .nav-item.active .nav-icon svg {
-    stroke: #4f46e5;
-    filter: none;
+  .nav-item.active .nav-label {
+    font-weight: 600;
   }
 
-  /* Sidebar Footer (Streak Card) */
+  /* Sidebar Footer: Streak Card + Quick Utility Actions */
   .sidebar-footer {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 12px 0 0 0;
+    gap: 8px;
+    padding-top: 12px;
     border-top: 1px solid var(--border);
     margin-top: auto;
     flex-shrink: 0;
-  }
-
-  [data-theme="light"] .sidebar-footer {
-    border-top: 1px solid #f1f5f9;
   }
 
   .sidebar-streak-card {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 12px;
-    background: rgba(245, 158, 11, 0.1);
-    border: 1px solid rgba(245, 158, 11, 0.25);
-    border-radius: 12px;
-    transition: transform 0.2s ease;
-  }
-
-  [data-theme="light"] .sidebar-streak-card {
-    background: #fffbeb;
-    border: 1px solid #fde68a;
+    padding: 9px 11px;
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 11px;
+    cursor: pointer;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
   }
 
   .sidebar-streak-card:hover {
-    transform: translateY(-2px);
+    background: rgba(245, 158, 11, 0.14);
+    border-color: rgba(245, 158, 11, 0.36);
+    transform: translateY(-1px);
   }
 
   .sidebar-streak-icon {
-    font-size: 1.5rem;
-    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: rgba(245, 158, 11, 0.15);
+    flex-shrink: 0;
   }
 
   .sidebar-streak-info {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 1px;
+    min-width: 0;
   }
 
   .sidebar-streak-title {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     color: var(--text-muted);
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-
-  [data-theme="light"] .sidebar-streak-title {
-    color: #92400e;
+    letter-spacing: 0.02em;
   }
 
   .sidebar-streak-val {
-    font-size: 0.95rem;
-    color: #fbbf24;
-    font-weight: 800;
+    font-size: 0.88rem;
+    color: #d97706;
+    font-weight: 700;
+    line-height: 1.2;
   }
 
-  [data-theme="light"] .sidebar-streak-val {
-    color: #d97706;
+  [data-theme="dark"] .sidebar-streak-val {
+    color: #fbbf24;
   }
 
   .sidebar-streak-val strong {
     font-family: var(--font-mono);
-    font-size: 1.1rem;
+    font-size: 0.98rem;
   }
 
-  /* Right Main Tab View Area with Smooth macOS Floating Scrollbar */
+  /* Desktop Utility Row (Theme + Settings) */
+  .sidebar-utility-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .sidebar-util-btn {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 10px;
+    border-radius: 9px;
+    border: 1px solid var(--border);
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .sidebar-util-btn:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-strong);
+    color: var(--text-primary);
+  }
+
+  .sidebar-util-btn.active {
+    background: var(--primary-glow);
+    border-color: var(--border-focus);
+    color: var(--primary);
+  }
+
+  [data-theme="dark"] .sidebar-util-btn.active {
+    color: var(--primary-light);
+  }
+
+  .sidebar-util-btn svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
+  /* Right Main Content Area */
   .tab-content-area {
     flex: 1;
     min-width: 0;
     height: 100%;
     max-height: 100%;
-    padding: 24px 28px 32px 28px;
-    max-width: 100%;
-    width: 100%;
-    margin: 0;
+    padding: 28px 36px 40px 36px;
     overflow-y: auto;
     overflow-x: hidden;
-    box-sizing: border-box;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(99, 102, 241, 0.25) transparent;
-  }
-
-  /* Cho phép màn hình Trang chủ Ôn tập tự động co giãn không bị thanh cuộn lồng */
-  #tab-review.active {
-    display: block;
-    width: 100%;
-    height: auto;
-    overflow: visible;
-  }
-
-  /* macOS Style Floating Rounded Pill Scrollbar */
-  .tab-content-area::-webkit-scrollbar,
-  .subtopics-list-container::-webkit-scrollbar,
-  .subtopic-words-list::-webkit-scrollbar,
-  .modal-body::-webkit-scrollbar {
-    width: 7px;
-  }
-
-  .tab-content-area::-webkit-scrollbar-track,
-  .subtopics-list-container::-webkit-scrollbar-track,
-  .subtopic-words-list::-webkit-scrollbar-track,
-  .modal-body::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .tab-content-area::-webkit-scrollbar-thumb,
-  .subtopics-list-container::-webkit-scrollbar-thumb,
-  .subtopic-words-list::-webkit-scrollbar-thumb,
-  .modal-body::-webkit-scrollbar-thumb {
-    background: rgba(99, 102, 241, 0.22);
-    border-radius: 9999px;
-    border: 1.5px solid transparent;
-    background-clip: padding-box;
-    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  [data-theme="light"] .tab-content-area::-webkit-scrollbar-thumb {
-    background: rgba(99, 102, 241, 0.25);
-    background-clip: padding-box;
-  }
-
-  .tab-content-area::-webkit-scrollbar-thumb:hover,
-  .subtopics-list-container::-webkit-scrollbar-thumb:hover,
-  .subtopic-words-list::-webkit-scrollbar-thumb:hover,
-  .modal-body::-webkit-scrollbar-thumb:hover {
-    background: rgba(99, 102, 241, 0.55);
-    background-clip: padding-box;
-  }
-
-  .tab-content-area::-webkit-scrollbar-thumb:active {
-    background: var(--primary);
-    background-clip: padding-box;
   }
 
   .tab-pane {
     padding: 0;
-    max-width: 100%;
     width: 100%;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
   }
 
-  #tab-review.active {
+  #tab-review.tab-pane.active {
     display: block;
     width: 100%;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0;
+    min-height: auto;
+    overflow: visible;
+  }
+}
+
+/* Ultra-Wide Screens (>= 1440px) */
+@media (min-width: 1440px) {
+  .tab-content-area {
+    padding: 32px 48px 48px 48px;
   }
 }

@@ -1,4 +1,6 @@
-/* Base Reset & Chống bôi đen văn bản toàn bộ ứng dụng */
+/* ==========================================================================
+   Base Reset, Typography & Accessibility Primitives
+   ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -11,7 +13,7 @@
 }
 
 /* Cho phép nhập liệu và chọn văn bản trong ô input, textarea */
-input, textarea {
+input, textarea, [contenteditable="true"] {
   -webkit-user-select: auto;
   -moz-user-select: auto;
   -ms-user-select: auto;
@@ -27,19 +29,45 @@ html, body {
   font-family: var(--font-sans);
   font-size: 15px;
   line-height: 1.5;
+  letter-spacing: -0.011em;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   overflow: hidden;
+  overscroll-behavior: none;
   -webkit-touch-callout: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
+button, input, select, textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-focus);
+}
+
+/* Tabular numbers for counters, timers, badges & stats */
+.streak-pill,
+.sidebar-streak-val,
+.stat-value,
+kbd {
+  font-variant-numeric: tabular-nums;
+}
+
 /* ==========================================================================
-   Global Floating Scrollbar Styling (iOS / macOS Ultra-Sleek Pill)
+   Global Floating Scrollbar Styling (macOS / iOS Ultra-Sleek Pill)
    ========================================================================== */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(99, 102, 241, 0.28) transparent;
+  scrollbar-color: rgba(148, 163, 184, 0.28) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -52,15 +80,15 @@ html, body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.25);
+  background: rgba(148, 163, 184, 0.26);
   border-radius: 9999px;
-  border: 1px solid transparent;
+  border: 1.5px solid transparent;
   background-clip: padding-box;
   transition: background-color 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.55);
+  background: rgba(148, 163, 184, 0.48);
   background-clip: padding-box;
 }
 
@@ -69,13 +97,13 @@ html, body {
 }
 
 [data-theme="light"] * {
-  scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
+  scrollbar-color: rgba(15, 23, 42, 0.18) transparent;
 }
 
 [data-theme="light"] ::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.28);
+  background: rgba(15, 23, 42, 0.16);
 }
 
 [data-theme="light"] ::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.58);
+  background: rgba(15, 23, 42, 0.34);
 }

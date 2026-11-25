@@ -967,16 +967,21 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `FlashcardApp.showToast` | [`#L251-L251`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L251-L251) | `method` | Thực thi logic nội bộ |
 | `bootstrap` | [`#L254-L265`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app.js#L254-L265) | `function` | Thực thi logic nội bộ |
 
-#### 📁 [`src\js\app\navigation.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js) (232 dòng)
+#### 📁 [`src\js\app\navigation.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js) (266 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `bindAppNavigation` | [`#L13-L103`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L13-L103) | `function` | Gắn sự kiện điều hướng Bottom Nav, Header & các nút quay lại |
-| `navigateBackToSubtopics` | [`#L83-L89`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L83-L89) | `arrow_function` | Thực thi logic nội bộ |
-| `renderTabContent` | [`#L108-L119`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L108-L119) | `function` | Render lại nội dung của một tab cụ thể |
-| `switchAppTab` | [`#L124-L157`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L124-L157) | `function` | Chuyển đổi tab 0ms UI lag bằng rAF render |
-| `updateAppHeaderBadges` | [`#L162-L190`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L162-L190) | `function` | Cập nhật huy hiệu Streak trên thanh Header & Desktop Sidebar |
-| `applyAppTheme` | [`#L195-L230`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L195-L230) | `function` | Áp dụng Theme Sáng / Tối đồng bộ với Toggle Header và Settings |
+| `bindAppNavigation` | [`#L13-L123`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L13-L123) | `function` | Gắn sự kiện điều hướng Bottom Nav, Header & các nút quay lại |
+| `openStreak` | [`#L31-L37`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L31-L37) | `arrow_function` | Thực thi logic nội bộ |
+| `toggleSettingsTab` | [`#L50-L60`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L50-L60) | `arrow_function` | Thực thi logic nội bộ |
+| `toggleAppTheme` | [`#L70-L82`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L70-L82) | `arrow_function` | Thực thi logic nội bộ |
+| `navigateBackToSubtopics` | [`#L103-L109`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L103-L109) | `arrow_function` | Thực thi logic nội bộ |
+| `renderTabContent` | [`#L128-L139`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L128-L139) | `function` | Render lại nội dung của một tab cụ thể |
+| `switchAppTab` | [`#L144-L179`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L144-L179) | `function` | Chuyển đổi tab 0ms UI lag bằng rAF render |
+| `updateAppHeaderBadges` | [`#L184-L212`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L184-L212) | `function` | Cập nhật huy hiệu Streak trên thanh Header & Desktop Sidebar |
+| `applyAppTheme` | [`#L217-L264`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L217-L264) | `function` | Áp dụng Theme Sáng / Tối đồng bộ với Toggle Header và Settings |
+| `sunSvg` | [`#L226-L227`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L226-L227) | `arrow_function` | Thực thi logic nội bộ |
+| `moonSvg` | [`#L239-L240`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\navigation.js#L239-L240) | `arrow_function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\app\pwa.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\app\pwa.js) (213 dòng)
 
