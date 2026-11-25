@@ -44,7 +44,7 @@
    Minimalist & Premium Header Bar
    -------------------------------------------------------------------------- */
 .study-header-bar {
-  padding: 12px clamp(8px, 2.5vw, 16px) 6px clamp(8px, 2.5vw, 16px);
+  padding: calc(12px + var(--safe-top)) clamp(12px, 3vw, 20px) 8px clamp(12px, 3vw, 20px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,9 +181,9 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 520px;
+  max-width: 540px;
   margin: 0 auto;
-  padding: 12px 16px 20px 16px;
+  padding: 10px 16px calc(18px + var(--safe-bottom)) 16px;
   gap: 16px;
   box-sizing: border-box;
   min-height: 0;
@@ -297,7 +297,7 @@
   animation: cardEnterSubtle 0.16s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Mặt trước & Mặt sau Flashcard */
+/* Mặt trước & Mặt sau Flashcard - Apple / Linear Elevated Surface */
 .flashcard-face {
   position: absolute;
   top: 0;
@@ -306,29 +306,30 @@
   height: 100%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: 24px;
+  border-radius: var(--radius-2xl);
   overflow: hidden;
-  padding: clamp(20px, 3.8vh, 32px) clamp(20px, 5vw, 32px);
+  padding: clamp(20px, 3.8vh, 30px) clamp(20px, 5vw, 30px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: var(--bg-card);
-  border: 1.5px solid var(--border);
+  border: 1px solid var(--border-strong);
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  box-shadow: 0 10px 30px -6px rgba(99, 102, 241, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-shadow: var(--shadow-lg);
 }
 
 [data-theme="light"] .flashcard-face {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  border: 1.5px solid #cbd5e1;
+  background: #ffffff;
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.07), 0 2px 6px rgba(15, 23, 42, 0.04);
 }
 
 [data-theme="dark"] .flashcard-face {
-  background: linear-gradient(180deg, #182236 0%, #0f172a 100%);
-  border: 1.5px solid rgba(99, 102, 241, 0.3);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.12);
+  background: linear-gradient(180deg, #191d28 0%, #12151e 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .flashcard-face.face-front {
@@ -461,12 +462,12 @@
   width: 100%;
 }
 
-/* Nút Loa Ở Trên Đầu Từ Tiếng Anh - Sinh động, Gradient & Glow */
+/* Nút Loa Ở Trên Đầu Từ Tiếng Anh - Tactile Apple / Linear Circle */
 .card-speaker-hero {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary-light) 0%, #8b5cf6 50%, #d946ef 100%);
+  background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 100%);
   border: none;
   color: #ffffff;
   display: inline-flex;
@@ -474,26 +475,27 @@
   justify-content: center;
   cursor: pointer;
   outline: none;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform var(--transition-fast), box-shadow var(--transition-normal), filter var(--transition-fast);
   padding: 0;
-  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.35), 0 2px 6px rgba(139, 92, 246, 0.25);
+  box-shadow: 0 6px 18px var(--primary-glow), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   margin-bottom: 4px;
 }
 
 [data-theme="dark"] .card-speaker-hero {
-  background: linear-gradient(135deg, var(--primary-light) 0%, #8b5cf6 50%, #d946ef 100%);
+  background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 100%);
   color: #ffffff;
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5), 0 0 15px rgba(217, 70, 239, 0.3);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .card-speaker-hero:hover {
-  transform: scale(1.1) translateY(-2px);
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.5), 0 4px 10px rgba(217, 70, 239, 0.35);
+  transform: scale(1.06) translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.42);
 }
 
 [data-theme="dark"] .card-speaker-hero:hover {
-  transform: scale(1.1) translateY(-2px);
-  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.65), 0 0 22px rgba(217, 70, 239, 0.45);
+  transform: scale(1.06) translateY(-1px);
+  box-shadow: 0 8px 26px rgba(99, 102, 241, 0.5);
 }
 
 .card-speaker-hero:active {
@@ -705,22 +707,24 @@
 .card-back-def-box {
   width: 100%;
   text-align: left;
-  background: rgba(99, 102, 241, 0.06);
-  border-left: 4px solid var(--primary-light);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
   border-radius: 12px;
   padding: 10px 14px;
   box-sizing: border-box;
 }
 
 [data-theme="dark"] .card-back-def-box {
-  background: rgba(99, 102, 241, 0.12);
-  border-left-color: #818cf8;
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--border);
+  border-left-color: var(--primary-light);
 }
 
 .card-back-def {
-  font-size: clamp(0.98rem, 2.5vw, 1.12rem);
+  font-size: clamp(0.96rem, 2.5vw, 1.08rem);
   font-weight: 500;
-  color: #334155;
+  color: var(--text-secondary);
   line-height: 1.5;
   margin: 0;
 }
@@ -731,8 +735,9 @@
 
 .card-back-example {
   width: 100%;
-  background: rgba(241, 245, 249, 0.9);
-  border-left: 4px solid #8b5cf6;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-left: 3px solid #8b5cf6;
   border-radius: 14px;
   padding: 12px 16px;
   display: flex;
@@ -744,7 +749,8 @@
 }
 
 [data-theme="dark"] .card-back-example {
-  background: rgba(30, 41, 59, 0.75);
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--border);
   border-left-color: #a78bfa;
 }
 
@@ -984,22 +990,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
-  min-height: 58px;
+  gap: 3px;
+  min-height: 60px;
   padding: 8px 4px;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   cursor: pointer;
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
   touch-action: manipulation;
   outline: none;
   user-select: none;
   -webkit-user-select: none;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   color: #ffffff;
 }
 
 .btn-fsrs-rating:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+  filter: brightness(1.05);
 }
 
 .btn-fsrs-rating:active {
@@ -1007,71 +1014,56 @@
 }
 
 .btn-fsrs-rating .fsrs-rating-title {
-  font-size: 1.05rem;
-  font-weight: 850;
+  font-size: 1.02rem;
+  font-weight: 800;
   line-height: 1.1;
   color: #ffffff;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
 }
 
 .btn-fsrs-rating .fsrs-badge-interval {
-  font-size: 0.82rem;
-  font-family: var(--font-mono, monospace);
-  font-weight: 750;
-  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
   line-height: 1.1;
 }
 
-/* 1. Nút Quên (Again) - Đỏ chuẩn đậm đơn sắc */
+/* 1. Nút Quên (Again) */
 .btn-fsrs-rating.again {
-  background: #ef4444;
-  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.38);
+  background: var(--fsrs-again);
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 .btn-fsrs-rating.again:hover {
-  background: #dc2626;
-  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.48);
-}
-.btn-fsrs-rating.again:active {
-  background: #b91c1c;
+  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
 
-/* 2. Nút Khó (Hard) - Cam / Hổ phách chuẩn đậm đơn sắc */
+/* 2. Nút Khó (Hard) */
 .btn-fsrs-rating.hard {
-  background: #f59e0b;
-  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.38);
+  background: var(--fsrs-hard);
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 .btn-fsrs-rating.hard:hover {
-  background: #d97706;
-  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.48);
-}
-.btn-fsrs-rating.hard:active {
-  background: #b45309;
+  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
 
-/* 3. Nút Tốt (Good) - Xanh lá ngọc lục bảo chuẩn đậm đơn sắc */
+/* 3. Nút Tốt (Good) */
 .btn-fsrs-rating.good {
-  background: #10b981;
-  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.38);
+  background: var(--fsrs-good);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 .btn-fsrs-rating.good:hover {
-  background: #059669;
-  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.48);
-}
-.btn-fsrs-rating.good:active {
-  background: #047857;
+  box-shadow: 0 6px 18px rgba(5, 150, 105, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
 
-/* 4. Nút Dễ (Easy) - Xanh dương chuẩn đậm đơn sắc */
+/* 4. Nút Dễ (Easy) */
 .btn-fsrs-rating.easy {
-  background: #3b82f6;
-  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.38);
+  background: var(--fsrs-easy);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 .btn-fsrs-rating.easy:hover {
-  background: #2563eb;
-  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.48);
-}
-.btn-fsrs-rating.easy:active {
-  background: #1d4ed8;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
 
 /* --------------------------------------------------------------------------
@@ -1865,7 +1857,7 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 520px) {
   .study-body-wrapper {
-    padding: 6px 12px 18px 12px;
+    padding: 6px 12px calc(16px + var(--safe-bottom)) 12px;
     gap: 14px;
     justify-content: center;
   }
