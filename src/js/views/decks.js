@@ -87,57 +87,117 @@ export function getDeckCategory(deck) {
 
 export function renderDecksTabShell(tabPane) {
   if (!tabPane) return;
-  if (!tabPane.querySelector('.decks-header-bar')) {
+  if (!tabPane.querySelector('.decks-hero-banner')) {
     tabPane.innerHTML = `
+      <div class="decks-hero-banner">
+        <div class="decks-hero-decor" aria-hidden="true">
+          <div class="hero-glow-orb"></div>
+          <div class="hero-float-badge hero-badge-en">EN</div>
+          <div class="hero-float-badge hero-badge-aa">Aa</div>
+        </div>
+        <div class="decks-hero-top">
+          <div class="decks-hero-icon">📖</div>
+          <div class="decks-hero-titles">
+            <h2 class="decks-hero-title">Chủ đề</h2>
+            <p class="decks-hero-subtitle">Khám phá kho từ vựng CEFR &amp; TOEIC đa dạng</p>
+          </div>
+        </div>
+        <div class="decks-hero-search-wrap">
+          <svg class="decks-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
+          <input type="search" id="decks-hero-search-input" class="decks-hero-search-input" placeholder="Tìm kiếm chủ đề, từ vựng..." autocomplete="off" />
+          <button type="button" id="decks-hero-search-clear" class="decks-hero-search-clear" aria-label="Xóa tìm kiếm" style="display:none;">✕</button>
+        </div>
+      </div>
+
+      <div class="decks-category-dock" id="decks-category-dock">
+        <button type="button" class="cat-dock-item active" data-cat="all">
+          <span class="cat-dock-icon cat-all">Aa</span>
+          <span class="cat-dock-label">Tất cả</span>
+          <span class="cat-dock-sub" id="cat-count-all">22 chủ đề</span>
+        </button>
+        <button type="button" class="cat-dock-item" data-cat="daily">
+          <span class="cat-dock-icon cat-daily">🏠</span>
+          <span class="cat-dock-label">Đời sống</span>
+          <span class="cat-dock-sub" id="cat-count-daily">0 chủ đề</span>
+        </button>
+        <button type="button" class="cat-dock-item" data-cat="career">
+          <span class="cat-dock-icon cat-career">💼</span>
+          <span class="cat-dock-label">Công sở</span>
+          <span class="cat-dock-sub" id="cat-count-career">0 chủ đề</span>
+        </button>
+        <button type="button" class="cat-dock-item" data-cat="explore">
+          <span class="cat-dock-icon cat-explore">🌍</span>
+          <span class="cat-dock-label">Du lịch</span>
+          <span class="cat-dock-sub" id="cat-count-explore">0 chủ đề</span>
+        </button>
+        <button type="button" class="cat-dock-item" data-cat="toeic">
+          <span class="cat-dock-icon cat-toeic">🏆</span>
+          <span class="cat-dock-label">TOEIC</span>
+          <span class="cat-dock-sub" id="cat-count-toeic">0 chủ đề</span>
+        </button>
+      </div>
+
+      <section class="decks-featured-section" id="decks-featured-section">
+        <div class="decks-section-row">
+          <h3 class="decks-section-heading"><span>🔥</span> Bộ sưu tập nổi bật</h3>
+        </div>
+        <div class="decks-featured-grid" id="decks-featured-grid"></div>
+      </section>
+
       <div class="decks-header-bar">
-        <div class="decks-filter-chips" id="decks-filter-chips">
-          <button class="filter-chip active" data-deck-status="all">
-            <span>Tất cả</span>
-            <span class="chip-count" id="deck-chip-all">0</span>
-          </button>
-          <button class="filter-chip" data-deck-status="learning">
-            <span>Đang học</span>
-            <span class="chip-count" id="deck-chip-learning">0</span>
-          </button>
-          <button class="filter-chip" data-deck-status="due">
-            <span>Cần ôn</span>
-            <span class="chip-count" id="deck-chip-due">0</span>
-          </button>
-          <button class="filter-chip" data-deck-status="completed">
-            <span>Xong</span>
-            <span class="chip-count" id="deck-chip-completed">0</span>
-          </button>
+        <div class="decks-section-row">
+          <h3 class="decks-section-heading"><span>📚</span> Danh sách chủ đề</h3>
+          <span class="decks-count-summary" id="decks-count-summary">Hiển thị 0 chủ đề</span>
         </div>
 
-        <div class="decks-sub-toolbar">
-          <div class="decks-toolbar-header">
-            <span class="decks-count-summary" id="decks-count-summary">Hiển thị 0 chủ đề</span>
+        <div class="decks-controls-row">
+          <div class="decks-filter-chips" id="decks-filter-chips">
+            <button class="filter-chip active" data-deck-status="all">
+              <span>Tất cả</span>
+              <span class="chip-count" id="deck-chip-all">0</span>
+            </button>
+            <button class="filter-chip" data-deck-status="learning">
+              <span>Đang học</span>
+              <span class="chip-count" id="deck-chip-learning">0</span>
+            </button>
+            <button class="filter-chip" data-deck-status="due">
+              <span>Cần ôn</span>
+              <span class="chip-count" id="deck-chip-due">0</span>
+            </button>
+            <button class="filter-chip" data-deck-status="completed">
+              <span>Xong</span>
+              <span class="chip-count" id="deck-chip-completed">0</span>
+            </button>
           </div>
-          <div class="decks-filter-dropdowns">
-            <div class="decks-select-wrap">
-              <select id="decks-category-select" aria-label="Lọc theo danh mục">
-                <option value="all">📁 Tất cả danh mục</option>
-                <option value="daily">🏠 Đời sống</option>
-                <option value="career">💼 Công sở & Sự nghiệp</option>
-                <option value="explore">🌍 Du lịch & Khám phá</option>
-                <option value="toeic">🎯 Luyện thi (TOEIC)</option>
-              </select>
-            </div>
-            <div class="decks-select-wrap">
-              <select id="decks-sort-select" aria-label="Sắp xếp danh sách">
-                <option value="default">⚡ Sắp xếp: Mặc định</option>
-                <option value="recent">🕒 Vừa học gần đây</option>
-                <option value="progress">📈 Tiến độ cao</option>
-                <option value="due">⚠️ Cần ôn nhiều</option>
-                <option value="words">📝 Số từ nhiều</option>
-                <option value="az">🔤 Tên A → Z</option>
-              </select>
-            </div>
+
+          <div class="decks-select-wrap decks-sort-compact">
+            <select id="decks-sort-select" aria-label="Sắp xếp danh sách">
+              <option value="default">⚡ Mặc định</option>
+              <option value="recent">🕒 Gần đây</option>
+              <option value="progress">📈 Tiến độ</option>
+              <option value="due">⚠️ Cần ôn</option>
+              <option value="words">📝 Nhiều từ</option>
+              <option value="az">🔤 A → Z</option>
+            </select>
           </div>
         </div>
       </div>
 
       <div class="decks-list" id="all-decks-container"></div>
+
+      <div class="decks-cta-banner" id="decks-cta-banner">
+        <div class="cta-banner-left">
+          <div class="cta-banner-target">🎯</div>
+          <div class="cta-banner-text">
+            <h4>Học hiệu quả hơn mỗi ngày</h4>
+            <p>Cùng Flashcard Pro chinh phục tiếng Anh!</p>
+          </div>
+        </div>
+        <button type="button" class="btn-cta-start" id="btn-decks-cta-start">Bắt đầu ngay →</button>
+      </div>
     `;
   }
 }
@@ -155,9 +215,11 @@ export function renderDecksTab(app) {
     const activeStatus = app._activeDeckStatus || 'all';
     const activeCategory = app._activeDeckCategory || 'all';
     const activeSort = app._activeDeckSort || 'default';
+    const searchQuery = (app._activeDeckSearch || '').trim().toLowerCase();
 
-    // Đếm số lượng theo status chip
+    // Đếm số lượng theo status chip & category dock
     let countAll = 0, countLearning = 0, countDue = 0, countCompleted = 0;
+    const catCounts = { daily: 0, career: 0, explore: 0, toeic: 0 };
 
     const deckDataList = allDecks.map(deck => {
       const stats = app.deckManager.getDeckStats(deck.id);
@@ -171,6 +233,7 @@ export function renderDecksTab(app) {
       if (isLearning) countLearning++;
       if (isDue) countDue++;
       if (isCompleted) countCompleted++;
+      if (catCounts[cat] !== undefined) catCounts[cat]++;
 
       return {
         deck,
@@ -183,6 +246,63 @@ export function renderDecksTab(app) {
       };
     });
 
+    // Cập nhật số lượng trên category dock
+    const setCatLabel = (id, count) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = `${count} chủ đề`;
+    };
+    setCatLabel('cat-count-all', countAll);
+    setCatLabel('cat-count-daily', catCounts.daily);
+    setCatLabel('cat-count-career', catCounts.career);
+    setCatLabel('cat-count-explore', catCounts.explore);
+    setCatLabel('cat-count-toeic', catCounts.toeic);
+
+    // Render Bộ sưu tập nổi bật (ẩn khi đang lọc hoặc tìm kiếm)
+    const featuredSection = document.getElementById('decks-featured-section');
+    const featuredGrid = document.getElementById('decks-featured-grid');
+    const showFeatured = activeStatus === 'all' && activeCategory === 'all' && !searchQuery && deckDataList.length >= 4;
+    if (featuredSection && featuredGrid) {
+      featuredSection.style.display = showFeatured ? '' : 'none';
+      if (showFeatured) {
+        const featuredIds = ['top-1000-core', 'travel-places', 'work-jobs', 'top-1000-toeic'];
+        const featuredItems = [];
+        featuredIds.forEach(id => {
+          const found = deckDataList.find(d => d.deck.id === id);
+          if (found) featuredItems.push(found);
+        });
+        for (const item of deckDataList) {
+          if (featuredItems.length >= 4) break;
+          if (!featuredItems.includes(item)) featuredItems.push(item);
+        }
+        const pastelThemes = ['pastel-blue', 'pastel-amber', 'pastel-mint', 'pastel-lavender'];
+        featuredGrid.innerHTML = featuredItems.slice(0, 4).map((item, idx) => {
+          const { deck, stats } = item;
+          const enTitle = DECK_ENGLISH_NAMES[deck.id] || deck.titleEn || deck.title || deck.name;
+          const viTitle = deck.name || '';
+          return `
+            <button type="button" class="featured-pastel-card ${pastelThemes[idx % 4]}" data-featured-id="${escapeHTML(deck.id)}">
+              <span class="featured-word-pill">${stats.total.toLocaleString('vi-VN')} từ</span>
+              <span class="featured-bg-emoji" aria-hidden="true">${deck.icon || '📚'}</span>
+              <div class="featured-card-body">
+                <h4 class="featured-card-title">${escapeHTML(enTitle)}</h4>
+                <p class="featured-card-sub">${escapeHTML(viTitle)}</p>
+              </div>
+              <span class="featured-arrow-btn" aria-hidden="true">›</span>
+            </button>
+          `;
+        }).join('');
+
+        featuredGrid.querySelectorAll('.featured-pastel-card').forEach(btn => {
+          btn.onclick = () => {
+            if (typeof navigator !== 'undefined' && navigator.vibrate) {
+              try { navigator.vibrate(8); } catch (e) {}
+            }
+            openSubtopicsPage(app, btn.dataset.featuredId);
+          };
+        });
+      }
+    }
+
     // Cập nhật số lượng trên các chip
     const chipAll = document.getElementById('deck-chip-all');
     const chipLearning = document.getElementById('deck-chip-learning');
@@ -194,12 +314,17 @@ export function renderDecksTab(app) {
     if (chipDue) chipDue.textContent = countDue;
     if (chipCompleted) chipCompleted.textContent = countCompleted;
 
-    // Lọc theo Status
+    // Lọc theo Status, Category & Search
     let filtered = deckDataList.filter(item => {
       if (activeStatus === 'learning' && !item.isLearning) return false;
       if (activeStatus === 'due' && !item.isDue) return false;
       if (activeStatus === 'completed' && !item.isCompleted) return false;
       if (activeCategory !== 'all' && item.category !== activeCategory) return false;
+      if (searchQuery) {
+        const en = (DECK_ENGLISH_NAMES[item.deck.id] || item.deck.title || '').toLowerCase();
+        const vi = (item.deck.name || '').toLowerCase();
+        if (!en.includes(searchQuery) && !vi.includes(searchQuery)) return false;
+      }
       return true;
     });
 
@@ -256,8 +381,14 @@ export function renderDecksTab(app) {
         resetBtn.onclick = () => {
           app._activeDeckStatus = 'all';
           app._activeDeckCategory = 'all';
-          const catEl = document.getElementById('decks-category-select');
-          if (catEl) catEl.value = 'all';
+          app._activeDeckSearch = '';
+          const searchEl = document.getElementById('decks-hero-search-input');
+          const clearEl = document.getElementById('decks-hero-search-clear');
+          if (searchEl) searchEl.value = '';
+          if (clearEl) clearEl.style.display = 'none';
+          document.querySelectorAll('#decks-category-dock .cat-dock-item').forEach((d) => {
+            d.classList.toggle('active', d.dataset.cat === 'all');
+          });
           document.querySelectorAll('#decks-filter-chips .filter-chip').forEach((c) => {
             c.classList.toggle('active', c.dataset.deckStatus === 'all');
           });
@@ -364,6 +495,39 @@ export function renderDecksTab(app) {
 }
 
 function setupDecksToolbarEvents(app) {
+  const dockItems = document.querySelectorAll('#decks-category-dock .cat-dock-item');
+  dockItems.forEach(item => {
+    if (!item._bound) {
+      item._bound = true;
+      item.onclick = () => {
+        dockItems.forEach(d => d.classList.remove('active'));
+        item.classList.add('active');
+        app._activeDeckCategory = item.dataset.cat || 'all';
+        renderDecksTab(app);
+      };
+    }
+  });
+
+  const searchInput = document.getElementById('decks-hero-search-input');
+  const searchClear = document.getElementById('decks-hero-search-clear');
+  if (searchInput && !searchInput._bound) {
+    searchInput._bound = true;
+    searchInput.oninput = (e) => {
+      app._activeDeckSearch = e.target.value || '';
+      if (searchClear) searchClear.style.display = app._activeDeckSearch ? 'flex' : 'none';
+      renderDecksTab(app);
+    };
+  }
+  if (searchClear && !searchClear._bound) {
+    searchClear._bound = true;
+    searchClear.onclick = () => {
+      app._activeDeckSearch = '';
+      if (searchInput) searchInput.value = '';
+      searchClear.style.display = 'none';
+      renderDecksTab(app);
+    };
+  }
+
   const chips = document.querySelectorAll('#decks-filter-chips .filter-chip');
   chips.forEach(chip => {
     if (!chip._bound) {
@@ -377,21 +541,20 @@ function setupDecksToolbarEvents(app) {
     }
   });
 
-  const catSelect = document.getElementById('decks-category-select');
-  if (catSelect && !catSelect._bound) {
-    catSelect._bound = true;
-    catSelect.onchange = (e) => {
-      app._activeDeckCategory = e.target.value;
-      renderDecksTab(app);
-    };
-  }
-
   const sortSelect = document.getElementById('decks-sort-select');
   if (sortSelect && !sortSelect._bound) {
     sortSelect._bound = true;
     sortSelect.onchange = (e) => {
       app._activeDeckSort = e.target.value;
       renderDecksTab(app);
+    };
+  }
+
+  const ctaBtn = document.getElementById('btn-decks-cta-start');
+  if (ctaBtn && !ctaBtn._bound) {
+    ctaBtn._bound = true;
+    ctaBtn.onclick = () => {
+      app.startStudySession(null, null, null, { mode: 'due_first' });
     };
   }
 }
