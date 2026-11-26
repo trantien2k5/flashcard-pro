@@ -59,7 +59,7 @@ export class FlashcardApp {
     this.studySession = new StudySession({
       deckManager: this.deckManager,
       settings: this.settings,
-      relearnInSession: true,
+      relearnInSession: false,
       relearnStepOffset: 4,
       onCardChange: (card, progress) => handleCardChange(this, card, progress),
       onFinish: (sessionStats) => handleStudyFinish(this, sessionStats)

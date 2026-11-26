@@ -38,7 +38,7 @@ export class StudySession {
     this.onCardChange = options.onCardChange || (() => {});
     this.onBatchCheckpoint = options.onBatchCheckpoint || null;
 
-    this.relearnInSession = options.relearnInSession !== false; // Bật củng cố trong phiên theo nhịp nhận thức
+    this.relearnInSession = options.relearnInSession === true; // Mặc định tắt chen giữa phiên; chỉ bật khi truyền rõ true
     this.relearnStepOffset = options.relearnStepOffset || RELEARN_STEP_OFFSET || 4;
     this.batchSize = options.batchSize || 0;
     this.batchNumber = 1;

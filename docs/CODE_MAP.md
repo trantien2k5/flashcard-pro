@@ -161,7 +161,7 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | :--- | :---: | :---: | :--- |
 | `preloadSessionAudio` | [`#L12-L20`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\session\media-preload.js#L12-L20) | `function` | Tải trước âm thanh cho thẻ hiện tại và thẻ kế tiếp |
 
-#### 📁 [`src\js\core\session\rate-handler.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\session\rate-handler.js) (86 dòng)
+#### 📁 [`src\js\core\session\rate-handler.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\core\session\rate-handler.js) (93 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |

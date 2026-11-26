@@ -51,6 +51,13 @@ export function applyRatingOutcome(session, { cardId, rating, effectiveRating, o
         _againCountInSession: againCount,
         _isDeferredStubborn: againCount >= STUBBORN_AGAIN_THRESHOLD
       });
+    } else if (!isRelearnPass) {
+      session.relearningCardIds.add(cardId);
+      session.queue.push({
+        ...session.currentCard,
+        _isRelearnPass: true,
+        _againCountInSession: againCount
+      });
     } else {
       session.relearningCardIds.delete(cardId);
       session.completedUniqueIds.add(cardId);

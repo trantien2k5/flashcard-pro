@@ -196,7 +196,7 @@ const inWeakHunterQueue = (weakHunterQueue.queue || []).some(c => c.id === 'wake
 assert(!inWeakHunterQueue, 'Test 8.2: Thẻ khó đã học hôm nay và hạn ôn ở tương lai không xuất hiện trong weak_hunter');
 
 // ====================================================
-// TEST 9: Phiên học khi tắt củng cố (relearnInSession = false): Bấm Quên KHÔNG chèn lại vào phiên
+// TEST 9: Phiên học mặc định (relearnInSession = false): Bấm Quên đẩy xuống cuối phiên sau khi hết từ ôn & từ mới
 // ====================================================
 const noRelearnSession = new StudySession({ relearnInSession: false });
 const noRelearnQueue = [
@@ -207,8 +207,8 @@ const noRelearnQueue = [
 noRelearnSession.start(noRelearnQueue);
 assert(noRelearnSession.currentCard.id === 'nr_1', 'Test 9.1: Bắt đầu thẻ nr_1');
 noRelearnSession.rateCard(Rating.Again);
-assert(noRelearnSession.queue.length === 3, 'Test 9.2: Hàng đợi không bị chèn thêm thẻ (độ dài giữ nguyên 3)');
-assert(!noRelearnSession.queue.some(c => c._isRelearnPass), 'Test 9.3: Không có thẻ củng cố _isRelearnPass trong hàng đợi');
+assert(noRelearnSession.queue.length === 4, 'Test 9.2: Thẻ quên được đẩy xuống cuối hàng đợi (độ dài tăng thành 4)');
+assert(noRelearnSession.queue[3].id === 'nr_1' && noRelearnSession.queue[3]._isRelearnPass === true, 'Test 9.3: Thẻ củng cố nằm ở cuối hàng đợi sau toàn bộ từ ôn & từ mới');
 assert(noRelearnSession.currentCard.id === 'nr_2', 'Test 9.4: Chuyển tiếp ngay sang thẻ tiếp theo');
 const nrState = StorageManager.getCardState('nr_1');
 const nrDueDiffMin = (new Date(nrState.due).getTime() - Date.now()) / (60 * 1000);
