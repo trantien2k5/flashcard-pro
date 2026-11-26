@@ -483,16 +483,16 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 
 *Tệp cấu hình hoặc dữ liệu, không chứa khai báo hàm/class lớn.*
 
-#### 📁 [`src\js\views\decks.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js) (561 dòng)
+#### 📁 [`src\js\views\decks.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js) (474 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
 | `savePinnedDecks` | [`#L40-L44`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L40-L44) | `function` | Thực thi logic nội bộ |
 | `getDeckCategory` | [`#L69-L82`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L69-L82) | `function` | Thực thi logic nội bộ |
-| `renderDecksTabShell` | [`#L88-L203`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L88-L203) | `function` | Thực thi logic nội bộ |
-| `renderDecksTab` | [`#L205-L495`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L205-L495) | `function` | Thực thi logic nội bộ |
-| `setCatLabel` | [`#L250-L253`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L250-L253) | `arrow_function` | Cập nhật số lượng trên category dock |
-| `setupDecksToolbarEvents` | [`#L497-L560`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L497-L560) | `function` | Thực thi logic nội bộ |
+| `getDeckCategorySvg` | [`#L88-L101`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L88-L101) | `function` | Thực thi logic nội bộ |
+| `renderDecksTabShell` | [`#L103-L169`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L103-L169) | `function` | Thực thi logic nội bộ |
+| `renderDecksTab` | [`#L171-L416`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L171-L416) | `function` | Thực thi logic nội bộ |
+| `setupDecksToolbarEvents` | [`#L418-L473`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L418-L473) | `function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\views\decks\subtopics.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks\subtopics.js) (356 dòng)
 

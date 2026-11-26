@@ -85,119 +85,85 @@ export function getDeckCategory(deck) {
    LEVEL 1: MAIN DECKS TAB
    ========================================================================== */
 
+function getDeckCategorySvg(category) {
+  switch (category) {
+    case 'career':
+      return `<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>`;
+    case 'explore':
+      return `<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`;
+    case 'toeic':
+      return `<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>`;
+    case 'finance':
+      return `<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`;
+    default:
+      return `<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>`;
+  }
+}
+
 export function renderDecksTabShell(tabPane) {
   if (!tabPane) return;
-  if (!tabPane.querySelector('.decks-hero-banner')) {
+  if (!tabPane.querySelector('.decks-minimal-header')) {
     tabPane.innerHTML = `
-      <div class="decks-hero-banner">
-        <div class="decks-hero-decor" aria-hidden="true">
-          <div class="hero-glow-orb"></div>
-          <div class="hero-float-badge hero-badge-en">EN</div>
-          <div class="hero-float-badge hero-badge-aa">Aa</div>
-        </div>
-        <div class="decks-hero-top">
-          <div class="decks-hero-icon">📖</div>
-          <div class="decks-hero-titles">
-            <h2 class="decks-hero-title">Chủ đề</h2>
-            <p class="decks-hero-subtitle">Khám phá kho từ vựng CEFR &amp; TOEIC đa dạng</p>
+      <div class="decks-minimal-header">
+        <div class="decks-title-row">
+          <div class="decks-title-group">
+            <h2 class="decks-page-title">Chủ đề</h2>
+            <span class="decks-count-pill" id="decks-count-summary">22 chủ đề</span>
+          </div>
+          <div class="decks-select-wrap decks-sort-compact">
+            <select id="decks-sort-select" aria-label="Sắp xếp danh sách">
+              <option value="default">Mặc định</option>
+              <option value="recent">Gần đây</option>
+              <option value="progress">Tiến độ</option>
+              <option value="due">Cần ôn</option>
+              <option value="words">Nhiều từ</option>
+              <option value="az">A → Z</option>
+            </select>
           </div>
         </div>
-        <div class="decks-hero-search-wrap">
-          <svg class="decks-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+
+        <div class="decks-search-box">
+          <svg class="decks-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.3-4.3"></path>
           </svg>
-          <input type="search" id="decks-hero-search-input" class="decks-hero-search-input" placeholder="Tìm kiếm chủ đề, từ vựng..." autocomplete="off" />
-          <button type="button" id="decks-hero-search-clear" class="decks-hero-search-clear" aria-label="Xóa tìm kiếm" style="display:none;">✕</button>
+          <input type="search" id="decks-hero-search-input" class="decks-search-input" placeholder="Tìm kiếm chủ đề..." autocomplete="off" />
+          <button type="button" id="decks-hero-search-clear" class="decks-search-clear" aria-label="Xóa tìm kiếm" style="display:none;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+
+        <div class="decks-category-strip" id="decks-category-dock" role="tablist" aria-label="Danh mục chủ đề">
+          <button type="button" class="cat-pill active" data-cat="all">Tất cả</button>
+          <button type="button" class="cat-pill" data-cat="daily">Đời sống</button>
+          <button type="button" class="cat-pill" data-cat="career">Công sở</button>
+          <button type="button" class="cat-pill" data-cat="explore">Du lịch</button>
+          <button type="button" class="cat-pill" data-cat="toeic">TOEIC</button>
         </div>
       </div>
-
-      <div class="decks-category-dock" id="decks-category-dock">
-        <button type="button" class="cat-dock-item active" data-cat="all">
-          <span class="cat-dock-icon cat-all">Aa</span>
-          <span class="cat-dock-label">Tất cả</span>
-          <span class="cat-dock-sub" id="cat-count-all">22 chủ đề</span>
-        </button>
-        <button type="button" class="cat-dock-item" data-cat="daily">
-          <span class="cat-dock-icon cat-daily">🏠</span>
-          <span class="cat-dock-label">Đời sống</span>
-          <span class="cat-dock-sub" id="cat-count-daily">0 chủ đề</span>
-        </button>
-        <button type="button" class="cat-dock-item" data-cat="career">
-          <span class="cat-dock-icon cat-career">💼</span>
-          <span class="cat-dock-label">Công sở</span>
-          <span class="cat-dock-sub" id="cat-count-career">0 chủ đề</span>
-        </button>
-        <button type="button" class="cat-dock-item" data-cat="explore">
-          <span class="cat-dock-icon cat-explore">🌍</span>
-          <span class="cat-dock-label">Du lịch</span>
-          <span class="cat-dock-sub" id="cat-count-explore">0 chủ đề</span>
-        </button>
-        <button type="button" class="cat-dock-item" data-cat="toeic">
-          <span class="cat-dock-icon cat-toeic">🏆</span>
-          <span class="cat-dock-label">TOEIC</span>
-          <span class="cat-dock-sub" id="cat-count-toeic">0 chủ đề</span>
-        </button>
-      </div>
-
-      <section class="decks-featured-section" id="decks-featured-section">
-        <div class="decks-section-row">
-          <h3 class="decks-section-heading"><span>🔥</span> Bộ sưu tập nổi bật</h3>
-        </div>
-        <div class="decks-featured-grid" id="decks-featured-grid"></div>
-      </section>
 
       <div class="decks-header-bar">
-        <div class="decks-section-row">
-          <h3 class="decks-section-heading"><span>📚</span> Danh sách chủ đề</h3>
-          <span class="decks-count-summary" id="decks-count-summary">Hiển thị 0 chủ đề</span>
-        </div>
-
-        <div class="decks-controls-row">
-          <div class="decks-filter-chips" id="decks-filter-chips">
-            <button class="filter-chip active" data-deck-status="all">
-              <span>Tất cả</span>
-              <span class="chip-count" id="deck-chip-all">0</span>
-            </button>
-            <button class="filter-chip" data-deck-status="learning">
-              <span>Đang học</span>
-              <span class="chip-count" id="deck-chip-learning">0</span>
-            </button>
-            <button class="filter-chip" data-deck-status="due">
-              <span>Cần ôn</span>
-              <span class="chip-count" id="deck-chip-due">0</span>
-            </button>
-            <button class="filter-chip" data-deck-status="completed">
-              <span>Xong</span>
-              <span class="chip-count" id="deck-chip-completed">0</span>
-            </button>
-          </div>
-
-          <div class="decks-select-wrap decks-sort-compact">
-            <select id="decks-sort-select" aria-label="Sắp xếp danh sách">
-              <option value="default">⚡ Mặc định</option>
-              <option value="recent">🕒 Gần đây</option>
-              <option value="progress">📈 Tiến độ</option>
-              <option value="due">⚠️ Cần ôn</option>
-              <option value="words">📝 Nhiều từ</option>
-              <option value="az">🔤 A → Z</option>
-            </select>
-          </div>
+        <div class="decks-filter-chips" id="decks-filter-chips">
+          <button class="filter-chip active" data-deck-status="all">
+            <span>Tất cả</span>
+            <span class="chip-count" id="deck-chip-all">0</span>
+          </button>
+          <button class="filter-chip" data-deck-status="learning">
+            <span>Đang học</span>
+            <span class="chip-count" id="deck-chip-learning">0</span>
+          </button>
+          <button class="filter-chip" data-deck-status="due">
+            <span>Cần ôn</span>
+            <span class="chip-count" id="deck-chip-due">0</span>
+          </button>
+          <button class="filter-chip" data-deck-status="completed">
+            <span>Xong</span>
+            <span class="chip-count" id="deck-chip-completed">0</span>
+          </button>
         </div>
       </div>
 
       <div class="decks-list" id="all-decks-container"></div>
-
-      <div class="decks-cta-banner" id="decks-cta-banner">
-        <div class="cta-banner-left">
-          <div class="cta-banner-target">🎯</div>
-          <div class="cta-banner-text">
-            <h4>Học hiệu quả hơn mỗi ngày</h4>
-            <p>Cùng Flashcard Pro chinh phục tiếng Anh!</p>
-          </div>
-        </div>
-        <button type="button" class="btn-cta-start" id="btn-decks-cta-start">Bắt đầu ngay →</button>
-      </div>
     `;
   }
 }
@@ -245,63 +211,6 @@ export function renderDecksTab(app) {
         isCompleted
       };
     });
-
-    // Cập nhật số lượng trên category dock
-    const setCatLabel = (id, count) => {
-      const el = document.getElementById(id);
-      if (el) el.textContent = `${count} chủ đề`;
-    };
-    setCatLabel('cat-count-all', countAll);
-    setCatLabel('cat-count-daily', catCounts.daily);
-    setCatLabel('cat-count-career', catCounts.career);
-    setCatLabel('cat-count-explore', catCounts.explore);
-    setCatLabel('cat-count-toeic', catCounts.toeic);
-
-    // Render Bộ sưu tập nổi bật (ẩn khi đang lọc hoặc tìm kiếm)
-    const featuredSection = document.getElementById('decks-featured-section');
-    const featuredGrid = document.getElementById('decks-featured-grid');
-    const showFeatured = activeStatus === 'all' && activeCategory === 'all' && !searchQuery && deckDataList.length >= 4;
-    if (featuredSection && featuredGrid) {
-      featuredSection.style.display = showFeatured ? '' : 'none';
-      if (showFeatured) {
-        const featuredIds = ['top-1000-core', 'travel-places', 'work-jobs', 'top-1000-toeic'];
-        const featuredItems = [];
-        featuredIds.forEach(id => {
-          const found = deckDataList.find(d => d.deck.id === id);
-          if (found) featuredItems.push(found);
-        });
-        for (const item of deckDataList) {
-          if (featuredItems.length >= 4) break;
-          if (!featuredItems.includes(item)) featuredItems.push(item);
-        }
-        const pastelThemes = ['pastel-blue', 'pastel-amber', 'pastel-mint', 'pastel-lavender'];
-        featuredGrid.innerHTML = featuredItems.slice(0, 4).map((item, idx) => {
-          const { deck, stats } = item;
-          const enTitle = DECK_ENGLISH_NAMES[deck.id] || deck.titleEn || deck.title || deck.name;
-          const viTitle = deck.name || '';
-          return `
-            <button type="button" class="featured-pastel-card ${pastelThemes[idx % 4]}" data-featured-id="${escapeHTML(deck.id)}">
-              <span class="featured-word-pill">${stats.total.toLocaleString('vi-VN')} từ</span>
-              <span class="featured-bg-emoji" aria-hidden="true">${deck.icon || '📚'}</span>
-              <div class="featured-card-body">
-                <h4 class="featured-card-title">${escapeHTML(enTitle)}</h4>
-                <p class="featured-card-sub">${escapeHTML(viTitle)}</p>
-              </div>
-              <span class="featured-arrow-btn" aria-hidden="true">›</span>
-            </button>
-          `;
-        }).join('');
-
-        featuredGrid.querySelectorAll('.featured-pastel-card').forEach(btn => {
-          btn.onclick = () => {
-            if (typeof navigator !== 'undefined' && navigator.vibrate) {
-              try { navigator.vibrate(8); } catch (e) {}
-            }
-            openSubtopicsPage(app, btn.dataset.featuredId);
-          };
-        });
-      }
-    }
 
     // Cập nhật số lượng trên các chip
     const chipAll = document.getElementById('deck-chip-all');
@@ -362,7 +271,7 @@ export function renderDecksTab(app) {
     // Cập nhật summary label nếu có
     const countSummary = document.getElementById('decks-count-summary');
     if (countSummary) {
-      countSummary.textContent = `Hiển thị ${filtered.length} chủ đề`;
+      countSummary.textContent = `${filtered.length} chủ đề`;
     }
 
     container.innerHTML = '';
@@ -386,7 +295,7 @@ export function renderDecksTab(app) {
           const clearEl = document.getElementById('decks-hero-search-clear');
           if (searchEl) searchEl.value = '';
           if (clearEl) clearEl.style.display = 'none';
-          document.querySelectorAll('#decks-category-dock .cat-dock-item').forEach((d) => {
+          document.querySelectorAll('#decks-category-dock .cat-pill').forEach((d) => {
             d.classList.toggle('active', d.dataset.cat === 'all');
           });
           document.querySelectorAll('#decks-filter-chips .filter-chip').forEach((c) => {
@@ -410,23 +319,35 @@ export function renderDecksTab(app) {
       const deckColor = safeColor(deck.color);
 
       const card = document.createElement('div');
-      card.className = `deck-item-card ${isPinned ? 'deck-item-pinned' : ''}`;
+      card.className = `deck-item-card ${isPinned ? 'deck-item-pinned' : ''} ${item.isDue ? 'is-due' : ''}`;
       card.dataset.deckId = deck.id;
-      card.style.setProperty('--deck-accent', deckColor);
+
+      const statusLabel = stats.dueCount > 0
+        ? `Ôn ${stats.dueCount}`
+        : (item.isCompleted ? 'Hoàn thành' : (item.isLearning ? 'Đang học' : 'Mới'));
+      const statusClass = stats.dueCount > 0
+        ? 'status-due'
+        : (item.isCompleted ? 'status-done' : (item.isLearning ? 'status-learning' : 'status-new'));
+      const actionLabel = stats.dueCount > 0
+        ? `Ôn ${stats.dueCount}`
+        : (item.isLearning ? 'Học tiếp' : 'Bắt đầu');
 
       card.innerHTML = `
         <div class="bento-card-top">
-          <div class="deck-icon-badge" style="background: linear-gradient(135deg, ${deckColor}22, ${deckColor}0c); color: ${deckColor}; border: 1px solid ${deckColor}2c;">
-            <span>${deck.icon || '📚'}</span>
+          <div class="deck-icon-badge" aria-hidden="true">
+            ${getDeckCategorySvg(item.category)}
           </div>
-          ${allDecks.length > 1 ? `
-            <button type="button" class="btn-deck-pin ${isPinned ? 'pinned' : ''}" title="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" aria-label="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" data-pin-id="${escapeHTML(deck.id)}">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="${isPinned ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="17" x2="12" y2="22"></line>
-                <path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a1 1 0 0 0 0-2H8a1 1 0 0 0 0 2h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"></path>
-              </svg>
-            </button>
-          ` : ''}
+          <div class="deck-top-actions">
+            <span class="deck-status-tag ${statusClass}">${statusLabel}</span>
+            ${allDecks.length > 1 ? `
+              <button type="button" class="btn-deck-pin ${isPinned ? 'pinned' : ''}" title="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" aria-label="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" data-pin-id="${escapeHTML(deck.id)}">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="${isPinned ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="17" x2="12" y2="22"></line>
+                  <path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a1 1 0 0 0 0-2H8a1 1 0 0 0 0 2h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"></path>
+                </svg>
+              </button>
+            ` : ''}
+          </div>
         </div>
         <div class="deck-info">
           <h3 class="deck-title">${escapeHTML(englishTitle)}</h3>
@@ -435,13 +356,13 @@ export function renderDecksTab(app) {
         </div>
         <div class="bento-card-bottom">
           <div class="deck-progress-bar-bg">
-            <div class="deck-progress-fill" style="width: ${stats.progressPercent}%; background: linear-gradient(90deg, ${deckColor}, ${deckColor}cc);"></div>
+            <div class="deck-progress-fill" style="width: ${stats.progressPercent}%;"></div>
           </div>
           <div class="deck-card-footer">
             <span class="deck-stats-fraction">${stats.progressPercent}%</span>
             <button type="button" class="btn-deck-study ${stats.dueCount > 0 ? 'due' : ''}" data-study-id="${escapeHTML(deck.id)}">
-              ${stats.dueCount > 0 ? `⚡ Ôn ${stats.dueCount}` : '✨ Học'}
-              <span class="btn-study-arrow">›</span>
+              <span>${actionLabel}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             </button>
           </div>
         </div>
@@ -495,7 +416,7 @@ export function renderDecksTab(app) {
 }
 
 function setupDecksToolbarEvents(app) {
-  const dockItems = document.querySelectorAll('#decks-category-dock .cat-dock-item');
+  const dockItems = document.querySelectorAll('#decks-category-dock .cat-pill');
   dockItems.forEach(item => {
     if (!item._bound) {
       item._bound = true;
@@ -547,14 +468,6 @@ function setupDecksToolbarEvents(app) {
     sortSelect.onchange = (e) => {
       app._activeDeckSort = e.target.value;
       renderDecksTab(app);
-    };
-  }
-
-  const ctaBtn = document.getElementById('btn-decks-cta-start');
-  if (ctaBtn && !ctaBtn._bound) {
-    ctaBtn._bound = true;
-    ctaBtn.onclick = () => {
-      app.startStudySession(null, null, null, { mode: 'due_first' });
     };
   }
 }
