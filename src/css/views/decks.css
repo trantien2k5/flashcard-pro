@@ -128,7 +128,7 @@
 .decks-category-strip {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -142,13 +142,13 @@
 
 .cat-pill {
   flex: 0 0 auto;
-  height: 30px;
-  padding: 0 10px;
+  height: 29px;
+  padding: 0 9px;
   border-radius: 9999px;
   border: 1px solid var(--border);
   background: var(--bg-card);
   color: var(--text-secondary);
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
@@ -172,16 +172,29 @@
   color: var(--primary-light);
 }
 
-.decks-sort-compact {
+.decks-sort-box {
+  position: relative;
   width: auto;
   flex-shrink: 0;
 }
 
-.decks-sort-compact select {
+.decks-sort-select {
+  width: auto;
   min-height: 32px;
-  padding: 4px 26px 4px 10px;
-  font-size: 0.76rem;
+  padding: 4px 24px 4px 10px;
   border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
 }
 
 /* --------------------------------------------------------------------------
@@ -199,7 +212,7 @@
 .decks-filter-chips {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   width: 100%;
   min-width: 0;
   overflow-x: auto;
@@ -215,14 +228,14 @@
 
 .filter-chip {
   flex: 0 0 auto;
-  padding: 5px 8px;
+  padding: 5px 7px;
   border-radius: var(--radius-full);
-  font-size: 0.71rem;
+  font-size: 0.7rem;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 3px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-secondary);
@@ -238,9 +251,9 @@
 }
 
 .filter-chip .chip-count {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 800;
-  padding: 1px 6px;
+  padding: 1px 5px;
   border-radius: var(--radius-full);
   background: var(--bg-tertiary);
   color: var(--text-muted);

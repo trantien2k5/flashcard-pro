@@ -110,8 +110,8 @@ export function renderDecksTabShell(tabPane) {
             <h2 class="decks-page-title">Chủ đề</h2>
             <span class="decks-count-pill" id="decks-count-summary">22 chủ đề</span>
           </div>
-          <div class="decks-select-wrap decks-sort-compact">
-            <select id="decks-sort-select" aria-label="Sắp xếp danh sách">
+          <div class="decks-sort-box">
+            <select id="decks-sort-select" class="decks-sort-select" aria-label="Sắp xếp danh sách">
               <option value="default">Mặc định</option>
               <option value="recent">Gần đây</option>
               <option value="progress">Tiến độ</option>
