@@ -284,34 +284,32 @@ export function renderDecksTab(app) {
       card.style.setProperty('--deck-accent', deckColor);
 
       card.innerHTML = `
-        <div class="deck-card-header">
-          <div class="deck-icon-badge" style="background: linear-gradient(135deg, ${deckColor}1f, ${deckColor}0a); color: ${deckColor}; border: 1px solid ${deckColor}28;">
+        <div class="bento-card-top">
+          <div class="deck-icon-badge" style="background: linear-gradient(135deg, ${deckColor}22, ${deckColor}0c); color: ${deckColor}; border: 1px solid ${deckColor}2c;">
             <span>${deck.icon || '📚'}</span>
-          </div>
-          <div class="deck-info">
-            <h3 class="deck-title">${escapeHTML(englishTitle)}</h3>
-            <p class="deck-sub-title">${escapeHTML(vietnameseTitle)}</p>
-            <div class="deck-meta-line">${subtopicsCount} chặng · ${stats.total.toLocaleString('vi-VN')} từ</div>
           </div>
           ${allDecks.length > 1 ? `
             <button type="button" class="btn-deck-pin ${isPinned ? 'pinned' : ''}" title="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" aria-label="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" data-pin-id="${escapeHTML(deck.id)}">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="${isPinned ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="${isPinned ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="12" y1="17" x2="12" y2="22"></line>
                 <path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a1 1 0 0 0 0-2H8a1 1 0 0 0 0 2h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"></path>
               </svg>
             </button>
           ` : ''}
         </div>
-        <div class="deck-card-footer">
-          <div class="deck-progress-container">
-            <div class="deck-progress-bar-bg">
-              <div class="deck-progress-fill" style="width: ${stats.progressPercent}%; background: linear-gradient(90deg, ${deckColor}, ${deckColor}cc);"></div>
-            </div>
-            <span class="deck-stats-fraction">${stats.progressPercent}%</span>
+        <div class="deck-info">
+          <h3 class="deck-title">${escapeHTML(englishTitle)}</h3>
+          <p class="deck-sub-title">${escapeHTML(vietnameseTitle)}</p>
+          <div class="deck-meta-line">${subtopicsCount} chặng · ${stats.total.toLocaleString('vi-VN')} từ</div>
+        </div>
+        <div class="bento-card-bottom">
+          <div class="deck-progress-bar-bg">
+            <div class="deck-progress-fill" style="width: ${stats.progressPercent}%; background: linear-gradient(90deg, ${deckColor}, ${deckColor}cc);"></div>
           </div>
-          <div class="deck-actions-group">
+          <div class="deck-card-footer">
+            <span class="deck-stats-fraction">${stats.progressPercent}%</span>
             <button type="button" class="btn-deck-study ${stats.dueCount > 0 ? 'due' : ''}" data-study-id="${escapeHTML(deck.id)}">
-              ${stats.dueCount > 0 ? `⚡ Ôn ${stats.dueCount}` : '✨ Học ngay'}
+              ${stats.dueCount > 0 ? `⚡ Ôn ${stats.dueCount}` : '✨ Học'}
               <span class="btn-study-arrow">›</span>
             </button>
           </div>
