@@ -514,12 +514,12 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `getCardStatus` | [`#L97-L103`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks\words.js#L97-L103) | `arrow_function` | Thực thi logic nội bộ |
 | `renderFilteredWords` | [`#L140-L297`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks\words.js#L140-L297) | `arrow_function` | Thực thi logic nội bộ |
 
-#### 📁 [`src\js\views\library.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library.js) (306 dòng)
+#### 📁 [`src\js\views\library.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library.js) (333 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `renderLibraryTab` | [`#L16-L187`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library.js#L16-L187) | `function` | Khởi tạo và hiển thị toàn bộ giao diện màn hình Thư viện từ vựng |
-| `setupLibraryEventListeners` | [`#L189-L305`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library.js#L189-L305) | `function` | Thực thi logic nội bộ |
+| `renderLibraryTab` | [`#L18-L204`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library.js#L18-L204) | `function` | Khởi tạo và hiển thị toàn bộ giao diện màn hình Thư viện từ vựng |
+| `setupLibraryEventListeners` | [`#L206-L332`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library.js#L206-L332) | `function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\views\library\detail-modal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library\detail-modal.js) (368 dòng)
 
@@ -541,12 +541,13 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `matchesPosFilter` | [`#L92-L102`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library\filters.js#L92-L102) | `function` | Thực thi logic nội bộ |
 | `getFilteredAndSortedCards` | [`#L107-L205`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library\filters.js#L107-L205) | `function` | Lọc và sắp xếp danh sách từ vựng theo State hiện hành |
 
-#### 📁 [`src\js\views\library\renderer.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library\renderer.js) (284 dòng)
+#### 📁 [`src\js\views\library\renderer.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library\renderer.js) (290 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
 | `renderLibraryWords` | [`#L28-L194`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library\renderer.js#L28-L194) | `function` | Hiển thị danh sách từ vựng dạng 1 dòng/từ kèm phân trang |
-| `renderPaginationBar` | [`#L199-L282`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library\renderer.js#L199-L282) | `function` | Hiển thị thanh điều hướng phân trang |
+| `renderPaginationBar` | [`#L199-L288`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library\renderer.js#L199-L288) | `function` | Hiển thị thanh điều hướng phân trang |
+| `scrollListToTop` | [`#L249-L253`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\library\renderer.js#L249-L253) | `arrow_function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\views\quiz.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\quiz.js) (342 dòng)
 

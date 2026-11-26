@@ -54,8 +54,8 @@ export function renderLibraryWords(app, onReloadTab) {
   if (resultsSummary) {
     const isFiltered = isFilterActive();
     const countText = totalFiltered === totalAllCards
-      ? `Hiển thị <strong>${totalFiltered.toLocaleString('vi-VN')}</strong> từ vựng`
-      : `Tìm thấy <strong>${totalFiltered.toLocaleString('vi-VN')}</strong> / ${totalAllCards.toLocaleString('vi-VN')} từ`;
+      ? `<strong>${totalFiltered.toLocaleString('vi-VN')}</strong> từ vựng`
+      : `<strong>${totalFiltered.toLocaleString('vi-VN')}</strong> / ${totalAllCards.toLocaleString('vi-VN')} từ`;
     resultsSummary.innerHTML = `
       <div class="results-summary-content">
         <span class="results-count-label">${countText}</span>
@@ -206,8 +206,8 @@ export function renderPaginationBar(app, totalPages, currentPage, onReloadTab) {
   }
 
   let html = `
-    <button class="btn-page-nav" id="btn-page-prev" ${currentPage === 1 ? 'disabled' : ''}>
-      ◀
+    <button class="btn-page-nav" id="btn-page-prev" aria-label="Trang trước" ${currentPage === 1 ? 'disabled' : ''}>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
     </button>
     <div class="pagination-pages-list">
   `;
@@ -239,12 +239,18 @@ export function renderPaginationBar(app, totalPages, currentPage, onReloadTab) {
 
   html += `
     </div>
-    <button class="btn-page-nav" id="btn-page-next" ${currentPage === totalPages ? 'disabled' : ''}>
-      ▶
+    <button class="btn-page-nav" id="btn-page-next" aria-label="Trang sau" ${currentPage === totalPages ? 'disabled' : ''}>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
     </button>
   `;
 
   paginationBar.innerHTML = html;
+
+  const scrollListToTop = () => {
+    const scroller = document.getElementById('lib-words-scroll');
+    if (scroller) scroller.scrollTop = 0;
+    scrollToTop();
+  };
 
   const btnPrev = document.getElementById('btn-page-prev');
   const btnNext = document.getElementById('btn-page-next');
@@ -254,7 +260,7 @@ export function renderPaginationBar(app, totalPages, currentPage, onReloadTab) {
       if (libState.currentPage > 1) {
         libState.currentPage--;
         renderLibraryWords(app, onReloadTab);
-        scrollToTop();
+        scrollListToTop();
       }
     };
   }
@@ -264,7 +270,7 @@ export function renderPaginationBar(app, totalPages, currentPage, onReloadTab) {
       if (libState.currentPage < totalPages) {
         libState.currentPage++;
         renderLibraryWords(app, onReloadTab);
-        scrollToTop();
+        scrollListToTop();
       }
     };
   }
@@ -275,7 +281,7 @@ export function renderPaginationBar(app, totalPages, currentPage, onReloadTab) {
       if (page && page !== libState.currentPage) {
         libState.currentPage = page;
         renderLibraryWords(app, onReloadTab);
-        scrollToTop();
+        scrollListToTop();
       }
     };
   });
