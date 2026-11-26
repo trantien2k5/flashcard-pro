@@ -56,14 +56,16 @@ export function renderLibraryTab(app) {
       <!-- 2. Bộ lọc 4 Dropdown Menus Tinh Gọn -->
       <div class="library-filter-grid">
         <div class="filter-dropdown-card ${libState.selectedStatus !== 'all' ? 'active' : ''}">
-          <span class="filter-dropdown-icon">⚡</span>
+          <span class="filter-dropdown-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </span>
           <select id="lib-status-select" class="filter-dropdown-select" aria-label="Lọc theo trạng thái ôn tập">
             <option value="all" ${libState.selectedStatus === 'all' ? 'selected' : ''}>Tất cả trạng thái</option>
-            <option value="new" ${libState.selectedStatus === 'new' ? 'selected' : ''}>✨ Chưa học</option>
-            <option value="due" ${libState.selectedStatus === 'due' ? 'selected' : ''}>⏰ Cần ôn hôm nay</option>
-            <option value="learning" ${libState.selectedStatus === 'learning' ? 'selected' : ''}>🌱 Đang ghi nhớ</option>
-            <option value="mastered" ${libState.selectedStatus === 'mastered' ? 'selected' : ''}>🏆 Thuần thục dài hạn</option>
-            <option value="leech" ${libState.selectedStatus === 'leech' || libState.selectedStatus === 'hard' ? 'selected' : ''}>⚠️ Hay quên liên tục (Leech)</option>
+            <option value="new" ${libState.selectedStatus === 'new' ? 'selected' : ''}>Chưa học</option>
+            <option value="due" ${libState.selectedStatus === 'due' ? 'selected' : ''}>Cần ôn hôm nay</option>
+            <option value="learning" ${libState.selectedStatus === 'learning' ? 'selected' : ''}>Đang ghi nhớ</option>
+            <option value="mastered" ${libState.selectedStatus === 'mastered' ? 'selected' : ''}>Thuần thục dài hạn</option>
+            <option value="leech" ${libState.selectedStatus === 'leech' || libState.selectedStatus === 'hard' ? 'selected' : ''}>Hay quên (Leech)</option>
           </select>
           <span class="filter-dropdown-arrow">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -73,7 +75,9 @@ export function renderLibraryTab(app) {
         </div>
 
         <div class="filter-dropdown-card ${libState.selectedCefr !== 'all' ? 'active' : ''}">
-          <span class="filter-dropdown-icon">🎓</span>
+          <span class="filter-dropdown-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </span>
           <select id="lib-cefr-select" class="filter-dropdown-select" aria-label="Lọc theo trình độ CEFR">
             <option value="all" ${libState.selectedCefr === 'all' ? 'selected' : ''}>Tất cả trình độ</option>
             <option value="a1" ${libState.selectedCefr === 'a1' ? 'selected' : ''}>A1 • Căn bản</option>
@@ -90,7 +94,9 @@ export function renderLibraryTab(app) {
         </div>
 
         <div class="filter-dropdown-card ${libState.selectedPos !== 'all' ? 'active' : ''}">
-          <span class="filter-dropdown-icon">🏷️</span>
+          <span class="filter-dropdown-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          </span>
           <select id="lib-pos-select" class="filter-dropdown-select" aria-label="Lọc theo loại từ">
             <option value="all" ${libState.selectedPos === 'all' ? 'selected' : ''}>Tất cả loại từ</option>
             <option value="noun" ${libState.selectedPos === 'noun' ? 'selected' : ''}>Danh từ (n)</option>
@@ -109,7 +115,9 @@ export function renderLibraryTab(app) {
         </div>
 
         <div class="filter-dropdown-card ${libState.selectedDeck !== 'all' ? 'active' : ''}">
-          <span class="filter-dropdown-icon">📚</span>
+          <span class="filter-dropdown-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+          </span>
           <select id="lib-deck-select" class="filter-dropdown-select" aria-label="Lọc theo chủ đề">
             <option value="all" ${libState.selectedDeck === 'all' ? 'selected' : ''}>Tất cả chủ đề</option>
             ${decks.map(d => `
@@ -136,13 +144,13 @@ export function renderLibraryTab(app) {
         <div class="library-meta-right">
           <div class="meta-select-wrap">
             <select id="lib-sort-select" class="compact-meta-select" aria-label="Sắp xếp danh sách">
-              <option value="due_asc" ${libState.sortBy === 'due_asc' ? 'selected' : ''}>⇅ Hạn ôn</option>
-              <option value="due_desc" ${libState.sortBy === 'due_desc' ? 'selected' : ''}>⇅ Hạn ôn xa</option>
-              <option value="alpha_asc" ${libState.sortBy === 'alpha_asc' ? 'selected' : ''}>⇅ A ➔ Z</option>
-              <option value="alpha_desc" ${libState.sortBy === 'alpha_desc' ? 'selected' : ''}>⇅ Z ➔ A</option>
-              <option value="cefr_asc" ${libState.sortBy === 'cefr_asc' ? 'selected' : ''}>⇅ Cấp độ</option>
-              <option value="stability_desc" ${libState.sortBy === 'stability_desc' ? 'selected' : ''}>⇅ Độ nhớ</option>
-              <option value="difficulty_desc" ${libState.sortBy === 'difficulty_desc' ? 'selected' : ''}>⇅ Độ khó</option>
+              <option value="due_asc" ${libState.sortBy === 'due_asc' ? 'selected' : ''}>Hạn ôn</option>
+              <option value="due_desc" ${libState.sortBy === 'due_desc' ? 'selected' : ''}>Hạn ôn xa</option>
+              <option value="alpha_asc" ${libState.sortBy === 'alpha_asc' ? 'selected' : ''}>A ➔ Z</option>
+              <option value="alpha_desc" ${libState.sortBy === 'alpha_desc' ? 'selected' : ''}>Z ➔ A</option>
+              <option value="cefr_asc" ${libState.sortBy === 'cefr_asc' ? 'selected' : ''}>Cấp độ</option>
+              <option value="stability_desc" ${libState.sortBy === 'stability_desc' ? 'selected' : ''}>Độ nhớ</option>
+              <option value="difficulty_desc" ${libState.sortBy === 'difficulty_desc' ? 'selected' : ''}>Độ khó</option>
             </select>
           </div>
 

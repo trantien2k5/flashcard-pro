@@ -122,7 +122,7 @@ export function renderLibraryWords(app, onReloadTab) {
     rowEl.innerHTML = `
       <div class="col-cell cell-sound">
         <button class="btn-row-sound" title="Phát âm từ vựng" aria-label="Phát âm ${escapeHTML(card.word)}">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
@@ -130,20 +130,22 @@ export function renderLibraryWords(app, onReloadTab) {
         </button>
       </div>
 
-      <div class="col-cell cell-word">
-        <span class="library-row-word">${escapeHTML(card.word || '')}</span>
+      <div class="cell-word-main">
+        <div class="col-cell cell-word">
+          <span class="library-row-word">${escapeHTML(card.word || '')}</span>
+        </div>
+        <div class="col-cell cell-ipa">
+          <span class="library-row-ipa">${phonetic ? escapeHTML(phonetic) : '—'}</span>
+        </div>
       </div>
 
-      <div class="col-cell cell-ipa">
-        <span class="library-row-ipa">${phonetic ? escapeHTML(phonetic) : '—'}</span>
-      </div>
-
-      <div class="col-cell cell-cefr">
-        <span class="badge-cefr-mini" data-cefr="${cefr.toLowerCase()}">${cefr}</span>
-      </div>
-
-      <div class="col-cell cell-pos">
-        <span class="library-pos-text">${shortPos ? escapeHTML(shortPos) : '—'}</span>
+      <div class="cell-word-tags">
+        <div class="col-cell cell-cefr">
+          <span class="badge-cefr-mini" data-cefr="${cefr.toLowerCase()}">${cefr}</span>
+        </div>
+        <div class="col-cell cell-pos">
+          <span class="library-pos-text">${shortPos ? escapeHTML(shortPos) : '—'}</span>
+        </div>
       </div>
 
       <div class="col-cell cell-meaning">
