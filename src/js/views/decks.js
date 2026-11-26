@@ -323,7 +323,7 @@ export function renderDecksTab(app) {
       card.dataset.deckId = deck.id;
 
       const statusLabel = stats.dueCount > 0
-        ? `Ôn ${stats.dueCount}`
+        ? 'Cần ôn'
         : (item.isCompleted ? 'Hoàn thành' : (item.isLearning ? 'Đang học' : 'Mới'));
       const statusClass = stats.dueCount > 0
         ? 'status-due'
