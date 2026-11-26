@@ -199,9 +199,15 @@
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: contain;
   position: relative;
+}
+
+.tab-content-area::-webkit-scrollbar {
+  display: none;
 }
 
 .tab-pane {
@@ -221,7 +227,7 @@
   align-items: center;
   flex: 1;
   min-height: 100%;
-  padding: 16px 16px 32px 16px;
+  padding: clamp(10px, 2vh, 20px) 16px;
 }
 
 /* Compact Phones (<= 390px) */

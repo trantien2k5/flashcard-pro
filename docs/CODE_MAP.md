@@ -639,11 +639,11 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `updateHomeStatsRealtime` | [`#L16-L279`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\realtime.js#L16-L279) | `function` | Cập nhật toàn bộ các chỉ số thống kê trên Home Dashboard theo thời gian thự |
 | `updateLineFill` | [`#L180-L187`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\realtime.js#L180-L187) | `arrow_function` | Thực thi logic nội bộ |
 
-#### 📁 [`src\js\views\review\shell.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\shell.js) (173 dòng)
+#### 📁 [`src\js\views\review\shell.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\shell.js) (170 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `renderReviewShell` | [`#L5-L171`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\shell.js#L5-L171) | `function` | Thực thi logic nội bộ |
+| `renderReviewShell` | [`#L5-L168`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\shell.js#L5-L168) | `function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\views\review\stat-modal.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\review\stat-modal.js) (24 dòng)
 

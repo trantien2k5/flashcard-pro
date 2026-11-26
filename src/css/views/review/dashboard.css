@@ -17,10 +17,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 14px;
+  gap: clamp(10px, 1.8vh, 16px);
   width: 100%;
   max-width: 100%;
-  margin: 0 auto;
+  margin: auto 0;
   box-sizing: border-box;
 }
 
@@ -386,7 +386,7 @@
   justify-content: space-between;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
+  border-radius: 18px;
   padding: 12px 6px;
   box-shadow: var(--shadow-sm);
   box-sizing: border-box;
@@ -452,29 +452,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
   flex-shrink: 0;
   transition: transform 0.2s ease;
 }
 
 .home-metric-item:hover .metric-icon-badge {
-  transform: scale(1.1);
+  transform: scale(1.06);
 }
 
 .metric-icon-badge.badge-due {
   background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
 }
 
 .metric-icon-badge.badge-reviewed {
   background: rgba(16, 185, 129, 0.12);
+  color: #059669;
 }
 
 .metric-icon-badge.badge-time {
-  background: rgba(168, 85, 247, 0.12);
+  background: var(--primary-soft, #EEEAFE);
+  color: var(--primary, #635BFF);
+}
+
+[data-theme="dark"] .metric-icon-badge.badge-time {
+  background: rgba(99, 102, 241, 0.18);
+  color: var(--primary-light);
 }
 
 .metric-icon-badge.badge-mastered {
   background: rgba(14, 165, 233, 0.12);
+  color: #0284c7;
 }
 
 .metric-info {
@@ -551,9 +559,9 @@
 
 .btn-cta-study-now {
   justify-content: center;
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: 0.3px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   min-height: 54px;
 }
 
@@ -563,39 +571,39 @@
 
 .btn-hero-flashcard-cta {
   width: 100%;
-  min-height: 58px;
-  padding: 9px 12px;
+  min-height: 54px;
+  padding: 10px 16px;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: none;
   color: #ffffff;
   cursor: pointer;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.16s ease, filter 0.16s ease, box-shadow 0.2s ease;
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
 }
 
 @media (max-width: 480px) {
   .btn-hero-flashcard-cta {
-    min-height: 54px;
-    padding: 8px 10px;
+    min-height: 52px;
+    padding: 8px 14px;
     border-radius: 14px;
   }
 }
 
-/* Nút Ôn tập ngay (Apple / Linear Tactile Indigo CTA) */
+/* Nút Ôn tập ngay (Premium Minimal Primary CTA) */
 .btn-cta-primary-due {
-  background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 100%);
-  box-shadow: 0 6px 20px var(--primary-glow), inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  background: var(--primary, #635BFF);
+  box-shadow: 0 6px 18px var(--primary-glow);
 }
 
 .btn-cta-primary-due:hover {
   transform: translateY(-1px);
-  filter: brightness(1.04);
-  box-shadow: 0 10px 26px var(--primary-glow), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  filter: brightness(1.06);
+  box-shadow: 0 8px 22px var(--primary-glow);
 }
 
 /* Nút Học từ mới (Teal/Emerald Gradient) */
