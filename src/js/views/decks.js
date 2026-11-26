@@ -284,18 +284,14 @@ export function renderDecksTab(app) {
       card.style.setProperty('--deck-accent', deckColor);
 
       card.innerHTML = `
-        <div class="deck-card-accent" style="background: linear-gradient(90deg, ${deckColor}, ${deckColor}88);"></div>
         <div class="deck-card-header">
-          <div class="deck-icon-badge" style="background: linear-gradient(135deg, ${deckColor}22, ${deckColor}0d); color: ${deckColor}; border: 1px solid ${deckColor}30;">
+          <div class="deck-icon-badge" style="background: linear-gradient(135deg, ${deckColor}1f, ${deckColor}0a); color: ${deckColor}; border: 1px solid ${deckColor}28;">
             <span>${deck.icon || '📚'}</span>
           </div>
           <div class="deck-info">
             <h3 class="deck-title">${escapeHTML(englishTitle)}</h3>
             <p class="deck-sub-title">${escapeHTML(vietnameseTitle)}</p>
-            <div class="deck-meta-strip">
-              <span class="deck-meta-pill">${subtopicsCount} chặng</span>
-              <span class="deck-meta-pill">${stats.total} từ</span>
-            </div>
+            <div class="deck-meta-line">${subtopicsCount} chặng · ${stats.total.toLocaleString('vi-VN')} từ</div>
           </div>
           ${allDecks.length > 1 ? `
             <button type="button" class="btn-deck-pin ${isPinned ? 'pinned' : ''}" title="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" aria-label="${isPinned ? 'Bỏ ghim' : 'Ghim lên đầu'}" data-pin-id="${escapeHTML(deck.id)}">

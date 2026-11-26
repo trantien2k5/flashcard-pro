@@ -483,15 +483,15 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 
 *Tệp cấu hình hoặc dữ liệu, không chứa khai báo hàm/class lớn.*
 
-#### 📁 [`src\js\views\decks.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js) (404 dòng)
+#### 📁 [`src\js\views\decks.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js) (400 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
 | `savePinnedDecks` | [`#L40-L44`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L40-L44) | `function` | Thực thi logic nội bộ |
 | `getDeckCategory` | [`#L69-L82`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L69-L82) | `function` | Thực thi logic nội bộ |
 | `renderDecksTabShell` | [`#L88-L143`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L88-L143) | `function` | Thực thi logic nội bộ |
-| `renderDecksTab` | [`#L145-L370`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L145-L370) | `function` | Thực thi logic nội bộ |
-| `setupDecksToolbarEvents` | [`#L372-L403`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L372-L403) | `function` | Thực thi logic nội bộ |
+| `renderDecksTab` | [`#L145-L366`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L145-L366) | `function` | Thực thi logic nội bộ |
+| `setupDecksToolbarEvents` | [`#L368-L399`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks.js#L368-L399) | `function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\views\decks\subtopics.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\decks\subtopics.js) (356 dòng)
 
@@ -747,15 +747,15 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `openAutoplayModal` | [`#L188-L191`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\autoplay.js#L188-L191) | `arrow_function` | Thực thi logic nội bộ |
 | `closeAutoplayModal` | [`#L193-L195`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\autoplay.js#L193-L195) | `arrow_function` | Thực thi logic nội bộ |
 
-#### 📁 [`src\js\views\study\gestures.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\gestures.js) (237 dòng)
+#### 📁 [`src\js\views\study\gestures.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\gestures.js) (244 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
 | `createFlipHandler` | [`#L18-L18`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\gestures.js#L18-L18) | `function` | Tạo handler lật thẻ 3D hỗ trợ vuốt lên 360 độ liên tục và vuốt xuống lật lạ |
 | `bindCardSwipeAndDragGestures` | [`#L91-L91`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\gestures.js#L91-L91) | `function` | Gắn cử chỉ chạm màn hình, kéo chuột Desktop và nút lật thẻ |
-| `bindCardAudioAndInfo` | [`#L173-L235`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\gestures.js#L173-L235) | `function` | Gắn nút loa phát âm (mặt trước, mặt sau, câu ví dụ, audio-blind) và nút FSR |
-| `bindWordSpeak` | [`#L184-L197`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\gestures.js#L184-L197) | `arrow_function` | Thực thi logic nội bộ |
-| `handleShowCardInfo` | [`#L217-L229`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\gestures.js#L217-L229) | `arrow_function` | Thực thi logic nội bộ |
+| `bindCardAudioAndInfo` | [`#L180-L242`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\gestures.js#L180-L242) | `function` | Gắn nút loa phát âm (mặt trước, mặt sau, câu ví dụ, audio-blind) và nút FSR |
+| `bindWordSpeak` | [`#L191-L204`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\gestures.js#L191-L204) | `arrow_function` | Thực thi logic nội bộ |
+| `handleShowCardInfo` | [`#L224-L236`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\gestures.js#L224-L236) | `arrow_function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\views\study\prefs.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\prefs.js) (114 dòng)
 
@@ -781,15 +781,15 @@ Kết quả trả về đường dẫn tệp tin, dải dòng code chính xác (
 | `openPriorityModal` | [`#L223-L227`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\priority-drawer.js#L223-L227) | `arrow_function` | Thực thi logic nội bộ |
 | `closePriorityModal` | [`#L228-L235`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\priority-drawer.js#L228-L235) | `arrow_function` | Thực thi logic nội bộ |
 
-#### 📁 [`src\js\views\study\renderer.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js) (400 dòng)
+#### 📁 [`src\js\views\study\renderer.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js) (405 dòng)
 
 | Tên Hàm / Phương Thức | Vị Trí Dòng | Loại | Trách Nhiệm & Mô Tả |
 | :--- | :---: | :---: | :--- |
-| `getStudyDom` | [`#L17-L63`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L17-L63) | `function` | Thực thi logic nội bộ |
-| `updateStudyLiveTimerUI` | [`#L65-L91`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L65-L91) | `function` | Thực thi logic nội bộ |
-| `generateClozeSentence` | [`#L95-L105`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L95-L105) | `function` | Thực thi logic nội bộ |
-| `applyFieldVisibility` | [`#L108-L172`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L108-L172) | `function` | Thực thi logic nội bộ |
-| `renderCardChange` | [`#L174-L174`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L174-L174) | `function` | Thực thi logic nội bộ |
+| `getStudyDom` | [`#L17-L66`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L17-L66) | `function` | Thực thi logic nội bộ |
+| `updateStudyLiveTimerUI` | [`#L68-L95`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L68-L95) | `function` | Thực thi logic nội bộ |
+| `generateClozeSentence` | [`#L99-L109`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L99-L109) | `function` | Thực thi logic nội bộ |
+| `applyFieldVisibility` | [`#L112-L176`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L112-L176) | `function` | Thực thi logic nội bộ |
+| `renderCardChange` | [`#L178-L178`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\renderer.js#L178-L178) | `function` | Thực thi logic nội bộ |
 
 #### 📁 [`src\js\views\study\shell.js`](file://C:\Users\PC\Downloads\flashcard-pro\src\js\views\study\shell.js) (31 dòng)
 

@@ -42,6 +42,9 @@ export function getStudyDom() {
     exBack: document.getElementById('card-back-example'),
     exViBack: document.getElementById('card-back-example-vi'),
     exBoxBack: document.getElementById('card-back-example-box'),
+    exampleTopHeader: document.querySelector('#card-back-example-box #example-top-header, #card-back-example-box .example-top-header'),
+    timerDigits: document.getElementById('study-timer-digits'),
+    timerContainer: document.getElementById('study-live-timer'),
     hintFront: document.getElementById('card-front-hint'),
     hintBack: document.getElementById('card-back-hint'),
     iAgain: document.getElementById('interval-again'),
@@ -64,8 +67,9 @@ export function getStudyDom() {
 
 export function updateStudyLiveTimerUI(state) {
   if (!state) return;
-  const elDigits = document.getElementById('study-timer-digits');
-  const elContainer = document.getElementById('study-live-timer');
+  const dom = getStudyDom();
+  const elDigits = dom.timerDigits || document.getElementById('study-timer-digits');
+  const elContainer = dom.timerContainer || document.getElementById('study-live-timer');
   if (!elDigits || !elContainer) return;
 
   const todaySecs = StorageManager.getTodayStudySeconds();
@@ -153,7 +157,7 @@ export function applyFieldVisibility(prefs, card) {
   const hasExampleEn = !!(prefs.showExample && card.example);
   const hasExampleVi = !!(prefs.showExampleVi && card.exampleVi);
 
-  const topHeader = dom.exBoxBack?.querySelector('#example-top-header') || dom.exBoxBack?.querySelector('.example-top-header');
+  const topHeader = dom.exampleTopHeader || dom.exBoxBack?.querySelector('#example-top-header') || dom.exBoxBack?.querySelector('.example-top-header');
   if (topHeader) {
     topHeader.style.display = hasExampleEn ? 'flex' : 'none';
   }
@@ -186,10 +190,11 @@ export function renderCardChange(app, card, progress, hooks = {}) {
     if (dom.frontFlipControl) dom.frontFlipControl.classList.add('visible');
     if (dom.fsrsButtonsContainer) dom.fsrsButtonsContainer.classList.remove('visible');
 
-    // Chuyển thẻ tức thời 0ms (loại bỏ độ trễ và hiệu ứng trượt)
+    // Chuyển thẻ tức thời 0ms (ép flush layout trước khi mở lại transition để chống nhá mặt sau)
     if (dom.flashcardStage) {
       dom.flashcardStage.classList.remove('tiktok-slide-up', 'tiktok-slide-enter', 'tiktok-slide-in', 'card-enter-anim');
     }
+    void dom.flashcardEl.offsetWidth;
     requestAnimationFrame(() => {
       dom.flashcardEl?.classList.remove('no-transition');
     });

@@ -26,7 +26,6 @@
   pointer-events: none;
   transform: scale(0.985);
   transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.18s;
-  will-change: opacity, transform;
 }
 
 .study-overlay.active {
@@ -34,6 +33,7 @@
   visibility: visible;
   pointer-events: auto;
   transform: scale(1);
+  will-change: opacity, transform;
 }
 
 /* --------------------------------------------------------------------------
@@ -267,6 +267,7 @@
   transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
   cursor: pointer;
   will-change: transform;
+  touch-action: manipulation;
   outline: none;
 }
 
@@ -302,6 +303,7 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   will-change: transform;
+  isolation: isolate;
   border-radius: 20px;
   overflow: hidden;
   padding: clamp(18px, 3vh, 24px) clamp(18px, 4.5vw, 26px);

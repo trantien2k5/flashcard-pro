@@ -96,7 +96,10 @@ export function bindCardSwipeAndDragGestures(app, { flashcardEl, btnMainFlip, tr
     });
   }
 
+  let lastSwipeAt = 0;
+
   flashcardEl.addEventListener('click', (e) => {
+    if (Date.now() - lastSwipeAt < 350) return;
     if (
       e.target.closest('.card-sound-btn-inline') ||
       e.target.closest('.card-sound-btn') ||
@@ -133,11 +136,14 @@ export function bindCardSwipeAndDragGestures(app, { flashcardEl, btnMainFlip, tr
 
     if (elapsed < 600) {
       if (diffY < -35 && Math.abs(diffY) > Math.abs(diffX) * 0.8) {
+        lastSwipeAt = Date.now();
         triggerFlip('up');
       } else if (diffY > 35 && Math.abs(diffY) > Math.abs(diffX) * 0.8) {
+        lastSwipeAt = Date.now();
         triggerFlip('down');
       } else if (Math.abs(diffX) > 60 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
         if (app.studySession.isFlipped) {
+          lastSwipeAt = Date.now();
           safeRateCard(diffX < 0 ? Rating.Again : Rating.Good);
         }
       }
@@ -161,6 +167,7 @@ export function bindCardSwipeAndDragGestures(app, { flashcardEl, btnMainFlip, tr
     const diffY = e.clientY - mouseStartY;
     const elapsed = Date.now() - mouseStartTime;
     if (elapsed < 600 && Math.abs(diffY) > 35) {
+      lastSwipeAt = Date.now();
       if (diffY < -35) triggerFlip('up');
       else if (diffY > 35) triggerFlip('down');
     }
